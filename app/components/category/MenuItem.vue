@@ -9,13 +9,14 @@
         :item="child"
         :parent-index="`${computedIndex}-${childIdx}`"
         :level="level + 1"
+        :parents="[...parents, item]"
       />
     </template>
   </el-sub-menu>
 
   <!-- Jika tidak punya children, render menu item biasa -->
   <el-menu-item v-else :index="computedIndex">
-    <Trulink :href="`${item.parent.url}/${item.url}`">
+    <Trulink :href="categoryUrl" @click="handleCategoryClick">
       {{ item.name }}
     </Trulink>
   </el-menu-item>
@@ -25,6 +26,8 @@
 import { computed } from "vue";
 import type { PropType } from "vue";
 import type { CategoryChild, ProductCategory } from "~/types/category";
+const { trackClickCategory } = useAnalytics();
+const config = useRuntimeConfig();
 
 // Props
 const props = defineProps({
@@ -39,6 +42,10 @@ const props = defineProps({
   level: {
     type: Number,
     default: 0,
+  },
+  parents: {
+    type: Array as PropType<any[]>,
+    default: () => [],
   },
 });
 
@@ -55,6 +62,28 @@ const computedIndex = computed(() => {
 const hasChildren = computed(() => {
   return props.item.children && props.item.children.length > 0;
 });
+
+const categoryUrl = computed(() => {
+  const segments = [...props.parents.map((p) => p.url), props.item.url].filter(
+    Boolean
+  );
+
+  return `${config.public.baseCat}/${segments.join("/")}`;
+});
+
+const getCategoryHierarchy = () => {
+  return [...props.parents.map((p) => p.name), props.item.name];
+};
+
+const handleCategoryClick = () => {
+  const levels = getCategoryHierarchy();
+
+  const category = levels[0];
+  const subcategory = levels[1];
+  const subsubcategory = levels[2];
+
+  trackClickCategory(category, subcategory, subsubcategory);
+};
 
 defineOptions({
   name: "CategoryMenuItem",

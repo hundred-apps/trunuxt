@@ -54,12 +54,7 @@
 
             <!-- Author -->
             <div v-if="article.author" class="flex items-center gap-2">
-              <img
-                :src="article.author.avatar"
-                :alt="article.author.name"
-                class="w-6 h-6 rounded-full"
-                loading="lazy"
-              />
+              <Icon name="icon-park:people-unknown" />
               <span class="text-sm font-medium">{{ article.author.name }}</span>
             </div>
           </div>

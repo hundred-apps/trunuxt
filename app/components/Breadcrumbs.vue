@@ -9,9 +9,9 @@
             </template>
 
             <template v-if="item.to">
-              <NuxtLink :to="item.to" class="text-orange-500 hover:underline">
+              <Trulink :to="item.to" class="text-orange-500 hover:underline">
                 {{ item.text }}
-              </NuxtLink>
+              </Trulink>
             </template>
 
             <template v-else>

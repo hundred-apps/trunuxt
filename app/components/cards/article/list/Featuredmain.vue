@@ -42,17 +42,9 @@
 
         <!-- Author Info -->
         <div class="flex items-center gap-2 mt-4">
-          <img
-            :src="article?.author?.avatar"
-            :alt="article?.author?.name"
-            class="w-8 h-8 rounded-full object-cover"
-          />
           <div>
             <p class="text-sm font-semibold">
               {{ article?.author?.name }}
-            </p>
-            <p class="text-xs text-gray-500">
-              {{ article?.author?.role }}
             </p>
           </div>
         </div>
@@ -77,7 +69,6 @@ interface Article {
   };
 }
 
-// 2. Define props dengan TypeScript syntax
 const props = defineProps<{
   article: Article;
   showAuthor?: boolean;
@@ -92,6 +83,5 @@ const formatDate = (date: string) => {
   });
 };
 
-// Dynamic title tag
 const titleTag = computed(() => `h${props.titleLevel}`);
 </script>

@@ -134,7 +134,7 @@
                         name="material-symbols:local-fire"
                         class="text-orange-500 mr-2"
                       />
-                      Trending
+                      {{ $t("label.trendingArticle") }}
                     </h5>
                   </div>
                   <div class="p-3">
@@ -162,7 +162,7 @@
                 <!-- Related Articles -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden">
                   <div class="border-b border-gray-200 px-4 py-3">
-                    <h5 class="font-bold">Artikel Terkait</h5>
+                    <h5 class="font-bold">{{ $t("label.relatedArticle") }}</h5>
                   </div>
                   <div class="p-3">
                     <div class="space-y-3">
@@ -192,7 +192,7 @@
       </section>
 
       <!-- Request Form Section -->
-      <section class="request-form py-8 lg:py-12 bg-gray-50" id="request-form">
+      <!-- <section class="request-form py-8 lg:py-12 bg-gray-50" id="request-form">
         <div class="container">
           <div class="space-y-4">
             <h3 class="text-xl lg:text-2xl font-bold">
@@ -203,26 +203,26 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- Related Products Section -->
-      <section class="product-related py-8 lg:py-12" id="product-related">
+      <!-- <section class="product-related py-8 lg:py-12" id="product-related">
         <div class="container">
           <h3 class="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">
             Produk Terkait
-          </h3>
+          </h3> -->
 
-          <!-- Desktop Grid (lg:grid) -->
-          <div class="hidden lg:grid lg:grid-cols-4 gap-4">
+      <!-- Desktop Grid (lg:grid) -->
+      <!-- <div class="hidden lg:grid lg:grid-cols-4 gap-4">
             <ProductCard
               v-for="product in relatedProducts"
               :key="product.id"
               :product="product"
             />
-          </div>
+          </div> -->
 
-          <!-- Mobile Slider (lg:hidden) -->
-          <div class="lg:hidden">
+      <!-- Mobile Slider (lg:hidden) -->
+      <!-- <div class="lg:hidden">
             <div class="flex gap-3 overflow-x-auto pb-4 snap-x hide-scrollbar">
               <div
                 v-for="product in relatedProducts"
@@ -232,9 +232,9 @@
                 <ProductCardMobile :product="product" />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </div> -->
+      <!-- </div>
+      </section> -->
     </template>
   </div>
 </template>
@@ -242,100 +242,196 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import type { Article, CardArticle } from "~/types/article";
+
+const loading = ref(true);
+const error = ref<string | null>(null);
 
 const route = useRoute();
 const router = useRouter();
+const { t } = useI18n();
+const goBack = () => router.back();
+const slug = route.params.slug as string; // rename untuk kejelasan
 
-const articleId = computed(() => route.params.slug);
+// State untuk artikel detail - ini yang akan digunakan di template
+const article = ref<CardArticle | null>(null);
 
-const articleBreadcrumb = [
+const trendingArticles = ref<CardArticle[]>([]);
+const relatedArticles = ref<CardArticle[]>([]);
+
+// Breadcrumb - buat menjadi computed agar bisa update otomatis
+const articleBreadcrumb = computed(() => [
   { text: "Home", to: "/" },
   { text: "Artikel", to: "/article" },
-  { text: "judul artikel" }, // tanpa 'to' berarti item terakhir (active)
-];
-
-// Reactive article state - only set if ID is 1
-const article = ref(articleId.value === "1" ? articleData : null);
-
-// Dummy Data - Trending Articles
-const trendingArticles = ref([
-  {
-    id: 101,
-    url: "tren-harga-sparepart-2024",
-    title: "Prediksi Harga Sparepart Truk 2024",
-    date: "2024-01-15",
-    image: "https://picsum.photos/100/100?random=201",
-    views: 2345,
-  },
-  {
-    id: 102,
-    url: "teknologi-mesin-terbaru",
-    title: "Teknologi Mesin Truk Terbaru yang Wajib Diketahui",
-    date: "2024-01-14",
-    image: "https://picsum.photos/100/100?random=202",
-    views: 1890,
-  },
-  {
-    id: 103,
-    url: "tips-mengemudi-safety",
-    title: "10 Tips Safety Driving untuk Sopir Truk",
-    date: "2024-01-13",
-    image: "https://picsum.photos/100/100?random=203",
-    views: 1567,
-  },
-  {
-    id: 104,
-    url: "cara-memilih-ban-truk",
-    title: "Tips Memilih Ban Truk untuk Berbagai Medan",
-    date: "2024-01-12",
-    image: "https://picsum.photos/100/100?random=204",
-    views: 1432,
-  },
+  { text: article.value?.title || "Loading..." }, // judul artikel sebagai breadcrumb terakhir
 ]);
 
-// Dummy Data - Related Articles
-const relatedArticles = ref([
-  {
-    id: 201,
-    url: "cara-memilih-ban-truk",
-    title: "Tips Memilih Ban Truk untuk Berbagai Medan",
-    date: "2024-01-10",
-    image: "https://picsum.photos/100/100?random=301",
-  },
-  {
-    id: 202,
-    url: "perawatan-sistem-pendingin",
-    title: "Panduan Merawat Sistem Pendingin Mesin Truk",
-    date: "2024-01-08",
-    image: "https://picsum.photos/100/100?random=302",
-  },
-  {
-    id: 203,
-    url: "tanda-aki-harus-diganti",
-    title: "5 Tanda Aki Truk Harus Segera Diganti",
-    date: "2024-01-05",
-    image: "https://picsum.photos/100/100?random=303",
-  },
-  {
-    id: 204,
-    url: "cara-menghemat-bbm-truk",
-    title: "7 Cara Menghemat BBM Truk hingga 30%",
-    date: "2024-01-03",
-    image: "https://picsum.photos/100/100?random=304",
-  },
-]);
+// Fetch detail artikel
 
-// Categories for random insertion
-const categories = ref([
-  { id: 1, name: "Sparepart Engine", url: "sparepart-engine" },
-  { id: 2, name: "Sparepart Chassis", url: "sparepart-chassis" },
-  { id: 3, name: "Filter", url: "filter" },
-  { id: 4, name: "Ban & Velg", url: "ban-velg" },
-  { id: 5, name: "Oli & Pelumas", url: "oli-pelumas" },
-  { id: 6, name: "Sistem Kelistrikan", url: "sistem-kelistrikan" },
-]);
+const fetchTrendingArticles = async () => {
+  try {
+    // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
+    const response = await useFetchApi<BaseResponse<Article>>(
+      `article-read`, // Gunakan endpoint yang sama dengan limit
+      `trending-articles`,
+      "get",
+      null
+    );
 
-// Share buttons
+    if (response.status.value === "success") {
+      const apiData = response.data.value!.payload.trend_article;
+      const config = useRuntimeConfig();
+
+      // Transform data featured
+      trendingArticles.value = apiData.map((item: Article) => {
+        return {
+          id: item.id,
+          url: item.url || `article-${item.id}`,
+          title: item.title || "Untitled",
+          image: item.img
+            ? `${
+                config.public.baseURLIMGARTICLE ||
+                "https://www.trumecs.com/public/image/artikel/"
+              }${item.img}`
+            : "https://via.placeholder.com/300x200?text=No+Image",
+          category: item.tag,
+          date: item.date,
+          views: item.view,
+        };
+      });
+    }
+  } catch (error) {
+  } finally {
+    loading.value = false;
+  }
+};
+
+const fetchRelatedArticles = async () => {
+  try {
+    // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
+    const response = await useFetchApi<BaseResponse<Article>>(
+      `article-read/${slug}`,
+      `article-trending-${slug}`,
+      "get",
+      null
+    );
+
+    if (response.status.value === "success") {
+      const apiData = response.data.value!.payload.related;
+      const config = useRuntimeConfig();
+
+      relatedArticles.value = apiData.map((item: Article) => {
+        return {
+          id: item.id,
+          url: item.url || `article-${item.id}`,
+          title: item.title || "Untitled",
+          image: item.img
+            ? `${
+                config.public.baseURLIMGARTICLE ||
+                "https://www.trumecs.com/public/image/artikel/"
+              }${item.img}`
+            : "https://via.placeholder.com/300x200?text=No+Image",
+          category: item.tag,
+          date: item.date,
+          views: item.view,
+        };
+      });
+    }
+  } catch (error) {
+  } finally {
+    loading.value = false;
+  }
+};
+
+const fetchDetailArticle = async () => {
+  loading.value = true;
+  try {
+    const response = await useFetchApi<BaseResponse<Article>>(
+      `article-read/${slug}`,
+      `article-read-${slug}`,
+      "get",
+      null
+    );
+
+    if (response.status.value === "success") {
+      const apiData = response.data.value!.payload;
+
+      // Transform data ke format CardArticle
+      const config = useRuntimeConfig();
+
+      // Helper function untuk extract categories dari tags
+      const extractCategories = (tags: any): string[] => {
+        if (!tags) return ["General"];
+        if (Array.isArray(tags)) {
+          return tags.length ? tags : ["General"];
+        }
+        if (typeof tags === "string") {
+          return tags
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean);
+        }
+        return ["General"];
+      };
+
+      // Helper function untuk extract tags
+      const extractTags = (tags: any): string[] => {
+        if (!tags) return [];
+        if (Array.isArray(tags)) {
+          return tags;
+        }
+        if (typeof tags === "string") {
+          return tags
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean);
+        }
+        return [];
+      };
+
+      // Assign ke article.value
+      article.value = {
+        id: apiData.id,
+        url: apiData.url || `article-${apiData.id}`,
+        title: apiData.title || "Untitled",
+        image: apiData.img
+          ? `${
+              config.public.baseURLIMGARTICLE ||
+              "https://www.trumecs.com/public/image/artikel/"
+            }${apiData.img}`
+          : "https://via.placeholder.com/800x450?text=No+Image",
+        category: extractCategories(apiData.tag)[0] || "General",
+        tags: extractTags(apiData.tag),
+        date: apiData.date,
+        excerpt: apiData.discription_seo || "",
+        content: apiData.value || "", // untuk v-html
+        author: apiData.created_by
+          ? {
+              name: apiData.created_by,
+              avatar: "https://via.placeholder.com/40x40?text=User",
+              role: "Contributor",
+            }
+          : {
+              name: "Anonymous",
+              avatar: "https://via.placeholder.com/40x40?text=User",
+              role: "Guest",
+            },
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching article:", error);
+    ElMessage.error("Gagal memuat data artikel");
+    article.value = null;
+  } finally {
+    loading.value = false;
+  }
+};
+
+// Processed content untuk v-html
+const processedContent = computed(() => {
+  return article.value?.content || "";
+});
+
 const shareButtons = [
   {
     name: "facebook",
@@ -363,129 +459,37 @@ const shareButtons = [
     url: "https://wa.me/?text=",
   },
 ];
+// Share article function
+const shareArticle = (share: any) => {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(article.value?.title || "");
 
-// ==================== COMPUTED ====================
-// Processed content with dynamic insertions (only if article exists)
-const processedContent = computed(() => {
-  if (!article.value?.content) return "";
+  let shareUrl = "";
 
-  try {
-    // Parse HTML content
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(article.value.content, "text/html");
-
-    // Get all paragraphs
-    const paragraphs = Array.from(doc.querySelectorAll("p"));
-    const validParagraphs = paragraphs.filter((p) => p.textContent?.trim());
-
-    const totalParagraphs = validParagraphs.length;
-    const middlePosition = Math.ceil(totalParagraphs / 2);
-    let paragraphCount = 0;
-
-    // Create a wrapper div
-    const wrapper = document.createElement("div");
-
-    // Iterate through child nodes
-    Array.from(doc.body.childNodes).forEach((node) => {
-      wrapper.appendChild(node.cloneNode(true));
-
-      // Check if this node is a paragraph and valid
-      if (node.nodeType === 1 && (node as Element).tagName === "P") {
-        const clean = (node as Element).textContent?.trim() || "";
-        if (clean) {
-          paragraphCount++;
-
-          // Insert product section at middle position (only for ID 1)
-          if (paragraphCount === middlePosition && article.value?.id === 1) {
-            const insertDiv = document.createElement("div");
-            insertDiv.innerHTML = generateProductInsertion();
-            wrapper.appendChild(insertDiv);
-          }
-        }
-      }
-    });
-
-    return DOMPurify.sanitize(wrapper.innerHTML, {
-      ADD_TAGS: ["iframe"],
-      ADD_ATTR: ["allow", "allowfullscreen", "frameborder", "scrolling"],
-    });
-  } catch (error) {
-    console.error("Error processing content:", error);
-    return article.value.content;
+  switch (share.name) {
+    case "facebook":
+      shareUrl = `${share.url}${url}`;
+      break;
+    case "twitter":
+      shareUrl = `${share.url}${title}%20${url}`;
+      break;
+    case "linkedin":
+      shareUrl = `${share.url}${url}&title=${title}`;
+      break;
+    case "pinterest":
+      shareUrl = `${share.url}${url}&description=${title}`;
+      break;
+    case "whatsapp":
+      shareUrl = `${share.url}${title}%20-%20${url}`;
+      break;
+    default:
+      shareUrl = `${share.url}${url}`;
   }
-});
 
-// ==================== METHODS ====================
-// Helper function to generate product insertion HTML
-const generateProductInsertion = () => {
-  // Random categories
-  const shuffled = [...categories.value].sort(() => 0.5 - Math.random());
-  const randomCategories = shuffled.slice(0, 3);
-
-  const categoryButtons = randomCategories
-    .map(
-      (cat) =>
-        `<a href="/c/${cat.url}" class="inline-block px-2 py-1 text-xs text-white bg-green-600 rounded hover:bg-green-700 transition-colors">${cat.name}</a>`
-    )
-    .join("");
-
-  const productItems = relatedProducts.value
-    .slice(0, 4)
-    .map(
-      (product) => `
-    <div class="flex-shrink-0 w-[140px] lg:w-[180px]">
-      <a href="/product/${product.url}" class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <img src="${product.image}" alt="${product.name}" class="w-full aspect-square object-cover rounded-t-lg" loading="lazy">
-        <div class="p-2">
-          <p class="font-bold text-xs lg:text-sm line-clamp-2">${product.name}</p>
-          <p class="text-orange-500 font-semibold text-xs lg:text-sm mt-1">${product.price}</p>
-        </div>
-      </a>
-    </div>
-  `
-    )
-    .join("");
-
-  // Desktop version
-  const desktop = `
-    <div class="hidden lg:block my-8">
-      <div class="bg-gray-50 rounded-xl p-4">
-        <div class="grid grid-cols-12 gap-4">
-          <div class="col-span-4 flex flex-col justify-center">
-            <h4 class="font-bold text-lg mb-2">Temukan berbagai macam barang di <a href="/" class="text-orange-500 hover:underline">Trumecs.com</a></h4>
-            <div class="flex flex-wrap gap-2">
-              ${categoryButtons}
-            </div>
-          </div>
-          <div class="col-span-8">
-            <div class="flex gap-3 overflow-x-auto pb-2 hide-scrollbar">
-              ${productItems}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // Mobile version
-  const mobile = `
-    <div class="lg:hidden my-4">
-      <div class="bg-gray-50 rounded-lg p-3">
-        <div class="space-y-3">
-          <h6 class="font-bold text-sm">Temukan berbagai macam barang di <a href="/" class="text-orange-500 hover:underline">Trumecs.com</a></h6>
-          <div class="flex flex-wrap gap-2">
-            ${categoryButtons}
-          </div>
-          <div class="flex gap-2 overflow-x-auto pb-2 hide-scrollbar">
-            ${productItems}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  return desktop + mobile;
+  window.open(shareUrl, "_blank", "width=600,height=400");
 };
+
+// Dummy Data - Related Products
 
 // Format date
 const formatDate = (date: string) => {
@@ -500,204 +504,37 @@ const formatDate = (date: string) => {
   }
 };
 
-// Share article
-const shareArticle = (share: any) => {
-  if (!article.value) return;
+useHead({
+  title: article.value?.title,
+  titleTemplate: "Artikel - %s | Trumecs.com",
+  meta: [{ name: article.value?.title, content: article.value?.content }],
+});
 
-  const url = encodeURIComponent(window.location.href);
-  const title = encodeURIComponent(article.value.title);
-  const image = encodeURIComponent(article.value.image);
-
-  let shareUrl = "";
-
-  switch (share.name) {
-    case "facebook":
-      shareUrl = `${share.url}${url}`;
-      break;
-    case "twitter":
-      shareUrl = `${share.url}${title}&url=${url}&hashtags=trumecs,truk,sparepart`;
-      break;
-    case "linkedin":
-      shareUrl = `${share.url}${url}&title=${title}`;
-      break;
-    case "pinterest":
-      shareUrl = `${share.url}${url}&media=${image}&description=${title}`;
-      break;
-    case "whatsapp":
-      shareUrl = `${share.url}${title}%20-%20${url}`;
-      break;
-    default:
-      shareUrl = `${share.url}${url}`;
-  }
-
-  window.open(
-    shareUrl,
-    "_blank",
-    "width=600,height=600,menubar=no,toolbar=no,resizable=yes,scrollbars=yes"
-  );
-};
+useSeoMeta({
+  title: article.value?.title,
+  ogTitle: article.value?.title,
+  description: article.value?.content,
+  ogDescription: article.value?.content,
+  ogImage: article.value?.image,
+  twitterCard: "summary_large_image",
+});
 
 // Handle 404 - redirect or show message
 onMounted(() => {
-  // If ID is not 1, we could redirect to 404 page
-  if (articleId.value !== "1") {
-    console.log("Article not found, showing 404 message");
-    // Optionally redirect to 404 page:
-    // router.push('/404')
-  }
+  fetchDetailArticle();
+  fetchTrendingArticles();
+  fetchRelatedArticles();
 });
+
+// Watch for route changes (jika slug berubah)
+watch(
+  () => route.params.slug,
+  (newSlug, oldSlug) => {
+    if (newSlug !== oldSlug) {
+      slug = newSlug as string;
+      fetchDetailArticle();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+);
 </script>
-
-<!-- ==================== CHILD COMPONENTS ==================== -->
-<script lang="ts">
-// ArticleRowSmall Component
-const ArticleRowSmall = {
-  props: {
-    article: {
-      type: Object,
-      required: true,
-    },
-  },
-  template: `
-    <div class="flex gap-3 p-2">
-      <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-        <img :src="article.image" :alt="article.title" class="w-full h-full object-cover">
-      </div>
-      <div class="flex-1">
-        <h6 class="font-semibold text-sm line-clamp-2 group-hover:text-orange-500 transition-colors">{{ article.title }}</h6>
-        <p class="text-xs text-gray-500 mt-1">
-          <Icon name="material-symbols:calendar-today" class="inline mr-1 text-xs" />
-          {{ formatDate(article.date) }}
-        </p>
-        <p v-if="article.views" class="text-xs text-gray-400 mt-0.5">
-          <Icon name="material-symbols:visibility" class="inline mr-1 text-xs" />
-          {{ article.views }}x dilihat
-        </p>
-      </div>
-    </div>
-  `,
-  setup(props: any) {
-    const formatDate = (date: string) => {
-      try {
-        return new Date(date).toLocaleDateString("id-ID", {
-          day: "numeric",
-          month: "short",
-          year: "numeric",
-        });
-      } catch {
-        return date;
-      }
-    };
-    return { formatDate };
-  },
-};
-
-// RequestForm Component
-const RequestForm = {
-  template: `
-    <form @submit.prevent="handleSubmit" class="space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <el-input 
-          v-model="form.nama" 
-          placeholder="Nama Lengkap" 
-          size="large"
-          :prefix-icon="Icon"
-        />
-        <el-input v-model="form.email" placeholder="Email" size="large" />
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <el-input v-model="form.perusahaan" placeholder="Nama Perusahaan" size="large" />
-        <el-input v-model="form.telepon" placeholder="Nomor Telepon" size="large" />
-      </div>
-      <el-input
-        v-model="form.permintaan"
-        :rows="4"
-        type="textarea"
-        placeholder="Deskripsikan kebutuhan Anda..."
-      />
-      <div class="text-center">
-        <el-button type="primary" native-type="submit" size="large" :loading="loading">
-          Kirim Permintaan
-        </el-button>
-      </div>
-    </form>
-  `,
-  setup() {
-    const form = ref({
-      nama: "",
-      email: "",
-      perusahaan: "",
-      telepon: "",
-      permintaan: "",
-    });
-    const loading = ref(false);
-
-    const handleSubmit = () => {
-      loading.value = true;
-      // Simulate API call
-      setTimeout(() => {
-        loading.value = false;
-        // Show success message
-        ElMessage({
-          type: "success",
-          message: "Permintaan berhasil dikirim!",
-        });
-        // Reset form
-        form.value = {
-          nama: "",
-          email: "",
-          perusahaan: "",
-          telepon: "",
-          permintaan: "",
-        };
-      }, 1500);
-    };
-
-    return { form, loading, handleSubmit };
-  },
-};
-
-// ProductCard Component (Desktop)
-const ProductCard = {
-  props: {
-    product: {
-      type: Object,
-      required: true,
-    },
-  },
-  template: `
-    <Trulink :to="'/product/' + product.url" class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow group">
-      <div class="aspect-square overflow-hidden rounded-t-lg">
-        <img :src="product.image" :alt="product.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-      </div>
-      <div class="p-3">
-        <h4 class="font-semibold text-sm line-clamp-2 group-hover:text-orange-500 transition-colors">{{ product.name }}</h4>
-        <p class="text-orange-500 font-bold text-sm mt-1">{{ product.price }}</p>
-      </div>
-    </Trulink>
-  `,
-};
-
-// ProductCardMobile Component
-const ProductCardMobile = {
-  props: {
-    product: {
-      type: Object,
-      required: true,
-    },
-  },
-  template: `
-    <Trulink :to="'/product/' + product.url" class="block bg-white rounded-lg shadow-sm">
-      <div class="aspect-square overflow-hidden rounded-t-lg">
-        <img :src="product.image" :alt="product.name" class="w-full h-full object-cover">
-      </div>
-      <div class="p-2">
-        <h4 class="font-semibold text-xs line-clamp-2">{{ product.name }}</h4>
-        <p class="text-orange-500 font-bold text-xs mt-1">{{ product.price }}</p>
-      </div>
-    </Trulink>
-  `,
-};
-</script>
-
-<style scoped></style>

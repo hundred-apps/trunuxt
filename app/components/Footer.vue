@@ -8,7 +8,7 @@
             <p class="text-xl text-white">
               {{ $t("footer.expand") }}
               <Trulink to="#" class="el-button el-button--primary ml-2">
-                {{ $t("tombol_bergabung_sekarang") }}
+                {{ $t("button.joinNow") }}
               </Trulink>
             </p>
           </div>
@@ -124,7 +124,10 @@
 
         <!-- Learn & Subscribe Section -->
         <div class="lg:w-1/2 w-full p-3 mt-3">
-          <p class="text-xl font-bold text-end text-white">
+          <p
+            class="text-xl font-bold text-white"
+            :class="{ 'text-left lg:text-end': true }"
+          >
             {{ $t("footer.hesitant") }}
           </p>
 
@@ -144,9 +147,10 @@
                 </Trulink>
                 {{ $t("footer.teach.contentAfter") }}
               </p>
-              <Trulink to="/page" class="el-button el-button--primary">
-                {{ $t("tombol_baca_dulu") }}
+              <Trulink to="/" class="el-button el-button--primary">
+                {{ $t("button.readFirst") }}
               </Trulink>
+              <button @click="trackClick">Register</button>
             </div>
 
             <!-- Subscribe Section -->
@@ -166,7 +170,7 @@
                   <el-input
                     v-model="subscribeEmail"
                     type="email"
-                    :placeholder="$t('placeholder_email_anda')"
+                    :placeholder="$t('placeholder.inputYourEmail')"
                     class="flex-grow rounded-none"
                     required
                   />
@@ -175,7 +179,7 @@
                     native-type="submit"
                     class="rounded-none font-bold bg-[#fa8420] hover:bg-[#e6761a] border-[#fa8420] hover:border-[#e6761a]"
                   >
-                    {{ $t("tombol_kirim") }}
+                    {{ $t("button.send") }}
                   </el-button>
                 </div>
 
@@ -206,6 +210,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from "vue";
+const { $gtm } = useNuxtApp();
 
 const subscribeEmail = ref("");
 const subscribeMessage = ref("");
@@ -217,8 +222,6 @@ const footerLogo = computed(() =>
     ? "http://trumecs.test/nuxt-app/logo/dark.png"
     : "http://trumecs.test/nuxt-app/logo/dark.png"
 );
-
-// Social Media Links
 const socialMedia = [
   {
     name: "linkedin",
@@ -252,6 +255,15 @@ const contactInfo = {
     "No. B, Jl. Pintu Air Raya No.31, RT.13/RW.8, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710",
   mapUrl: "https://maps.app.goo.gl/XF8berfSdGwtQ4qv9",
 };
+
+const { $gtmPush } = useNuxtApp();
+
+function trackClick() {
+  $gtmPush({
+    event: "button_click",
+    label: "register",
+  });
+}
 
 // Methods
 const handleSubscribe = async () => {

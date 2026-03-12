@@ -606,8 +606,8 @@ const fetchCategories = async () => {
 
   try {
     const response = await useFetchApi<any>(
-      "category", // Ganti dengan endpoint yang sesuai
-      "category",
+      "category-read", // Ganti dengan endpoint yang sesuai
+      "category-read",
       "get",
       null
     );
@@ -667,8 +667,8 @@ const handleLogout = async () => {
 };
 
 // PERBAIKAN: Ganti fetchCategori menjadi fetchCategories
-onMounted(() => {
-  fetchCategories(); // <-- INI YANG SUDAH DIPERBAIKI
+onMounted(async () => {
+  await fetchCategories();
 });
 
 // Auto focus on mobile search input

@@ -8,8 +8,19 @@
     "dark": "Gelap",
     "system": "Sistem"
   },
-  "button": {},
-  "placeholder": {},
+  "button": {
+    "joinNow": "Bergabung Sekarang",
+    "readFirst": "Baca Dulu",
+    "send": "Kirim"
+  },
+  "label": {
+    "article": "Artikel",
+    "trendingArticle": "Artikel Populer",
+    "relatedArticle": "Artikel Terkait"
+  },
+  "placeholder": {
+    "inputYourEmail": "Masukan Email Anda"
+  },
   "footer": {
     "expand": "Perluas Bisnis Anda Sekarang!",
     "contactUs": "Hubungi Kami",

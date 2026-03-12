@@ -83,7 +83,7 @@ const props = withDefaults(
     articles: () => [],
     imageSize: "md",
     showCategory: false,
-    maxTitleLines: 2,
+    maxTitleLines: "2",
     dateFormat: () => ({
       day: "numeric",
       month: "short",

@@ -12,11 +12,22 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   ssr: false,
+  app: {
+    head: {
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtm.js?id=GTM-TVC4G9C",
+          async: true,
+        },
+      ],
+    },
+  },
   runtimeConfig: {
     public: {
       baseURL: process.env.NUXT_API_URL,
-      baseImage: process.env.NUXT_API_BASEIMG,
+      baseImageArticle: process.env.NUXT_API_BASEIMGARTICLE,
       baseCat: process.env.NUXT_API_CATC,
+      GoogleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
     },
   },
   modules: [
@@ -27,8 +38,10 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/icon",
     "@nuxtjs/i18n",
+    "@nuxtjs/seo",
     "@nuxtjs/device",
     "@element-plus/nuxt",
+    "nuxt-schema-org",
   ],
 
   css: ["element-plus/theme-chalk/dark/css-vars.css"],

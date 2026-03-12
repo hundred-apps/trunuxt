@@ -8,8 +8,19 @@
     "dark": "Dark",
     "system": "System"
   },
-  "button": {},
-  "placeholder": {},
+  "button": {
+    "joinNow": "Join Now",
+    "readFirst": "Read First",
+    "send": "Send"
+  },
+  "label": {
+    "article": "Article",
+    "trendingArticle": "Trending Article",
+    "relatedArticle": "Related Article"
+  },
+  "placeholder": {
+    "inputYourEmail": "Input Your Email"
+  },
   "footer": {
     "expand": "Expand Your Bussiness Now!",
     "contactUs": "Contact Us",

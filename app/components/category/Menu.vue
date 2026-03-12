@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from "vue";
 import type { PropType } from "vue";
 import type { ProductCategory } from "~/types/category";
 import CategoryMenuItem from "./MenuItem.vue";
