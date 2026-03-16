@@ -1,0 +1,77 @@
+name: TRUMECS NUXT DEPLOY
+
+on:
+  push:
+    branches: ["main"]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Create .env for build
+        run: |
+          cat > .env << 'EOF'
+          NUXT_API_URL=${{ secrets.NUXT_API_URL }}
+          NUXT_API_BASEIMGARTICLE=${{ secrets.NUXT_API_BASEIMGARTICLE }}
+          NUXT_API_CATC=${{ secrets.NUXT_API_CATC }}
+          NUXT_PUBLIC_GTM_ID=${{ secrets.NUXT_PUBLIC_GTM_ID }}
+          NUXT_PUBLIC_GTAG_ID=${{ secrets.NUXT_PUBLIC_GTAG_ID }}
+          EOF
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Build Nuxt 3
+        run: npm run build
+
+      - name: Tar build output
+        run: tar -czf output.tar.gz .output
+
+      - name: Upload build file to server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          source: "output.tar.gz"
+          target: ${{ secrets.APP_DIR }}
+
+      - name: Extract and restart PM2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.APP_DIR }}
+
+            echo "📌 Backup output lama"
+            [ -d ".output" ] && mv .output .output-backup-$(date +%s)
+
+            echo "🧹 Hapus semua backup kecuali yang terbaru"
+            ls -dt .output-backup-* 2>/dev/null | tail -n +2 | xargs rm -rf || true
+
+            echo "📌 Extract build baru"
+            tar -xzf output.tar.gz
+
+            echo "📌 Hapus file tar"
+            rm -f output.tar.gz
+
+            echo "🔄 Load NVM"
+            source ~/.nvm/nvm.sh
+
+            echo "🔄 Restart PM2" 
+            PORT=3000 pm2 start .output/server/index.mjs --name "trumecs_nuxt_3000"
+
+            echo "💾 Save PM2"
+            pm2 save
