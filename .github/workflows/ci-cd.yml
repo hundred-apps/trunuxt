@@ -1,6 +1,5 @@
 name: TRUMECS NUXT DEPLOY
 
-
 on:
   push:
     branches: ["main"]
