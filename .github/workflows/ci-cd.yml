@@ -1,5 +1,6 @@
 name: TRUMECS NUXT DEPLOY
 
+
 on:
   push:
     branches: ["main"]
@@ -71,7 +72,7 @@ jobs:
             source ~/.nvm/nvm.sh
 
             echo "🔄 Restart PM2" 
-            PORT=3000 pm2 start .output/server/index.mjs --name "trumecs_nuxt_3000"
+            PORT=8005 pm2 start .output/server/index.mjs --name "trumecs_nuxt_8005"
 
             echo "💾 Save PM2"
             pm2 save
