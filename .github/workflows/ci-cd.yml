@@ -1,5 +1,6 @@
 name: TRUMECS NUXT DEPLOY
 
+
 on:
   push:
     branches: ["main"]
@@ -19,6 +20,7 @@ jobs:
       - name: Create .env for build
         run: |
           cat > .env << 'EOF'
+          PORT=${{ secrets.PORT }}
           NUXT_API_URL=${{ secrets.NUXT_API_URL }}
           NUXT_API_BASEIMGARTICLE=${{ secrets.NUXT_API_BASEIMGARTICLE }}
           NUXT_API_CATC=${{ secrets.NUXT_API_CATC }}
