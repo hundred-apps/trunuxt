@@ -219,8 +219,8 @@ const subscribeSuccess = ref(false);
 const isDark = computed(() => useColorMode().preference === "dark");
 const footerLogo = computed(() =>
   isDark.value
-    ? "http://trumecs.test/nuxt-app/logo/dark.png"
-    : "http://trumecs.test/nuxt-app/logo/dark.png"
+    ? "https://migration.trumecs.com/logo/dark.png"
+    : "https://migration.trumecs.com/logo/dark.png"
 );
 const socialMedia = [
   {

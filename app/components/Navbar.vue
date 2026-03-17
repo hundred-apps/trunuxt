@@ -524,8 +524,8 @@ const dropdownVisible = ref(false);
 const isDark = computed(() => useColorMode().preference === "dark");
 const logoUrl = computed(() =>
   isDark.value
-    ? "http://trumecs.test/nuxt-app/logo/dark.png"
-    : "http://trumecs.test/nuxt-app/logo/light.png"
+    ? "https://migration.trumecs.com/logo/dark.png"
+    : "https://migration.trumecs.com/logo/light.png"
 );
 
 const cartCount = computed(() => 0); // Ganti dengan store
