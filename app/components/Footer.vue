@@ -150,7 +150,6 @@
               <Trulink to="/" class="el-button el-button--primary">
                 {{ $t("button.readFirst") }}
               </Trulink>
-              <button @click="trackClick">Register</button>
             </div>
 
             <!-- Subscribe Section -->
