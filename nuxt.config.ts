@@ -50,11 +50,11 @@ export default defineNuxtConfig({
     headers: {
       accessControlAllowMethods: "*", // Allows all methods
       accessControlAllowHeaders: "*", // Allows all headers
-      accessControlAllowOrigin: "https://dev.trumecs.com", // Use a specific origin instead of '*' for better security
+      accessControlAllowOrigin: "*", // Use a specific origin instead of '*' for better security
       // ... other headers
     },
     corsHandler: {
-      origin: "https://dev.trumecs.com", // Allows all origins, restrict this to your specific frontend URL(s)
+      origin: "*", // Allows all origins, restrict this to your specific frontend URL(s)
       methods: "*",
       headers: "*",
     },
