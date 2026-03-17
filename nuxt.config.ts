@@ -21,8 +21,7 @@ export default defineNuxtConfig({
         },
       ],
     },
-    baseURL: "/",
-    cdnURL: "https://migration.trumecs.com/",
+    cdnURL: "https://migration.trumecs.com",
   },
   runtimeConfig: {
     public: {
