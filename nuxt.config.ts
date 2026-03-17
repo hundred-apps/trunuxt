@@ -44,20 +44,17 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     "@element-plus/nuxt",
     "nuxt-schema-org",
-    "nuxt-security",
+    "@nuxtjs/security",
   ],
   security: {
-    headers: {
-      accessControlAllowMethods: "*", // Allows all methods
-      accessControlAllowHeaders: "*", // Allows all headers
-      accessControlAllowOrigin: "*", // Use a specific origin instead of '*' for better security
-      // ... other headers
-    },
     corsHandler: {
-      origin: "*", // Allows all origins, restrict this to your specific frontend URL(s)
-      methods: "*",
-      headers: "*",
+      enabled: true,
+      // Set to a specific origin or a list of origins
+      origin: ["https://dev.trumecs.com"],
+      methods: ["GET", "POST", "OPTIONS"],
+      // ... other options
     },
+    // ... other security headers
   },
 
   css: ["element-plus/theme-chalk/dark/css-vars.css"],
