@@ -44,18 +44,7 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     "@element-plus/nuxt",
     "nuxt-schema-org",
-    "@nuxtjs/security",
   ],
-  security: {
-    corsHandler: {
-      enabled: true,
-      // Set to a specific origin or a list of origins
-      origin: ["https://dev.trumecs.com"],
-      methods: ["GET", "POST", "OPTIONS"],
-      // ... other options
-    },
-    // ... other security headers
-  },
 
   css: ["element-plus/theme-chalk/dark/css-vars.css"],
 
