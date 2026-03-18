@@ -22,7 +22,7 @@ export default defineNuxtConfig({
       ],
     },
     baseURL: "/",
-    cdnURL: "https://migration.trumecs.com",
+    cdnURL: "/",
   },
   runtimeConfig: {
     public: {
@@ -62,6 +62,21 @@ export default defineNuxtConfig({
     },
     config: {},
     viewer: true,
+  },
+  nitro:{
+    preset:"node-server",
+    // routeRules: {
+    //   '/_nuxt/**': {
+    //     headers: {
+    //       'Access-Control-Allow-Origin': 'https://dev.trumecs.com',
+    //       'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    //       'Access-Control-Allow-Headers': '*'
+    //     }
+    //   }
+    // }
+  },
+  experimental:{
+    writeEarlyHints:false
   },
 
   i18n: {

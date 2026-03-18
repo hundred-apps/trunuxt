@@ -1,5 +1,5 @@
 <IfModule mod_headers.c>
     <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf)$">
-        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Origin "https://dev.trumecs.com"
     </FilesMatch>
 </IfModule>
