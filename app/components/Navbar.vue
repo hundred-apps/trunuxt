@@ -1,8 +1,7 @@
 <template>
   <nav
     :class="[
-      'navbar fixed top-0 left-0 right-0 z-50 transition-colors duration-300',
-      isDark ? 'bg-white border-gray-200' : 'bg-white border-gray-200',
+      'navbar fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-white border-gray-200',
       'border-b shadow-sm',
     ]"
   >
@@ -13,25 +12,21 @@
           @click="showMobileMenu = !showMobileMenu"
           class="w-[24px] h-[24px]"
         >
-          <Icon
-            name="material-symbols:menu"
-            class="text-2xl"
-            :class="isDark ? 'text-gray-300' : 'text-gray-700'"
-          />
+          <Icon name="material-symbols:menu" class="text-2xl text-gray-700" />
         </button>
 
         <Trulink to="/">
-          <img :src="logoUrl" alt="logo trumecs" class="h-8" />
+          <img
+            src="https://migration.trumecs.com/logo/dark.png"
+            alt="logo trumecs"
+            class="h-8"
+          />
         </Trulink>
       </div>
 
       <div class="flex items-center gap-1">
         <button @click="showMobileSearch = true" class="p-2">
-          <Icon
-            name="material-symbols:search"
-            class="text-xl"
-            :class="isDark ? 'text-gray-700' : 'text-gray-700'"
-          />
+          <Icon name="material-symbols:search" class="text-xl text-gray-700" />
         </button>
 
         <Trulink to="/" class="relative p-2">
@@ -43,8 +38,7 @@
           </span>
           <Icon
             name="material-symbols:notifications-outline"
-            class="text-xl"
-            :class="isDark ? 'text-gray-700' : 'text-gray-700'"
+            class="text-xl text-gray-700"
           />
         </Trulink>
       </div>
@@ -72,7 +66,6 @@
                     class="flex-grow"
                     :placeholder="searchPlaceholder"
                     @keyup.enter="handleSearch"
-                    :class="isDark ? 'dark-search-input' : ''"
                   >
                     <template #append>
                       <el-button
@@ -88,10 +81,7 @@
               </div>
 
               <div class="flex-shrink-0 hidden xl:block">
-                <p
-                  class="mb-0 text-sm"
-                  :class="isDark ? 'text-gray-500' : 'text-gray-500'"
-                >
+                <p class="mb-0 text-sm text-gray-500">
                   <small><strong>atau</strong></small>
                 </p>
               </div>
@@ -125,12 +115,7 @@
                   </span>
                   <Icon
                     name="material-symbols:shopping-cart"
-                    class="text-xl"
-                    :class="
-                      isDark
-                        ? 'text-gray-700 hover:text-gray-900'
-                        : 'text-gray-700 hover:text-gray-900'
-                    "
+                    class="text-xl text-gray-700 hover:text-gray-900"
                   />
                 </Trulink>
 
@@ -146,12 +131,7 @@
                     </span>
                     <Icon
                       name="material-symbols:notifications"
-                      class="text-xl"
-                      :class="
-                        isDark
-                          ? 'text-gray-700 hover:text-gray-900'
-                          : 'text-gray-700 hover:text-gray-900'
-                      "
+                      class="text-xl text-gray-700 hover:text-gray-900"
                     />
                   </Trulink>
 
@@ -165,12 +145,7 @@
                     </span>
                     <Icon
                       name="material-symbols:chat"
-                      class="text-xl"
-                      :class="
-                        isDark
-                          ? 'text-gray-700 hover:text-gray-900'
-                          : 'text-gray-700 hover:text-gray-900'
-                      "
+                      class="text-xl text-gray-700 hover:text-gray-900"
                     />
                   </Trulink>
 
@@ -186,24 +161,19 @@
                       <el-avatar
                         :size="36"
                         :src="userAvatar"
-                        class="border-2"
-                        :class="isDark ? 'border-gray-200' : 'border-gray-200'"
+                        class="border-2 border-gray-200"
                       />
                       <Icon
                         name="material-symbols:keyboard-arrow-down"
-                        class="transition-transform duration-200"
+                        class="transition-transform duration-200 text-gray-600"
                         :class="[
                           'text-lg',
-                          isDark ? 'text-gray-600' : 'text-gray-600',
                           dropdownVisible ? 'rotate-180' : '',
                         ]"
                       />
                     </span>
                     <template #dropdown>
-                      <el-dropdown-menu
-                        :class="isDark ? '' : ''"
-                        class="min-w-[280px]"
-                      >
+                      <el-dropdown-menu class="min-w-[280px]">
                         <el-dropdown-item command="profile">
                           <div class="flex items-center gap-3 py-2">
                             <el-avatar :size="45" :src="userAvatar" />
@@ -251,10 +221,7 @@
         </div>
 
         <!-- Bottom Row - Categories & Menu -->
-        <div
-          class="flex items-center pt-2 border-t"
-          :class="isDark ? 'border-gray-100' : 'border-gray-100'"
-        >
+        <div class="flex items-center pt-2 border-t border-gray-100">
           <!-- Categories -->
           <div class="flex items-center justify-between w-full">
             <div v-if="loading" class="text-center py-4">
@@ -279,19 +246,11 @@
               <span>Kategori</span>
             </button> -->
             <div class="flex gap-2">
-              <Trulink
-                to="/article"
-                class="transition-colors"
-                :class="isDark ? 'text-gray-700' : 'text-gray-700'"
-              >
+              <Trulink to="/article" class="transition-colors text-gray-700">
                 Artikel
               </Trulink>
 
-              <Trulink
-                to="/"
-                class="transition-colors"
-                :class="isDark ? 'text-gray-700' : 'text-gray-700'"
-              >
+              <Trulink to="/" class="transition-colors text-gray-700">
                 Promo
               </Trulink>
             </div>
@@ -306,17 +265,15 @@
       width="95%"
       top="20px"
       :show-close="false"
-      :class="isDark ? '' : ''"
       class="lg:hidden"
     >
-      <div class="p-4" :class="isDark ? 'bg-white' : 'bg-white'">
+      <div class="p-4 bg-white">
         <form @submit.prevent="handleMobileSearch" class="flex gap-2">
           <el-input
             v-model="mobileSearchQuery"
             placeholder="Cari produk..."
             size="large"
             ref="mobileSearchInput"
-            :class="isDark ? 'dark-search-input' : ''"
           />
           <el-button type="primary" native-type="submit" size="large">
             <Icon name="material-symbols:search" />
@@ -331,12 +288,8 @@
       direction="ltr"
       size="80%"
       :with-header="false"
-      :class="isDark ? '' : ''"
     >
-      <div
-        class="h-full flex flex-col"
-        :class="isDark ? 'bg-white text-gray-900' : 'bg-white text-gray-900'"
-      >
+      <div class="h-full flex flex-col bg-white text-gray-900">
         <!-- User Info -->
         <div class="flex justify-between items-center">
           <div class="flex-shrink-0">
@@ -349,21 +302,12 @@
             <SwitcherLang />
           </div> -->
         </div>
-        <div
-          class="p-4 border-b"
-          :class="isDark ? 'border-gray-200' : 'border-gray-200'"
-          v-if="isLoggedIn"
-        >
+        <div class="p-4 border-b border-gray-200" v-if="isLoggedIn">
           <div class="flex items-center gap-3">
             <el-avatar :size="50" :src="userAvatar" />
             <div>
               <p class="font-bold">{{ userName }}</p>
-              <p
-                class="text-sm"
-                :class="isDark ? 'text-gray-500' : 'text-gray-500'"
-              >
-                Akun Saya
-              </p>
+              <p class="text-sm text-gray-500">Akun Saya</p>
             </div>
           </div>
         </div>
@@ -378,17 +322,7 @@
                     v-for="item in mobileMenuItems"
                     :key="item.to"
                     :to="item.to"
-                    class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10"
-                    :class="[
-                      isDark
-                        ? 'border-gray-200 hover:bg-gray-100'
-                        : 'border-gray-200 hover:bg-gray-100',
-                      route.path === item.to
-                        ? isDark
-                          ? 'bg-gray-50'
-                          : 'bg-gray-50'
-                        : '',
-                    ]"
+                    class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100 bg-gray-50"
                     @click="showMobileMenu = false"
                   >
                     <span>{{ item.text }}</span>
@@ -407,17 +341,7 @@
             v-for="item in mobileMenuItems"
             :key="item.to"
             :to="item.to"
-            class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10"
-            :class="[
-              isDark
-                ? 'border-gray-200 hover:bg-gray-100'
-                : 'border-gray-200 hover:bg-gray-100',
-              route.path === item.to
-                ? isDark
-                  ? 'bg-gray-50'
-                  : 'bg-gray-50'
-                : '',
-            ]"
+            class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 bg-gray-50 border-gray-200 hover:bg-gray-100"
             @click="showMobileMenu = false"
           >
             <span>{{ item.text }}</span>
@@ -431,10 +355,7 @@
         </div>
 
         <!-- Bottom Actions -->
-        <div
-          class="border-t"
-          :class="isDark ? 'border-gray-200' : 'border-gray-200'"
-        >
+        <div class="border-t border-gray-200">
           <Trulink
             to="/"
             class="el-button el-button--primary w-full mb-3"
@@ -445,17 +366,11 @@
           <div
             class="flex flex-col gap-1 justify-center items-center border-b pb-2"
           >
-            <p
-              class="text-sm"
-              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
-            >
-              Hubungi kami :
-            </p>
+            <p class="text-sm text-gray-500">Hubungi kami :</p>
             <Trulink
               href="https://wa.me/+6285176912338"
               target="_blank"
-              class="text-sm flex gap-1 items-center"
-              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
+              class="text-sm flex gap-1 items-center text-gray-500"
             >
               <Icon name="logos:whatsapp-icon" />
               <p>+6285176912338</p>
@@ -463,20 +378,14 @@
             <Trulink
               href="https://mail.to/info@trumecs.com"
               target="_blank"
-              class="text-sm flex gap-1 items-center"
-              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
+              class="text-sm flex gap-1 items-center text-gray-500"
             >
               <Icon name="material-symbols:mail-outline" />
               <p>info@trumecs.com</p>
             </Trulink>
           </div>
-          <div class="text-center pt-2">
-            <p
-              class="text-sm"
-              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
-            >
-              Trumecs © 2022
-            </p>
+          <div class="text-center pt-2 text-gray-500">
+            <p class="text-sm">Trumecs © 2022</p>
           </div>
         </div>
       </div>
@@ -488,7 +397,6 @@
 import { ref, computed, onMounted, nextTick, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { ElMessageBox } from "element-plus";
-import { useColorMode } from "@vueuse/core"; // <-- TAMBAHKAN INI
 import type { CollapseModelValue } from "element-plus";
 import type { ProductCategory } from "~/types/category";
 
@@ -519,14 +427,6 @@ const showMobileMenu = ref(false);
 const showMobileSearch = ref(false);
 const mobileSearchInput = ref();
 const dropdownVisible = ref(false);
-
-// Computed
-const isDark = computed(() => useColorMode().preference === "dark");
-const logoUrl = computed(() =>
-  isDark.value
-    ? "https://migration.trumecs.com/logo/dark.png"
-    : "https://migration.trumecs.com/logo/light.png"
-);
 
 const cartCount = computed(() => 0); // Ganti dengan store
 const isLoggedIn = computed(() => false); // Ganti dengan auth store
@@ -656,7 +556,6 @@ const handleLogout = async () => {
         confirmButtonText: "Ya, Keluar",
         cancelButtonText: "Batal",
         type: "warning",
-        customClass: isDark.value ? "dark-message-box" : "",
       }
     );
     // Handle logout
