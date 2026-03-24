@@ -17,7 +17,7 @@
 
         <Trulink to="/">
           <img
-            src="https://migration.trumecs.com/logo/dark.png"
+            src="https://migration.trumecs.com/logo/light.png"
             alt="logo trumecs"
             class="h-8"
           />
@@ -53,7 +53,7 @@
           <div class="flex-shrink-0">
             <Trulink to="/">
               <img
-                src="https://migration.trumecs.com/logo/dark.png"
+                src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
                 class="h-10"
               />
@@ -299,7 +299,7 @@
           <div class="flex-shrink-0">
             <Trulink to="/">
               <img
-                src="https://migration.trumecs.com/logo/dark.png"
+                src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
                 class="h-10"
               />
