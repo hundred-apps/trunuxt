@@ -44,7 +44,6 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     "@element-plus/nuxt",
     "nuxt-schema-org",
-    "@nuxt/hints",
   ],
 
   css: ["element-plus/theme-chalk/dark/css-vars.css"],
@@ -63,8 +62,8 @@ export default defineNuxtConfig({
     config: {},
     viewer: true,
   },
-  nitro:{
-    preset:"node-server",
+  nitro: {
+    preset: "node-server",
     // routeRules: {
     //   '/_nuxt/**': {
     //     headers: {
@@ -75,8 +74,8 @@ export default defineNuxtConfig({
     //   }
     // }
   },
-  experimental:{
-    writeEarlyHints:false
+  experimental: {
+    writeEarlyHints: false,
   },
 
   i18n: {

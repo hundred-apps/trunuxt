@@ -2,7 +2,7 @@
   <nav
     :class="[
       'navbar fixed top-0 left-0 right-0 z-50 transition-colors duration-300',
-      isDark ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200',
+      isDark ? 'bg-white border-gray-200' : 'bg-white border-gray-200',
       'border-b shadow-sm',
     ]"
   >
@@ -30,7 +30,7 @@
           <Icon
             name="material-symbols:search"
             class="text-xl"
-            :class="isDark ? 'text-gray-300' : 'text-gray-700'"
+            :class="isDark ? 'text-gray-700' : 'text-gray-700'"
           />
         </button>
 
@@ -44,7 +44,7 @@
           <Icon
             name="material-symbols:notifications-outline"
             class="text-xl"
-            :class="isDark ? 'text-gray-300' : 'text-gray-700'"
+            :class="isDark ? 'text-gray-700' : 'text-gray-700'"
           />
         </Trulink>
       </div>
@@ -90,7 +90,7 @@
               <div class="flex-shrink-0 hidden xl:block">
                 <p
                   class="mb-0 text-sm"
-                  :class="isDark ? 'text-gray-400' : 'text-gray-500'"
+                  :class="isDark ? 'text-gray-500' : 'text-gray-500'"
                 >
                   <small><strong>atau</strong></small>
                 </p>
@@ -128,7 +128,7 @@
                     class="text-xl"
                     :class="
                       isDark
-                        ? 'text-gray-300 hover:text-white'
+                        ? 'text-gray-700 hover:text-gray-900'
                         : 'text-gray-700 hover:text-gray-900'
                     "
                   />
@@ -149,7 +149,7 @@
                       class="text-xl"
                       :class="
                         isDark
-                          ? 'text-gray-300 hover:text-white'
+                          ? 'text-gray-700 hover:text-gray-900'
                           : 'text-gray-700 hover:text-gray-900'
                       "
                     />
@@ -168,7 +168,7 @@
                       class="text-xl"
                       :class="
                         isDark
-                          ? 'text-gray-300 hover:text-white'
+                          ? 'text-gray-700 hover:text-gray-900'
                           : 'text-gray-700 hover:text-gray-900'
                       "
                     />
@@ -187,21 +187,21 @@
                         :size="36"
                         :src="userAvatar"
                         class="border-2"
-                        :class="isDark ? 'border-gray-700' : 'border-gray-200'"
+                        :class="isDark ? 'border-gray-200' : 'border-gray-200'"
                       />
                       <Icon
                         name="material-symbols:keyboard-arrow-down"
                         class="transition-transform duration-200"
                         :class="[
                           'text-lg',
-                          isDark ? 'text-gray-300' : 'text-gray-600',
+                          isDark ? 'text-gray-600' : 'text-gray-600',
                           dropdownVisible ? 'rotate-180' : '',
                         ]"
                       />
                     </span>
                     <template #dropdown>
                       <el-dropdown-menu
-                        :class="isDark ? 'dark-dropdown' : ''"
+                        :class="isDark ? '' : ''"
                         class="min-w-[280px]"
                       >
                         <el-dropdown-item command="profile">
@@ -253,7 +253,7 @@
         <!-- Bottom Row - Categories & Menu -->
         <div
           class="flex items-center pt-2 border-t"
-          :class="isDark ? 'border-gray-800' : 'border-gray-100'"
+          :class="isDark ? 'border-gray-100' : 'border-gray-100'"
         >
           <!-- Categories -->
           <div class="flex items-center justify-between w-full">
@@ -282,7 +282,7 @@
               <Trulink
                 to="/article"
                 class="transition-colors"
-                :class="isDark ? 'text-gray-300' : 'text-gray-700'"
+                :class="isDark ? 'text-gray-700' : 'text-gray-700'"
               >
                 Artikel
               </Trulink>
@@ -290,7 +290,7 @@
               <Trulink
                 to="/"
                 class="transition-colors"
-                :class="isDark ? 'text-gray-300' : 'text-gray-700'"
+                :class="isDark ? 'text-gray-700' : 'text-gray-700'"
               >
                 Promo
               </Trulink>
@@ -306,10 +306,10 @@
       width="95%"
       top="20px"
       :show-close="false"
-      :class="isDark ? 'dark-dialog' : ''"
+      :class="isDark ? '' : ''"
       class="lg:hidden"
     >
-      <div class="p-4" :class="isDark ? 'bg-gray-900' : 'bg-white'">
+      <div class="p-4" :class="isDark ? 'bg-white' : 'bg-white'">
         <form @submit.prevent="handleMobileSearch" class="flex gap-2">
           <el-input
             v-model="mobileSearchQuery"
@@ -331,11 +331,11 @@
       direction="ltr"
       size="80%"
       :with-header="false"
-      :class="isDark ? 'dark-drawer' : ''"
+      :class="isDark ? '' : ''"
     >
       <div
         class="h-full flex flex-col"
-        :class="isDark ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-900'"
+        :class="isDark ? 'bg-white text-gray-900' : 'bg-white text-gray-900'"
       >
         <!-- User Info -->
         <div class="flex justify-between items-center">
@@ -351,7 +351,7 @@
         </div>
         <div
           class="p-4 border-b"
-          :class="isDark ? 'border-gray-800' : 'border-gray-200'"
+          :class="isDark ? 'border-gray-200' : 'border-gray-200'"
           v-if="isLoggedIn"
         >
           <div class="flex items-center gap-3">
@@ -360,7 +360,7 @@
               <p class="font-bold">{{ userName }}</p>
               <p
                 class="text-sm"
-                :class="isDark ? 'text-gray-400' : 'text-gray-500'"
+                :class="isDark ? 'text-gray-500' : 'text-gray-500'"
               >
                 Akun Saya
               </p>
@@ -381,11 +381,11 @@
                     class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10"
                     :class="[
                       isDark
-                        ? 'border-gray-800 hover:bg-white'
+                        ? 'border-gray-200 hover:bg-gray-100'
                         : 'border-gray-200 hover:bg-gray-100',
                       route.path === item.to
                         ? isDark
-                          ? 'bg-gray-800'
+                          ? 'bg-gray-50'
                           : 'bg-gray-50'
                         : '',
                     ]"
@@ -410,11 +410,11 @@
             class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10"
             :class="[
               isDark
-                ? 'border-gray-800 hover:bg-white'
+                ? 'border-gray-200 hover:bg-gray-100'
                 : 'border-gray-200 hover:bg-gray-100',
               route.path === item.to
                 ? isDark
-                  ? 'bg-gray-800'
+                  ? 'bg-gray-50'
                   : 'bg-gray-50'
                 : '',
             ]"
@@ -433,7 +433,7 @@
         <!-- Bottom Actions -->
         <div
           class="border-t"
-          :class="isDark ? 'border-gray-800' : 'border-gray-200'"
+          :class="isDark ? 'border-gray-200' : 'border-gray-200'"
         >
           <Trulink
             to="/"
@@ -447,7 +447,7 @@
           >
             <p
               class="text-sm"
-              :class="isDark ? 'text-gray-400' : 'text-gray-500'"
+              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
             >
               Hubungi kami :
             </p>
@@ -455,7 +455,7 @@
               href="https://wa.me/+6285176912338"
               target="_blank"
               class="text-sm flex gap-1 items-center"
-              :class="isDark ? 'text-gray-400' : 'text-gray-500'"
+              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
             >
               <Icon name="logos:whatsapp-icon" />
               <p>+6285176912338</p>
@@ -464,7 +464,7 @@
               href="https://mail.to/info@trumecs.com"
               target="_blank"
               class="text-sm flex gap-1 items-center"
-              :class="isDark ? 'text-gray-400' : 'text-gray-500'"
+              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
             >
               <Icon name="material-symbols:mail-outline" />
               <p>info@trumecs.com</p>
@@ -473,7 +473,7 @@
           <div class="text-center pt-2">
             <p
               class="text-sm"
-              :class="isDark ? 'text-gray-400' : 'text-gray-500'"
+              :class="isDark ? 'text-gray-500' : 'text-gray-500'"
             >
               Trumecs © 2022
             </p>
