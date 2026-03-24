@@ -52,7 +52,11 @@
           <!-- Logo -->
           <div class="flex-shrink-0">
             <Trulink to="/">
-              <img :src="logoUrl" alt="logo trumecs" class="h-10" />
+              <img
+                src="https://migration.trumecs.com/logo/dark.png"
+                alt="logo trumecs"
+                class="h-10"
+              />
             </Trulink>
           </div>
 
@@ -294,7 +298,11 @@
         <div class="flex justify-between items-center">
           <div class="flex-shrink-0">
             <Trulink to="/">
-              <img :src="logoUrl" alt="logo trumecs" class="h-10" />
+              <img
+                src="https://migration.trumecs.com/logo/dark.png"
+                alt="logo trumecs"
+                class="h-10"
+              />
             </Trulink>
           </div>
           <!-- <div class="flex gap-4">
