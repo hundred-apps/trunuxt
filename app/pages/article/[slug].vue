@@ -439,17 +439,12 @@ const fetchCategories = async () => {
 
       categories.value = apiData.map((item: ProductCategory) => {
         return {
-          title: item.name,
-          description: item.name,
-          imageUrl: item.name
-            ? `${
-                config.public.baseURLIMGARTICLE ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${item.name}`
-            : "https://via.placeholder.com/300x200?text=No+Image",
-          imageAlt: item.name,
-          buttonLink: item.name,
-          buttonText: item.name,
+          title: `Segala Hal Tentang ${item.name}`,
+          description: `Bingung memilih ${item.name} sesuai dengan kebutuhan anda?`,
+          imageUrl: `https://migration.trumecs.com/article/ads/${item.name?.toLowerCase()}.png`,
+          imageAlt: `Gambar Rekayasa Tentang ${item.name}`,
+          buttonLink: `https://wa.me/+6285176912338`,
+          buttonText: `Konsultasikan kebutuhan ${item.name} bersama kami`,
         };
       });
       if (categories.value.length > 0) {
