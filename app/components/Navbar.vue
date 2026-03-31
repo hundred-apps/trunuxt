@@ -75,7 +75,7 @@
                       <el-button
                         type="primary"
                         native-type="submit"
-                        class="!rounded-e-md !-me-1"
+                        class="bg-orange-500"
                       >
                         <Icon name="material-symbols:search" class="text-lg" />
                       </el-button>
@@ -92,7 +92,7 @@
 
               <div class="flex-shrink-0 min-w-[160px] hidden xl:block">
                 <Trulink
-                  to="/"
+                  to="/bulk"
                   class="el-button el-button--primary w-full py-2 flex items-center justify-center"
                 >
                   Infokan Kebutuhanmu
@@ -430,7 +430,7 @@ const error = ref<string | null>(null);
 // Refs
 const searchQuery = ref(route.query.nama || "");
 const mobileSearchQuery = ref("");
-const searchPlaceholder = ref("Cari produk...");
+const searchPlaceholder = ref("Kebutuhan mekanikal apa yang anda cari?");
 const showMobileMenu = ref(false);
 const showMobileSearch = ref(false);
 const mobileSearchInput = ref();
@@ -491,20 +491,19 @@ const mobileMenuItems = computed(() => [
 // Methods
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
-    router.push({
-      path: "/search",
-      query: { nama: searchQuery.value },
-    });
+    window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
+      searchQuery.value
+    )}`;
   }
 };
 
 const handleMobileSearch = () => {
   if (mobileSearchQuery.value.trim()) {
     showMobileSearch.value = false;
-    router.push({
-      path: "/search",
-      query: { nama: mobileSearchQuery.value },
-    });
+
+    window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
+      mobileSearchQuery.value
+    )}`;
   }
 };
 
