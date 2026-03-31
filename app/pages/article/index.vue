@@ -382,10 +382,12 @@ const fetchFeaturedArticles = async () => {
           url: item.url || `article-${item.id}`,
           title: item.title || "Untitled",
           image: item.img
-            ? `${
-                config.public.baseURLIMGARTICLE ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${item.img}`
+            ? item.img.startsWith("http")
+              ? item.img
+              : `${
+                  config.public.baseURLIMGARTICLE ||
+                  "https://www.trumecs.com/public/image/artikel/"
+                }${item.img}`
             : "https://via.placeholder.com/300x200?text=No+Image",
           category: item.tag,
           date: item.date,
@@ -655,7 +657,8 @@ watch(
 
 /* Featured article hover */
 .featured-article .group:hover .shadow-lg {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>

@@ -1,37 +1,27 @@
 <template>
   <div class="article-detail-page">
     <!-- Breadcrumb -->
-    <Breadcrumbs :items="articleBreadcrumb" />
 
     <!-- Article Not Found -->
     <div v-if="!article" class="container py-12 text-center">
       <Icon
-        name="material-symbols:error-outline"
-        class="text-6xl text-gray-300 mb-4"
+        name="svg-spinners:90-ring-with-bg"
+        class="text-6xl text-orange-500 mb-4 animate-spin"
       />
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">
-        Artikel Tidak Ditemukan
-      </h2>
-      <p class="text-gray-500 mb-6">
-        Maaf, artikel yang Anda cari tidak tersedia.
-      </p>
-      <Trulink
-        to="/article"
-        class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors"
-      >
-        Kembali ke Artikel
-      </Trulink>
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">Memuat Artikel...</h2>
+      <p class="text-gray-500 mb-6">Mohon tunggu, artikel sedang dimuat.</p>
     </div>
 
     <!-- Main Content - Only show if article exists -->
     <template v-if="article">
-      <section class="article-detail py-6 lg:py-0" id="article-detail">
-        <div class="container">
+      <section class="article-detail py-4 lg:py-0" id="article-detail">
+        <div class="container p-4 lg:p-6">
+          <Breadcrumbs :items="articleBreadcrumb" />
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             <!-- Left Column - Article Content (lg:col-span-8) -->
             <div class="lg:col-span-8">
               <article class="bg-white rounded-xl shadow-sm overflow-hidden">
-                <div class="p-4 lg:p-6">
+                <div class="">
                   <!-- Title -->
                   <h1
                     class="text-2xl lg:text-3xl font-bold mb-3"
@@ -150,14 +140,7 @@
                 </div>
 
                 <!-- Maintenance Banner - Desktop Only -->
-                <CardsArticleAds
-                  title="SERVICE CENTER"
-                  description="Professional maintenance for your equipment"
-                  buttonText="Schedule Now"
-                  buttonLink="/service/schedule"
-                  imageUrl="https://picsum.photos/400/200?random=100"
-                  imageAlt="service center"
-                />
+                <CardsArticleAds v-if="randomAdsTop" v-bind="randomAdsTop" />
 
                 <!-- Related Articles -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden">
@@ -178,12 +161,8 @@
 
                 <!-- Construction Banner - Desktop Only -->
                 <CardsArticleAds
-                  title="CONSTRUCTION"
-                  description="Engineering, Construction and procurement"
-                  buttonText="Consult Now!"
-                  buttonLink="/construction"
-                  imageUrl="https://picsum.photos/400/200?random=998"
-                  imageAlt="construction"
+                  v-if="randomAdsBottom"
+                  v-bind="randomAdsBottom"
                 />
               </div>
             </div>
@@ -243,6 +222,7 @@
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
+import type { ProductCategory } from "~/types/category";
 
 const loading = ref(true);
 const error = ref<string | null>(null);
@@ -258,6 +238,19 @@ const article = ref<CardArticle | null>(null);
 
 const trendingArticles = ref<CardArticle[]>([]);
 const relatedArticles = ref<CardArticle[]>([]);
+const categories = ref<ProductCategory[]>([]);
+
+const randomAdsTop = ref(null);
+const randomAdsBottom = ref(null);
+
+const setRandomAds = () => {
+  if (categories.value.length < 2) return;
+
+  const shuffled = [...categories.value].sort(() => 0.5 - Math.random());
+
+  randomAdsTop.value = shuffled[0];
+  randomAdsBottom.value = shuffled[1];
+};
 
 // Breadcrumb - buat menjadi computed agar bisa update otomatis
 const articleBreadcrumb = computed(() => [
@@ -395,11 +388,13 @@ const fetchDetailArticle = async () => {
         url: apiData.url || `article-${apiData.id}`,
         title: apiData.title || "Untitled",
         image: apiData.img
-          ? `${
-              config.public.baseURLIMGARTICLE ||
-              "https://www.trumecs.com/public/image/artikel/"
-            }${apiData.img}`
-          : "https://via.placeholder.com/800x450?text=No+Image",
+          ? apiData.img.startsWith("http")
+            ? apiData.img
+            : `${
+                config.public.baseURLIMGARTICLE ||
+                "https://www.trumecs.com/public/image/artikel/"
+              }${apiData.img}`
+          : "https://via.placeholder.com/300x200?text=No+Image",
         category: extractCategories(apiData.tag)[0] || "General",
         tags: extractTags(apiData.tag),
         date: apiData.date,
@@ -422,6 +417,46 @@ const fetchDetailArticle = async () => {
     console.error("Error fetching article:", error);
     ElMessage.error("Gagal memuat data artikel");
     article.value = null;
+  } finally {
+    loading.value = false;
+  }
+};
+
+const fetchCategories = async () => {
+  try {
+    // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
+    const response = await useFetchApi<BaseResponse<ProductCategory>>(
+      `category-read/`,
+      `category-for-ads`,
+      "get",
+      null
+    );
+
+    if (response.status.value === "success") {
+      const apiData = response.data.value!.payload.category.products;
+      console.log("data categories :", apiData);
+      const config = useRuntimeConfig();
+
+      categories.value = apiData.map((item: ProductCategory) => {
+        return {
+          title: item.name,
+          description: item.name,
+          imageUrl: item.name
+            ? `${
+                config.public.baseURLIMGARTICLE ||
+                "https://www.trumecs.com/public/image/artikel/"
+              }${item.name}`
+            : "https://via.placeholder.com/300x200?text=No+Image",
+          imageAlt: item.name,
+          buttonLink: item.name,
+          buttonText: item.name,
+        };
+      });
+      if (categories.value.length > 0) {
+        randomCategory.value = getRandomCategories(categories.value, 2);
+      }
+    }
+  } catch (error) {
   } finally {
     loading.value = false;
   }
@@ -520,10 +555,12 @@ useSeoMeta({
 });
 
 // Handle 404 - redirect or show message
-onMounted(() => {
-  fetchDetailArticle();
-  fetchTrendingArticles();
-  fetchRelatedArticles();
+onMounted(async () => {
+  await fetchDetailArticle();
+  await fetchTrendingArticles();
+  await fetchRelatedArticles();
+  await fetchCategories();
+  setRandomAds();
 });
 
 // Watch for route changes (jika slug berubah)
