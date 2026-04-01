@@ -69,11 +69,9 @@
                   </div>
 
                   <!-- Article Content with Dynamic Insertions -->
-                  <div
-                    class="article-content prose prose-sm lg:prose-base max-w-none"
-                  >
+                 <div class="article-content prose prose-sm lg:prose-base max-w-none">
                     <div v-html="processedContent"></div>
-                  </div>
+                </div>
 
                   <!-- Tags -->
                   <div
@@ -459,8 +457,15 @@ const fetchCategories = async () => {
 
 // Processed content untuk v-html
 const processedContent = computed(() => {
-  return article.value?.content || "";
+  return article.value?.content?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, '') // hapus paragraf kosong / hanya &nbsp;
+    ?.replace(/&nbsp;/g, ' ')   || "";
 });
+
+// const processedContent = computed(() => {
+//   return article.value?.content || 
+//     ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, '') // hapus paragraf kosong / hanya &nbsp;
+//     ?.replace(/&nbsp;/g, ' ')    || "";                  // ganti &nbsp; dengan spasi biasa
+// })
 
 const shareButtons = [
   {

@@ -46,8 +46,10 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
   ],
 
-  css: ["element-plus/theme-chalk/dark/css-vars.css"],
-
+css: [
+  "element-plus/theme-chalk/dark/css-vars.css",
+  "~/assets/css/article.css",  // pakai ~ bukan ./
+],
   // Auto import components
   components: true,
 
