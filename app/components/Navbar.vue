@@ -407,6 +407,7 @@ import { useRoute, useRouter } from "vue-router";
 import { ElMessageBox } from "element-plus";
 import type { CollapseModelValue } from "element-plus";
 import type { ProductCategory } from "~/types/category";
+const { trackClick } = useAnalytics();
 
 const products = ref<ProductCategory[]>([]);
 const activeIndex = ref("2");
@@ -491,6 +492,7 @@ const mobileMenuItems = computed(() => [
 // Methods
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
+    trackClick("Cari : " + searchQuery.value.trim());
     window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
       searchQuery.value
     )}`;
@@ -534,7 +536,6 @@ const fetchCategories = async () => {
 
 const handleCategorySelect = (index: string) => {
   console.log("Selected category:", index);
-  // Handle navigation atau action lainnya
 };
 
 const handleDropdownCommand = (command: string) => {
