@@ -191,6 +191,12 @@ import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import { defineArticle, useSchemaOrg } from "@unhead/schema-org/vue";
 
+useHead({
+  title: "Artikel",
+  titleTemplate: "Artikel | Trumecs.com",
+  meta: [{ name: "Artikel" }],
+});
+
 const RequestForm = {
   props: ["type"],
   template: `

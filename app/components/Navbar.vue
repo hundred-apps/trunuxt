@@ -51,7 +51,7 @@
         <div class="flex items-center justify-between mb-3">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <Trulink to="/">
+            <Trulink href="https://trumecs.com">
               <img
                 src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"

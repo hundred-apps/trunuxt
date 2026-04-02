@@ -69,9 +69,11 @@
                   </div>
 
                   <!-- Article Content with Dynamic Insertions -->
-                 <div class="article-content prose prose-sm lg:prose-base max-w-none">
+                  <div
+                    class="article-content prose prose-sm lg:prose-base max-w-none"
+                  >
                     <div v-html="processedContent"></div>
-                </div>
+                  </div>
 
                   <!-- Tags -->
                   <div
@@ -221,6 +223,22 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory } from "~/types/category";
+const article = ref<CardArticle | null>(null);
+
+useHead({
+  title: article.value?.title,
+  titleTemplate: "Artikel - %s | Trumecs.com",
+  meta: [{ name: article.value?.title, content: article.value?.content }],
+});
+
+useSeoMeta({
+  title: article.value?.title,
+  ogTitle: article.value?.title,
+  description: article.value?.content,
+  ogDescription: article.value?.content,
+  ogImage: article.value?.image,
+  twitterCard: "summary_large_image",
+});
 
 const loading = ref(true);
 const error = ref<string | null>(null);
@@ -232,7 +250,6 @@ const goBack = () => router.back();
 const slug = route.params.slug as string; // rename untuk kejelasan
 
 // State untuk artikel detail - ini yang akan digunakan di template
-const article = ref<CardArticle | null>(null);
 
 const trendingArticles = ref<CardArticle[]>([]);
 const relatedArticles = ref<CardArticle[]>([]);
@@ -457,12 +474,15 @@ const fetchCategories = async () => {
 
 // Processed content untuk v-html
 const processedContent = computed(() => {
-  return article.value?.content?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, '') // hapus paragraf kosong / hanya &nbsp;
-    ?.replace(/&nbsp;/g, ' ')   || "";
+  return (
+    article.value?.content
+      ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, "") // hapus paragraf kosong / hanya &nbsp;
+      ?.replace(/&nbsp;/g, " ") || ""
+  );
 });
 
 // const processedContent = computed(() => {
-//   return article.value?.content || 
+//   return article.value?.content ||
 //     ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, '') // hapus paragraf kosong / hanya &nbsp;
 //     ?.replace(/&nbsp;/g, ' ')    || "";                  // ganti &nbsp; dengan spasi biasa
 // })
@@ -538,21 +558,6 @@ const formatDate = (date: string) => {
     return date;
   }
 };
-
-useHead({
-  title: article.value?.title,
-  titleTemplate: "Artikel - %s | Trumecs.com",
-  meta: [{ name: article.value?.title, content: article.value?.content }],
-});
-
-useSeoMeta({
-  title: article.value?.title,
-  ogTitle: article.value?.title,
-  description: article.value?.content,
-  ogDescription: article.value?.content,
-  ogImage: article.value?.image,
-  twitterCard: "summary_large_image",
-});
 
 // Handle 404 - redirect or show message
 onMounted(async () => {
