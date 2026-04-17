@@ -26,7 +26,7 @@
             class="logo mb-6"
             :class="{ 'flex justify-center lg:justify-start': true }"
           >
-            <Trulink to="/">
+            <Trulink to="/" @click="handleClickLogo">
               <img
                 :src="footerLogo"
                 alt="Logo Trumecs Footer"
@@ -54,6 +54,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="text-white hover:text-orange-500 transition-colors"
+              @click="handleClickSosmed(social.name)"
             >
               <Icon :name="social.icon" class="text-2xl" />
             </a>
@@ -76,6 +77,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-white hover:text-orange-500 transition-colors"
+                  @click="handleClickWa"
                 >
                   <p class="text-base mb-0">
                     {{ contactInfo.whatsappDisplay }}
@@ -94,6 +96,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-white hover:text-orange-500 transition-colors"
+                  @click="handleClickEmail"
                 >
                   <p class="text-base mb-0">
                     {{ contactInfo.email }}
@@ -112,6 +115,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-white hover:text-orange-500 transition-colors"
+                  @click="handleClickAddress"
                 >
                   <p class="text-base mb-0">
                     {{ contactInfo.address }}
@@ -147,7 +151,11 @@
                 </Trulink>
                 {{ $t("footer.teach.contentAfter") }}
               </p>
-              <Trulink to="/" class="el-button el-button--primary">
+              <Trulink
+                to="/page"
+                class="el-button el-button--primary"
+                @click="handleButtonClickAboutTrumecs"
+              >
                 {{ $t("button.readFirst") }}
               </Trulink>
             </div>
@@ -177,6 +185,7 @@
                     type="primary"
                     native-type="submit"
                     class="rounded-none font-bold bg-[#fa8420] hover:bg-[#e6761a] border-[#fa8420] hover:border-[#e6761a]"
+                    @click="handleSubmitEmail"
                   >
                     {{ $t("button.send") }}
                   </el-button>
@@ -209,7 +218,15 @@
 
 <script lang="ts" setup>
 import { ref, computed } from "vue";
-const { $gtm } = useNuxtApp();
+const {
+  trackClickLink,
+  trackClickLinkMobile,
+  trackClickButton,
+  trackClickButtonMobile,
+} = useAnalytics();
+const config = useRuntimeConfig();
+const { higherThan } = useScreen();
+const isMobile = computed(() => !higherThan("lg"));
 
 const subscribeEmail = ref("");
 const subscribeMessage = ref("");
@@ -225,44 +242,38 @@ const socialMedia = [
   {
     name: "linkedin",
     icon: "mdi:linkedin",
-    url: "https://www.linkedin.com/company/trumecs",
+    url: `${config.public.sosmed.linkedIn}`,
   },
   {
     name: "instagram",
     icon: "mdi:instagram",
-    url: "https://www.instagram.com/trumecs",
+    url: `${config.public.sosmed.instagram}`,
   },
   {
     name: "facebook",
     icon: "mdi:facebook",
-    url: "https://www.facebook.com/trumecsid",
+    url: `${config.public.sosmed.facebook}`,
   },
-  { name: "twitter", icon: "mdi:twitter", url: "https://twitter.com/trumecs" },
+  {
+    name: "twitter",
+    icon: "mdi:twitter",
+    url: `${config.public.sosmed.twitter}`,
+  },
   {
     name: "youtube",
     icon: "mdi:youtube",
-    url: "https://www.youtube.com/@trumecs",
+    url: `${config.public.sosmed.youtube}`,
   },
 ];
 
 // Contact Info
 const contactInfo = {
-  whatsapp: "+6285176912338",
-  whatsappDisplay: "+62851-7691-2338",
-  email: "info@trumecs.com",
-  address:
-    "No. B, Jl. Pintu Air Raya No.31, RT.13/RW.8, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710",
-  mapUrl: "https://maps.app.goo.gl/XF8berfSdGwtQ4qv9",
+  whatsapp: `${config.public.info.phone}`,
+  whatsappDisplay: `${config.public.info.phone}`,
+  email: `${config.public.info.email}`,
+  address: `${config.public.info.address}`,
+  mapUrl: `${config.public.info.maps}`,
 };
-
-const { $gtmPush } = useNuxtApp();
-
-function trackClick() {
-  $gtmPush({
-    event: "button_click",
-    label: "register",
-  });
-}
 
 // Methods
 const handleSubscribe = async () => {
@@ -292,6 +303,62 @@ const handleSubscribe = async () => {
   } catch (error) {
     subscribeMessage.value = "Gagal berlangganan. Silakan coba lagi.";
     subscribeSuccess.value = false;
+  }
+};
+
+const handleClickLogo = () => {
+  if (isMobile.value) {
+    trackClickLinkMobile("Logo Footer");
+  } else {
+    trackClickLink("Logo Footer");
+  }
+};
+
+const handleClickSosmed = (name: String) => {
+  if (isMobile.value) {
+    trackClickLinkMobile("Sosmed Footer : " + name);
+  } else {
+    trackClickLink("Sosmed Footer : " + name);
+  }
+};
+
+const handleClickWa = () => {
+  if (isMobile.value) {
+    trackClickLinkMobile("Wa Footer");
+  } else {
+    trackClickLink("Wa Footer");
+  }
+};
+
+const handleClickEmail = () => {
+  if (isMobile.value) {
+    trackClickLinkMobile("Email Footer");
+  } else {
+    trackClickLink("Email Footer");
+  }
+};
+
+const handleClickAddress = () => {
+  if (isMobile.value) {
+    trackClickLinkMobile("Address Footer");
+  } else {
+    trackClickLink("Address Footer");
+  }
+};
+
+const handleButtonClickAboutTrumecs = () => {
+  if (isMobile.value) {
+    trackClickButtonMobile("Tentang Trumecs Footer");
+  } else {
+    trackClickButton("Tentang Trumecs Footer");
+  }
+};
+
+const handleSubmitEmail = () => {
+  if (isMobile.value) {
+    trackClickButtonMobile("Email Submit Footer");
+  } else {
+    trackClickButton("Email Submit Footer");
   }
 };
 </script>

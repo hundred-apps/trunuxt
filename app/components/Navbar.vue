@@ -29,7 +29,7 @@
           <Icon name="material-symbols:search" class="text-xl text-gray-700" />
         </button>
 
-        <Trulink to="/" class="relative p-2">
+        <!-- <Trulink to="/" class="relative p-2">
           <span
             v-if="cartCount > 0"
             class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
@@ -40,7 +40,7 @@
             name="material-symbols:notifications-outline"
             class="text-xl text-gray-700"
           />
-        </Trulink>
+        </Trulink> -->
       </div>
     </div>
 
@@ -94,6 +94,7 @@
                 <Trulink
                   to="/bulk"
                   class="el-button el-button--primary w-full py-2 flex items-center justify-center"
+                  @click="handleBulk"
                 >
                   Infokan Kebutuhanmu
                 </Trulink>
@@ -110,7 +111,7 @@
                 <SwitcherLang /> -->
 
                 <!-- Cart -->
-                <Trulink to="/" class="relative">
+                <!-- <Trulink to="/" class="relative">
                   <span
                     v-if="cartCount > 0"
                     class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
@@ -121,12 +122,12 @@
                     name="material-symbols:shopping-cart"
                     class="text-xl text-gray-700 hover:text-gray-900"
                   />
-                </Trulink>
+                </Trulink> -->
 
                 <!-- User Menu -->
                 <template v-if="isLoggedIn">
                   <!-- Notification -->
-                  <Trulink to="/" class="relative">
+                  <!-- <Trulink to="/" class="relative">
                     <span
                       v-if="unreadNotifications > 0"
                       class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
@@ -140,7 +141,7 @@
                   </Trulink>
 
                   <!-- Chat -->
-                  <Trulink to="/" class="relative">
+                  <!-- <Trulink to="/" class="relative">
                     <span
                       v-if="unreadChats > 0"
                       class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
@@ -151,7 +152,8 @@
                       name="material-symbols:chat"
                       class="text-xl text-gray-700 hover:text-gray-900"
                     />
-                  </Trulink>
+                  </Trulink> -->
+                  -->
 
                   <!-- User Dropdown -->
                   <el-dropdown
@@ -213,8 +215,9 @@
                 </template>
                 <template v-else>
                   <Trulink
-                    to="/"
+                    to="/member/login"
                     class="el-button el-button--outline-primary el-button--small px-4"
+                    @click="handleLogin"
                   >
                     Daftar / Masuk
                   </Trulink>
@@ -325,12 +328,15 @@
           <el-collapse>
             <el-collapse-item title="Category" name="1" class="text-xl">
               <el-collapse>
-                <el-collapse-item title="Unit" name="1" class="text-xl">
+                <el-collapse-item
+                  v-for="category in products"
+                  :title="category.name"
+                >
                   <Trulink
                     v-for="item in mobileMenuItems"
                     :key="item.to"
                     :to="item.to"
-                    class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100 bg-gray-50"
+                    class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100"
                     @click="showMobileMenu = false"
                   >
                     <span>{{ item.text }}</span>
@@ -349,7 +355,7 @@
             v-for="item in mobileMenuItems"
             :key="item.to"
             :to="item.to"
-            class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 bg-gray-50 border-gray-200 hover:bg-gray-100"
+            class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100"
             @click="showMobileMenu = false"
           >
             <span>{{ item.text }}</span>
@@ -365,9 +371,9 @@
         <!-- Bottom Actions -->
         <div class="border-t border-gray-200">
           <Trulink
-            to="/"
+            to="/bulk"
             class="el-button el-button--primary w-full mb-3"
-            @click="showMobileMenu = false"
+            @click="handleBulkMobile"
           >
             Infokan Kebutuhanmu
           </Trulink>
@@ -407,7 +413,12 @@ import { useRoute, useRouter } from "vue-router";
 import { ElMessageBox } from "element-plus";
 import type { CollapseModelValue } from "element-plus";
 import type { ProductCategory } from "~/types/category";
-const { trackClick } = useAnalytics();
+const {
+  trackClickLink,
+  trackClickLinkMobile,
+  trackClickButton,
+  trackClickButtonMobile,
+} = useAnalytics();
 
 const products = ref<ProductCategory[]>([]);
 const activeIndex = ref("2");
@@ -492,7 +503,7 @@ const mobileMenuItems = computed(() => [
 // Methods
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
-    trackClick("Cari : " + searchQuery.value.trim());
+    trackClickButton("Cari : " + searchQuery.value.trim());
     window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
       searchQuery.value
     )}`;
@@ -502,11 +513,19 @@ const handleSearch = () => {
 const handleMobileSearch = () => {
   if (mobileSearchQuery.value.trim()) {
     showMobileSearch.value = false;
-
+    trackClickButtonMobile("Cari : " + mobileSearchQuery.value.trim());
     window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
       mobileSearchQuery.value
     )}`;
   }
+};
+
+const handleBulk = () => {
+  trackClickButton("Button 'Info Kebutuhan'");
+};
+
+const handleBulkMobile = () => {
+  trackClickButtonMobile("Button 'Info Kebutuhan'");
 };
 
 const fetchCategories = async () => {

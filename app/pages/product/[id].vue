@@ -225,6 +225,7 @@ import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory } from "~/types/category";
 const article = ref<CardArticle | null>(null);
 
+console.log(article.value?.content);
 useHead({
   title: article.value?.title,
   titleTemplate: "Artikel - %s | Trumecs.com",
@@ -247,7 +248,7 @@ const route = useRoute();
 const router = useRouter();
 const { t } = useI18n();
 const goBack = () => router.back();
-const slug = route.params.slug as string; // rename untuk kejelasan
+const name = route.params.name as string; // rename untuk kejelasan
 
 // State untuk artikel detail - ini yang akan digunakan di template
 
@@ -318,8 +319,8 @@ const fetchRelatedArticles = async () => {
   try {
     // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
     const response = await useFetchApi<BaseResponse<Article>>(
-      `article-read/${slug}`,
-      `article-trending-${slug}`,
+      `article-read/${name}`,
+      `article-trending-${name}`,
       "get",
       null
     );
@@ -355,8 +356,8 @@ const fetchDetailArticle = async () => {
   loading.value = true;
   try {
     const response = await useFetchApi<BaseResponse<Article>>(
-      `article-read/${slug}`,
-      `article-read-${slug}`,
+      `article-read/${name}`,
+      `article-read-${name}`,
       "get",
       null
     );
@@ -473,7 +474,6 @@ const fetchCategories = async () => {
 };
 
 // Processed content untuk v-html
-
 const processedContent = computed(() => {
   return (
     article.value?.content
@@ -481,6 +481,13 @@ const processedContent = computed(() => {
       ?.replace(/&nbsp;/g, " ") || ""
   );
 });
+
+// const processedContent = computed(() => {
+//   return article.value?.content ||
+//     ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, '') // hapus paragraf kosong / hanya &nbsp;
+//     ?.replace(/&nbsp;/g, ' ')    || "";                  // ganti &nbsp; dengan spasi biasa
+// })
+
 const shareButtons = [
   {
     name: "facebook",
@@ -562,12 +569,12 @@ onMounted(async () => {
   setRandomAds();
 });
 
-// Watch for route changes (jika slug berubah)
+// Watch for route changes (jika name berubah)
 watch(
-  () => route.params.slug,
-  (newSlug, oldSlug) => {
-    if (newSlug !== oldSlug) {
-      slug = newSlug as string;
+  () => route.params.name,
+  (newname, oldname) => {
+    if (newname !== oldname) {
+      name = newname as string;
       fetchDetailArticle();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

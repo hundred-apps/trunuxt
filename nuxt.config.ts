@@ -30,6 +30,20 @@ export default defineNuxtConfig({
       baseImageArticle: process.env.NUXT_API_BASEIMGARTICLE,
       baseCat: process.env.NUXT_API_CATC,
       GoogleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
+      info: {
+        phone: "+6285176912338",
+        email: "info@trumecs.com",
+        address:
+          "No. B, Jl. Pintu Air Raya No.31, RT.13/RW.8, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710",
+        maps: "https://maps.app.goo.gl/XF8berfSdGwtQ4qv9",
+      },
+      sosmed: {
+        linkedIn: "https://www.linkedin.com/company/trumecs",
+        instagram: "https://www.instagram.com/trumecs",
+        facebook: "https://www.facebook.com/trumecsid",
+        twitter: "https://twitter.com/trumecs",
+        youtube: "https://www.youtube.com/@trumecs",
+      },
     },
   },
   modules: [
@@ -46,10 +60,10 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
   ],
 
-css: [
-  "element-plus/theme-chalk/dark/css-vars.css",
-  "~/assets/css/article.css",  // pakai ~ bukan ./
-],
+  css: [
+    "element-plus/theme-chalk/dark/css-vars.css",
+    "~/assets/css/article.css", // pakai ~ bukan ./
+  ],
   // Auto import components
   components: true,
 

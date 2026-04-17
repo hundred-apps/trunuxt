@@ -16,12 +16,20 @@ export const useAnalytics = () => {
     trackEvent("sign_up", { method });
   };
 
-  const trackClick = (label: string) => {
-    trackEvent("click", { label });
+  const trackClickLink = (value: string) => {
+    trackEvent("click_link", { value });
   };
 
-  const trackClickButton = (label: string) => {
-    trackEvent("button_click", { label });
+  const trackClickLinkMobile = (value: string) => {
+    trackEvent("click_link_mobile", { value });
+  };
+
+  const trackClickButton = (value: string) => {
+    trackEvent("button_click", { value });
+  };
+
+  const trackClickButtonMobile = (value: string) => {
+    trackEvent("button_click_mobile", { value });
   };
 
   const trackClickCategory = (
@@ -36,8 +44,10 @@ export const useAnalytics = () => {
     trackEvent,
     trackLogin,
     trackRegister,
-    trackClick,
+    trackClickLinkMobile,
+    trackClickLink,
     trackClickButton,
+    trackClickButtonMobile,
     trackClickCategory,
   };
 };
