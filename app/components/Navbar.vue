@@ -326,45 +326,28 @@
         <!-- Menu Items -->
         <div class="flex-grow overflow-y-auto">
           <el-collapse>
-            <el-collapse-item title="Category" name="1" class="text-xl">
-              <el-collapse>
-                <el-collapse-item
-                  v-for="category in products"
-                  :title="category.name"
-                >
-                  <Trulink
-                    v-for="item in mobileMenuItems"
-                    :key="item.to"
-                    :to="item.to"
-                    class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100"
-                    @click="showMobileMenu = false"
-                  >
-                    <span>{{ item.text }}</span>
-                    <span
-                      v-if="item.badge"
-                      class="ml-auto bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center"
-                    >
-                      {{ item.badge }}
-                    </span>
-                  </Trulink>
-                </el-collapse-item>
-              </el-collapse>
+            <el-collapse-item title="Category" name="1" class="text-xl p-b-0">
+              <template
+                v-for="(category, categoryIdx) in products"
+                :key="category.id"
+              >
+                <CategoryMobileCategoryMenuItem
+                  :item="category"
+                  :level="0"
+                  @close-mobile-menu="showMobileMenu = false"
+                />
+              </template>
             </el-collapse-item>
           </el-collapse>
           <Trulink
             v-for="item in mobileMenuItems"
             :key="item.to"
             :to="item.to"
+            color="black"
             class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100"
             @click="showMobileMenu = false"
           >
             <span>{{ item.text }}</span>
-            <span
-              v-if="item.badge"
-              class="ml-auto bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center"
-            >
-              {{ item.badge }}
-            </span>
           </Trulink>
         </div>
 
@@ -613,11 +596,8 @@ watch(showMobileSearch, (val) => {
   min-height: 64px;
 }
 
-.el-button--primary {
-  --el-button-bg-color: #fa8420;
-  --el-button-border-color: #fa8420;
-  --el-button-hover-bg-color: #e6761a;
-  --el-button-hover-border-color: #e6761a;
+.el-collapse-item__content {
+  padding-bottom: 0px !important;
 }
 
 .el-drawer__body {

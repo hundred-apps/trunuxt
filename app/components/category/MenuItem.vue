@@ -35,10 +35,7 @@ const props = defineProps({
     type: Object as PropType<CategoryChild | ProductCategory>,
     required: true,
   },
-  parentIndex: {
-    type: String,
-    default: "",
-  },
+
   level: {
     type: Number,
     default: 0,
@@ -46,6 +43,10 @@ const props = defineProps({
   parents: {
     type: Array as PropType<any[]>,
     default: () => [],
+  },
+  parentIndex: {
+    type: String,
+    default: "",
   },
 });
 
