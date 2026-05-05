@@ -3,13 +3,13 @@
     <!-- Breadcrumb -->
 
     <!-- Article Not Found -->
-    <div v-if="!product" class="container py-12 text-center">
+    <div v-if="!promo" class="container py-12 text-center">
       <Icon
         name="svg-spinners:90-ring-with-bg"
         class="text-6xl text-orange-500 mb-4 animate-spin"
       />
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">Memuat Produk...</h2>
-      <p class="text-gray-500 mb-6">Mohon tunggu, Produk sedang dimuat.</p>
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">Memuat Promo...</h2>
+      <p class="text-gray-500 mb-6">Mohon tunggu, Promo sedang dimuat.</p>
     </div>
 
     <!-- Main Content - Only show if article exists -->
@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import type { Product } from "~/types/product";
+import type { Promo } from "~/types/promo";
 
 const loading = ref(true);
 const error = ref<string | null>(null);
@@ -47,51 +47,48 @@ const id = route.params.id as string; // rename untuk kejelasan
 // Breadcrumb - buat menjadi computed agar bisa update otomatis
 const detailProductBreadcrumb = computed(() => [
   { text: "Home", to: "/" },
-  { text: "Category", to: "/" },
-  { text: "SubCategory", to: "/" },
-  { text: "SubSubCategory/Brand", to: "/" },
-  { text: "Brand/Name Product", to: "/" },
+  { text: "Promo", to: "/" },
 ]);
 
 // Fetch detail artikel
 
-const fetchDetailProduct = async () => {
-  loading.value = true;
-  try {
-    const response = await useFetchApi<BaseResponse<Product>>(
-      `product/${id}`,
-      `product-${id}`,
-      "get",
-      null
-    );
+// const fetchDetailProduct = async () => {
+//   loading.value = true;
+//   try {
+//     const response = await useFetchApi<BaseResponse<Product>>(
+//       `product/${id}`,
+//       `product-${id}`,
+//       "get",
+//       null
+//     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload;
-      product.value = apiData.value;
-    }
-  } catch (error) {
-    console.error("Error fetching product:", error);
-    ElMessage.error("Gagal memuat data artikel");
-    product.value = null;
-  } finally {
-    loading.value = false;
-  }
-};
+//     if (response.status.value === "success") {
+//       const apiData = response.data.value!.payload;
+//       product.value = apiData.value;
+//     }
+//   } catch (error) {
+//     console.error("Error fetching product:", error);
+//     ElMessage.error("Gagal memuat data artikel");
+//     product.value = null;
+//   } finally {
+//     loading.value = false;
+//   }
+// };
 
-const product = ref<Product | null>(null);
-console.log("data Product :", product);
+const promo = ref<Promo | null>(null);
+console.log("data Product :", promo);
 useHead({
-  title: product.value?.tittle,
-  titleTemplate: "Produk - %s | Trumecs.com",
-  meta: [{ name: product.value?.tittle, content: product.value?.description }],
+  title: promo.value?.tittle,
+  titleTemplate: "Promo | Trumecs.com",
+  meta: [{ name: promo.value?.tittle, content: promo.value?.description }],
 });
 
 useSeoMeta({
-  title: product.value?.tittle,
-  ogTitle: product.value?.tittle,
-  description: product.value?.description,
-  ogDescription: product.value?.description,
-  ogImage: product.value?.img,
+  title: promo.value?.tittle,
+  ogTitle: promo.value?.tittle,
+  description: promo.value?.description,
+  ogDescription: promo.value?.description,
+  ogImage: promo.value?.img,
   twitterCard: "summary_large_image",
 });
 
@@ -125,7 +122,7 @@ const shareButtons = [
 // Share article function
 const shareArticle = (share: any) => {
   const url = encodeURIComponent(window.location.href);
-  const title = encodeURIComponent(product.value?.tittle || "");
+  const title = encodeURIComponent(promo.value?.tittle || "");
 
   let shareUrl = "";
 
@@ -154,6 +151,6 @@ const shareArticle = (share: any) => {
 
 // Handle 404 - redirect or show message
 onMounted(async () => {
-  await fetchDetailProduct();
+  //   await fetchDetailProduct();
 });
 </script>

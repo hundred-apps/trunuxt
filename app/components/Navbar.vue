@@ -253,11 +253,19 @@
               <span>Kategori</span>
             </button> -->
             <div class="flex gap-2">
-              <Trulink to="/article" class="transition-colors text-gray-700">
+              <Trulink
+                to="/article"
+                class="transition-colors text-gray-700"
+                @click="handleClickLinkArticle"
+              >
                 Artikel
               </Trulink>
 
-              <Trulink to="/" class="transition-colors text-gray-700">
+              <Trulink
+                to="/promo"
+                class="transition-colors text-gray-700"
+                @click="handleClickLinkPromo"
+              >
                 Promo
               </Trulink>
             </div>
@@ -343,9 +351,9 @@
             v-for="item in mobileMenuItems"
             :key="item.to"
             :to="item.to"
+            @click="handleClickMenuMobile(item.text)"
             color="black"
             class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100"
-            @click="showMobileMenu = false"
           >
             <span>{{ item.text }}</span>
           </Trulink>
@@ -509,6 +517,18 @@ const handleBulk = () => {
 
 const handleBulkMobile = () => {
   trackClickButtonMobile("Button 'Info Kebutuhan'");
+};
+
+const handleClickLinkArticle = () => {
+  trackClickLink("Link 'Article'");
+};
+const handleClickLinkPromo = () => {
+  trackClickLink("Link 'Promo'");
+};
+
+const handleClickMenuMobile = (name: String) => {
+  trackClickLinkMobile("Link Mobile Menu " + name);
+  showMobileMenu.value = false;
 };
 
 const fetchCategories = async () => {
