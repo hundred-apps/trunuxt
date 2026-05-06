@@ -152,7 +152,7 @@
                 {{ $t("footer.teach.contentAfter") }}
               </p>
               <Trulink
-                to="/page"
+                :to="urlTrumecs + '/page'"
                 class="el-button el-button--primary"
                 @click="handleButtonClickAboutTrumecs"
               >
@@ -225,6 +225,7 @@ const {
   trackClickButtonMobile,
 } = useAnalytics();
 const config = useRuntimeConfig();
+const urlTrumecs = config.public.info.linkTrumecsPhp;
 const { higherThan } = useScreen();
 const isMobile = computed(() => !higherThan("lg"));
 

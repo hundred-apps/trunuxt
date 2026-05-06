@@ -215,7 +215,7 @@
                 </template>
                 <template v-else>
                   <Trulink
-                    to="/member/login"
+                    :to="urlTrumecs + '/member/login'"
                     class="el-button el-button--outline-primary el-button--small px-4"
                     @click="handleLogin"
                   >
@@ -262,7 +262,7 @@
               </Trulink>
 
               <Trulink
-                to="/promo"
+                :to="urlTrumecs + '/promo'"
                 class="transition-colors text-gray-700"
                 @click="handleClickLinkPromo"
               >
@@ -411,6 +411,10 @@ const {
   trackClickButtonMobile,
 } = useAnalytics();
 
+const config = useRuntimeConfig();
+
+const urlTrumecs = config.public.info.linkTrumecsPhp;
+
 const products = ref<ProductCategory[]>([]);
 const activeIndex = ref("2");
 const handleSelect = (key: string, keyPath: string[]) => {
@@ -448,14 +452,14 @@ const unreadChats = computed(() => 2);
 
 // Mobile menu items
 const mobileMenuItems = computed(() => [
-  { to: "/jasa", text: "Jasa" },
-  { to: "/rental", text: "Rental" },
+  { to: urlTrumecs + "/jasa", text: "Jasa" },
+  { to: urlTrumecs + "/rental", text: "Rental" },
   { to: "/article", text: "Artikel" },
-  { to: "/promo", text: "Promo" },
-  { to: "/bulk", text: "RFQ" },
-  { to: "/syarat", text: "Syarat & Ketentuan" },
-  { to: "/retur", text: "Kebijakan Retur" },
-  { to: "/faq", text: "FAQ" },
+  { to: urlTrumecs + "/promo", text: "Promo" },
+  { to: urlTrumecs + "/bulk", text: "RFQ" },
+  { to: urlTrumecs + "/syarat", text: "Syarat & Ketentuan" },
+  { to: urlTrumecs + "/retur", text: "Kebijakan Retur" },
+  { to: urlTrumecs + "/faq", text: "FAQ" },
   ...(isLoggedIn.value
     ? [
         {
@@ -476,15 +480,19 @@ const mobileMenuItems = computed(() => [
           icon: "material-symbols:storefront",
         },
         {
-          to: "/member/bulk",
+          to: urlTrumecs + "/member/bulk",
           text: "RFQ Saya",
           icon: "material-symbols:description",
         },
-        { to: "/member", text: "Akun Saya", icon: "material-symbols:person" },
+        {
+          to: urlTrumecs + urlTrumecs + "/member",
+          text: "Akun Saya",
+          icon: "material-symbols:person",
+        },
       ]
     : [
         {
-          to: "/member/login",
+          to: urlTrumecs + "/member/login",
           text: "Login / Register",
           icon: "material-symbols:login",
         },

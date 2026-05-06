@@ -29,13 +29,14 @@ export default defineNuxtConfig({
       baseURL: process.env.NUXT_API_URL,
       baseImageArticle: process.env.NUXT_API_BASEIMGARTICLE,
       baseCat: process.env.NUXT_API_CATC,
-      GoogleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
+      googleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
       info: {
-        phone: "+6285176912338",
+        phone: "6285176912338",
         email: "info@trumecs.com",
         address:
           "No. B, Jl. Pintu Air Raya No.31, RT.13/RW.8, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710",
         maps: "https://maps.app.goo.gl/XF8berfSdGwtQ4qv9",
+        linkTrumecsPhp: "https://www.trumecs.com",
       },
       sosmed: {
         linkedIn: "https://www.linkedin.com/company/trumecs",
