@@ -92,7 +92,7 @@
 
               <div class="flex-shrink-0 min-w-[160px] hidden xl:block">
                 <Trulink
-                  to="/bulk"
+                  :to="urlTrumecs + '/bulk'"
                   class="el-button el-button--primary w-full py-2 flex items-center justify-center"
                   @click="handleBulk"
                 >
@@ -362,7 +362,7 @@
         <!-- Bottom Actions -->
         <div class="border-t border-gray-200">
           <Trulink
-            to="/bulk"
+            :to="urlTrumecs + '/bulk'"
             class="el-button el-button--primary w-full mb-3"
             @click="handleBulkMobile"
           >
