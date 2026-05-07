@@ -308,7 +308,7 @@
         <!-- User Info -->
         <div class="flex justify-between items-center">
           <div class="flex-shrink-0">
-            <Trulink to="/">
+            <Trulink :to="urlTrumecs">
               <img
                 src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
