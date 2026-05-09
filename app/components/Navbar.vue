@@ -15,7 +15,7 @@
           <Icon name="material-symbols:menu" class="text-2xl text-gray-700" />
         </button>
 
-        <Trulink to="/">
+        <Trulink :to="urlTrumecs">
           <img
             src="https://migration.trumecs.com/logo/light.png"
             alt="logo trumecs"
