@@ -14,28 +14,29 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      script: [
-        {
-          src: "https://www.google-analytics.com/analytics.js",
-          async: true,
-        },
-        {
-          src: "https://www.googletagmanager.com/gtm.js?id=GTM-TVC4G9C",
-          async: true,
-        },
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=G-HC9L76FPRT&cx=c&gtm=4e6541",
-          async: true,
-        },
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=AW-789013555",
-          async: true,
-        },
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=UA-70444204-1",
-          async: true,
-        },
-      ],
+      // script: [
+      //   {
+      //     type: "text/javascript",
+      //     src: "https://www.google-analytics.com/analytics.js",
+      //     async: true,
+      //   },
+      //   {
+      //     src: "https://www.googletagmanager.com/gtm.js?id=GTM-TVC4G9C",
+      //     async: true,
+      //   },
+      //   {
+      //     src: "https://www.googletagmanager.com/gtag/js?id=G-HC9L76FPRT&cx=c&gtm=4e6541",
+      //     async: true,
+      //   },
+      //   {
+      //     src: "https://www.googletagmanager.com/gtag/js?id=AW-789013555",
+      //     async: true,
+      //   },
+      //   {
+      //     src: "https://www.googletagmanager.com/gtag/js?id=UA-70444204-1",
+      //     async: true,
+      //   },
+      // ],
     },
     baseURL: "/",
     cdnURL: "/",
@@ -75,6 +76,7 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     "@element-plus/nuxt",
     "nuxt-schema-org",
+    "nuxt-gtag",
   ],
 
   css: [
@@ -85,6 +87,10 @@ export default defineNuxtConfig({
   components: true,
 
   elementPlus: {},
+  gtag: {
+    id: process.env.NUXT_PUBLIC_GTAG_ID,
+    loadingStrategy: "async",
+  },
 
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],

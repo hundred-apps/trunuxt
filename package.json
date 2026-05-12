@@ -31,6 +31,7 @@
     "nuxt-anchorscroll": "^1.0.5",
     "nuxt-aos": "^1.2.5",
     "nuxt-color-picker": "^1.2.8",
+    "nuxt-gtag": "^4.1.0",
     "nuxt-headlessui": "^1.2.2",
     "nuxt-lottie": "^1.0.8",
     "nuxt-mail": "^8.0.2",
