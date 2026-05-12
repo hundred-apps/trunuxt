@@ -1,15 +1,10 @@
 <template>
   <div class="article-page">
-    <!-- Hero Section dengan Featured Articles -->
     <div class="container">
-      <!-- Desktop Featured Layout (lg:grid) -->
       <div class="hidden lg:grid lg:grid-cols-12 gap-6 my-8">
-        <!-- Main Featured Article (col-span-6) -->
         <div class="lg:col-span-6">
           <CardsArticleListFeaturedmain :article="mainFeaturedArticle" />
         </div>
-
-        <!-- Small Featured Articles Grid (col-span-6) -->
         <div class="lg:col-span-6">
           <CardsArticleListFeaturedsub
             :articles="subFeaturedArticles"
@@ -202,25 +197,25 @@ const RequestForm = {
   template: `
     <form @submit.prevent="handleSubmit" class="space-y-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <el-input 
-          v-model="form.nama" 
+        <el-input
+          v-model="form.nama"
           placeholder="Nama Lengkap"
           size="large"
         />
-        <el-input 
-          v-model="form.email" 
+        <el-input
+          v-model="form.email"
           placeholder="Email"
           size="large"
         />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <el-input 
-          v-model="form.perusahaan" 
+        <el-input
+          v-model="form.perusahaan"
           placeholder="Nama Perusahaan"
           size="large"
         />
-        <el-input 
-          v-model="form.telepon" 
+        <el-input
+          v-model="form.telepon"
           placeholder="Nomor Telepon"
           size="large"
         />
@@ -232,8 +227,8 @@ const RequestForm = {
         placeholder="Deskripsikan kebutuhan Anda..."
       />
       <div class="text-center">
-        <el-button 
-          type="primary" 
+        <el-button
+          type="primary"
           native-type="submit"
           size="large"
           :loading="loading"
@@ -286,6 +281,7 @@ const dataArticle = ref<CardArticle[]>([]);
 const trendingArticle = ref<CardArticle[]>([]);
 
 const mainFeaturedArticle = computed(() => {
+  console.log("asrticle feat", featuredArticles.value[0]);
   return featuredArticles.value[0] || null;
 });
 
@@ -383,6 +379,7 @@ const fetchFeaturedArticles = async () => {
 
       // Transform data featured
       featuredArticles.value = apiData.map((item: Article) => {
+        console.log("created_by", item.created_by);
         return {
           id: item.id,
           url: item.url || `article-${item.id}`,
@@ -405,13 +402,9 @@ const fetchFeaturedArticles = async () => {
           author: item.created_by
             ? {
                 name: `${item.created_by}`,
-                avatar: "https://via.placeholder.com/40x40?text=User",
-                role: "Contributor",
               }
             : {
                 name: "Anonymous",
-                avatar: "https://via.placeholder.com/40x40?text=User",
-                role: "Guest",
               },
         };
       });

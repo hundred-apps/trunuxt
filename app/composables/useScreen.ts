@@ -37,17 +37,35 @@ export const useScreen = () => {
 
   const higherThan = (size: ScreenSize, defScreenSize?: ScreenSize) => {
     const { sm, md, lg, xl } = defaultScreenConfig;
-    const width = defaultScreenConfig[defScreenSize || current.value];
-    if (size === "sm") return width >= Number(sm);
-    if (size === "md") return width >= Number(md);
-    if (size === "lg") return width >= Number(lg);
-    if (size === "xl") return width >= Number(xl);
+    const currentWidth = defScreenSize
+      ? defaultScreenConfig[defScreenSize]
+      : screenSize.width;
+
+    if (size === "sm") return currentWidth >= Number(sm);
+    if (size === "md") return currentWidth >= Number(md);
+    if (size === "lg") return currentWidth >= Number(lg);
+    if (size === "xl") return currentWidth >= Number(xl);
+    return false;
+  };
+
+  const lowerThan = (size: ScreenSize, defScreenSize?: ScreenSize) => {
+    const { sm, md, lg, xl } = defaultScreenConfig;
+    const currentWidth = defScreenSize
+      ? defaultScreenConfig[defScreenSize]
+      : screenSize.width;
+
+    if (size === "sm") return currentWidth < Number(sm);
+    if (size === "md") return currentWidth < Number(md);
+    if (size === "lg") return currentWidth < Number(lg);
+    if (size === "xl") return currentWidth < Number(xl);
     return false;
   };
 
   onMounted(() => {
     if (typeof window === "undefined") return;
     window.addEventListener("resize", onWindowResize);
+    screenSize.width = window.innerWidth;
+    screenSize.height = window.innerHeight;
     current.value = getSize(window.innerWidth);
   });
 
@@ -61,5 +79,6 @@ export const useScreen = () => {
     screenSize,
     current,
     higherThan,
+    lowerThan,
   };
 };
