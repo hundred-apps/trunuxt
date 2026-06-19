@@ -206,61 +206,21 @@ const fetchDetailProduct = async () => {
 
 const product = ref<Product | null>(null);
 
-// SEO
-useHead({
-  title: product.value?.tittle,
-  titleTemplate: "%s | Trumecs.com",
-  meta: [
-    {
-      name: "description",
-      content: product.value?.description || "Produk berkualitas dari Trumecs",
-    },
-    {
-      name: "keywords",
-      content: `${product.value?.tittle}, ${product.value?.brand}, Trumecs`,
-    },
-  ],
-});
+const generateProductSchema = (productData: Product | null) => {
+  if (!productData) return null;
 
-useSeoMeta({
-  title: product.value?.tittle,
-  ogTitle: product.value?.tittle,
-  description: product.value?.description,
-  ogDescription: product.value?.description,
-  ogImage: product.value?.img
-    ? `/public/image/product/${product.value.img}`
-    : undefined,
-  ogUrl: typeof window !== "undefined" ? window.location.href : undefined,
-  ogType: "product",
-  twitterCard: "summary_large_image",
-  twitterTitle: product.value?.tittle,
-  twitterDescription: product.value?.description,
-  twitterImage: product.value?.img
-    ? `/public/image/product/${product.value.img}`
-    : undefined,
-});
+  const p = productData;
+  const baseUrl = "https://www.trumecs.com";
+  const productUrl = `${baseUrl}/product/${p.id}`;
 
-const generateProductSchema = () => {
-  if (!product.value) return null;
-
-  const p = product.value;
-  const baseUrl =
-    typeof window !== "undefined"
-      ? window.location.origin
-      : "https://trumecs.com";
-  const productUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : `${baseUrl}/product/${p.id}`;
-
-  // Harga
+  // Price
   const price =
     Number(p.price_promo) > 0 ? Number(p.price_promo) : Number(p.price);
   const originalPrice = Number(p.price);
   const isOnSale =
     Number(p.price_promo) > 0 && Number(p.price_promo) < Number(p.price);
 
-  // Gambar
+  // Images
   const images = [];
   if (p.img) {
     images.push(`${baseUrl}/public/image/product/${p.img}`);
@@ -289,8 +249,8 @@ const generateProductSchema = () => {
       ? "https://schema.org/UsedCondition"
       : "https://schema.org/NewCondition";
 
-  // Build Product Schema
-  const schema = {
+  // Build schema
+  return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.tittle,
@@ -335,94 +295,51 @@ const generateProductSchema = () => {
         name: "Weight",
         value: p.weight ? `${p.weight} kg` : undefined,
       },
-      {
-        "@type": "PropertyValue",
-        name: "MOQ",
-        value: p.moq ? `${p.moq} ${p.unit || "Unit"}` : undefined,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Warranty",
-        value: p.warranty || undefined,
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Availability At",
-        value: p.availability_at || "Indonesia",
-      },
     ].filter((prop) => prop.value !== undefined),
   };
-
-  // Add dimensions
-  if (p.sx && p.sy && p.sz) {
-    schema.additionalProperty.push({
-      "@type": "PropertyValue",
-      name: "Dimensions",
-      value: `${p.sx} × ${p.sy} × ${p.sz} m`,
-    });
-  }
-
-  // Add serial number for heavy equipment
-  if (p.physicnumber) {
-    schema.additionalProperty.push({
-      "@type": "PropertyValue",
-      name: "Serial Number",
-      value: p.physicnumber,
-    });
-  }
-
-  // Add specs
-  if (p.specs && p.specs.length > 0) {
-    p.specs.forEach((spec) => {
-      if (spec.name && spec.value) {
-        schema.additionalProperty.push({
-          "@type": "PropertyValue",
-          name: spec.name,
-          value: spec.value,
-        });
-      }
-    });
-  }
-
-  // If on sale
-  if (isOnSale) {
-    schema.offers.price = price.toString();
-    schema.offers.priceCurrency = "IDR";
-    schema.offers.priceValidUntil = new Date(
-      Date.now() + 7 * 24 * 60 * 60 * 1000
-    )
-      .toISOString()
-      .split("T")[0];
-  }
-
-  return schema;
 };
 
-// ============ Inject JSON-LD Schema ============
+// ============ GENERATE BREADCRUMB SCHEMA ============
+const generateBreadcrumbSchema = (productData: Product | null) => {
+  if (!productData) return null;
 
-// Inject Product Schema
-const productSchema = computed(() => generateProductSchema());
+  const baseUrl = "https://www.trumecs.com";
+  const items = [{ name: "Home", url: "/" }];
 
-useHead({
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify(productSchema.value, null, 2),
-    },
-  ],
-  link: [
-    {
-      rel: "canonical",
-      href: typeof window !== "undefined" ? window.location.href : undefined,
-    },
-  ],
-});
+  // Add category chain
+  if (productData.categori) {
+    const categoryChain = [];
+    let current = productData.categori;
+    const parents = [];
 
-// ============ Breadcrumb Schema ============
+    while (current) {
+      parents.unshift(current);
+      current = current.parent_categori;
+    }
 
-const breadcrumbSchema = computed(() => {
-  const items = detailProductBreadcrumb.value;
-  if (!items || items.length === 0) return null;
+    parents.forEach((parent) => {
+      categoryChain.push({
+        name: parent.name,
+        url: `/c/${parent.url}`,
+      });
+    });
+
+    items.push(...categoryChain);
+  }
+
+  // Add brand if not "other"
+  if (productData.brand && productData.brand.toLowerCase() !== "other") {
+    items.push({
+      name: productData.brand,
+      url: `/brand/${productData.brand}`,
+    });
+  }
+
+  // Add product
+  items.push({
+    name: productData.tittle,
+    url: `/product/${productData.id}`,
+  });
 
   return {
     "@context": "https://schema.org",
@@ -430,27 +347,23 @@ const breadcrumbSchema = computed(() => {
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: item.text,
-      item:
-        typeof window !== "undefined"
-          ? `${window.location.origin}${item.to}`
-          : item.to,
+      name: item.name,
+      item: `${baseUrl}${item.url}`,
     })),
   };
-});
+};
 
-// Inject Breadcrumb Schema
-useHead({
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify(breadcrumbSchema.value, null, 2),
-    },
-  ],
-});
+// ============ INJECT SCHEMA MENGGUNAKAN useHead ============
 
-// ============ Organization Schema (Optional) ============
+// Product Schema - PASTIKAN MENGGUNAKAN computed
+const productSchema = computed(() => generateProductSchema(product.value));
 
+// Breadcrumb Schema
+const breadcrumbSchema = computed(() =>
+  generateBreadcrumbSchema(product.value)
+);
+
+// Organization Schema (static)
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -470,17 +383,7 @@ const organizationSchema = {
   ],
 };
 
-useHead({
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify(organizationSchema, null, 2),
-    },
-  ],
-});
-
-// ============ Website Schema (Search Box) ============
-
+// Website Schema (static)
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -496,16 +399,115 @@ const websiteSchema = {
   },
 };
 
+// ============ INJECT ALL SCHEMAS ============
+
 useHead({
-  script: [
+  // Title - PASTIKAN MENGGUNAKAN computed
+  title: computed(() => product.value?.tittle || "Product"),
+  titleTemplate: "%s | Trumecs.com",
+
+  meta: computed(() => [
     {
+      name: "description",
+      content: product.value?.description || "Produk berkualitas dari Trumecs",
+    },
+    {
+      name: "keywords",
+      content: `${product.value?.tittle}, ${product.value?.brand}, Trumecs`,
+    },
+    { name: "robots", content: "index, follow" },
+  ]),
+
+  // JSON-LD Schemas - PASTIKAN MENGGUNAKAN computed dengan children yang benar
+  script: computed(() => {
+    const scripts = [];
+
+    // Product Schema - JANGAN GUNAKAN children="null"
+    if (productSchema.value) {
+      scripts.push({
+        type: "application/ld+json",
+        children: JSON.stringify(productSchema.value, null, 2),
+        key: "product-schema",
+        // Tambahkan hid untuk menghindari duplikasi
+        "data-hid": "product-schema",
+      });
+    }
+
+    // Breadcrumb Schema
+    if (breadcrumbSchema.value) {
+      scripts.push({
+        type: "application/ld+json",
+        children: JSON.stringify(breadcrumbSchema.value, null, 2),
+        key: "breadcrumb-schema",
+        "data-hid": "breadcrumb-schema",
+      });
+    }
+
+    // Organization Schema
+    scripts.push({
+      type: "application/ld+json",
+      children: JSON.stringify(organizationSchema, null, 2),
+      key: "organization-schema",
+      "data-hid": "organization-schema",
+    });
+
+    // Website Schema
+    scripts.push({
       type: "application/ld+json",
       children: JSON.stringify(websiteSchema, null, 2),
+      key: "website-schema",
+      "data-hid": "website-schema",
+    });
+
+    return scripts;
+  }),
+
+  // Canonical URL
+  link: computed(() => [
+    {
+      rel: "canonical",
+      href: product.value ? `/product/${product.value.id}` : undefined,
     },
-  ],
+  ]),
 });
+
+// Open Graph
+useSeoMeta({
+  title: computed(() => product.value?.tittle),
+  ogTitle: computed(() => product.value?.tittle),
+  description: computed(() => product.value?.description),
+  ogDescription: computed(() => product.value?.description),
+  ogImage: computed(() =>
+    product.value?.img
+      ? `https://www.trumecs.com/public/image/product/${product.value.img}`
+      : undefined
+  ),
+  ogUrl: computed(() =>
+    product.value
+      ? `https://www.trumecs.com/product/${product.value.id}`
+      : undefined
+  ),
+  ogType: "product",
+  ogSiteName: "Trumecs.com",
+  twitterCard: "summary_large_image",
+  twitterTitle: computed(() => product.value?.tittle),
+  twitterDescription: computed(() => product.value?.description),
+  twitterImage: computed(() =>
+    product.value?.img
+      ? `https://www.trumecs.com/public/image/product/${product.value.img}`
+      : undefined
+  ),
+});
+
+// ============ LIFECYCLE ============
 
 onMounted(async () => {
   await fetchDetailProduct();
+
+  // Debug di console
+  if (process.client) {
+    console.log("Product Schema:", productSchema.value);
+    console.log("Breadcrumb Schema:", breadcrumbSchema.value);
+  }
 });
 </script>
