@@ -210,17 +210,15 @@ const generateProductSchema = (productData: Product | null) => {
   if (!productData) return null;
 
   const p = productData;
-  const baseUrl = "https://www.trumecs.com";
+  const baseUrl = "https://migration.trumecs.com";
   const productUrl = `${baseUrl}/product/${p.id}`;
 
-  // Price
+  // Price - PASTIKAN MENGGUNAKAN NILAI YANG BENAR
   const price =
     Number(p.price_promo) > 0 ? Number(p.price_promo) : Number(p.price);
   const originalPrice = Number(p.price);
-  const isOnSale =
-    Number(p.price_promo) > 0 && Number(p.price_promo) < Number(p.price);
 
-  // Images
+  // Images - PASTIKAN URL LENGKAP
   const images = [];
   if (p.img) {
     images.push(`${baseUrl}/public/image/product/${p.img}`);
@@ -228,7 +226,7 @@ const generateProductSchema = (productData: Product | null) => {
   if (p.gallery_img && Array.isArray(p.gallery_img)) {
     p.gallery_img.forEach((item) => {
       if (item.img) {
-        images.push(`${baseUrl}/public/image/product/${item.img}`);
+        images.push(`${baseUrl}/public/image/galery/${item.img}`);
       }
     });
   }
@@ -243,13 +241,14 @@ const generateProductSchema = (productData: Product | null) => {
       ? "https://schema.org/InStock"
       : "https://schema.org/OutOfStock";
 
-  // Condition
+  // Condition - CEK PHYSICNUMBER
   const condition =
-    p.physicnumber && p.physicnumber.includes("S/N")
+    p.physicnumber &&
+    (p.physicnumber.includes("S/N") || p.physicnumber.includes("ET-"))
       ? "https://schema.org/UsedCondition"
       : "https://schema.org/NewCondition";
 
-  // Build schema
+  // SCHEMA PRODUCT YANG LENGKAP
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -299,18 +298,17 @@ const generateProductSchema = (productData: Product | null) => {
   };
 };
 
-// ============ GENERATE BREADCRUMB SCHEMA ============
+// ============ BREADCRUMB SCHEMA ============
 const generateBreadcrumbSchema = (productData: Product | null) => {
   if (!productData) return null;
 
-  const baseUrl = "https://www.trumecs.com";
+  const baseUrl = "https://migration.trumecs.com";
   const items = [{ name: "Home", url: "/" }];
 
   // Add category chain
   if (productData.categori) {
-    const categoryChain = [];
-    let current = productData.categori;
     const parents = [];
+    let current = productData.categori;
 
     while (current) {
       parents.unshift(current);
@@ -318,16 +316,14 @@ const generateBreadcrumbSchema = (productData: Product | null) => {
     }
 
     parents.forEach((parent) => {
-      categoryChain.push({
+      items.push({
         name: parent.name,
         url: `/c/${parent.url}`,
       });
     });
-
-    items.push(...categoryChain);
   }
 
-  // Add brand if not "other"
+  // Add brand
   if (productData.brand && productData.brand.toLowerCase() !== "other") {
     items.push({
       name: productData.brand,
@@ -335,7 +331,7 @@ const generateBreadcrumbSchema = (productData: Product | null) => {
     });
   }
 
-  // Add product
+  // Add product - PASTIKAN PRODUCT ADA DI AKHIR
   items.push({
     name: productData.tittle,
     url: `/product/${productData.id}`,
@@ -353,56 +349,41 @@ const generateBreadcrumbSchema = (productData: Product | null) => {
   };
 };
 
-// ============ INJECT SCHEMA MENGGUNAKAN useHead ============
+// ============ INJECT SCHEMAS ============
 
-// Product Schema - PASTIKAN MENGGUNAKAN computed
-const productSchema = computed(() => generateProductSchema(product.value));
+const productSchema = computed(() => {
+  const schema = generateProductSchema(product.value);
+  console.log("Generated Product Schema:", schema); // Debug
+  return schema;
+});
 
-// Breadcrumb Schema
 const breadcrumbSchema = computed(() =>
   generateBreadcrumbSchema(product.value)
 );
 
-// Organization Schema (static)
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Trumecs",
-  url: "https://trumecs.com",
-  logo: "https://trumecs.com/logo.png",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+62-851-7691-2338",
-    contactType: "sales",
-    availableLanguage: ["Indonesian", "English"],
+// ============ USEHEAD DENGAN CARA YANG BENAR ============
+
+// IMPORTANT: Jangan gunakan computed di dalam useHead untuk script
+// Gunakan langsung dengan ref atau watch
+
+// Buat ref untuk schema
+const productSchemaRef = ref<any>(null);
+const breadcrumbSchemaRef = ref<any>(null);
+
+// Watch product changes
+watch(
+  product,
+  (newProduct) => {
+    if (newProduct) {
+      productSchemaRef.value = generateProductSchema(newProduct);
+      breadcrumbSchemaRef.value = generateBreadcrumbSchema(newProduct);
+    }
   },
-  sameAs: [
-    "https://www.facebook.com/trumecs",
-    "https://www.instagram.com/trumecs",
-    "https://www.youtube.com/trumecs",
-  ],
-};
+  { immediate: true }
+);
 
-// Website Schema (static)
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Trumecs",
-  url: "https://trumecs.com",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://trumecs.com/search?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
-};
-
-// ============ INJECT ALL SCHEMAS ============
-
+// Gunakan useHead dengan ref
 useHead({
-  // Title - PASTIKAN MENGGUNAKAN computed
   title: computed(() => product.value?.tittle || "Product"),
   titleTemplate: "%s | Trumecs.com",
 
@@ -418,26 +399,25 @@ useHead({
     { name: "robots", content: "index, follow" },
   ]),
 
-  // JSON-LD Schemas - PASTIKAN MENGGUNAKAN computed dengan children yang benar
   script: computed(() => {
     const scripts = [];
 
-    // Product Schema - JANGAN GUNAKAN children="null"
-    if (productSchema.value) {
+    // Product Schema - PASTIKAN TIDAK NULL
+    if (productSchemaRef.value) {
       scripts.push({
         type: "application/ld+json",
-        children: JSON.stringify(productSchema.value, null, 2),
+        children: JSON.stringify(productSchemaRef.value),
         key: "product-schema",
-        // Tambahkan hid untuk menghindari duplikasi
         "data-hid": "product-schema",
+        "data-test": "product-schema", // Untuk debugging
       });
     }
 
     // Breadcrumb Schema
-    if (breadcrumbSchema.value) {
+    if (breadcrumbSchemaRef.value) {
       scripts.push({
         type: "application/ld+json",
-        children: JSON.stringify(breadcrumbSchema.value, null, 2),
+        children: JSON.stringify(breadcrumbSchemaRef.value),
         key: "breadcrumb-schema",
         "data-hid": "breadcrumb-schema",
       });
@@ -446,27 +426,32 @@ useHead({
     // Organization Schema
     scripts.push({
       type: "application/ld+json",
-      children: JSON.stringify(organizationSchema, null, 2),
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Trumecs",
+        url: "https://trumecs.com",
+        logo: "https://trumecs.com/logo.png",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+62-851-7691-2338",
+          contactType: "sales",
+          availableLanguage: ["Indonesian", "English"],
+        },
+      }),
       key: "organization-schema",
       "data-hid": "organization-schema",
-    });
-
-    // Website Schema
-    scripts.push({
-      type: "application/ld+json",
-      children: JSON.stringify(websiteSchema, null, 2),
-      key: "website-schema",
-      "data-hid": "website-schema",
     });
 
     return scripts;
   }),
 
-  // Canonical URL
   link: computed(() => [
     {
       rel: "canonical",
-      href: product.value ? `/product/${product.value.id}` : undefined,
+      href: product.value
+        ? `https://migration.trumecs.com/product/${product.value.id}`
+        : undefined,
     },
   ]),
 });
@@ -479,35 +464,29 @@ useSeoMeta({
   ogDescription: computed(() => product.value?.description),
   ogImage: computed(() =>
     product.value?.img
-      ? `https://www.trumecs.com/public/image/product/${product.value.img}`
+      ? `https://migration.trumecs.com/public/image/product/${product.value.img}`
       : undefined
   ),
   ogUrl: computed(() =>
     product.value
-      ? `https://www.trumecs.com/product/${product.value.id}`
+      ? `https://migration.trumecs.com/product/${product.value.id}`
       : undefined
   ),
   ogType: "product",
   ogSiteName: "Trumecs.com",
   twitterCard: "summary_large_image",
-  twitterTitle: computed(() => product.value?.tittle),
-  twitterDescription: computed(() => product.value?.description),
-  twitterImage: computed(() =>
-    product.value?.img
-      ? `https://www.trumecs.com/public/image/product/${product.value.img}`
-      : undefined
-  ),
 });
 
-// ============ LIFECYCLE ============
+// ============ LIFE CYCLE ============
 
 onMounted(async () => {
   await fetchDetailProduct();
 
   // Debug di console
   if (process.client) {
-    console.log("Product Schema:", productSchema.value);
-    console.log("Breadcrumb Schema:", breadcrumbSchema.value);
+    console.log("Product Data:", product.value);
+    console.log("Product Schema:", productSchemaRef.value);
+    console.log("Breadcrumb Schema:", breadcrumbSchemaRef.value);
   }
 });
 </script>
