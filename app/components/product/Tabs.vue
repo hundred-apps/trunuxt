@@ -102,6 +102,22 @@
                   {{ product.warranty || "-" }}
                 </td>
               </tr>
+              <tr class="bg-white">
+                <td class="px-4 py-3 font-medium text-gray-700 w-1/3">
+                  Lokasi
+                </td>
+                <td class="px-4 py-3 text-gray-600">
+                  {{ product.area || product.availability_at }}
+                </td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-4 py-3 font-medium text-gray-700 w-1/3">
+                  Estimasi Pengiriman
+                </td>
+                <td class="px-4 py-3 text-gray-600">
+                  {{ product.estimated_delivery || "-" }} hari
+                </td>
+              </tr>
               <tr
                 v-for="(spec, index) in product.specs"
                 :key="index"

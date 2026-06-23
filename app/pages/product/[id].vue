@@ -1,5 +1,5 @@
 <template>
-  <div class="product-detail-page bg-gray-50 min-h-screen">
+  <div class="product-detail-page min-h-screen">
     <!-- Loading State -->
     <div v-if="loading" class="container mx-auto px-4 py-12">
       <div class="flex flex-col items-center justify-center min-h-[400px]">
@@ -29,39 +29,32 @@
       </div>
     </div>
 
-    <!-- Main Content -->
     <template v-else>
-      <!-- Breadcrumb -->
-      <div class="bg-white border-b border-gray-100 shadow-sm">
+      <div class="bg-white lg:border-b lg:border-gray-100 shadow-sm">
         <div class="container mx-auto px-4 py-3">
           <Breadcrumbs :items="detailProductBreadcrumb" />
         </div>
       </div>
 
-      <!-- Product Section -->
-      <section class="py-4 lg:py-8">
-        <div class="container mx-auto px-4">
+      <section class="py-0 lg:py-8">
+        <div class="container mx-auto px-0">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            <!-- Left Column - Product Images & Gallery -->
-            <div class="lg:col-span-5">
+            <div
+              class="lg:col-span-5 lg:sticky lg:top-[150px] self-start"
+              style="max-height: calc(100vh - 6rem)"
+            >
               <ProductGallery :product="product" />
             </div>
 
-            <!-- Right Column - Product Info -->
             <div class="lg:col-span-7">
               <ProductInfo
                 :product="product"
                 :breadcrumb-items="breadcrumbItems"
               />
+
+              <ProductTabs :product="product" class="mt-2" />
             </div>
           </div>
-
-          <!-- Product Details Tabs -->
-          <div class="mt-8 lg:mt-12">
-            <ProductTabs :product="product" />
-          </div>
-
-          <!-- Related Products -->
           <div
             v-if="product.related_product && product.related_product.length > 0"
             class="mt-8 lg:mt-12"
@@ -72,7 +65,6 @@
             />
           </div>
 
-          <!-- Related Articles -->
           <div
             v-if="product.artikel && product.artikel.length > 0"
             class="mt-8 lg:mt-12"
