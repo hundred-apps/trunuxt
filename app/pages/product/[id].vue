@@ -46,7 +46,7 @@
               <ProductGallery :product="product" />
             </div>
 
-            <div class="lg:col-span-7">
+            <div class="lg:col-span-7 lg:sticky lg:top-[150px]">
               <ProductInfo
                 :product="product"
                 :breadcrumb-items="breadcrumbItems"

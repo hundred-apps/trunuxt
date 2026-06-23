@@ -73,13 +73,6 @@
           Email Inquiry
         </a>
       </div>
-      <button
-        @click="showContactInfo = !showContactInfo"
-        class="w-full flex items-center justify-center gap-2 border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-semibold py-3 px-4 rounded-lg transition-all"
-      >
-        <Icon name="mdi:phone" class="text-xl" />
-        Hubungi Kami
-      </button>
     </div>
 
     <!-- Contact Info Expand (Desktop & Mobile) -->
@@ -153,16 +146,6 @@
         <Icon name="mdi:email" class="text-xl" />
         <span class="hidden xs:inline text-sm">Email</span>
       </a>
-
-      <!-- Phone Button (Toggle Contact Info) -->
-      <button
-        @click="showContactInfo = !showContactInfo"
-        class="flex-1 flex items-center justify-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
-        :class="showContactInfo ? 'bg-orange-600' : ''"
-      >
-        <Icon name="mdi:phone" class="text-xl" />
-        <span class="hidden xs:inline text-sm">Hubungi</span>
-      </button>
     </div>
   </div>
 
