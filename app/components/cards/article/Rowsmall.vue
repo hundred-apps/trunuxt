@@ -11,7 +11,7 @@
         class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"
       >
         <img
-          :src="`https://www.trumecs.com/public/image/artikel/${article.img || 'noimage.png'}`"
+          :src="article.image"
           :alt="article.title"
           class="w-full h-full object-cover group-hover:scale-110 transition-transform"
         />
@@ -28,7 +28,7 @@
         <div class="text-xs text-gray-400 mt-2">
           <span class="flex items-center gap-1">
             <Icon name="mdi:eye" class="text-sm" />
-            {{ article.view || 0 }} views
+            {{ article.views || 0 }} views
           </span>
         </div>
       </div>
@@ -52,6 +52,7 @@ export interface TrendingArticle {
   image: string;
   date?: string;
   category?: string;
+  description?: string;
   views?: number;
 }
 
