@@ -45,7 +45,7 @@
     </div>
     <!-- Desktop Navbar -->
     <div class="hidden lg:block">
-      <div class="container mx-auto px-4 py-3">
+      <div class="container mx-auto px-4 py-3 max-w-[1280px]">
         <!-- Top Row -->
         <div class="flex items-center justify-between mb-3">
           <!-- Logo -->
@@ -636,5 +636,10 @@ watch(showMobileSearch, (val) => {
 
 .el-menu--horizontal.el-menu {
   border-bottom: none !important;
+}
+
+.el-sub-menu__title {
+  padding-left: 0 !important;
+  padding-right: 35 !important;
 }
 </style>

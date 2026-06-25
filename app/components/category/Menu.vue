@@ -45,4 +45,9 @@ defineOptions({
 .el-menu--horizontal {
   --el-menu-horizontal-height: 30px;
 }
+
+.el-sub-menu__title {
+  padding-left: 0 !important;
+  padding-right: 35 !important;
+}
 </style>

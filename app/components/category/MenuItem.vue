@@ -10,6 +10,7 @@
         :parent-index="`${computedIndex}-${childIdx}`"
         :level="level + 1"
         :parents="[...parents, item]"
+        class="pe-[35px]"
       />
     </template>
   </el-sub-menu>

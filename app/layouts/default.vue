@@ -4,7 +4,7 @@
   >
     <Navbar />
     <main class="flex-grow pt-[70px] lg:pt-[110px]">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <slot />
       </div>
     </main>

@@ -2,7 +2,7 @@
   <footer class="bg-black text-white mt-3">
     <!-- Promo Section untuk Guest User -->
     <div class="w-full">
-      <div class="container-fluid max-w-[1500px] mx-auto">
+      <div class="container-fluid max-w-[1280px] mx-auto">
         <div class="row p-3">
           <div class="col-lg-12 text-center">
             <p class="text-xl text-white">
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Main Footer Content -->
-    <div class="container-fluid max-w-[1500px] mx-auto px-2 py-0">
+    <div class="container-fluid max-w-[1280px] mx-auto px-2 py-0">
       <div class="row px-2 mx-0 py-0 flex flex-col lg:flex-row">
         <!-- Logo & Social Media -->
         <div class="lg:w-1/4 w-full p-3">
