@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden lg:block py-2" id="breadcrumb">
+  <div class="hidden lg:block pb-2" id="breadcrumb">
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="flex items-center space-x-2 text-sm">

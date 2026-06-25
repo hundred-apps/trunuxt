@@ -8,10 +8,10 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <a
+      <Trulink
         v-for="article in articles"
         :key="article.id"
-        :href="`/article/${article.id}`"
+        :to="`/article/${article.id}`"
         class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-3 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
       >
         <div
@@ -39,7 +39,7 @@
             </span>
           </div>
         </div>
-      </a>
+      </Trulink>
     </div>
   </div>
 </template>

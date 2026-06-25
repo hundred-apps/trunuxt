@@ -14,8 +14,8 @@
 
     <!-- Main Content - Only show if article exists -->
     <template v-if="article">
-      <section class="article-detail py-4 lg:py-0" id="article-detail">
-        <div class="container p-4 lg:p-6">
+      <section class="article-detail py-2" id="article-detail">
+        <div class="container">
           <Breadcrumbs :items="articleBreadcrumb" />
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             <!-- Left Column - Article Content (lg:col-span-8) -->

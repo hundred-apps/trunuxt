@@ -43,7 +43,6 @@
         </Trulink> -->
       </div>
     </div>
-
     <!-- Desktop Navbar -->
     <div class="hidden lg:block">
       <div class="container mx-auto px-4 py-3">
@@ -91,13 +90,15 @@
               </div>
 
               <div class="flex-shrink-0 min-w-[160px] hidden xl:block">
-                <Trulink
-                  :to="urlTrumecs + '/bulk'"
-                  class="el-button el-button--primary w-full py-2 flex items-center justify-center"
+                <Trubutton
+                  text="Infokan Kebutuhanmu"
+                  type="primary"
+                  size="default"
+                  variant="solid"
+                  icon="mdi:email"
+                  full-width
                   @click="handleBulk"
-                >
-                  Infokan Kebutuhanmu
-                </Trulink>
+                />
               </div>
             </div>
           </div>
@@ -228,7 +229,7 @@
         </div>
 
         <!-- Bottom Row - Categories & Menu -->
-        <div class="flex items-center pt-2 border-t border-gray-100">
+        <div class="flex items-center">
           <!-- Categories -->
           <div class="flex items-center justify-between w-full">
             <div v-if="loading" class="text-center py-4">
@@ -521,6 +522,7 @@ const handleMobileSearch = () => {
 
 const handleBulk = () => {
   trackClickButton("Button 'Info Kebutuhan'");
+  navigateTo(urlTrumecs + "/bulk");
 };
 
 const handleBulkMobile = () => {

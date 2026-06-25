@@ -3,7 +3,7 @@
     mode="horizontal"
     :ellipsis="false"
     @select="handleSelect"
-    class="border-b-0 py-2"
+    class="border-b-0"
   >
     <template v-for="(product, index) in products" :key="product.id">
       <CategoryMenuItem
@@ -40,3 +40,9 @@ defineOptions({
   name: "CategoryMenu",
 });
 </script>
+
+<style scoped>
+.el-menu--horizontal {
+  --el-menu-horizontal-height: 30px;
+}
+</style>

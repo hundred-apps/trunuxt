@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100">
     <!-- Main Image with Zoom -->
     <div
-      class="relative bg-gray-50 rounded-lg overflow-hidden aspect-square mb-4 group"
+      class="relative bg-gray-50 rounded-lg overflow-hidden aspect-square mb-0 group"
     >
       <img
         :src="mainImage.url"
@@ -132,7 +132,7 @@
       </div>
 
       <!-- Mobile: Dot Indicators (hanya indikator, tidak bisa diklik) -->
-      <div v-else class="flex justify-center gap-2 mt-4">
+      <div v-else class="flex justify-center gap-2 mt-1">
         <span
           v-for="(img, index) in allImages"
           :key="index"

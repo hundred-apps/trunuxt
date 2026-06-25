@@ -4,49 +4,35 @@
     <Trulink
       v-for="article in articles"
       :key="article.id"
-      :to="`/article/${article.url}`"
-      class="block px-6 py-4 hover:bg-gray-50 transition-colors group"
+      :to="`/article/${article.id}`"
+      class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-3 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
     >
-      <div class="flex gap-3">
-        <!-- Image -->
-        <div
-          :class="imageSizeClass"
-          class="rounded-lg overflow-hidden flex-shrink-0"
+      <div
+        class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"
+      >
+        <img
+          :src="`https://www.trumecs.com/public/image/artikel/${article.img || 'noimage.png'}`"
+          :alt="article.title"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+        />
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4
+          class="text-sm font-medium text-gray-800 group-hover:text-orange-500 transition-colors line-clamp-2"
         >
-          <img
-            :src="article.image"
-            :alt="article.title"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
-        </div>
-
-        <!-- Content -->
-        <div class="flex-1 min-w-0">
-          <!-- Title -->
-          <h6
-            class="font-semibold text-sm line-clamp-2 group-hover:text-orange-500 transition-colors"
-          >
-            {{ article.title }}
-          </h6>
-
-          <!-- Date -->
-          <p v-if="article.date" class="text-xs text-gray-500 mt-1">
-            <Icon name="material-symbols:calendar-today" class="inline mr-1" />
-            {{ formatDate(article.date) }}
-          </p>
-
-          <!-- Category (optional) -->
-          <p
-            v-if="showCategory && article.category"
-            class="text-xs text-orange-500 mt-1"
-          >
-            {{ article.category }}
-          </p>
+          {{ article.title }}
+        </h4>
+        <p class="text-xs text-gray-500 mt-1 line-clamp-2">
+          {{ article.description || "Baca artikel selengkapnya..." }}
+        </p>
+        <div class="text-xs text-gray-400 mt-2">
+          <span class="flex items-center gap-1">
+            <Icon name="mdi:eye" class="text-sm" />
+            {{ article.view || 0 }} views
+          </span>
         </div>
       </div>
     </Trulink>
-
     <!-- Empty state -->
     <div v-if="!articles.length" class="px-6 py-8 text-center text-gray-500">
       <Icon name="material-symbols:article-outline" class="text-4xl mb-2" />

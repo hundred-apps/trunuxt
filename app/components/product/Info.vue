@@ -27,7 +27,7 @@
     </div>
 
     <!-- Price Section -->
-    <div class="mb-6">
+    <div class="md:mb-6">
       <div class="flex flex-wrap items-end gap-2">
         <div
           v-if="displayPrice"
@@ -56,22 +56,17 @@
 
     <!-- ===== DESKTOP: Action Buttons ===== -->
     <div class="hidden md:block space-y-3">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <a
-          :href="whatsappLink"
+      <div class="flex gap-2 w-full">
+        <Trubutton
+          type="success"
+          text="Beli via WhatsApp"
+          icon="logos:whatsapp-icon"
+          @click="handleClickWALink"
           target="_blank"
-          class="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-all hover:shadow-lg"
         >
-          <Icon name="logos:whatsapp-icon" class="text-xl" />
-          Beli via WhatsApp
-        </a>
-        <a
-          :href="emailLink"
-          class="flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-4 rounded-lg transition-all hover:shadow-lg"
-        >
-          <Icon name="mdi:email" class="text-xl" />
-          Email Inquiry
-        </a>
+        </Trubutton>
+        <Trubutton text="Email Inquiry" icon="mdi:email" :href="emailLink">
+        </Trubutton>
       </div>
     </div>
 
@@ -103,7 +98,7 @@
     </div>
 
     <!-- Share Buttons -->
-    <div class="mt-6 pt-6 border-t border-gray-100">
+    <div class="mt-6 pt-6 border-t border-gray-100 hidden md:block">
       <div class="flex items-center gap-3 flex-wrap">
         <span class="text-sm text-gray-500">Bagikan:</span>
         <button
@@ -122,7 +117,7 @@
   <div
     v-if="isMobile"
     class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 transition-transform duration-300"
-    :class="isVisible ? 'translate-y-0' : 'translate-y-full'"
+    :class="isVisible ? 'translate-y-0' : 'translate-y-0'"
   >
     <!-- Drag Handle (Optional) -->
     <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-2 mb-2" />

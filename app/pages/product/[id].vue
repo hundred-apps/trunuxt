@@ -30,15 +30,11 @@
     </div>
 
     <template v-else>
-      <div class="bg-white lg:border-b lg:border-gray-100 shadow-sm">
-        <div class="container mx-auto px-4 py-3">
-          <Breadcrumbs :items="detailProductBreadcrumb" />
-        </div>
-      </div>
+      <Breadcrumbs :items="detailProductBreadcrumb" class="mt-2" />
 
-      <section class="py-0 lg:py-8">
+      <section class="py-0 lg:py-2">
         <div class="container mx-auto px-0">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-8">
             <div
               class="lg:col-span-5 lg:sticky lg:top-[150px] self-start"
               style="max-height: calc(100vh - 6rem)"
@@ -140,6 +136,13 @@ const detailProductBreadcrumb = computed(() => {
       });
     }
   }
+
+  // ===== TAMBAHKAN NAMA PRODUCT DI AKHIR =====
+  // Product name (tidak bisa diklik - current page)
+  items.push({
+    text: product.value.tittle || "Product",
+    to: "", // Kosongkan karena ini halaman saat ini
+  });
 
   return items;
 });
