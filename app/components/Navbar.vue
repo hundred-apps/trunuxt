@@ -93,7 +93,7 @@
                 <Trubutton
                   text="Infokan Kebutuhanmu"
                   type="primary"
-                  size="default"
+                  size="small"
                   variant="solid"
                   icon="mdi:email"
                   full-width
