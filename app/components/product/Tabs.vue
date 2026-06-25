@@ -157,14 +157,12 @@
               class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4"
             >
               <div class="flex items-start gap-2">
-                <div class="flex-shrink-0">
+                <div>
                   <span
                     class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
                   >
-                    PROMO
+                    {{ promo.type || "Promo" }}
                   </span>
-                </div>
-                <div>
                   <h3
                     class="text-lg font-semibold text-gray-800 hover:text-orange-500 transition-colors"
                   >
@@ -176,18 +174,18 @@
                     </a>
                   </h3>
                   <p class="text-xs text-gray-500 mt-1">
-                    {{ promo.type || "Promo" }} • Berakhir:
+                    Berakhir:
                     {{ formatDate(promo.end_date) }}
                   </p>
+                  <a
+                    :href="`https://www.trumecs.com/promo/${promo.url}`"
+                    class="text-orange-500 hover:text-orange-600 text-sm font-medium whitespace-nowrap flex items-center gap-1"
+                  >
+                    Lihat selengkapnya
+                    <Icon name="mdi:chevron-right" class="text-lg" />
+                  </a>
                 </div>
               </div>
-              <a
-                :href="`https://www.trumecs.com/promo/${promo.url}`"
-                class="text-orange-500 hover:text-orange-600 text-sm font-medium whitespace-nowrap flex items-center gap-1"
-              >
-                Lihat selengkapnya
-                <Icon name="mdi:chevron-right" class="text-lg" />
-              </a>
             </div>
 
             <!-- Promo Products -->
