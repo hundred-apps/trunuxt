@@ -119,9 +119,6 @@
     class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 transition-transform duration-300"
     :class="isVisible ? 'translate-y-0' : 'translate-y-0'"
   >
-    <!-- Drag Handle (Optional) -->
-    <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-2 mb-2" />
-
     <div class="flex items-center gap-2 px-3 pb-3">
       <!-- WhatsApp Button -->
       <a
