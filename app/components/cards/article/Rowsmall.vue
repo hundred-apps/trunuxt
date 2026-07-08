@@ -5,7 +5,7 @@
       v-for="article in articles"
       :key="article.id"
       :to="`/article/${article.id}`"
-      class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-3 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
+      class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-1 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
     >
       <div
         class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2">
     <div class="flex items-center justify-between mb-4">
       <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
         <Icon name="mdi:newspaper-variant" class="text-orange-500" />
@@ -12,7 +12,7 @@
         v-for="article in articles"
         :key="article.id"
         :to="`/article/${article.id}`"
-        class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-3 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
+        class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-1 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
       >
         <div
           class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"

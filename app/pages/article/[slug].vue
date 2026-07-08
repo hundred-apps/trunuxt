@@ -24,7 +24,7 @@
                 <div class="">
                   <!-- Title -->
                   <h1
-                    class="text-2xl lg:text-3xl font-bold mb-3"
+                    class="text-2xl lg:text-3xl font-bold mb-3 px-2"
                     itemprop="headline"
                   >
                     {{ article.title }}
@@ -32,7 +32,7 @@
 
                   <!-- Meta Info -->
                   <div
-                    class="flex flex-wrap items-center gap-4 text-gray-500 text-sm mb-4"
+                    class="flex flex-wrap items-center gap-4 text-gray-500 text-sm mb-4 px-2"
                   >
                     <div class="flex items-center">
                       <Icon
@@ -63,14 +63,14 @@
                     <img
                       :src="article.image"
                       :alt="article.title"
-                      class="w-full rounded-xl"
+                      class="w-full"
                       :style="{ maxHeight: '500px', objectFit: 'cover' }"
                     />
                   </div>
 
                   <!-- Article Content with Dynamic Insertions -->
                   <div
-                    class="article-content prose prose-sm lg:prose-base max-w-none"
+                    class="article-content prose prose-sm lg:prose-base max-w-none px-2"
                   >
                     <div v-html="processedContent"></div>
                   </div>
@@ -96,7 +96,9 @@
                   </div>
 
                   <!-- Share Buttons - Mobile Only -->
-                  <div class="share-buttons mt-6 pt-4 border-t border-gray-200">
+                  <div
+                    class="share-buttons mt-6 pt-4 px-2 border-t border-gray-200"
+                  >
                     <span class="font-semibold mr-3">Bagikan :</span>
                     <div class="flex gap-2">
                       <button
@@ -118,7 +120,7 @@
               <div class="sticky top-20 flex flex-col gap-4">
                 <!-- Trending Section -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                  <div class="border-b border-gray-200 px-4 py-3">
+                  <div class="border-b border-gray-200 py-3">
                     <h5 class="font-bold flex items-center">
                       <Icon
                         name="material-symbols:local-fire"
@@ -144,7 +146,7 @@
 
                 <!-- Related Articles -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                  <div class="border-b border-gray-200 px-4 py-3">
+                  <div class="border-b border-gray-200 px-2 py-3">
                     <h5 class="font-bold">{{ $t("label.relatedArticle") }}</h5>
                   </div>
                   <div class="p-3">

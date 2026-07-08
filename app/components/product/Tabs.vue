@@ -29,13 +29,10 @@
       </div>
     </div>
 
-    <!-- Tab Content (Scrollable) -->
-    <div
-      class="p-4 sm:p-6 max-h-[600px] overflow-y-auto"
-      ref="contentContainer"
-    >
+    <!-- Tab Content (Full height, no scroll) -->
+    <div class="p-4 sm:p-6">
       <!-- Description -->
-      <div id="section-description" ref="descriptionRef" class="scroll-mt-20">
+      <div id="section-description" ref="descriptionRef" class="scroll-mt-24">
         <h3 class="text-lg font-semibold text-gray-800 mb-3">Deskripsi</h3>
         <div
           class="prose prose-sm sm:prose-base max-w-none"
@@ -47,7 +44,7 @@
       <div
         id="section-specifications"
         ref="specificationsRef"
-        class="scroll-mt-20 mt-4"
+        class="scroll-mt-24 mt-8"
       >
         <h3 class="text-lg font-semibold text-gray-800 mb-3">Spesifikasi</h3>
         <div class="overflow-x-auto">
@@ -144,7 +141,7 @@
       </div>
 
       <!-- Promo -->
-      <div id="section-promo" ref="promoRef" class="scroll-mt-20 mt-4">
+      <div id="section-promo" ref="promoRef" class="scroll-mt-24 mt-8">
         <h3 class="text-lg font-semibold text-gray-800 mb-3">Promo</h3>
         <div v-if="product.promo && product.promo.length > 0">
           <div
@@ -152,7 +149,6 @@
             :key="index"
             class="mb-6 last:mb-0 border-b border-gray-200 last:border-0 pb-6 last:pb-0"
           >
-            <!-- Promo Header -->
             <div
               class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4"
             >
@@ -187,83 +183,12 @@
                 </div>
               </div>
             </div>
-
-            <!-- Promo Products -->
-            <div v-if="promo.product_promo && promo.product_promo.length > 0">
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <a
-                  v-for="productPromo in getPromoProducts(promo)"
-                  :key="productPromo.id"
-                  :href="`/product/${productPromo.id}`"
-                  class="group bg-gray-50 hover:bg-white rounded-lg transition-all hover:shadow-md border border-transparent hover:border-gray-200"
-                >
-                  <div
-                    class="aspect-square bg-white rounded-lg overflow-hidden"
-                  >
-                    <img
-                      :src="getProductImage(productPromo.img)"
-                      :alt="productPromo.tittle"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform"
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4
-                    class="text-md font-medium text-gray-800 group-hover:text-orange-500 transition-colors line-clamp-2 p-2"
-                  >
-                    {{ productPromo.tittle }}
-                  </h4>
-                  <div v-if="promo.type == 'promo'">
-                    <!-- Price -->
-                    <div class="p-2">
-                      <div class="text-sm font-bold text-red-500">
-                        Rp
-                        {{
-                          formatPrice(
-                            productPromo.price_promo || productPromo.price
-                          )
-                        }}
-                      </div>
-                      <div
-                        v-if="
-                          productPromo.price_promo &&
-                          Number(productPromo.price_promo) <
-                            Number(productPromo.price)
-                        "
-                        class="text-xs text-gray-400 line-through"
-                      >
-                        Rp {{ formatPrice(productPromo.price) }}
-                      </div>
-                    </div>
-
-                    <!-- Promo Badge on Product -->
-                    <div
-                      v-if="
-                        productPromo.price_promo &&
-                        Number(productPromo.price_promo) <
-                          Number(productPromo.price)
-                      "
-                      class="mt-1 p-2"
-                    >
-                      <span
-                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full"
-                      >
-                        Hemat
-                        {{
-                          calculateDiscount(
-                            productPromo.price,
-                            productPromo.price_promo
-                          )
-                        }}%
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <!-- No Products Message -->
-            <div v-else class="text-gray-400 text-sm text-center py-4">
-              Tidak ada produk dalam promo ini
+            <div>
+              <img
+                :src="`https://www.trumecs.com/public/image/promo/${promo.img}`"
+                alt=""
+                class="w-full object-cover rounded-lg"
+              />
             </div>
           </div>
         </div>
@@ -287,7 +212,6 @@ const props = defineProps<{
 }>();
 
 const activeTab = ref("description");
-const contentContainer = ref<HTMLElement | null>(null);
 const descriptionRef = ref<HTMLElement | null>(null);
 const specificationsRef = ref<HTMLElement | null>(null);
 const promoRef = ref<HTMLElement | null>(null);
@@ -298,7 +222,7 @@ const tabs = [
   { key: "promo", label: "Promo" },
 ];
 
-// ============ SCROLL TO SECTION ============
+// ============ SCROLL TO SECTION (Full Page) ============
 const scrollToSection = (tabKey: string) => {
   // Update active tab
   activeTab.value = tabKey;
@@ -312,17 +236,15 @@ const scrollToSection = (tabKey: string) => {
 
   const targetElement = elementMap[tabKey];
 
-  if (targetElement && contentContainer.value) {
-    // Scroll within the content container
-    const containerRect = contentContainer.value.getBoundingClientRect();
-    const targetRect = targetElement.getBoundingClientRect();
+  if (targetElement) {
+    const navbarHeight = 80; // Sesuaikan dengan tinggi navbar sticky Anda
+    const offset = navbarHeight + 20; // Tambahan padding
 
-    const scrollTop = contentContainer.value.scrollTop;
-    const targetOffset = targetRect.top - containerRect.top + scrollTop;
-    const headerOffset = 80; // Offset untuk sticky header
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-    contentContainer.value.scrollTo({
-      top: targetOffset - headerOffset,
+    window.scrollTo({
+      top: offsetPosition,
       behavior: "smooth",
     });
   }
@@ -332,8 +254,6 @@ const scrollToSection = (tabKey: string) => {
 const observer = ref<IntersectionObserver | null>(null);
 
 const setupIntersectionObserver = () => {
-  if (!contentContainer.value) return;
-
   // Hapus observer lama
   if (observer.value) {
     observer.value.disconnect();
@@ -357,9 +277,9 @@ const setupIntersectionObserver = () => {
       });
     },
     {
-      root: contentContainer.value,
-      rootMargin: "-80px 0px 0px 0px", // Offset untuk header
-      threshold: 0.2,
+      root: null, // Gunakan viewport sebagai root
+      rootMargin: "-100px 0px -100px 0px", // Offset untuk header
+      threshold: 0.3,
     }
   );
 
@@ -372,12 +292,6 @@ const setupIntersectionObserver = () => {
 };
 
 // ============ METHODS ============
-const formatPrice = (price: string | number) => {
-  if (!price) return "0";
-  const numPrice = typeof price === "string" ? Number(price) : price;
-  return new Intl.NumberFormat("id-ID").format(numPrice);
-};
-
 const formatDate = (timestamp: number) => {
   if (!timestamp) return "-";
   const date = new Date(timestamp * 1000);
@@ -386,39 +300,6 @@ const formatDate = (timestamp: number) => {
     month: "long",
     year: "numeric",
   });
-};
-
-const getProductImage = (img?: string) => {
-  if (img) {
-    return `https://www.trumecs.com/public/image/product/${img}`;
-  }
-  return "https://www.trumecs.com/public/image/product/noimage.png";
-};
-
-const calculateDiscount = (
-  originalPrice: string | number,
-  promoPrice: string | number
-) => {
-  const original =
-    typeof originalPrice === "string" ? Number(originalPrice) : originalPrice;
-  const promo =
-    typeof promoPrice === "string" ? Number(promoPrice) : promoPrice;
-  if (original > 0 && promo > 0 && original > promo) {
-    return Math.round(((original - promo) / original) * 100);
-  }
-  return 0;
-};
-
-const getPromoProducts = (promo: any) => {
-  if (!promo.product_promo || promo.product_promo.length === 0) {
-    return [];
-  }
-
-  const products = promo.product_promo.filter(
-    (p: any) => p.id !== props.product.id
-  );
-
-  return products.slice(0, 4);
 };
 
 // ============ LIFECYCLE ============
@@ -436,32 +317,9 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Scroll style */
-.max-h-\[600px\] {
-  max-height: 600px;
-}
-
-.max-h-\[600px\]::-webkit-scrollbar {
-  width: 4px;
-}
-
-.max-h-\[600px\]::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 9999px;
-}
-
-.max-h-\[600px\]::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 9999px;
-}
-
-.max-h-\[600px\]::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
-}
-
-/* Scroll margin untuk offset header */
-.scroll-mt-20 {
-  scroll-margin-top: 80px;
+/* Scroll margin untuk offset header di full page */
+.scroll-mt-24 {
+  scroll-margin-top: 100px;
 }
 
 /* Smooth transition untuk active tab */
@@ -474,8 +332,9 @@ tr:hover {
   background-color: #f9fafb;
 }
 
-/* Promo card hover */
-.group:hover {
-  transform: translateY(-2px);
+/* Promo image */
+img {
+  max-height: 400px;
+  object-fit: cover;
 }
 </style>

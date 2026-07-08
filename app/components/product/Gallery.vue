@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+  <div class="bg-white lg:rounded-xl lg:shadow-sm lg:border lg:border-gray-100">
     <!-- Main Image with Zoom -->
     <div
-      class="relative bg-gray-50 rounded-lg overflow-hidden aspect-square mb-0 group"
+      class="relative bg-gray-50 lg:rounded-lg overflow-hidden aspect-square mb-0 group"
     >
       <img
         :src="mainImage.url"

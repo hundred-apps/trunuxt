@@ -3,7 +3,7 @@
     <!-- Promo Section untuk Guest User -->
     <div class="w-full">
       <div class="container-fluid max-w-[1280px] mx-auto">
-        <div class="row p-3">
+        <div class="row py-2">
           <div class="col-lg-12 text-center">
             <p class="text-xl text-white">
               {{ $t("footer.expand") }}
@@ -18,12 +18,12 @@
     </div>
 
     <!-- Main Footer Content -->
-    <div class="container-fluid max-w-[1280px] mx-auto px-2 py-0">
-      <div class="row px-2 mx-0 py-0 flex flex-col lg:flex-row">
+    <div class="container-fluid max-w-[1280px] mx-auto py-0">
+      <div class="row mx-0 py-0 flex flex-col lg:flex-row">
         <!-- Logo & Social Media -->
-        <div class="lg:w-1/4 w-full p-3">
+        <div class="lg:w-1/4 w-full py-1">
           <div
-            class="logo mb-6"
+            class="logo"
             :class="{ 'flex justify-center lg:justify-start': true }"
           >
             <Trulink to="/" @click="handleClickLogo">
@@ -35,7 +35,7 @@
             </Trulink>
           </div>
           <p
-            class="font-bold mt-3 mb-3 text-lg"
+            class="font-bold mb-3 text-lg"
             :class="{ 'text-center lg:text-left': true }"
           >
             {{ $t("footer.followUs") }}

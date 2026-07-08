@@ -34,7 +34,7 @@
 
       <section class="py-0 lg:py-2">
         <div class="container mx-auto px-0">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-1 lg:gap-8">
             <div
               class="lg:col-span-5 lg:sticky lg:top-[150px] self-start"
               style="max-height: calc(100vh - 6rem)"
@@ -53,7 +53,7 @@
           </div>
           <div
             v-if="product.related_product && product.related_product.length > 0"
-            class="mt-8 lg:mt-12"
+            class="mt-4 lg:mt-12"
           >
             <ProductRelatedProducts
               :products="product.related_product"
@@ -63,7 +63,7 @@
 
           <div
             v-if="product.artikel && product.artikel.length > 0"
-            class="mt-8 lg:mt-12"
+            class="mt-4 lg:mt-12"
           >
             <ProductRelatedArticles
               :articles="product.artikel"
