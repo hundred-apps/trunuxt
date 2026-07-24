@@ -3,7 +3,7 @@
     <main>
       <!-- Hero Section -->
       <section
-        class="relative bg-industrial-black text-on-primary overflow-hidden py-12 sm:py-section-gap"
+        class="relative bg-industrial-black text-on-primary overflow-hidden py-4 sm:py-section-gap"
       >
         <div class="absolute inset-0 opacity-20">
           <div class="industrial-grid-bg w-full h-full"></div>
@@ -15,7 +15,7 @@
             <img
               src="https://migration.trumecs.com/logo/principal/struman.png"
               alt="STRUMAN Brand"
-              class="relative w-full h-auto object-contain drop-shadow-2xl"
+              class="relative w-full h-auto object-contain drop-shadow-2xl mb-3"
               loading="lazy"
             />
             <div
@@ -30,7 +30,7 @@
               >
             </div>
             <h1
-              class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white leading-tight"
+              class="font-display-lg font-bold text-3xl sm:text-4xl md:text-display-lg leading-tight my-3"
             >
               STRUMAN Power Solutions
             </h1>
@@ -42,10 +42,10 @@
               direkayasa dengan presisi, dirancang untuk mendukung operasi
               penting dalam lingkungan apa pun.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4">
+            <div class="flex flex-wrap gap-4">
               <a
                 href="#catalog"
-                class="w-full sm:w-auto justify-center bg-secondary-container text-on-primary px-8 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-secondary transition-all"
+                class="w-full sm:w-auto justify-center bg-secondary-container text-on-primary py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-secondary transition-all"
               >
                 Lihat Catalog
                 <span class="material-symbols-outlined">arrow_forward</span>
@@ -56,8 +56,8 @@
             <div class="relative rounded-2xl overflow-hidden">
               <img
                 class="w-full h-auto object-contain mix-blend-multiply"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYtbwvjEVouSodgfvb3G0IaMByPxJ_yw6CPLEsacICAfNxvjy6PNlRr6jzyU3ue7MG2s25bUJGjTELjiYIL-34QZdY5yD-6c9AiJ1ujKN2MEjlAlIx0CRUKn1x0H7PYLJsbIPZLRq_SvJAybrq6BSMCUmgVnxvsa1yy4vy6AGWO6iXRRwZHNIVS6Ma-cds14e8kpWZqu9x5H3gcTsinIrAPftbnP_QTHx-BLynNmygwqrvgjogxoLpGUb1TTUK0qtRo0z-rhAeAN9L"
-                alt="STRUMAN G24 PRO"
+                src="https://migration.trumecs.com/logo/principal/struman-all.png"
+                alt="STRUMAN All"
                 loading="lazy"
               />
             </div>
@@ -66,9 +66,7 @@
       </section>
 
       <!-- Brand Intro -->
-      <section
-        class="bg-surface-container-lowest py-12 sm:py-20 border-b border-outline-variant"
-      >
+      <section class="bg-surface-container-lowest py-4">
         <div class="max-w-4xl mx-auto px-4 sm:px-grid-margin text-center">
           <h2
             class="font-display-lg text-2xl sm:text-3xl md:text-headline-md font-bold text-on-surface mb-4 sm:mb-6"
@@ -88,7 +86,7 @@
 
       <!-- Use Cases Section -->
       <section
-        class="bg-surface-container-lowest py-12 sm:py-section-gap border-b border-outline-variant"
+        class="bg-surface-container-lowest py-4 sm:py-section-gap border-b border-outline-variant"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-grid-margin">
           <div class="text-center mb-8 sm:mb-12">
@@ -139,7 +137,7 @@
                     {{ useCase.description }}
                   </p>
                   <span
-                    class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase tracking-wider"
+                    class="font-label-caps text-label-caps text-white font-bold text-secondary-fixed-dim uppercase tracking-wider"
                     >{{ useCase.recommendation }}</span
                   >
                 </div>
@@ -452,8 +450,7 @@ const products = [
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     price: "Rp22.800.000",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCdMXXnrijX3G0qXiahle9Bul4aWebuSurj_yvFDzu7en_1drDS_xFZM5LyfkpEIAcK1pfBakn2fuZEdAftW2UwDBEJl5EvX-_iHc5yobce6JF1ab3YL9Fa2cLUByBo1oeeF1f_nuQuFbGAP_rL1-SeUgFNdZaUoeHaj9aCq_uSAGPyyj4vHrOeesckN3Mr60OrCpQ3JzNd6UFKagWdDdQ9tTfmQBC3jBwe01W3c5J5Qjb5wLMre4T27lrq6pxr6uuyXrIIKBC-ENe8",
+    image: "https://migration.trumecs.com/principal/struman/g24pro.PNG",
     specs: [
       { label: "Kapasitas", value: "2048 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -467,8 +464,7 @@ const products = [
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     price: "Rp17.100.000",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCLKqDPoe-C1QtqH08SYNLXMN0_xpC87LarEIyJoDt28Nknm8hnSVk0ScqFf__Uu2gdkbChDQSENYuiPb64cAfE5-zqDSz4-cb9pzJa_17sZjKYSzGABGIfGgb3q1E2XSxZACf5ZMj1Kflif-fC5wTL12XlDso6b9wyGvQ036Fsj1R9Kgd-WYGOhe11LWxMiTdQBuWdITor_p5HdTLMEVs_lObkk9jvdQiuNnfzHSeW2YRjPhu-9zG9q0b-alYjTFBBa4WGJKYsyWzi",
+    image: "https://migration.trumecs.com/principal/struman/bt30.PNG",
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Dimensi", value: "51 × 35 × 38 cm" },
@@ -482,8 +478,7 @@ const products = [
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     price: "Rp13.100.000",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAipdGwPN58YGbA_994fWGfh1ptAj_PRSzaRmq3HhCJ188SZk-8oDgX2ucs_U6isvY5RNIyBHtkoGsL8YBDTqCkuZn6H7eM-hldLnmeo5if7AuN5Nzt_Je-gmSjGV3v7KzoIzOucukwErgUECIQDW5coNAZePFD9ZBFvS9HAK2tXrq4El1up34u9gcHsuWISRg04tDZgkH02G6COXnaP70IVrjvBtL6dyxSQBdvGLdN0ApajBi8Z6zpBaTavfHe20siLWoK61e7PEBt",
+    image: "https://migration.trumecs.com/principal/struman/hs1800.PNG",
     specs: [
       { label: "Kapasitas", value: "1536 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -497,8 +492,7 @@ const products = [
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     price: "Rp30.300.000",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDmcGIdKkuT4Pa9IPEFclz1ogDDW1dxtmoddjcpBpK7_eOF6gmt28LvjpzMzuTeirsr1_HSjpbEgZveuhna8ZWaEp3DzAY4eu6RLk3KtYXyP7wJFXVJqbGFcIy7hhn9KSg6kRB9mkTvMqQZRHIanFna6-t1Et1Kdh_da3I0PNQduJhF70rzZwzSHH4m9SulQLmDcOK4Ers5WpfWVXkcRiD4AkdgfzjM5AbwlBIwpbT-f25qagnX3gH-Ou4mHB2LINTyJLS8DdEfysHt",
+    image: "https://migration.trumecs.com/principal/struman/hs3600.PNG",
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -512,8 +506,7 @@ const products = [
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     price: "Rp35.600.000",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDMWDF3qg2xN-1Bw6jBPANVoMLKDVGNfXCtsN8zCPSfAUUS0UWr5AP_J6KxDBe2d5-_EdVEIui-cI6mYFyBJ6yohBHD6PzrzwdaW8R73Ir-h7zigmGAMg5LkCR9j_107g2rF5in4ny14TFg94jYOK5ZLBAkVaOOzE1SoFSbCf3Q3iD8JjMHhP1E0RhdDoDBn2zP6IYrz0rL_a1bkVuFBEd-MEuTDNYAg-HB0YKdIK4KpJdSytRBJ3tvoJclP4kN_KMZTNFofMXSYGm0",
+    image: "https://migration.trumecs.com/principal/struman/m50.PNG",
     specs: [
       { label: "Kapasitas", value: "5120 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -541,7 +534,7 @@ const products = [
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
     price: "Rp8.700.000",
-    image: "https://migration.trumecs.com/principal/struman/SSP400.png",
+    image: "https://migration.trumecs.com/principal/struman/ssp800.PNG",
     specs: [
       { label: "Kapasitas", value: "800 W (8 × 100 W)" },
       { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
@@ -559,9 +552,7 @@ const productDetails: Record<string, any> = {
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-G24PRO",
-    images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCdMXXnrijX3G0qXiahle9Bul4aWebuSurj_yvFDzu7en_1drDS_xFZM5LyfkpEIAcK1pfBakn2fuZEdAftW2UwDBEJl5EvX-_iHc5yobce6JF1ab3YL9Fa2cLUByBo1oeeF1f_nuQuFbGAP_rL1-SeUgFNdZaUoeHaj9aCq_uSAGPyyj4vHrOeesckN3Mr60OrCpQ3JzNd6UFKagWdDdQ9tTfmQBC3jBwe01W3c5J5Qjb5wLMre4T27lrq6pxr6uuyXrIIKBC-ENe8",
-    ],
+    images: ["https://migration.trumecs.com/principal/struman/g24pro.PNG"],
     specs: [
       { label: "Kapasitas", value: "2048 Wh" },
       { label: "Maks. Output", value: "3000 W" },
@@ -596,9 +587,7 @@ const productDetails: Record<string, any> = {
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-BT30",
-    images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCLKqDPoe-C1QtqH08SYNLXMN0_xpC87LarEIyJoDt28Nknm8hnSVk0ScqFf__Uu2gdkbChDQSENYuiPb64cAfE5-zqDSz4-cb9pzJa_17sZjKYSzGABGIfGgb3q1E2XSxZACf5ZMj1Kflif-fC5wTL12XlDso6b9wyGvQ036Fsj1R9Kgd-WYGOhe11LWxMiTdQBuWdITor_p5HdTLMEVs_lObkk9jvdQiuNnfzHSeW2YRjPhu-9zG9q0b-alYjTFBBa4WGJKYsyWzi",
-    ],
+    images: ["https://migration.trumecs.com/principal/struman/bt30.PNG"],
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Berat", value: "25 kg" },
@@ -626,9 +615,7 @@ const productDetails: Record<string, any> = {
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-HS1800",
-    images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAipdGwPN58YGbA_994fWGfh1ptAj_PRSzaRmq3HhCJ188SZk-8oDgX2ucs_U6isvY5RNIyBHtkoGsL8YBDTqCkuZn6H7eM-hldLnmeo5if7AuN5Nzt_Je-gmSjGV3v7KzoIzOucukwErgUECIQDW5coNAZePFD9ZBFvS9HAK2tXrq4El1up34u9gcHsuWISRg04tDZgkH02G6COXnaP70IVrjvBtL6dyxSQBdvGLdN0ApajBi8Z6zpBaTavfHe20siLWoK61e7PEBt",
-    ],
+    images: ["https://migration.trumecs.com/principal/struman/hs1800.PNG"],
     specs: [
       { label: "Kapasitas", value: "1536 Wh" },
       { label: "Maks. Output", value: "1800 W" },
@@ -661,9 +648,7 @@ const productDetails: Record<string, any> = {
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-HS3600",
-    images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDmcGIdKkuT4Pa9IPEFclz1ogDDW1dxtmoddjcpBpK7_eOF6gmt28LvjpzMzuTeirsr1_HSjpbEgZveuhna8ZWaEp3DzAY4eu6RLk3KtYXyP7wJFXVJqbGFcIy7hhn9KSg6kRB9mkTvMqQZRHIanFna6-t1Et1Kdh_da3I0PNQduJhF70rzZwzSHH4m9SulQLmDcOK4Ers5WpfWVXkcRiD4AkdgfzjM5AbwlBIwpbT-f25qagnX3gH-Ou4mHB2LINTyJLS8DdEfysHt",
-    ],
+    images: ["https://migration.trumecs.com/principal/struman/hs3600.PNG"],
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Maks. Output", value: "3600 W" },
@@ -696,9 +681,7 @@ const productDetails: Record<string, any> = {
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-M50",
-    images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDMWDF3qg2xN-1Bw6jBPANVoMLKDVGNfXCtsN8zCPSfAUUS0UWr5AP_J6KxDBe2d5-_EdVEIui-cI6mYFyBJ6yohBHD6PzrzwdaW8R73Ir-h7zigmGAMg5LkCR9j_107g2rF5in4ny14TFg94jYOK5ZLBAkVaOOzE1SoFSbCf3Q3iD8JjMHhP1E0RhdDoDBn2zP6IYrz0rL_a1bkVuFBEd-MEuTDNYAg-HB0YKdIK4KpJdSytRBJ3tvoJclP4kN_KMZTNFofMXSYGm0",
-    ],
+    images: ["https://migration.trumecs.com/principal/struman/m50.PNG"],
     specs: [
       { label: "Kapasitas", value: "5120 Wh" },
       { label: "Maks. Output", value: "4500 W" },
@@ -764,7 +747,7 @@ const productDetails: Record<string, any> = {
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
     sku: "SKU: STR-SSP800",
-    images: ["https://migration.trumecs.com/principal/struman/SSP400.png"],
+    images: ["https://migration.trumecs.com/principal/struman/ssp800.PNG"],
     specs: [
       { label: "Kapasitas", value: "800 W (8 × 100 W)" },
       { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
