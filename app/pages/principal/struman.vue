@@ -9,49 +9,61 @@
           <div class="industrial-grid-bg w-full h-full"></div>
         </div>
         <div
-          class="max-w-7xl mx-auto px-4 sm:px-grid-margin relative z-10 grid md:grid-cols-2 items-center gap-8 md:gap-grid-gutter"
+          class="max-w-7xl mx-auto px-4 sm:px-grid-margin relative z-10 grid md:grid-cols-2 items-center gap-6 md:gap-grid-gutter"
         >
-          <div class="space-y-stack-md">
-            <img
-              src="https://migration.trumecs.com/logo/principal/struman.png"
-              alt="STRUMAN Brand"
-              class="relative w-full h-auto object-contain drop-shadow-2xl mb-3"
-              loading="lazy"
-            />
+          <!-- Left Content -->
+          <div class="space-y-3 sm:space-y-stack-md text-center md:text-left">
+            <div class="flex justify-center md:justify-start">
+              <img
+                src="https://migration.trumecs.com/logo/principal/struman.png"
+                alt="STRUMAN Brand"
+                class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
+                loading="lazy"
+              />
+            </div>
+
             <div
-              class="inline-flex items-center gap-2 bg-secondary/10 text-secondary-container px-3 py-1 rounded-full border border-secondary/20"
+              class="inline-flex items-center gap-2 bg-secondary/10 text-secondary-container px-3 py-1 rounded-full border border-secondary/20 mx-auto md:mx-0"
             >
-              <span class="material-symbols-outlined text-[18px]"
-                >electric_bolt</span
-              >
+              <Icon name="mdi:flash" class="text-[18px]" />
               <span
                 class="font-label-caps text-label-caps uppercase tracking-wider"
                 >Industrial Excellence</span
               >
             </div>
+
             <h1
-              class="font-display-lg font-bold text-3xl sm:text-4xl md:text-display-lg leading-tight my-3"
+              class="font-display-lg font-bold text-2xl sm:text-3xl md:text-4xl lg:text-display-lg leading-tight"
             >
               STRUMAN Power Solutions
             </h1>
+
             <p
-              class="font-body-lg text-base sm:text-body-lg text-on-tertiary-container max-w-xl"
+              class="font-body-lg text-sm sm:text-base md:text-body-lg text-on-tertiary-container max-w-xl mx-auto md:mx-0"
             >
               Keandalan tanpa kompromi untuk garda terdepan industri.
               Menyediakan pembangkit listrik portabel dan panel surya yang
               direkayasa dengan presisi, dirancang untuk mendukung operasi
               penting dalam lingkungan apa pun.
             </p>
-            <div class="flex flex-wrap gap-4">
+
+            <div
+              class="flex flex-wrap gap-3 sm:gap-4 justify-center md:justify-start"
+            >
               <a
                 href="#catalog"
-                class="w-full sm:w-auto justify-center bg-secondary-container text-on-primary py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-secondary transition-all"
+                class="inline-flex items-center gap-2 bg-secondary-container text-on-primary px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-secondary transition-all"
               >
                 Lihat Catalog
-                <span class="material-symbols-outlined">arrow_forward</span>
+                <Icon
+                  name="mdi:arrow-right"
+                  class="text-[18px] sm:text-[20px]"
+                />
               </a>
             </div>
           </div>
+
+          <!-- Right Image -->
           <div class="hidden md:block">
             <div class="relative rounded-2xl overflow-hidden">
               <img
@@ -66,15 +78,15 @@
       </section>
 
       <!-- Brand Intro -->
-      <section class="bg-surface-container-lowest py-4">
+      <section class="bg-surface-container-lowest py-4 sm:py-6">
         <div class="max-w-4xl mx-auto px-4 sm:px-grid-margin text-center">
           <h2
-            class="font-display-lg text-2xl sm:text-3xl md:text-headline-md font-bold text-on-surface mb-4 sm:mb-6"
+            class="font-display-lg text-xl sm:text-2xl md:text-3xl lg:text-headline-md font-bold text-on-surface mb-3 sm:mb-4"
           >
             Integrated Power Architecture
           </h2>
           <p
-            class="font-body-lg text-base sm:text-body-lg text-on-surface-variant leading-relaxed"
+            class="font-body-lg text-sm sm:text-base md:text-body-lg text-on-surface-variant leading-relaxed"
           >
             STRUMAN ini adalah ekosistem eksklusif. Dari baterai lithium fosfat
             berdensitas tinggi hingga integrasi BMS cerdas, sistem kami bekerja
@@ -186,7 +198,7 @@
             class="bg-surface rounded-xl border border-outline-variant overflow-hidden group hover:technical-shadow transition-all"
           >
             <div
-              class="h-64 bg-surface-container-low flex items-center justify-center p-6 border-b border-outline-variant"
+              class="h-64 bg-surface-container-low flex items-center justify-center border-b border-outline-variant"
             >
               <img
                 :src="product.image"
@@ -197,11 +209,12 @@
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3
-                  class="font-headline-md text-headline-md text-industrial-black"
+                <Trulink
+                  :to="`https://www.trumecs.com/product/${product.id}`"
+                  class="font-headline-md text-headline-md text-industrial-black fs-4"
                 >
                   {{ product.name }}
-                </h3>
+                </Trulink>
                 <span
                   :class="`${product.badgeColor} font-label-caps text-[10px] px-2 py-1 rounded`"
                   >{{ product.badge }}</span
@@ -224,7 +237,7 @@
               </div>
               <button
                 @click="openModal(product.id)"
-                class="w-full mt-6 bg-surface-container-high py-3 font-semibold text-primary rounded border border-primary/10 hover:bg-primary hover:text-white transition-all"
+                class="w-full mt-6 bg-surface-container-high py-3 font-semibold text-primary rounded border border-primary/10 hover:bg-primary hover:text-orange-400 transition-all"
               >
                 Lihat Detail
               </button>
@@ -304,11 +317,11 @@
             </div>
 
             <div class="p-6">
-              <h2
+              <p
                 class="font-display-lg text-2xl font-bold text-industrial-black mb-1"
               >
                 {{ selectedProduct.name }}
-              </h2>
+              </p>
               <p class="text-on-surface-variant text-sm mb-4">
                 {{ selectedProduct.subtitle }}
               </p>
@@ -366,12 +379,14 @@
                 </div>
               </div>
 
-              <button
-                class="w-full bg-secondary-container text-white py-3 rounded font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              <Trulink
+                :to="`${selectedProduct.link}`"
+                target="_blank"
+                class="w-full bg-secondary-container py-3 rounded font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 <span class="material-symbols-outlined text-[18px]">chat</span>
                 Hubungi Kami
-              </button>
+              </Trulink>
             </div>
           </div>
         </div>
@@ -445,7 +460,7 @@ const stats = [
 
 const products = [
   {
-    id: "g24pro",
+    id: "4873",
     name: "G24 PRO",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
@@ -459,7 +474,7 @@ const products = [
     ],
   },
   {
-    id: "bt30",
+    id: "4874",
     name: "BT30",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
@@ -473,7 +488,7 @@ const products = [
     ],
   },
   {
-    id: "hs1800",
+    id: "4875",
     name: "HS1800",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
@@ -487,7 +502,7 @@ const products = [
     ],
   },
   {
-    id: "hs3600",
+    id: "4876",
     name: "HS3600",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
@@ -501,7 +516,7 @@ const products = [
     ],
   },
   {
-    id: "m50",
+    id: "4877",
     name: "M50",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
@@ -515,7 +530,7 @@ const products = [
     ],
   },
   {
-    id: "ssp400",
+    id: "4878",
     name: "SSP400",
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
@@ -529,7 +544,7 @@ const products = [
     ],
   },
   {
-    id: "ssp800",
+    id: "4879",
     name: "SSP800",
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
@@ -543,9 +558,10 @@ const products = [
     ],
   },
 ];
+const phone = "6285176912338";
 
 const productDetails: Record<string, any> = {
-  g24pro: {
+  4873: {
     name: "STRUMAN G24 PRO",
     subtitle: "Stasiun Daya yang Dapat Diperluas",
     price: "Rp22.800.000",
@@ -553,6 +569,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-G24PRO",
     images: ["https://migration.trumecs.com/principal/struman/g24pro.PNG"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN G24 PRO. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "2048 Wh" },
       { label: "Maks. Output", value: "3000 W" },
@@ -580,7 +597,7 @@ const productDetails: Record<string, any> = {
       },
     ],
   },
-  bt30: {
+  4874: {
     name: "STRUMAN BT30",
     subtitle: "Modul Baterai Eksternal",
     price: "Rp17.100.000",
@@ -588,6 +605,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-BT30",
     images: ["https://migration.trumecs.com/principal/struman/bt30.PNG"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN BT30. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Berat", value: "25 kg" },
@@ -608,7 +626,7 @@ const productDetails: Record<string, any> = {
       },
     ],
   },
-  hs1800: {
+  4875: {
     name: "STRUMAN HS1800",
     subtitle: "Stasiun Daya Portabel",
     price: "Rp13.100.000",
@@ -616,6 +634,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-HS1800",
     images: ["https://migration.trumecs.com/principal/struman/hs1800.PNG"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN HS1800. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "1536 Wh" },
       { label: "Maks. Output", value: "1800 W" },
@@ -641,7 +660,7 @@ const productDetails: Record<string, any> = {
       },
     ],
   },
-  hs3600: {
+  4876: {
     name: "STRUMAN HS3600",
     subtitle: "Stasiun Daya Tinggi",
     price: "Rp30.300.000",
@@ -649,6 +668,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-HS3600",
     images: ["https://migration.trumecs.com/principal/struman/hs3600.PNG"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN HS3600. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Maks. Output", value: "3600 W" },
@@ -674,7 +694,7 @@ const productDetails: Record<string, any> = {
       },
     ],
   },
-  m50: {
+  4877: {
     name: "STRUMAN M50",
     subtitle: "Unit Daya Industri Bergerak",
     price: "Rp35.600.000",
@@ -682,6 +702,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-M50",
     images: ["https://migration.trumecs.com/principal/struman/m50.PNG"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN M50. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "5120 Wh" },
       { label: "Maks. Output", value: "4500 W" },
@@ -707,7 +728,7 @@ const productDetails: Record<string, any> = {
       },
     ],
   },
-  ssp400: {
+  4878: {
     name: "STRUMAN SSP400",
     subtitle: "Paket Panel Surya (4 × 100W)",
     price: "Rp5.100.000",
@@ -715,6 +736,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-power-blue-glow text-primary",
     sku: "SKU: STR-SSP400",
     images: ["https://migration.trumecs.com/principal/struman/SSP400.png"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN SSP400. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "400 W (4 × 100 W)" },
       { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
@@ -740,7 +762,7 @@ const productDetails: Record<string, any> = {
       },
     ],
   },
-  ssp800: {
+  4879: {
     name: "STRUMAN SSP800",
     subtitle: "Paket Panel Surya (8 × 100W)",
     price: "Rp8.700.000",
@@ -748,6 +770,7 @@ const productDetails: Record<string, any> = {
     badgeColor: "bg-power-blue-glow text-primary",
     sku: "SKU: STR-SSP800",
     images: ["https://migration.trumecs.com/principal/struman/ssp800.PNG"],
+    link: `https://wa.me/${phone}?text=${encodeURIComponent("Hi Trumecs, saya tertarik dengan STRUMAN SSP800. Apakah barang ini tersedia?")}`,
     specs: [
       { label: "Kapasitas", value: "800 W (8 × 100 W)" },
       { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
@@ -774,25 +797,6 @@ const productDetails: Record<string, any> = {
     ],
   },
 };
-
-const footerSections = [
-  {
-    title: "Sumber Daya",
-    links: [
-      { text: "Pusat Bantuan", href: "#" },
-      { text: "Informasi Garansi", href: "#" },
-      { text: "Panduan Perawatan", href: "#" },
-    ],
-  },
-  {
-    title: "Perusahaan",
-    links: [
-      { text: "Kebijakan Privasi", href: "#" },
-      { text: "Syarat & Ketentuan", href: "#" },
-      { text: "Logistik Global", href: "#" },
-    ],
-  },
-];
 
 // ============ COMPUTED ============
 const selectedProduct = computed(() => {

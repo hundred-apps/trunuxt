@@ -2,7 +2,11 @@
   <div class="bg-white lg:rounded-xl lg:shadow-sm lg:border lg:border-gray-100">
     <!-- Main Image with Zoom -->
     <div
-      class="relative bg-gray-50 lg:rounded-lg overflow-hidden aspect-square mb-0 group"
+      ref="imageContainer"
+      class="relative bg-gray-50 lg:rounded-lg overflow-hidden aspect-square mb-0 group touch-manipulation"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
     >
       <img
         :src="mainImage.url"
@@ -10,7 +14,21 @@
         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-zoom-in"
         @click="openLightbox(selectedImage)"
         loading="eager"
+        draggable="false"
       />
+
+      <!-- Swipe Indicator (Optional) -->
+      <div
+        v-if="isMobile && allImages.length > 1 && showSwipeHint"
+        class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 animate-swipe-hint"
+      >
+        <div
+          class="bg-black/40 text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 backdrop-blur-sm"
+        >
+          <Icon name="mdi:gesture-swipe" class="text-lg" />
+          Swipe
+        </div>
+      </div>
 
       <!-- Zoom Icon -->
       <button
@@ -131,18 +149,19 @@
         </div>
       </div>
 
-      <!-- Mobile: Dot Indicators (hanya indikator, tidak bisa diklik) -->
+      <!-- Mobile: Dot Indicators -->
       <div v-else class="flex justify-center gap-2 mt-1">
         <span
           v-for="(img, index) in allImages"
           :key="index"
-          class="transition-all duration-300 rounded-full block"
+          class="transition-all duration-300 rounded-full block cursor-pointer"
           :class="
             selectedImage === index
               ? 'w-3 h-3 bg-orange-500 scale-110 shadow-sm'
-              : 'w-2.5 h-2.5 bg-gray-300'
+              : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'
           "
-          :aria-label="`Image ${index + 1} of ${allImages.length}`"
+          @click="selectImage(index)"
+          :aria-label="`Go to image ${index + 1}`"
           :aria-current="selectedImage === index ? 'true' : 'false'"
         />
       </div>
@@ -212,18 +231,21 @@ const selectedImage = ref(0);
 const lightboxOpen = ref(false);
 const lightboxIndex = ref(0);
 const thumbnailContainer = ref<HTMLDivElement | null>(null);
+const imageContainer = ref<HTMLElement | null>(null);
+
+// ============ SWIPE STATE ============
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+const touchStartY = ref(0);
+const touchEndY = ref(0);
+const isSwiping = ref(false);
+const showSwipeHint = ref(true);
 
 // ============ SCREEN DETECTION ============
 const { higherThan } = useScreen();
 
-// Computed untuk deteksi mobile (lebih efisien)
 const isMobile = computed(() => {
   return !higherThan("md");
-});
-
-// Debug: Log untuk memastikan isMobile berfungsi
-watch(isMobile, (newVal) => {
-  console.log("isMobile changed:", newVal);
 });
 
 // ============ IMAGE HELPERS ============
@@ -261,7 +283,6 @@ const getThumbnailUrl = (filename: string, isGallery: boolean = false) => {
 const allImages = computed<ImageObject[]>(() => {
   const images: ImageObject[] = [];
 
-  // Add main image
   if (props.product.img) {
     images.push({
       filename: props.product.img,
@@ -272,7 +293,6 @@ const allImages = computed<ImageObject[]>(() => {
     });
   }
 
-  // Add gallery images
   if (props.product.gallery_img && Array.isArray(props.product.gallery_img)) {
     props.product.gallery_img.forEach((item) => {
       if (item.img) {
@@ -287,7 +307,6 @@ const allImages = computed<ImageObject[]>(() => {
     });
   }
 
-  // If no images, add placeholder
   if (images.length === 0) {
     images.push({
       filename: "noimage.png",
@@ -309,11 +328,68 @@ const lightboxImage = computed(() => {
   return allImages.value[lightboxIndex.value] || allImages.value[0];
 });
 
+// ============ SWIPE HANDLERS ============
+const handleTouchStart = (e: TouchEvent) => {
+  touchStartX.value = e.touches[0].clientX;
+  touchStartY.value = e.touches[0].clientY;
+  isSwiping.value = true;
+
+  // Sembunyikan hint saat user mulai swipe
+  if (showSwipeHint.value) {
+    showSwipeHint.value = false;
+  }
+};
+
+const handleTouchMove = (e: TouchEvent) => {
+  if (!isSwiping.value || allImages.value.length <= 1) return;
+
+  touchEndX.value = e.touches[0].clientX;
+  touchEndY.value = e.touches[0].clientY;
+
+  // Hitung perbedaan
+  const diffX = touchStartX.value - touchEndX.value;
+  const diffY = touchStartY.value - touchEndY.value;
+
+  // Cegah scroll vertical saat swipe horizontal
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+    e.preventDefault();
+  }
+};
+
+const handleTouchEnd = (e: TouchEvent) => {
+  if (!isSwiping.value || allImages.value.length <= 1) {
+    isSwiping.value = false;
+    return;
+  }
+
+  const diffX = touchStartX.value - touchEndX.value;
+  const diffY = touchStartY.value - touchEndY.value;
+
+  // Minimal swipe distance 50px
+  const minSwipeDistance = 50;
+
+  // Cek apakah swipe horizontal (lebih dominan dari vertical)
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
+    if (diffX > 0) {
+      // Swipe kiri → next image
+      nextImageMobile();
+    } else {
+      // Swipe kanan → prev image
+      prevImageMobile();
+    }
+  }
+
+  isSwiping.value = false;
+  touchStartX.value = 0;
+  touchEndX.value = 0;
+  touchStartY.value = 0;
+  touchEndY.value = 0;
+};
+
 // ============ METHODS ============
 const selectImage = (index: number) => {
   selectedImage.value = index;
 
-  // Scroll thumbnail into view (hanya di desktop)
   if (!isMobile.value && thumbnailContainer.value) {
     nextTick(() => {
       const container = thumbnailContainer.value;
@@ -331,23 +407,17 @@ const selectImage = (index: number) => {
   }
 };
 
-// ===== MOBILE NAVIGATION =====
 const prevImageMobile = () => {
-  console.log("prevImageMobile clicked", allImages.value.length);
   if (allImages.value.length === 0) return;
   selectedImage.value =
     (selectedImage.value - 1 + allImages.value.length) % allImages.value.length;
-  console.log("selectedImage:", selectedImage.value);
 };
 
 const nextImageMobile = () => {
-  console.log("nextImageMobile clicked", allImages.value.length);
   if (allImages.value.length === 0) return;
   selectedImage.value = (selectedImage.value + 1) % allImages.value.length;
-  console.log("selectedImage:", selectedImage.value);
 };
 
-// ===== DESKTOP SCROLL =====
 const scrollThumbnails = (direction: "left" | "right") => {
   if (isMobile.value || !thumbnailContainer.value) return;
 
@@ -359,7 +429,6 @@ const scrollThumbnails = (direction: "left" | "right") => {
   });
 };
 
-// ===== LIGHTBOX =====
 const openLightbox = (index: number) => {
   lightboxIndex.value = index;
   lightboxOpen.value = true;
@@ -408,8 +477,14 @@ const handleKeydown = (e: KeyboardEvent) => {
   }
 };
 
+// ============ LIFECYCLE ============
 onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
+
+  // Sembunyikan swipe hint setelah 3 detik
+  setTimeout(() => {
+    showSwipeHint.value = false;
+  }, 3000);
 });
 
 onUnmounted(() => {
@@ -432,7 +507,7 @@ onUnmounted(() => {
 
 /* Touch feedback untuk mobile */
 .touch-manipulation {
-  touch-action: manipulation;
+  touch-action: pan-y; /* Izinkan vertical scroll tapi tangani horizontal */
 }
 
 /* Animasi smooth untuk dot indicators */
@@ -446,18 +521,55 @@ img {
   user-select: none;
 }
 
-/* Mobile arrow buttons - tambahkan shadow lebih besar */
+/* Mobile arrow buttons */
 @media (max-width: 768px) {
   button {
     touch-action: manipulation;
   }
 }
 
-/* Debug: Tampilkan border untuk melihat posisi arrow */
-/* .absolute.left-2 {
-  border: 2px solid red;
+/* Swipe Hint Animation */
+@keyframes swipeHint {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
 }
-.absolute.right-2 {
-  border: 2px solid blue;
-} */
+
+.animate-swipe-hint {
+  animation: swipeHint 2.5s ease-in-out forwards;
+}
+
+/* Swipe indicator style */
+.animate-swipe-hint .bg-black\/40 {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
 </style>
