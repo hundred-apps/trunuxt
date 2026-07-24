@@ -88,6 +88,9 @@ const router = useRouter();
 const { t } = useI18n();
 const goBack = () => router.back();
 const id = route.params.id as string;
+const name = route.params.tittle as string;
+console.log(id);
+console.log(name);
 
 // Breadcrumb dengan data dinamis
 const detailProductBreadcrumb = computed(() => {
