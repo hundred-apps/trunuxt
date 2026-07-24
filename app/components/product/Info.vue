@@ -29,18 +29,31 @@
     <!-- Price Section -->
     <div class="md:mb-6">
       <div class="flex flex-wrap items-end gap-2">
+        <!-- Jika harga tersedia -->
         <div
           v-if="displayPrice"
           class="text-3xl lg:text-4xl font-bold text-orange-500"
         >
           Rp {{ formatPrice(displayPrice) }}
         </div>
+
+        <!-- Jika harga 0 atau tidak tersedia -->
+        <div
+          v-else-if="isPriceHidden"
+          class="text-2xl lg:text-3xl font-bold text-gray-700"
+        >
+          Hubungi Kami
+        </div>
+
+        <!-- Harga Coret (Promo) -->
         <div
           v-if="product.price_promo > 0"
           class="text-lg text-gray-400 line-through"
         >
           Rp {{ formatPrice(Number(product.price)) }}
         </div>
+
+        <!-- Badge Hemat -->
         <div
           v-if="product.price_promo > 0"
           class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full"
@@ -170,7 +183,17 @@ const isMobile = computed(() => {
 // ============ COMPUTED ============
 const displayPrice = computed(() => {
   const promo = Number(props.product.price_promo || 0);
-  return promo > 0 ? promo : Number(props.product.price || 0);
+  const price = Number(props.product.price || 0);
+  const finalPrice = promo > 0 ? promo : price;
+
+  // Jika harga 0, return null atau string khusus
+  return finalPrice > 0 ? finalPrice : null;
+});
+
+const isPriceHidden = computed(() => {
+  const promo = Number(props.product.price_promo || 0);
+  const price = Number(props.product.price || 0);
+  return promo <= 0 && price <= 0;
 });
 
 const discountPercent = computed(() => {

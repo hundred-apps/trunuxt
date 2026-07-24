@@ -68,7 +68,7 @@
             <div class="relative rounded-2xl overflow-hidden">
               <img
                 class="w-full h-auto object-contain mix-blend-multiply"
-                src="https://migration.trumecs.com/logo/principal/struman-all.png"
+                src="https://migration.trumecs.com/principal/struman/struman-all.png"
                 alt="STRUMAN All"
                 loading="lazy"
               />
@@ -210,7 +210,7 @@
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
                 <Trulink
-                  :to="`https://www.trumecs.com/product/${product.id}`"
+                  :to="`https://www.trumecs.com/product/${product.id}/${formatSlug(product.name)}`"
                   class="font-headline-md text-headline-md text-industrial-black fs-4"
                 >
                   {{ product.name }}
@@ -396,6 +396,7 @@
 </template>
 
 <script setup lang="ts">
+import { formatSlug } from "~/utils/slug";
 // ============ STATE ============
 const isMenuOpen = ref(false);
 const isSearchOpen = ref(false);
@@ -461,10 +462,10 @@ const stats = [
 const products = [
   {
     id: "4873",
-    name: "G24 PRO",
+    name: "Struman G24 Pro",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
-    price: "Rp22.800.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/g24pro.PNG",
     specs: [
       { label: "Kapasitas", value: "2048 Wh" },
@@ -475,10 +476,10 @@ const products = [
   },
   {
     id: "4874",
-    name: "BT30",
+    name: "Struman BT30",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
-    price: "Rp17.100.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/bt30.PNG",
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
@@ -489,10 +490,10 @@ const products = [
   },
   {
     id: "4875",
-    name: "HS1800",
+    name: "Struman HS1800",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
-    price: "Rp13.100.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/hs1800.PNG",
     specs: [
       { label: "Kapasitas", value: "1536 Wh" },
@@ -503,10 +504,10 @@ const products = [
   },
   {
     id: "4876",
-    name: "HS3600",
+    name: "Struman HS3600",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
-    price: "Rp30.300.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/hs3600.PNG",
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
@@ -517,10 +518,10 @@ const products = [
   },
   {
     id: "4877",
-    name: "M50",
+    name: "Struman M50",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
-    price: "Rp35.600.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/m50.PNG",
     specs: [
       { label: "Kapasitas", value: "5120 Wh" },
@@ -531,10 +532,10 @@ const products = [
   },
   {
     id: "4878",
-    name: "SSP400",
+    name: "Struman SSP400",
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
-    price: "Rp5.100.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/SSP400.png",
     specs: [
       { label: "Kapasitas", value: "400 W (4 × 100 W)" },
@@ -545,10 +546,10 @@ const products = [
   },
   {
     id: "4879",
-    name: "SSP800",
+    name: "Struman SSP800",
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
-    price: "Rp8.700.000",
+    price: "Call",
     image: "https://migration.trumecs.com/principal/struman/ssp800.PNG",
     specs: [
       { label: "Kapasitas", value: "800 W (8 × 100 W)" },
@@ -564,7 +565,7 @@ const productDetails: Record<string, any> = {
   4873: {
     name: "STRUMAN G24 PRO",
     subtitle: "Stasiun Daya yang Dapat Diperluas",
-    price: "Rp22.800.000",
+    price: "Call",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-G24PRO",
@@ -600,7 +601,7 @@ const productDetails: Record<string, any> = {
   4874: {
     name: "STRUMAN BT30",
     subtitle: "Modul Baterai Eksternal",
-    price: "Rp17.100.000",
+    price: "Call",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-BT30",
@@ -629,7 +630,7 @@ const productDetails: Record<string, any> = {
   4875: {
     name: "STRUMAN HS1800",
     subtitle: "Stasiun Daya Portabel",
-    price: "Rp13.100.000",
+    price: "Call",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-HS1800",
@@ -663,7 +664,7 @@ const productDetails: Record<string, any> = {
   4876: {
     name: "STRUMAN HS3600",
     subtitle: "Stasiun Daya Tinggi",
-    price: "Rp30.300.000",
+    price: "Call",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-HS3600",
@@ -697,7 +698,7 @@ const productDetails: Record<string, any> = {
   4877: {
     name: "STRUMAN M50",
     subtitle: "Unit Daya Industri Bergerak",
-    price: "Rp35.600.000",
+    price: "Call",
     badge: "BATERAI",
     badgeColor: "bg-status-success/10 text-status-success",
     sku: "SKU: STR-M50",
@@ -731,7 +732,7 @@ const productDetails: Record<string, any> = {
   4878: {
     name: "STRUMAN SSP400",
     subtitle: "Paket Panel Surya (4 × 100W)",
-    price: "Rp5.100.000",
+    price: "Call",
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
     sku: "SKU: STR-SSP400",
@@ -765,7 +766,7 @@ const productDetails: Record<string, any> = {
   4879: {
     name: "STRUMAN SSP800",
     subtitle: "Paket Panel Surya (8 × 100W)",
-    price: "Rp8.700.000",
+    price: "Call",
     badge: "SOLAR PANEL",
     badgeColor: "bg-power-blue-glow text-primary",
     sku: "SKU: STR-SSP800",

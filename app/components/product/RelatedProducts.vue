@@ -13,7 +13,7 @@
       <a
         v-for="product in products"
         :key="product.id"
-        :href="`/product/${product.id}`"
+        :href="`/product/${product.id}/${formatSlug(product.tittle)}`"
         class="group bg-gray-50 hover:bg-white rounded-lg transition-all hover:shadow-md border border-transparent hover:border-gray-200"
       >
         <div class="aspect-square bg-white rounded-lg overflow-hidden mb-3">
@@ -40,6 +40,7 @@
 </template>
 
 <script setup lang="ts">
+import { formatSlug } from "~/utils/slug";
 const props = defineProps<{
   products: Array<{
     id: number;
