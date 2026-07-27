@@ -86,7 +86,12 @@
           target="_blank"
         >
         </Trubutton>
-        <Trubutton text="Email Inquiry" icon="mdi:email" :href="emailLink">
+        <Trubutton
+          text="Email Inquiry"
+          icon="mdi:email"
+          @click="handleClickEmailLink"
+          target="_blank"
+        >
         </Trubutton>
       </div>
     </div>
@@ -296,6 +301,9 @@ const handleClickWALink = () => {
 
 const handleClickWALink2 = () => {
   window.open(whatsappLink2.value, "_blank");
+};
+const handleClickEmailLink = () => {
+  window.open(emailLink.value, "_blank");
 };
 
 // ============ AUTO HIDE ON SCROLL ============
