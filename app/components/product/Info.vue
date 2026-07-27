@@ -158,7 +158,7 @@
         target="_blank"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
-        <Icon name="logos:whatsapp-icon" class="text-xl" />
+        <Icon name="logos:whatsapp-icon" class="text-xl" /> WA 1
         <span class="hidden xs:inline text-sm">WhatsApp</span>
       </a>
       <a
@@ -166,7 +166,7 @@
         target="_blank"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
-        <Icon name="logos:whatsapp-icon" class="text-xl" />
+        <Icon name="logos:whatsapp-icon" class="text-xl" /> WA 2
         <span class="hidden xs:inline text-sm">WhatsApp</span>
       </a>
 
@@ -175,7 +175,7 @@
         :href="emailLink"
         class="flex-1 flex items-center justify-center gap-1.5 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
-        <Icon name="mdi:email" class="text-xl" />
+        <Icon name="mdi:email" class="text-xl" /> Email
         <span class="hidden xs:inline text-sm">Email</span>
       </a>
     </div>
