@@ -78,6 +78,14 @@
           target="_blank"
         >
         </Trubutton>
+        <Trubutton
+          type="success"
+          text="Beli via WhatsApp"
+          icon="logos:whatsapp-icon"
+          @click="handleClickWALink2"
+          target="_blank"
+        >
+        </Trubutton>
         <Trubutton text="Email Inquiry" icon="mdi:email" :href="emailLink">
         </Trubutton>
       </div>
@@ -105,6 +113,12 @@
           <div class="flex items-center gap-2">
             <Icon name="logos:whatsapp-icon" class="text-xl" />
             <span>{{ platformContact("whatsapp") }}</span>
+          </div>
+        </a>
+        <a :href="platformContact('linkWhatsapp2')" target="_blank">
+          <div class="flex items-center gap-2">
+            <Icon name="logos:whatsapp-icon" class="text-xl" />
+            <span>{{ platformContact("whatsapp2") }}</span>
           </div>
         </a>
       </div>
@@ -136,6 +150,14 @@
       <!-- WhatsApp Button -->
       <a
         :href="whatsappLink"
+        target="_blank"
+        class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
+      >
+        <Icon name="logos:whatsapp-icon" class="text-xl" />
+        <span class="hidden xs:inline text-sm">WhatsApp</span>
+      </a>
+      <a
+        :href="whatsappLink2"
         target="_blank"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
@@ -185,8 +207,6 @@ const displayPrice = computed(() => {
   const promo = Number(props.product.price_promo || 0);
   const price = Number(props.product.price || 0);
   const finalPrice = promo > 0 ? promo : price;
-
-  // Jika harga 0, return null atau string khusus
   return finalPrice > 0 ? finalPrice : null;
 });
 
@@ -213,6 +233,12 @@ const whatsappLink = computed(() => {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 });
 
+const whatsappLink2 = computed(() => {
+  const message = `Hi Trumecs, saya tertarik dengan ${props.product.tittle}. Apakah barang ini tersedia?`;
+  const phone = "6285155406008";
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+});
+
 const emailLink = computed(() => {
   const subject = props.product.tittle;
   const body = `Hi Trumecs, saya tertarik dengan ${props.product.tittle}. \n\nApakah barang ini tersedia?`;
@@ -227,6 +253,7 @@ const formatPrice = (price: number) => {
 const platformContact = (type: string) => {
   const message = `Hi Trumecs, saya tertarik dengan ${props.product.tittle}. Apakah barang ini tersedia?`;
   const phone = "6285176912338";
+  const phone2 = "6285155406008";
   const subject = props.product.tittle;
   const body = `Hi Trumecs, saya tertarik dengan ${props.product.tittle}. \n\nApakah barang ini tersedia?`;
   const mail = "info@trumecs.com";
@@ -236,7 +263,9 @@ const platformContact = (type: string) => {
     email: `${mail}`,
     emailLink: `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
     whatsapp: "+62 851-7691-2338",
+    whatsapp2: "+62 851-5540-6008",
     linkWhatsapp: `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    linkWhatsapp2: `https://wa.me/${phone2}?text=${encodeURIComponent(message)}`,
   };
   return contacts[type as keyof typeof contacts] || "";
 };
@@ -260,12 +289,20 @@ const shareProduct = (share: any) => {
   window.open(shareUrls[share.name], "_blank", "width=600,height=400");
 };
 
+// ============ HANDLE WHATSAPP CLICK ============
+const handleClickWALink = () => {
+  window.open(whatsappLink.value, "_blank");
+};
+
+const handleClickWALink2 = () => {
+  window.open(whatsappLink2.value, "_blank");
+};
+
 // ============ AUTO HIDE ON SCROLL ============
 const handleScroll = () => {
   if (!isMobile.value) return;
 
   const currentScrollY = window.scrollY;
-  // Sembunyikan saat scroll ke bawah, tampilkan saat scroll ke atas
   if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
     isVisible.value = false;
   } else {
@@ -281,7 +318,6 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
-  // Cleanup jika contact info masih terbuka
   if (showContactInfo.value) {
     document.body.style.overflow = "";
   }
