@@ -80,7 +80,7 @@
         </Trubutton>
         <Trubutton
           type="success"
-          text="Beli via WhatsApp"
+          text="Beli via WhatsApp 2"
           icon="logos:whatsapp-icon"
           @click="handleClickWALink2"
           target="_blank"
