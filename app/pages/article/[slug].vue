@@ -228,17 +228,22 @@ import type { ProductCategory } from "~/types/category";
 const article = ref<CardArticle | null>(null);
 
 useHead({
-  title: article.value?.title,
+  title: computed(() => article.value?.title || "Artikel"),
   titleTemplate: "Artikel - %s | Trumecs.com",
-  meta: [{ name: article.value?.title, content: article.value?.content }],
+  meta: computed(() => [
+    {
+      name: "description",
+      content: article.value?.excerpt || article.value?.title || "",
+    },
+  ]),
 });
 
 useSeoMeta({
-  title: article.value?.title,
-  ogTitle: article.value?.title,
-  description: article.value?.content,
-  ogDescription: article.value?.content,
-  ogImage: article.value?.image,
+  title: computed(() => article.value?.title),
+  ogTitle: computed(() => article.value?.title),
+  description: computed(() => article.value?.excerpt),
+  ogDescription: computed(() => article.value?.excerpt),
+  ogImage: computed(() => article.value?.image),
   twitterCard: "summary_large_image",
 });
 
@@ -311,6 +316,8 @@ const fetchTrendingArticles = async () => {
       });
     }
   } catch (error) {
+    console.error("Error fetching article:", error);
+    article.value = null;
   } finally {
     loading.value = false;
   }
@@ -474,12 +481,20 @@ const fetchCategories = async () => {
   }
 };
 
+await Promise.all([
+  fetchDetailArticle(),
+  fetchTrendingArticles(),
+  fetchRelatedArticles(),
+  fetchCategories(),
+]);
+setRandomAds();
+
 // Processed content untuk v-html
 
 const processedContent = computed(() => {
   return (
     article.value?.content
-      ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, "") // hapus paragraf kosong / hanya &nbsp;
+      ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, "")
       ?.replace(/&nbsp;/g, " ") || ""
   );
 });
@@ -567,10 +582,10 @@ onMounted(async () => {
 // Watch for route changes (jika slug berubah)
 watch(
   () => route.params.slug,
-  (newSlug, oldSlug) => {
-    if (newSlug !== oldSlug) {
-      slug = newSlug as string;
-      fetchDetailArticle();
+  async (newSlug) => {
+    if (newSlug && newSlug !== slug.value) {
+      slug.value = newSlug as string;
+      await fetchDetailArticle();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }

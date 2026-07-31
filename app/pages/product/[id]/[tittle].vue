@@ -201,7 +201,7 @@ const fetchDetailProduct = async () => {
     loading.value = false;
   }
 };
-
+await fetchDetailProduct();
 const product = ref<Product | null>(null);
 
 const generateProductSchema = (productData: Product | null) => {
@@ -347,8 +347,6 @@ const generateBreadcrumbSchema = (productData: Product | null) => {
   };
 };
 
-// ============ INJECT SCHEMAS ============
-
 const productSchema = computed(() => {
   const schema = generateProductSchema(product.value);
   console.log("Generated Product Schema:", schema); // Debug
@@ -359,12 +357,6 @@ const breadcrumbSchema = computed(() =>
   generateBreadcrumbSchema(product.value)
 );
 
-// ============ USEHEAD DENGAN CARA YANG BENAR ============
-
-// IMPORTANT: Jangan gunakan computed di dalam useHead untuk script
-// Gunakan langsung dengan ref atau watch
-
-// Buat ref untuk schema
 const productSchemaRef = ref<any>(null);
 const breadcrumbSchemaRef = ref<any>(null);
 
@@ -454,7 +446,6 @@ useHead({
   ]),
 });
 
-// Open Graph
 useSeoMeta({
   title: computed(() => product.value?.tittle),
   ogTitle: computed(() => product.value?.tittle),
