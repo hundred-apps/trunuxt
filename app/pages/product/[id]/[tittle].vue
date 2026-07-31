@@ -201,7 +201,7 @@ const fetchDetailProduct = async () => {
     loading.value = false;
   }
 };
-await fetchDetailProduct();
+
 const product = ref<Product | null>(null);
 
 const generateProductSchema = (productData: Product | null) => {
