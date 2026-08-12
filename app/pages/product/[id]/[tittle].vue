@@ -120,7 +120,7 @@ const detailProductBreadcrumb = computed(() => {
         .join("/");
       chain.push({
         text: parent.name,
-        to: `/c/${url}`,
+        to: `https://www.trumecs.com/c/${url}`,
       });
     });
 
