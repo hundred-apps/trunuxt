@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-surface font-body-md text-on-surface">
     <!-- ============ HERO SECTION ============ -->
     <section
-      class="relative pt-[34px] min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-800"
+      class="relative pt-[34px] min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-800"
     >
       <!-- Background Image dengan efek lebih baik -->
       <div class="absolute inset-0 z-0">
@@ -64,7 +64,7 @@
                 type="primary"
                 size="large"
                 class="!bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !px-8 !py-4 !rounded-xl !font-semibold !shadow-lg hover:!shadow-xl transition-all !text-base"
-                @click="scrollTo('categories')"
+                @click="scrollTo('featured')"
               >
                 <Icon name="mdi:view-grid" class="text-xl mr-2" />
                 Lihat Katalog
@@ -73,29 +73,11 @@
               <ElButton
                 size="large"
                 class="!bg-white/10 !border-2 !border-white/30 hover:!bg-white/20 !text-white !px-8 !py-4 !rounded-xl !font-semibold !backdrop-blur-sm transition-all !text-base"
-                @click="scrollTo('request')"
+                @click="scrollTo('contactLocations')"
               >
                 <Icon name="mdi:whatsapp" class="text-xl mr-2" />
                 Hubungi Sales
               </ElButton>
-            </div>
-
-            <!-- Trust Indicators -->
-            <div
-              class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-white/10"
-            >
-              <div class="flex items-center gap-2">
-                <Icon name="mdi:check-circle" class="text-green-400 text-xl" />
-                <span class="text-sm text-white/80">100% Original</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <Icon name="mdi:shield-check" class="text-green-400 text-xl" />
-                <span class="text-sm text-white/80">Garansi</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <Icon name="mdi:clock-fast" class="text-green-400 text-xl" />
-                <span class="text-sm text-white/80">Ready Stock</span>
-              </div>
             </div>
           </div>
 
@@ -124,24 +106,6 @@
                   class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"
                 ></div>
               </div>
-
-              <!-- Floating badge -->
-              <div
-                class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3 animate-bounce-slow"
-              >
-                <div
-                  class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center"
-                >
-                  <Icon
-                    name="mdi:package-variant"
-                    class="text-white text-2xl"
-                  />
-                </div>
-                <div>
-                  <p class="text-xs text-gray-500">Stok Tersedia</p>
-                  <p class="text-sm font-bold text-primary">1000+ Part</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -149,7 +113,7 @@
     </section>
 
     <!-- ============ ABOUT SPARE PARTS ============ -->
-    <section class="py-12 md:py-16 bg-surface" id="about">
+    <section class="py-12 md:py-6 bg-surface" id="about">
       <div class="max-w-[1440px] mx-auto px-4 md:px-8">
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold text-primary mb-3">
@@ -209,7 +173,7 @@
     </section> -->
 
     <!-- ============ FEATURED PARTS ============ -->
-    <section class="py-12 md:py-16 bg-surface-container-lowest" id="featured">
+    <section class="py-12 md:py-6 bg-surface-container-lowest" id="featured">
       <div class="max-w-[1440px] mx-auto px-4 md:px-8">
         <div class="flex justify-between items-end mb-8">
           <div>
@@ -220,18 +184,16 @@
               Koleksi part copotan dengan kondisi terbaik saat ini.
             </p>
           </div>
-          <a
-            class="text-secondary-container font-semibold hover:underline hidden md:block cursor-pointer"
-            >Lihat Semua Part</a
-          >
         </div>
 
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
         >
-          <div
+          <Trulink
             v-for="part in featuredParts"
             :key="part.name"
+            href="https://www.trumecs.com/c/Sparepart/query?q=on&nama="
+            target="_blank"
             class="bg-white rounded-lg border border-gray-200/10 overflow-hidden shadow-sm hover:shadow-lg transition-all"
           >
             <div class="h-48 bg-gray-100 relative">
@@ -256,14 +218,8 @@
               <p class="text-sm text-gray-600 mb-4">
                 Kondisi: {{ part.condition }}
               </p>
-              <ElButton
-                class="!w-full !border-secondary-container !text-secondary-container hover:!bg-secondary-container hover:!text-white !py-2 !rounded !font-semibold !transition-colors"
-                @click="openPartDetail(part)"
-              >
-                Lihat Detail
-              </ElButton>
             </div>
-          </div>
+          </Trulink>
         </div>
       </div>
     </section>
@@ -311,9 +267,41 @@
     </section>
     <!-- ============ LOCATION ============ -->
     <section
-      class="py-4 md:py-6 bg-surface border-t border-gray-200/10"
-      id="locations"
+      class="py-4 md:py-6 bg-surface border-t border-gray-200/10 flex items-center"
+      id="contactLocations"
     >
+      <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+        <div class="max-w-2xl mx-auto text-center">
+          <Icon
+            name="mdi:phone"
+            class="text-5xl text-secondary-container mb-3"
+          />
+          <h2 class="text-3xl font-bold mb-4">Ada Kebutuhan Sparepart?</h2>
+          <p class="text-gray-500 mb-8">
+            Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <ElButton
+              type="success"
+              size="large"
+              class="!bg-secondary-container !border-secondary-container hover:!bg-secondary !text-white !px-8 !py-3 !rounded !font-semibold"
+              @click="handleContact"
+            >
+              <Icon name="mdi:whatsapp" class="text-xl mr-2" />
+              Chat WhatsApp
+            </ElButton>
+            <ElButton
+              type="warning"
+              size="large"
+              class="!bg-warning !border !border-white !text-white hover:!bg-warning !px-8 !py-3 !rounded !font-semibold"
+              @click="handleEmail"
+            >
+              <Icon name="mdi:email" class="text-xl mr-2" />
+              Email Inquiry
+            </ElButton>
+          </div>
+        </div>
+      </div>
       <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
         <Icon name="mdi:city" class="text-5xl text-secondary-container mb-3" />
         <h2 class="text-3xl font-bold text-primary mb-3">
@@ -333,38 +321,6 @@
             <span class="font-semibold text-primary text-lg">{{
               location
             }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT / REQUEST SECTION ============ -->
-    <section class="py-4 md:py-6 bg-primary" id="request">
-      <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-        <div class="max-w-2xl mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-4">Ada Kebutuhan Sparepart?</h2>
-          <p class="text-gray-500 mb-8">
-            Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <ElButton
-              type="primary"
-              size="large"
-              class="!bg-secondary-container !border-secondary-container hover:!bg-secondary !text-white !px-8 !py-3 !rounded !font-semibold"
-              @click="handleContact"
-            >
-              <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-              Chat WhatsApp
-            </ElButton>
-            <ElButton
-              type="warning"
-              size="large"
-              class="!bg-warning !border !border-white !text-white hover:!bg-warning !px-8 !py-3 !rounded !font-semibold"
-              @click="handleEmail"
-            >
-              <Icon name="mdi:email" class="text-xl mr-2" />
-              Email Inquiry
-            </ElButton>
           </div>
         </div>
       </div>

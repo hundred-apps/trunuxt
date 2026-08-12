@@ -66,7 +66,7 @@
               type="primary"
               size="large"
               class="w-full sm:w-auto !bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !px-8 !py-4 !rounded-lg !font-semibold !shadow-lg hover:!shadow-xl transition-all"
-              @click="scrollTo('contact')"
+              @click="scrollTo('contactLocations')"
             >
               Request a Quote
               <Icon name="mdi:arrow-right" class="text-lg ml-1" />
@@ -79,24 +79,6 @@
             >
               Explore Our Services
             </ElButton>
-          </div>
-
-          <!-- Trust Indicators -->
-          <div
-            class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-white/10 justify-center md:justify-start"
-          >
-            <div class="flex items-center gap-2">
-              <Icon name="mdi:check-circle" class="text-green-400 text-xl" />
-              <span class="text-sm text-white/80">Precision Guaranteed</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="mdi:clock-fast" class="text-green-400 text-xl" />
-              <span class="text-sm text-white/80">Fast Turnaround</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="mdi:shield-check" class="text-green-400 text-xl" />
-              <span class="text-sm text-white/80">Quality Certified</span>
-            </div>
           </div>
         </div>
       </div>
@@ -116,7 +98,7 @@
     </section>
 
     <!-- 2. About Section -->
-    <section class="py-24 bg-surface relative overflow-hidden" id="about">
+    <section class="py-6 bg-surface relative overflow-hidden" id="about">
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -173,23 +155,6 @@
               class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
               loading="lazy"
             />
-            <div
-              class="absolute -bottom-6 -left-6 z-20 bg-white rounded-xl p-6 shadow-xl border border-gray-200/30 hidden md:block"
-            >
-              <div class="flex items-center gap-4">
-                <div
-                  class="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center"
-                >
-                  <Icon name="mdi:timeline" class="text-white text-3xl" />
-                </div>
-                <div>
-                  <div class="font-bold text-2xl text-primary">25+</div>
-                  <div class="text-xs text-gray-600 uppercase tracking-wider">
-                    Years Experience
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -250,7 +215,7 @@
     </section>
 
     <!-- 4. Capabilities Section -->
-    <section class="py-24 bg-surface" id="capabilities">
+    <section class="py-6 bg-surface" id="capabilities">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
         <div
           class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
@@ -390,7 +355,7 @@
     <section class="py-12 bg-primary overflow-hidden relative">
       <div class="absolute inset-0 opacity-10 tech-pattern"></div>
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div class="mb-16">
+        <div class="mb-4">
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Manufacturing Process
           </h2>
@@ -410,8 +375,7 @@
             <div
               v-for="(step, index) in processSteps"
               :key="index"
-              class="flex flex-col items-center text-center"
-              :class="{ 'md:translate-y-8': index % 2 === 1 }"
+              class="flex flex-col items-center text-center md:translate-y-8"
             >
               <div
                 class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center font-bold text-xl mb-6 shadow-lg ring-4 ring-primary"
@@ -426,125 +390,68 @@
       </div>
     </section>
 
-    <!-- 13. Contact Section -->
-    <section class="py-24 bg-surface" id="contact">
-      <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div
-          class="bg-gray-50 rounded-2xl shadow-lg border border-gray-200/30 overflow-hidden"
-        >
-          <div class="grid grid-cols-1 lg:grid-cols-2">
-            <!-- Form Side -->
-            <div class="p-8 md:p-12 lg:p-16">
-              <div class="mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                  Let's Discuss Your Project
-                </h2>
-                <p class="text-gray-600">
-                  Submit your requirements or drawings for a prompt technical
-                  review and quote.
-                </p>
-              </div>
-
-              <ElForm :model="form" label-position="top" class="space-y-6">
-                <ElRow :gutter="20">
-                  <ElCol :span="12">
-                    <ElFormItem label="First Name" prop="firstName">
-                      <ElInput
-                        v-model="form.firstName"
-                        placeholder="John"
-                        size="large"
-                      />
-                    </ElFormItem>
-                  </ElCol>
-                  <ElCol :span="12">
-                    <ElFormItem label="Last Name" prop="lastName">
-                      <ElInput
-                        v-model="form.lastName"
-                        placeholder="Doe"
-                        size="large"
-                      />
-                    </ElFormItem>
-                  </ElCol>
-                </ElRow>
-
-                <ElFormItem label="Company Name" prop="company">
-                  <ElInput
-                    v-model="form.company"
-                    placeholder="Acme Industries"
-                    size="large"
-                  />
-                </ElFormItem>
-
-                <ElFormItem label="Email Address" prop="email">
-                  <ElInput
-                    v-model="form.email"
-                    placeholder="john@example.com"
-                    size="large"
-                  />
-                </ElFormItem>
-
-                <ElFormItem label="Project Details" prop="details">
-                  <ElInput
-                    v-model="form.details"
-                    type="textarea"
-                    :rows="4"
-                    placeholder="Briefly describe your machining needs..."
-                    size="large"
-                  />
-                </ElFormItem>
-
-                <ElButton
-                  type="primary"
-                  size="large"
-                  class="!w-full !bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !py-4 !rounded-lg !font-semibold"
-                  @click="handleSubmit"
-                >
-                  Submit Request
-                  <Icon name="mdi:send" class="text-lg" />
-                </ElButton>
-              </ElForm>
-            </div>
-
-            <!-- Info Side -->
-            <div
-              class="bg-orange-500 p-8 md:p-12 lg:p-16 text-white relative overflow-hidden flex flex-col justify-between"
-            >
-              <div class="absolute inset-0 opacity-10 tech-pattern"></div>
-              <div class="relative z-10 mb-12">
-                <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
-                <div class="space-y-6">
-                  <div
-                    v-for="contact in contactInfo"
-                    :key="contact.label"
-                    class="flex items-start gap-4"
-                  >
-                    <Icon
-                      :name="contact.icon"
-                      class="text-orange-200 text-2xl mt-1"
-                    />
-                    <div>
-                      <div
-                        class="text-xs text-orange-200 uppercase tracking-wider mb-1"
-                      >
-                        {{ contact.label }}
-                      </div>
-                      <p class="text-white">{{ contact.value }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Map Placeholder -->
-              <div
-                class="relative z-10 w-full h-48 bg-gray-700 rounded-xl overflow-hidden border border-white/10"
+    <section
+      class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 py-6"
+      id="contactLocations"
+    >
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        Contact and Locations
+      </h2>
+      <div class="flex items-center">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+          <div class="max-w-2xl mx-auto text-center">
+            <Icon
+              name="mdi:phone"
+              class="text-5xl text-secondary-container mb-3"
+            />
+            <h2 class="text-3xl font-bold mb-4">Ada Kebutuhan Sparepart?</h2>
+            <p class="text-gray-500 mb-8">
+              Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <ElButton
+                type="success"
+                size="large"
+                class="!bg-secondary-container !border-secondary-container hover:!bg-secondary !text-white !px-8 !py-3 !rounded !font-semibold"
+                @click="handleContact"
               >
-                <div
-                  class="bg-cover bg-center w-full h-full opacity-80"
-                  :style="{
-                    backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuB88-UYzzaN8ZD9VknDQnXhuIdSDhUd8B6rsERgKEU6OlkJdRtkwP4fU9kdU6QtHkDxdYr6wu9LJLDUl0jTya4qpV3l2pIh2zMx92Lkb62k8upFndw1M5XhIJnCVuIxq9hdQhWFLLJSWFxC4bjkTYPlckRLmW4NltcWAi7-noOWZhHbP-Zq5N6oywcquiKjAO6ej5ernqF_HwqwAPcO3r-bKz5lxqlFuDWIJl2hmbjn2vrHjL6UaZjr')`,
-                  }"
-                ></div>
-              </div>
+                <Icon name="mdi:whatsapp" class="text-xl mr-2" />
+                Chat WhatsApp
+              </ElButton>
+              <ElButton
+                type="warning"
+                size="large"
+                class="!bg-warning !border !border-white !text-white hover:!bg-warning !px-8 !py-3 !rounded !font-semibold"
+                @click="handleEmail"
+              >
+                <Icon name="mdi:email" class="text-xl mr-2" />
+                Email Inquiry
+              </ElButton>
+            </div>
+          </div>
+        </div>
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
+          <Icon
+            name="mdi:city"
+            class="text-5xl text-secondary-container mb-3"
+          />
+          <h2 class="text-3xl font-bold text-primary mb-3">
+            Lokasi & Area Layanan Utama
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mb-6">
+            Kami berlokasi strategis untuk melayani kebutuhan industri berat di
+            area berikut dengan cepat dan tanggap.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+            <div
+              v-for="location in locations"
+              :key="location"
+              class="bg-white border border-gray-200/10 px-6 py-3 rounded-full shadow-sm flex items-center gap-2"
+            >
+              <Icon name="mdi:map-marker" class="text-secondary text-xl" />
+              <span class="font-semibold text-primary text-lg">{{
+                location
+              }}</span>
             </div>
           </div>
         </div>
@@ -656,14 +563,7 @@ const contactInfo = [
   { icon: "mdi:email", label: "Email", value: "info@trumecs.com" },
 ];
 
-// ============ FORM ============
-const form = reactive({
-  firstName: "",
-  lastName: "",
-  company: "",
-  email: "",
-  details: "",
-});
+const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
 
 // ============ METHODS ============
 const scrollTo = (id: string) => {
@@ -673,17 +573,16 @@ const scrollTo = (id: string) => {
   }
 };
 
-const handleSubmit = () => {
-  ElMessage.success(
-    "Your request has been submitted! We will contact you shortly."
+const handleContact = () => {
+  window.open(
+    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20machining%20dan%20fabrikasi%20Anda.",
+    "_blank"
   );
-  Object.assign(form, {
-    firstName: "",
-    lastName: "",
-    company: "",
-    email: "",
-    details: "",
-  });
+};
+
+const handleEmail = () => {
+  window.location.href =
+    "mailto:info@trumecs.com?subject=Machining%20dan%20Fabrication%20Inquiry";
 };
 
 // ============ SEO ============

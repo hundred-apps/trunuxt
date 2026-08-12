@@ -1,43 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-// const i18nDomains = [
-//   "mydomain.com",
-//   "es.mydomain.com",
-//   "fr.mydomain.com",
-//   "http://pl.mydomain.com",
-//   "https://ua.mydomain.com",
-// ];
+// const i18nDomains = ["mydomain.com", "en.mydomain.com"];
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   ssr: false,
   app: {
-    head: {
-      // script: [
-      //   {
-      //     type: "text/javascript",
-      //     src: "https://www.google-analytics.com/analytics.js",
-      //     async: true,
-      //   },
-      //   {
-      //     src: "https://www.googletagmanager.com/gtm.js?id=GTM-TVC4G9C",
-      //     async: true,
-      //   },
-      //   {
-      //     src: "https://www.googletagmanager.com/gtag/js?id=G-HC9L76FPRT&cx=c&gtm=4e6541",
-      //     async: true,
-      //   },
-      //   {
-      //     src: "https://www.googletagmanager.com/gtag/js?id=AW-789013555",
-      //     async: true,
-      //   },
-      //   {
-      //     src: "https://www.googletagmanager.com/gtag/js?id=UA-70444204-1",
-      //     async: true,
-      //   },
-      // ],
-    },
+    head: {},
     baseURL: "/",
     cdnURL: "/",
   },
@@ -129,14 +99,14 @@ export default defineNuxtConfig({
     ],
     // locales: [
     //   {
-    //     code: 'en',
+    //     code: "en",
     //     domains: i18nDomains,
-    //     defaultForDomains: ['mydomain.com']
+    //     defaultForDomains: ["mydomain.com"],
     //   },
     //   {
-    //     code: 'es',
+    //     code: "es",
     //     domains: i18nDomains,
-    //     defaultForDomains: ['es.mydomain.com']
+    //     defaultForDomains: ["es.mydomain.com"],
     //   },
     // ],
     // multiDomainLocales: true,

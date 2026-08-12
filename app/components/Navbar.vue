@@ -108,8 +108,8 @@
             <div class="flex items-center gap-4">
               <!-- Desktop User Actions -->
               <div class="flex items-center gap-4">
-                <!-- <SwitcherTheme />
-                <SwitcherLang /> -->
+                <!-- <SwitcherTheme />  -->
+                <SwitcherLang />
 
                 <!-- Cart -->
                 <!-- <Trulink to="/" class="relative">
@@ -317,10 +317,10 @@
               />
             </Trulink>
           </div>
-          <!-- <div class="flex gap-4">
-            <SwitcherTheme />
+          <div class="flex gap-4">
+            <!-- <SwitcherTheme />  -->
             <SwitcherLang />
-          </div> -->
+          </div>
         </div>
         <div class="p-4 border-b border-gray-200" v-if="isLoggedIn">
           <div class="flex items-center gap-3">
