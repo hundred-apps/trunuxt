@@ -95,7 +95,7 @@ console.log(name);
 // Breadcrumb dengan data dinamis
 const detailProductBreadcrumb = computed(() => {
   const items: { text: string; to: string }[] = [
-    { text: $t("breadcrumb.home"), to: "/" },
+    { text: $t("breadcrumb.home"), to: "https://www.trumecs.com" },
   ];
 
   if (!product.value?.categori) return items;
