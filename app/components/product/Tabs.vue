@@ -232,7 +232,7 @@ const promoRef = ref<HTMLElement | null>(null);
 const tabs = [
   { key: "description", label: $t("page.product.text.description") },
   { key: "specifications", label: $t("page.product.text.specification") },
-  { key: "promo", label: "Promo" },
+  { key: "promo", label: $t("navbar.menu.promo") },
 ];
 
 // ============ SCROLL TO SECTION (Full Page) ============
