@@ -13,7 +13,7 @@
       <a
         v-for="product in products"
         :key="product.id"
-        :href="`/product/${product.id}/${formatSlug(product.tittle)}`"
+        :href="getProductUrl(product)"
         class="group bg-gray-50 hover:bg-white rounded-lg transition-all hover:shadow-md border border-transparent hover:border-gray-200"
       >
         <div class="aspect-square bg-white rounded-lg overflow-hidden mb-3">
@@ -54,5 +54,12 @@ const props = defineProps<{
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat("id-ID").format(price);
+};
+
+const localePath = useLocalePath();
+
+const getProductUrl = (product: { id: number; tittle: string }) => {
+  const slug = formatSlug(product.tittle);
+  return localePath(`/product/${product.id}/${slug}`);
 };
 </script>

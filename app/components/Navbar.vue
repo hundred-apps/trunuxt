@@ -461,13 +461,13 @@ const unreadChats = computed(() => 2);
 // Mobile menu items
 const mobileMenuItems = computed(() => [
   { to: urlTrumecs + "/jasa", text: $t("navbar.menu.service") },
-  { to: urlTrumecs + "/rental", text: "Rental" },
-  { to: "/article", text: "Artikel" },
-  { to: urlTrumecs + "/promo", text: "Promo" },
-  { to: urlTrumecs + "/bulk", text: "RFQ" },
+  { to: urlTrumecs + "/rental", text: $t("navbar.menu.rental") },
+  { to: "/article", text: $t("navbar.menu.article") },
+  { to: urlTrumecs + "/promo", text: $t("navbar.menu.promo") },
+  { to: urlTrumecs + "/bulk", text: $t("navbar.menu.rfq") },
   { to: urlTrumecs + "/syarat", text: $t("navbar.menu.term") },
   { to: urlTrumecs + "/retur", text: $t("navbar.menu.policy") },
-  { to: urlTrumecs + "/faq", text: "FAQ" },
+  { to: urlTrumecs + "/faq", text: $t("navbar.menu.faq") },
   ...(isLoggedIn.value
     ? [
         {

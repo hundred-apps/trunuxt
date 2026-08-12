@@ -37,7 +37,10 @@
       "service": "服务",
       "term": "条款与条件",
       "policy": "退货政策",
-      "category": "分类"
+      "category": "分类",
+      "rental": "租赁",
+      "rfq": "询价单",
+      "faq": "常见问题"
     }
   },
   "footer": {
@@ -87,7 +90,15 @@
         "estimated": "预计配送时间",
         "end": "已结束",
         "seeDetail": "查看详情",
-        "noPromo": "该产品暂无促销"
+        "noPromo": "该产品暂无促销",
+        "pn": "零件号",
+        "pnt": "Trumecs 零件号",
+        "unit": "单位",
+        "day": "天",
+        "back": "返回",
+        "load": "加载产品...",
+        "noProduct": "未找到产品",
+        "sorryProduct": "抱歉，产品不可用"
       },
       "button": {
         "buy": "通过 WhatsApp 购买",

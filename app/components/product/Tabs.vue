@@ -56,7 +56,7 @@
             <tbody>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Part Number
+                  {{ $t("page.product.text.pn") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.partnumber || "-" }}
@@ -64,7 +64,7 @@
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Part Number Trumecs
+                  {{ $t("page.product.text.pnt") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.partnumber_trumecs || "-" }}
@@ -79,7 +79,9 @@
                 </td>
               </tr>
               <tr class="border-b border-gray-100">
-                <td class="px-2 py-1 font-medium text-gray-700 w-1/3">Unit</td>
+                <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
+                  {{ $t("page.product.text.unit") }}
+                </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.unit || "-" }}
                 </td>
@@ -129,7 +131,8 @@
                   {{ $t("page.product.text.estimated") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
-                  {{ product.estimated_delivery || "-" }} hari
+                  {{ product.estimated_delivery || "-" }}
+                  {{ $t("page.product.text.day") }}
                 </td>
               </tr>
               <tr
@@ -150,7 +153,9 @@
 
       <!-- Promo -->
       <div id="section-promo" ref="promoRef" class="scroll-mt-24 mt-8">
-        <h3 class="text-lg font-semibold text-gray-800 mb-3">Promo</h3>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">
+          {{ $t("navbar.menu.promo") }}
+        </h3>
         <div v-if="product.promo && product.promo.length > 0">
           <div
             v-for="(promo, index) in product.promo"
@@ -165,7 +170,7 @@
                   <span
                     class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
                   >
-                    {{ promo.type || "Promo" }}
+                    {{ promo.type || $t("navbar.menu.promo") }}
                   </span>
                   <h3
                     class="text-lg font-semibold text-gray-800 hover:text-orange-500 transition-colors"

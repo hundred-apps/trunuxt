@@ -37,7 +37,10 @@
       "service": "Service",
       "term": "Term & Condition",
       "policy": "Return Policy",
-      "category": "Category"
+      "category": "Category",
+      "rental": "Rental",
+      "rfq": "RFQ",
+      "faq": "FAQ"
     }
   },
   "footer": {
@@ -87,7 +90,15 @@
         "estimated": "Estimated Delivery",
         "end": "Ended",
         "seeDetail": "See Detail",
-        "noPromo": "No Promo for this Product"
+        "noPromo": "No Promo for this Product",
+        "pn": "Part Number",
+        "pnt": "Part Number Trumecs",
+        "unit": "Unit",
+        "day": "Day",
+        "back": "Back",
+        "load": "Load Product...",
+        "noProduct": "Product Not Found",
+        "sorryProduct": "Sorry, Product Not Ready"
       },
       "button": {
         "buy": "Buy via Whatsapp",

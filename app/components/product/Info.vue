@@ -12,7 +12,7 @@
         </span>
       </h1>
       <div v-if="product.partnumber" class="text-sm text-gray-500 mt-1">
-        Part Number :
+        {{ $t("page.product.text.pn") }}r :
         <span class="font-medium text-gray-700">{{ product.partnumber }}</span>
       </div>
       <div class="flex gap-2 items-center mt-1">
@@ -60,9 +60,8 @@
           v-if="product.price_promo > 0"
           class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full"
         >
-          {{ $t("page.product.text.save") }}
+          {{ $t("page.product.text.save") }} {{ discountPercent }}%
         </div>
-        {{ discountPercent }}%
       </div>
       <div v-if="product.moq > 0" class="text-sm text-gray-600 mt-1">
         <span class="font-medium">{{ $t("page.product.text.minimum") }} :</span>

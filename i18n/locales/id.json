@@ -37,7 +37,10 @@
       "service": "Jasa",
       "term": "Syarat & Ketentuan",
       "policy": "Kebijakan Retur",
-      "category": "Kategori"
+      "category": "Kategori",
+      "rental": "Rental",
+      "rfq": "RFQ",
+      "faq": "FAQ"
     }
   },
   "footer": {
@@ -87,7 +90,15 @@
         "estimated": "Estimasi Pengiriman",
         "end": "Berakhir",
         "seeDetail": "Lhat Selengkapnya",
-        "noPromo": "Belum ada promo untuk produk ini"
+        "noPromo": "Belum ada promo untuk produk ini",
+        "pn": "Part Number",
+        "pnt": "Part Number Trumecs",
+        "unit": "Unit",
+        "day": "Hari",
+        "back": "Kembali",
+        "load": "Memuat Produk...",
+        "noProduct": "Produk Tidak Ditemukan",
+        "sorryProduct": "Maaf, produk yang Anda cari tidak tersedia."
       },
       "button": {
         "buy": "Beli via Whatsapp",

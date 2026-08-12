@@ -6,7 +6,7 @@
         <div
           class="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"
         ></div>
-        <p class="mt-4 text-gray-600">Memuat produk...</p>
+        <p class="mt-4 text-gray-600">{{ $t("page.product.text.load") }}</p>
       </div>
     </div>
 
@@ -15,16 +15,16 @@
       <div class="max-w-md mx-auto">
         <div class="text-6xl mb-4">🔍</div>
         <h2 class="text-2xl font-bold text-gray-700 mb-2">
-          Produk Tidak Ditemukan
+          {{ $t("page.product.text.noProduct") }}
         </h2>
         <p class="text-gray-500 mb-6">
-          Maaf, produk yang Anda cari tidak tersedia.
+          {{ $t("page.product.text.sorryProduct") }}
         </p>
         <button
           @click="goBack"
           class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
         >
-          Kembali
+          {{ $t("page.product.text.back") }}
         </button>
       </div>
     </div>
