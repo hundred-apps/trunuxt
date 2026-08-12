@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between mb-4">
       <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
         <Icon name="mdi:shopping" class="text-orange-500" />
-        Produk Terkait
+        {{ $t("page.product.text.relatedProduct") }}
       </h3>
     </div>
 

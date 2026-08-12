@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between mb-4">
       <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
         <Icon name="mdi:newspaper-variant" class="text-orange-500" />
-        Artikel Terkait
+        {{ $t("page.product.text.relatedArticle") }}
       </h3>
     </div>
 
@@ -30,12 +30,12 @@
             {{ article.title }}
           </h4>
           <p class="text-xs text-gray-500 mt-1 line-clamp-2">
-            {{ article.description || "Baca artikel selengkapnya..." }}
+            {{ article.description || $t("page.product.text.detailArticle") }}
           </p>
           <div class="text-xs text-gray-400 mt-2">
             <span class="flex items-center gap-1">
               <Icon name="mdi:eye" class="text-sm" />
-              {{ article.view || 0 }} views
+              {{ article.view || 0 }} {{ $t("page.product.text.views") }}
             </span>
           </div>
         </div>

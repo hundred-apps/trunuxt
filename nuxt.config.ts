@@ -52,6 +52,7 @@ export default defineNuxtConfig({
   css: [
     "element-plus/theme-chalk/dark/css-vars.css",
     "~/assets/css/article.css", // pakai ~ bukan ./
+    "flag-icons/css/flag-icons.min.css",
   ],
   // Auto import components
   components: true,
@@ -89,12 +90,18 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: [
-      { code: "en", iso: "en-US", file: "en.json", name: "English" },
       {
         code: "id",
         iso: "id-ID",
         file: "id.json",
         name: "Bahasa Indonesia",
+      },
+      { code: "en", iso: "en-US", file: "en.json", name: "English" },
+      {
+        code: "zh",
+        iso: "zh-CN",
+        file: "zh.json",
+        name: "中文",
       },
     ],
     // locales: [
@@ -111,10 +118,10 @@ export default defineNuxtConfig({
     // ],
     // multiDomainLocales: true,
     strategy: "prefix_except_default",
-    lazy: true,
+    // lazy: true,
     langDir: "locales/",
     defaultLocale: "id",
-    skipSettingLocaleOnNavigate: true,
+    skipSettingLocaleOnNavigate: false,
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "language",

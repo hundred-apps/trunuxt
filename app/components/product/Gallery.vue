@@ -26,7 +26,7 @@
           class="bg-black/40 text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 backdrop-blur-sm"
         >
           <Icon name="mdi:gesture-swipe" class="text-lg" />
-          Swipe
+          {{ $t("page.product.text.swipe") }}
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         <span
           class="bg-red-500 text-white text-xs font-medium px-3 py-1 rounded-full"
         >
-          Habis
+          {{ $t("page.product.text.sold") }}
         </span>
       </div>
 
@@ -56,7 +56,7 @@
         <span
           class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse"
         >
-          🔥 PROMO
+          🔥 {{ $t("page.product.text.promo") }}
         </span>
       </div>
 
@@ -68,7 +68,7 @@
         <span
           class="bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full"
         >
-          Bekas
+          {{ $t("page.product.text.used") }}
         </span>
       </div>
 

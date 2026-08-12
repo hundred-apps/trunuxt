@@ -1,0 +1,98 @@
+{
+  "languages": {
+    "id": "印度尼西亚语",
+    "en": "英语",
+    "zh": "简体中文"
+  },
+  "mode": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统"
+  },
+  "button": {
+    "joinNow": "立即加入",
+    "readFirst": "先阅读",
+    "send": "发送"
+  },
+  "label": {
+    "article": "文章",
+    "trendingArticle": "热门文章",
+    "relatedArticle": "相关文章"
+  },
+  "placeholder": {
+    "inputYourEmail": "输入您的电子邮件"
+  },
+  "navbar": {
+    "or": "或",
+    "button": {
+      "signUp": "注册 / 登录",
+      "inquiry": "提交询价单"
+    },
+    "placeholder": {
+      "search": "您正在寻找哪种机械需求？"
+    },
+    "menu": {
+      "article": "文章",
+      "promo": "促销",
+      "service": "服务",
+      "term": "条款与条件",
+      "policy": "退货政策",
+      "category": "分类"
+    }
+  },
+  "footer": {
+    "expand": "立即拓展您的业务！",
+    "contactUs": "联系我们",
+    "followUs": "关注我们",
+    "hesitant": "还在犹豫加入 Trumecs 吗？",
+    "teach": {
+      "title": "了解更多关于 Trumecs 的信息",
+      "contentBefore": "Trumecs 还提供",
+      "content": "文章",
+      "contentAfter": "，供您了解建筑行业及更多资讯"
+    },
+    "info": {
+      "title": "获取最新动态",
+      "content": "免费订阅，获取有关项目、建筑或重型设备维护技巧的最新信息"
+    }
+  },
+  "breadcrumb": {
+    "home": "首页"
+  },
+  "page": {
+    "product": {
+      "text": {
+        "swipe": "滑动",
+        "sold": "已售",
+        "promo": "促销",
+        "used": "二手",
+        "stock": "库存",
+        "contactUs": "联系我们",
+        "save": "保存",
+        "minimum": "最低购买量",
+        "share": "分享",
+        "relatedArticle": "相关文章",
+        "detailArticle": "查看详情文章...",
+        "views": "次浏览",
+        "relatedProduct": "相关产品",
+        "description": "描述",
+        "noDescription": "无描述",
+        "specification": "规格",
+        "brand": "品牌",
+        "packagin": "包装",
+        "weight": "重量",
+        "dimension": "尺寸",
+        "warranty": "保修",
+        "location": "位置",
+        "estimated": "预计配送时间",
+        "end": "已结束",
+        "seeDetail": "查看详情",
+        "noPromo": "该产品暂无促销"
+      },
+      "button": {
+        "buy": "通过 WhatsApp 购买",
+        "email": "邮件询价"
+      }
+    }
+  }
+}

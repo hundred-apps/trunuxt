@@ -67,7 +67,7 @@
                   <el-input
                     v-model="searchQuery"
                     class="flex-grow"
-                    :placeholder="searchPlaceholder"
+                    :placeholder="$t('navbar.placeholder.search')"
                     @keyup.enter="handleSearch"
                   >
                     <template #append>
@@ -85,13 +85,15 @@
 
               <div class="flex-shrink-0 hidden xl:block">
                 <p class="mb-0 text-sm text-gray-500">
-                  <small><strong>atau</strong></small>
+                  <small
+                    ><strong>{{ $t("navbar.or") }}</strong></small
+                  >
                 </p>
               </div>
 
               <div class="flex-shrink-0 min-w-[160px] hidden xl:block">
                 <Trubutton
-                  text="Infokan Kebutuhanmu"
+                  :text="$t('navbar.button.inquiry')"
                   type="primary"
                   size="small"
                   variant="solid"
@@ -220,7 +222,7 @@
                     class="el-button el-button--outline-primary el-button--small px-4"
                     @click="handleLogin"
                   >
-                    Daftar / Masuk
+                    {{ $t("navbar.button.signUp") }}
                   </Trulink>
                 </template>
               </div>
@@ -259,7 +261,7 @@
                 class="transition-colors text-gray-700"
                 @click="handleClickLinkArticle"
               >
-                Artikel
+                {{ $t("navbar.menu.article") }}
               </Trulink>
 
               <Trulink
@@ -267,7 +269,7 @@
                 class="transition-colors text-gray-700"
                 @click="handleClickLinkPromo"
               >
-                Promo
+                {{ $t("navbar.menu.promo") }}
               </Trulink>
             </div>
           </div>
@@ -335,7 +337,11 @@
         <!-- Menu Items -->
         <div class="flex-grow overflow-y-auto">
           <el-collapse>
-            <el-collapse-item title="Category" name="1" class="text-xl p-b-0">
+            <el-collapse-item
+              :title="$t('navbar.menu.category')"
+              name="1"
+              class="text-xl p-b-0"
+            >
               <template
                 v-for="(category, categoryIdx) in products"
                 :key="category.id"
@@ -367,12 +373,14 @@
             class="el-button el-button--primary w-full mb-3"
             @click="handleBulkMobile"
           >
-            Infokan Kebutuhanmu
+            {{ $t("navbar.button.inquiry") }}
           </Trulink>
           <div
             class="flex flex-col gap-1 justify-center items-center border-b pb-2"
           >
-            <p class="text-sm text-gray-500">Hubungi kami :</p>
+            <p class="text-sm text-gray-500">
+              {{ $t("page.product.text.contactUs") }} :
+            </p>
             <Trulink
               href="https://wa.me/+6285176912338"
               target="_blank"
@@ -438,7 +446,6 @@ const error = ref<string | null>(null);
 // Refs
 const searchQuery = ref(route.query.nama || "");
 const mobileSearchQuery = ref("");
-const searchPlaceholder = ref("Kebutuhan mekanikal apa yang anda cari?");
 const showMobileMenu = ref(false);
 const showMobileSearch = ref(false);
 const mobileSearchInput = ref();
@@ -453,13 +460,13 @@ const unreadChats = computed(() => 2);
 
 // Mobile menu items
 const mobileMenuItems = computed(() => [
-  { to: urlTrumecs + "/jasa", text: "Jasa" },
+  { to: urlTrumecs + "/jasa", text: $t("navbar.menu.service") },
   { to: urlTrumecs + "/rental", text: "Rental" },
   { to: "/article", text: "Artikel" },
   { to: urlTrumecs + "/promo", text: "Promo" },
   { to: urlTrumecs + "/bulk", text: "RFQ" },
-  { to: urlTrumecs + "/syarat", text: "Syarat & Ketentuan" },
-  { to: urlTrumecs + "/retur", text: "Kebijakan Retur" },
+  { to: urlTrumecs + "/syarat", text: $t("navbar.menu.term") },
+  { to: urlTrumecs + "/retur", text: $t("navbar.menu.policy") },
   { to: urlTrumecs + "/faq", text: "FAQ" },
   ...(isLoggedIn.value
     ? [
@@ -494,7 +501,7 @@ const mobileMenuItems = computed(() => [
     : [
         {
           to: urlTrumecs + "/member/login",
-          text: "Login / Register",
+          text: $t("navbar.button.signUp"),
           icon: "material-symbols:login",
         },
       ]),

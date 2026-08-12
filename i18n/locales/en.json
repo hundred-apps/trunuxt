@@ -1,7 +1,8 @@
 {
   "languages": {
     "id": "Indonesian",
-    "en": "English"
+    "en": "English",
+    "zh": "Chinese"
   },
   "mode": {
     "light": "Light",
@@ -21,6 +22,24 @@
   "placeholder": {
     "inputYourEmail": "Input Your Email"
   },
+  "navbar": {
+    "or": "or",
+    "button": {
+      "signUp": "Register / Login",
+      "inquiry": "Submit RFQ"
+    },
+    "placeholder": {
+      "search": "What kind of mechanical requirements are you looking for?"
+    },
+    "menu": {
+      "article": "Article",
+      "promo": "Promo",
+      "service": "Service",
+      "term": "Term & Condition",
+      "policy": "Return Policy",
+      "category": "Category"
+    }
+  },
   "footer": {
     "expand": "Expand Your Bussiness Now!",
     "contactUs": "Contact Us",
@@ -35,6 +54,45 @@
     "info": {
       "title": "Get the latest updates",
       "content": "Subscribe for free to get the latest info about projects, construction, or tips and tricks for heavy equipment maintenance"
+    }
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "page": {
+    "product": {
+      "text": {
+        "swipe": "Swipe",
+        "sold": "Sold",
+        "promo": "Promo",
+        "used": "Used",
+        "stock": "Stock",
+        "contactUs": "Contact Us",
+        "save": "Save",
+        "minimum": "Minimum Buy",
+        "share": "Share",
+        "relatedArticle": "Related Article",
+        "detailArticle": "View detail article...",
+        "views": "views",
+        "relatedProduct": "Related Product",
+        "description": "Description",
+        "noDescription": "No Description",
+        "specification": "Specification",
+        "brand": "Brand",
+        "packagin": "Packagin",
+        "weight": "Weight",
+        "dimension": "Dimension",
+        "warranty": "Warranty",
+        "location": "Location",
+        "estimated": "Estimated Delivery",
+        "end": "Ended",
+        "seeDetail": "See Detail",
+        "noPromo": "No Promo for this Product"
+      },
+      "button": {
+        "buy": "Buy via Whatsapp",
+        "email": "Email Inquiry"
+      }
     }
   }
 }

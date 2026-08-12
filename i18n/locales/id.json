@@ -1,7 +1,8 @@
 {
   "languages": {
     "id": "Indonesia",
-    "en": "Inggris"
+    "en": "Inggris",
+    "zh": "China"
   },
   "mode": {
     "light": "Terang",
@@ -21,6 +22,24 @@
   "placeholder": {
     "inputYourEmail": "Masukan Email Anda"
   },
+  "navbar": {
+    "or": "atau",
+    "button": {
+      "signUp": "Daftar / Masuk",
+      "inquiry": "Infokan kebutuhanmu"
+    },
+    "placeholder": {
+      "search": "Kebutuhan mekanikal apa yang anda cari?"
+    },
+    "menu": {
+      "article": "Artikel",
+      "promo": "Promo",
+      "service": "Jasa",
+      "term": "Syarat & Ketentuan",
+      "policy": "Kebijakan Retur",
+      "category": "Kategori"
+    }
+  },
   "footer": {
     "expand": "Perluas Bisnis Anda Sekarang!",
     "contactUs": "Hubungi Kami",
@@ -35,6 +54,45 @@
     "info": {
       "title": "Dapatkan info terbaru",
       "content": "Berlangganan info terbaru(Secara Gratis) seputar proyek, konstruksi atau seputar trik dan tips perawatan alat berat"
+    }
+  },
+  "breadcrumb": {
+    "home": "Beranda"
+  },
+  "page": {
+    "product": {
+      "text": {
+        "swipe": "Geser",
+        "sold": "Habis",
+        "promo": "Promo",
+        "used": "Bekas",
+        "stock": "Stok",
+        "contactUs": "Hubungi Kami",
+        "save": "Hemat",
+        "minimum": "Minimal Pembelian",
+        "share": "Bagikan",
+        "relatedArticle": "Artikel Terkait",
+        "detailArticle": "Lihat artikel selengkapnya...",
+        "views": "dilihat",
+        "relatedProduct": "Produk Terkait",
+        "description": "Deskripsi",
+        "noDescription": "Tidak ada deskripsi",
+        "specification": "Spesifikasi",
+        "brand": "Merk",
+        "packagin": "Kemasan",
+        "weight": "Berat",
+        "dimension": "Dimensi",
+        "warranty": "Garansi",
+        "location": "Lokasi",
+        "estimated": "Estimasi Pengiriman",
+        "end": "Berakhir",
+        "seeDetail": "Lhat Selengkapnya",
+        "noPromo": "Belum ada promo untuk produk ini"
+      },
+      "button": {
+        "buy": "Beli via Whatsapp",
+        "email": "Email kebutuhan"
+      }
     }
   }
 }

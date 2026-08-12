@@ -12,16 +12,18 @@
         </span>
       </h1>
       <div v-if="product.partnumber" class="text-sm text-gray-500 mt-1">
-        Part Number:
+        Part Number :
         <span class="font-medium text-gray-700">{{ product.partnumber }}</span>
       </div>
       <div class="flex gap-2 items-center mt-1">
-        <div class="text-sm text-gray-500">Stok:</div>
+        <div class="text-sm text-gray-500">
+          {{ $t("page.product.text.stock") }} :
+        </div>
         <div
           class="text-sm font-bold"
           :class="product.stock > 0 ? 'text-green-600' : 'text-red-600'"
         >
-          {{ product.stock > 0 ? product.stock : "Habis" }}
+          {{ product.stock > 0 ? product.stock : $t("page.product.text.sold") }}
         </div>
       </div>
     </div>
@@ -42,7 +44,7 @@
           v-else-if="isPriceHidden"
           class="text-2xl lg:text-3xl font-bold text-gray-700"
         >
-          Hubungi Kami
+          {{ $t("page.product.text.contactUs") }}
         </div>
 
         <!-- Harga Coret (Promo) -->
@@ -58,11 +60,13 @@
           v-if="product.price_promo > 0"
           class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full"
         >
-          Hemat {{ discountPercent }}%
+          {{ $t("page.product.text.save") }}
         </div>
+        {{ discountPercent }}%
       </div>
       <div v-if="product.moq > 0" class="text-sm text-gray-600 mt-1">
-        <span class="font-medium">Minimal Pembelian:</span> {{ product.moq }}
+        <span class="font-medium">{{ $t("page.product.text.minimum") }} :</span>
+        {{ product.moq }}
         {{ product.unit }}
       </div>
     </div>
@@ -72,7 +76,7 @@
       <div class="flex gap-2 w-full">
         <Trubutton
           type="success"
-          text="Beli via WhatsApp"
+          :text="$t('page.product.button.buy')"
           icon="logos:whatsapp-icon"
           @click="handleClickWALink"
           target="_blank"
@@ -80,14 +84,14 @@
         </Trubutton>
         <Trubutton
           type="success"
-          text="Beli via WhatsApp 2"
+          :text="$t('page.product.button.buy') + ' 2'"
           icon="logos:whatsapp-icon"
           @click="handleClickWALink2"
           target="_blank"
         >
         </Trubutton>
         <Trubutton
-          text="Email Inquiry"
+          :text="$t('page.product.button.email')"
           icon="mdi:email"
           @click="handleClickEmailLink"
           target="_blank"
@@ -132,7 +136,9 @@
     <!-- Share Buttons -->
     <div class="mt-6 pt-6 border-t border-gray-100 hidden md:block">
       <div class="flex items-center gap-3 flex-wrap">
-        <span class="text-sm text-gray-500">Bagikan:</span>
+        <span class="text-sm text-gray-500"
+          >{{ $t("page.product.text.share") }} :</span
+        >
         <button
           v-for="share in shareButtons"
           :key="share.name"

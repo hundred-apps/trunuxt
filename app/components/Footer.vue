@@ -80,7 +80,7 @@
                   @click="handleClickWa"
                 >
                   <p class="text-base mb-0">
-                    {{ contactInfo.whatsappDisplay }}
+                    +{{ contactInfo.whatsappDisplay }}
                   </p>
                 </a>
               </div>

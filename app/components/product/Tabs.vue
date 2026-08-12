@@ -33,10 +33,12 @@
     <div class="p-4 sm:p-6">
       <!-- Description -->
       <div id="section-description" ref="descriptionRef" class="scroll-mt-24">
-        <h3 class="text-lg font-semibold text-gray-800 mb-3">Deskripsi</h3>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">
+          {{ $t("page.product.text.description") }}
+        </h3>
         <div
           class="prose prose-sm sm:prose-base max-w-none"
-          v-html="product.description || 'Tidak ada deskripsi'"
+          v-html="product.description || $t('page.product.text.noDescription')"
         ></div>
       </div>
 
@@ -46,7 +48,9 @@
         ref="specificationsRef"
         class="scroll-mt-24 mt-8"
       >
-        <h3 class="text-lg font-semibold text-gray-800 mb-3">Spesifikasi</h3>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">
+          {{ $t("page.product.text.specification") }}
+        </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <tbody>
@@ -67,7 +71,9 @@
                 </td>
               </tr>
               <tr class="border-b border-gray-100">
-                <td class="px-2 py-1 font-medium text-gray-700 w-1/3">Brand</td>
+                <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
+                  {{ $t("page.product.text.brand") }}
+                </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.brand || "-" }}
                 </td>
@@ -80,21 +86,23 @@
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Kemasan
+                  {{ $t("page.product.text.packagin") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.packagin || "-" }}
                 </td>
               </tr>
               <tr class="border-b border-gray-100">
-                <td class="px-2 py-1 font-medium text-gray-700 w-1/3">Berat</td>
+                <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
+                  {{ $t("page.product.text.weight") }}
+                </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.weight || "-" }}
                 </td>
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Dimensi
+                  {{ $t("page.product.text.dimension") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.dimention || "-" }}
@@ -102,7 +110,7 @@
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Garansi
+                  {{ $t("page.product.text.warranty") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.warranty || "-" }}
@@ -110,7 +118,7 @@
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Lokasi
+                  {{ $t("page.product.text.location") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.area || product.availability_at }}
@@ -118,7 +126,7 @@
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="px-2 py-1 font-medium text-gray-700 w-1/3">
-                  Estimasi Pengiriman
+                  {{ $t("page.product.text.estimated") }}
                 </td>
                 <td class="px-2 py-1 text-gray-600">
                   {{ product.estimated_delivery || "-" }} hari
@@ -170,14 +178,14 @@
                     </a>
                   </h3>
                   <p class="text-xs text-gray-500 mt-1">
-                    Berakhir:
+                    {{ $t("page.product.text.end") }}:
                     {{ formatDate(promo.end_date) }}
                   </p>
                   <a
                     :href="`https://www.trumecs.com/promo/${promo.url}`"
                     class="text-orange-500 hover:text-orange-600 text-sm font-medium whitespace-nowrap flex items-center gap-1"
                   >
-                    Lihat selengkapnya
+                    {{ $t("page.product.text.seeDetail") }}
                     <Icon name="mdi:chevron-right" class="text-lg" />
                   </a>
                 </div>
@@ -195,7 +203,7 @@
         <div v-else class="text-gray-500 text-center py-8">
           <div class="flex flex-col items-center gap-2">
             <Icon name="mdi:gift-outline" class="text-4xl text-gray-300" />
-            <p>Belum ada promo untuk produk ini</p>
+            <p>{{ $t("page.product.text.noPromo") }}</p>
           </div>
         </div>
       </div>
@@ -217,8 +225,8 @@ const specificationsRef = ref<HTMLElement | null>(null);
 const promoRef = ref<HTMLElement | null>(null);
 
 const tabs = [
-  { key: "description", label: "Deskripsi" },
-  { key: "specifications", label: "Spesifikasi" },
+  { key: "description", label: $t("page.product.text.description") },
+  { key: "specifications", label: $t("page.product.text.specification") },
   { key: "promo", label: "Promo" },
 ];
 
