@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-// const i18nDomains = ["mydomain.com", "en.mydomain.com"];
+const i18nDomains = ["trumecs.com", "en.trumecs.com", "zh.trumecs.com"];
+const isDev = process.env.NODE_ENV === "development";
+const isProd = process.env.NODE_ENV === "production";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -89,35 +91,50 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    // locales: [
+    //   {
+    //     code: "id",
+    //     iso: "id-ID",
+    //     file: "id.json",
+    //     name: "Bahasa Indonesia",
+    //   },
+    //   { code: "en", iso: "en-US", file: "en.json", name: "English" },
+    //   {
+    //     code: "zh",
+    //     iso: "zh-CN",
+    //     file: "zh.json",
+    //     name: "中文",
+    //   },
+    // ],
     locales: [
       {
         code: "id",
+        domains: i18nDomains,
+        defaultForDomains: ["trumecs.com"],
         iso: "id-ID",
-        file: "id.json",
         name: "Bahasa Indonesia",
+        file: "id.json",
       },
-      { code: "en", iso: "en-US", file: "en.json", name: "English" },
+      {
+        code: "en",
+        domains: i18nDomains,
+        defaultForDomains: ["en.trumecs.com"],
+        iso: "en-US",
+        name: "English",
+        file: "en.json",
+      },
       {
         code: "zh",
+        domains: i18nDomains,
+        defaultForDomains: ["zh.trumecs.com"],
         iso: "zh-CN",
-        file: "zh.json",
         name: "中文",
+        file: "zh.json",
       },
     ],
-    // locales: [
-    //   {
-    //     code: "en",
-    //     domains: i18nDomains,
-    //     defaultForDomains: ["mydomain.com"],
-    //   },
-    //   {
-    //     code: "es",
-    //     domains: i18nDomains,
-    //     defaultForDomains: ["es.mydomain.com"],
-    //   },
-    // ],
-    // multiDomainLocales: true,
-    strategy: "prefix_except_default",
+    multiDomainLocales: true,
+    // strategy: "prefix_except_default",
+    strategy: "no_prefix",
     // lazy: true,
     langDir: "locales/",
     defaultLocale: "id",
@@ -127,6 +144,7 @@ export default defineNuxtConfig({
       cookieKey: "language",
       redirectOn: "root",
       alwaysRedirect: true,
+      cookieDomain: isProd ? ".trumecs.com" : undefined,
     },
     // customRoutes: "config",
     // pages: {

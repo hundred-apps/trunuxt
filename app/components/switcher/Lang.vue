@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, toRef, watch, computed } from "vue";
+import { ref, toRef, watch, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
@@ -14,22 +14,17 @@ const currentStyle = toRef(props, "type");
 
 // Data bahasa dengan flag
 const availableLang = [
-  {
-    key: "id",
-    flag: "id",
-    label: "ID",
-  },
-  {
-    key: "en",
-    flag: "gb",
-    label: "EN",
-  },
-  {
-    key: "zh",
-    flag: "cn",
-    label: "ZH",
-  },
+  { key: "id", flag: "id", label: "ID" },
+  { key: "en", flag: "gb", label: "EN" },
+  { key: "zh", flag: "cn", label: "ZH" },
 ];
+
+// Domain mapping untuk multi-domain
+const domainMap: Record<string, string> = {
+  id: "trumecs.com",
+  en: "en.trumecs.com",
+  zh: "zh.trumecs.com",
+};
 
 const { locale, setLocale, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
@@ -37,6 +32,8 @@ const router = useRouter();
 
 // State untuk selected language
 const selectedLang = ref(locale.value);
+const isOpen = ref(false);
+const isClient = ref(false);
 
 // Get current language data
 const currentLang = computed(() => {
@@ -50,6 +47,13 @@ watch(locale, (newLocale) => {
   selectedLang.value = newLocale;
 });
 
+// Deteksi apakah di production dengan multi-domain
+const isMultiDomain = computed(() => {
+  if (!isClient.value) return false;
+  const hostname = window.location.hostname;
+  return hostname !== "localhost" && hostname !== "127.0.0.1";
+});
+
 // Fungsi untuk mengganti bahasa
 const switchLanguage = async (langKey: string) => {
   if (langKey === locale.value) return;
@@ -58,6 +62,21 @@ const switchLanguage = async (langKey: string) => {
     await setLocale(langKey);
     selectedLang.value = langKey;
 
+    // Untuk multi-domain di production
+    if (isMultiDomain.value) {
+      const targetDomain = domainMap[langKey];
+      const currentHost = window.location.hostname;
+
+      if (targetDomain && currentHost !== targetDomain) {
+        // Redirect ke domain yang sesuai
+        const currentPath = window.location.pathname + window.location.search;
+        const newUrl = `https://${targetDomain}${currentPath}`;
+        window.location.href = newUrl;
+        return;
+      }
+    }
+
+    // Fallback: gunakan router push (untuk localhost / prefix strategy)
     const path = switchLocalePath(langKey);
     if (path) {
       await router.push(path);
@@ -67,13 +86,14 @@ const switchLanguage = async (langKey: string) => {
   }
 };
 
-// Toggle dropdown state
-const isOpen = ref(false);
-
 // Function to get language name from i18n
 const getLanguageName = (key: string) => {
   return t(`languages.${key}`);
 };
+
+onMounted(() => {
+  isClient.value = true;
+});
 </script>
 
 <template>
@@ -148,7 +168,7 @@ const getLanguageName = (key: string) => {
               class="text-m rounded-sm"
             ></span>
 
-            <!-- Language Name - Mengikuti JSON -->
+            <!-- Language Name -->
             <span class="flex-1">{{ $t(`languages.${lang.key}`) }}</span>
 
             <!-- Checkmark untuk active language -->
@@ -178,7 +198,7 @@ const getLanguageName = (key: string) => {
       </option>
     </select>
 
-    <!-- Simple Button Version (Tanpa Dropdown) -->
+    <!-- Simple Button Version -->
     <div v-if="currentStyle === 'simple'" class="flex gap-1">
       <button
         v-for="lang in availableLang"
