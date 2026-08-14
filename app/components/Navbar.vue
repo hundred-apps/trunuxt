@@ -28,21 +28,9 @@
         <button @click="showMobileSearch = true" class="p-2">
           <Icon name="material-symbols:search" class="text-xl text-gray-700" />
         </button>
-
-        <!-- <Trulink to="/" class="relative p-2">
-          <span
-            v-if="cartCount > 0"
-            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
-          >
-            {{ cartCount }}
-          </span>
-          <Icon
-            name="material-symbols:notifications-outline"
-            class="text-xl text-gray-700"
-          />
-        </Trulink> -->
       </div>
     </div>
+
     <!-- Desktop Navbar -->
     <div class="hidden lg:block">
       <div class="container mx-auto px-4 py-3 max-w-[1280px]">
@@ -108,57 +96,10 @@
           <!-- User Menu -->
           <div class="flex-shrink-0">
             <div class="flex items-center gap-4">
-              <!-- Desktop User Actions -->
               <div class="flex items-center gap-4">
-                <!-- <SwitcherTheme />  -->
                 <SwitcherLang />
 
-                <!-- Cart -->
-                <!-- <Trulink to="/" class="relative">
-                  <span
-                    v-if="cartCount > 0"
-                    class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
-                  >
-                    {{ cartCount }}
-                  </span>
-                  <Icon
-                    name="material-symbols:shopping-cart"
-                    class="text-xl text-gray-700 hover:text-gray-900"
-                  />
-                </Trulink> -->
-
-                <!-- User Menu -->
                 <template v-if="isLoggedIn">
-                  <!-- Notification -->
-                  <!-- <Trulink to="/" class="relative">
-                    <span
-                      v-if="unreadNotifications > 0"
-                      class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
-                    >
-                      {{ unreadNotifications }}
-                    </span>
-                    <Icon
-                      name="material-symbols:notifications"
-                      class="text-xl text-gray-700 hover:text-gray-900"
-                    />
-                  </Trulink>
-
-                  <!-- Chat -->
-                  <!-- <Trulink to="/" class="relative">
-                    <span
-                      v-if="unreadChats > 0"
-                      class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
-                    >
-                      {{ unreadChats }}
-                    </span>
-                    <Icon
-                      name="material-symbols:chat"
-                      class="text-xl text-gray-700 hover:text-gray-900"
-                    />
-                  </Trulink> -->
-                  -->
-
-                  <!-- User Dropdown -->
                   <el-dropdown
                     trigger="click"
                     placement="bottom-end"
@@ -232,10 +173,23 @@
 
         <!-- Bottom Row - Categories & Menu -->
         <div class="flex items-center">
-          <!-- Categories -->
           <div class="flex items-center justify-between w-full">
-            <div v-if="loading" class="text-center py-4">
-              <el-skeleton :rows="1" animated />
+            <!-- 👇 SKELETON LOADING untuk Categories -->
+            <div v-if="loading" class="flex items-center gap-2 w-full">
+              <!-- Skeleton untuk menu items -->
+              <div class="flex items-center gap-4 w-full">
+                <div v-for="i in 6" :key="i" class="flex items-center gap-2">
+                  <el-skeleton-item
+                    variant="text"
+                    style="width: 80px; height: 20px"
+                  />
+                  <el-skeleton-item
+                    v-if="i < 6"
+                    variant="text"
+                    style="width: 12px; height: 16px"
+                  />
+                </div>
+              </div>
             </div>
 
             <!-- Error state -->
@@ -249,12 +203,7 @@
               :products="products"
               @select="handleCategorySelect"
             />
-            <!-- <button
-              class="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors"
-            >
-              <Icon name="material-symbols:menu" />
-              <span>Kategori</span>
-            </button> -->
+
             <div class="flex gap-2">
               <Trulink
                 to="/article"
@@ -309,7 +258,9 @@
     >
       <div class="h-full flex flex-col bg-white text-gray-900">
         <!-- User Info -->
-        <div class="flex justify-between items-center">
+        <div
+          class="flex justify-between items-center p-4 border-b border-gray-100"
+        >
           <div class="flex-shrink-0">
             <Trulink :to="urlTrumecs">
               <img
@@ -320,86 +271,112 @@
             </Trulink>
           </div>
           <div class="flex gap-4">
-            <!-- <SwitcherTheme />  -->
             <SwitcherLang />
           </div>
         </div>
-        <div class="p-4 border-b border-gray-200" v-if="isLoggedIn">
-          <div class="flex items-center gap-3">
-            <el-avatar :size="50" :src="userAvatar" />
-            <div>
-              <p class="font-bold">{{ userName }}</p>
-              <p class="text-sm text-gray-500">Akun Saya</p>
+
+        <!-- Skeleton Loading di Mobile Menu -->
+        <div v-if="loading" class="p-4">
+          <div class="flex items-center gap-3 mb-4">
+            <el-skeleton-item
+              variant="circle"
+              style="width: 50px; height: 50px"
+            />
+            <div class="flex-1">
+              <el-skeleton-item
+                variant="text"
+                style="width: 60%; height: 20px"
+              />
+              <el-skeleton-item
+                variant="text"
+                style="width: 40%; height: 16px"
+              />
             </div>
+          </div>
+
+          <div v-for="i in 8" :key="i" class="border-b border-gray-100 py-3">
+            <el-skeleton-item variant="text" style="width: 70%; height: 18px" />
           </div>
         </div>
 
         <!-- Menu Items -->
-        <div class="flex-grow overflow-y-auto">
-          <el-collapse>
-            <el-collapse-item
-              :title="$t('navbar.menu.category')"
-              name="1"
-              class="text-xl p-b-0"
-            >
-              <template
-                v-for="(category, categoryIdx) in products"
-                :key="category.id"
-              >
-                <CategoryMobileCategoryMenuItem
-                  :item="category"
-                  :level="0"
-                  @close-mobile-menu="showMobileMenu = false"
-                />
-              </template>
-            </el-collapse-item>
-          </el-collapse>
-          <Trulink
-            v-for="item in mobileMenuItems"
-            :key="item.to"
-            :to="item.to"
-            @click="handleClickMenuMobile(item.text)"
-            color="black"
-            class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100"
-          >
-            <span>{{ item.text }}</span>
-          </Trulink>
-        </div>
+        <div v-else class="flex-grow overflow-y-auto">
+          <div class="p-4 border-b border-gray-200" v-if="isLoggedIn">
+            <div class="flex items-center gap-3">
+              <el-avatar :size="50" :src="userAvatar" />
+              <div>
+                <p class="font-bold">{{ userName }}</p>
+                <p class="text-sm text-gray-500">Akun Saya</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- Bottom Actions -->
-        <div class="border-t border-gray-200">
-          <Trulink
-            :to="urlTrumecs + '/bulk'"
-            class="el-button el-button--primary w-full mb-3"
-            @click="handleBulkMobile"
-          >
-            {{ $t("navbar.button.inquiry") }}
-          </Trulink>
-          <div
-            class="flex flex-col gap-1 justify-center items-center border-b pb-2"
-          >
-            <p class="text-sm text-gray-500">
-              {{ $t("page.product.text.contactUs") }} :
-            </p>
+          <div class="flex-grow overflow-y-auto">
+            <el-collapse>
+              <el-collapse-item
+                :title="$t('navbar.menu.category')"
+                name="1"
+                class="text-xl p-b-0"
+              >
+                <template
+                  v-for="(category, categoryIdx) in products"
+                  :key="category.id"
+                >
+                  <CategoryMobileCategoryMenuItem
+                    :item="category"
+                    :level="0"
+                    @close-mobile-menu="showMobileMenu = false"
+                  />
+                </template>
+              </el-collapse-item>
+            </el-collapse>
             <Trulink
-              href="https://wa.me/+6285176912338"
-              target="_blank"
-              class="text-sm flex gap-1 items-center text-gray-500"
+              v-for="item in mobileMenuItems"
+              :key="item.to"
+              :to="item.to"
+              @click="handleClickMenuMobile(item.text)"
+              color="black"
+              class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100 px-4"
             >
-              <Icon name="logos:whatsapp-icon" />
-              <p>+6285176912338</p>
-            </Trulink>
-            <Trulink
-              href="https://mail.to/info@trumecs.com"
-              target="_blank"
-              class="text-sm flex gap-1 items-center text-gray-500"
-            >
-              <Icon name="material-symbols:mail-outline" />
-              <p>info@trumecs.com</p>
+              <span>{{ item.text }}</span>
             </Trulink>
           </div>
-          <div class="text-center pt-2 text-gray-500">
-            <p class="text-sm">Trumecs © 2022</p>
+
+          <!-- Bottom Actions -->
+          <div class="border-t border-gray-200 p-4">
+            <Trulink
+              :to="urlTrumecs + '/bulk'"
+              class="el-button el-button--primary w-full mb-3"
+              @click="handleBulkMobile"
+            >
+              {{ $t("navbar.button.inquiry") }}
+            </Trulink>
+            <div
+              class="flex flex-col gap-1 justify-center items-center border-b pb-2"
+            >
+              <p class="text-sm text-gray-500">
+                {{ $t("page.product.text.contactUs") }} :
+              </p>
+              <Trulink
+                href="https://wa.me/+6285176912338"
+                target="_blank"
+                class="text-sm flex gap-1 items-center text-gray-500"
+              >
+                <Icon name="logos:whatsapp-icon" />
+                <p>+6285176912338</p>
+              </Trulink>
+              <Trulink
+                href="mailto:info@trumecs.com"
+                target="_blank"
+                class="text-sm flex gap-1 items-center text-gray-500"
+              >
+                <Icon name="material-symbols:mail-outline" />
+                <p>info@trumecs.com</p>
+              </Trulink>
+            </div>
+            <div class="text-center pt-2 text-gray-500">
+              <p class="text-sm">Trumecs © 2022</p>
+            </div>
           </div>
         </div>
       </div>
@@ -413,6 +390,7 @@ import { useRoute, useRouter } from "vue-router";
 import { ElMessageBox } from "element-plus";
 import type { CollapseModelValue } from "element-plus";
 import type { ProductCategory } from "~/types/category";
+
 const {
   trackClickLink,
   trackClickLinkMobile,
@@ -421,7 +399,6 @@ const {
 } = useAnalytics();
 
 const config = useRuntimeConfig();
-
 const urlTrumecs = config.public.info.linkTrumecsPhp;
 
 const products = ref<ProductCategory[]>([]);
@@ -451,8 +428,8 @@ const showMobileSearch = ref(false);
 const mobileSearchInput = ref();
 const dropdownVisible = ref(false);
 
-const cartCount = computed(() => 0); // Ganti dengan store
-const isLoggedIn = computed(() => false); // Ganti dengan auth store
+const cartCount = computed(() => 0);
+const isLoggedIn = computed(() => false);
 const userName = computed(() => "John Doe");
 const userAvatar = computed(() => "");
 const unreadNotifications = computed(() => 3);
@@ -460,14 +437,14 @@ const unreadChats = computed(() => 2);
 
 // Mobile menu items
 const mobileMenuItems = computed(() => [
-  { to: urlTrumecs + "/jasa", text: $t("navbar.menu.service") },
-  { to: urlTrumecs + "/rental", text: $t("navbar.menu.rental") },
-  { to: "/article", text: $t("navbar.menu.article") },
-  { to: urlTrumecs + "/promo", text: $t("navbar.menu.promo") },
-  { to: urlTrumecs + "/bulk", text: $t("navbar.menu.rfq") },
-  { to: urlTrumecs + "/syarat", text: $t("navbar.menu.term") },
-  { to: urlTrumecs + "/retur", text: $t("navbar.menu.policy") },
-  { to: urlTrumecs + "/faq", text: $t("navbar.menu.faq") },
+  { to: urlTrumecs + "/jasa", text: t("navbar.menu.service") },
+  { to: urlTrumecs + "/rental", text: t("navbar.menu.rental") },
+  { to: "/article", text: t("navbar.menu.article") },
+  { to: urlTrumecs + "/promo", text: t("navbar.menu.promo") },
+  { to: urlTrumecs + "/bulk", text: t("navbar.menu.rfq") },
+  { to: urlTrumecs + "/syarat", text: t("navbar.menu.term") },
+  { to: urlTrumecs + "/retur", text: t("navbar.menu.policy") },
+  { to: urlTrumecs + "/faq", text: t("navbar.menu.faq") },
   ...(isLoggedIn.value
     ? [
         {
@@ -493,7 +470,7 @@ const mobileMenuItems = computed(() => [
           icon: "material-symbols:description",
         },
         {
-          to: urlTrumecs + urlTrumecs + "/member",
+          to: urlTrumecs + "/member",
           text: "Akun Saya",
           icon: "material-symbols:person",
         },
@@ -501,7 +478,7 @@ const mobileMenuItems = computed(() => [
     : [
         {
           to: urlTrumecs + "/member/login",
-          text: $t("navbar.button.signUp"),
+          text: t("navbar.button.signUp"),
           icon: "material-symbols:login",
         },
       ]),
@@ -534,6 +511,7 @@ const handleBulk = () => {
 
 const handleBulkMobile = () => {
   trackClickButtonMobile("Button 'Info Kebutuhan'");
+  showMobileMenu.value = false;
 };
 
 const handleClickLinkArticle = () => {
@@ -554,14 +532,13 @@ const fetchCategories = async () => {
 
   try {
     const response = await useFetchApi<any>(
-      "category-read", // Ganti dengan endpoint yang sesuai
+      "category-read",
       "category-read",
       "get",
       null
     );
 
     if (response.status.value === "success") {
-      // Ambil hanya products dari payload
       products.value = response.data.value!.payload.category.products;
       console.log("Products loaded:", products.value);
     }
@@ -605,19 +582,20 @@ const handleLogout = async () => {
         type: "warning",
       }
     );
-    // Handle logout
     console.log("Logout berhasil");
   } catch (error) {
     // User membatalkan logout
   }
 };
 
-// PERBAIKAN: Ganti fetchCategori menjadi fetchCategories
+const handleLogin = () => {
+  trackClickButton("Button 'Login'");
+};
+
 onMounted(async () => {
   await fetchCategories();
 });
 
-// Auto focus on mobile search input
 watch(showMobileSearch, (val) => {
   if (val) {
     nextTick(() => {
@@ -648,5 +626,31 @@ watch(showMobileSearch, (val) => {
 .el-sub-menu__title {
   padding-left: 0 !important;
   padding-right: 35 !important;
+}
+
+/* Skeleton animation */
+:deep(.el-skeleton) {
+  --el-skeleton-color: #f2f2f2;
+  --el-skeleton-to-color: #e6e6e6;
+}
+
+:deep(.el-skeleton-item) {
+  background: linear-gradient(
+    90deg,
+    var(--el-skeleton-color) 25%,
+    var(--el-skeleton-to-color) 37%,
+    var(--el-skeleton-color) 63%
+  );
+  background-size: 400% 100%;
+  animation: el-skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes el-skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 </style>

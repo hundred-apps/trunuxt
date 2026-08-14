@@ -85,7 +85,7 @@ const loading = ref(true);
 const error = ref<string | null>(null);
 const route = useRoute();
 const router = useRouter();
-const { t } = useI18n();
+// const { t } = useI18n();
 const goBack = () => router.back();
 const id = route.params.id as string;
 const name = route.params.tittle as string;

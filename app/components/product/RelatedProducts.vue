@@ -10,10 +10,10 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
     >
-      <a
+      <Trulink
         v-for="product in products"
         :key="product.id"
-        :href="getProductUrl(product)"
+        :to="getProductUrl(product)"
         class="group bg-gray-50 hover:bg-white rounded-lg transition-all hover:shadow-md border border-transparent hover:border-gray-200"
       >
         <div class="aspect-square bg-white rounded-lg overflow-hidden mb-3">
@@ -21,6 +21,7 @@
             :src="`https://www.trumecs.com/public/image/product/${product.img || 'noimage.png'}`"
             :alt="product.tittle"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+            loading="lazy"
           />
         </div>
         <h4
@@ -34,7 +35,7 @@
         <div class="text-lg font-bold text-orange-500 mt-2 px-2">
           Rp {{ formatPrice(Number(product.price || 0)) }}
         </div>
-      </a>
+      </Trulink>
     </div>
   </div>
 </template>

@@ -65,6 +65,7 @@
                       :alt="article.title"
                       class="w-full"
                       :style="{ maxHeight: '500px', objectFit: 'cover' }"
+                      loading="lazy"
                     />
                   </div>
 
@@ -249,7 +250,7 @@ const route = useRoute();
 const router = useRouter();
 const { t } = useI18n();
 const goBack = () => router.back();
-const slug = route.params.slug as string; // rename untuk kejelasan
+let slug = ref(route.params.slug as string);
 
 // State untuk artikel detail - ini yang akan digunakan di template
 
@@ -296,7 +297,7 @@ const fetchTrendingArticles = async () => {
       trendingArticles.value = apiData.map((item: Article) => {
         return {
           id: item.id,
-          url: item.url || `article-${item.id}`,
+          url: item.url || `article-${item.url}`,
           title: item.title || "Untitled",
           image: item.img
             ? `${
@@ -333,7 +334,7 @@ const fetchRelatedArticles = async () => {
       relatedArticles.value = apiData.map((item: Article) => {
         return {
           id: item.id,
-          url: item.url || `article-${item.id}`,
+          url: item.url || `article-${item.url}`,
           title: item.title || "Untitled",
           image: item.img
             ? `${
@@ -357,8 +358,8 @@ const fetchDetailArticle = async () => {
   loading.value = true;
   try {
     const response = await useFetchApi<BaseResponse<Article>>(
-      `article-read/${slug}`,
-      `article-read-${slug}`,
+      `article-read/${slug.value}`,
+      `article-read-${slug.value}`,
       "get",
       null
     );
@@ -569,7 +570,7 @@ watch(
   () => route.params.slug,
   (newSlug, oldSlug) => {
     if (newSlug !== oldSlug) {
-      slug = newSlug as string;
+      slug.value = newSlug as string;
       fetchDetailArticle();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

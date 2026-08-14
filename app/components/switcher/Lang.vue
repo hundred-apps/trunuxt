@@ -14,9 +14,9 @@ const currentStyle = toRef(props, "type");
 
 // Data bahasa dengan flag
 const availableLang = [
-  { key: "id", flag: "id", label: "ID" },
-  { key: "en", flag: "gb", label: "EN" },
-  { key: "zh", flag: "cn", label: "ZH" },
+  { key: "id", flag: "flag:id-4x3", label: "ID" },
+  { key: "en", flag: "flag:gb-4x3", label: "EN" },
+  { key: "zh", flag: "flag:cn-4x3", label: "ZH" },
 ];
 
 // Domain mapping untuk multi-domain
@@ -117,10 +117,7 @@ onMounted(() => {
           @click="isOpen = !isOpen"
         >
           <!-- Flag -->
-          <span
-            :class="['fi', `fi-${currentLang?.flag}`]"
-            class="text-m rounded-sm"
-          ></span>
+          <Icon :name="currentLang?.flag" class="text-lg" />
 
           <!-- Language Code -->
           <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -163,10 +160,7 @@ onMounted(() => {
             }"
           >
             <!-- Flag -->
-            <span
-              :class="['fi', `fi-${lang.flag}`]"
-              class="text-m rounded-sm"
-            ></span>
+            <Icon :name="lang?.flag" class="text-lg" />
 
             <!-- Language Name -->
             <span class="flex-1">{{ $t(`languages.${lang.key}`) }}</span>

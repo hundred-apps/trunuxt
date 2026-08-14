@@ -4,7 +4,7 @@
     <Trulink
       v-for="article in articles"
       :key="article.id"
-      :to="`/article/${article.id}`"
+      :to="`/article/${article.url}`"
       class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-1 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
     >
       <div
@@ -14,6 +14,7 @@
           :src="article.image"
           :alt="article.title"
           class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+          loading="lazy"
         />
       </div>
       <div class="flex-1 min-w-0">

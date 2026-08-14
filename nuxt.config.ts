@@ -54,7 +54,6 @@ export default defineNuxtConfig({
   css: [
     "element-plus/theme-chalk/dark/css-vars.css",
     "~/assets/css/article.css", // pakai ~ bukan ./
-    "flag-icons/css/flag-icons.min.css",
   ],
   // Auto import components
   components: true,
