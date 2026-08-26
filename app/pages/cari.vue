@@ -121,7 +121,7 @@
                 class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all"
               >
                 <Trulink
-                  :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
+                  :to="`/produk/${product.id}/${formatSlug(product.tittle)}`"
                   class="flex"
                 >
                   <div class="w-32 h-32 flex-shrink-0 overflow-hidden bg-gray-50">

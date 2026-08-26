@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script setup lang="ts>
-import CategoryTreeItem from '~/components/admin/CategoryTreeItem.vue';
+<script setup lang="ts">
+import CategoryTreeItem from "~/components/admin/CategoryTreeItem.vue";
 
 defineProps<{
   categories: any[];
@@ -24,6 +24,6 @@ defineProps<{
 defineEmits<{
   edit: [category: any];
   delete: [category: any];
-  'add-child': [parentId: number];
+  "add-child": [parentId: number];
 }>();
 </script>

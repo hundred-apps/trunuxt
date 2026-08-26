@@ -1,6 +1,8 @@
 <template>
   <li class="relative">
-    <div class="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 rounded-lg transition-colors">
+    <div
+      class="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 rounded-lg transition-colors"
+    >
       <button
         v-if="hasChildren"
         @click="expanded = !expanded"
@@ -8,23 +10,35 @@
         aria-label="Toggle children"
       >
         <Icon
-          :name="expanded ? 'material-symbols:expand-more' : 'material-symbols:chevron-right'"
+          :name="
+            expanded
+              ? 'material-symbols:expand-more'
+              : 'material-symbols:chevron-right'
+          "
           class="h-4 w-4"
         />
       </button>
       <div v-else class="w-6" />
 
-      <button class="p-1 text-gray-400 hover:text-gray-600 rounded" title="Drag to reorder">
+      <button
+        class="p-1 text-gray-400 hover:text-gray-600 rounded"
+        title="Drag to reorder"
+      >
         <Icon name="material-symbols:drag-indicator" class="h-4 w-4" />
       </button>
 
-      <div class="h-8 w-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-        <Icon :name="menu.icon || 'material-symbols:menu'" class="h-4 w-4 text-gray-600" />
+      <div
+        class="h-8 w-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0"
+      >
+        <Icon
+          :name="menu.icon || 'material-symbols:menu'"
+          class="h-4 w-4 text-gray-600"
+        />
       </div>
 
       <div class="flex-1 min-w-0">
         <p class="font-medium text-gray-900 truncate">{{ menu.name }}</p>
-        <p class="text-xs text-gray-500 truncate">URL: {{ menu.url || '-' }}</p>
+        <p class="text-xs text-gray-500 truncate">URL: {{ menu.url || "-" }}</p>
       </div>
 
       <div class="flex items-center gap-1">
@@ -52,7 +66,10 @@
       </div>
     </div>
 
-    <ul v-if="hasChildren && expanded" class="ml-10 mt-1 space-y-1 border-l border-gray-200 pl-4">
+    <ul
+      v-if="hasChildren && expanded"
+      class="ml-10 mt-1 space-y-1 border-l border-gray-200 pl-4"
+    >
       <MenuTreeItem
         v-for="child in menu.children"
         :key="child.id"
@@ -66,8 +83,8 @@
   </li>
 </template>
 
-<script setup lang="ts>
-import { computed } from 'vue';
+<script setup lang="ts">
+import { computed } from "vue";
 
 interface Props {
   menu: any;
@@ -79,10 +96,12 @@ const props = defineProps<Props>();
 defineEmits<{
   edit: [menu: any];
   delete: [menu: any];
-  'add-child': [parentId: number];
+  "add-child": [parentId: number];
 }>();
 
 const expanded = ref(true);
 
-const hasChildren = computed(() => props.menu.children && props.menu.children.length > 0);
+const hasChildren = computed(
+  () => props.menu.children && props.menu.children.length > 0
+);
 </script>

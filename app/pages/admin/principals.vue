@@ -347,9 +347,6 @@ const getLogo = (logo: string) => {
   return "";
 };
 
-const pageSize = ref(20);
-const currentPage = ref(1);
-
 onMounted(() => {
   fetchPrincipals();
 });

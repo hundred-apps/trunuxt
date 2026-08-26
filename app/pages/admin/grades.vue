@@ -271,9 +271,6 @@ const deleteGrade = async (grade: any) => {
   } catch {}
 };
 
-const pageSize = ref(20);
-const currentPage = ref(1);
-
 onMounted(() => {
   fetchGrades();
 });

@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script setup lang="ts>
-import MenuTreeItem from '~/components/admin/MenuTreeItem.vue';
+<script setup lang="ts">
+import MenuTreeItem from "~/components/admin/MenuTreeItem.vue";
 
 defineProps<{
   menus: any[];
@@ -24,6 +24,6 @@ defineProps<{
 defineEmits<{
   edit: [menu: any];
   delete: [menu: any];
-  'add-child': [parentId: number];
+  "add-child": [parentId: number];
 }>();
 </script>

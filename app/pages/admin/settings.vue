@@ -2,9 +2,9 @@
   <div class="admin-settings">
     <div class="mb-8">
       <h1 class="text-2xl font-bold text-gray-900">
-        {{ $t("admin.settings.title") }}
+        {{ t("admin.settings.title") }}
       </h1>
-      <p class="mt-1 text-gray-600">{{ $t("admin.settings.subtitle") }}</p>
+      <p class="mt-1 text-gray-600">{{ t("admin.settings.subtitle") }}</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -25,7 +25,7 @@
                 ]"
               >
                 <Icon :name="item.icon" class="h-5 w-5" />
-                {{ $t(`admin.settings.${item.label}`) }}
+                {{ t(`admin.settings.${item.label}`) }}
               </NuxtLink>
             </li>
           </ul>
@@ -40,25 +40,25 @@
           class="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
         >
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
-            {{ $t("admin.settings.general.title") }}
+            {{ t("admin.settings.general.title") }}
           </h2>
           <form @submit.prevent="saveGeneral" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.general.siteName")
+                  t("admin.settings.general.siteName")
                 }}</label>
                 <el-input v-model="generalSettings.siteName" class="w-full" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.general.siteUrl")
+                  t("admin.settings.general.siteUrl")
                 }}</label>
                 <el-input v-model="generalSettings.siteUrl" class="w-full" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.general.adminEmail")
+                  t("admin.settings.general.adminEmail")
                 }}</label>
                 <el-input
                   v-model="generalSettings.adminEmail"
@@ -68,7 +68,7 @@
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.general.currency")
+                  t("admin.settings.general.currency")
                 }}</label>
                 <el-select
                   v-model="generalSettings.currency"
@@ -81,7 +81,7 @@
               </div>
               <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.general.timezone")
+                  t("admin.settings.general.timezone")
                 }}</label>
                 <el-select
                   v-model="generalSettings.timezone"
@@ -96,7 +96,7 @@
             </div>
             <div class="pt-6 border-t border-gray-200">
               <Trubutton
-                :text="$t('button.save')"
+                :text="t('button.save')"
                 type="primary"
                 variant="solid"
                 native-type="submit"
@@ -112,26 +112,26 @@
           class="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
         >
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
-            {{ $t("admin.settings.appearance.title") }}
+            {{ t("admin.settings.appearance.title") }}
           </h2>
           <form @submit.prevent="saveAppearance" class="space-y-6">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">{{
-                $t("admin.settings.appearance.logo")
+                t("admin.settings.appearance.logo")
               }}</label>
-              <div class="flex items-center gap-4">
+              <div class="flex items-center gap-4 flex-wrap">
                 <img
                   v-if="appearanceSettings.logo"
                   :src="appearanceSettings.logo"
                   alt="Logo"
                   class="h-16 w-auto rounded border border-gray-200"
                 />
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
                   <el-button type="primary" @click="logoInput.click()">{{
-                    $t("admin.settings.appearance.uploadLogo")
+                    t("admin.settings.appearance.uploadLogo")
                   }}</el-button>
-                  <el-button variant="outline" @click="removeLogo">{{
-                    $t("admin.settings.appearance.remove")
+                  <el-button @click="removeLogo">{{
+                    t("admin.settings.appearance.remove")
                   }}</el-button>
                 </div>
                 <input
@@ -146,7 +146,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.appearance.primaryColor")
+                  t("admin.settings.appearance.primaryColor")
                 }}</label>
                 <el-color-picker
                   v-model="appearanceSettings.primaryColor"
@@ -156,7 +156,7 @@
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.appearance.secondaryColor")
+                  t("admin.settings.appearance.secondaryColor")
                 }}</label>
                 <el-color-picker
                   v-model="appearanceSettings.secondaryColor"
@@ -167,7 +167,7 @@
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">{{
-                $t("admin.settings.appearance.favicon")
+                t("admin.settings.appearance.favicon")
               }}</label>
               <div class="flex items-center gap-4">
                 <img
@@ -177,7 +177,7 @@
                   class="h-10 w-10 rounded border border-gray-200"
                 />
                 <el-button type="primary" @click="faviconInput.click()">{{
-                  $t("admin.settings.appearance.upload")
+                  t("admin.settings.appearance.upload")
                 }}</el-button>
               </div>
               <input
@@ -190,7 +190,7 @@
             </div>
             <div class="pt-6 border-t border-gray-200">
               <Trubutton
-                :text="$t('button.save')"
+                :text="t('button.save')"
                 type="primary"
                 variant="solid"
                 native-type="submit"
@@ -206,19 +206,19 @@
           class="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
         >
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
-            {{ $t("admin.settings.email.title") }}
+            {{ t("admin.settings.email.title") }}
           </h2>
           <form @submit.prevent="saveEmail" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.smtpHost")
+                  t("admin.settings.email.smtpHost")
                 }}</label>
                 <el-input v-model="emailSettings.smtpHost" class="w-full" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.smtpPort")
+                  t("admin.settings.email.smtpPort")
                 }}</label>
                 <el-input-number
                   v-model="emailSettings.smtpPort"
@@ -229,13 +229,13 @@
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.username")
+                  t("admin.settings.email.username")
                 }}</label>
                 <el-input v-model="emailSettings.username" class="w-full" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.password")
+                  t("admin.settings.email.password")
                 }}</label>
                 <el-input
                   v-model="emailSettings.password"
@@ -246,7 +246,7 @@
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.fromEmail")
+                  t("admin.settings.email.fromEmail")
                 }}</label>
                 <el-input
                   v-model="emailSettings.fromEmail"
@@ -256,13 +256,13 @@
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.fromName")
+                  t("admin.settings.email.fromName")
                 }}</label>
                 <el-input v-model="emailSettings.fromName" class="w-full" />
               </div>
               <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.email.encryption")
+                  t("admin.settings.email.encryption")
                 }}</label>
                 <el-select
                   v-model="emailSettings.encryption"
@@ -275,16 +275,16 @@
                 </el-select>
               </div>
             </div>
-            <div class="pt-6 border-t border-gray-200 flex gap-3">
+            <div class="pt-6 border-t border-gray-200 flex gap-3 flex-wrap">
               <Trubutton
-                :text="$t('button.save')"
+                :text="t('button.save')"
                 type="primary"
                 variant="solid"
                 native-type="submit"
                 :loading="savingEmail"
               />
               <Trubutton
-                :text="$t('admin.settings.email.testConnection')"
+                :text="t('admin.settings.email.testConnection')"
                 type="primary"
                 variant="outline"
                 @click="testEmailConnection"
@@ -299,19 +299,19 @@
           class="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
         >
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
-            {{ $t("admin.settings.api.title") }}
+            {{ t("admin.settings.api.title") }}
           </h2>
           <form @submit.prevent="saveApi" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.api.baseUrl")
+                  t("admin.settings.api.baseUrl")
                 }}</label>
                 <el-input v-model="apiSettings.baseUrl" class="w-full" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{
-                  $t("admin.settings.api.timeout")
+                  t("admin.settings.api.timeout")
                 }}</label>
                 <el-input-number
                   v-model="apiSettings.timeout"
@@ -323,17 +323,28 @@
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">{{
-                $t("admin.settings.api.allowedOrigins")
+                t("admin.settings.api.allowedOrigins")
               }}</label>
-              <el-tag-input
+              <el-select
                 v-model="apiSettings.allowedOrigins"
-                placeholder="https://example.com"
+                multiple
+                filterable
+                allow-create
+                default-first-option
                 class="w-full"
-              />
+                placeholder="https://example.com"
+              >
+                <el-option
+                  v-for="origin in apiSettings.allowedOrigins"
+                  :key="origin"
+                  :value="origin"
+                  :label="origin"
+                />
+              </el-select>
             </div>
             <div class="pt-6 border-t border-gray-200">
               <Trubutton
-                :text="$t('button.save')"
+                :text="t('button.save')"
                 type="primary"
                 variant="solid"
                 native-type="submit"
@@ -349,7 +360,7 @@
           class="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
         >
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
-            {{ $t("admin.settings.integrations.title") }}
+            {{ t("admin.settings.integrations.title") }}
           </h2>
           <div class="space-y-6">
             <div class="bg-gray-50 rounded-xl p-6">
@@ -362,8 +373,8 @@
                 </div>
                 <el-switch
                   v-model="integrations.googleSheets.enabled"
-                  :active-text="$t('admin.enabled')"
-                  :inactive-text="$t('admin.disabled')"
+                  :active-text="t('admin.enabled')"
+                  :inactive-text="t('admin.disabled')"
                 />
               </div>
               <div
@@ -403,8 +414,8 @@
                 </div>
                 <el-switch
                   v-model="integrations.jne.enabled"
-                  :active-text="$t('admin.enabled')"
-                  :inactive-text="$t('admin.disabled')"
+                  :active-text="t('admin.enabled')"
+                  :inactive-text="t('admin.disabled')"
                 />
               </div>
               <div
@@ -446,8 +457,8 @@
                 </div>
                 <el-switch
                   v-model="integrations.whatsapp.enabled"
-                  :active-text="$t('admin.enabled')"
-                  :inactive-text="$t('admin.disabled')"
+                  :active-text="t('admin.enabled')"
+                  :inactive-text="t('admin.disabled')"
                 />
               </div>
               <div
@@ -476,6 +487,15 @@
                 </div>
               </div>
             </div>
+
+            <div class="pt-4 border-t border-gray-200">
+              <Trubutton
+                :text="t('button.save')"
+                type="primary"
+                variant="solid"
+                @click="saveIntegrations"
+              />
+            </div>
           </div>
         </section>
       </main>
@@ -484,119 +504,240 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
+import { ElMessage } from "element-plus";
+import { useI18n } from "vue-i18n";
 
+// ============ I18N ============
+const { t } = useI18n();
+
+// ============ ROUTE ============
 const route = useRoute();
 
+// ============ ACTIVE TAB ============
 const activeTab = computed(() => {
-  const tabs = ['general', 'appearance', 'email', 'api', 'integrations'];
-  return tabs.find(t => route.path.includes(t)) || 'general';
-};
+  const tabs = ["general", "appearance", "email", "api", "integrations"];
+  return tabs.find((t) => route.path.includes(t)) || "general";
+});
 
+// ============ LOADING STATES ============
 const savingGeneral = ref(false);
 const savingAppearance = ref(false);
 const savingEmail = ref(false);
 const savingApi = ref(false);
 
+// ============ GENERAL SETTINGS ============
 const generalSettings = ref({
-  siteName: 'Trumecs',
-  siteUrl: 'https://www.trumecs.com',
-  adminEmail: 'admin@trumecs.com',
-  currency: 'IDR',
-  timezone: 'Asia/Jakarta',
+  siteName: "Trumecs",
+  siteUrl: "https://www.trumecs.com",
+  adminEmail: "admin@trumecs.com",
+  currency: "IDR",
+  timezone: "Asia/Jakarta",
 });
 
+// ============ APPEARANCE SETTINGS ============
 const appearanceSettings = ref({
-  logo: 'https://migration.trumecs.com/logo/dark.png',
-  favicon: 'https://migration.trumecs.com/favicon.ico',
-  primaryColor: '#fa8420',
-  secondaryColor: '#1a1a2e',
+  logo: "https://migration.trumecs.com/logo/dark.png",
+  favicon: "https://migration.trumecs.com/favicon.ico",
+  primaryColor: "#fa8420",
+  secondaryColor: "#1a1a2e",
 });
 
+// ============ EMAIL SETTINGS ============
 const emailSettings = ref({
-  smtpHost: 'smtp.gmail.com',
+  smtpHost: "smtp.gmail.com",
   smtpPort: 587,
-  username: 'noreply@trumecs.com',
-  password: '',
-  fromEmail: 'noreply@trumecs.com',
-  fromName: 'Trumecs',
-  encryption: 'tls',
+  username: "noreply@trumecs.com",
+  password: "",
+  fromEmail: "noreply@trumecs.com",
+  fromName: "Trumecs",
+  encryption: "tls",
 });
 
+// ============ API SETTINGS ============
 const apiSettings = ref({
-  baseUrl: 'https://migrationbe.trumecs.com/api/',
+  baseUrl: "https://migrationbe.trumecs.com/api/",
   timeout: 30000,
-  allowedOrigins: ['https://www.trumecs.com', 'https://en.trumecs.com', 'https://zh.trumecs.com'],
+  allowedOrigins: [
+    "https://www.trumecs.com",
+    "https://en.trumecs.com",
+    "https://zh.trumecs.com",
+  ],
 });
 
+// ============ INTEGRATIONS ============
 const integrations = ref({
-  googleSheets: { enabled: false, spreadsheetId: '', serviceAccountKey: '' },
-  jne: { enabled: false, apiKey: '', username: '' },
-  whatsapp: { enabled: false, phoneNumberId: '', accessToken: '' },
+  googleSheets: {
+    enabled: false,
+    spreadsheetId: "",
+    serviceAccountKey: "",
+  },
+  jne: {
+    enabled: false,
+    apiKey: "",
+    username: "",
+  },
+  whatsapp: {
+    enabled: false,
+    phoneNumberId: "",
+    accessToken: "",
+  },
 });
 
+// ============ MENU ============
 const settingsMenu = [
-  { key: 'general', path: '/admin/settings', icon: 'material-symbols:settings', label: 'general' },
-  { key: 'appearance', path: '/admin/settings/appearance', icon: 'material-symbols:palette', label: 'appearance' },
-  { key: 'email', path: '/admin/settings/email', icon: 'material-symbols:mail', label: 'email' },
-  { key: 'api', path: '/admin/settings/api', icon: 'material-symbols:api', label: 'api' },
-  { key: 'integrations', path: '/admin/settings/integrations', icon: 'material-symbols:integration-instructions', label: 'integrations' },
+  {
+    key: "general",
+    path: "/admin/settings",
+    icon: "material-symbols:settings",
+    label: "general",
+  },
+  {
+    key: "appearance",
+    path: "/admin/settings/appearance",
+    icon: "material-symbols:palette",
+    label: "appearance",
+  },
+  {
+    key: "email",
+    path: "/admin/settings/email",
+    icon: "material-symbols:mail",
+    label: "email",
+  },
+  {
+    key: "api",
+    path: "/admin/settings/api",
+    icon: "material-symbols:api",
+    label: "api",
+  },
+  {
+    key: "integrations",
+    path: "/admin/settings/integrations",
+    icon: "material-symbols:integration-instructions",
+    label: "integrations",
+  },
 ];
 
+// ============ REFS ============
+const logoInput = ref<HTMLInputElement | null>(null);
+const faviconInput = ref<HTMLInputElement | null>(null);
+
+// ============ SAVE FUNCTIONS ============
 const saveGeneral = async () => {
   savingGeneral.value = true;
-  try { await new Promise(r => setTimeout(r, 1000)); ElMessage.success('Pengaturan umum disimpan'); }
-  catch { ElMessage.error('Gagal menyimpan'); }
-  finally { savingGeneral.value = false; }
+  try {
+    await new Promise((r) => setTimeout(r, 1000));
+    ElMessage.success(
+      t("admin.settings.saveSuccess") || "Pengaturan umum disimpan"
+    );
+  } catch {
+    ElMessage.error(t("admin.settings.saveError") || "Gagal menyimpan");
+  } finally {
+    savingGeneral.value = false;
+  }
 };
 
 const saveAppearance = async () => {
   savingAppearance.value = true;
-  try { await new Promise(r => setTimeout(r, 1000)); ElMessage.success('Pengaturan tampilan disimpan'); }
-  catch { ElMessage.error('Gagal menyimpan'); }
-  finally { savingAppearance.value = false; }
+  try {
+    await new Promise((r) => setTimeout(r, 1000));
+    ElMessage.success(
+      t("admin.settings.saveSuccess") || "Pengaturan tampilan disimpan"
+    );
+  } catch {
+    ElMessage.error(t("admin.settings.saveError") || "Gagal menyimpan");
+  } finally {
+    savingAppearance.value = false;
+  }
 };
 
 const saveEmail = async () => {
   savingEmail.value = true;
-  try { await new Promise(r => setTimeout(r, 1000)); ElMessage.success('Pengaturan email disimpan'); }
-  catch { ElMessage.error('Gagal menyimpan'); }
-  finally { savingEmail.value = false; }
+  try {
+    await new Promise((r) => setTimeout(r, 1000));
+    ElMessage.success(
+      t("admin.settings.saveSuccess") || "Pengaturan email disimpan"
+    );
+  } catch {
+    ElMessage.error(t("admin.settings.saveError") || "Gagal menyimpan");
+  } finally {
+    savingEmail.value = false;
+  }
 };
 
 const saveApi = async () => {
   savingApi.value = true;
-  try { await new Promise(r => setTimeout(r, 1000)); ElMessage.success('Pengaturan API disimpan'); }
-  catch { ElMessage.error('Gagal menyimpan'); }
-  finally { savingApi.value = false; }
+  try {
+    await new Promise((r) => setTimeout(r, 1000));
+    ElMessage.success(
+      t("admin.settings.saveSuccess") || "Pengaturan API disimpan"
+    );
+  } catch {
+    ElMessage.error(t("admin.settings.saveError") || "Gagal menyimpan");
+  } finally {
+    savingApi.value = false;
+  }
 };
 
+const saveIntegrations = async () => {
+  try {
+    await new Promise((r) => setTimeout(r, 1000));
+    ElMessage.success(
+      t("admin.settings.saveSuccess") || "Pengaturan integrasi disimpan"
+    );
+  } catch {
+    ElMessage.error(t("admin.settings.saveError") || "Gagal menyimpan");
+  }
+};
+
+// ============ UPLOAD FUNCTIONS ============
 const handleLogoUpload = (e: Event) => {
-  const file = (e.target as HTMLInputElement).files?.[0];
+  const target = e.target as HTMLInputElement;
+  const file = target.files?.[0];
   if (file) {
-    // Upload logic here
     appearanceSettings.value.logo = URL.createObjectURL(file);
-    ElMessage.success('Logo diupload');
+    ElMessage.success(t("admin.settings.uploadSuccess") || "Logo diupload");
   }
 };
 
 const removeLogo = () => {
-  appearanceSettings.value.logo = '';
-  ElMessage.success('Logo dihapus');
+  appearanceSettings.value.logo = "";
+  ElMessage.success(t("admin.settings.removeSuccess") || "Logo dihapus");
 };
 
 const handleFaviconUpload = (e: Event) => {
-  const file = (e.target as HTMLInputElement).files?.[0];
+  const target = e.target as HTMLInputElement;
+  const file = target.files?.[0];
   if (file) {
     appearanceSettings.value.favicon = URL.createObjectURL(file);
-    ElMessage.success('Favicon diupload');
+    ElMessage.success(t("admin.settings.uploadSuccess") || "Favicon diupload");
   }
 };
 
+// ============ TEST FUNCTIONS ============
 const testEmailConnection = async () => {
-  ElMessage.info('Menguji koneksi email...');
-  await new Promise(r => setTimeout(r, 2000));
-  ElMessage.success('Koneksi email berhasil');
+  ElMessage.info(
+    t("admin.settings.email.testing") || "Menguji koneksi email..."
+  );
+  await new Promise((r) => setTimeout(r, 2000));
+  ElMessage.success(
+    t("admin.settings.email.testSuccess") || "Koneksi email berhasil"
+  );
 };
 </script>
+
+<style scoped>
+:deep(.el-select .el-input__wrapper) {
+  border-radius: 8px !important;
+}
+
+:deep(.el-color-picker) {
+  width: 100%;
+}
+
+:deep(.el-color-picker .el-color-picker__trigger) {
+  width: 100%;
+  height: 40px;
+}
+</style>

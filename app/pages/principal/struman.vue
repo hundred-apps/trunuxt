@@ -202,7 +202,7 @@
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
                 <Trulink
-                  :to="`https://www.trumecs.com/product/${product.id}/${formatSlug(product.name)}`"
+                  :to="`https://www.trumecs.com/produk/${product.id}/${formatSlug(product.name)}`"
                   class="font-headline-md text-headline-md text-industrial-black fs-4"
                 >
                   {{ product.name }}

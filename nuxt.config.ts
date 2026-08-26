@@ -81,9 +81,15 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
     "@nuxtjs/device",
     "@element-plus/nuxt",
-    "nuxt-schema-org",
+    // "nuxt-schema-org",
     "nuxt-gtag",
   ],
+
+  postcss: {
+    plugins: {
+      "@tailwindcss/postcss": {},
+    },
+  },
 
   css: [
     "element-plus/theme-chalk/dark/css-vars.css",
@@ -117,6 +123,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "node-server",
+    bundleDependencies: true,
   },
   experimental: {
     writeEarlyHints: false,
