@@ -13,15 +13,12 @@
           }"
         ></div>
 
-        <!-- Overlay Gelap -->
         <div class="absolute inset-0 bg-black/60"></div>
 
-        <!-- Overlay Gradient -->
         <div
           class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"
         ></div>
 
-        <!-- Overlay Bottom -->
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
         ></div>
@@ -32,7 +29,6 @@
         class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 text-center md:text-left pt-20"
       >
         <div class="max-w-3xl mx-auto md:mx-0">
-          <!-- Badge -->
           <div
             class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white mb-6"
           >
@@ -40,23 +36,21 @@
               class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"
             ></span>
             <span class="font-mono text-xs tracking-wider font-semibold"
-              >ISO 9001:2015 CERTIFIED</span
+              >{{ t('page.principal.machining.hero.badge') }}</span
             >
           </div>
 
           <h1
             class="font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
           >
-            Precision Machining Solutions for
-            <span class="text-orange-400">Industrial Excellence</span>
+            {{ t('page.principal.machining.hero.titleLine1') }}
+            <span class="text-orange-400">{{ t('page.principal.machining.hero.titleLine2') }}</span>
           </h1>
 
           <p
             class="text-lg md:text-xl text-gray-200/90 mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
           >
-            Delivering high-precision machining services with advanced
-            technology, experienced engineers, and strict quality control to
-            meet your complex industrial manufacturing needs.
+            {{ t('page.principal.machining.hero.subtitle') }}
           </p>
 
           <div
@@ -68,7 +62,7 @@
               class="w-full sm:w-auto !bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !px-8 !py-4 !rounded-lg !font-semibold !shadow-lg hover:!shadow-xl transition-all"
               @click="scrollTo('contactLocations')"
             >
-              Request a Quote
+              {{ t('page.principal.machining.hero.ctaQuote') }}
               <Icon name="mdi:arrow-right" class="text-lg ml-1" />
             </ElButton>
 
@@ -77,7 +71,7 @@
               class="w-full sm:w-auto !bg-white/10 !border-2 !border-white/40 hover:!bg-white/20 !text-white !px-8 !py-4 !rounded-lg !font-semibold !backdrop-blur-sm transition-all"
               @click="scrollTo('services')"
             >
-              Explore Our Services
+              {{ t('page.principal.machining.hero.ctaServices') }}
             </ElButton>
           </div>
         </div>
@@ -88,7 +82,7 @@
         class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block"
       >
         <a
-          @click.prevent="scrollTo('about')"
+          @click.prevent="scrollTo('aboutMachining')"
           class="text-white/50 hover:text-white/80 transition-colors cursor-pointer flex flex-col items-center gap-1"
         >
           <span class="text-[10px] uppercase tracking-widest">Scroll</span>
@@ -97,8 +91,8 @@
       </div>
     </section>
 
-    <!-- 2. About Section -->
-    <section class="py-6 bg-surface relative overflow-hidden" id="about">
+    <!-- 2. About Machining Section -->
+    <section class="py-6 bg-surface relative overflow-hidden" id="aboutMachining">
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -106,28 +100,24 @@
               <span class="w-8 h-1 bg-orange-500"></span>
               <span
                 class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-                >About Us</span
+                >{{ t('page.principal.machining.aboutMachining.sectionLabel') }}</span
               >
             </div>
 
             <h2
               class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
             >
-              About Our Machining Excellence
+              {{ t('page.principal.machining.aboutMachining.title') }}
             </h2>
 
             <p class="text-gray-600 mb-8 leading-relaxed">
-              With decades of experience in the precision manufacturing sector,
-              Precision Core provides unparalleled CNC machining services. Our
-              facility is equipped with the latest multi-axis machinery operated
-              by highly skilled technicians dedicated to achieving exacting
-              tolerances and flawless finishes.
+              {{ t('page.principal.machining.aboutMachining.description') }}
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div
-                v-for="item in aboutItems"
-                :key="item.title"
+                v-for="(item, index) in aboutMachiningHighlights"
+                :key="index"
                 class="flex items-start gap-4"
               >
                 <div
@@ -160,62 +150,123 @@
       </div>
     </section>
 
-    <!-- 3. Services Section -->
-    <section class="py-4 bg-gray-50" id="services">
+    <!-- 3. About Fabrication Section -->
+    <section class="py-6 bg-gray-50 relative overflow-hidden" id="aboutFabrikasi">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div
+              class="absolute -inset-4 bg-gray-100 rounded-2xl transform -rotate-3 z-0 opacity-50"
+            ></div>
+            <div
+              class="relative z-10 w-full h-auto rounded-xl shadow-lg border border-gray-200/30 aspect-[4/3] bg-gradient-to-br from-orange-50 to-gray-100 flex items-center justify-center"
+            >
+              <Icon name="mdi:factory" class="text-orange-500 text-8xl opacity-30" />
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-8 h-1 bg-orange-500"></span>
+              <span
+                class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
+                >{{ t('page.principal.machining.aboutFabrikasi.sectionLabel') }}</span
+              >
+            </div>
+
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
+            >
+              {{ t('page.principal.machining.aboutFabrikasi.title') }}
+            </h2>
+
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              {{ t('page.principal.machining.aboutFabrikasi.description') }}
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div
+                v-for="(item, index) in aboutFabrikasiHighlights"
+                :key="index"
+                class="flex items-start gap-4"
+              >
+                <div
+                  class="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center shrink-0"
+                >
+                  <Icon :name="item.icon" class="text-orange-500 text-2xl" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-primary mb-1">
+                    {{ item.title }}
+                  </h4>
+                  <p class="text-sm text-gray-600">{{ item.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Methods Section -->
+    <section class="py-4 bg-gray-50" id="methods">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
         <div class="text-center mb-16 max-w-3xl mx-auto">
           <div class="inline-flex items-center gap-2 mb-2 justify-center">
             <span class="w-8 h-1 bg-orange-500"></span>
             <span
               class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >Our Core Offerings</span
+              >{{ t('page.principal.machining.methods.sectionLabel') }}</span
             >
             <span class="w-8 h-1 bg-orange-500"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
           >
-            Our Machining Services
+            {{ t('page.principal.machining.methods.title') }}
           </h2>
           <p class="text-gray-600">
-            Comprehensive precision manufacturing solutions tailored to your
-            specific project requirements, from rapid prototyping to high-volume
-            production.
+            {{ t('page.principal.machining.methods.subtitle') }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
-            v-for="service in services"
-            :key="service.title"
+            v-for="(method, index) in methods"
+            :key="index"
             class="bg-white rounded-xl p-8 border border-gray-200/30 shadow-sm hover:shadow-xl transition-all duration-300 group"
           >
             <div
               class="w-14 h-14 rounded-lg bg-gray-100 group-hover:bg-orange-500 transition-colors flex items-center justify-center mb-6"
             >
               <Icon
-                :name="service.icon"
+                :name="method.icon"
                 class="text-orange-500 group-hover:text-white transition-colors text-3xl"
               />
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">
-              {{ service.title }}
+              {{ method.title }}
             </h3>
-            <p class="text-sm text-gray-600 mb-6 flex-grow">
-              {{ service.description }}
+            <p class="text-sm text-gray-600 mb-4 flex-grow">
+              {{ method.description }}
             </p>
-            <a
-              class="inline-flex items-center gap-2 text-sm text-orange-500 hover:text-orange-600 transition-colors cursor-pointer"
-            >
-              Learn More <Icon name="mdi:arrow-right" class="text-base" />
-            </a>
+            <ul class="space-y-1">
+              <li
+                v-for="(feature, fIndex) in method.features"
+                :key="fIndex"
+                class="flex items-center gap-2 text-xs text-gray-500"
+              >
+                <Icon name="mdi:check-circle" class="text-orange-400 text-sm shrink-0" />
+                {{ feature }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. Capabilities Section -->
-    <section class="py-6 bg-surface" id="capabilities">
+    <!-- 5. Products Section -->
+    <section class="py-6 bg-surface" id="products">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
         <div
           class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
@@ -225,177 +276,105 @@
               <span class="w-8 h-1 bg-orange-500"></span>
               <span
                 class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-                >Technical Strength</span
+                >{{ t('page.principal.machining.products.sectionLabel') }}</span
               >
             </div>
             <h2
               class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary max-w-xl"
             >
-              Our Capabilities
+              {{ t('page.principal.machining.products.title') }}
             </h2>
           </div>
+          <p class="text-gray-600 max-w-xl">
+            {{ t('page.principal.machining.products.subtitle') }}
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-          <!-- Large Feature Card -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
-            class="md:col-span-2 md:row-span-2 bg-primary rounded-xl p-10 relative overflow-hidden flex flex-col justify-end border border-orange-800"
+            v-for="(product, index) in products"
+            :key="index"
+            class="bg-white rounded-xl p-8 border border-gray-200/30 shadow-sm flex flex-col items-center text-center hover:border-orange-500/30 hover:shadow-xl transition-all duration-300 group"
           >
-            <div class="absolute inset-0 z-0">
-              <div
-                class="bg-cover bg-center w-full h-full transition-opacity duration-500"
-                :style="{
-                  backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2mxeTWzgpO4JYptQ1ntwTzarbN-SGP7g5RHhglGwtgug1I-Cm-AhZ4Y06m_k1dnVzTORE8gfgAUtIWJxBq2N9hxtUO-yxX3FjCHhuYy6z64UU7Ay7LasYH7UCVS0Gsvw4ts-aQZeJ84uFKym5Zac3io99KNHKlWiXU4-rAC6Adh7_y6tS_L1JLPlxFWuq9j40TxKPjw_KHgN1mP4V6TEcmHPLVfeaNvRsqDyb8K5NLmtGt40z858E')`,
-                }"
-              ></div>
-
-              <!-- Overlay Gelap Solid -->
-              <div class="absolute inset-0 bg-black/50"></div>
-
-              <!-- Overlay Gradient dari Bawah -->
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
-              ></div>
-
-              <!-- Overlay Gradient Warna (Optional) -->
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"
-              ></div>
+            <div
+              class="w-16 h-16 rounded-full bg-gray-100 group-hover:bg-orange-50 transition-colors flex items-center justify-center mb-6"
+            >
+              <Icon
+                :name="product.icon"
+                class="text-orange-500 text-3xl"
+              />
             </div>
-
-            <!-- Content -->
-            <div class="relative z-10">
-              <span
-                class="inline-block px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded mb-4"
-              >
-                Core Competency
-              </span>
-              <h3 class="text-3xl text-white font-bold mb-3">
-                High Precision Manufacturing
-              </h3>
-              <p class="text-gray-200 max-w-md">
-                Consistently delivering components with tolerances as tight as
-                ±0.0001 inches, ensuring perfect fit and function for critical
-                aerospace and medical applications.
-              </p>
-            </div>
-          </div>
-
-          <!-- Standard Cards -->
-          <div
-            v-for="cap in capabilities"
-            :key="cap.title"
-            class="bg-white rounded-xl p-8 border border-gray-200/30 shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-colors"
-          >
-            <Icon :name="cap.icon" class="text-orange-500 text-3xl" />
-            <div>
-              <h3 class="text-lg font-bold text-primary mb-2">
-                {{ cap.title }}
-              </h3>
-              <p class="text-sm text-gray-600">{{ cap.description }}</p>
-            </div>
-          </div>
-
-          <div
-            class="md:col-span-2 bbg-white rounded-xl p-8 border border-gray-200/30 shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-colors"
-          >
-            <Icon
-              name="material-symbols:straighten"
-              class="text-orange-500 text-3xl"
-            />
-            <div>
-              <h3 class="text-xl font-bold text-primary mb-2">
-                Tight Tolerance Machining
-              </h3>
-              <p class="text-sm text-gray-600">
-                Specialized processes and environmental controls for
-                micro-machining requirements.
-              </p>
-            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">
+              {{ product.name }}
+            </h3>
+            <p class="text-sm text-gray-600">
+              {{ product.description }}
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. Materials Section -->
+    <!-- 6. Materials Section -->
     <section class="py-4 bg-gray-50 border-t border-gray-200/20" id="materials">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
         <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 mb-2 justify-center">
+            <span class="w-8 h-1 bg-orange-500"></span>
+            <span
+              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
+              >{{ t('page.principal.machining.materials.sectionLabel') }}</span
+            >
+            <span class="w-8 h-1 bg-orange-500"></span>
+          </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
           >
-            Materials We Machine
+            {{ t('page.principal.machining.materials.title') }}
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            We have expertise in machining a vast array of materials, from
-            common metals to exotic alloys and advanced engineering plastics.
+            {{ t('page.principal.machining.materials.subtitle') }}
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            v-for="material in materials"
-            :key="material.name"
-            class="bg-white p-6 rounded-xl border border-gray-200/30 flex flex-col items-center text-center hover:bg-gray-50 transition-colors"
+            v-for="(material, index) in materials"
+            :key="index"
+            class="bg-white p-8 rounded-xl border border-gray-200/30 flex flex-col items-center text-center hover:shadow-lg transition-shadow"
           >
             <div
-              class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-4"
+              class="w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center mb-4"
             >
-              <Icon :name="material.icon" class="text-orange-500 text-2xl" />
+              <Icon :name="material.icon" class="text-orange-500 text-3xl" />
             </div>
-            <span class="text-xs text-primary uppercase font-semibold">{{
-              material.name
-            }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Process Timeline -->
-    <section class="py-12 bg-primary overflow-hidden relative">
-      <div class="absolute inset-0 opacity-10 tech-pattern"></div>
-      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div class="mb-4">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Manufacturing Process
-          </h2>
-          <p class="text-gray-600 max-w-2xl">
-            A rigorous, systematic approach to every project ensures quality,
-            precision, and on-time delivery.
-          </p>
-        </div>
-
-        <div class="relative">
-          <div
-            class="absolute top-1/2 left-0 w-full h-0.5 bg-orange-800 -translate-y-1/2 hidden md:block z-0"
-          ></div>
-          <div
-            class="grid grid-cols-1 md:grid-cols-6 gap-8 md:gap-4 relative z-10"
-          >
-            <div
-              v-for="(step, index) in processSteps"
-              :key="index"
-              class="flex flex-col items-center text-center md:translate-y-8"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center font-bold text-xl mb-6 shadow-lg ring-4 ring-primary"
+            <h3 class="text-xl font-bold text-primary mb-2">
+              {{ material.name }}
+            </h3>
+            <div class="flex flex-wrap justify-center gap-2 mb-4">
+              <span
+                v-for="(grade, gIndex) in material.grades"
+                :key="gIndex"
+                class="px-3 py-1 bg-gray-100 text-primary text-xs font-semibold rounded-full"
               >
-                {{ index + 1 }}
-              </div>
-              <h4 class="font-semibold mb-2">{{ step.title }}</h4>
-              <p class="text-xs text-gray-600">{{ step.description }}</p>
+                {{ grade }}
+              </span>
             </div>
+            <p class="text-sm text-gray-600">
+              {{ material.description }}
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- 7. Contact & Locations Section -->
     <section
       class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 py-6"
       id="contactLocations"
     >
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        Contact and Locations
+        {{ t('page.principal.machining.contact.title') }}
       </h2>
       <div class="flex items-center">
         <div class="max-w-[1440px] mx-auto px-4 md:px-8">
@@ -404,9 +383,9 @@
               name="mdi:phone"
               class="text-5xl text-secondary-container mb-3"
             />
-            <h2 class="text-3xl font-bold mb-4">Ada Kebutuhan Sparepart?</h2>
+            <h2 class="text-3xl font-bold mb-4">{{ t('page.principal.machining.contact.needTitle') }}</h2>
             <p class="text-gray-500 mb-8">
-              Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.
+              {{ t('page.principal.machining.contact.needDesc') }}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <ElButton
@@ -416,7 +395,7 @@
                 @click="handleContact"
               >
                 <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-                Chat WhatsApp
+                {{ t('page.principal.machining.contact.whatsapp') }}
               </ElButton>
               <ElButton
                 type="warning"
@@ -425,7 +404,7 @@
                 @click="handleEmail"
               >
                 <Icon name="mdi:email" class="text-xl mr-2" />
-                Email Inquiry
+                {{ t('page.principal.machining.contact.email') }}
               </ElButton>
             </div>
           </div>
@@ -436,16 +415,15 @@
             class="text-5xl text-secondary-container mb-3"
           />
           <h2 class="text-3xl font-bold text-primary mb-3">
-            Lokasi & Area Layanan Utama
+            {{ t('page.principal.machining.contact.locationTitle') }}
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto mb-6">
-            Kami berlokasi strategis untuk melayani kebutuhan industri berat di
-            area berikut dengan cepat dan tanggap.
+            {{ t('page.principal.machining.contact.locationDesc') }}
           </p>
           <div class="flex flex-wrap justify-center gap-3 md:gap-4">
             <div
-              v-for="location in locations"
-              :key="location"
+              v-for="(location, index) in locations"
+              :key="index"
               class="bg-white border border-gray-200/10 px-6 py-3 rounded-full shadow-sm flex items-center gap-2"
             >
               <Icon name="mdi:map-marker" class="text-secondary text-xl" />
@@ -461,106 +439,42 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import { ElMessage } from "element-plus";
+const { t } = useI18n();
 
-// ============ DATA ============
-const aboutItems = [
-  {
-    icon: "mdi:architecture",
-    title: "Precision Engineering",
-    description: 'Tolerances down to ±0.0001" for critical applications.',
-  },
-  {
-    icon: "mdi:memory",
-    title: "Advanced CNC Tech",
-    description: "State-of-the-art 5-axis milling and turning centers.",
-  },
-  {
-    icon: "garden:adjust-stroke-12",
-    title: "Experienced Machinists",
-    description: "Decades of combined expertise in complex geometries.",
-  },
-  {
-    icon: "mdi:verified",
-    title: "Quality Assurance",
-    description: "Rigorous CMM inspection and documentation.",
-  },
+const aboutMachiningHighlights = [
+  { title: "CNC Machining", icon: "mdi:cpu-64-bit", description: "Computer Numerical Control memungkinkan presisi tinggi dan reproduktifitas yang konsisten." },
+  { title: "Toleransi Presisi", icon: "mdi:tune-variant", description: "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis." },
+  { title: "Multi-Axis Capability", icon: "mdi:axis-arrow", description: "Mesin 3-axis hingga 5-axis untuk geometri kompleks." },
+  { title: "Quality Control", icon: "mdi:shield-check", description: "Inspeksi CMM dan dokumentasi ketat di setiap tahap." }
 ];
 
-const services = [
-  {
-    icon: "ix:applications",
-    title: "CNC Milling",
-    description:
-      "High-precision 3, 4, and 5-axis milling for complex geometries and intricate features in various materials.",
-  },
-  {
-    icon: "mdi:sync",
-    title: "CNC Turning",
-    description:
-      "Advanced lathe operations with live tooling for cylindrical components requiring exact concentricity.",
-  },
-  {
-    icon: "mdi:blur-on",
-    title: "Surface Grinding",
-    description:
-      "Achieving ultra-fine surface finishes and extreme flatness tolerances for critical mating surfaces.",
-  },
-  {
-    icon: "mdi:build",
-    title: "Conventional Machining",
-    description:
-      "Manual machining capabilities for simple secondary operations, tooling, and specialized repairs.",
-  },
+const aboutFabrikasiHighlights = [
+  { title: "Cutting & Shaping", icon: "mdi:content-cut", description: "Pemotongan presisi menggunakan laser, plasma, atau waterjet." },
+  { title: "Welding & Joining", icon: "mdi:fire", description: "Pengelasan MIG, TIG, dan SMAW untuk struktur kokoh." },
+  { title: "Bending & Forming", icon: "mdi:arrow-decline", description: "Pembengkokan dan pembentukan plat serta profil baja." },
+  { title: "Assembly", icon: "mdi:puzzle-check", description: "Perakitan komponen menjadi produk akhir yang siap install." }
 ];
 
-const capabilities = [
-  {
-    icon: "catppuccin:docker-ignore",
-    title: "Small to Large Batch",
-    description:
-      "Flexible production scaling from single prototypes to tens of thousands of units.",
-  },
-  {
-    icon: "streamline-ultimate:science-molecule",
-    title: "Prototype Development",
-    description:
-      "Rapid turnaround for R&D phases, helping you bring products to market faster.",
-  },
-  {
-    icon: "carbon:ibm-cloud-essential-security-and-observability-services",
-    title: "Custom Design Support",
-    description:
-      "DFM (Design for Manufacturability) consulting to optimize your designs for production.",
-  },
+const methods = [
+  { title: "Milling", icon: "mdi:milling", description: "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.", features: ["3-axis hingga 5-axis", "Permukaan datar & kontur", "Slot & keyway", "Toleransi ±0.01mm"] },
+  { title: "Turning", icon: "mdi:rotate-3d-variant", description: "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.", features: ["Shaft & axle", "Bushing & bearing", "Thread & ulir", "Toleransi ±0.005mm"] },
+  { title: "Grinding", icon: "mdi:blur", description: "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.", features: ["Surface grinding", "Cylindrical grinding", "Surface finish Ra 0.4μm", "Flatness < 0.005mm"] },
+  { title: "Cutting", icon: "mdi:content-cut", description: "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.", features: ["Band saw cutting", "Wire EDM", "Laser cutting", "Waterjet cutting"] }
+];
+
+const products = [
+  { name: "Gear", description: "Roda gigi presisi untuk transmisi daya mesin dan perangkat mekanis lainnya.", icon: "mdi:cog" },
+  { name: "Shaft", description: "Poros mesin dengan toleransi ketat untuk transmisi rotasi dan beban.", icon: "mdi:minus-thick" },
+  { name: "Roller", description: "Silinder penggulung untuk conveyor, printing, dan aplikasi industri lainnya.", icon: "mdi:circle-slice8" },
+  { name: "Pulley", description: "Roda katrol untuk sistem transmisi belt dan power transmission.", icon: "mdi:record-circle-outline" },
+  { name: "Chain", description: "Rantai transmisi daya untuk mesin industri dan otomotif.", icon: "mdi:chain" },
+  { name: "Bolt, Nut & Washer", description: "Mur, baut, dan ring presisi untuk perakitan dan struktur.", icon: "mdi:screw-flat-top" }
 ];
 
 const materials = [
-  { name: "Carbon Steel", icon: "mdi:layers" },
-  { name: "Stainless Steel", icon: "game-icons:steel-claws" },
-  { name: "Aluminum", icon: "mdi:fitness-center" },
-  { name: "Brass & Copper", icon: "mdi:architecture" },
-];
-
-const processSteps = [
-  { title: "Consultation", description: "Project scope & requirements" },
-  { title: "Engineering", description: "CAD/CAM & DFM review" },
-  { title: "Materials", description: "Sourcing & verification" },
-  { title: "Machining", description: "Precision CNC operations" },
-  { title: "Inspection", description: "CMM & visual quality check" },
-  { title: "Delivery", description: "Secure packaging & logistics" },
-];
-
-const contactInfo = [
-  {
-    icon: "mdi:map-marker",
-    label: "Facility Address",
-    value:
-      "No. B, Jl. Pintu Air Raya No.31, RT.13/RW.8, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710",
-  },
-  { icon: "mdi:phone", label: "Phone & WhatsApp", value: "+626285176912338" },
-  { icon: "mdi:email", label: "Email", value: "info@trumecs.com" },
+  { name: "Stainless Steel", icon: "mdi:silverware-fork-knife", grades: ["SS304", "SS316"], description: "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis." },
+  { name: "Alloy Steel", icon: "mdi:factory", grades: ["SCM440", "SNCM439"], description: "Kekuatan tinggi untuk komponen mesin berat dan transmisi." },
+  { name: "Carbon Steel", icon: "mdi:steel", grades: ["S45C", "ST41"], description: "Umum digunakan untuk shaft, gear, dan komponen struktural." }
 ];
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
@@ -587,12 +501,12 @@ const handleEmail = () => {
 
 // ============ SEO ============
 useHead({
-  title: "Precision Machining Solutions - Trumecs",
+  title: t('page.principal.machining.seo.title'),
   titleTemplate: "%s | Trumecs.com",
   meta: [
-    { name: "description", content: "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control." },
-    { property: "og:title", content: "Precision Machining Solutions | Trumecs.com" },
-    { property: "og:description", content: "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control." },
+    { name: "description", content: t('page.principal.machining.seo.description') },
+    { property: "og:title", content: t('page.principal.machining.seo.title') },
+    { property: "og:description", content: t('page.principal.machining.seo.description') },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },
@@ -604,20 +518,6 @@ useHead({
 </script>
 
 <style scoped>
-.tech-pattern {
-  background-image:
-    radial-gradient(
-      circle at 20% 50%,
-      rgba(255, 255, 255, 0.03) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 50%,
-      rgba(255, 255, 255, 0.03) 0%,
-      transparent 50%
-    );
-}
-
 /* Override Element Plus button styles */
 :deep(.el-button) {
   font-weight: 600 !important;

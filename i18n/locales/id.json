@@ -250,6 +250,505 @@
         "supportDesc": "Tim kami siap membantu Anda setiap saat",
         "growth": "Pertumbuhan Bisnis",
         "growthDesc": "Tingkatkan penjualan dengan platform kami"
+      },
+      "vinenergo": {
+        "hero": {
+          "badge": "Member of Vingroup",
+          "titleLine1": "Battery Energy",
+          "titleLine2": "Storage System",
+          "subtitle": "Solusi penyimpanan energi canggih berbasis Lithium-ion untuk residential hingga skala industri besar. Hemat biaya listrik, stabilkan jaringan, dan wujudkan masa depan energi hijau.",
+          "ctaProducts": "Lihat Produk",
+          "ctaBenefits": "Manfaat BESS"
+        },
+        "products": {
+          "sectionLabel": "Product Lineup",
+          "title": "Energy Storage Solutions",
+          "subtitle": "VinEnergo menyediakan solusi BESS komprehensif mulai dari residential hingga skala komersial dan industri besar.",
+          "items": [
+            {
+              "title": "Box Type BESS",
+              "badge": "Residential",
+              "customer": "Residential & Office",
+              "description": "Solusi penyimpanan energi untuk rumah dan kantor kecil. Desain compact, mudah dipasang, dan mendukung hingga 5 stack modul.",
+              "specs": [
+                { "label": "Nominal Voltage", "value": "51.2V" },
+                { "label": "Battery Cell", "value": "LFP 3.2V/52Ah" },
+                { "label": "Capacity", "value": "5.1 - 26.5 kWh" },
+                { "label": "Scalability", "value": "Up to 5 stacks" },
+                { "label": "Cycle Life", "value": "> 4,000 cycles" }
+              ]
+            },
+            {
+              "title": "Cabinet Type BESS",
+              "badge": "Commercial",
+              "customer": "Commercial & Industrial",
+              "description": "Sistem penyimpanan energi kabinet untuk operasional komersial dan industri. Dilengkapi fire suppression dan active cooling.",
+              "specs": [
+                { "label": "Rated Capacity", "value": "138.3 kWh" },
+                { "label": "Power Output", "value": "66 kW" },
+                { "label": "Efficiency", "value": "≥ 96.5%" },
+                { "label": "Cycle Life", "value": "8,000 cycles" },
+                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+              ]
+            },
+            {
+              "title": "Container Based BESS",
+              "badge": "Large Scale",
+              "customer": "Large Scale Commercial & Industrial",
+              "description": "Solusi penyimpanan energi skala besar berbasis kontainer 20ft. Kapasitas masif untuk jaringan industri dan utilitas.",
+              "specs": [
+                { "label": "Rated Energy", "value": "3,686 kWh" },
+                { "label": "Nominal Voltage", "value": "1,229V" },
+                { "label": "Cooling", "value": "Active liquid cooling" },
+                { "label": "Weight", "value": "~ 33 Tons" },
+                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+              ]
+            }
+          ]
+        },
+        "features": {
+          "sectionLabel": "Advanced Technology",
+          "title": "Key Features",
+          "subtitle": "Teknologi canggih yang menjadikan BESS VinEnergo andal, aman, dan efisien.",
+          "items": [
+            {
+              "title": "Energy Management System",
+              "description": "Sistem manajemen energi cerdas yang mengoptimalkan charging/discharging berdasarkan pola konsumsi dan tariff listrik. Memastikan efisiensi maksimal dalam setiap siklus energi."
+            },
+            {
+              "title": "Battery Management System",
+              "description": "Sistem manajemen baterai canggih yang memantau dan mengoptimalkan performa setiap sel baterai secara real-time. Mengatur voltage, current, dan temperatur untuk umur baterai maksimal."
+            },
+            {
+              "title": "Cell-Level Monitoring",
+              "description": "Pemantauan pada level sel individu untuk mendeteksi anomali sebelum menjadi masalah serius. Setiap sel dipantau untuk voltage, temperatur, dan kapasitas secara presisi."
+            },
+            {
+              "title": "Self-Diagnostics",
+              "description": "Sistem diagnostik otomatis yang berjalan secara berkala untuk memastikan semua komponen berfungsi optimal. Mendeteksi potensi masalah sebelum menyebabkan downtime."
+            },
+            {
+              "title": "Advanced Management System",
+              "description": "Platform manajemen terpusat untuk monitoring, kontrol, dan optimasi seluruh instalasi BESS dari satu dashboard. Real-time communication capability untuk integrasi SCADA dan EMS."
+            },
+            {
+              "title": "Fire Protection System",
+              "description": "Sistem proteksi kebakaran canggih dengan 3 Level Issue Detection dan 5 Levels of Protection. Teknologi pencegahan dan pemadaman api otomatis untuk keamanan maksimal."
+            }
+          ]
+        },
+        "benefits": {
+          "sectionLabel": "Why BESS?",
+          "title": "How BESS Can Cut Your Electricity Cost",
+          "subtitle": "BESS bukan hanya teknologi — ini adalah investasi cerdas untuk menekan biaya operasional kelistrikan Anda.",
+          "items": [
+            {
+              "title": "Grid Stabilization",
+              "description": "Menjaga frekuensi dan tegangan listrik PLN agar tetap stabil dari gangguan fluktuasi. BESS bertindak sebagai penyerap dan pelepas energi instan untuk menjaga keseimbangan jaringan."
+            },
+            {
+              "title": "Backup Power",
+              "description": "Menjadi suplai listrik darurat saat terjadi pemadaman atau gangguan pada wilayah terisolasi. Memastikan operasional kritis tetap berjalan tanpa interupsi."
+            },
+            {
+              "title": "Peak Shaving",
+              "description": "Menurunkan biaya operasional kelistrikan saat lonjakan permintaan energi terjadi. Simpan energi saat off-peak dan gunakan saat peak untuk menghemat biaya."
+            }
+          ]
+        },
+        "contact": {
+          "title": "Tertarik dengan Solusi BESS untuk pengurangan biaya listrik?",
+          "subtitle": "Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Email Inquiry",
+          "locationTitle": "Lokasi & Area Layanan Utama",
+          "locationDesc": "Kami berlokasi strategis untuk melayani kebutuhan energi berkelanjutan di area berikut dengan cepat dan tanggap."
+        },
+        "seo": {
+          "title": "VinEnergo BESS - Battery Energy Storage System",
+          "description": "Solusi penyimpanan energi BESS dari VinEnergo untuk residential hingga skala industri besar. Hemat biaya listrik, stabilkan jaringan PLN.",
+          "keywords": "Battery, Energy Storage System, VinEnergo, ESS, BESS, Penyimpanan Energi, Listrik"
+        }
+      },
+      "machining": {
+        "hero": {
+          "badge": "ISO 9001:2015 CERTIFIED",
+          "titleLine1": "Precision Machining Solutions for",
+          "titleLine2": "Industrial Excellence",
+          "subtitle": "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control to meet your complex industrial manufacturing needs.",
+          "ctaQuote": "Request a Quote",
+          "ctaServices": "Explore Our Services"
+        },
+        "aboutMachining": {
+          "sectionLabel": "About Machining",
+          "title": "Penjelasan Machining",
+          "description": "Machining adalah proses manufaktur yang menggunakan mesin perkakas untuk mengubah bahan baku menjadi komponen dengan dimensi dan toleransi yang presisi. Proses ini melibatkan penghapusan material dari benda kerja untuk mencapai bentuk, ukuran, dan permukaan yang diinginkan.",
+          "highlights": [
+            {
+              "title": "CNC Machining",
+              "description": "Computer Numerical Control memungkinkan presisi tinggi dan reproduktifitas yang konsistent."
+            },
+            {
+              "title": "Toleransi Presisi",
+              "description": "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis."
+            },
+            {
+              "title": "Multi-Axis Capability",
+              "description": "Mesin 3-axis hingga 5-axis untuk geometri kompleks."
+            },
+            {
+              "title": "Quality Control",
+              "description": "Inspeksi CMM dan dokumentasi ketat di setiap tahap."
+            }
+          ]
+        },
+        "aboutFabrikasi": {
+          "sectionLabel": "About Fabrication",
+          "title": "Penjelasan Fabrikasi",
+          "description": "Fabrikasi adalah proses pengubahan bahan mentah menjadi produk jadi atau komponen siap pakai melalui berbagai proses seperti pemotongan, pembengkokan, pengelasan, dan perakitan. Berbeda dengan machining yang fokus pada pengurangan material, fabrikasi lebih mengutamakan pembentukan dan perakitan.",
+          "highlights": [
+            {
+              "title": "Cutting & Shaping",
+              "description": "Pemotongan presisi menggunakan laser, plasma, atau waterjet."
+            },
+            {
+              "title": "Welding & Joining",
+              "description": "Pengelasan MIG, TIG, dan SMAW untuk struktur kokoh."
+            },
+            {
+              "title": "Bending & Forming",
+              "description": "Pembengkokan dan pembentukan plat serta profil baja."
+            },
+            {
+              "title": "Assembly",
+              "description": "Perakitan komponen menjadi produk akhir yang siap install."
+            }
+          ]
+        },
+        "methods": {
+          "sectionLabel": "Machining Methods",
+          "title": "Metode Machining",
+          "subtitle": "Kami menggunakan berbagai metode machining untuk menghasilkan komponen dengan kualitas dan presisi terbaik sesuai kebutuhan Anda.",
+          "items": [
+            {
+              "title": "Milling",
+              "icon": "mdi:milling",
+              "description": "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.",
+              "features": [
+                "3-axis hingga 5-axis",
+                "Permukaan datar & kontur",
+                "Slot & keyway",
+                "Toleransi ±0.01mm"
+              ]
+            },
+            {
+              "title": "Turning",
+              "icon": "mdi:rotate-3d-variant",
+              "description": "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.",
+              "features": [
+                "Shaft & axle",
+                "Bushing & bearing",
+                "Thread & ulir",
+                "Toleransi ±0.005mm"
+              ]
+            },
+            {
+              "title": "Grinding",
+              "icon": "mdi:blur",
+              "description": "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.",
+              "features": [
+                "Surface grinding",
+                "Cylindrical grinding",
+                "Surface finish Ra 0.4μm",
+                "Flatness < 0.005mm"
+              ]
+            },
+            {
+              "title": "Cutting",
+              "icon": "mdi:content-cut",
+              "description": "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.",
+              "features": [
+                "Band saw cutting",
+                "Wire EDM",
+                "Laser cutting",
+                "Waterjet cutting"
+              ]
+            }
+          ]
+        },
+        "products": {
+          "sectionLabel": "Example Products",
+          "title": "Contoh Produk",
+          "subtitle": "Berbagai komponen presisi yang kami produksi untuk berbagai industri manufaktur.",
+          "items": [
+            {
+              "name": "Gear",
+              "description": "Roda gigi presisi untuk transmisi daya mesin dan perangkat mekanis lainnya.",
+              "icon": "mdi:cog"
+            },
+            {
+              "name": "Shaft",
+              "description": "Poros mesin dengan toleransi ketat untuk transmisi rotasi dan beban.",
+              "icon": "mdi:minus-thick"
+            },
+            {
+              "name": "Roller",
+              "description": "Silinder penggulung untuk conveyor, printing, dan aplikasi industri lainnya.",
+              "icon": "mdi:circle-slice8"
+            },
+            {
+              "name": "Pulley",
+              "description": "Roda katrol untuk sistem transmisi belt dan power transmission.",
+              "icon": "mdi:record-circle-outline"
+            },
+            {
+              "name": "Chain",
+              "description": "Rantai transmisi daya untuk mesin industri dan otomotif.",
+              "icon": "mdi:chain"
+            },
+            {
+              "name": "Bolt, Nut & Washer",
+              "description": "Mur, baut, dan ring presisi untuk perakitan dan struktur.",
+              "icon": "mdi:screw-flat-top"
+            }
+          ]
+        },
+        "materials": {
+          "sectionLabel": "Material Expertise",
+          "title": "Material yang Kami Kuasai",
+          "subtitle": "Kami memiliki keahlian dalam meng-machining berbagai material logam untuk memenuhi kebutuhan industri Anda.",
+          "categories": [
+            {
+              "name": "Stainless Steel",
+              "icon": "mdi:silverware-fork-knife",
+              "grades": ["SS304", "SS316"],
+              "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis."
+            },
+            {
+              "name": "Alloy Steel",
+              "icon": "mdi:factory",
+              "grades": ["SCM440", "SNCM439"],
+              "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi."
+            },
+            {
+              "name": "Carbon Steel",
+              "icon": "mdi:steel",
+              "grades": ["S45C", "ST41"],
+              "description": "Umum digunakan untuk shaft, gear, dan komponen struktural."
+            }
+          ]
+        },
+        "contact": {
+          "title": "Contact and Locations",
+          "needTitle": "Butuh Konsultasi?",
+          "needDesc": "Hubungi tim sales kami untuk konsultasi kebutuhan machining dan fabrikasi Anda.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Email Inquiry",
+          "locationTitle": "Lokasi & Area Layanan Utama",
+          "locationDesc": "Kami berlokasi strategis untuk melayani kebutuhan machining dan fabrikasi di area berikut dengan cepat dan tanggap.",
+          "locations": ["Jakarta", "Bekasi", "Cikarang", "Tangerang"]
+        },
+        "seo": {
+          "title": "Precision Machining & Fabrikasi - Trumecs",
+          "description": "Solusi machining dan fabrikasi presisi dengan teknologi canggih, insinyur berpengalaman, dan kontrol kualitas ketat."
+        }
+      },
+      "struman": {
+        "hero": {
+          "badge": "Industrial Excellence",
+          "title": "STRUMAN Power Solutions",
+          "subtitle": "Keandalan tanpa kompromi untuk garda terdepan industri. Menyediakan pembangkit listrik portabel dan panel surya yang direkayasa dengan presisi, dirancang untuk mendukung operasi penting dalam lingkungan apa pun.",
+          "ctaCatalog": "Lihat Catalog"
+        },
+        "intro": {
+          "title": "Integrated Power Architecture",
+          "description": "STRUMAN ini adalah ekosistem eksklusif. Dari baterai lithium fosfat berdensitas tinggi hingga integrasi BMS cerdas, sistem kami bekerja bersama untuk menyediakan daya tanpa henti untuk operasi di lokasi terpencil, unit medis bergerak, dan zona pemulihan bencana."
+        },
+        "useCases": {
+          "sectionLabel": "Solusi Untuk Berbagai Kebutuhan",
+          "title": "STRUMAN Bisa Digunakan Di Mana Saja",
+          "subtitle": "Dari hunian rumah hingga operasi industri berat — STRUMAN hadir sebagai solusi energi mandiri yang andal, tanpa instalasi rumit, tanpa genset berisik.",
+          "items": [
+            {
+              "title": "Rumah & Hunian",
+              "description": "Backup listrik saat PLN padam. Cocok diisi dari panel surya di atap untuk menekan tagihan listrik bulanan.",
+              "recommendation": "Rekomendasi: HS1800 / G24 PRO"
+            },
+            {
+              "title": "Outdoor & Camping",
+              "description": "Portable dan mudah dibawa ke lokasi manapun tanpa perlu akses PLN. Isi daya dari panel surya di lapangan.",
+              "recommendation": "Rekomendasi: HS1800 / HS3600"
+            },
+            {
+              "title": "Kantor & Komersial",
+              "description": "Backup daya untuk operasional kantor yang tidak boleh terhenti. Tidak perlu instalasi — plug and play.",
+              "recommendation": "Rekomendasi: G24 PRO / M50"
+            },
+            {
+              "title": "Medis & Klinik",
+              "description": "Pure Sine Wave output menjaga peralatan medis sensitif dari distorsi listrik. Aman untuk alat diagnostik dan monitoring.",
+              "recommendation": "Rekomendasi: M50 / HS3600"
+            },
+            {
+              "title": "Konstruksi & Lapangan",
+              "description": "Pengganti genset berbahan bakar yang berisik dan berbau. Daya besar untuk peralatan kerja berat di lokasi proyek terpencil.",
+              "recommendation": "Rekomendasi: M50"
+            },
+            {
+              "title": "Sistem Energi Surya",
+              "description": "Semua unit mendukung input panel surya (PV). Kembangkan kapasitas G24 PRO + BT30 hingga 17,4 kWh untuk kemandirian energi penuh.",
+              "recommendation": "Rekomendasi: G24 PRO + BT30"
+            }
+          ],
+          "stats": [
+            { "value": "3000+", "label": "Siklus Pemakaian (+8 Tahun)" },
+            { "value": "17,4 kWh", "label": "Kapasitas Maksimum" },
+            { "value": "4500 W", "label": "Daya Output Tertinggi (M50)" },
+            {
+              "value": "Pure Sine Wave",
+              "label": "Seperti listrik PLN — Aman Semua Perangkat"
+            }
+          ]
+        },
+        "catalog": {
+          "title": "Katalog Produk"
+        },
+        "products": [
+          {
+            "name": "Struman G24 Pro",
+            "badge": "BATERAI",
+            "price": "Call"
+          },
+          {
+            "name": "Struman BT30",
+            "badge": "BATERAI",
+            "price": "Call"
+          },
+          {
+            "name": "Struman HS1800",
+            "badge": "BATERAI",
+            "price": "Call"
+          },
+          {
+            "name": "Struman HS3600",
+            "badge": "BATERAI",
+            "price": "Call"
+          },
+          {
+            "name": "Struman M50",
+            "badge": "BATERAI",
+            "price": "Call"
+          },
+          {
+            "name": "Struman SSP400",
+            "badge": "SOLAR PANEL",
+            "price": "Call"
+          },
+          {
+            "name": "Struman SSP800",
+            "badge": "SOLAR PANEL",
+            "price": "Call"
+          }
+        ],
+        "modal": {
+          "specsTitle": "Spesifikasi Teknis",
+          "featuresTitle": "Fitur Unggulan",
+          "contactBtn": "Hubungi Kami"
+        },
+        "seo": {
+          "title": "STRUMAN - Solusi Daya Industri",
+          "description": "Keandalan tanpa kompromi untuk garda terdepan industri. Menyediakan pembangkit listrik portabel dan panel surya yang direkayasa dengan presisi."
+        }
+      },
+      "usedsparepart": {
+        "hero": {
+          "badge": "Ready Stock • Garansi",
+          "titleLine1": "Suku Cadang Alat Berat",
+          "titleLine2": "Copotan Berkualitas & Bergaransi",
+          "subtitle": "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai.",
+          "ctaCatalog": "Lihat Katalog",
+          "ctaContact": "Hubungi Sales"
+        },
+        "about": {
+          "title": "Memahami Sparepart Copotan Kami",
+          "subtitle": "Kami menyediakan suku cadang bekas berkualitas tinggi yang berfokus pada keaslian dan keandalan untuk memastikan performa optimal pada alat berat Anda.",
+          "items": [
+            {
+              "title": "Sparepart Original",
+              "description": "Suku cadang asli bawaan pabrik (Genuine), copotan langsung dari unit alat berat dengan kondisi prima."
+            },
+            {
+              "title": "Sparepart OEM",
+              "description": "Original Equipment Manufacturer. Diproduksi dengan spesifikasi yang persis sama dengan part original."
+            },
+            {
+              "title": "Inspeksi Ketat",
+              "description": "Setiap part melewati proses pengecekan kualitas menyeluruh sebelum dijual."
+            },
+            {
+              "title": "Ready Stock",
+              "description": "Ketersediaan barang yang tinggi untuk meminimalkan downtime alat berat Anda."
+            }
+          ]
+        },
+        "featured": {
+          "title": "Sparepart Pilihan",
+          "subtitle": "Koleksi part copotan dengan kondisi terbaik saat ini.",
+          "parts": [
+            {
+              "name": "Engine Block",
+              "type": "OEM / Original",
+              "status": "Tersedia",
+              "condition": "Inspected & Ready"
+            },
+            {
+              "name": "Control Valve",
+              "type": "OEM / Original",
+              "status": "Tersedia",
+              "condition": "Inspected & Ready"
+            },
+            {
+              "name": "Tapper Roller Bearing",
+              "type": "OEM / Original",
+              "status": "Tersedia",
+              "condition": "Inspected & Ready"
+            },
+            {
+              "name": "Crankshaft Lower Bearing",
+              "type": "OEM / Original",
+              "status": "Tersedia",
+              "condition": "Inspected & Ready"
+            }
+          ]
+        },
+        "brands": {
+          "title": "Merek yang Kami Dukung"
+        },
+        "buyingOptions": {
+          "title": "Pilihan Pembelian Fleksibel",
+          "items": [
+            {
+              "title": "Beli Secara Bundle",
+              "description": "Pembelian paket lengkap untuk perbaikan menyeluruh atau overhaul. Lebih praktis, hemat biaya, dan menjamin kompatibilitas antar komponen secara optimal."
+            },
+            {
+              "title": "Beli Secara Satuan",
+              "description": "Pembelian individual untuk part spesifik yang dibutuhkan. Solusi tepat sasaran untuk mengganti komponen tertentu yang mengalami kerusakan."
+            }
+          ]
+        },
+        "contact": {
+          "title": "Ada Kebutuhan Sparepart?",
+          "subtitle": "Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Email Inquiry",
+          "locationTitle": "Lokasi & Area Layanan Utama",
+          "locationDesc": "Kami berlokasi strategis untuk melayani kebutuhan industri berat di area berikut dengan cepat dan tanggap."
+        },
+        "seo": {
+          "title": "Suku Cadang Alat Berat Copotan",
+          "description": "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai."
+        }
       }
     },
     "error": {

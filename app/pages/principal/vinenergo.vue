@@ -41,7 +41,7 @@
                 ></span>
                 <span
                   class="text-xs font-semibold uppercase tracking-wider text-white/90"
-                  >Member of Vingroup</span
+                  >{{ $t("page.principal.vinenergo.hero.badge") }}</span
                 >
               </div>
             </div>
@@ -49,16 +49,16 @@
             <h1
               class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
             >
-              Battery Energy
-              <span class="text-green-400">Storage System</span>
+              {{ $t("page.principal.vinenergo.hero.titleLine1") }}
+              <span class="text-green-400">{{
+                $t("page.principal.vinenergo.hero.titleLine2")
+              }}</span>
             </h1>
 
             <p
               class="text-lg md:text-xl text-gray-200/90 mb-8 max-w-2xl leading-relaxed"
             >
-              Solusi penyimpanan energi canggih berbasis Lithium-ion untuk
-              residential hingga skala industri besar. Hemat biaya listrik,
-              stabilkan jaringan, dan wujudkan masa depan energi hijau.
+              {{ $t("page.principal.vinenergo.hero.subtitle") }}
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
@@ -69,7 +69,7 @@
                 @click="scrollTo('products')"
               >
                 <Icon name="mdi:battery-charging" class="text-xl mr-2" />
-                Lihat Produk
+                {{ $t("page.principal.vinenergo.hero.ctaProducts") }}
               </ElButton>
 
               <ElButton
@@ -78,7 +78,7 @@
                 @click="scrollTo('benefits')"
               >
                 <Icon name="mdi:lightning-bolt" class="text-xl mr-2" />
-                Manfaat BESS
+                {{ $t("page.principal.vinenergo.hero.ctaBenefits") }}
               </ElButton>
             </div>
           </div>
@@ -117,25 +117,24 @@
             <span class="w-8 h-1 bg-green-600"></span>
             <span
               class="text-xs text-green-600 uppercase tracking-widest font-semibold"
-              >Product Lineup</span
+              >{{ $t("page.principal.vinenergo.products.sectionLabel") }}</span
             >
             <span class="w-8 h-1 bg-green-600"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
           >
-            Energy Storage Solutions
+            {{ $t("page.principal.vinenergo.products.title") }}
           </h2>
           <p class="text-gray-600">
-            VinEnergo provides comprehensive BESS solutions ranging from
-            residential to large-scale commercial and industrial applications.
+            {{ $t("page.principal.vinenergo.products.subtitle") }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            v-for="product in products"
-            :key="product.title"
+            v-for="(product, pIdx) in products"
+            :key="pIdx"
             class="bg-white rounded-xl overflow-hidden border border-gray-200/30 shadow-sm hover:shadow-xl transition-all duration-300 group"
           >
             <div
@@ -160,15 +159,19 @@
               <p class="text-sm text-green-600 font-semibold mb-3">
                 {{ product.customer }}
               </p>
-              <p class="text-gray-600 text-sm mb-4">{{ product.description }}</p>
+              <p class="text-gray-600 text-sm mb-4">
+                {{ product.description }}
+              </p>
               <div class="space-y-2">
                 <div
-                  v-for="spec in product.specs"
-                  :key="spec.label"
+                  v-for="(spec, sIdx) in product.specs"
+                  :key="sIdx"
                   class="flex justify-between text-sm border-b border-gray-100 pb-2 last:border-0"
                 >
                   <span class="text-gray-500">{{ spec.label }}</span>
-                  <span class="font-semibold text-primary">{{ spec.value }}</span>
+                  <span class="font-semibold text-primary">{{
+                    spec.value
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -185,18 +188,17 @@
             <span class="w-8 h-1 bg-green-600"></span>
             <span
               class="text-xs text-green-600 uppercase tracking-widest font-semibold"
-              >Advanced Technology</span
+              >{{ $t("page.principal.vinenergo.features.sectionLabel") }}</span
             >
             <span class="w-8 h-1 bg-green-600"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
           >
-            Key Features
+            {{ $t("page.principal.vinenergo.features.title") }}
           </h2>
           <p class="text-gray-600">
-            Teknologi canggih yang menjadikan BESS VinEnergo andal, aman, dan
-            efisien.
+            {{ $t("page.principal.vinenergo.features.subtitle") }}
           </p>
         </div>
 
@@ -204,7 +206,7 @@
         <div class="hidden md:flex gap-4 h-[420px]">
           <div
             v-for="(feature, index) in features"
-            :key="feature.title"
+            :key="index"
             class="relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out group"
             :class="activeFeature === index ? 'flex-[4]' : 'flex-[0.7]'"
             @click="activeFeature = index"
@@ -240,7 +242,11 @@
 
               <div
                 class="h-full flex flex-col justify-end transition-all duration-500"
-                :class="activeFeature === index ? 'opacity-100' : 'opacity-0 pointer-events-none'"
+                :class="
+                  activeFeature === index
+                    ? 'opacity-100'
+                    : 'opacity-0 pointer-events-none'
+                "
               >
                 <div
                   class="w-12 h-12 rounded-xl bg-green-500/20 backdrop-blur-sm flex items-center justify-center mb-4 border border-green-500/30"
@@ -262,9 +268,11 @@
         <div class="md:hidden space-y-3">
           <div
             v-for="(feature, index) in features"
-            :key="feature.title + '-mobile'"
+            :key="index + '-mobile'"
             class="rounded-xl overflow-hidden relative"
-            :style="{ minHeight: activeFeatureMobile === index ? '280px' : '120px' }"
+            :style="{
+              minHeight: activeFeatureMobile === index ? '280px' : '120px',
+            }"
           >
             <div
               class="absolute inset-0 bg-cover bg-center"
@@ -281,7 +289,9 @@
 
             <button
               class="relative z-10 w-full text-left p-4 h-full flex flex-col justify-end"
-              @click="activeFeatureMobile = activeFeatureMobile === index ? -1 : index"
+              @click="
+                activeFeatureMobile = activeFeatureMobile === index ? -1 : index
+              "
             >
               <div
                 class="flex items-center gap-3"
@@ -303,9 +313,7 @@
                 <Icon
                   name="mdi:chevron-down"
                   class="text-white/70 text-xl transition-transform duration-300"
-                  :class="
-                    activeFeatureMobile === index ? 'rotate-180' : ''
-                  "
+                  :class="activeFeatureMobile === index ? 'rotate-180' : ''"
                 />
               </div>
 
@@ -335,25 +343,24 @@
             <span class="w-8 h-1 bg-green-600"></span>
             <span
               class="text-xs text-green-600 uppercase tracking-widest font-semibold"
-              >Why BESS?</span
+              >{{ $t("page.principal.vinenergo.benefits.sectionLabel") }}</span
             >
             <span class="w-8 h-1 bg-green-600"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
           >
-            How BESS Can Cut Your Electricity Cost
+            {{ $t("page.principal.vinenergo.benefits.title") }}
           </h2>
           <p class="text-gray-600">
-            BESS bukan hanya teknologi — ini adalah investasi cerdas untuk
-            menekan biaya operasional kelistrikan Anda.
+            {{ $t("page.principal.vinenergo.benefits.subtitle") }}
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            v-for="benefit in benefits"
-            :key="benefit.title"
+            v-for="(benefit, bIdx) in benefits"
+            :key="bIdx"
             class="bg-white rounded-xl p-8 border border-gray-200/30 shadow-sm hover:shadow-lg transition-all"
           >
             <div
@@ -381,10 +388,10 @@
         <div class="max-w-2xl mx-auto text-center">
           <Icon name="mdi:phone" class="text-5xl text-green-600 mb-3" />
           <h2 class="text-3xl font-bold mb-4">
-            Tertarik dengan Solusi BESS?
+            {{ $t("page.principal.vinenergo.contact.title") }}
           </h2>
           <p class="text-gray-500 mb-8">
-            Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.
+            {{ $t("page.principal.vinenergo.contact.subtitle") }}
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <ElButton
@@ -394,7 +401,7 @@
               @click="handleContact"
             >
               <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-              Chat WhatsApp
+              {{ $t("page.principal.vinenergo.contact.whatsapp") }}
             </ElButton>
             <ElButton
               type="warning"
@@ -403,7 +410,7 @@
               @click="handleEmail"
             >
               <Icon name="mdi:email" class="text-xl mr-2" />
-              Email Inquiry
+              {{ $t("page.principal.vinenergo.contact.email") }}
             </ElButton>
           </div>
         </div>
@@ -411,11 +418,10 @@
         <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center mt-12">
           <Icon name="mdi:city" class="text-5xl text-green-600 mb-3" />
           <h2 class="text-3xl font-bold text-primary mb-3">
-            Lokasi & Area Layanan Utama
+            {{ $t("page.principal.vinenergo.contact.locationTitle") }}
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto mb-6">
-            Kami berlokasi strategis untuk melayani kebutuhan energi
-            berkelanjutan di area berikut dengan cepat dan tanggap.
+            {{ $t("page.principal.vinenergo.contact.locationDesc") }}
           </p>
           <div class="flex flex-wrap justify-center gap-3 md:gap-4">
             <div
@@ -436,20 +442,18 @@
 </template>
 
 <script setup lang="ts">
-// ============ STATE ============
 const activeFeature = ref(0);
 const activeFeatureMobile = ref(0);
 
-// ============ DATA ============
 const products = [
   {
     title: "Box Type BESS",
     badge: "Residential",
     customer: "Residential & Office",
+    description:
+      "Energy storage solution for homes and small offices. Compact design, easy to install, and supports up to 5 stack modules.",
     image:
       "https://static.vinenergo.com/public/product_civil_4373bb0bda.jpg?w=828&q=100",
-    description:
-      "Solusi penyimpanan energi untuk rumah dan kantor kecil. Desain compact, mudah dipasang, dan mendukung hingga 5 stack modul.",
     specs: [
       { label: "Nominal Voltage", value: "51.2V" },
       { label: "Battery Cell", value: "LFP 3.2V/52Ah" },
@@ -462,10 +466,10 @@ const products = [
     title: "Cabinet Type BESS",
     badge: "Commercial",
     customer: "Commercial & Industrial",
+    description:
+      "Cabinet energy storage system for commercial and industrial operations. Equipped with fire suppression and active cooling.",
     image:
       "https://static.vinenergo.com/public/product_cabinet_energy_storage_1_aed3b70cb2.jpg?w=828&q=100",
-    description:
-      "Sistem penyimpanan energi kabinet untuk operasional komersial dan industri. Dilengkapi fire suppression dan active cooling.",
     specs: [
       { label: "Rated Capacity", value: "138.3 kWh" },
       { label: "Power Output", value: "66 kW" },
@@ -478,10 +482,10 @@ const products = [
     title: "Container Based BESS",
     badge: "Large Scale",
     customer: "Large Scale Commercial & Industrial",
+    description:
+      "Large-scale energy storage solution based on a 20ft container. Massive capacity for industrial and utility networks.",
     image:
       "https://static.vinenergo.com/public/product_20ft_container_4cb0b7b16b.jpg?w=828&q=100",
-    description:
-      "Solusi penyimpanan energi skala besar berbasis kontainer 20ft. Kapasitas masif untuk jaringan industri dan utilitas.",
     specs: [
       { label: "Rated Energy", value: "3,686 kWh" },
       { label: "Nominal Voltage", value: "1,229V" },
@@ -494,50 +498,50 @@ const products = [
 
 const features = [
   {
-    icon: "mdi:lightning-bolt",
     title: "Energy Management System",
     description:
-      "Sistem manajemen energi cerdas yang mengoptimalkan charging/discharging berdasarkan pola konsumsi dan tariff listrik. Memastikan efisiensi maksimal dalam setiap siklus energi.",
+      "Intelligent energy management system that optimizes charging/discharging based on consumption patterns and electricity tariffs.",
+    icon: "mdi:lightning-bolt",
     image:
       "https://static.vinenergo.com/public/gioi_thieu_san_phan_vinenergo_d42809f8d1.jpg?w=1920&q=100",
   },
   {
-    icon: "mdi:battery-heart",
     title: "Battery Management System",
     description:
-      "Sistem manajemen baterai canggih yang memantau dan mengoptimalkan performa setiap sel baterai secara real-time. Mengatur voltage, current, dan temperatur untuk umur baterai maksimal.",
+      "Advanced battery management system that monitors and optimizes the performance of each battery cell in real-time.",
+    icon: "mdi:battery-heart",
     image:
       "https://static.vinenergo.com/public/product_civil_4373bb0bda.jpg?w=1920&q=100",
   },
   {
-    icon: "mdi:chart-areaspline",
     title: "Cell-Level Monitoring",
     description:
-      "Pemantauan pada level sel individu untuk mendeteksi anomali sebelum menjadi masalah serius. Setiap sel dipantau untuk voltage, temperatur, dan kapasitas secara presisi.",
+      "Individual cell-level monitoring to detect anomalies before they become serious problems.",
+    icon: "mdi:chart-areaspline",
     image:
       "https://static.vinenergo.com/public/product_cabinet_energy_storage_1_aed3b70cb2.jpg?w=1920&q=100",
   },
   {
-    icon: "mdi:tools",
     title: "Self-Diagnostics",
     description:
-      "Sistem diagnostik otomatis yang berjalan secara berkala untuk memastikan semua komponen berfungsi optimal. Mendeteksi潜在 masalah sebelum menyebabkan downtime.",
+      "Automatic diagnostic system that runs periodically to ensure all components are functioning optimally.",
+    icon: "mdi:tools",
     image:
       "https://static.vinenergo.com/public/product_20ft_container_4cb0b7b16b.jpg?w=1920&q=100",
   },
   {
-    icon: "mdi:monitor-dashboard",
     title: "Advanced Management System",
     description:
-      "Platform manajemen terpusat untuk monitoring, kontrol, dan optimasi seluruh instalasi BESS dari satu dashboard. Real-time communication capability untuk integrasi SCADA dan EMS.",
+      "Centralized management platform for monitoring, control, and optimization of entire BESS installations from a single dashboard.",
+    icon: "mdi:monitor-dashboard",
     image:
       "https://static.vinenergo.com/public/gioi_thieu_vinenergo_7ebc199006.jpg?w=1920&q=100",
   },
   {
-    icon: "mdi:fire-extinguisher",
     title: "Fire Protection System",
     description:
-      "Sistem proteksi kebakaran canggih dengan 3 Level Issue Detection dan 5 Levels of Protection. Teknologi pencegahan dan pemadaman api otomatis untuk keamanan maksimal.",
+      "Advanced fire protection system with 3 Level Issue Detection and 5 Levels of Protection.",
+    icon: "mdi:fire-extinguisher",
     image:
       "https://static.vinenergo.com/public/gioi_thieu_san_phan_vinenergo_d42809f8d1.jpg?w=1920&q=100",
   },
@@ -545,79 +549,26 @@ const features = [
 
 const benefits = [
   {
-    icon: "mdi:transmission-tower",
     title: "Grid Stabilization",
     description:
-      "Menjaga frekuensi dan tegangan listrik PLN agar tetap stabil dari gangguan fluktuasi. BESS bertindak sebagai penyerap dan pelepas energi instan untuk menjaga keseimbangan jaringan.",
+      "Maintains stable PLN grid frequency and voltage against fluctuation disturbances. BESS acts as an instant energy absorber and releaser to maintain network balance.",
+    icon: "mdi:transmission-tower",
   },
   {
-    icon: "mdi:generator-portable",
     title: "Backup Power",
     description:
-      "Menjadi suplai listrik darurat saat terjadi pemadaman atau gangguan pada wilayah terisolasi. Memastikan operasional kritis tetap berjalan tanpa interupsi.",
+      "Provides emergency power supply during outages or disruptions in isolated areas. Ensures critical operations continue without interruption.",
+    icon: "mdi:generator-portable",
   },
   {
-    icon: "mdi:chart-line-decreasing",
-    title: "Peak Shaving",
+    title: "Peak Saving",
     description:
-      "Menurunkan biaya operasional kelistrikan saat lonjakan permintaan energi terjadi. Simpan energi saat off-peak dan gunakan saat peak untuk menghemat biaya.",
+      "Reduces operational electricity costs during demand spikes. Store energy during off-peak hours and use it during peak hours to save costs.",
+    icon: "mdi:chart-line-decreasing",
   },
 ];
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
-
-// ============ METHODS ============
-const scrollTo = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
-const handleContact = () => {
-  window.open(
-    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20BESS%20VinEnergo%20Anda.",
-    "_blank"
-  );
-};
-
-const handleEmail = () => {
-  window.location.href =
-    "mailto:info@trumecs.com?subject=VinEnergo%20BESS%20Inquiry";
-};
-
-// ============ SEO ============
-useHead({
-  title: "VinEnergo BESS - Battery Energy Storage System",
-  titleTemplate: "%s | Trumecs.com",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Solusi penyimpanan energi BESS dari VinEnergo untuk residential hingga skala industri besar. Hemat biaya listrik, stabilkan jaringan PLN.",
-    },
-    {
-      property: "og:title",
-      content: "VinEnergo BESS - Battery Energy Storage System | Trumecs.com",
-    },
-    {
-      property: "og:description",
-      content:
-        "Solusi penyimpanan energi BESS dari VinEnergo untuk residential hingga skala industri besar. Hemat biaya listrik, stabilkan jaringan PLN.",
-    },
-    { property: "og:type", content: "website" },
-    { property: "og:site_name", content: "Trumecs.com" },
-    {
-      name: "keywords",
-      content:
-        "Battery, Energy Storage System, VinEnergo, ESS, BESS, Penyimpanan Energi, Listrik",
-    },
-    { name: "robots", content: "index, follow" },
-  ],
-  link: [
-    { rel: "canonical", href: "https://www.trumecs.com/principal/vinergo" },
-  ],
-});
 </script>
 
 <style scoped>

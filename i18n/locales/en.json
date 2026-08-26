@@ -250,6 +250,505 @@
         "supportDesc": "Our team is ready to help you anytime",
         "growth": "Business Growth",
         "growthDesc": "Increase sales with our platform"
+      },
+      "vinenergo": {
+        "hero": {
+          "badge": "Member of Vingroup",
+          "titleLine1": "Battery Energy",
+          "titleLine2": "Storage System",
+          "subtitle": "Advanced Lithium-ion based energy storage solutions from residential to large-scale industrial. Save on electricity costs, stabilize the grid, and realize a green energy future.",
+          "ctaProducts": "View Products",
+          "ctaBenefits": "BESS Benefits"
+        },
+        "products": {
+          "sectionLabel": "Product Lineup",
+          "title": "Energy Storage Solutions",
+          "subtitle": "VinEnergo provides comprehensive BESS solutions ranging from residential to large-scale commercial and industrial applications.",
+          "items": [
+            {
+              "title": "Box Type BESS",
+              "badge": "Residential",
+              "customer": "Residential & Office",
+              "description": "Energy storage solution for homes and small offices. Compact design, easy to install, and supports up to 5 module stacks.",
+              "specs": [
+                { "label": "Nominal Voltage", "value": "51.2V" },
+                { "label": "Battery Cell", "value": "LFP 3.2V/52Ah" },
+                { "label": "Capacity", "value": "5.1 - 26.5 kWh" },
+                { "label": "Scalability", "value": "Up to 5 stacks" },
+                { "label": "Cycle Life", "value": "> 4,000 cycles" }
+              ]
+            },
+            {
+              "title": "Cabinet Type BESS",
+              "badge": "Commercial",
+              "customer": "Commercial & Industrial",
+              "description": "Cabinet energy storage system for commercial and industrial operations. Equipped with fire suppression and active cooling.",
+              "specs": [
+                { "label": "Rated Capacity", "value": "138.3 kWh" },
+                { "label": "Power Output", "value": "66 kW" },
+                { "label": "Efficiency", "value": "≥ 96.5%" },
+                { "label": "Cycle Life", "value": "8,000 cycles" },
+                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+              ]
+            },
+            {
+              "title": "Container Based BESS",
+              "badge": "Large Scale",
+              "customer": "Large Scale Commercial & Industrial",
+              "description": "Large-scale 20ft container-based energy storage solution. Massive capacity for industrial and utility networks.",
+              "specs": [
+                { "label": "Rated Energy", "value": "3,686 kWh" },
+                { "label": "Nominal Voltage", "value": "1,229V" },
+                { "label": "Cooling", "value": "Active liquid cooling" },
+                { "label": "Weight", "value": "~ 33 Tons" },
+                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+              ]
+            }
+          ]
+        },
+        "features": {
+          "sectionLabel": "Advanced Technology",
+          "title": "Key Features",
+          "subtitle": "Advanced technology that makes VinEnergo BESS reliable, safe, and efficient.",
+          "items": [
+            {
+              "title": "Energy Management System",
+              "description": "Intelligent energy management system that optimizes charging/discharging based on consumption patterns and electricity tariffs. Ensures maximum efficiency in every energy cycle."
+            },
+            {
+              "title": "Battery Management System",
+              "description": "Advanced battery management system that monitors and optimizes the performance of every battery cell in real-time. Regulates voltage, current, and temperature for maximum battery life."
+            },
+            {
+              "title": "Cell-Level Monitoring",
+              "description": "Individual cell-level monitoring to detect anomalies before they become serious problems. Each cell is monitored for voltage, temperature, and capacity with precision."
+            },
+            {
+              "title": "Self-Diagnostics",
+              "description": "Automatic diagnostic system that runs periodically to ensure all components are functioning optimally. Detects potential issues before they cause downtime."
+            },
+            {
+              "title": "Advanced Management System",
+              "description": "Centralized management platform for monitoring, control, and optimization of entire BESS installations from a single dashboard. Real-time communication capability for SCADA and EMS integration."
+            },
+            {
+              "title": "Fire Protection System",
+              "description": "Advanced fire protection system with 3-Level Issue Detection and 5 Levels of Protection. Automatic fire prevention and suppression technology for maximum safety."
+            }
+          ]
+        },
+        "benefits": {
+          "sectionLabel": "Why BESS?",
+          "title": "How BESS Can Cut Your Electricity Cost",
+          "subtitle": "BESS is not just technology — it's a smart investment to reduce your electrical operational costs.",
+          "items": [
+            {
+              "title": "Grid Stabilization",
+              "description": "Maintains PLN electricity frequency and voltage stability against fluctuation disturbances. BESS acts as an instant energy absorber and releaser to maintain grid balance."
+            },
+            {
+              "title": "Backup Power",
+              "description": "Serves as emergency power supply during outages or disturbances in isolated areas. Ensures critical operations continue without interruption."
+            },
+            {
+              "title": "Peak Shaving",
+              "description": "Reduces electrical operational costs during energy demand spikes. Store energy during off-peak and use during peak to save costs."
+            }
+          ]
+        },
+        "contact": {
+          "title": "Interested in BESS Solutions for cost savings?",
+          "subtitle": "Contact our sales team for consultation and the best offers.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Email Inquiry",
+          "locationTitle": "Locations & Main Service Areas",
+          "locationDesc": "We are strategically located to serve sustainable energy needs in the following areas quickly and responsively."
+        },
+        "seo": {
+          "title": "VinEnergo BESS - Battery Energy Storage System",
+          "description": "BESS energy storage solutions from VinEnergo for residential to large-scale industrial. Save on electricity costs, stabilize the PLN grid.",
+          "keywords": "Battery, Energy Storage System, VinEnergo, ESS, BESS, Energy Storage"
+        }
+      },
+      "machining": {
+        "hero": {
+          "badge": "ISO 9001:2015 CERTIFIED",
+          "titleLine1": "Precision Machining Solutions for",
+          "titleLine2": "Industrial Excellence",
+          "subtitle": "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control to meet your complex industrial manufacturing needs.",
+          "ctaQuote": "Request a Quote",
+          "ctaServices": "Explore Our Services"
+        },
+        "aboutMachining": {
+          "sectionLabel": "About Machining",
+          "title": "Understanding Machining",
+          "description": "Machining is a manufacturing process that uses machine tools to transform raw materials into components with precise dimensions and tolerances. This process involves removing material from a workpiece to achieve the desired shape, size, and surface finish.",
+          "highlights": [
+            {
+              "title": "CNC Machining",
+              "description": "Computer Numerical Control enables high precision and consistent reproducibility."
+            },
+            {
+              "title": "Precision Tolerances",
+              "description": "Achieving tolerances up to ±0.001mm for critical applications."
+            },
+            {
+              "title": "Multi-Axis Capability",
+              "description": "3-axis to 5-axis machines for complex geometries."
+            },
+            {
+              "title": "Quality Control",
+              "description": "CMM inspection and rigorous documentation at every stage."
+            }
+          ]
+        },
+        "aboutFabrikasi": {
+          "sectionLabel": "About Fabrication",
+          "title": "Understanding Fabrication",
+          "description": "Fabrication is the process of converting raw materials into finished products or ready-to-use components through various processes such as cutting, bending, welding, and assembly. Unlike machining which focuses on material removal, fabrication emphasizes forming and assembly.",
+          "highlights": [
+            {
+              "title": "Cutting & Shaping",
+              "description": "Precision cutting using laser, plasma, or waterjet."
+            },
+            {
+              "title": "Welding & Joining",
+              "description": "MIG, TIG, and SMAW welding for solid structures."
+            },
+            {
+              "title": "Bending & Forming",
+              "description": "Bending and forming of plates and steel profiles."
+            },
+            {
+              "title": "Assembly",
+              "description": "Component assembly into ready-to-install final products."
+            }
+          ]
+        },
+        "methods": {
+          "sectionLabel": "Machining Methods",
+          "title": "Machining Methods",
+          "subtitle": "We employ various machining methods to produce components with the best quality and precision for your needs.",
+          "items": [
+            {
+              "title": "Milling",
+              "icon": "mdi:milling",
+              "description": "Cutting process using rotating cutters to produce flat surfaces, slots, and complex geometries on workpieces.",
+              "features": [
+                "3-axis to 5-axis",
+                "Flat surfaces & contours",
+                "Slots & keyways",
+                "Tolerance ±0.01mm"
+              ]
+            },
+            {
+              "title": "Turning",
+              "icon": "mdi:rotate-3d-variant",
+              "description": "Lathe process for creating high-precision cylindrical components using stationary tools on rotating workpieces.",
+              "features": [
+                "Shaft & axle",
+                "Bushing & bearing",
+                "Thread & threading",
+                "Tolerance ±0.005mm"
+              ]
+            },
+            {
+              "title": "Grinding",
+              "icon": "mdi:blur",
+              "description": "Surface finishing process using grinding wheels to achieve very precise surface roughness and final dimensions.",
+              "features": [
+                "Surface grinding",
+                "Cylindrical grinding",
+                "Surface finish Ra 0.4μm",
+                "Flatness < 0.005mm"
+              ]
+            },
+            {
+              "title": "Cutting",
+              "icon": "mdi:content-cut",
+              "description": "Material cutting process using various methods to achieve desired size and shape.",
+              "features": [
+                "Band saw cutting",
+                "Wire EDM",
+                "Laser cutting",
+                "Waterjet cutting"
+              ]
+            }
+          ]
+        },
+        "products": {
+          "sectionLabel": "Example Products",
+          "title": "Example Products",
+          "subtitle": "Various precision components we produce for various manufacturing industries.",
+          "items": [
+            {
+              "name": "Gear",
+              "description": "Precision gears for machine power transmission and other mechanical devices.",
+              "icon": "mdi:cog"
+            },
+            {
+              "name": "Shaft",
+              "description": "Machine shafts with tight tolerances for rotation transmission and load bearing.",
+              "icon": "mdi:minus-thick"
+            },
+            {
+              "name": "Roller",
+              "description": "Cylindrical rollers for conveyor, printing, and other industrial applications.",
+              "icon": "mdi:circle-slice8"
+            },
+            {
+              "name": "Pulley",
+              "description": "Pulley wheels for belt transmission systems and power transmission.",
+              "icon": "mdi:record-circle-outline"
+            },
+            {
+              "name": "Chain",
+              "description": "Power transmission chains for industrial machinery and automotive.",
+              "icon": "mdi:chain"
+            },
+            {
+              "name": "Bolt, Nut & Washer",
+              "description": "Precision bolts, nuts, and washers for assembly and structural applications.",
+              "icon": "mdi:screw-flat-top"
+            }
+          ]
+        },
+        "materials": {
+          "sectionLabel": "Material Expertise",
+          "title": "Materials We Master",
+          "subtitle": "We have expertise in machining various metal materials to meet your industrial needs.",
+          "categories": [
+            {
+              "name": "Stainless Steel",
+              "icon": "mdi:silverware-fork-knife",
+              "grades": ["SS304", "SS316"],
+              "description": "Corrosion resistant, suitable for food grade, chemical, and medical applications."
+            },
+            {
+              "name": "Alloy Steel",
+              "icon": "mdi:factory",
+              "grades": ["SCM440", "SNCM439"],
+              "description": "High strength for heavy machinery and transmission components."
+            },
+            {
+              "name": "Carbon Steel",
+              "icon": "mdi:steel",
+              "grades": ["S45C", "ST41"],
+              "description": "Commonly used for shafts, gears, and structural components."
+            }
+          ]
+        },
+        "contact": {
+          "title": "Contact and Locations",
+          "needTitle": "Need Consultation?",
+          "needDesc": "Contact our sales team for consultation on your machining and fabrication needs.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Email Inquiry",
+          "locationTitle": "Locations & Main Service Areas",
+          "locationDesc": "We are strategically located to serve machining and fabrication needs in the following areas quickly and responsively.",
+          "locations": ["Jakarta", "Bekasi", "Cikarang", "Tangerang"]
+        },
+        "seo": {
+          "title": "Precision Machining & Fabrication - Trumecs",
+          "description": "Precision machining and fabrication solutions with advanced technology, experienced engineers, and strict quality control."
+        }
+      },
+      "struman": {
+        "hero": {
+          "badge": "Industrial Excellence",
+          "title": "STRUMAN Power Solutions",
+          "subtitle": "Uncompromising reliability for the industrial front line. Providing precision-engineered portable generators and solar panels designed to support critical operations in any environment.",
+          "ctaCatalog": "View Catalog"
+        },
+        "intro": {
+          "title": "Integrated Power Architecture",
+          "description": "STRUMAN is an exclusive ecosystem. From high-density lithium iron phosphate batteries to intelligent BMS integration, our systems work together to provide uninterrupted power for remote operations, mobile medical units, and disaster recovery zones."
+        },
+        "useCases": {
+          "sectionLabel": "Solutions for Various Needs",
+          "title": "STRUMAN Can Be Used Anywhere",
+          "subtitle": "From residential homes to heavy industrial operations — STRUMAN provides reliable independent energy solutions, no complicated installation, no noisy generators.",
+          "items": [
+            {
+              "title": "Residential",
+              "description": "Power backup when PLN goes down. Can be charged from rooftop solar panels to reduce monthly electricity bills.",
+              "recommendation": "Recommended: HS1800 / G24 PRO"
+            },
+            {
+              "title": "Outdoor & Camping",
+              "description": "Portable and easy to carry to any location without PLN access. Charge from solar panels in the field.",
+              "recommendation": "Recommended: HS1800 / HS3600"
+            },
+            {
+              "title": "Office & Commercial",
+              "description": "Power backup for office operations that must not stop. No installation needed — plug and play.",
+              "recommendation": "Recommended: G24 PRO / M50"
+            },
+            {
+              "title": "Medical & Clinic",
+              "description": "Pure Sine Wave output protects sensitive medical equipment from electrical distortion. Safe for diagnostic and monitoring devices.",
+              "recommendation": "Recommended: M50 / HS3600"
+            },
+            {
+              "title": "Construction & Field",
+              "description": "Replacement for noisy, smelly fuel generators. High power for heavy equipment at remote project sites.",
+              "recommendation": "Recommended: M50"
+            },
+            {
+              "title": "Solar Energy System",
+              "description": "All units support solar panel (PV) input. Expand G24 PRO + BT30 capacity up to 17.4 kWh for full energy independence.",
+              "recommendation": "Recommended: G24 PRO + BT30"
+            }
+          ],
+          "stats": [
+            { "value": "3000+", "label": "Usage Cycles (+8 Years)" },
+            { "value": "17.4 kWh", "label": "Maximum Capacity" },
+            { "value": "4500 W", "label": "Highest Output Power (M50)" },
+            {
+              "value": "Pure Sine Wave",
+              "label": "Like PLN Electricity — Safe for All Devices"
+            }
+          ]
+        },
+        "catalog": {
+          "title": "Product Catalog"
+        },
+        "products": [
+          {
+            "name": "Struman G24 Pro",
+            "badge": "BATTERY",
+            "price": "Call"
+          },
+          {
+            "name": "Struman BT30",
+            "badge": "BATTERY",
+            "price": "Call"
+          },
+          {
+            "name": "Struman HS1800",
+            "badge": "BATTERY",
+            "price": "Call"
+          },
+          {
+            "name": "Struman HS3600",
+            "badge": "BATTERY",
+            "price": "Call"
+          },
+          {
+            "name": "Struman M50",
+            "badge": "BATTERY",
+            "price": "Call"
+          },
+          {
+            "name": "Struman SSP400",
+            "badge": "SOLAR PANEL",
+            "price": "Call"
+          },
+          {
+            "name": "Struman SSP800",
+            "badge": "SOLAR PANEL",
+            "price": "Call"
+          }
+        ],
+        "modal": {
+          "specsTitle": "Technical Specifications",
+          "featuresTitle": "Key Features",
+          "contactBtn": "Contact Us"
+        },
+        "seo": {
+          "title": "STRUMAN - Industrial Power Solutions",
+          "description": "Uncompromising reliability for the industrial front line. Precision-engineered portable generators and solar panels."
+        }
+      },
+      "usedsparepart": {
+        "hero": {
+          "badge": "Ready Stock • Warranty",
+          "titleLine1": "Heavy Equipment Spare Parts",
+          "titleLine2": "Quality Salvage Parts & Warrantied",
+          "subtitle": "Affordable and reliable solution for your heavy equipment spare part needs. Original & OEM, strictly inspected, and ready to use.",
+          "ctaCatalog": "View Catalog",
+          "ctaContact": "Contact Sales"
+        },
+        "about": {
+          "title": "Understanding Our Salvage Parts",
+          "subtitle": "We provide high-quality used spare parts focused on authenticity and reliability to ensure optimal performance on your heavy equipment.",
+          "items": [
+            {
+              "title": "Original Parts",
+              "description": "Genuine factory-original spare parts, salvaged directly from heavy equipment units in prime condition."
+            },
+            {
+              "title": "OEM Parts",
+              "description": "Original Equipment Manufacturer. Produced with specifications identical to original parts."
+            },
+            {
+              "title": "Strict Inspection",
+              "description": "Every part undergoes a thorough quality check process before being sold."
+            },
+            {
+              "title": "Ready Stock",
+              "description": "High parts availability to minimize your heavy equipment downtime."
+            }
+          ]
+        },
+        "featured": {
+          "title": "Featured Parts",
+          "subtitle": "Our best condition salvage parts collection right now.",
+          "parts": [
+            {
+              "name": "Engine Block",
+              "type": "OEM / Original",
+              "status": "Available",
+              "condition": "Inspected & Ready"
+            },
+            {
+              "name": "Control Valve",
+              "type": "OEM / Original",
+              "status": "Available",
+              "condition": "Inspected & Ready"
+            },
+            {
+              "name": "Tapper Roller Bearing",
+              "type": "OEM / Original",
+              "status": "Available",
+              "condition": "Inspected & Ready"
+            },
+            {
+              "name": "Crankshaft Lower Bearing",
+              "type": "OEM / Original",
+              "status": "Available",
+              "condition": "Inspected & Ready"
+            }
+          ]
+        },
+        "brands": {
+          "title": "Brands We Support"
+        },
+        "buyingOptions": {
+          "title": "Flexible Purchase Options",
+          "items": [
+            {
+              "title": "Buy as Bundle",
+              "description": "Complete package purchase for comprehensive repair or overhaul. More practical, cost-effective, and guarantees optimal inter-component compatibility."
+            },
+            {
+              "title": "Buy Individually",
+              "description": "Individual purchase for specific needed parts. Targeted solution to replace particular damaged components."
+            }
+          ]
+        },
+        "contact": {
+          "title": "Need Spare Parts?",
+          "subtitle": "Contact our sales team for consultation and the best offers.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Email Inquiry",
+          "locationTitle": "Locations & Main Service Areas",
+          "locationDesc": "We are strategically located to serve heavy industry needs in the following areas quickly and responsively."
+        },
+        "seo": {
+          "title": "Heavy Equipment Salvage Spare Parts",
+          "description": "Affordable and reliable solution for your heavy equipment spare part needs. Original & OEM, strictly inspected, and ready to use."
+        }
       }
     },
     "error": {

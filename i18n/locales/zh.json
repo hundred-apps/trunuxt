@@ -250,6 +250,462 @@
         "supportDesc": "我们的团队随时为您提供帮助",
         "growth": "业务增长",
         "growthDesc": "通过我们的平台提升销售额"
+      },
+      "vinenergo": {
+        "hero": {
+          "badge": "Vingroup 成员",
+          "titleLine1": "电池储能",
+          "titleLine2": "系统",
+          "subtitle": "基于锂离子的先进储能解决方案，覆盖住宅到大型工业规模。节省电费、稳定电网，实现绿色能源未来。",
+          "ctaProducts": "查看产品",
+          "ctaBenefits": "BESS 优势"
+        },
+        "products": {
+          "sectionLabel": "产品系列",
+          "title": "储能解决方案",
+          "subtitle": "VinEnergo 提供全面的 BESS 解决方案，涵盖住宅到大型商业和工业应用。",
+          "items": [
+            {
+              "title": "箱式 BESS",
+              "badge": "住宅",
+              "customer": "住宅与办公",
+              "description": "适用于家庭和小型办公室的储能解决方案。设计紧凑，安装方便，支持最多5个模块堆叠。",
+              "specs": [
+                { "label": "标称电压", "value": "51.2V" },
+                { "label": "电池单元", "value": "LFP 3.2V/52Ah" },
+                { "label": "容量", "value": "5.1 - 26.5 kWh" },
+                { "label": "可扩展性", "value": "最多5个堆叠" },
+                { "label": "循环寿命", "value": "> 4,000 次" }
+              ]
+            },
+            {
+              "title": "柜式 BESS",
+              "badge": "商业",
+              "customer": "商业与工业",
+              "description": "用于商业和工业运营的柜式储能系统。配备灭火系统和主动冷却。",
+              "specs": [
+                { "label": "额定容量", "value": "138.3 kWh" },
+                { "label": "输出功率", "value": "66 kW" },
+                { "label": "效率", "value": "≥ 96.5%" },
+                { "label": "循环寿命", "value": "8,000 次" },
+                { "label": "认证", "value": "UL 1973, UL 9540" }
+              ]
+            },
+            {
+              "title": "集装箱式 BESS",
+              "badge": "大型",
+              "customer": "大型商业与工业",
+              "description": "基于20英尺集装箱的大型储能解决方案。超大容量，适用于工业和公用事业网络。",
+              "specs": [
+                { "label": "额定能量", "value": "3,686 kWh" },
+                { "label": "标称电压", "value": "1,229V" },
+                { "label": "冷却", "value": "主动液冷" },
+                { "label": "重量", "value": "~ 33 吨" },
+                { "label": "认证", "value": "UL 1973, UL 9540" }
+              ]
+            }
+          ]
+        },
+        "features": {
+          "sectionLabel": "先进技术",
+          "title": "核心特性",
+          "subtitle": "先进技术使 VinEnergo BESS 可靠、安全且高效。",
+          "items": [
+            {
+              "title": "能源管理系统",
+              "description": "智能能源管理系统，根据用电模式和电价优化充放电。确保每个能源循环的最大效率。"
+            },
+            {
+              "title": "电池管理系统",
+              "description": "先进的电池管理系统，实时监控和优化每个电池单元的性能。调节电压、电流和温度，延长电池寿命。"
+            },
+            {
+              "title": "单元级监控",
+              "description": "单个电池单元级别的监控，在异常成为严重问题之前检测到。每个单元的电压、温度和容量都得到精确监控。"
+            },
+            {
+              "title": "自诊断",
+              "description": "自动诊断系统定期运行，确保所有组件最佳运行。在潜在问题导致停机之前检测到。"
+            },
+            {
+              "title": "高级管理系统",
+              "description": "集中管理平台，从单一仪表板监控、控制和优化整个 BESS 装置。支持 SCADA 和 EMS 集成的实时通信能力。"
+            },
+            {
+              "title": "消防保护系统",
+              "description": "先进的消防保护系统，具有3级问题检测和5级保护。自动火灾预防和灭火技术，确保最高安全性。"
+            }
+          ]
+        },
+        "benefits": {
+          "sectionLabel": "为什么选择BESS？",
+          "title": "BESS 如何降低您的电费",
+          "subtitle": "BESS 不仅仅是技术——它是降低电力运营成本的明智投资。",
+          "items": [
+            {
+              "title": "电网稳定",
+              "description": "保持 PLN 电网频率和电压的稳定性，抵御波动干扰。BESS 作为即时能量吸收和释放器，维持电网平衡。"
+            },
+            {
+              "title": "备用电源",
+              "description": "在停电或偏远地区故障时提供紧急电力供应。确保关键操作不中断地继续运行。"
+            },
+            {
+              "title": "削峰填谷",
+              "description": "在能源需求高峰时降低电力运营成本。在低谷期存储电能，在高峰期使用，节省费用。"
+            }
+          ]
+        },
+        "contact": {
+          "title": "对 BESS 解决方案感兴趣？",
+          "subtitle": "联系我们的销售团队获取咨询和最优报价。",
+          "whatsapp": "WhatsApp 聊天",
+          "email": "邮件咨询",
+          "locationTitle": "位置与主要服务区域",
+          "locationDesc": "我们地理位置优越，可在以下地区快速响应可持续能源需求。"
+        },
+        "seo": {
+          "title": "VinEnergo BESS - 电池储能系统",
+          "description": "VinEnergo BESS 储能解决方案，覆盖住宅到大型工业规模。节省电费，稳定 PLN 电网。",
+          "keywords": "电池, 储能系统, VinEnergo, ESS, BESS, 储能"
+        }
+      },
+      "machining": {
+        "hero": {
+          "badge": "ISO 9001:2015 认证",
+          "titleLine1": "精密加工解决方案",
+          "titleLine2": "工业卓越",
+          "subtitle": "以先进技术、经验丰富的工程师和严格的质量控制提供高精度加工服务，满足您复杂的工业制造需求。",
+          "ctaQuote": "获取报价",
+          "ctaServices": "探索我们的服务"
+        },
+        "aboutMachining": {
+          "sectionLabel": "关于加工",
+          "title": "了解机械加工",
+          "description": "机械加工是使用机床将原材料转化为具有精确尺寸和公差的零件的制造过程。该过程涉及从工件上去除材料以获得所需的形状、尺寸和表面光洁度。",
+          "highlights": [
+            {
+              "title": "CNC 加工",
+              "description": "计算机数控技术实现高精度和一致的可重复性。"
+            },
+            {
+              "title": "精密公差",
+              "description": "关键应用的公差可达 ±0.001mm。"
+            },
+            {
+              "title": "多轴能力",
+              "description": "3轴至5轴机床，可加工复杂几何形状。"
+            },
+            {
+              "title": "质量控制",
+              "description": "每个阶段都进行 CMM 检测和严格记录。"
+            }
+          ]
+        },
+        "aboutFabrikasi": {
+          "sectionLabel": "关于制造",
+          "title": "了解制造工艺",
+          "description": "制造是通过切割、弯曲、焊接和装配等各种工艺将原材料转化为成品或即用组件的过程。与机械加工侧重于材料去除不同，制造更强调成形和装配。",
+          "highlights": [
+            {
+              "title": "切割与成形",
+              "description": "使用激光、等离子或水刀进行精密切割。"
+            },
+            {
+              "title": "焊接与连接",
+              "description": "MIG、TIG 和 SMAW 焊接，打造坚固结构。"
+            },
+            {
+              "title": "弯曲与成形",
+              "description": "钢板和型钢的弯曲和成形加工。"
+            },
+            {
+              "title": "装配",
+              "description": "将组件装配成可直接安装的最终产品。"
+            }
+          ]
+        },
+        "methods": {
+          "sectionLabel": "加工方法",
+          "title": "加工方法",
+          "subtitle": "我们采用多种加工方法，为您的需求生产出质量和精度最优的零件。",
+          "items": [
+            {
+              "title": "铣削",
+              "icon": "mdi:milling",
+              "description": "使用旋转刀具进行切削，在工件上加工出平面、槽和复杂几何形状。",
+              "features": ["3轴至5轴", "平面与轮廓", "键槽与槽", "公差 ±0.01mm"]
+            },
+            {
+              "title": "车削",
+              "icon": "mdi:rotate-3d-variant",
+              "description": "在旋转工件上使用固定刀具加工高精度圆柱形零件。",
+              "features": ["轴与杆", "衬套与轴承", "螺纹与螺扣", "公差 ±0.005mm"]
+            },
+            {
+              "title": "磨削",
+              "icon": "mdi:blur",
+              "description": "使用砂轮进行表面精加工，实现极高的表面粗糙度和最终尺寸精度。",
+              "features": ["平面磨削", "外圆磨削", "表面光洁度 Ra 0.4μm", "平面度 < 0.005mm"]
+            },
+            {
+              "title": "切割",
+              "icon": "mdi:content-cut",
+              "description": "使用各种方法对材料进行切割，以获得所需的尺寸和形状。",
+              "features": ["带锯切割", "线切割 EDM", "激光切割", "水刀切割"]
+            }
+          ]
+        },
+        "products": {
+          "sectionLabel": "产品示例",
+          "title": "产品示例",
+          "subtitle": "我们为各类制造业生产的各种精密零件。",
+          "items": [
+            {
+              "name": "齿轮",
+              "description": "用于机械传动和其他机械装置的精密齿轮。",
+              "icon": "mdi:cog"
+            },
+            {
+              "name": "轴",
+              "description": "具有紧公差的机械轴，用于旋转传动和承载负荷。",
+              "icon": "mdi:minus-thick"
+            },
+            {
+              "name": "滚轮",
+              "description": "用于输送机、印刷和其他工业应用的圆柱形滚轮。",
+              "icon": "mdi:circle-slice8"
+            },
+            {
+              "name": "皮带轮",
+              "description": "用于皮带传动系统和动力传输的皮带轮。",
+              "icon": "mdi:record-circle-outline"
+            },
+            {
+              "name": "链条",
+              "description": "用于工业机械和汽车的动力传输链条。",
+              "icon": "mdi:chain"
+            },
+            {
+              "name": "螺栓、螺母和垫圈",
+              "description": "用于装配和结构应用的精密螺栓、螺母和垫圈。",
+              "icon": "mdi:screw-flat-top"
+            }
+          ]
+        },
+        "materials": {
+          "sectionLabel": "材料专业",
+          "title": "我们精通的材料",
+          "subtitle": "我们在加工各种金属材料方面拥有丰富的专业知识，以满足您的工业需求。",
+          "categories": [
+            {
+              "name": "不锈钢",
+              "icon": "mdi:silverware-fork-knife",
+              "grades": ["SS304", "SS316"],
+              "description": "耐腐蚀，适用于食品级、化工和医疗应用。"
+            },
+            {
+              "name": "合金钢",
+              "icon": "mdi:factory",
+              "grades": ["SCM440", "SNCM439"],
+              "description": "高强度，适用于重型机械和传动部件。"
+            },
+            {
+              "name": "碳钢",
+              "icon": "mdi:steel",
+              "grades": ["S45C", "ST41"],
+              "description": "常用于轴、齿轮和结构部件。"
+            }
+          ]
+        },
+        "contact": {
+          "title": "联系方式与地址",
+          "needTitle": "需要咨询？",
+          "needDesc": "联系我们的销售团队，获取加工和制造需求的咨询。",
+          "whatsapp": "WhatsApp 聊天",
+          "email": "邮件咨询",
+          "locationTitle": "位置与主要服务区域",
+          "locationDesc": "我们地理位置优越，可在以下地区快速响应加工和制造需求。",
+          "locations": ["雅加达", "勿加泗", "卡拉旺", "丹格朗"]
+        },
+        "seo": {
+          "title": "精密加工与制造 - Trumecs",
+          "description": "以先进技术、经验丰富的工程师和严格的质量控制提供精密加工和制造服务。"
+        }
+      },
+      "struman": {
+        "hero": {
+          "badge": "工业卓越",
+          "title": "STRUMAN 电力解决方案",
+          "subtitle": "工业前线的无妥协可靠性。提供精密工程设计的便携式发电机和太阳能电池板，旨在支持任何环境中的关键运营。",
+          "ctaCatalog": "查看目录"
+        },
+        "intro": {
+          "title": "集成电力架构",
+          "description": "STRUMAN 是一个独特的生态系统。从高密度磷酸铁锂电池到智能 BMS 集成，我们的系统协同工作，为偏远地区运营、移动医疗单位和灾后恢复区域提供不间断电力。"
+        },
+        "useCases": {
+          "sectionLabel": "多种需求的解决方案",
+          "title": "STRUMAN 可在任何地方使用",
+          "subtitle": "从住宅到重工业运营——STRUMAN 提供可靠的独立能源解决方案，无需复杂安装，无噪音发电机。",
+          "items": [
+            {
+              "title": "住宅",
+              "description": "PLN 停电时的电力备份。可通过屋顶太阳能电池板充电，降低每月电费。",
+              "recommendation": "推荐：HS1800 / G24 PRO"
+            },
+            {
+              "title": "户外与露营",
+              "description": "便携式，易于携带到任何没有 PLN 的地方。在户外用太阳能电池板充电。",
+              "recommendation": "推荐：HS1800 / HS3600"
+            },
+            {
+              "title": "办公与商业",
+              "description": "不能中断的办公运营电力备份。无需安装——即插即用。",
+              "recommendation": "推荐：G24 PRO / M50"
+            },
+            {
+              "title": "医疗与诊所",
+              "description": "纯正弦波输出保护敏感医疗设备免受电气干扰。适用于诊断和监测设备。",
+              "recommendation": "推荐：M50 / HS3600"
+            },
+            {
+              "title": "建筑与现场",
+              "description": "替代嘈杂、有气味的燃油发电机。为偏远项目现场的重型设备提供大功率。",
+              "recommendation": "推荐：M50"
+            },
+            {
+              "title": "太阳能系统",
+              "description": "所有设备支持太阳能电池板（PV）输入。扩展 G24 PRO + BT30 容量至 17.4 kWh，实现完全能源独立。",
+              "recommendation": "推荐：G24 PRO + BT30"
+            }
+          ],
+          "stats": [
+            { "value": "3000+", "label": "使用周期（+8年）" },
+            { "value": "17.4 kWh", "label": "最大容量" },
+            { "value": "4500 W", "label": "最高输出功率（M50）" },
+            { "value": "Pure Sine Wave", "label": "如同 PLN 电力——所有设备安全使用" }
+          ]
+        },
+        "catalog": {
+          "title": "产品目录"
+        },
+        "products": [
+          {
+            "name": "Struman G24 Pro",
+            "badge": "电池",
+            "price": "来电咨询"
+          },
+          {
+            "name": "Struman BT30",
+            "badge": "电池",
+            "price": "来电咨询"
+          },
+          {
+            "name": "Struman HS1800",
+            "badge": "电池",
+            "price": "来电咨询"
+          },
+          {
+            "name": "Struman HS3600",
+            "badge": "电池",
+            "price": "来电咨询"
+          },
+          {
+            "name": "Struman M50",
+            "badge": "电池",
+            "price": "来电咨询"
+          },
+          {
+            "name": "Struman SSP400",
+            "badge": "太阳能板",
+            "price": "来电咨询"
+          },
+          {
+            "name": "Struman SSP800",
+            "badge": "太阳能板",
+            "price": "来电咨询"
+          }
+        ],
+        "modal": {
+          "specsTitle": "技术规格",
+          "featuresTitle": "主要特性",
+          "contactBtn": "联系我们"
+        },
+        "seo": {
+          "title": "STRUMAN - 工业电力解决方案",
+          "description": "工业前线的无妥协可靠性。精密工程设计的便携式发电机和太阳能电池板。"
+        }
+      },
+      "usedsparepart": {
+        "hero": {
+          "badge": "现货供应 • 保修",
+          "titleLine1": "重型设备备件",
+          "titleLine2": "优质拆车件 & 有保修",
+          "subtitle": "为您重型设备备件需求提供经济可靠的解决方案。原装与OEM，严格检测，即用型。",
+          "ctaCatalog": "查看目录",
+          "ctaContact": "联系销售"
+        },
+        "about": {
+          "title": "了解我们的拆车件",
+          "subtitle": "我们提供高品质二手备件，专注于真实性和可靠性，确保重型设备的最佳性能。",
+          "items": [
+            {
+              "title": "原装备件",
+              "description": "正品工厂原装备件，直接从状态良好的重型设备上拆卸。"
+            },
+            {
+              "title": "OEM 备件",
+              "description": "原始设备制造商。以与原装零件完全相同的规格生产。"
+            },
+            {
+              "title": "严格检测",
+              "description": "每个零件在出售前都经过全面的质量检查流程。"
+            },
+            {
+              "title": "现货供应",
+              "description": "高库存可用性，最大限度减少您的重型设备停机时间。"
+            }
+          ]
+        },
+        "featured": {
+          "title": "精选零件",
+          "subtitle": "我们目前状况最好的拆车件系列。",
+          "parts": [
+            { "name": "发动机缸体", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" },
+            { "name": "控制阀", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" },
+            { "name": "锥形滚子轴承", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" },
+            { "name": "曲轴下轴承", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" }
+          ]
+        },
+        "brands": {
+          "title": "我们支持的品牌"
+        },
+        "buyingOptions": {
+          "title": "灵活的购买选择",
+          "items": [
+            {
+              "title": "套餐购买",
+              "description": "全面维修或大修的完整套餐购买。更实用、更经济，并保证组件间的最佳兼容性。"
+            },
+            {
+              "title": "单独购买",
+              "description": "针对所需特定零件的个人购买。更换特定损坏组件的精准解决方案。"
+            }
+          ]
+        },
+        "contact": {
+          "title": "需要备件？",
+          "subtitle": "联系我们的销售团队获取咨询和最优报价。",
+          "whatsapp": "WhatsApp 聊天",
+          "email": "邮件咨询",
+          "locationTitle": "位置与主要服务区域",
+          "locationDesc": "我们地理位置优越，可在以下地区快速响应重工业需求。"
+        },
+        "seo": {
+          "title": "重型设备拆车备件",
+          "description": "为您重型设备备件需求提供经济可靠的解决方案。原装与OEM，严格检测，即用型。"
+        }
       }
     },
     "error": {

@@ -40,23 +40,21 @@
               ></span>
               <span
                 class="text-xs font-semibold uppercase tracking-wider text-white/90"
-                >Ready Stock • Garansi</span
+                >{{ t('page.principal.usedsparepart.hero.badge') }}</span
               >
             </div>
 
             <h1
               class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
             >
-              Suku Cadang Alat Berat
-              <span class="text-orange-400">Copotan Berkualitas</span>
-              & Bergaransi
+              {{ t('page.principal.usedsparepart.hero.titleLine1') }}
+              <span class="text-orange-400">{{ t('page.principal.usedsparepart.hero.titleLine2') }}</span>
             </h1>
 
             <p
               class="text-lg md:text-xl text-gray-200/90 mb-8 max-w-2xl leading-relaxed"
             >
-              Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda.
-              Original & OEM, diinspeksi ketat, dan siap pakai.
+              {{ t('page.principal.usedsparepart.hero.subtitle') }}
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
@@ -67,7 +65,7 @@
                 @click="scrollTo('featured')"
               >
                 <Icon name="mdi:view-grid" class="text-xl mr-2" />
-                Lihat Katalog
+                {{ t('page.principal.usedsparepart.hero.ctaCatalog') }}
               </ElButton>
 
               <ElButton
@@ -76,7 +74,7 @@
                 @click="scrollTo('contactLocations')"
               >
                 <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-                Hubungi Sales
+                {{ t('page.principal.usedsparepart.hero.ctaContact') }}
               </ElButton>
             </div>
           </div>
@@ -97,7 +95,7 @@
               >
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeTRnZrdiqij9vDG_CRXkKQDK11a2Rhu-c_uxBUZXQLn4IJSiJOfAkXmWAX1pR2GdG4JTWFC6NaYklvLs2HpJiScidi1DoRAuAWKZD7Z5y7YjpCsACspcGb8YvBSEANSpKnSbnzQRYTFwDGPlbHFI7Et7cwkGgR6se2hGhDewuFx_tVK5w8evHqLupABx4SOjQbHppr0rawsl063G02C7P4WMB4VncqeqXScybateHPvueYebRv2BY7A"
-                  alt="Suku Cadang Alat Berat"
+                  alt="{{ t('page.principal.usedsparepart.hero.titleLine1') }}"
                   class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
@@ -117,12 +115,10 @@
       <div class="max-w-[1440px] mx-auto px-4 md:px-8">
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold text-primary mb-3">
-            Memahami Sparepart Copotan Kami
+            {{ t('page.principal.usedsparepart.about.title') }}
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            Kami menyediakan suku cadang bekas berkualitas tinggi yang berfokus
-            pada keaslian dan keandalan untuk memastikan performa optimal pada
-            alat berat Anda.
+            {{ t('page.principal.usedsparepart.about.subtitle') }}
           </p>
         </div>
 
@@ -130,12 +126,12 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
         >
           <div
-            v-for="item in aboutItems"
-            :key="item.title"
+            v-for="(item, index) in aboutItems"
+            :key="index"
             class="bg-white p-5 rounded-lg shadow-sm border border-gray-200/10 text-center"
           >
             <Icon
-              :name="item.icon"
+              :name="aboutIcons[index]"
               class="text-4xl text-secondary-container mb-3"
             />
             <h3 class="text-xl font-bold text-primary mb-2">
@@ -178,10 +174,10 @@
         <div class="flex justify-between items-end mb-8">
           <div>
             <h2 class="text-3xl font-bold text-primary mb-2">
-              Sparepart Pilihan
+              {{ t('page.principal.usedsparepart.featured.title') }}
             </h2>
             <p class="text-gray-600">
-              Koleksi part copotan dengan kondisi terbaik saat ini.
+              {{ t('page.principal.usedsparepart.featured.subtitle') }}
             </p>
           </div>
         </div>
@@ -190,9 +186,9 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
         >
           <Trulink
-            v-for="part in featuredParts"
-            :key="part.name"
-            href="https://www.trumecs.com/c/Sparepart/query?q=on&nama="
+            v-for="(part, findex) in featuredParts"
+            :key="findex"
+            :href="'https://www.trumecs.com/c/Sparepart/query?q=on&nama='"
             target="_blank"
             class="bg-white rounded-lg border border-gray-200/10 overflow-hidden shadow-sm hover:shadow-lg transition-all"
           >
@@ -232,7 +228,7 @@
         <h2
           class="text-xl font-semibold text-gray-600 mb-4 uppercase tracking-wider"
         >
-          Merek yang Kami Dukung
+          {{ t('page.principal.usedsparepart.brands.title') }}
         </h2>
         <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
           <span
@@ -248,15 +244,15 @@
 
     <section class="py-12 md:py-6" id="buying-options">
       <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
-        <h2 class="text-3xl font-bold mb-8">Pilihan Pembelian Fleksibel</h2>
+        <h2 class="text-3xl font-bold mb-8">{{ t('page.principal.usedsparepart.buyingOptions.title') }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div
-            v-for="option in buyingOptions"
-            :key="option.title"
+            v-for="(option, index) in buyingOptions"
+            :key="index"
             class="bg-white/5 hover:bg-white/10 transition-colors p-6 rounded-xl backdrop-blur-sm border border-white/10 text-left"
           >
             <Icon
-              :name="option.icon"
+              :name="buyingIcons[index]"
               class="text-5xl text-secondary-fixed-dim mb-4"
             />
             <h3 class="text-2xl font-bold mb-2">{{ option.title }}</h3>
@@ -276,9 +272,9 @@
             name="mdi:phone"
             class="text-5xl text-secondary-container mb-3"
           />
-          <h2 class="text-3xl font-bold mb-4">Ada Kebutuhan Sparepart?</h2>
+          <h2 class="text-3xl font-bold mb-4">{{ t('page.principal.usedsparepart.contact.title') }}</h2>
           <p class="text-gray-500 mb-8">
-            Hubungi tim sales kami untuk konsultasi dan penawaran terbaik.
+            {{ t('page.principal.usedsparepart.contact.subtitle') }}
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <ElButton
@@ -288,7 +284,7 @@
               @click="handleContact"
             >
               <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-              Chat WhatsApp
+              {{ t('page.principal.usedsparepart.contact.whatsapp') }}
             </ElButton>
             <ElButton
               type="warning"
@@ -297,7 +293,7 @@
               @click="handleEmail"
             >
               <Icon name="mdi:email" class="text-xl mr-2" />
-              Email Inquiry
+              {{ t('page.principal.usedsparepart.contact.email') }}
             </ElButton>
           </div>
         </div>
@@ -305,11 +301,10 @@
       <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
         <Icon name="mdi:city" class="text-5xl text-secondary-container mb-3" />
         <h2 class="text-3xl font-bold text-primary mb-3">
-          Lokasi & Area Layanan Utama
+          {{ t('page.principal.usedsparepart.contact.locationTitle') }}
         </h2>
         <p class="text-gray-600 max-w-2xl mx-auto mb-6">
-          Kami berlokasi strategis untuk melayani kebutuhan industri berat di
-          area berikut dengan cepat dan tanggap.
+          {{ t('page.principal.usedsparepart.contact.locationDesc') }}
         </p>
         <div class="flex flex-wrap justify-center gap-3 md:gap-4">
           <div
@@ -332,91 +327,37 @@
 import { ElMessage } from "element-plus";
 
 // ============ DATA ============
+const { t } = useI18n();
+
+const aboutIcons = [
+  "mdi:verified",
+  "material-symbols:build-circle-outline",
+  "material-symbols:fact-check-outline",
+  "material-symbols:inventory-2-outline-rounded",
+];
+
 const aboutItems = [
-  {
-    icon: "mdi:verified",
-    title: "Sparepart Original",
-    description:
-      "Suku cadang asli bawaan pabrik (Genuine), copotan langsung dari unit alat berat dengan kondisi prima.",
-  },
-  {
-    icon: "material-symbols:build-circle-outline",
-    title: "Sparepart OEM",
-    description:
-      "Original Equipment Manufacturer. Diproduksi dengan spesifikasi yang persis sama dengan part original.",
-  },
-  {
-    icon: "material-symbols:fact-check-outline",
-    title: "Inspeksi Ketat",
-    description:
-      "Setiap part melewati proses pengecekan kualitas menyeluruh sebelum dijual.",
-  },
-  {
-    icon: "material-symbols:inventory-2-outline-rounded",
-    title: "Ready Stock",
-    description:
-      "Ketersediaan barang yang tinggi untuk meminimalkan downtime alat berat Anda.",
-  },
-];
-
-const buyingOptions = [
-  {
-    icon: "mdi:package-variant",
-    title: "Beli Secara Bundle",
-    description:
-      "Pembelian paket lengkap untuk perbaikan menyeluruh atau overhaul. Lebih praktis, hemat biaya, dan menjamin kompatibilitas antar komponen secara optimal.",
-  },
-  {
-    icon: "mdi:widgets",
-    title: "Beli Secara Satuan",
-    description:
-      "Pembelian individual untuk part spesifik yang dibutuhkan. Solusi tepat sasaran untuk mengganti komponen tertentu yang mengalami kerusakan.",
-  },
-];
-
-const brands = ["Komatsu", "Doosan", "Scania", "Howo", "MAN", "CAMC"];
-
-const categories = [
-  { name: "Engine Parts", icon: "mdi:engine" },
-  { name: "Hydraulic System", icon: "mdi:water-pump" },
-  { name: "Transmission", icon: "mdi:settings" },
-  { name: "Final Drive", icon: "mdi:tire" },
-  { name: "Swing Motor", icon: "mdi:sync" },
-  { name: "Travel Motor", icon: "mdi:car" },
-  { name: "Undercarriage", icon: "mdi:construction" },
-  { name: "Electrical", icon: "mdi:bolt" },
-  { name: "Cooling System", icon: "mdi:snowflake" },
-  { name: "Fuel System", icon: "mdi:gas-station" },
-  { name: "Cabin & Interior", icon: "mdi:seat" },
-  { name: "Attachments", icon: "mdi:precision-manufacturing" },
+  { title: "Sparepart Original", description: "Suku cadang asli bawaan pabrik (Genuine), copotan langsung dari unit alat berat dengan kondisi prima." },
+  { title: "Sparepart OEM", description: "Original Equipment Manufacturer. Diproduksi dengan spesifikasi yang persis sama dengan part original." },
+  { title: "Inspeksi Ketat", description: "Setiap part melewati proses pengecekan kualitas menyeluruh sebelum dijual." },
+  { title: "Ready Stock", description: "Ketersediaan barang yang tinggi untuk meminimalkan downtime alat berat Anda." },
 ];
 
 const featuredParts = [
-  {
-    name: "Engine Block",
-    type: "OEM / Original",
-    status: "Tersedia",
-    condition: "Inspected & Ready",
-  },
-  {
-    name: "Control Valve",
-    type: "OEM / Original",
-    status: "Tersedia",
-    condition: "Inspected & Ready",
-  },
-  {
-    name: "Tapper Roller Bearing",
-    type: "OEM / Original",
-    status: "Tersedia",
-    condition: "Inspected & Ready",
-  },
-  {
-    name: "Crankshaft Lower Bearing",
-    type: "OEM / Original",
-    status: "Tersedia",
-    condition: "Inspected & Ready",
-  },
+  { name: "Engine Block", type: "OEM / Original", status: "Tersedia", condition: "Inspected & Ready" },
+  { name: "Control Valve", type: "OEM / Original", status: "Tersedia", condition: "Inspected & Ready" },
+  { name: "Tapper Roller Bearing", type: "OEM / Original", status: "Tersedia", condition: "Inspected & Ready" },
+  { name: "Crankshaft Lower Bearing", type: "OEM / Original", status: "Tersedia", condition: "Inspected & Ready" },
 ];
+
+const buyingIcons = ["mdi:package-variant", "mdi:widgets"];
+
+const buyingOptions = [
+  { title: "Beli Secara Bundle", description: "Pembelian paket lengkap untuk perbaikan menyeluruh atau overhaul. Lebih praktis, hemat biaya, dan menjamin kompatibilitas antar komponen secara optimal." },
+  { title: "Beli Secara Satuan", description: "Pembelian individual untuk part spesifik yang dibutuhkan. Solusi tepat sasaran untuk mengganti komponen tertentu yang mengalami kerusakan." },
+];
+
+const brands = ["Komatsu", "Doosan", "Scania", "Howo", "MAN", "CAMC"];
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
 
@@ -429,7 +370,7 @@ const scrollTo = (id: string) => {
 };
 
 const openPartDetail = (part: any) => {
-  ElMessage.info(`Detail: ${part.name} - ${part.condition}`);
+  ElMessage.info(`Kondisi: ${part.name} - ${part.condition}`);
 };
 
 const handleContact = () => {
@@ -446,12 +387,12 @@ const handleEmail = () => {
 
 // ============ SEO ============
 useHead({
-  title: "Suku Cadang Alat Berat Copotan",
+  title: t('page.principal.usedsparepart.seo.title'),
   titleTemplate: "%s | Trumecs.com",
   meta: [
-    { name: "description", content: "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai." },
-    { property: "og:title", content: "Suku Cadang Alat Berat Copotan | Trumecs.com" },
-    { property: "og:description", content: "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai." },
+    { name: "description", content: t('page.principal.usedsparepart.seo.description') },
+    { property: "og:title", content: `${t('page.principal.usedsparepart.seo.title')} | Trumecs.com` },
+    { property: "og:description", content: t('page.principal.usedsparepart.seo.description') },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },

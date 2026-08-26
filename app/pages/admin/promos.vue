@@ -117,7 +117,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { ElMessage } from 'element-plus';
 
 const loading = ref(false);
@@ -179,9 +179,6 @@ const getPromoImage = (img: string) => {
   if (img) return `https://www.trumecs.com/public/image/promo/${img}`;
   return 'https://via.placeholder.com/400x250?text=No+Image';
 };
-
-const pageSize = ref(12);
-const currentPage = ref(1);
 
 onMounted(() => {
   fetchPromos();
