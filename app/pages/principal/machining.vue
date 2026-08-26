@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-background font-body-md text-on-surface">
     <!-- 1. Hero Section -->
     <section
-      class="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+      class="relative min-h-[90dvh] flex items-center justify-center overflow-hidden"
     >
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
@@ -587,13 +587,18 @@ const handleEmail = () => {
 
 // ============ SEO ============
 useHead({
-  title: "Precision Core - Precision Machining Solutions",
+  title: "Precision Machining Solutions - Trumecs",
+  titleTemplate: "%s | Trumecs.com",
   meta: [
-    {
-      name: "description",
-      content:
-        "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control.",
-    },
+    { name: "description", content: "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control." },
+    { property: "og:title", content: "Precision Machining Solutions | Trumecs.com" },
+    { property: "og:description", content: "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control." },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Trumecs.com" },
+    { name: "robots", content: "index, follow" },
+  ],
+  link: [
+    { rel: "canonical", href: "https://www.trumecs.com/principal/machining" },
   ],
 });
 </script>

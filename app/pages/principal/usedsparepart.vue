@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-surface font-body-md text-on-surface">
     <!-- ============ HERO SECTION ============ -->
     <section
-      class="relative pt-[34px] min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-800"
+      class="relative pt-safe-top min-h-[60dvh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-800"
     >
       <!-- Background Image dengan efek lebih baik -->
       <div class="absolute inset-0 z-0">
@@ -446,13 +446,18 @@ const handleEmail = () => {
 
 // ============ SEO ============
 useHead({
-  title: "Suku Cadang Alat Berat Copotan Berkualitas & Bergaransi - Trumecs",
+  title: "Suku Cadang Alat Berat Copotan",
+  titleTemplate: "%s | Trumecs.com",
   meta: [
-    {
-      name: "description",
-      content:
-        "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai.",
-    },
+    { name: "description", content: "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai." },
+    { property: "og:title", content: "Suku Cadang Alat Berat Copotan | Trumecs.com" },
+    { property: "og:description", content: "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai." },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Trumecs.com" },
+    { name: "robots", content: "index, follow" },
+  ],
+  link: [
+    { rel: "canonical", href: "https://www.trumecs.com/principal/usedsparepart" },
   ],
 });
 </script>

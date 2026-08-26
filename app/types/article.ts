@@ -3,7 +3,7 @@ export type Article = {
   title: string | null;
   date: string;
   img: string | null;
-  value: number;
+  value: string | null;
   url: string | null;
   seo_key: string | null;
   discription_seo: string | null;

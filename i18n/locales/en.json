@@ -12,15 +12,66 @@
   "button": {
     "joinNow": "Join Now",
     "readFirst": "Read First",
-    "send": "Send"
+    "send": "Send",
+    "seeAll": "See All",
+    "seeDetail": "See Detail",
+    "buyNow": "Buy Now",
+    "submitRFQ": "Submit RFQ",
+    "learnMore": "Learn More"
   },
   "label": {
     "article": "Article",
     "trendingArticle": "Trending Article",
-    "relatedArticle": "Related Article"
+    "relatedArticle": "Related Article",
+    "promo": "Promo",
+    "featuredProducts": "Featured Products",
+    "latestArticles": "Latest Articles",
+    "category": "Category",
+    "allProducts": "All Products",
+    "newArrivals": "New Arrivals",
+    "viewAll": "View All",
+    "noResults": "No results found",
+    "loading": "Loading...",
+    "filter": "Filter",
+    "sort": "Sort",
+    "brand": "Brand",
+    "grade": "Grade",
+    "price": "Price",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "search": "Search",
+    "applyFilter": "Apply Filter",
+    "resetFilter": "Reset Filter",
+    "showing": "Showing",
+    "of": "of",
+    "results": "results",
+    "sortDefault": "Default",
+    "sortPriceLow": "Price: Low to High",
+    "sortPriceHigh": "Price: High to Low",
+    "sortNewest": "Newest",
+    "sortPopular": "Most Popular",
+    "listView": "List View",
+    "gridView": "Grid View",
+    "back": "Back",
+    "home": "Home",
+    "promoEnded": "Promo Ended",
+    "promoActive": "Active Promo",
+    "daysLeft": "days left",
+    "products": "Products",
+    "relatedProducts": "Related Products",
+    "writeToUs": "Contact Us",
+    "followOurSocial": "Follow Our Social Media",
+    "exploreCategories": "Explore Categories",
+    "featuredPromo": "Featured Promos"
   },
   "placeholder": {
-    "inputYourEmail": "Input Your Email"
+    "inputYourEmail": "Input Your Email",
+    "searchProducts": "Search products, brands, or keywords...",
+    "selectCategory": "Select Category",
+    "selectBrand": "Select Brand",
+    "selectGrade": "Select Grade",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price"
   },
   "navbar": {
     "or": "or",
@@ -63,6 +114,68 @@
     "home": "Home"
   },
   "page": {
+    "home": {
+      "hero": {
+        "title": "Trusted Mechanical Procurement Solutions",
+        "subtitle": "Find your mechanical needs from thousands of quality products",
+        "cta": "Explore Products"
+      },
+      "categories": {
+        "title": "Explore Categories",
+        "subtitle": "Find products that match your needs"
+      },
+      "promo": {
+        "title": "Latest Promos",
+        "subtitle": "Don't miss our attractive offers"
+      },
+      "featured": {
+        "title": "Featured Products",
+        "subtitle": "Best selected products for you"
+      },
+      "articles": {
+        "title": "Latest Articles",
+        "subtitle": "Information and tips about the mechanical industry"
+      },
+      "cta": {
+        "title": "Need Help?",
+        "subtitle": "Submit your requirements and we'll help you find the right products",
+        "button": "Submit RFQ Now"
+      }
+    },
+    "category": {
+      "title": "Products",
+      "filter": {
+        "title": "Filter",
+        "search": "Search Products",
+        "category": "Category",
+        "brand": "Brand",
+        "grade": "Grade",
+        "price": "Price",
+        "apply": "Apply",
+        "reset": "Reset"
+      },
+      "sort": {
+        "default": "Default",
+        "priceLow": "Price: Low to High",
+        "priceHigh": "Price: High to Low",
+        "newest": "Newest",
+        "popular": "Most Popular"
+      },
+      "empty": "No products found",
+      "showing": "Showing {from}-{to} of {total} products",
+      "searchResult": "Search results for \"{keyword}\"",
+      "perPage": "per page"
+    },
+    "promo": {
+      "title": "Promo",
+      "listTitle": "Latest Promos",
+      "empty": "No active promos at the moment",
+      "ended": "Promo Ended",
+      "activeUntil": "Valid until",
+      "viewProducts": "View Products",
+      "bundlePrice": "Bundle Price",
+      "items": "items"
+    },
     "product": {
       "text": {
         "swipe": "Swipe",
@@ -103,6 +216,54 @@
       "button": {
         "buy": "Buy via Whatsapp",
         "email": "Email Inquiry"
+      }
+    },
+    "profile": {
+      "title": "My Profile",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "address": "Address",
+      "memberSince": "Member Since",
+      "lastLogin": "Last Login",
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password",
+      "logout": "Logout",
+      "notLoggedIn": "You are not logged in",
+      "loginPrompt": "Please login to view your profile",
+      "loginButton": "Login"
+    },
+    "principal": {
+      "title": "Principal & Partner",
+      "subtitle": "Join as an official Trumecs partner",
+      "principal": "Principal",
+      "principalDesc": "Register your products and reach thousands of potential buyers",
+      "agent": "Agent",
+      "agentDesc": "Become an official Trumecs agent and grow your business network",
+      "register": "Register Now",
+      "benefits": {
+        "title": "Why Join Trumecs?",
+        "market": "Wide Market Access",
+        "marketDesc": "Reach thousands of buyers across Indonesia",
+        "support": "Full Support",
+        "supportDesc": "Our team is ready to help you anytime",
+        "growth": "Business Growth",
+        "growthDesc": "Increase sales with our platform"
+      }
+    },
+    "error": {
+      "404": {
+        "title": "Page Not Found",
+        "subtitle": "Sorry, the page you are looking for is not available or has been moved.",
+        "backHome": "Back to Home",
+        "goBack": "Go Back"
+      },
+      "general": {
+        "title": "Something Went Wrong",
+        "subtitle": "Sorry, an unexpected error occurred.",
+        "retry": "Try Again",
+        "backHome": "Back to Home"
       }
     }
   }

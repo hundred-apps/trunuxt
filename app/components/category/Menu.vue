@@ -44,6 +44,7 @@ defineOptions({
 <style scoped>
 .el-menu--horizontal {
   --el-menu-horizontal-height: 30px;
+  justify-content: flex-start !important;
 }
 
 .el-sub-menu__title {

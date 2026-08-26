@@ -152,7 +152,7 @@
 
           <!-- Sidebar - Right Column (lg:col-span-4) -->
           <div class="hidden lg:block lg:col-span-4">
-            <div class="sticky top-[150px]">
+            <div class="sticky top-[var(--header-height,150px)]" style="--header-height: 150px;">
               <!-- Trending Section -->
               <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div
@@ -184,13 +184,33 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
-import { defineArticle, useSchemaOrg } from "@unhead/schema-org/vue";
+import { defineArticle, defineBreadcrumb, useSchemaOrg } from "@unhead/schema-org/vue";
+import { useHeaderHeight } from "~/composables/useHeaderHeight";
+
+const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
 useHead({
   title: "Artikel",
-  titleTemplate: "Artikel | Trumecs.com",
-  meta: [{ name: "Artikel" }],
+  titleTemplate: "%s | Trumecs.com",
+  meta: [
+    { name: "description", content: "Baca artikel terbaru seputar tips perawatan alat berat, panduan sparepart, dan berita industri dari Trumecs." },
+    { property: "og:title", content: "Artikel | Trumecs.com" },
+    { property: "og:description", content: "Baca artikel terbaru seputar tips perawatan alat berat, panduan sparepart, dan berita industri dari Trumecs." },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Trumecs.com" },
+    { name: "robots", content: "index, follow" },
+  ],
+  link: [{ rel: "canonical", href: "https://www.trumecs.com/article" }],
 });
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { position: 1, name: "Home", item: "https://www.trumecs.com" },
+      { position: 2, name: "Artikel", item: "https://www.trumecs.com/article" },
+    ],
+  }),
+]);
 
 const RequestForm = {
   props: ["type"],
@@ -332,8 +352,8 @@ const fetchTrendingArticles = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload.trend_article;
+    if (response.status === "success") {
+      const apiData = response.data!.payload.trend_article;
       console.log("data trend: ", apiData);
       const config = useRuntimeConfig();
 
@@ -373,8 +393,8 @@ const fetchFeaturedArticles = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload.main_article;
+    if (response.status === "success") {
+      const apiData = response.data!.payload.main_article;
       const config = useRuntimeConfig();
 
       // Transform data featured
@@ -425,8 +445,8 @@ const fetchArticle = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload.list_article;
+    if (response.status === "success") {
+      const apiData = response.data!.payload.list_article;
       const config = useRuntimeConfig();
 
       // Helper function to extract category from tags
@@ -486,8 +506,8 @@ const fetchArticle = async () => {
       });
 
       // Update total articles jika ada dari response
-      if (response.data.value!.pagination.total_data) {
-        totalArticles.value = response.data.value!.pagination.total_data;
+      if (response.data!.pagination.total_data) {
+        totalArticles.value = response.data!.pagination.total_data;
       }
     }
   } catch (error) {
@@ -524,6 +544,7 @@ const handlePageChange = async (page: number) => {
 
 // Initialize from URL query
 onMounted(async () => {
+  updateHeaderHeight();
   await fetchTrendingArticles();
   await fetchFeaturedArticles();
   const pageFromUrl = route.query.page ? Number(route.query.page) : 1;

@@ -12,15 +12,66 @@
   "button": {
     "joinNow": "Bergabung Sekarang",
     "readFirst": "Baca Dulu",
-    "send": "Kirim"
+    "send": "Kirim",
+    "seeAll": "Lihat Semua",
+    "seeDetail": "Lihat Selengkapnya",
+    "buyNow": "Beli Sekarang",
+    "submitRFQ": "Kirim RFQ",
+    "learnMore": "Pelajari Lebih Lanjut"
   },
   "label": {
     "article": "Artikel",
     "trendingArticle": "Artikel Populer",
-    "relatedArticle": "Artikel Terkait"
+    "relatedArticle": "Artikel Terkait",
+    "promo": "Promo",
+    "featuredProducts": "Produk Unggulan",
+    "latestArticles": "Artikel Terbaru",
+    "category": "Kategori",
+    "allProducts": "Semua Produk",
+    "newArrivals": "Produk Terbaru",
+    "viewAll": "Lihat Semua",
+    "noResults": "Tidak ada hasil ditemukan",
+    "loading": "Memuat...",
+    "filter": "Filter",
+    "sort": "Urutkan",
+    "brand": "Merk",
+    "grade": "Grade",
+    "price": "Harga",
+    "minPrice": "Harga Minimum",
+    "maxPrice": "Harga Maksimum",
+    "search": "Cari",
+    "applyFilter": "Terapkan Filter",
+    "resetFilter": "Reset Filter",
+    "showing": "Menampilkan",
+    "of": "dari",
+    "results": "hasil",
+    "sortDefault": "Default",
+    "sortPriceLow": "Harga Terendah",
+    "sortPriceHigh": "Harga Tertinggi",
+    "sortNewest": "Terbaru",
+    "sortPopular": "Terpopuler",
+    "listView": "Tampilan List",
+    "gridView": "Tampilan Grid",
+    "back": "Kembali",
+    "home": "Beranda",
+    "promoEnded": "Promo Berakhir",
+    "promoActive": "Promo Aktif",
+    "daysLeft": "hari lagi",
+    "products": "Produk",
+    "relatedProducts": "Produk Terkait",
+    "writeToUs": "Hubungi Kami",
+    "followOurSocial": "Ikuti Media Sosial Kami",
+    "exploreCategories": "Jelajahi Kategori",
+    "featuredPromo": "Promo Unggulan"
   },
   "placeholder": {
-    "inputYourEmail": "Masukan Email Anda"
+    "inputYourEmail": "Masukan Email Anda",
+    "searchProducts": "Cari produk, merek, atau kata kunci...",
+    "selectCategory": "Pilih Kategori",
+    "selectBrand": "Pilih Merek",
+    "selectGrade": "Pilih Grade",
+    "minPrice": "Harga Minimum",
+    "maxPrice": "Harga Maksimum"
   },
   "navbar": {
     "or": "atau",
@@ -63,6 +114,68 @@
     "home": "Beranda"
   },
   "page": {
+    "home": {
+      "hero": {
+        "title": "Solusi Pengadaan Mekanikal Terpercaya",
+        "subtitle": "Temukan kebutuhan mekanikal Anda dari ribuan produk berkualitas",
+        "cta": "Jelajahi Produk"
+      },
+      "categories": {
+        "title": "Jelajahi Kategori",
+        "subtitle": "Temukan produk sesuai kebutuhan Anda"
+      },
+      "promo": {
+        "title": "Promo Terbaru",
+        "subtitle": "Jangan lewatkan penawaran menarik dari kami"
+      },
+      "featured": {
+        "title": "Produk Unggulan",
+        "subtitle": "Produk pilihan terbaik untuk Anda"
+      },
+      "articles": {
+        "title": "Artikel Terbaru",
+        "subtitle": "Informasi dan tips seputar industri mekanikal"
+      },
+      "cta": {
+        "title": "Butuh Bantuan?",
+        "subtitle": "Kirim kebutuhan Anda dan kami akan membantu Anda menemukan produk yang tepat",
+        "button": "Kirim RFQ Sekarang"
+      }
+    },
+    "category": {
+      "title": "Produk",
+      "filter": {
+        "title": "Filter",
+        "search": "Cari Produk",
+        "category": "Kategori",
+        "brand": "Merek",
+        "grade": "Grade",
+        "price": "Harga",
+        "apply": "Terapkan",
+        "reset": "Reset"
+      },
+      "sort": {
+        "default": "Default",
+        "priceLow": "Harga Terendah",
+        "priceHigh": "Harga Tertinggi",
+        "newest": "Terbaru",
+        "popular": "Terpopuler"
+      },
+      "empty": "Tidak ada produk ditemukan",
+      "showing": "Menampilkan {from}-{to} dari {total} produk",
+      "searchResult": "Hasil pencarian \"{keyword}\"",
+      "perPage": "per halaman"
+    },
+    "promo": {
+      "title": "Promo",
+      "listTitle": "Promo Terbaru",
+      "empty": "Belum ada promo aktif saat ini",
+      "ended": "Promo Berakhir",
+      "activeUntil": "Berlaku hingga",
+      "viewProducts": "Lihat Produk",
+      "bundlePrice": "Harga Bundle",
+      "items": "item"
+    },
     "product": {
       "text": {
         "swipe": "Geser",
@@ -89,7 +202,7 @@
         "location": "Lokasi",
         "estimated": "Estimasi Pengiriman",
         "end": "Berakhir",
-        "seeDetail": "Lhat Selengkapnya",
+        "seeDetail": "Lihat Selengkapnya",
         "noPromo": "Belum ada promo untuk produk ini",
         "pn": "Part Number",
         "pnt": "Part Number Trumecs",
@@ -103,6 +216,54 @@
       "button": {
         "buy": "Beli via Whatsapp",
         "email": "Email kebutuhan"
+      }
+    },
+    "profile": {
+      "title": "Profil Saya",
+      "name": "Nama",
+      "email": "Email",
+      "phone": "Telepon",
+      "company": "Perusahaan",
+      "address": "Alamat",
+      "memberSince": "Anggota Sejak",
+      "lastLogin": "Login Terakhir",
+      "editProfile": "Edit Profil",
+      "changePassword": "Ubah Password",
+      "logout": "Keluar",
+      "notLoggedIn": "Anda belum masuk",
+      "loginPrompt": "Silakan masuk untuk melihat profil Anda",
+      "loginButton": "Masuk"
+    },
+    "principal": {
+      "title": "Principal & Partner",
+      "subtitle": "Bergabunglah menjadi partner resmi Trumecs",
+      "principal": "Principal",
+      "principalDesc": "Daftarkan produk Anda dan jangkau ribuan pembeli potensial",
+      "agent": "Agen",
+      "agentDesc": "Jadi agen resmi Trumecs dan kembangkan jaringan bisnis Anda",
+      "register": "Daftar Sekarang",
+      "benefits": {
+        "title": "Mengapa Bergabung dengan Trumecs?",
+        "market": "Akses Pasar Luas",
+        "marketDesc": "Jangkau ribuan pembeli di seluruh Indonesia",
+        "support": "Dukungan Penuh",
+        "supportDesc": "Tim kami siap membantu Anda setiap saat",
+        "growth": "Pertumbuhan Bisnis",
+        "growthDesc": "Tingkatkan penjualan dengan platform kami"
+      }
+    },
+    "error": {
+      "404": {
+        "title": "Halaman Tidak Ditemukan",
+        "subtitle": "Maaf, halaman yang Anda cari tidak tersedia atau telah dipindahkan.",
+        "backHome": "Kembali ke Beranda",
+        "goBack": "Kembali"
+      },
+      "general": {
+        "title": "Terjadi Kesalahan",
+        "subtitle": "Maaf, terjadi kesalahan yang tidak terduga.",
+        "retry": "Coba Lagi",
+        "backHome": "Kembali ke Beranda"
       }
     }
   }

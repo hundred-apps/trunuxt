@@ -7,18 +7,50 @@ const isProd = process.env.NODE_ENV === "production";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  ssr: false,
+  ssr: true,
   app: {
-    head: {},
+    head: {
+      htmlAttrs: { lang: "id" },
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      title: "Trumecs.com | Solusi Pengadaan Mekanikal Terpercaya",
+      meta: [
+        { name: "theme-color", content: "#fa8420" },
+        { name: "application-name", content: "Trumecs" },
+        {
+          name: "description",
+          content:
+            "Solusi pengadaan mekanikal terpercaya. Sparepart, pelumas, ban, alat berat, dan peralatan kerja berkualitas dari ribuan merek ternama.",
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "Trumecs.com" },
+        { property: "og:locale", content: "id_ID" },
+        { property: "og:locale:alternate", content: "en_US" },
+        { property: "og:locale:alternate", content: "zh_CN" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "canonical", href: "https://www.trumecs.com" },
+      ],
+    },
     baseURL: "/",
     cdnURL: "/",
+  },
+  site: {
+    url: "https://www.trumecs.com",
+    name: "Trumecs.com",
   },
   runtimeConfig: {
     public: {
       baseURL: process.env.NUXT_API_URL,
       baseImageArticle: process.env.NUXT_API_BASEIMGARTICLE,
+      baseImageProduct: "https://www.trumecs.com/public/image/product/",
+      baseImageGallery: "https://www.trumecs.com/public/image/galery/",
+      baseImagePromo: "https://www.trumecs.com/public/image/promo/",
       baseCat: process.env.NUXT_API_CATC,
       googleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
+      siteUrl: "https://www.trumecs.com",
       info: {
         phone: "6285176912338",
         email: "info@trumecs.com",
@@ -45,6 +77,8 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/i18n",
     "@nuxtjs/seo",
+    "@nuxtjs/robots",
+    "@nuxtjs/sitemap",
     "@nuxtjs/device",
     "@element-plus/nuxt",
     "nuxt-schema-org",
@@ -73,17 +107,16 @@ export default defineNuxtConfig({
     config: {},
     viewer: true,
   },
+  robots: {
+    allow: ["/"],
+    disallow: ["/profile", "/api/"],
+    sitemap: "https://www.trumecs.com/sitemap.xml",
+  },
+
+  ogImage: { enabled: false },
+
   nitro: {
     preset: "node-server",
-    // routeRules: {
-    //   '/_nuxt/**': {
-    //     headers: {
-    //       'Access-Control-Allow-Origin': 'https://dev.trumecs.com',
-    //       'Access-Control-Allow-Methods': 'GET, OPTIONS',
-    //       'Access-Control-Allow-Headers': '*'
-    //     }
-    //   }
-    // }
   },
   experimental: {
     writeEarlyHints: false,

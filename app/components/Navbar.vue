@@ -214,7 +214,7 @@
               </Trulink>
 
               <Trulink
-                :to="urlTrumecs + '/promo'"
+                to="/promo"
                 class="transition-colors text-gray-700"
                 @click="handleClickLinkPromo"
               >
@@ -440,7 +440,8 @@ const mobileMenuItems = computed(() => [
   { to: urlTrumecs + "/jasa", text: t("navbar.menu.service") },
   { to: urlTrumecs + "/rental", text: t("navbar.menu.rental") },
   { to: "/article", text: t("navbar.menu.article") },
-  { to: urlTrumecs + "/promo", text: t("navbar.menu.promo") },
+  { to: "/promo", text: t("navbar.menu.promo") },
+  { to: "/principal", text: "Principal" },
   { to: urlTrumecs + "/bulk", text: t("navbar.menu.rfq") },
   { to: urlTrumecs + "/syarat", text: t("navbar.menu.term") },
   { to: urlTrumecs + "/retur", text: t("navbar.menu.policy") },
@@ -488,9 +489,10 @@ const mobileMenuItems = computed(() => [
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
     trackClickButton("Cari : " + searchQuery.value.trim());
-    window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
-      searchQuery.value
-    )}`;
+    navigateTo({
+      path: "/c/all/query",
+      query: { q: "on", nama: searchQuery.value.trim() },
+    });
   }
 };
 
@@ -498,9 +500,10 @@ const handleMobileSearch = () => {
   if (mobileSearchQuery.value.trim()) {
     showMobileSearch.value = false;
     trackClickButtonMobile("Cari : " + mobileSearchQuery.value.trim());
-    window.location.href = `/c/all/query?q=on&nama=${encodeURIComponent(
-      mobileSearchQuery.value
-    )}`;
+    navigateTo({
+      path: "/c/all/query",
+      query: { q: "on", nama: mobileSearchQuery.value.trim() },
+    });
   }
 };
 
@@ -538,8 +541,8 @@ const fetchCategories = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      products.value = response.data.value!.payload.category.products;
+    if (response.status === "success") {
+      products.value = response.data!.payload.category.products;
       console.log("Products loaded:", products.value);
     }
   } catch (err) {

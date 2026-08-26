@@ -1,156 +1,215 @@
 <template>
-  <div class="article-detail-page">
-    <!-- Breadcrumb -->
+  <div class="promo-page py-4 lg:py-8">
+    <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <Breadcrumbs :items="breadcrumbs" class="mb-4" />
 
-    <!-- Article Not Found -->
-    <div v-if="!promo" class="container py-12 text-center">
-      <Icon
-        name="svg-spinners:90-ring-with-bg"
-        class="text-6xl text-orange-500 mb-4 animate-spin"
-      />
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">Memuat Promo...</h2>
-      <p class="text-gray-500 mb-6">Mohon tunggu, Promo sedang dimuat.</p>
-    </div>
+      <div class="mb-6 lg:mb-8">
+        <h1 class="text-2xl lg:text-3xl font-bold text-gray-800">
+          {{ $t("page.promo.listTitle") }}
+        </h1>
+        <p class="text-gray-500 mt-1">{{ $t("page.home.promo.subtitle") }}</p>
+      </div>
 
-    <!-- Main Content - Only show if article exists -->
-    <template v-if="product">
-      <section class="article-detail py-4 lg:py-0" id="article-detail">
-        <div class="container p-4 lg:p-6">
-          <Breadcrumbs :items="detailProductBreadcrumb" />
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            <!-- Left Column - Article Content (lg:col-span-8) -->
-            <div class="lg:col-span-8"></div>
-
-            <!-- Right Column - Sidebar (lg:col-span-4) -->
-            <div class="lg:col-span-4"></div>
+      <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div v-for="i in 6" :key="i" class="animate-pulse bg-white rounded-xl shadow-sm overflow-hidden">
+          <div class="h-48 bg-gray-200" />
+          <div class="p-4 space-y-3">
+            <div class="h-4 bg-gray-200 rounded w-3/4" />
+            <div class="h-3 bg-gray-200 rounded w-full" />
+            <div class="h-3 bg-gray-200 rounded w-1/2" />
           </div>
         </div>
-      </section>
-    </template>
+      </div>
+
+      <div
+        v-else-if="promos.length === 0"
+        class="text-center py-16 bg-white rounded-xl shadow-sm"
+      >
+        <Icon name="material-symbols:local-offer" class="text-6xl text-gray-300 mb-4" />
+        <h3 class="text-lg font-medium text-gray-600 mb-2">
+          {{ $t("page.promo.empty") }}
+        </h3>
+      </div>
+
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <Trulink
+          v-for="promo in promos"
+          :key="promo.id"
+          :to="`/promo/${promo.url}`"
+          class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
+        >
+          <div class="relative h-48 sm:h-56 overflow-hidden">
+            <img
+              v-if="promo.img"
+              :src="`${config.public.baseImagePromo}${promo.img}`"
+              :alt="promo.name"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div
+              v-else
+              class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
+            >
+              <Icon name="material-symbols:local-offer" class="text-6xl text-white/80" />
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                {{ $t("label.promo") }}
+              </span>
+              <span
+                v-if="promo.type === 'bundle'"
+                class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                Bundle
+              </span>
+            </div>
+
+            <div
+              v-if="isPromoEnded(promo.end_date)"
+              class="absolute inset-0 bg-black/50 flex items-center justify-center"
+            >
+              <span class="bg-gray-800 text-white text-sm font-bold px-4 py-2 rounded-lg">
+                {{ $t("page.promo.ended") }}
+              </span>
+            </div>
+          </div>
+
+          <div class="p-4">
+            <h3
+              class="font-bold text-gray-800 group-hover:text-orange-500 transition-colors line-clamp-1 mb-2"
+            >
+              {{ promo.name }}
+            </h3>
+            <p
+              class="text-sm text-gray-500 line-clamp-2 mb-3"
+              v-html="stripHtml(promo.description)"
+            />
+
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-xs text-gray-400">
+                  {{ $t("page.promo.activeUntil") }} {{ formatDate(promo.end_date) }}
+                </p>
+                <p
+                  v-if="promo.type === 'bundle' && promo.price"
+                  class="text-sm font-bold text-orange-600 mt-1"
+                >
+                  {{ $t("page.promo.bundlePrice") }}: {{ formatPrice(Number(promo.price)) }}
+                </p>
+              </div>
+              <span
+                v-if="promo.product && promo.product.length > 0"
+                class="text-xs text-orange-500 font-medium bg-orange-50 px-2 py-1 rounded"
+              >
+                {{ promo.product.length }} {{ $t("page.promo.items") }}
+              </span>
+            </div>
+          </div>
+        </Trulink>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
 import type { Promo } from "~/types/promo";
 
-const loading = ref(true);
-const error = ref<string | null>(null);
+useHead({
+  title: "Promo",
+  titleTemplate: "%s | Trumecs.com",
+  meta: [
+    { name: "description", content: "Lihat promo terbaru dari Trumecs. Jangan lewatkan penawaran menarik untuk produk mekanikal berkualitas." },
+    { property: "og:title", content: "Promo | Trumecs.com" },
+    { property: "og:description", content: "Lihat promo terbaru dari Trumecs. Jangan lewatkan penawaran menarik untuk produk mekanikal berkualitas." },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Trumecs.com" },
+    { name: "robots", content: "index, follow" },
+    { name: "twitter:card", content: "summary" },
+  ],
+  link: [{ rel: "canonical", href: "https://www.trumecs.com/promo" }],
+});
 
-const route = useRoute();
-const router = useRouter();
-const { t } = useI18n();
-const goBack = () => router.back();
-const id = route.params.id as string; // rename untuk kejelasan
-
-// Breadcrumb - buat menjadi computed agar bisa update otomatis
-const detailProductBreadcrumb = computed(() => [
-  { text: "Home", to: "/" },
-  { text: "Promo", to: "/" },
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { position: 1, name: "Home", item: "https://www.trumecs.com" },
+      { position: 2, name: "Promo", item: "https://www.trumecs.com/promo" },
+    ],
+  }),
 ]);
 
-// Fetch detail artikel
+const config = useRuntimeConfig();
+const loading = ref(true);
+const promos = ref<Promo[]>([]);
 
-// const fetchDetailProduct = async () => {
-//   loading.value = true;
-//   try {
-//     const response = await useFetchApi<BaseResponse<Product>>(
-//       `product/${id}`,
-//       `product-${id}`,
-//       "get",
-//       null
-//     );
+const breadcrumbs = computed(() => [
+  { text: $t("breadcrumb.home"), to: "/" },
+  { text: $t("page.promo.title"), to: "/promo" },
+]);
 
-//     if (response.status.value === "success") {
-//       const apiData = response.data.value!.payload;
-//       product.value = apiData.value;
-//     }
-//   } catch (error) {
-//     console.error("Error fetching product:", error);
-//     ElMessage.error("Gagal memuat data artikel");
-//     product.value = null;
-//   } finally {
-//     loading.value = false;
-//   }
-// };
-
-const promo = ref<Promo | null>(null);
-console.log("data Product :", promo);
-useHead({
-  title: promo.value?.tittle,
-  titleTemplate: "Promo | Trumecs.com",
-  meta: [{ name: promo.value?.tittle, content: promo.value?.description }],
-});
-
-useSeoMeta({
-  title: promo.value?.tittle,
-  ogTitle: promo.value?.tittle,
-  description: promo.value?.description,
-  ogDescription: promo.value?.description,
-  ogImage: promo.value?.img,
-  twitterCard: "summary_large_image",
-});
-
-const shareButtons = [
-  {
-    name: "facebook",
-    icon: "logos:facebook",
-    url: "https://www.facebook.com/sharer/sharer.php?u=",
-  },
-  {
-    name: "twitter",
-    icon: "skill-icons:twitter",
-    url: "https://twitter.com/intent/tweet?text=",
-  },
-  {
-    name: "linkedin",
-    icon: "logos:linkedin-icon",
-    url: "https://www.linkedin.com/shareProduct?mini=true&url=",
-  },
-  {
-    name: "pinterest",
-    icon: "logos:pinterest",
-    url: "https://pinterest.com/pin/create/button/?url=",
-  },
-  {
-    name: "whatsapp",
-    icon: "logos:whatsapp-icon",
-    url: "https://wa.me/?text=",
-  },
-];
-// Share article function
-const shareArticle = (share: any) => {
-  const url = encodeURIComponent(window.location.href);
-  const title = encodeURIComponent(promo.value?.tittle || "");
-
-  let shareUrl = "";
-
-  switch (share.name) {
-    case "facebook":
-      shareUrl = `${share.url}${url}`;
-      break;
-    case "twitter":
-      shareUrl = `${share.url}${title}%20${url}`;
-      break;
-    case "linkedin":
-      shareUrl = `${share.url}${url}&title=${title}`;
-      break;
-    case "pinterest":
-      shareUrl = `${share.url}${url}&description=${title}`;
-      break;
-    case "whatsapp":
-      shareUrl = `${share.url}${title}%20-%20${url}`;
-      break;
-    default:
-      shareUrl = `${share.url}${url}`;
-  }
-
-  window.open(shareUrl, "_blank", "width=600,height=400");
+const isPromoEnded = (endDate: string) => {
+  return new Date(endDate) < new Date();
 };
 
-// Handle 404 - redirect or show message
-onMounted(async () => {
-  //   await fetchDetailProduct();
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+};
+
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+};
+
+const stripHtml = (html: string | null) => {
+  if (!html) return "";
+  return html.replace(/<[^>]*>/g, "").substring(0, 150);
+};
+
+const fetchPromos = async () => {
+  loading.value = true;
+  try {
+    const response = await useFetchApi<any>(
+      "promo-read",
+      "promo-list",
+      "get",
+      null
+    );
+    if (response.status === "success") {
+      promos.value = response.data?.payload || [];
+    }
+  } catch (e) {
+    console.error("Error fetching promos:", e);
+  } finally {
+    loading.value = false;
+  }
+};
+
+onMounted(() => {
+  fetchPromos();
 });
 </script>
+
+<style scoped>
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style>

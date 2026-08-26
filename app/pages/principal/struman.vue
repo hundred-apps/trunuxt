@@ -130,7 +130,7 @@
             <div
               v-for="useCase in useCases"
               :key="useCase.title"
-              class="relative rounded-xl border border-outline-variant overflow-hidden technical-shadow hover:border-primary/40 transition-all group min-h-[calc(100vh-4rem)] sm:min-h-[380px] lg:min-h-[420px]"
+              class="relative rounded-xl border border-outline-variant overflow-hidden technical-shadow hover:border-primary/40 transition-all group min-h-[calc(100dvh-4rem)] sm:min-h-[380px] lg:min-h-[420px]"
             >
               <img
                 :src="useCase.image"
@@ -827,15 +827,18 @@ onMounted(() => {
 
 // ============ SEO ============
 useHead({
-  title: "STRUMAN | Solusi Daya Industri - TRUMECS",
+  title: "STRUMAN - Solusi Daya Industri",
+  titleTemplate: "%s | Trumecs.com",
   meta: [
-    {
-      name: "description",
-      content:
-        "Keandalan tanpa kompromi untuk garda terdepan industri. Menyediakan pembangkit listrik portabel dan panel surya yang direkayasa dengan presisi.",
-    },
+    { name: "description", content: "Keandalan tanpa kompromi untuk garda terdepan industri. Menyediakan pembangkit listrik portabel dan panel surya yang direkayasa dengan presisi." },
+    { property: "og:title", content: "STRUMAN - Solusi Daya Industri | Trumecs.com" },
+    { property: "og:description", content: "Keandalan tanpa kompromi untuk garda terdepan industri. Menyediakan pembangkit listrik portabel dan panel surya yang direkayasa dengan presisi." },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Trumecs.com" },
+    { name: "robots", content: "index, follow" },
   ],
   link: [
+    { rel: "canonical", href: "https://www.trumecs.com/principal/struman" },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com" },
     {
