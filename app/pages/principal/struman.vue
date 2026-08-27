@@ -28,20 +28,20 @@
               <Icon name="mdi:flash" class="text-[18px]" />
               <span
                 class="font-label-caps text-label-caps uppercase tracking-wider"
-                >{{ t('page.principal.struman.hero.badge') }}</span
+                >{{ t("page.principal.struman.hero.badge") }}</span
               >
             </div>
 
             <h1
               class="font-display-lg font-bold text-2xl sm:text-3xl md:text-4xl lg:text-display-lg leading-tight"
             >
-              {{ t('page.principal.struman.hero.title') }}
+              {{ t("page.principal.struman.hero.title") }}
             </h1>
 
             <p
               class="font-body-lg text-sm sm:text-base md:text-body-lg text-on-tertiary-container max-w-xl mx-auto md:mx-0"
             >
-              {{ t('page.principal.struman.hero.subtitle') }}
+              {{ t("page.principal.struman.hero.subtitle") }}
             </p>
 
             <div
@@ -51,7 +51,7 @@
                 href="#catalog"
                 class="inline-flex items-center gap-2 bg-secondary-container text-on-primary px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-secondary transition-all"
               >
-                {{ t('page.principal.struman.hero.ctaCatalog') }}
+                {{ t("page.principal.struman.hero.ctaCatalog") }}
                 <Icon
                   name="mdi:arrow-right"
                   class="text-[18px] sm:text-[20px]"
@@ -80,12 +80,12 @@
           <h2
             class="font-display-lg text-xl sm:text-2xl md:text-3xl lg:text-headline-md font-bold text-on-surface mb-3 sm:mb-4"
           >
-            {{ t('page.principal.struman.intro.title') }}
+            {{ t("page.principal.struman.intro.title") }}
           </h2>
           <p
             class="font-body-lg text-sm sm:text-base md:text-body-lg text-on-surface-variant leading-relaxed"
           >
-            {{ t('page.principal.struman.intro.description') }}
+            {{ t("page.principal.struman.intro.description") }}
           </p>
         </div>
       </section>
@@ -102,16 +102,16 @@
               <span class="material-symbols-outlined text-[18px]">bolt</span>
               <span
                 class="font-label-caps text-label-caps uppercase tracking-wider"
-                >{{ t('page.principal.struman.useCases.sectionLabel') }}</span
+                >{{ t("page.principal.struman.useCases.sectionLabel") }}</span
               >
             </div>
             <h2
               class="font-display-lg text-2xl sm:text-3xl md:text-headline-md text-industrial-black mb-3"
             >
-              {{ t('page.principal.struman.useCases.title') }}
+              {{ t("page.principal.struman.useCases.title") }}
             </h2>
             <p class="text-on-surface-variant font-body-md max-w-2xl mx-auto">
-              {{ t('page.principal.struman.useCases.subtitle') }}
+              {{ t("page.principal.struman.useCases.subtitle") }}
             </p>
           </div>
 
@@ -178,7 +178,7 @@
           <h2
             class="font-display-lg text-2xl sm:text-3xl md:text-headline-md text-industrial-black"
           >
-            {{ t('page.principal.struman.catalog.title') }}
+            {{ t("page.principal.struman.catalog.title") }}
           </h2>
         </div>
         <div
@@ -202,7 +202,7 @@
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
                 <Trulink
-                  :to="`https://www.trumecs.com/produk/${product.id}/${formatSlug(product.name)}`"
+                  :to="`https://www.trumecs.com/product/${product.id}/${formatSlug(product.name)}`"
                   class="font-headline-md text-headline-md text-industrial-black fs-4"
                 >
                   {{ product.name }}
@@ -231,7 +231,7 @@
                 @click="openModal(product.id)"
                 class="w-full mt-6 bg-surface-container-high py-3 font-semibold text-primary rounded border border-primary/10 hover:bg-primary hover:text-orange-400 transition-all"
               >
-                {{ t('button.seeDetail') }}
+                {{ t("button.seeDetail") }}
               </button>
             </div>
           </div>
@@ -324,7 +324,7 @@
               <h4
                 class="font-semibold text-sm text-on-surface-variant uppercase tracking-wider mb-2"
               >
-                {{ t('page.principal.struman.modal.specsTitle') }}
+                {{ t("page.principal.struman.modal.specsTitle") }}
               </h4>
               <div class="space-y-1 font-data-tabular text-data-tabular mb-6">
                 <div
@@ -343,7 +343,7 @@
                 <h4
                   class="font-semibold text-sm text-on-surface-variant uppercase tracking-wider mb-3"
                 >
-                  {{ t('page.principal.struman.modal.featuresTitle') }}
+                  {{ t("page.principal.struman.modal.featuresTitle") }}
                 </h4>
                 <div class="space-y-3">
                   <div
@@ -377,7 +377,7 @@
                 class="w-full bg-secondary-container py-3 rounded font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 <span class="material-symbols-outlined text-[18px]">chat</span>
-                {{ t('page.principal.struman.modal.contactBtn') }}
+                {{ t("page.principal.struman.modal.contactBtn") }}
               </Trulink>
             </div>
           </div>
@@ -398,36 +398,166 @@ const modalImageIndex = ref(0);
 const selectedProductId = ref<string | null>(null);
 
 const useCases = [
-  { image: "https://migration.trumecs.com/principal/struman/struman-10.png", title: "Rumah & Hunian", description: "Backup listrik saat PLN padam. Cocok diisi dari panel surya di atap untuk menekan tagihan listrik bulanan.", recommendation: "Rekomendasi: HS1800 / G24 PRO" },
-  { image: "https://migration.trumecs.com/principal/struman/struman-7.png", title: "Outdoor & Camping", description: "Portable dan mudah dibawa ke lokasi manapun tanpa perlu akses PLN. Isi daya dari panel surya di lapangan.", recommendation: "Rekomendasi: HS1800 / HS3600" },
-  { image: "https://migration.trumecs.com/principal/struman/struman-5.png", title: "Kantor & Komersial", description: "Backup daya untuk operasional kantor yang tidak boleh terhenti. Tidak perlu instalasi — plug and play.", recommendation: "Rekomendasi: G24 PRO / M50" },
-  { image: "https://migration.trumecs.com/principal/struman/struman-8.png", title: "Medis & Klinik", description: "Pure Sine Wave output menjaga peralatan medis sensitif dari distorsi listrik. Aman untuk alat diagnostik dan monitoring.", recommendation: "Rekomendasi: M50 / HS3600" },
-  { image: "https://migration.trumecs.com/principal/struman/struman-9.png", title: "Konstruksi & Lapangan", description: "Pengganti genset berbahan bakar yang berisik dan berbau. Daya besar untuk peralatan kerja berat di lokasi proyek terpencil.", recommendation: "Rekomendasi: M50" },
-  { image: "https://migration.trumecs.com/principal/struman/struman-1.png", title: "Sistem Energi Surya", description: "Semua unit mendukung input panel surya (PV). Kembangkan kapasitas G24 PRO + BT30 hingga 17,4 kWh untuk kemandirian energi penuh.", recommendation: "Rekomendasi: G24 PRO + BT30" }
+  {
+    image: "https://migration.trumecs.com/principal/struman/struman-10.png",
+    title: "Rumah & Hunian",
+    description:
+      "Backup listrik saat PLN padam. Cocok diisi dari panel surya di atap untuk menekan tagihan listrik bulanan.",
+    recommendation: "Rekomendasi: HS1800 / G24 PRO",
+  },
+  {
+    image: "https://migration.trumecs.com/principal/struman/struman-7.png",
+    title: "Outdoor & Camping",
+    description:
+      "Portable dan mudah dibawa ke lokasi manapun tanpa perlu akses PLN. Isi daya dari panel surya di lapangan.",
+    recommendation: "Rekomendasi: HS1800 / HS3600",
+  },
+  {
+    image: "https://migration.trumecs.com/principal/struman/struman-5.png",
+    title: "Kantor & Komersial",
+    description:
+      "Backup daya untuk operasional kantor yang tidak boleh terhenti. Tidak perlu instalasi — plug and play.",
+    recommendation: "Rekomendasi: G24 PRO / M50",
+  },
+  {
+    image: "https://migration.trumecs.com/principal/struman/struman-8.png",
+    title: "Medis & Klinik",
+    description:
+      "Pure Sine Wave output menjaga peralatan medis sensitif dari distorsi listrik. Aman untuk alat diagnostik dan monitoring.",
+    recommendation: "Rekomendasi: M50 / HS3600",
+  },
+  {
+    image: "https://migration.trumecs.com/principal/struman/struman-9.png",
+    title: "Konstruksi & Lapangan",
+    description:
+      "Pengganti genset berbahan bakar yang berisik dan berbau. Daya besar untuk peralatan kerja berat di lokasi proyek terpencil.",
+    recommendation: "Rekomendasi: M50",
+  },
+  {
+    image: "https://migration.trumecs.com/principal/struman/struman-1.png",
+    title: "Sistem Energi Surya",
+    description:
+      "Semua unit mendukung input panel surya (PV). Kembangkan kapasitas G24 PRO + BT30 hingga 17,4 kWh untuk kemandirian energi penuh.",
+    recommendation: "Rekomendasi: G24 PRO + BT30",
+  },
 ];
 
 const stats = [
   { value: "3000+", label: "Siklus Pemakaian (+8 Tahun)" },
   { value: "17,4 kWh", label: "Kapasitas Maksimum" },
   { value: "4500 W", label: "Daya Output Tertinggi (M50)" },
-  { value: "Pure Sine Wave", label: "Seperti listrik PLN — Aman Semua Perangkat" }
+  {
+    value: "Pure Sine Wave",
+    label: "Seperti listrik PLN — Aman Semua Perangkat",
+  },
 ];
 
 const products = [
-  { id: "4873", name: "Struman G24 Pro", badge: "BATERAI", price: "Call", badgeColor: "bg-status-success/10 text-status-success", image: "https://migration.trumecs.com/principal/struman/g24pro.PNG", specs: [{ label: "Kapasitas", value: "2048 Wh" }, { label: "Dimensi", value: "101 x 45 x 3 cm/modul" }, { label: "Daya Keluar", value: "3000 W" }, { label: "Berat", value: "25 kg" }] },
-  { id: "4874", name: "Struman BT30", badge: "BATERAI", price: "Call", badgeColor: "bg-status-success/10 text-status-success", image: "https://migration.trumecs.com/principal/struman/bt30.PNG", specs: [{ label: "Kapasitas", value: "3072 Wh" }, { label: "Dimensi", value: "51 × 35 × 38 cm" }, { label: "Berat", value: "25 kg" }, { label: "Kompatibel", value: "G24 PRO" }] },
-  { id: "4875", name: "Struman HS1800", badge: "BATERAI", price: "Call", badgeColor: "bg-status-success/10 text-status-success", image: "https://migration.trumecs.com/principal/struman/hs1800.PNG", specs: [{ label: "Kapasitas", value: "1536 Wh" }, { label: "Dimensi", value: "101 x 45 x 3 cm/modul" }, { label: "Daya Keluar", value: "1800 W" }, { label: "Berat", value: "16 kg" }] },
-  { id: "4876", name: "Struman HS3600", badge: "BATERAI", price: "Call", badgeColor: "bg-status-success/10 text-status-success", image: "https://migration.trumecs.com/principal/struman/hs3600.PNG", specs: [{ label: "Kapasitas", value: "3072 Wh" }, { label: "Dimensi", value: "101 x 45 x 3 cm/modul" }, { label: "Daya Keluar", value: "3600 W" }, { label: "Berat", value: "37 kg" }] },
-  { id: "4877", name: "Struman M50", badge: "BATERAI", price: "Call", badgeColor: "bg-status-success/10 text-status-success", image: "https://migration.trumecs.com/principal/struman/m50.PNG", specs: [{ label: "Kapasitas", value: "5120 Wh" }, { label: "Dimensi", value: "101 x 45 x 3 cm/modul" }, { label: "Daya Keluar", value: "4500 W" }, { label: "Berat", value: "64 kg" }] },
-  { id: "4878", name: "Struman SSP400", badge: "SOLAR PANEL", price: "Call", badgeColor: "bg-power-blue-glow text-primary", image: "https://migration.trumecs.com/principal/struman/SSP400.png", specs: [{ label: "Kapasitas", value: "400 W (4 × 100 W)" }, { label: "Dimensi", value: "101 × 45 × 3 cm/modul" }, { label: "Berat", value: "20 kg (4 × 5 kg)" }, { label: "Kelengkapan", value: "Kabel konektor" }] },
-  { id: "4879", name: "Struman SSP800", badge: "SOLAR PANEL", price: "Call", badgeColor: "bg-power-blue-glow text-primary", image: "https://migration.trumecs.com/principal/struman/ssp800.PNG", specs: [{ label: "Kapasitas", value: "800 W (8 × 100 W)" }, { label: "Dimensi", value: "101 × 45 × 3 cm/modul" }, { label: "Berat", value: "40 kg (8 × 5 kg)" }, { label: "Kelengkapan", value: "Kabel konektor" }] }
+  {
+    id: "4873",
+    name: "Struman G24 Pro",
+    badge: "BATERAI",
+    price: "Call",
+    badgeColor: "bg-status-success/10 text-status-success",
+    image: "https://migration.trumecs.com/principal/struman/g24pro.PNG",
+    specs: [
+      { label: "Kapasitas", value: "2048 Wh" },
+      { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
+      { label: "Daya Keluar", value: "3000 W" },
+      { label: "Berat", value: "25 kg" },
+    ],
+  },
+  {
+    id: "4874",
+    name: "Struman BT30",
+    badge: "BATERAI",
+    price: "Call",
+    badgeColor: "bg-status-success/10 text-status-success",
+    image: "https://migration.trumecs.com/principal/struman/bt30.PNG",
+    specs: [
+      { label: "Kapasitas", value: "3072 Wh" },
+      { label: "Dimensi", value: "51 × 35 × 38 cm" },
+      { label: "Berat", value: "25 kg" },
+      { label: "Kompatibel", value: "G24 PRO" },
+    ],
+  },
+  {
+    id: "4875",
+    name: "Struman HS1800",
+    badge: "BATERAI",
+    price: "Call",
+    badgeColor: "bg-status-success/10 text-status-success",
+    image: "https://migration.trumecs.com/principal/struman/hs1800.PNG",
+    specs: [
+      { label: "Kapasitas", value: "1536 Wh" },
+      { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
+      { label: "Daya Keluar", value: "1800 W" },
+      { label: "Berat", value: "16 kg" },
+    ],
+  },
+  {
+    id: "4876",
+    name: "Struman HS3600",
+    badge: "BATERAI",
+    price: "Call",
+    badgeColor: "bg-status-success/10 text-status-success",
+    image: "https://migration.trumecs.com/principal/struman/hs3600.PNG",
+    specs: [
+      { label: "Kapasitas", value: "3072 Wh" },
+      { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
+      { label: "Daya Keluar", value: "3600 W" },
+      { label: "Berat", value: "37 kg" },
+    ],
+  },
+  {
+    id: "4877",
+    name: "Struman M50",
+    badge: "BATERAI",
+    price: "Call",
+    badgeColor: "bg-status-success/10 text-status-success",
+    image: "https://migration.trumecs.com/principal/struman/m50.PNG",
+    specs: [
+      { label: "Kapasitas", value: "5120 Wh" },
+      { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
+      { label: "Daya Keluar", value: "4500 W" },
+      { label: "Berat", value: "64 kg" },
+    ],
+  },
+  {
+    id: "4878",
+    name: "Struman SSP400",
+    badge: "SOLAR PANEL",
+    price: "Call",
+    badgeColor: "bg-power-blue-glow text-primary",
+    image: "https://migration.trumecs.com/principal/struman/SSP400.png",
+    specs: [
+      { label: "Kapasitas", value: "400 W (4 × 100 W)" },
+      { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
+      { label: "Berat", value: "20 kg (4 × 5 kg)" },
+      { label: "Kelengkapan", value: "Kabel konektor" },
+    ],
+  },
+  {
+    id: "4879",
+    name: "Struman SSP800",
+    badge: "SOLAR PANEL",
+    price: "Call",
+    badgeColor: "bg-power-blue-glow text-primary",
+    image: "https://migration.trumecs.com/principal/struman/ssp800.PNG",
+    specs: [
+      { label: "Kapasitas", value: "800 W (8 × 100 W)" },
+      { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
+      { label: "Berat", value: "40 kg (8 × 5 kg)" },
+      { label: "Kelengkapan", value: "Kabel konektor" },
+    ],
+  },
 ];
 const phone = "6285176912338";
 
 const productDetails = computed<Record<string, any>>(() => {
   const makeLink = (name: string) =>
     `https://wa.me/${phone}?text=${encodeURIComponent(`Hi Trumecs, saya tertarik dengan STRUMAN ${name}. Apakah barang ini tersedia?`)}`;
-  
+
   const detailMap: Record<string, any> = {
     4873: {
       name: "STRUMAN G24 PRO",
@@ -448,9 +578,21 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Dimensi", value: "51 × 35 × 55 cm" },
       ],
       capabilities: [
-        { icon: "view_in_ar", title: "Desain Modular", desc: "Mudah dipasang, diperluas, dan dipindahkan dengan unit baterai yang dapat ditumpuk." },
-        { icon: "bolt", title: "Pengisian Cepat", desc: "0-100% penuh dalam sekitar 2 jam melalui input AC." },
-        { icon: "eco", title: "Teknologi LiFePO4", desc: "Keamanan kelas industri dengan masa pakai lebih dari 3000 siklus." },
+        {
+          icon: "view_in_ar",
+          title: "Desain Modular",
+          desc: "Mudah dipasang, diperluas, dan dipindahkan dengan unit baterai yang dapat ditumpuk.",
+        },
+        {
+          icon: "bolt",
+          title: "Pengisian Cepat",
+          desc: "0-100% penuh dalam sekitar 2 jam melalui input AC.",
+        },
+        {
+          icon: "eco",
+          title: "Teknologi LiFePO4",
+          desc: "Keamanan kelas industri dengan masa pakai lebih dari 3000 siklus.",
+        },
       ],
     },
     4874: {
@@ -470,8 +612,16 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Kompatibel Dengan", value: "G24 PRO" },
       ],
       capabilities: [
-        { icon: "view_in_ar", title: "Ekspansi Modular", desc: "Sambungkan ke G24 PRO untuk kapasitas hingga 17,4 kWh." },
-        { icon: "eco", title: "Teknologi LiFePO4", desc: "Siklus baterai lebih dari 3000 kali untuk keandalan jangka panjang." },
+        {
+          icon: "view_in_ar",
+          title: "Ekspansi Modular",
+          desc: "Sambungkan ke G24 PRO untuk kapasitas hingga 17,4 kWh.",
+        },
+        {
+          icon: "eco",
+          title: "Teknologi LiFePO4",
+          desc: "Siklus baterai lebih dari 3000 kali untuk keandalan jangka panjang.",
+        },
       ],
     },
     4875: {
@@ -491,9 +641,21 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Jenis Output", value: "Pure Sine Wave" },
       ],
       capabilities: [
-        { icon: "directions_walk", title: "Portabel & Ringan", desc: "Handle ergonomis untuk kemudahan mobilitas ke mana saja." },
-        { icon: "bolt", title: "Pengisian Cepat", desc: "Pengisian cepat via AC dan panel surya." },
-        { icon: "eco", title: "Teknologi LiFePO4", desc: "Aman dan tahan lama dengan lebih dari 3000 siklus." },
+        {
+          icon: "directions_walk",
+          title: "Portabel & Ringan",
+          desc: "Handle ergonomis untuk kemudahan mobilitas ke mana saja.",
+        },
+        {
+          icon: "bolt",
+          title: "Pengisian Cepat",
+          desc: "Pengisian cepat via AC dan panel surya.",
+        },
+        {
+          icon: "eco",
+          title: "Teknologi LiFePO4",
+          desc: "Aman dan tahan lama dengan lebih dari 3000 siklus.",
+        },
       ],
     },
     4876: {
@@ -513,9 +675,21 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Jenis Output", value: "Pure Sine Wave" },
       ],
       capabilities: [
-        { icon: "power", title: "Output Daya Tinggi", desc: "3600 W output untuk peralatan berdaya tinggi sekalipun." },
-        { icon: "bolt", title: "Pengisian Cepat", desc: "Pengisian cepat untuk waktu henti yang minimal." },
-        { icon: "eco", title: "Teknologi LiFePO4", desc: "Siklus baterai tinggi untuk keandalan tingkat industri." },
+        {
+          icon: "power",
+          title: "Output Daya Tinggi",
+          desc: "3600 W output untuk peralatan berdaya tinggi sekalipun.",
+        },
+        {
+          icon: "bolt",
+          title: "Pengisian Cepat",
+          desc: "Pengisian cepat untuk waktu henti yang minimal.",
+        },
+        {
+          icon: "eco",
+          title: "Teknologi LiFePO4",
+          desc: "Siklus baterai tinggi untuk keandalan tingkat industri.",
+        },
       ],
     },
     4877: {
@@ -535,9 +709,21 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Jenis Output", value: "Pure Sine Wave" },
       ],
       capabilities: [
-        { icon: "airport_shuttle", title: "Mudah Dipindahkan", desc: "Roda besar dan handle teleskopik untuk mobilitas yang mudah." },
-        { icon: "power", title: "Output Terbesar", desc: "4500 W — cocok untuk peralatan berat di lokasi proyek." },
-        { icon: "eco", title: "Teknologi LiFePO4", desc: "Keandalan industri dengan masa pakai baterai yang sangat panjang." },
+        {
+          icon: "airport_shuttle",
+          title: "Mudah Dipindahkan",
+          desc: "Roda besar dan handle teleskopik untuk mobilitas yang mudah.",
+        },
+        {
+          icon: "power",
+          title: "Output Terbesar",
+          desc: "4500 W — cocok untuk peralatan berat di lokasi proyek.",
+        },
+        {
+          icon: "eco",
+          title: "Teknologi LiFePO4",
+          desc: "Keandalan industri dengan masa pakai baterai yang sangat panjang.",
+        },
       ],
     },
     4878: {
@@ -557,9 +743,21 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Kelengkapan", value: "Kabel Konektor" },
       ],
       capabilities: [
-        { icon: "wb_sunny", title: "Pengisian Tenaga Surya", desc: "Isi daya perangkat STRUMAN langsung dari sinar matahari." },
-        { icon: "view_in_ar", title: "Modular", desc: "Setiap modul 100 W — bisa digunakan satuan atau dikombinasikan." },
-        { icon: "directions_walk", title: "Portabel", desc: "Ringan dan mudah dibawa ke lokasi outdoor maupun lapangan." },
+        {
+          icon: "wb_sunny",
+          title: "Pengisian Tenaga Surya",
+          desc: "Isi daya perangkat STRUMAN langsung dari sinar matahari.",
+        },
+        {
+          icon: "view_in_ar",
+          title: "Modular",
+          desc: "Setiap modul 100 W — bisa digunakan satuan atau dikombinasikan.",
+        },
+        {
+          icon: "directions_walk",
+          title: "Portabel",
+          desc: "Ringan dan mudah dibawa ke lokasi outdoor maupun lapangan.",
+        },
       ],
     },
     4879: {
@@ -579,9 +777,21 @@ const productDetails = computed<Record<string, any>>(() => {
         { label: "Kelengkapan", value: "Kabel Konektor" },
       ],
       capabilities: [
-        { icon: "wb_sunny", title: "Daya Surya Besar", desc: "800 W untuk pengisian lebih cepat pada unit berkapasitas besar." },
-        { icon: "view_in_ar", title: "Modular", desc: "8 modul 100 W yang bisa diatur sesuai kebutuhan instalasi." },
-        { icon: "eco", title: "Energi Bersih", desc: "Kurangi ketergantungan PLN dengan sistem tenaga surya mandiri." },
+        {
+          icon: "wb_sunny",
+          title: "Daya Surya Besar",
+          desc: "800 W untuk pengisian lebih cepat pada unit berkapasitas besar.",
+        },
+        {
+          icon: "view_in_ar",
+          title: "Modular",
+          desc: "8 modul 100 W yang bisa diatur sesuai kebutuhan instalasi.",
+        },
+        {
+          icon: "eco",
+          title: "Energi Bersih",
+          desc: "Kurangi ketergantungan PLN dengan sistem tenaga surya mandiri.",
+        },
       ],
     },
   };
@@ -616,12 +826,21 @@ onMounted(() => {
 
 // ============ SEO ============
 useHead({
-  title: t('page.principal.struman.seo.title'),
+  title: t("page.principal.struman.seo.title"),
   titleTemplate: "%s | Trumecs.com",
   meta: [
-    { name: "description", content: t('page.principal.struman.seo.description') },
-    { property: "og:title", content: `${t('page.principal.struman.seo.title')} | Trumecs.com` },
-    { property: "og:description", content: t('page.principal.struman.seo.description') },
+    {
+      name: "description",
+      content: t("page.principal.struman.seo.description"),
+    },
+    {
+      property: "og:title",
+      content: `${t("page.principal.struman.seo.title")} | Trumecs.com`,
+    },
+    {
+      property: "og:description",
+      content: t("page.principal.struman.seo.description"),
+    },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },

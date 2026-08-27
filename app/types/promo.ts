@@ -9,7 +9,7 @@ export type Promo = {
   end_date: string;
   url: string;
   view: number;
-  product: PromoProduct[];
+  products: PromoProduct[];
   name_en: string;
   description_en: string;
   url_en: string;

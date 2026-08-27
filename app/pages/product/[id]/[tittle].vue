@@ -22,7 +22,7 @@
         </p>
         <button
           @click="goBack"
-          class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
+          class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition-colors min-h-[44px]"
         >
           {{ $t("page.product.text.back") }}
         </button>
@@ -36,13 +36,19 @@
         <div class="container mx-auto px-0">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-1 lg:gap-8">
             <div
-              class="lg:col-span-5 lg:sticky lg:top-[150px] self-start"
-              style="max-height: calc(100vh - 6rem)"
+              class="lg:col-span-5 lg:sticky lg:top-[var(--header-height,150px)] self-start"
+              style="
+                max-height: calc(100dvh - var(--header-height, 6rem));
+                --header-height: 150px;
+              "
             >
               <ProductGallery :product="product" />
             </div>
 
-            <div class="lg:col-span-7 lg:sticky lg:top-[150px]">
+            <div
+              class="lg:col-span-7 lg:sticky lg:top-[var(--header-height,150px)]"
+              style="--header-height: 150px"
+            >
               <ProductInfo
                 :product="product"
                 :breadcrumb-items="breadcrumbItems"
@@ -80,6 +86,9 @@
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Product } from "~/types/product";
+import { useHeaderHeight } from "~/composables/useHeaderHeight";
+
+const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
 const loading = ref(true);
 const error = ref<string | null>(null);
@@ -190,8 +199,8 @@ const fetchDetailProduct = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload;
+    if (response.status === "success") {
+      const apiData = response.data!.payload;
       console.log("product: ", apiData);
       product.value = apiData;
     }
@@ -210,7 +219,7 @@ const generateProductSchema = (productData: Product | null) => {
   if (!productData) return null;
 
   const p = productData;
-  const baseUrl = "https://migration.trumecs.com";
+  const baseUrl = "https://www.trumecs.com";
   const productUrl = `${baseUrl}/product/${p.id}`;
 
   // Price - PASTIKAN MENGGUNAKAN NILAI YANG BENAR
@@ -302,7 +311,7 @@ const generateProductSchema = (productData: Product | null) => {
 const generateBreadcrumbSchema = (productData: Product | null) => {
   if (!productData) return null;
 
-  const baseUrl = "https://migration.trumecs.com";
+  const baseUrl = "https://www.trumecs.com";
   const items = [{ name: "Home", url: "/" }];
 
   // Add category chain
@@ -442,7 +451,7 @@ useHead({
     {
       rel: "canonical",
       href: product.value
-        ? `https://migration.trumecs.com/product/${product.value.id}`
+        ? `https://www.trumecs.com/product/${product.value.id}`
         : undefined,
     },
   ]),
@@ -455,12 +464,12 @@ useSeoMeta({
   ogDescription: computed(() => product.value?.description),
   ogImage: computed(() =>
     product.value?.img
-      ? `https://migration.trumecs.com/public/image/product/${product.value.img}`
+      ? `https://www.trumecs.com/public/image/product/${product.value.img}`
       : undefined
   ),
   ogUrl: computed(() =>
     product.value
-      ? `https://migration.trumecs.com/product/${product.value.id}`
+      ? `https://www.trumecs.com/product/${product.value.id}`
       : undefined
   ),
   ogType: "product",
@@ -471,6 +480,7 @@ useSeoMeta({
 // ============ LIFE CYCLE ============
 
 onMounted(async () => {
+  updateHeaderHeight();
   await fetchDetailProduct();
 
   // Debug di console

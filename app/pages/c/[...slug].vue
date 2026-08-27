@@ -5,7 +5,10 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
         <div class="lg:col-span-3">
-          <div class="lg:sticky lg:top-[var(--header-height,150px)]" style="--header-height: 150px;">
+          <div
+            class="lg:sticky lg:top-[var(--header-height,150px)]"
+            style="--header-height: 150px"
+          >
             <ProductFilterSidebar
               :filters="filters"
               :brands="availableBrands"
@@ -137,7 +140,7 @@
                 class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all"
               >
                 <Trulink
-                  :to="`/produk/${product.id}/${formatSlug(product.tittle)}`"
+                  :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
                   class="flex"
                 >
                   <div

@@ -106,7 +106,7 @@
                         v-for="share in shareButtons"
                         :key="share.name"
                         @click="shareArticle(share)"
-                        class="w-[30px] h-[30px] rounded-full flex items-center justify-center transition-colors"
+                        class="min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-colors"
                       >
                         <Icon :name="share.icon" class="text-white" />
                       </button>
@@ -118,7 +118,10 @@
 
             <!-- Right Column - Sidebar (lg:col-span-4) -->
             <div class="lg:col-span-4">
-              <div class="sticky top-20 flex flex-col gap-4">
+              <div
+                class="sticky top-[var(--header-height,80px)] flex flex-col gap-4"
+                style="--header-height: 80px"
+              >
                 <!-- Trending Section -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden">
                   <div class="border-b border-gray-200 py-3">
@@ -226,22 +229,54 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory } from "~/types/category";
+import { defineBreadcrumb, useSchemaOrg } from "@unhead/schema-org/vue";
+import { useHeaderHeight } from "~/composables/useHeaderHeight";
+
+const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 const article = ref<CardArticle | null>(null);
 
 useHead({
-  title: article.value?.title,
-  titleTemplate: "Artikel - %s | Trumecs.com",
-  meta: [{ name: article.value?.title, content: article.value?.content }],
+  title: computed(() => article.value?.title || "Artikel"),
+  titleTemplate: "%s | Trumecs.com",
 });
 
 useSeoMeta({
-  title: article.value?.title,
-  ogTitle: article.value?.title,
-  description: article.value?.content,
-  ogDescription: article.value?.content,
-  ogImage: article.value?.image,
+  title: computed(() => article.value?.title),
+  ogTitle: computed(() => article.value?.title),
+  description: computed(
+    () =>
+      article.value?.excerpt ||
+      article.value?.content?.replace(/<[^>]*>/g, "").substring(0, 160) ||
+      ""
+  ),
+  ogDescription: computed(
+    () =>
+      article.value?.excerpt ||
+      article.value?.content?.replace(/<[^>]*>/g, "").substring(0, 160) ||
+      ""
+  ),
+  ogImage: computed(() => article.value?.image),
+  ogType: "article",
+  ogSiteName: "Trumecs.com",
   twitterCard: "summary_large_image",
+  robots: "index, follow",
 });
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { position: 1, name: "Home", item: "https://www.trumecs.com" },
+      { position: 2, name: "Artikel", item: "https://www.trumecs.com/article" },
+      {
+        position: 3,
+        name: computed(() => article.value?.title || "Artikel"),
+        item: computed(
+          () => `https://www.trumecs.com/article/${article.value?.url}`
+        ),
+      },
+    ],
+  }),
+]);
 
 const loading = ref(true);
 const error = ref<string | null>(null);
@@ -289,8 +324,8 @@ const fetchTrendingArticles = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload.trend_article;
+    if (response.status === "success") {
+      const apiData = response.data!.payload.trend_article;
       const config = useRuntimeConfig();
 
       // Transform data featured
@@ -327,8 +362,8 @@ const fetchRelatedArticles = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload.related;
+    if (response.status === "success") {
+      const apiData = response.data!.payload.related;
       const config = useRuntimeConfig();
 
       relatedArticles.value = apiData.map((item: Article) => {
@@ -364,8 +399,8 @@ const fetchDetailArticle = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload;
+    if (response.status === "success") {
+      const apiData = response.data!.payload;
 
       // Transform data ke format CardArticle
       const config = useRuntimeConfig();
@@ -450,8 +485,8 @@ const fetchCategories = async () => {
       null
     );
 
-    if (response.status.value === "success") {
-      const apiData = response.data.value!.payload.category.products;
+    if (response.status === "success") {
+      const apiData = response.data!.payload.category.products;
       console.log("data categories :", apiData);
       const config = useRuntimeConfig();
 
@@ -558,6 +593,7 @@ const formatDate = (date: string) => {
 
 // Handle 404 - redirect or show message
 onMounted(async () => {
+  updateHeaderHeight();
   await fetchDetailArticle();
   await fetchTrendingArticles();
   await fetchRelatedArticles();

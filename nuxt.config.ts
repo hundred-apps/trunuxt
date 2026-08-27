@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   ssr: true,
+  pages: true,
   app: {
     head: {
       htmlAttrs: { lang: "id" },
@@ -68,6 +69,12 @@ export default defineNuxtConfig({
       },
     },
   },
+  router: {
+    options: {
+      strict: false,
+    },
+  },
+
   modules: [
     "@vueuse/nuxt",
     "@pinia/nuxt",
@@ -124,6 +131,42 @@ export default defineNuxtConfig({
   nitro: {
     preset: "node-server",
     bundleDependencies: true,
+    // routeRules: {
+    //   // Proxy untuk API dari CI3
+    //   "/api/**": {
+    //     proxy: {
+    //       to: "https://migrationbe.trumecs.com/api/**",
+    //       headers: {
+    //         "X-Forwarded-Host": "trumecs.com",
+    //       },
+    //     },
+    //     // Tambahkan timeout dan retry
+    //     timeout: 10000,
+    //     retry: 3,
+    //     retryDelay: 1000,
+    //   },
+    //   // Proxy untuk image
+    //   "/public/image/**": {
+    //     proxy: {
+    //       to: "https://migration.trumecs.com/public/image/**",
+    //     },
+    //     swr: 3600, // Cache 1 jam
+    //   },
+    //   // Proxy untuk article dan product
+    //   "/article/**": {
+    //     proxy: {
+    //       to: "https://migration.trumecs.com/article/**",
+    //     },
+    //   },
+    //   "/product/**": {
+    //     proxy: {
+    //       to: "https://migration.trumecs.com/product/**",
+    //     },
+    //   },
+    // },
+    // prerender: {
+    //   routes: ["/article", "/product"],
+    // },
   },
   experimental: {
     writeEarlyHints: false,

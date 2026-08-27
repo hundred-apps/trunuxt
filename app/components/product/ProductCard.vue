@@ -1,6 +1,6 @@
 <template>
   <Trulink
-    :to="`/produk/${product.id}/${formatSlug(product.tittle)}`"
+    :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
     class="group block bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg border border-gray-100"
   >
     <div class="relative aspect-square overflow-hidden bg-gray-50">
@@ -24,8 +24,13 @@
       </div>
     </div>
     <div class="p-3">
+      <!-- ✅ Perbaiki brand - cek tipe data -->
       <p
-        v-if="product.brand && product.brand.toLowerCase() !== 'other'"
+        v-if="
+          product.brand &&
+          typeof product.brand === 'string' &&
+          product.brand.toLowerCase() !== 'other'
+        "
         class="text-xs text-orange-500 font-semibold mb-1"
       >
         {{ product.brand }}
@@ -65,10 +70,10 @@ import { computed } from "vue";
 interface ProductItem {
   id: number;
   tittle: string;
-  img: string;
+  img: string | null;
   price: string;
   price_promo: string;
-  brand: string;
+  brand: string | number | null; // ✅ Bisa string, number, atau null
   stock: number;
 }
 
@@ -78,11 +83,26 @@ const props = defineProps<{
 
 const config = useRuntimeConfig();
 
+// ✅ Perbaiki productImage dengan fallback
 const productImage = computed(() => {
   if (props.product.img) {
-    return `${config.public.baseImageProduct}${props.product.img}`;
+    // Cek apakah img sudah URL lengkap
+    if (props.product.img.startsWith("http")) {
+      return props.product.img;
+    }
+    return `${config.public.baseImageProduct || "https://www.trumecs.com/public/image/product/"}${props.product.img}`;
   }
   return "https://via.placeholder.com/300x300?text=No+Image";
+});
+
+// ✅ Perbaiki brand display
+const displayBrand = computed(() => {
+  const brand = props.product.brand;
+  if (!brand) return null;
+  if (typeof brand === "string") {
+    return brand.toLowerCase() !== "other" ? brand : null;
+  }
+  return null;
 });
 
 const formatPrice = (price: number) => {
