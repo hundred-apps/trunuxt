@@ -379,6 +379,17 @@
       </div>
     </section>
 
+    <section class="py-4 md:py-6 bg-surface border-t border-gray-200/10">
+      <div class="container mx-auto px-4 py-8">
+        <BessCalculator
+          title="Kalkulator Efisiensi BESS"
+          subtitle="Hitung potensi penghematan listrik dengan BESS dan solar panel"
+          :show-header="true"
+          @calculate="handleCalculate"
+        />
+      </div>
+    </section>
+
     <!-- ============ CONTACT & LOCATIONS ============ -->
     <section
       class="py-4 md:py-6 bg-surface border-t border-gray-200/10"
@@ -442,8 +453,16 @@
 </template>
 
 <script setup lang="ts">
+import BessCalculator from "~/components/calculator/BessCalculator.vue";
+import type { BessResult } from "~/types/calculator";
+
 const activeFeature = ref(0);
 const activeFeatureMobile = ref(0);
+
+function handleCalculate(result: BessResult) {
+  console.log("Calculation result:", result);
+  // Kirim ke analytics, simpan, dll.
+}
 
 const products = [
   {
