@@ -72,9 +72,6 @@
                 </label>
                 <el-input-number
                   v-model="config.bessCapacity"
-                  :min="1"
-                  :max="10000"
-                  :step="1"
                   controls-position="right"
                   class="w-full"
                 />
@@ -87,9 +84,6 @@
                 </label>
                 <el-input-number
                   v-model="config.bessPower"
-                  :min="0.5"
-                  :max="5000"
-                  :step="0.5"
                   controls-position="right"
                   class="w-full"
                 />
@@ -103,9 +97,9 @@
                 <div class="flex items-center gap-4">
                   <el-slider
                     v-model="config.dod"
-                    :min="50"
+                    :min="1"
                     :max="100"
-                    :step="5"
+                    :step="1"
                     class="flex-1"
                   />
                   <span class="text-sm font-medium text-gray-700 min-w-[50px]">
@@ -122,8 +116,8 @@
                 <div class="flex items-center gap-4">
                   <el-slider
                     v-model="config.cycleEfficiency"
-                    :min="80"
-                    :max="98"
+                    :min="1"
+                    :max="100"
                     :step="1"
                     class="flex-1"
                   />
@@ -140,8 +134,6 @@
                 </label>
                 <el-input-number
                   v-model="config.investmentCost"
-                  :min="1000000"
-                  :step="1000000"
                   controls-position="right"
                   class="w-full"
                   :formatter="
@@ -173,9 +165,6 @@
                 </label>
                 <el-input-number
                   v-model="config.solarCapacity"
-                  :min="0.1"
-                  :max="1000"
-                  :step="0.5"
                   controls-position="right"
                   class="w-full"
                 />
@@ -188,9 +177,6 @@
                 </label>
                 <el-input-number
                   v-model="config.sunHours"
-                  :min="1"
-                  :max="12"
-                  :step="0.5"
                   controls-position="right"
                   class="w-full"
                 />
@@ -204,9 +190,9 @@
                 <div class="flex items-center gap-4">
                   <el-slider
                     v-model="config.panelEfficiency"
-                    :min="15"
-                    :max="25"
-                    :step="0.5"
+                    :min="1"
+                    :max="100"
+                    :step="1"
                     class="flex-1"
                   />
                   <span class="text-sm font-medium text-gray-700 min-w-[50px]">
@@ -222,8 +208,6 @@
                 </label>
                 <el-input-number
                   v-model="config.solarCost"
-                  :min="0"
-                  :step="500000"
                   controls-position="right"
                   class="w-full"
                   :formatter="
@@ -247,20 +231,6 @@
                 </h3>
               </div>
 
-              <!-- Daya Beban -->
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">
-                  Daya Beban Harian (kWh/hari)
-                </label>
-                <el-input-number
-                  v-model="config.dailyLoad"
-                  :min="0.1"
-                  :step="0.5"
-                  controls-position="right"
-                  class="w-full"
-                />
-              </div>
-
               <!-- Tarif Listrik -->
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
@@ -268,9 +238,6 @@
                 </label>
                 <el-input-number
                   v-model="config.electricityRate"
-                  :min="500"
-                  :max="5000"
-                  :step="50"
                   controls-position="right"
                   class="w-full"
                 />
@@ -283,9 +250,18 @@
                 </label>
                 <el-input-number
                   v-model="config.peakRate"
-                  :min="500"
-                  :max="5000"
-                  :step="50"
+                  controls-position="right"
+                  class="w-full"
+                />
+              </div>
+
+              <!-- Daya Beban -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                  Daya Beban Harian (kWh/hari)
+                </label>
+                <el-input-number
+                  v-model="config.dailyLoad"
                   controls-position="right"
                   class="w-full"
                 />
