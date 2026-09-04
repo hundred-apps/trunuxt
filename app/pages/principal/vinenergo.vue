@@ -90,18 +90,13 @@
               ></div>
             </div>
             <div class="relative z-10 w-full max-w-md">
-              <div
-                class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-              >
+              <div class="relative overflow-hidden">
                 <img
-                  src="https://static.vinenergo.com/public/product_civil_4373bb0bda.jpg?w=828&q=100"
+                  src="https://migration.trumecs.com/principal/vinenergo/container-bess.png"
                   alt="VinEnergo BESS"
                   class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"
-                ></div>
               </div>
             </div>
           </div>
@@ -336,7 +331,7 @@
     </section>
 
     <!-- ============ BENEFITS SECTION ============ -->
-    <section class="py-12 md:py-6 bg-surface" id="benefits">
+    <section class="py-4 md:py-6 bg-surface" id="benefits">
       <div class="max-w-[1440px] mx-auto px-4 md:px-8">
         <div class="text-center mb-12 max-w-3xl mx-auto">
           <div class="inline-flex items-center gap-2 mb-2 justify-center">
@@ -381,12 +376,13 @@
 
     <section class="py-4 md:py-6 bg-surface border-t border-gray-200/10">
       <div class="container mx-auto px-4 py-8">
-        <BessCalculator
+        <!-- <BessCalculator
           title="Kalkulator Efisiensi BESS"
           subtitle="Hitung potensi penghematan listrik dengan BESS dan solar panel"
           :show-header="true"
           @calculate="handleCalculate"
-        />
+        /> -->
+        <BessInteractive />
       </div>
     </section>
 
@@ -395,7 +391,7 @@
       class="py-4 md:py-6 bg-surface border-t border-gray-200/10"
       id="contactLocations"
     >
-      <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+      <div class="max-w-[1440px] mx-auto px-4 md:px-8 flex gap-2 items-center">
         <div class="max-w-2xl mx-auto text-center">
           <Icon name="mdi:phone" class="text-5xl text-green-600 mb-3" />
           <h2 class="text-3xl font-bold mb-4">
@@ -455,6 +451,7 @@
 <script setup lang="ts">
 import BessCalculator from "~/components/calculator/BessCalculator.vue";
 import type { BessResult } from "~/types/calculator";
+const { t } = useI18n();
 
 const activeFeature = ref(0);
 const activeFeatureMobile = ref(0);
@@ -463,6 +460,25 @@ function handleCalculate(result: BessResult) {
   console.log("Calculation result:", result);
   // Kirim ke analytics, simpan, dll.
 }
+
+const scrollTo = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+const handleContact = () => {
+  window.open(
+    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20BESS%20Anda.",
+    "_blank"
+  );
+};
+
+const handleEmail = () => {
+  window.location.href =
+    "mailto:info@trumecs.com?subject=Machining%20dan%20Fabrication%20Inquiry";
+};
 
 const products = [
   {
@@ -580,14 +596,42 @@ const benefits = [
     icon: "mdi:generator-portable",
   },
   {
-    title: "Peak Saving",
+    title: "Peak Shaving",
     description:
       "Reduces operational electricity costs during demand spikes. Store energy during off-peak hours and use it during peak hours to save costs.",
-    icon: "mdi:chart-line-decreasing",
+    icon: "streamline:graph-bar-decrease-solid",
   },
 ];
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
+
+useHead({
+  title: t("page.principal.vinenergo.seo.title") || "VinEnergo BESS",
+  titleTemplate: "%s | Trumecs.com",
+  meta: [
+    {
+      name: "description",
+      content: t("page.principal.vinenergo.seo.description") || "Solusi BESS",
+    },
+    {
+      property: "og:title",
+      content: `${t("page.principal.vinenergo.seo.title") || "VinEnergo"} | Trumecs.com`,
+    },
+    {
+      property: "og:description",
+      content: t("page.principal.vinenergo.seo.description") || "Solusi BESS",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Trumecs.com" },
+    { name: "robots", content: "index, follow" },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://www.trumecs.com/principal/vinenergo",
+    },
+  ],
+});
 </script>
 
 <style scoped>
