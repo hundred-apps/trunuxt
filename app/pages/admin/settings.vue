@@ -25,7 +25,7 @@
                 ]"
               >
                 <Icon :name="item.icon" class="h-5 w-5" />
-                {{ t(`admin.settings.${item.label}`) }}
+                {{ t(`admin.settings.menu.${item.label}`) }}
               </NuxtLink>
             </li>
           </ul>
@@ -508,6 +508,8 @@ import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import { ElMessage } from "element-plus";
 import { useI18n } from "vue-i18n";
+
+definePageMeta({ layout: "admin" });
 
 // ============ I18N ============
 const { t } = useI18n();

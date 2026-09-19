@@ -2,55 +2,46 @@
   <div class="min-h-screen bg-background font-body-md text-on-surface">
     <!-- 1. Hero Section -->
     <section
-      class="relative min-h-[90dvh] flex items-center justify-center overflow-hidden"
+      class="relative min-h-[80dvh] flex items-center justify-center overflow-hidden"
     >
       <!-- Background Image -->
-      <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 z-0 h-[80dvh]">
         <div
-          class="bg-cover bg-center w-full h-full"
+          class="bg-cover bg-center w-full h-[80dvh] rounded-b-3xl"
           :style="{
             backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuARdKjmt1GsJqLX36SI3POXwA2GT6XW60m0U_y73R4f3ofMEgWPUaBAgKYQ6iuAgW7WdnlOiseqWHy9dfmrmR75n42eXXW87-zBpJT3zGZ5G9OZJX3CvIyXNWE2qCokbR0LV_unkm-8JYD1UXnih8WN_fJw5ZMCqhjhkE-Co4PifaVKVaOOt8vGSSFAYtpCmBQwR8RCbWwgm4YQaxcW_0Q1q9b1HBbwrX8FYax1rBmBhfvFhBa56O2X')`,
           }"
         ></div>
 
-        <div class="absolute inset-0 bg-black/60"></div>
-
+        <div class="absolute inset-0 bg-black/60 h-[80dvh]"></div>
+        <!-- 
         <div
           class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"
         ></div>
 
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
-        ></div>
+        ></div> -->
       </div>
 
       <!-- Konten -->
       <div
-        class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 text-center md:text-left pt-20"
+        class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 text-center md:text-left"
       >
         <div class="max-w-3xl mx-auto md:mx-0">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white mb-6"
-          >
-            <span
-              class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"
-            ></span>
-            <span class="font-mono text-xs tracking-wider font-semibold"
-              >{{ t('page.principal.machining.hero.badge') }}</span
-            >
-          </div>
-
           <h1
             class="font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
           >
-            {{ t('page.principal.machining.hero.titleLine1') }}
-            <span class="text-orange-400">{{ t('page.principal.machining.hero.titleLine2') }}</span>
+            {{ t("page.principal.machining.hero.titleLine1") }}
+            <span class="text-orange-400">{{
+              t("page.principal.machining.hero.titleLine2")
+            }}</span>
           </h1>
 
           <p
             class="text-lg md:text-xl text-gray-200/90 mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
           >
-            {{ t('page.principal.machining.hero.subtitle') }}
+            {{ t("page.principal.machining.hero.subtitle") }}
           </p>
 
           <div
@@ -62,16 +53,16 @@
               class="w-full sm:w-auto !bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !px-8 !py-4 !rounded-lg !font-semibold !shadow-lg hover:!shadow-xl transition-all"
               @click="scrollTo('contactLocations')"
             >
-              {{ t('page.principal.machining.hero.ctaQuote') }}
+              {{ t("page.principal.machining.hero.ctaQuote") }}
               <Icon name="mdi:arrow-right" class="text-lg ml-1" />
             </ElButton>
 
             <ElButton
               size="large"
               class="w-full sm:w-auto !bg-white/10 !border-2 !border-white/40 hover:!bg-white/20 !text-white !px-8 !py-4 !rounded-lg !font-semibold !backdrop-blur-sm transition-all"
-              @click="scrollTo('services')"
+              @click="scrollTo('products')"
             >
-              {{ t('page.principal.machining.hero.ctaServices') }}
+              {{ t("page.principal.machining.hero.ctaServices") }}
             </ElButton>
           </div>
         </div>
@@ -79,10 +70,10 @@
 
       <!-- Scroll Indicator -->
       <div
-        class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block"
+        class="absolute bottom-30 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block"
       >
         <a
-          @click.prevent="scrollTo('aboutMachining')"
+          @click.prevent="scrollTo('products')"
           class="text-white/50 hover:text-white/80 transition-colors cursor-pointer flex flex-col items-center gap-1"
         >
           <span class="text-[10px] uppercase tracking-widest">Scroll</span>
@@ -91,8 +82,57 @@
       </div>
     </section>
 
-    <!-- 2. About Machining Section -->
-    <section class="py-6 bg-surface relative overflow-hidden" id="aboutMachining">
+    <!-- 2. Products Section -->
+    <section class="bg-white py-4" id="products">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 mb-2 justify-center">
+            <span class="w-8 h-1 bg-orange-500"></span>
+            <span
+              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
+              >{{ t("page.principal.machining.products.title") }}</span
+            >
+            <span class="w-8 h-1 bg-orange-500"></span>
+          </div>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
+          >
+            {{
+              t("page.principal.machining.products.title") ||
+              "Products We Can Make"
+            }}
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div
+            v-for="(product, index) in products"
+            :key="index"
+            class="group text-center"
+          >
+            <div
+              class="rounded-xl p-6 mb-3 aspect-square flex items-center justify-center group-hover:bg-orange-50 transition-colors"
+            >
+              <img
+                :src="product.image"
+                :alt="product.name"
+                class="w-full h-full object-center group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-semibold text-primary text-sm md:text-base">
+              {{ product.name }}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. About Machining Section -->
+    <section
+      class="py-6 bg-surface relative overflow-hidden"
+      id="aboutMachining"
+    >
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -100,18 +140,20 @@
               <span class="w-8 h-1 bg-orange-500"></span>
               <span
                 class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-                >{{ t('page.principal.machining.aboutMachining.sectionLabel') }}</span
+                >{{
+                  t("page.principal.machining.aboutMachining.sectionLabel")
+                }}</span
               >
             </div>
 
             <h2
               class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
             >
-              {{ t('page.principal.machining.aboutMachining.title') }}
+              {{ t("page.principal.machining.aboutMachining.title") }}
             </h2>
 
             <p class="text-gray-600 mb-8 leading-relaxed">
-              {{ t('page.principal.machining.aboutMachining.description') }}
+              {{ t("page.principal.machining.aboutMachining.description") }}
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -151,7 +193,10 @@
     </section>
 
     <!-- 3. About Fabrication Section -->
-    <section class="py-6 bg-gray-50 relative overflow-hidden" id="aboutFabrikasi">
+    <section
+      class="py-6 bg-gray-50 relative overflow-hidden"
+      id="aboutFabrikasi"
+    >
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div class="relative order-2 lg:order-1">
@@ -161,7 +206,12 @@
             <div
               class="relative z-10 w-full h-auto rounded-xl shadow-lg border border-gray-200/30 aspect-[4/3] bg-gradient-to-br from-orange-50 to-gray-100 flex items-center justify-center"
             >
-              <Icon name="mdi:factory" class="text-orange-500 text-8xl opacity-30" />
+              <img
+                src="/principal/machining/fabrication.jpg"
+                alt="Fabrication Excellence"
+                class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+                loading="lazy"
+              />
             </div>
           </div>
 
@@ -170,18 +220,20 @@
               <span class="w-8 h-1 bg-orange-500"></span>
               <span
                 class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-                >{{ t('page.principal.machining.aboutFabrikasi.sectionLabel') }}</span
+                >{{
+                  t("page.principal.machining.aboutFabrikasi.sectionLabel")
+                }}</span
               >
             </div>
 
             <h2
               class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
             >
-              {{ t('page.principal.machining.aboutFabrikasi.title') }}
+              {{ t("page.principal.machining.aboutFabrikasi.title") }}
             </h2>
 
             <p class="text-gray-600 mb-8 leading-relaxed">
-              {{ t('page.principal.machining.aboutFabrikasi.description') }}
+              {{ t("page.principal.machining.aboutFabrikasi.description") }}
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -208,6 +260,55 @@
       </div>
     </section>
 
+    <section class="py-12 bg-white" id="industries">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 mb-2 justify-center">
+            <span class="w-8 h-1 bg-orange-500"></span>
+            <span
+              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
+              >{{
+                t("page.principal.machining.industries.title") ||
+                "Industries We Serve"
+              }}</span
+            >
+            <span class="w-8 h-1 bg-orange-500"></span>
+          </div>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
+          >
+            {{
+              t("page.principal.machining.industries.title") ||
+              "Industries We Serve"
+            }}
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div
+            v-for="(industry, index) in industries"
+            :key="index"
+            class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer"
+          >
+            <img
+              :src="industry.image"
+              :alt="industry.name"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+            ></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <h3 class="text-white font-bold text-sm md:text-base text-center">
+                {{ industry.name }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 4. Methods Section -->
     <section class="py-4 bg-gray-50" id="methods">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
@@ -216,21 +317,23 @@
             <span class="w-8 h-1 bg-orange-500"></span>
             <span
               class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >{{ t('page.principal.machining.methods.sectionLabel') }}</span
+              >{{ t("page.principal.machining.methods.sectionLabel") }}</span
             >
             <span class="w-8 h-1 bg-orange-500"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
           >
-            {{ t('page.principal.machining.methods.title') }}
+            {{ t("page.principal.machining.methods.title") }}
           </h2>
           <p class="text-gray-600">
-            {{ t('page.principal.machining.methods.subtitle') }}
+            {{ t("page.principal.machining.methods.subtitle") }}
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+        >
           <div
             v-for="(method, index) in methods"
             :key="index"
@@ -256,60 +359,13 @@
                 :key="fIndex"
                 class="flex items-center gap-2 text-xs text-gray-500"
               >
-                <Icon name="mdi:check-circle" class="text-orange-400 text-sm shrink-0" />
+                <Icon
+                  name="mdi:check-circle"
+                  class="text-orange-400 text-sm shrink-0"
+                />
                 {{ feature }}
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Products Section -->
-    <section class="py-6 bg-surface" id="products">
-      <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div
-          class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
-        >
-          <div>
-            <div class="flex items-center gap-2 mb-4">
-              <span class="w-8 h-1 bg-orange-500"></span>
-              <span
-                class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-                >{{ t('page.principal.machining.products.sectionLabel') }}</span
-              >
-            </div>
-            <h2
-              class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary max-w-xl"
-            >
-              {{ t('page.principal.machining.products.title') }}
-            </h2>
-          </div>
-          <p class="text-gray-600 max-w-xl">
-            {{ t('page.principal.machining.products.subtitle') }}
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            v-for="(product, index) in products"
-            :key="index"
-            class="bg-white rounded-xl p-8 border border-gray-200/30 shadow-sm flex flex-col items-center text-center hover:border-orange-500/30 hover:shadow-xl transition-all duration-300 group"
-          >
-            <div
-              class="w-16 h-16 rounded-full bg-gray-100 group-hover:bg-orange-50 transition-colors flex items-center justify-center mb-6"
-            >
-              <Icon
-                :name="product.icon"
-                class="text-orange-500 text-3xl"
-              />
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">
-              {{ product.name }}
-            </h3>
-            <p class="text-sm text-gray-600">
-              {{ product.description }}
-            </p>
           </div>
         </div>
       </div>
@@ -323,17 +379,17 @@
             <span class="w-8 h-1 bg-orange-500"></span>
             <span
               class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >{{ t('page.principal.machining.materials.sectionLabel') }}</span
+              >{{ t("page.principal.machining.materials.sectionLabel") }}</span
             >
             <span class="w-8 h-1 bg-orange-500"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
           >
-            {{ t('page.principal.machining.materials.title') }}
+            {{ t("page.principal.machining.materials.title") }}
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            {{ t('page.principal.machining.materials.subtitle') }}
+            {{ t("page.principal.machining.materials.subtitle") }}
           </p>
         </div>
 
@@ -369,23 +425,23 @@
     </section>
 
     <!-- 7. Contact & Locations Section -->
-    <section
-      class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 py-6"
-      id="contactLocations"
-    >
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        {{ t('page.principal.machining.contact.title') }}
-      </h2>
-      <div class="flex items-center">
-        <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-          <div class="max-w-2xl mx-auto text-center">
-            <Icon
-              name="mdi:phone"
-              class="text-5xl text-secondary-container mb-3"
-            />
-            <h2 class="text-3xl font-bold mb-4">{{ t('page.principal.machining.contact.needTitle') }}</h2>
-            <p class="text-gray-500 mb-8">
-              {{ t('page.principal.machining.contact.needDesc') }}
+    <section class="py-16 bg-surface" id="contactLocations">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary text-center mb-10"
+        >
+          {{ t("page.principal.machining.contact.title") }}
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            class="bg-white rounded-2xl p-8 border border-gray-200/30 shadow-sm text-center"
+          >
+            <Icon name="mdi:phone" class="text-5xl text-orange-500 mb-4" />
+            <h3 class="text-2xl font-bold text-primary mb-3">
+              {{ t("page.principal.machining.contact.needTitle") }}
+            </h3>
+            <p class="text-gray-600 mb-6">
+              {{ t("page.principal.machining.contact.needDesc") }}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <ElButton
@@ -395,7 +451,7 @@
                 @click="handleContact"
               >
                 <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-                {{ t('page.principal.machining.contact.whatsapp') }}
+                {{ t("page.principal.machining.contact.whatsapp") }}
               </ElButton>
               <ElButton
                 type="warning"
@@ -404,32 +460,31 @@
                 @click="handleEmail"
               >
                 <Icon name="mdi:email" class="text-xl mr-2" />
-                {{ t('page.principal.machining.contact.email') }}
+                {{ t("page.principal.machining.contact.email") }}
               </ElButton>
             </div>
           </div>
-        </div>
-        <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
-          <Icon
-            name="mdi:city"
-            class="text-5xl text-secondary-container mb-3"
-          />
-          <h2 class="text-3xl font-bold text-primary mb-3">
-            {{ t('page.principal.machining.contact.locationTitle') }}
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto mb-6">
-            {{ t('page.principal.machining.contact.locationDesc') }}
-          </p>
-          <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-            <div
-              v-for="(location, index) in locations"
-              :key="index"
-              class="bg-white border border-gray-200/10 px-6 py-3 rounded-full shadow-sm flex items-center gap-2"
-            >
-              <Icon name="mdi:map-marker" class="text-secondary text-xl" />
-              <span class="font-semibold text-primary text-lg">{{
-                location
-              }}</span>
+          <div
+            class="bg-white rounded-2xl p-8 border border-gray-200/30 shadow-sm text-center"
+          >
+            <Icon name="mdi:city" class="text-5xl text-orange-500 mb-4" />
+            <h3 class="text-2xl font-bold text-primary mb-3">
+              {{ t("page.principal.machining.contact.locationTitle") }}
+            </h3>
+            <p class="text-gray-600 mb-6">
+              {{ t("page.principal.machining.contact.locationDesc") }}
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <div
+                v-for="(location, index) in locations"
+                :key="index"
+                class="bg-gray-50 border border-gray-200/10 px-6 py-3 rounded-full shadow-sm flex items-center gap-2"
+              >
+                <Icon name="mdi:map-marker" class="text-orange-500 text-xl" />
+                <span class="font-semibold text-primary text-lg">{{
+                  location
+                }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -441,40 +496,195 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-const aboutMachiningHighlights = [
-  { title: "CNC Machining", icon: "mdi:cpu-64-bit", description: "Computer Numerical Control memungkinkan presisi tinggi dan reproduktifitas yang konsisten." },
-  { title: "Toleransi Presisi", icon: "mdi:tune-variant", description: "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis." },
-  { title: "Multi-Axis Capability", icon: "mdi:axis-arrow", description: "Mesin 3-axis hingga 5-axis untuk geometri kompleks." },
-  { title: "Quality Control", icon: "mdi:shield-check", description: "Inspeksi CMM dan dokumentasi ketat di setiap tahap." }
-];
-
-const aboutFabrikasiHighlights = [
-  { title: "Cutting & Shaping", icon: "mdi:content-cut", description: "Pemotongan presisi menggunakan laser, plasma, atau waterjet." },
-  { title: "Welding & Joining", icon: "mdi:fire", description: "Pengelasan MIG, TIG, dan SMAW untuk struktur kokoh." },
-  { title: "Bending & Forming", icon: "mdi:arrow-decline", description: "Pembengkokan dan pembentukan plat serta profil baja." },
-  { title: "Assembly", icon: "mdi:puzzle-check", description: "Perakitan komponen menjadi produk akhir yang siap install." }
-];
-
-const methods = [
-  { title: "Milling", icon: "mdi:milling", description: "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.", features: ["3-axis hingga 5-axis", "Permukaan datar & kontur", "Slot & keyway", "Toleransi ±0.01mm"] },
-  { title: "Turning", icon: "mdi:rotate-3d-variant", description: "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.", features: ["Shaft & axle", "Bushing & bearing", "Thread & ulir", "Toleransi ±0.005mm"] },
-  { title: "Grinding", icon: "mdi:blur", description: "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.", features: ["Surface grinding", "Cylindrical grinding", "Surface finish Ra 0.4μm", "Flatness < 0.005mm"] },
-  { title: "Cutting", icon: "mdi:content-cut", description: "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.", features: ["Band saw cutting", "Wire EDM", "Laser cutting", "Waterjet cutting"] }
+const industries = [
+  {
+    name: "Automotive",
+    image: "/principal/machining/automotive.jpg",
+  },
+  {
+    name: "Food & Beverage",
+    image: "/principal/machining/fnb.jpg",
+  },
+  {
+    name: "Manufacture",
+    image: "/principal/machining/manufacture.jpg",
+  },
+  {
+    name: "Mill",
+    image: "/principal/machining/mill.jpg",
+  },
+  {
+    name: "Textile",
+    image: "/principal/machining/textile.jpg",
+  },
 ];
 
 const products = [
-  { name: "Gear", description: "Roda gigi presisi untuk transmisi daya mesin dan perangkat mekanis lainnya.", icon: "mdi:cog" },
-  { name: "Shaft", description: "Poros mesin dengan toleransi ketat untuk transmisi rotasi dan beban.", icon: "mdi:minus-thick" },
-  { name: "Roller", description: "Silinder penggulung untuk conveyor, printing, dan aplikasi industri lainnya.", icon: "mdi:circle-slice8" },
-  { name: "Pulley", description: "Roda katrol untuk sistem transmisi belt dan power transmission.", icon: "mdi:record-circle-outline" },
-  { name: "Chain", description: "Rantai transmisi daya untuk mesin industri dan otomotif.", icon: "mdi:chain" },
-  { name: "Bolt, Nut & Washer", description: "Mur, baut, dan ring presisi untuk perakitan dan struktur.", icon: "mdi:screw-flat-top" }
+  { name: "Shaft Gear", image: "/principal/machining/shaft.png" },
+  { name: "Chain", image: "/principal/machining/chain.png" },
+  { name: "Bearing Housing", image: "/principal/machining/housing.png" },
+  { name: "Conveyor Roller", image: "/principal/machining/roller.png" },
+  { name: "Sprocket", image: "/principal/machining/sprocket.png" },
+  { name: "Saw", image: "/principal/machining/saw.png" },
+  { name: "Coupling", image: "/principal/machining/coupling.png" },
+  { name: "Preforated Sheet", image: "/principal/machining/perforated.png" },
 ];
 
+const aboutMachiningHighlights = [
+  {
+    title: "CNC Machining",
+    icon: "mdi:cpu-64-bit",
+    description:
+      "Computer Numerical Control memungkinkan presisi tinggi dan reproduktifitas yang konsisten.",
+  },
+  {
+    title: "Toleransi Presisi",
+    icon: "mdi:tune-variant",
+    description: "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis.",
+  },
+  {
+    title: "Multi-Axis Capability",
+    icon: "mdi:axis-arrow",
+    description: "Mesin 3-axis hingga 5-axis untuk geometri kompleks.",
+  },
+  {
+    title: "Quality Control",
+    icon: "mdi:shield-check",
+    description: "Inspeksi CMM dan dokumentasi ketat di setiap tahap.",
+  },
+];
+
+const aboutFabrikasiHighlights = [
+  {
+    title: "Cutting & Shaping",
+    icon: "mdi:content-cut",
+    description: "Pemotongan presisi menggunakan laser, plasma, atau waterjet.",
+  },
+  {
+    title: "Welding & Joining",
+    icon: "mdi:fire",
+    description: "Pengelasan MIG, TIG, dan SMAW untuk struktur kokoh.",
+  },
+  {
+    title: "Bending & Forming",
+    icon: "griddy-icons:arrow-elbow-down-right",
+    description: "Pembengkokan dan pembentukan plat serta profil baja.",
+  },
+  {
+    title: "Assembly",
+    icon: "mdi:puzzle-check",
+    description: "Perakitan komponen menjadi produk akhir yang siap install.",
+  },
+];
+
+const methods = [
+  {
+    title: "Milling",
+    icon: "streamline-pixel:ecology-windmill-1",
+    description:
+      "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.",
+    features: [
+      "3-axis hingga 5-axis",
+      "Permukaan datar & kontur",
+      "Slot & keyway",
+      "Toleransi ±0.01mm",
+    ],
+  },
+  {
+    title: "Turning",
+    icon: "mdi:rotate-3d-variant",
+    description:
+      "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.",
+    features: [
+      "Shaft & axle",
+      "Bushing & bearing",
+      "Thread & ulir",
+      "Toleransi ±0.005mm",
+    ],
+  },
+  {
+    title: "Grinding",
+    icon: "mdi:blur",
+    description:
+      "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.",
+    features: [
+      "Surface grinding",
+      "Cylindrical grinding",
+      "Surface finish Ra 0.4μm",
+      "Flatness < 0.005mm",
+    ],
+  },
+  {
+    title: "Cutting",
+    icon: "mdi:content-cut",
+    description:
+      "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.",
+    features: [
+      "Band saw cutting",
+      "Wire EDM",
+      "Laser cutting",
+      "Waterjet cutting",
+    ],
+  },
+  {
+    title: "Fabrication",
+    icon: "mdi:factory",
+    description:
+      "Proses fabrikasi untuk menghasilkan komponen dengan teknologi canggih.",
+    features: ["Welding", "Assembly"],
+  },
+];
+
+const heroImage = "#";
+
 const materials = [
-  { name: "Stainless Steel", icon: "mdi:silverware-fork-knife", grades: ["SS304", "SS316"], description: "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis." },
-  { name: "Alloy Steel", icon: "mdi:factory", grades: ["SCM440", "SNCM439"], description: "Kekuatan tinggi untuk komponen mesin berat dan transmisi." },
-  { name: "Carbon Steel", icon: "mdi:steel", grades: ["S45C", "ST41"], description: "Umum digunakan untuk shaft, gear, dan komponen struktural." }
+  {
+    name: "Stainless Steel",
+    icon: "mdi:silverware-fork-knife",
+    grades: ["SS304", "SS316"],
+    description:
+      "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis.",
+  },
+  {
+    name: "Alloy Steel",
+    icon: "mdi:factory",
+    grades: ["SCM440", "SNCM439"],
+    description: "Kekuatan tinggi untuk komponen mesin berat dan transmisi.",
+  },
+  {
+    name: "Carbon Steel",
+    icon: "material-symbols:thermostat-carbon-outline",
+    grades: ["S45C", "ST41"],
+    description: "Umum digunakan untuk shaft, gear, dan komponen struktural.",
+  },
+  {
+    name: "Aluminium",
+    icon: "mdi:cube-outline",
+    grades: ["6061-T6", "7075-T6"],
+    description:
+      "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik.",
+  },
+  {
+    name: "Cast Iron",
+    icon: "mdi:anvil",
+    grades: ["FC250", "FCD450"],
+    description:
+      "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat.",
+  },
+  {
+    name: "Engineering Plastics",
+    icon: "guidance:plastic",
+    grades: ["POM", "PTFE", "Nylon PA6"],
+    description:
+      "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator.",
+  },
+  {
+    name: "Rubber",
+    icon: "mdi:circle-outline",
+    grades: ["NBR", "EPDM", "Silicone"],
+    description:
+      "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator.",
+  },
 ];
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
@@ -501,12 +711,18 @@ const handleEmail = () => {
 
 // ============ SEO ============
 useHead({
-  title: t('page.principal.machining.seo.title'),
+  title: t("page.principal.machining.seo.title"),
   titleTemplate: "%s | Trumecs.com",
   meta: [
-    { name: "description", content: t('page.principal.machining.seo.description') },
-    { property: "og:title", content: t('page.principal.machining.seo.title') },
-    { property: "og:description", content: t('page.principal.machining.seo.description') },
+    {
+      name: "description",
+      content: t("page.principal.machining.seo.description"),
+    },
+    { property: "og:title", content: t("page.principal.machining.seo.title") },
+    {
+      property: "og:description",
+      content: t("page.principal.machining.seo.description"),
+    },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },

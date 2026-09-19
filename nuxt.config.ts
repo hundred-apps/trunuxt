@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import tailwindcss from "@tailwindcss/vite";
+
 const i18nDomains = ["trumecs.com", "en.trumecs.com", "zh.trumecs.com"];
 const isDev = process.env.NODE_ENV === "development";
 const isProd = process.env.NODE_ENV === "production";
@@ -11,9 +13,6 @@ export default defineNuxtConfig({
   pages: true,
   app: {
     head: {
-      htmlAttrs: { lang: "id" },
-      charset: "utf-8",
-      viewport: "width=device-width, initial-scale=1",
       title: "Trumecs.com | Solusi Pengadaan Mekanikal Terpercaya",
       meta: [
         { name: "theme-color", content: "#fa8420" },
@@ -23,17 +22,12 @@ export default defineNuxtConfig({
           content:
             "Solusi pengadaan mekanikal terpercaya. Sparepart, pelumas, ban, alat berat, dan peralatan kerja berkualitas dari ribuan merek ternama.",
         },
-        { property: "og:type", content: "website" },
-        { property: "og:site_name", content: "Trumecs.com" },
         { property: "og:locale", content: "id_ID" },
         { property: "og:locale:alternate", content: "en_US" },
         { property: "og:locale:alternate", content: "zh_CN" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        { rel: "canonical", href: "https://www.trumecs.com" },
-      ],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
     baseURL: "/",
     cdnURL: "/",
@@ -78,7 +72,7 @@ export default defineNuxtConfig({
   modules: [
     "@vueuse/nuxt",
     "@pinia/nuxt",
-    "@nuxtjs/tailwindcss",
+    // "@nuxtjs/tailwindcss",
     "nuxt-headlessui",
     "@nuxtjs/color-mode",
     "@nuxt/icon",
@@ -92,15 +86,20 @@ export default defineNuxtConfig({
     "nuxt-gtag",
   ],
 
-  postcss: {
-    plugins: {
-      "@tailwindcss/postcss": {},
-    },
+  vite: {
+    plugins: [tailwindcss()],
   },
+
+  // postcss: {
+  //   plugins: {
+  //     "@tailwindcss/postcss": {},
+  //   },
+  // },
 
   css: [
     "element-plus/theme-chalk/dark/css-vars.css",
-    "~/assets/css/article.css", // pakai ~ bukan ./
+    "~/assets/css/article.css",
+    "~/assets/css/main.css", // pakai ~ bukan ./
   ],
   // Auto import components
   components: true,
@@ -111,15 +110,15 @@ export default defineNuxtConfig({
     loadingStrategy: "async",
   },
 
-  tailwindcss: {
-    cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
-    configPath: "tailwind.config",
-    exposeConfig: {
-      level: 2,
-    },
-    config: {},
-    viewer: true,
-  },
+  // tailwindcss: {
+  //   cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
+  //   configPath: "tailwind.config",
+  //   exposeConfig: {
+  //     level: 2,
+  //   },
+  //   config: {},
+  //   viewer: true,
+  // },
   robots: {
     allow: ["/"],
     disallow: ["/profile", "/api/"],

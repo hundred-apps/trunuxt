@@ -3,7 +3,7 @@
     <!-- Sidebar -->
     <aside
       :class="[
-        'fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform transition-transform duration-300 ease-in-out',
+        'fixed inset-y-0 left-0 z-40 w-64 max-w-[85vw] bg-white border-r border-gray-200 transform transition-transform duration-300 ease-in-out',
         sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
       ]"
       aria-label="Admin sidebar"
@@ -15,19 +15,15 @@
         >
           <NuxtLink to="/admin" class="flex items-center gap-2">
             <img
-              src="https://migration.trumecs.com/logo/dark.png"
+              src="https://migration.trumecs.com/logo/light.png"
               alt="Trumecs Admin"
               class="h-8 w-auto"
             />
-            <span class="font-bold text-xl text-gray-900 hidden sm:block"
-              >Admin</span
-            >
           </NuxtLink>
           <button
-            v-show="!isDesktop"
-            @click="sidebarOpen = false"
-            class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg"
+            class="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg"
             aria-label="Close sidebar"
+            @click="sidebarOpen = false"
           >
             <Icon name="material-symbols:close" class="h-5 w-5" />
           </button>
@@ -57,6 +53,7 @@
                     ? 'bg-orange-50 text-orange-600'
                     : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
                 ]"
+                @click="sidebarOpen = false"
               >
                 <Icon :name="item.icon" class="h-5 w-5 flex-shrink-0" />
                 <span>{{ $t(`admin.nav.${item.label}`) }}</span>
@@ -118,19 +115,20 @@
           class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8"
         >
           <button
-            v-show="!isDesktop"
-            @click="sidebarOpen = true"
             class="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg"
             aria-label="Open sidebar"
+            @click="sidebarOpen = true"
           >
             <Icon name="material-symbols:menu" class="h-6 w-6" />
           </button>
 
-          <div class="flex-1 lg:flex-none">
-            <h1 class="text-lg font-semibold text-gray-900">{{ pageTitle }}</h1>
+          <div class="flex-1 lg:flex-none min-w-0">
+            <h1 class="text-lg font-semibold text-gray-900 truncate">
+              {{ pageTitle }}
+            </h1>
           </div>
 
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2 sm:gap-4">
             <!-- Notifications -->
             <div class="relative">
               <button
@@ -149,7 +147,7 @@
 
               <div
                 v-if="notificationsOpen"
-                class="fixed right-4 top-20 z-50 w-80 bg-white rounded-xl shadow-lg border border-gray-200 py-2"
+                class="fixed right-4 top-20 z-50 w-80 max-w-[calc(100vw-2rem)] bg-white rounded-xl shadow-lg border border-gray-200 py-2"
               >
                 <div
                   class="px-4 py-3 border-b border-gray-200 flex items-center justify-between"
@@ -216,7 +214,7 @@
 
               <div
                 v-if="profileMenuOpen"
-                class="fixed right-4 top-20 z-50 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2"
+                class="fixed right-4 top-20 z-50 w-48 max-w-[calc(100vw-2rem)] bg-white rounded-xl shadow-lg border border-gray-200 py-2"
               >
                 <NuxtLink
                   to="/admin/profile"
@@ -228,7 +226,7 @@
                   to="/admin/settings"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                 >
-                  {{ $t("admin.settings") }}
+                  {{ $t("admin.nav.settings") }}
                 </NuxtLink>
                 <hr class="my-2 border-gray-100" />
                 <button
@@ -288,7 +286,7 @@
             to="/admin/settings"
             class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg"
           >
-            {{ $t("admin.settings") }}
+            {{ $t("admin.nav.settings") }}
           </NuxtLink>
           <button
             @click="handleLogout"
@@ -303,7 +301,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, watch, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 import { useAdminStore } from "~/stores/admin";
 
@@ -372,6 +370,7 @@ const pageTitle = computed(() => {
     "/admin/brands": "Brands",
     "/admin/grades": "Grades",
     "/admin/principals": "Principals",
+    "/admin/addresses": "Addresses",
     "/admin/roles": "Roles & Permissions",
     "/admin/settings": "Settings",
   };
@@ -426,6 +425,11 @@ const navGroups = [
         icon: "material-symbols:business",
         label: "principals",
       },
+      {
+        path: "/admin/addresses",
+        icon: "material-symbols:location-on",
+        label: "addresses",
+      },
     ],
   },
   {
@@ -467,9 +471,22 @@ const navGroups = [
 
 onMounted(() => {
   isDesktop.value = window.innerWidth >= 1024;
-  window.addEventListener("resize", () => {
-    isDesktop.value = window.innerWidth >= 1024;
-    if (isDesktop.value) sidebarOpen.value = true;
-  });
+  sidebarOpen.value = isDesktop.value;
+  window.addEventListener("resize", onResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", onResize);
+  document.body.style.overflow = "";
+});
+
+const onResize = () => {
+  isDesktop.value = window.innerWidth >= 1024;
+  if (isDesktop.value) sidebarOpen.value = true;
+};
+
+watch(sidebarOpen, (open) => {
+  if (isDesktop.value) return;
+  document.body.style.overflow = open ? "hidden" : "";
 });
 </script>

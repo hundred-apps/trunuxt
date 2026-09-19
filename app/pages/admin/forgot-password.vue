@@ -12,20 +12,28 @@
           />
         </NuxtLink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">
-          {{ $t("admin.login.title") }}
+          {{ $t("admin.forgotPassword.title") }}
         </h2>
         <p class="mt-2 text-sm text-gray-600">
-          {{ $t("admin.login.subtitle") }}
+          {{ $t("admin.forgotPassword.subtitle") }}
         </p>
       </div>
 
-      <form class="mt-8 space-y-6" @submit.prevent="handleLogin">
+      <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
         <div
           v-if="error"
           class="bg-red-50 text-red-600 text-sm p-3 rounded-lg"
           role="alert"
         >
           {{ error }}
+        </div>
+
+        <div
+          v-if="success"
+          class="bg-green-50 text-green-600 text-sm p-3 rounded-lg"
+          role="alert"
+        >
+          {{ $t("admin.forgotPassword.success") }}
         </div>
 
         <div class="space-y-4">
@@ -36,32 +44,16 @@
               v-model="form.email"
               type="email"
               :placeholder="$t('auth.email')"
-              :disabled="loading"
+              :disabled="loading || success"
               class="w-full"
               autocomplete="email"
             />
           </div>
-
-          <div>
-            <label for="password" class="sr-only">{{
-              $t("auth.password")
-            }}</label>
-            <el-input
-              id="password"
-              v-model="form.password"
-              type="password"
-              :placeholder="$t('auth.password')"
-              :disabled="loading"
-              class="w-full"
-              autocomplete="current-password"
-              show-password
-            />
-          </div>
         </div>
 
-        <div>
+        <div v-if="!success">
           <Trubutton
-            :text="$t('admin.login.submit')"
+            :text="$t('admin.forgotPassword.sendLink')"
             type="primary"
             size="large"
             variant="solid"
@@ -74,12 +66,12 @@
 
       <div class="text-center">
         <p class="text-sm text-gray-600">
-          {{ $t("admin.login.forgotPassword") }}
+          {{ $t("admin.forgotPassword.rememberPassword") }}
           <NuxtLink
-            to="/admin/forgot-password"
+            to="/admin/login"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t("auth.forgotPassword") }}
+            {{ $t("admin.login.submit") }}
           </NuxtLink>
         </p>
       </div>
@@ -89,32 +81,28 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useRouter, useRoute } from "vue-router";
 import { useAdminStore } from "~/stores/admin";
 
-const router = useRouter();
-const route = useRoute();
 const adminStore = useAdminStore();
 
 const loading = ref(false);
 const error = ref<string | null>(null);
+const success = ref(false);
 
 const form = ref({
   email: "",
-  password: "",
 });
 
-const redirect = (route.query.redirect as string) || "/admin";
-
-const handleLogin = async () => {
+const handleSubmit = async () => {
   error.value = null;
   loading.value = true;
 
   try {
-    await adminStore.login(form.value);
-    await router.push(redirect);
+    await adminStore.forgotPassword(form.value.email);
+    success.value = true;
   } catch (e: any) {
-    error.value = e.message || "Login gagal. Silakan coba lagi.";
+    error.value =
+      e.message || "Gagal mengirim tautan reset. Silakan coba lagi.";
   } finally {
     loading.value = false;
   }

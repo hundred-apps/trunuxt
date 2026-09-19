@@ -136,6 +136,8 @@ import { ref, onMounted } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import MenuTree from "~/components/admin/MenuTree.vue";
 
+definePageMeta({ layout: "admin" });
+
 const loading = ref(false);
 const roles = ref<any[]>([]);
 const menus = ref<any[]>([]);
@@ -143,75 +145,9 @@ const menus = ref<any[]>([]);
 const fetchRoles = async () => {
   loading.value = true;
   try {
-    await new Promise((r) => setTimeout(r, 500));
-
-    roles.value = [
-      {
-        id: 1,
-        name: "Super Admin",
-        description: "Akses penuh ke semua fitur admin",
-        menuCount: 25,
-        menus: [
-          "Dashboard",
-          "Members",
-          "Products",
-          "Orders",
-          "Promos",
-          "Articles",
-          "Categories",
-          "Brands",
-          "Grades",
-          "Principals",
-          "Roles",
-          "Settings",
-          "Reports",
-          "Users",
-          "Logs",
-        ],
-      },
-      {
-        id: 2,
-        name: "Admin Produk",
-        description: "Mengelola produk, kategori, merek, grade",
-        menuCount: 6,
-        menus: [
-          "Products",
-          "Categories",
-          "Brands",
-          "Grades",
-          "Promos",
-          "Reports",
-        ],
-      },
-      {
-        id: 3,
-        name: "Admin Order",
-        description: "Mengelola order, pengiriman, pembayaran",
-        menuCount: 3,
-        menus: ["Orders", "Shipping", "Reports"],
-      },
-      {
-        id: 4,
-        name: "Admin Member",
-        description: "Mengelola member, principal, role",
-        menuCount: 4,
-        menus: ["Members", "Principals", "Roles", "Reports"],
-      },
-      {
-        id: 5,
-        name: "Admin Konten",
-        description: "Mengelola artikel, promo, halaman",
-        menuCount: 3,
-        menus: ["Articles", "Promos", "Pages"],
-      },
-      {
-        id: 6,
-        name: "Viewer",
-        description: "Hanya melihat laporan dan dashboard",
-        menuCount: 1,
-        menus: ["Dashboard", "Reports"],
-      },
-    ];
+    const res = await fetch("/backend-rule/read");
+    const data = await res.json();
+    roles.value = data.roles ?? [];
   } catch (e: any) {
     ElMessage.error("Gagal memuat data role");
   } finally {
@@ -221,167 +157,9 @@ const fetchRoles = async () => {
 
 const fetchMenus = async () => {
   try {
-    await new Promise((r) => setTimeout(r, 500));
-
-    menus.value = [
-      {
-        id: 1,
-        name: "Dashboard",
-        icon: "material-symbols:dashboard",
-        url: "/admin",
-        parent_id: null,
-        children: [],
-      },
-      {
-        id: 2,
-        name: "Manajemen",
-        icon: "material-symbols:people",
-        url: "#",
-        parent_id: null,
-        children: [
-          {
-            id: 3,
-            name: "Member",
-            icon: "material-symbols:person",
-            url: "/admin/members",
-            parent_id: 2,
-            children: [],
-          },
-          {
-            id: 4,
-            name: "Principal",
-            icon: "material-symbols:business",
-            url: "/admin/principals",
-            parent_id: 2,
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 5,
-        name: "Katalog",
-        icon: "material-symbols:inventory-2",
-        url: "#",
-        parent_id: null,
-        children: [
-          {
-            id: 6,
-            name: "Produk",
-            icon: "material-symbols:inventory-2",
-            url: "/admin/products",
-            parent_id: 5,
-            children: [],
-          },
-          {
-            id: 7,
-            name: "Kategori",
-            icon: "material-symbols:category",
-            url: "/admin/categories",
-            parent_id: 5,
-            children: [],
-          },
-          {
-            id: 8,
-            name: "Merek",
-            icon: "material-symbols:label",
-            url: "/admin/brands",
-            parent_id: 5,
-            children: [],
-          },
-          {
-            id: 9,
-            name: "Grade",
-            icon: "material-symbols:grade",
-            url: "/admin/grades",
-            parent_id: 5,
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 10,
-        name: "Transaksi",
-        icon: "material-symbols:shopping-cart",
-        url: "#",
-        parent_id: null,
-        children: [
-          {
-            id: 11,
-            name: "Order",
-            icon: "material-symbols:receipt",
-            url: "/admin/orders",
-            parent_id: 10,
-            children: [],
-          },
-          {
-            id: 12,
-            name: "Pengiriman",
-            icon: "material-symbols:local-shipping",
-            url: "/admin/shipping",
-            parent_id: 10,
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 13,
-        name: "Pemasaran",
-        icon: "material-symbols:campaign",
-        url: "#",
-        parent_id: null,
-        children: [
-          {
-            id: 14,
-            name: "Promo",
-            icon: "material-symbols:local-offer",
-            url: "/admin/promos",
-            parent_id: 13,
-            children: [],
-          },
-          {
-            id: 15,
-            name: "Artikel",
-            icon: "material-symbols:article",
-            url: "/admin/articles",
-            parent_id: 13,
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 16,
-        name: "Sistem",
-        icon: "material-symbols:settings",
-        url: "#",
-        parent_id: null,
-        children: [
-          {
-            id: 17,
-            name: "Role & Hak Akses",
-            icon: "material-symbols:admin-panel-settings",
-            url: "/admin/roles",
-            parent_id: 16,
-            children: [],
-          },
-          {
-            id: 18,
-            name: "Pengaturan",
-            icon: "material-symbols:settings",
-            url: "/admin/settings",
-            parent_id: 16,
-            children: [],
-          },
-          {
-            id: 19,
-            name: "Log Aktivitas",
-            icon: "material-symbols:history",
-            url: "/admin/logs",
-            parent_id: 16,
-            children: [],
-          },
-        ],
-      },
-    ];
+    const res = await fetch("/backend-menu/read");
+    const data = await res.json();
+    menus.value = data.menus ?? [];
   } catch (e: any) {
     ElMessage.error("Gagal memuat data menu");
   }

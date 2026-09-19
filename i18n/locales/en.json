@@ -377,7 +377,8 @@
           "titleLine2": "Industrial Excellence",
           "subtitle": "Delivering high-precision machining services with advanced technology, experienced engineers, and strict quality control to meet your complex industrial manufacturing needs.",
           "ctaQuote": "Request a Quote",
-          "ctaServices": "Explore Our Services"
+          "ctaServices": "Explore Our Services",
+          "scroll": "Scroll"
         },
         "aboutMachining": {
           "sectionLabel": "About Machining",
@@ -386,18 +387,22 @@
           "highlights": [
             {
               "title": "CNC Machining",
+              "icon": "mdi:cpu-64-bit",
               "description": "Computer Numerical Control enables high precision and consistent reproducibility."
             },
             {
               "title": "Precision Tolerances",
+              "icon": "mdi:tune-variant",
               "description": "Achieving tolerances up to ±0.001mm for critical applications."
             },
             {
               "title": "Multi-Axis Capability",
+              "icon": "mdi:axis-arrow",
               "description": "3-axis to 5-axis machines for complex geometries."
             },
             {
               "title": "Quality Control",
+              "icon": "mdi:shield-check",
               "description": "CMM inspection and rigorous documentation at every stage."
             }
           ]
@@ -409,133 +414,100 @@
           "highlights": [
             {
               "title": "Cutting & Shaping",
+              "icon": "mdi:content-cut",
               "description": "Precision cutting using laser, plasma, or waterjet."
             },
             {
               "title": "Welding & Joining",
+              "icon": "mdi:fire",
               "description": "MIG, TIG, and SMAW welding for solid structures."
             },
             {
               "title": "Bending & Forming",
+              "icon": "mdi:shape",
               "description": "Bending and forming of plates and steel profiles."
             },
             {
               "title": "Assembly",
+              "icon": "mdi:puzzle-check",
               "description": "Component assembly into ready-to-install final products."
             }
           ]
         },
+        "industries": {
+          "title": "Industries We Serve",
+          "items": [
+            { "name": "Automotive", "image": "/principal/machining/automotive.jpg" },
+            { "name": "Food & Beverage", "image": "/principal/machining/fnb.jpg" },
+            { "name": "Manufacturing", "image": "/principal/machining/manufacture.jpg" },
+            { "name": "Mill", "image": "/principal/machining/mill.jpg" },
+            { "name": "Textile", "image": "/principal/machining/textile.jpg" }
+          ]
+        },
         "methods": {
           "sectionLabel": "Machining Methods",
-          "title": "Machining Methods",
+          "title": "Our Capabilities",
           "subtitle": "We employ various machining methods to produce components with the best quality and precision for your needs.",
           "items": [
             {
               "title": "Milling",
-              "icon": "mdi:milling",
-              "description": "Cutting process using rotating cutters to produce flat surfaces, slots, and complex geometries on workpieces.",
-              "features": [
-                "3-axis to 5-axis",
-                "Flat surfaces & contours",
-                "Slots & keyways",
-                "Tolerance ±0.01mm"
-              ]
+              "icon": "mdi:cog-outline",
+              "description": "Material removal process using rotating cutters to produce flat surfaces, slots, and complex geometries on the workpiece.",
+              "features": ["3-axis to 5-axis", "Flat surfaces & contours", "Slots & keyways", "Tolerance ±0.01mm"]
             },
             {
               "title": "Turning",
-              "icon": "mdi:rotate-3d-variant",
-              "description": "Lathe process for creating high-precision cylindrical components using stationary tools on rotating workpieces.",
-              "features": [
-                "Shaft & axle",
-                "Bushing & bearing",
-                "Thread & threading",
-                "Tolerance ±0.005mm"
-              ]
+              "icon": "mdi:rotate-3d",
+              "description": "Lathe process for producing cylindrical components with high precision using static tools on a rotating workpiece.",
+              "features": ["Shaft & axle", "Bushing & bearing", "Thread & threading", "Tolerance ±0.005mm"]
             },
             {
               "title": "Grinding",
               "icon": "mdi:blur",
-              "description": "Surface finishing process using grinding wheels to achieve very precise surface roughness and final dimensions.",
-              "features": [
-                "Surface grinding",
-                "Cylindrical grinding",
-                "Surface finish Ra 0.4μm",
-                "Flatness < 0.005mm"
-              ]
+              "description": "Surface finishing process using grinding wheels to achieve extreme surface finish and final dimensional accuracy.",
+              "features": ["Surface grinding", "Cylindrical grinding", "Surface finish Ra 0.4μm", "Flatness < 0.005mm"]
             },
             {
               "title": "Cutting",
               "icon": "mdi:content-cut",
-              "description": "Material cutting process using various methods to achieve desired size and shape.",
-              "features": [
-                "Band saw cutting",
-                "Wire EDM",
-                "Laser cutting",
-                "Waterjet cutting"
-              ]
+              "description": "Material cutting process using various methods to obtain the desired size and shape.",
+              "features": ["Band saw cutting", "Wire EDM", "Laser cutting", "Waterjet cutting"]
+            },
+            {
+              "title": "Fabrication",
+              "icon": "mdi:factory",
+              "description": "Fabrication process to produce components with advanced technology.",
+              "features": ["Welding", "Assembly"]
             }
           ]
         },
         "products": {
-          "sectionLabel": "Example Products",
-          "title": "Example Products",
+          "sectionLabel": "Products We Can Make",
+          "title": "Products We Can Make",
           "subtitle": "Various precision components we produce for various manufacturing industries.",
           "items": [
-            {
-              "name": "Gear",
-              "description": "Precision gears for machine power transmission and other mechanical devices.",
-              "icon": "mdi:cog"
-            },
-            {
-              "name": "Shaft",
-              "description": "Machine shafts with tight tolerances for rotation transmission and load bearing.",
-              "icon": "mdi:minus-thick"
-            },
-            {
-              "name": "Roller",
-              "description": "Cylindrical rollers for conveyor, printing, and other industrial applications.",
-              "icon": "mdi:circle-slice8"
-            },
-            {
-              "name": "Pulley",
-              "description": "Pulley wheels for belt transmission systems and power transmission.",
-              "icon": "mdi:record-circle-outline"
-            },
-            {
-              "name": "Chain",
-              "description": "Power transmission chains for industrial machinery and automotive.",
-              "icon": "mdi:chain"
-            },
-            {
-              "name": "Bolt, Nut & Washer",
-              "description": "Precision bolts, nuts, and washers for assembly and structural applications.",
-              "icon": "mdi:screw-flat-top"
-            }
+            { "name": "Shaft Gear", "image": "/principal/machining/shaft.png" },
+            { "name": "Chain", "image": "/principal/machining/chain.png" },
+            { "name": "Bearing Housing", "image": "/principal/machining/housing.png" },
+            { "name": "Conveyor Roller", "image": "/principal/machining/roller.png" },
+            { "name": "Sprocket", "image": "/principal/machining/sprocket.png" },
+            { "name": "Saw", "image": "/principal/machining/saw.png" },
+            { "name": "Coupling", "image": "/principal/machining/coupling.png" },
+            { "name": "Perforated Sheet", "image": "/principal/machining/perforated.png" }
           ]
         },
         "materials": {
           "sectionLabel": "Material Expertise",
           "title": "Materials We Master",
-          "subtitle": "We have expertise in machining various metal materials to meet your industrial needs.",
-          "categories": [
-            {
-              "name": "Stainless Steel",
-              "icon": "mdi:silverware-fork-knife",
-              "grades": ["SS304", "SS316"],
-              "description": "Corrosion resistant, suitable for food grade, chemical, and medical applications."
-            },
-            {
-              "name": "Alloy Steel",
-              "icon": "mdi:factory",
-              "grades": ["SCM440", "SNCM439"],
-              "description": "High strength for heavy machinery and transmission components."
-            },
-            {
-              "name": "Carbon Steel",
-              "icon": "mdi:steel",
-              "grades": ["S45C", "ST41"],
-              "description": "Commonly used for shafts, gears, and structural components."
-            }
+          "subtitle": "We have expertise in machining various materials to meet your industrial needs.",
+          "items": [
+            { "name": "Stainless Steel", "icon": "mdi:shield-star", "grades": ["SS304", "SS316"], "description": "Corrosion resistant, ideal for food grade, chemical, and medical applications." },
+            { "name": "Carbon Steel", "icon": "mdi:cylinder", "grades": ["S45C", "ST41"], "description": "Commonly used for shafts, gears, and structural components." },
+            { "name": "Alloy Steel", "icon": "mdi:hexagon-multiple", "grades": ["SCM440", "SNCM439"], "description": "High strength for heavy machinery and transmission components." },
+            { "name": "Aluminium", "icon": "mdi:alpha-a-box", "grades": ["6061-T6", "7075-T6"], "description": "Lightweight, corrosion resistant, and easy to machine. Ideal for automotive, aerospace, and electronics components." },
+            { "name": "Cast Iron", "icon": "mdi:anvil", "grades": ["FC250", "FCD450"], "description": "Good vibration damping and wear resistance. Suitable for engine blocks, housings, and heavy components." },
+            { "name": "Engineering Plastics", "icon": "mdi:molecule", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "Lightweight, chemical resistant, and self-lubricating. For bushings, non-metal gears, and insulators." },
+            { "name": "Rubber", "icon": "mdi:circle-outline", "grades": ["NBR", "EPDM", "Silicone"], "description": "Elastic and resistant to oil and weather. Used for seals, gaskets, mounts, and vibration isolators." }
           ]
         },
         "contact": {

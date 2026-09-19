@@ -226,6 +226,8 @@ import { onMounted, ref, computed } from "vue";
 import { useAdminStore } from "~/stores/admin";
 import StatCard from "~/components/admin/StatCard.vue";
 
+definePageMeta({ layout: "admin" });
+
 const adminStore = useAdminStore();
 
 const stats = ref({

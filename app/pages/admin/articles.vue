@@ -285,6 +285,8 @@ import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import { useConfirm } from "~/composables/useConfirm";
 
+definePageMeta({ layout: "admin" });
+
 const { confirmDelete } = useConfirm();
 
 const loading = ref(false);

@@ -56,6 +56,8 @@ import { ref, onMounted } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import CategoryTree from "~/components/admin/CategoryTree.vue";
 
+definePageMeta({ layout: "admin" });
+
 const loading = ref(false);
 const categories = ref<any[]>([]);
 const filters = ref({ search: "" });

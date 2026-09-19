@@ -7,14 +7,13 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.members.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/members/create">
-        <Trubutton
-          :text="$t('admin.members.addNew')"
-          type="primary"
-          variant="solid"
-          icon="material-symbols:person-add"
-        />
-      </NuxtLink>
+      <Trubutton
+        :text="$t('admin.members.addNew')"
+        type="primary"
+        variant="solid"
+        icon="material-symbols:person-add"
+        @click="openCreate"
+      />
     </div>
 
     <!-- Filter Bar -->
@@ -105,14 +104,13 @@
           {{ $t("admin.members.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.members.emptyDesc") }}</p>
-        <NuxtLink to="/admin/members/create">
-          <Trubutton
-            :text="$t('admin.members.addFirst')"
-            type="primary"
-            variant="solid"
-            icon="material-symbols:person-add"
-          />
-        </NuxtLink>
+        <Trubutton
+          :text="$t('admin.members.addFirst')"
+          type="primary"
+          variant="solid"
+          icon="material-symbols:person-add"
+          @click="openCreate"
+        />
       </div>
 
       <div v-else class="overflow-x-auto">
@@ -187,7 +185,7 @@
                 {{ member.phone }}
               </td>
               <td class="px-6 py-4 text-sm text-gray-500">
-                {{ member.company || "-" }}
+                {{ member.Company || "-" }}
               </td>
               <td class="px-6 py-4">
                 <span
@@ -200,44 +198,46 @@
               <td class="px-6 py-4">
                 <span
                   :class="
-                    member.active
+                    member.status === 'active'
                       ? 'bg-green-100 text-green-800'
                       : 'bg-red-100 text-red-800'
                   "
                   class="px-2 py-1 text-xs font-medium rounded-full"
                 >
                   {{
-                    member.active ? $t("admin.active") : $t("admin.inactive")
+                    member.status === "active"
+                      ? $t("admin.active")
+                      : $t("admin.inactive")
                   }}
                 </span>
               </td>
               <td class="px-6 py-4 text-sm text-gray-500">
-                {{ formatDate(member.createdAt) }}
+                {{ formatDate(member.datejoin) }}
               </td>
               <td class="px-6 py-4 text-right w-32">
                 <div class="flex items-center justify-end gap-2">
-                  <NuxtLink
-                    :to="`/admin/members/${member.id}`"
+                  <button
+                    @click="openDetail(member)"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
-                    title="Detail"
+                    :title="$t('admin.table.view')"
                   >
                     <Icon name="material-symbols:visibility" class="h-4 w-4" />
-                  </NuxtLink>
-                  <NuxtLink
-                    :to="`/admin/members/${member.id}/edit`"
+                  </button>
+                  <button
+                    @click="openEdit(member)"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
-                    title="Edit"
+                    :title="$t('admin.table.edit')"
                   >
                     <Icon name="material-symbols:edit" class="h-4 w-4" />
-                  </NuxtLink>
+                  </button>
                   <button
                     @click="toggleStatus(member)"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
-                    :title="member.active ? 'Nonaktifkan' : 'Aktifkan'"
+                    :title="member.status === 'active' ? 'Nonaktifkan' : 'Aktifkan'"
                   >
                     <Icon
                       :name="
-                        member.active
+                        member.status === 'active'
                           ? 'material-symbols:block'
                           : 'material-symbols:check-circle'
                       "
@@ -263,22 +263,503 @@
         />
       </div>
     </div>
+
+    <!-- Detail Modal -->
+    <el-dialog
+      v-model="detailVisible"
+      :title="$t('admin.members.detail')"
+      width="min(600px, 94vw)"
+    >
+      <template v-if="detailMember">
+        <div class="flex items-center gap-4 mb-6">
+          <div
+            class="h-16 w-16 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-xl font-semibold"
+          >
+            {{ detailMember.name.charAt(0).toUpperCase() }}
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-gray-900">
+              {{ detailMember.name }}
+            </p>
+            <p class="text-sm text-gray-500">ID: {{ detailMember.id }}</p>
+            <div class="flex items-center gap-2 mt-1">
+              <span
+                :class="getLevelClass(detailMember.level)"
+                class="px-2 py-0.5 text-xs font-medium rounded-full"
+              >
+                {{ detailMember.level || "-" }}
+              </span>
+              <span
+                :class="
+                  detailMember.status === 'active'
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-red-100 text-red-800'
+                "
+                class="px-2 py-0.5 text-xs font-medium rounded-full"
+              >
+                {{
+                  detailMember.status === "active"
+                    ? $t("admin.active")
+                    : $t("admin.inactive")
+                }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-sm">
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-2">
+              {{ $t("admin.members.personalInfo") }}
+            </h4>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.table.email") }}</dt>
+                <dd class="text-gray-900">{{ detailMember.email }}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.table.phone") }}</dt>
+                <dd class="text-gray-900">{{ detailMember.phone || "-" }}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.table.joined") }}</dt>
+                <dd class="text-gray-900">
+                  {{ formatDate(detailMember.datejoin) }}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.members.point") }}</dt>
+                <dd class="text-gray-900">{{ detailMember.point ?? "-" }}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-2">
+              {{ $t("admin.members.companyInfo") }}
+            </h4>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.table.company") }}</dt>
+                <dd class="text-gray-900">{{ detailMember.Company || "-" }}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.members.position") }}</dt>
+                <dd class="text-gray-900">
+                  {{ detailMember.position || "-" }}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">
+                  {{ $t("admin.members.companyEmail") }}
+                </dt>
+                <dd class="text-gray-900">
+                  {{ detailMember.company_email || "-" }}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">
+                  {{ $t("admin.members.companyPhone") }}
+                </dt>
+                <dd class="text-gray-900">
+                  {{ detailMember.company_phone || "-" }}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">
+                  {{ $t("admin.members.companyField") }}
+                </dt>
+                <dd class="text-gray-900">
+                  {{ detailMember.company_field || "-" }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-2">
+              {{ $t("admin.members.addressInfo") }}
+            </h4>
+            <dl class="grid grid-cols-1 gap-y-3">
+              <div>
+                <dt class="text-gray-500">{{ $t("admin.members.address") }}</dt>
+                <dd class="text-gray-900">{{ detailMember.address || "-" }}</dd>
+              </div>
+              <div class="grid grid-cols-2 gap-x-6">
+                <div>
+                  <dt class="text-gray-500">
+                    {{ $t("admin.members.province") }}
+                  </dt>
+                  <dd class="text-gray-900">
+                    {{ detailMember.provice || "-" }}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-gray-500">{{ $t("admin.members.city") }}</dt>
+                  <dd class="text-gray-900">
+                    {{ detailMember.city || "-" }}
+                  </dd>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-x-6">
+                <div>
+                  <dt class="text-gray-500">
+                    {{ $t("admin.members.district") }}
+                  </dt>
+                  <dd class="text-gray-900">
+                    {{ detailMember.districts || "-" }}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-gray-500">
+                    {{ $t("admin.members.postalCode") }}
+                  </dt>
+                  <dd class="text-gray-900">
+                    {{ detailMember.kodepos || "-" }}
+                  </dd>
+                </div>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </template>
+      <template #footer>
+        <Trubutton
+          :text="$t('button.cancel')"
+          type="info"
+          variant="ghost"
+          @click="detailVisible = false"
+        />
+      </template>
+    </el-dialog>
+
+    <!-- Member Form Modal (Create / Edit) -->
+    <el-dialog
+      v-model="formVisible"
+      :title="$t(isCreate ? 'admin.members.addNew' : 'admin.members.edit')"
+      width="min(1180px, 96vw)"
+      top="4vh"
+    >
+      <el-form v-if="form" label-position="top">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-6">
+          <div>
+            <h4
+              class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide"
+            >
+              {{ $t("admin.members.personalInfo") }}
+            </h4>
+            <div class="space-y-0">
+              <el-form-item :label="$t('admin.table.name')" class="!mb-4">
+                <el-input v-model="form.name" />
+              </el-form-item>
+              <el-form-item :label="$t('admin.table.email')" class="!mb-4">
+                <el-input v-model="form.email" />
+              </el-form-item>
+              <el-form-item :label="$t('admin.table.phone')" class="!mb-4">
+                <el-input v-model="form.phone" />
+              </el-form-item>
+              <el-form-item :label="$t('admin.table.level')" class="!mb-4">
+                <el-select v-model="form.level" class="w-full">
+                  <el-option label="Silver" value="silver" />
+                  <el-option label="Gold" value="gold" />
+                  <el-option label="Platinum" value="platinum" />
+                </el-select>
+              </el-form-item>
+              <el-form-item :label="$t('admin.table.status')" class="!mb-0">
+                <el-select v-model="form.status" class="w-full">
+                  <el-option :label="$t('admin.active')" value="active" />
+                  <el-option :label="$t('admin.inactive')" value="unactive" />
+                </el-select>
+              </el-form-item>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide"
+            >
+              {{ $t("admin.members.companyInfo") }}
+            </h4>
+            <div class="space-y-0">
+              <el-form-item :label="$t('admin.table.company')" class="!mb-4">
+                <el-input v-model="form.Company" />
+              </el-form-item>
+              <el-form-item :label="$t('admin.members.position')" class="!mb-4">
+                <el-input v-model="form.position" />
+              </el-form-item>
+              <el-form-item
+                :label="$t('admin.members.companyEmail')"
+                class="!mb-4"
+              >
+                <el-input v-model="form.company_email" />
+              </el-form-item>
+              <el-form-item
+                :label="$t('admin.members.companyPhone')"
+                class="!mb-4"
+              >
+                <el-input v-model="form.company_phone" />
+              </el-form-item>
+              <el-form-item
+                :label="$t('admin.members.companyField')"
+                class="!mb-0"
+              >
+                <el-input v-model="form.company_field" />
+              </el-form-item>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide"
+            >
+              {{ $t("admin.members.addressInfo") }}
+            </h4>
+            <el-form-item :label="$t('admin.members.address')" class="!mb-4">
+              <el-input v-model="form.address" />
+            </el-form-item>
+            <div
+              v-if="form.provice || form.city || form.districts"
+              class="mb-3 p-3 bg-orange-50 rounded-lg border border-orange-200 text-sm text-gray-700"
+            >
+              <span class="font-medium text-orange-800">
+                {{ $t("admin.members.currentAddress") }}:
+              </span>
+              {{
+                [form.address, form.village, form.districts, form.city, form.provice, form.kodepos]
+                  .filter(Boolean)
+                  .join(", ")
+              }}
+            </div>
+            <AddressSelect v-model="addressModel" />
+          </div>
+        </div>
+      </el-form>
+      <template #footer>
+        <Trubutton
+          :text="$t('button.cancel')"
+          type="info"
+          variant="ghost"
+          @click="formVisible = false"
+        />
+        <Trubutton
+          :text="$t('button.save')"
+          type="primary"
+          variant="solid"
+          :loading="saving"
+          @click="saveForm"
+        />
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
+import { useAdminStore } from "~/stores/admin";
+
+definePageMeta({ layout: "admin" });
 
 const router = useRouter();
+const adminStore = useAdminStore();
+
+interface Member {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  Company: string;
+  position: string;
+  company_email: string;
+  company_phone: string;
+  company_field: string;
+  address: string;
+  provice: string;
+  city: string;
+  districts: string;
+  village: string;
+  kodepos: string;
+  level: string;
+  status: string;
+  datejoin: string;
+  point?: number;
+}
 
 const loading = ref(false);
-const members = ref<any[]>([]);
+const members = ref<Member[]>([]);
 const currentPage = ref(1);
-const pageSize = ref(20);
+const pageSize = ref(10);
 const totalItems = ref(0);
 const totalPages = ref(0);
+
+const detailVisible = ref(false);
+const detailMember = ref<Member | null>(null);
+const formVisible = ref(false);
+const isCreate = ref(false);
+const saving = ref(false);
+const form = ref<Partial<Member> | null>(null);
+const addressModel = ref<Record<string, any>>({});
+
+const openDetail = (member: Member) => {
+  detailMember.value = member;
+  detailVisible.value = true;
+};
+
+const normalize = (s: any) =>
+  String(s || "")
+    .trim()
+    .toLowerCase();
+
+const resolveAddress = async (member: Member) => {
+  const {
+    getProvinces,
+    getRegencies,
+    getDistricts,
+    getVillages,
+  } = useAddress();
+  const model: Record<string, any> = {
+    province_id: "",
+    regency_id: "",
+    district_id: "",
+    village_id: "",
+    zipcode: member.kodepos || "",
+    province: member.provice || "",
+    regency: member.city || "",
+    district: member.districts || "",
+    village: member.village || "",
+  };
+  try {
+    const provinces = await getProvinces();
+    const province = provinces.find(
+      (p: any) => normalize(p.name) === normalize(member.provice)
+    );
+    if (province) {
+      model.province_id = String(province.id);
+      model.province = province.name;
+      const regencies = await getRegencies(province.id);
+      const regency = regencies.find(
+        (r: any) => normalize(r.name) === normalize(member.city)
+      );
+      if (regency) {
+        model.regency_id = String(regency.id);
+        model.regency = regency.name;
+        const districts = await getDistricts(regency.id);
+        const district = districts.find(
+          (d: any) => normalize(d.name) === normalize(member.districts)
+        );
+        if (district) {
+          model.district_id = String(district.id);
+          model.district = district.name;
+          const villages = await getVillages(district.id);
+          const village = villages.find(
+            (v: any) => normalize(v.name) === normalize(member.village)
+          );
+          if (village) {
+            model.village_id = String(village.id);
+            model.village = village.name;
+          }
+        }
+      }
+    }
+  } catch {
+    // names fallback kept
+  }
+  return model;
+};
+
+const openCreate = () => {
+  form.value = {
+    name: "",
+    email: "",
+    phone: "",
+    Company: "",
+    position: "",
+    company_email: "",
+    company_phone: "",
+    company_field: "",
+    address: "",
+    level: "silver",
+    status: "active",
+  };
+  addressModel.value = {};
+  isCreate.value = true;
+  formVisible.value = true;
+};
+
+const openEdit = async (member: Member) => {
+  form.value = { ...member };
+  addressModel.value = {};
+  isCreate.value = false;
+  formVisible.value = true;
+  addressModel.value = await resolveAddress(member);
+};
+
+const buildBody = () => {
+  const f = form.value!;
+  return {
+    id: isCreate.value ? undefined : f.id,
+    name: f.name,
+    email: f.email,
+    phone: f.phone,
+    Company: f.Company,
+    position: f.position,
+    company_email: f.company_email,
+    company_phone: f.company_phone,
+    company_field: f.company_field,
+    address: f.address,
+    provice: addressModel.value.province,
+    city: addressModel.value.regency,
+    districts: addressModel.value.district,
+    village: addressModel.value.village,
+    kodepos: addressModel.value.zipcode,
+    level: f.level,
+    status: f.status,
+  };
+};
+
+const saveForm = async () => {
+  if (!form.value) return;
+  saving.value = true;
+  try {
+    const config = useRuntimeConfig();
+    const body = buildBody();
+    const response = await $fetch<{
+      status: boolean;
+      message: string;
+      data: Member;
+    }>(`${config.public.baseURL}/member/create`, {
+      method: "POST",
+      body,
+      headers: {
+        Authorization: `Bearer ${adminStore.token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const updated = response.data;
+    if (isCreate.value) {
+      members.value.unshift(updated);
+      totalItems.value += 1;
+      ElMessage.success(response.message || "Member berhasil ditambahkan");
+    } else {
+      const index = members.value.findIndex((m) => m.id === updated.id);
+      if (index !== -1) {
+        members.value[index] = updated;
+      }
+      if (detailMember.value?.id === updated.id) {
+        detailMember.value = updated;
+      }
+      ElMessage.success(response.message || "Member berhasil diperbarui");
+    }
+    formVisible.value = false;
+  } catch (e: any) {
+    ElMessage.error(
+      e.data?.message || (isCreate.value ? "Gagal menambahkan member" : "Gagal memperbarui member")
+    );
+  } finally {
+    saving.value = false;
+  }
+};
 
 const filters = ref({
   search: "",
@@ -295,141 +776,48 @@ const applyFilters = () => {
 const fetchMembers = async () => {
   loading.value = true;
   try {
-    // Mock data - replace with actual API call
-    await new Promise((r) => setTimeout(r, 500));
+    const config = useRuntimeConfig();
+    const body: Record<string, string> = {};
+    if (filters.value.search) body.name = filters.value.search;
+    if (filters.value.status) body.status = filters.value.status;
+    if (filters.value.level) body.level = filters.value.level;
 
-    const mockMembers = [
-      {
-        id: 1,
-        name: "Budi Santoso",
-        email: "budi@email.com",
-        phone: "081234567890",
-        company: "PT. Jaya Makmur",
-        level: "gold",
-        active: true,
-        createdAt: new Date("2024-01-15"),
+    const response = await $fetch<{
+      status: boolean;
+      message: string;
+      payload: {
+        currentPage: number;
+        total_page: number;
+        total_data: number;
+        query: any[];
+      };
+    }>(`${config.public.baseURL}/member/read?page=${currentPage.value}`, {
+      method: "POST",
+      body,
+      headers: {
+        Authorization: `Bearer ${adminStore.token}`,
+        "Content-Type": "application/json",
       },
-      {
-        id: 2,
-        name: "Siti Rahayu",
-        email: "siti@company.com",
-        phone: "081345678901",
-        company: "CV. Sumber Rejeki",
-        level: "silver",
-        active: true,
-        createdAt: new Date("2024-02-20"),
-      },
-      {
-        id: 3,
-        name: "Ahmad Wijaya",
-        email: "ahmad@store.com",
-        phone: "081456789012",
-        company: "UD. Berkah",
-        level: "platinum",
-        active: false,
-        createdAt: new Date("2024-03-10"),
-      },
-      {
-        id: 4,
-        name: "Dewi Lestari",
-        email: "dewi@shop.com",
-        phone: "081567890123",
-        company: "PT. Maju Jaya",
-        level: "gold",
-        active: true,
-        createdAt: new Date("2024-04-05"),
-      },
-      {
-        id: 5,
-        name: "Rudi Hartono",
-        email: "rudi@market.com",
-        phone: "081678901234",
-        company: "CV. Sejahtera",
-        level: "silver",
-        active: true,
-        createdAt: new Date("2024-05-12"),
-      },
-      {
-        id: 6,
-        name: "Lina Kusuma",
-        email: "lina@retail.com",
-        phone: "081789012345",
-        company: "Toko Lina",
-        level: "silver",
-        active: true,
-        createdAt: new Date("2024-06-18"),
-      },
-      {
-        id: 7,
-        name: "Agus Prasetyo",
-        email: "agus@industri.com",
-        phone: "081890123456",
-        company: "PT. Industri Prima",
-        level: "platinum",
-        active: true,
-        createdAt: new Date("2024-07-22"),
-      },
-      {
-        id: 8,
-        name: "Maya Sari",
-        email: "maya@tech.com",
-        phone: "081901234567",
-        company: "Startup Tech",
-        level: "gold",
-        active: false,
-        createdAt: new Date("2024-08-30"),
-      },
-    ];
+    });
 
-    // Apply filters
-    let filtered = [...mockMembers];
-
-    if (filters.value.search) {
-      const search = filters.value.search.toLowerCase();
-      filtered = filtered.filter(
-        (m) =>
-          m.name.toLowerCase().includes(search) ||
-          m.email.toLowerCase().includes(search) ||
-          m.company.toLowerCase().includes(search)
-      );
-    }
-
-    if (filters.value.status) {
-      filtered = filtered.filter(
-        (m) => m.active === (filters.value.status === "active")
-      );
-    }
-
-    if (filters.value.level) {
-      filtered = filtered.filter((m) => m.level === filters.value.level);
-    }
-
-    // Apply sorting
+    let list = (response.payload?.query || []) as Member[];
     switch (filters.value.sort) {
       case "oldest":
-        filtered.sort(
-          (a, b) =>
-            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        );
+        list = [...list].sort((a, b) => a.datejoin.localeCompare(b.datejoin));
         break;
       case "name_asc":
-        filtered.sort((a, b) => a.name.localeCompare(b.name));
+        list = [...list].sort((a, b) => a.name.localeCompare(b.name));
         break;
       case "name_desc":
-        filtered.sort((a, b) => b.name.localeCompare(a.name));
+        list = [...list].sort((a, b) => b.name.localeCompare(a.name));
         break;
-      default: // newest
-        filtered.sort(
-          (a, b) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
+      default:
+        list = [...list].sort((a, b) => b.datejoin.localeCompare(a.datejoin));
     }
 
-    totalItems.value = filtered.length;
-    totalPages.value = Math.ceil(totalItems.value / pageSize.value);
-
-    const start = (currentPage.value - 1) * pageSize.value;
-    members.value = filtered.slice(start, start + pageSize.value);
+    totalItems.value = response.payload?.total_data || 0;
+    totalPages.value = response.payload?.total_page || 1;
+    members.value = list;
   } catch (e: any) {
     ElMessage.error("Gagal memuat data member");
   } finally {
@@ -439,11 +827,10 @@ const fetchMembers = async () => {
 
 const toggleStatus = async (member: any) => {
   try {
-    // Mock API call
     await new Promise((r) => setTimeout(r, 500));
-    member.active = !member.active;
+    member.status = member.status === "active" ? "unactive" : "active";
     ElMessage.success(
-      `Member ${member.active ? "diaktifkan" : "dinonaktifkan"}`
+      `Member ${member.status === "active" ? "diaktifkan" : "dinonaktifkan"}`
     );
   } catch {
     ElMessage.error("Gagal mengubah status");
@@ -459,8 +846,24 @@ const getLevelClass = (level: string) => {
   return classes[level] || "bg-gray-100 text-gray-800";
 };
 
-const formatDate = (date: Date) => {
-  return new Date(date).toLocaleDateString("id-ID", {
+const formatDate = (date: string) => {
+  if (!date) return "-";
+  const match = date.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
+  if (match) {
+    const d = new Date(
+      Number(match[3]),
+      Number(match[2]) - 1,
+      Number(match[1])
+    );
+    return d.toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  }
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "-";
+  return d.toLocaleDateString("id-ID", {
     day: "numeric",
     month: "short",
     year: "numeric",

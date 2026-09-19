@@ -209,6 +209,8 @@ import { ref, watch, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import { useI18n } from "vue-i18n";
 
+definePageMeta({ layout: "admin" });
+
 // ============ I18N ============
 const { t } = useI18n();
 

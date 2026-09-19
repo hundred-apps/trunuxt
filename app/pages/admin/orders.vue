@@ -329,6 +329,8 @@
 import { ref, computed, onMounted } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 
+definePageMeta({ layout: "admin" });
+
 const loading = ref(false);
 const orders = ref<any[]>([]);
 const currentPage = ref(1);

@@ -2,6 +2,28 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { useRuntimeConfig } from '#app';
 
+function readCookie(name: string): string | null {
+  if (!import.meta.client) return null;
+  const match = document.cookie.match(
+    new RegExp('(?:^|;\\s*)' + name + '=([^;]*)')
+  );
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function setCookie(name: string, value: string) {
+  if (!import.meta.client) return;
+  document.cookie =
+    name +
+    '=' +
+    encodeURIComponent(value) +
+    '; path=/; max-age=2592000; SameSite=Lax';
+}
+
+function clearCookie(name: string) {
+  if (!import.meta.client) return;
+  document.cookie = name + '=; path=/; max-age=0; SameSite=Lax';
+}
+
 interface User {
   id: number;
   firstName: string;
@@ -33,6 +55,7 @@ export const useAuthStore = defineStore('auth', () => {
     token.value = newToken;
     if (import.meta.client) {
       localStorage.setItem('auth_token', newToken);
+      setCookie('auth_token', newToken);
     }
   }
 
@@ -42,6 +65,7 @@ export const useAuthStore = defineStore('auth', () => {
     if (import.meta.client) {
       localStorage.removeItem('auth_token');
       localStorage.removeItem('auth_user');
+      clearCookie('auth_token');
     }
   }
 
@@ -51,13 +75,18 @@ export const useAuthStore = defineStore('auth', () => {
       const response = await $fetch<User>(`${config.public.baseURL}/auth/me`, {
         headers: { Authorization: `Bearer ${token.value}` },
       });
-      user.value = response;
+      user.value = unwrapUser(response);
       if (import.meta.client) {
-        localStorage.setItem('auth_user', JSON.stringify(response));
+        localStorage.setItem('auth_user', JSON.stringify(user.value));
       }
     } catch {
       clearToken();
     }
+  }
+
+  function unwrapUser(response: any): User {
+    const candidate = response?.data ?? response?.user ?? response;
+    return candidate && typeof candidate === 'object' && 'id' in candidate ? candidate : response;
   }
 
   async function login(credentials: { email: string; password: string; remember: boolean }) {
@@ -69,9 +98,9 @@ export const useAuthStore = defineStore('auth', () => {
       }
     );
     setToken(response.token);
-    user.value = response.user;
+    user.value = unwrapUser(response);
     if (import.meta.client) {
-      localStorage.setItem('auth_user', JSON.stringify(response.user));
+      localStorage.setItem('auth_user', JSON.stringify(user.value));
     }
   }
 
@@ -91,10 +120,10 @@ export const useAuthStore = defineStore('auth', () => {
       }
     );
     setToken(response.token);
-    user.value = response.user;
+    user.value = unwrapUser(response);
     pendingVerificationEmail.value = data.email;
     if (import.meta.client) {
-      localStorage.setItem('auth_user', JSON.stringify(response.user));
+      localStorage.setItem('auth_user', JSON.stringify(user.value));
     }
   }
 
@@ -153,13 +182,25 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function initializeAuth() {
-    if (import.meta.client) {
+    if (!import.meta.client) return;
+    try {
       const storedToken = localStorage.getItem('auth_token');
       const storedUser = localStorage.getItem('auth_user');
       if (storedToken && storedUser) {
-        token.value = storedToken;
-        user.value = JSON.parse(storedUser);
+        const parsed = JSON.parse(storedUser);
+        if (parsed && typeof parsed === 'object') {
+          token.value = storedToken;
+          user.value = parsed;
+          return;
+        }
       }
+    } catch {
+      // corrupted stored user data, fall through to cookie fallback
+      localStorage.removeItem('auth_user');
+    }
+    const cookieToken = readCookie('auth_token') || readCookie('access_token');
+    if (cookieToken) {
+      token.value = cookieToken;
     }
   }
 

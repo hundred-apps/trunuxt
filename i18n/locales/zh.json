@@ -377,7 +377,8 @@
           "titleLine2": "工业卓越",
           "subtitle": "以先进技术、经验丰富的工程师和严格的质量控制提供高精度加工服务，满足您复杂的工业制造需求。",
           "ctaQuote": "获取报价",
-          "ctaServices": "探索我们的服务"
+          "ctaServices": "探索我们的服务",
+          "scroll": "滚动"
         },
         "aboutMachining": {
           "sectionLabel": "关于加工",
@@ -386,18 +387,22 @@
           "highlights": [
             {
               "title": "CNC 加工",
+              "icon": "mdi:cpu-64-bit",
               "description": "计算机数控技术实现高精度和一致的可重复性。"
             },
             {
               "title": "精密公差",
+              "icon": "mdi:tune-variant",
               "description": "关键应用的公差可达 ±0.001mm。"
             },
             {
               "title": "多轴能力",
+              "icon": "mdi:axis-arrow",
               "description": "3轴至5轴机床，可加工复杂几何形状。"
             },
             {
               "title": "质量控制",
+              "icon": "mdi:shield-check",
               "description": "每个阶段都进行 CMM 检测和严格记录。"
             }
           ]
@@ -409,36 +414,50 @@
           "highlights": [
             {
               "title": "切割与成形",
+              "icon": "mdi:content-cut",
               "description": "使用激光、等离子或水刀进行精密切割。"
             },
             {
               "title": "焊接与连接",
+              "icon": "mdi:fire",
               "description": "MIG、TIG 和 SMAW 焊接，打造坚固结构。"
             },
             {
               "title": "弯曲与成形",
+              "icon": "mdi:shape",
               "description": "钢板和型钢的弯曲和成形加工。"
             },
             {
               "title": "装配",
+              "icon": "mdi:puzzle-check",
               "description": "将组件装配成可直接安装的最终产品。"
             }
           ]
         },
+        "industries": {
+          "title": "我们服务的行业",
+          "items": [
+            { "name": "汽车", "image": "/principal/machining/automotive.jpg" },
+            { "name": "食品与饮料", "image": "/principal/machining/fnb.jpg" },
+            { "name": "制造", "image": "/principal/machining/manufacture.jpg" },
+            { "name": "制粉", "image": "/principal/machining/mill.jpg" },
+            { "name": "纺织", "image": "/principal/machining/textile.jpg" }
+          ]
+        },
         "methods": {
           "sectionLabel": "加工方法",
-          "title": "加工方法",
+          "title": "我们的能力",
           "subtitle": "我们采用多种加工方法，为您的需求生产出质量和精度最优的零件。",
           "items": [
             {
               "title": "铣削",
-              "icon": "mdi:milling",
-              "description": "使用旋转刀具进行切削，在工件上加工出平面、槽和复杂几何形状。",
-              "features": ["3轴至5轴", "平面与轮廓", "键槽与槽", "公差 ±0.01mm"]
+              "icon": "mdi:cog-outline",
+              "description": "利用旋转刀具切削工件，加工平面、凹槽和复杂几何形状。",
+              "features": ["3-5 轴加工", "平面与轮廓", "键槽与槽", "公差 ±0.01mm"]
             },
             {
               "title": "车削",
-              "icon": "mdi:rotate-3d-variant",
+              "icon": "mdi:rotate-3d",
               "description": "在旋转工件上使用固定刀具加工高精度圆柱形零件。",
               "features": ["轴与杆", "衬套与轴承", "螺纹与螺扣", "公差 ±0.005mm"]
             },
@@ -446,76 +465,49 @@
               "title": "磨削",
               "icon": "mdi:blur",
               "description": "使用砂轮进行表面精加工，实现极高的表面粗糙度和最终尺寸精度。",
-              "features": ["平面磨削", "外圆磨削", "表面光洁度 Ra 0.4μm", "平面度 < 0.005mm"]
+              "features": ["平面磨削", "外圆磨削", "表面粗糙度 Ra 0.4μm", "平面度 < 0.005mm"]
             },
             {
               "title": "切割",
               "icon": "mdi:content-cut",
               "description": "使用各种方法对材料进行切割，以获得所需的尺寸和形状。",
               "features": ["带锯切割", "线切割 EDM", "激光切割", "水刀切割"]
+            },
+            {
+              "title": "制造",
+              "icon": "mdi:factory",
+              "description": "利用先进工艺制造零部件的生产过程。",
+              "features": ["焊接", "装配"]
             }
           ]
         },
         "products": {
-          "sectionLabel": "产品示例",
-          "title": "产品示例",
+          "sectionLabel": "我们能生产的产品",
+          "title": "我们能生产的产品",
           "subtitle": "我们为各类制造业生产的各种精密零件。",
           "items": [
-            {
-              "name": "齿轮",
-              "description": "用于机械传动和其他机械装置的精密齿轮。",
-              "icon": "mdi:cog"
-            },
-            {
-              "name": "轴",
-              "description": "具有紧公差的机械轴，用于旋转传动和承载负荷。",
-              "icon": "mdi:minus-thick"
-            },
-            {
-              "name": "滚轮",
-              "description": "用于输送机、印刷和其他工业应用的圆柱形滚轮。",
-              "icon": "mdi:circle-slice8"
-            },
-            {
-              "name": "皮带轮",
-              "description": "用于皮带传动系统和动力传输的皮带轮。",
-              "icon": "mdi:record-circle-outline"
-            },
-            {
-              "name": "链条",
-              "description": "用于工业机械和汽车的动力传输链条。",
-              "icon": "mdi:chain"
-            },
-            {
-              "name": "螺栓、螺母和垫圈",
-              "description": "用于装配和结构应用的精密螺栓、螺母和垫圈。",
-              "icon": "mdi:screw-flat-top"
-            }
+            { "name": "齿轮轴", "image": "/principal/machining/shaft.png" },
+            { "name": "链条", "image": "/principal/machining/chain.png" },
+            { "name": "轴承座", "image": "/principal/machining/housing.png" },
+            { "name": "输送滚轮", "image": "/principal/machining/roller.png" },
+            { "name": "链轮", "image": "/principal/machining/sprocket.png" },
+            { "name": "锯片", "image": "/principal/machining/saw.png" },
+            { "name": "联轴器", "image": "/principal/machining/coupling.png" },
+            { "name": "穿孔板", "image": "/principal/machining/perforated.png" }
           ]
         },
         "materials": {
           "sectionLabel": "材料专业",
           "title": "我们精通的材料",
-          "subtitle": "我们在加工各种金属材料方面拥有丰富的专业知识，以满足您的工业需求。",
-          "categories": [
-            {
-              "name": "不锈钢",
-              "icon": "mdi:silverware-fork-knife",
-              "grades": ["SS304", "SS316"],
-              "description": "耐腐蚀，适用于食品级、化工和医疗应用。"
-            },
-            {
-              "name": "合金钢",
-              "icon": "mdi:factory",
-              "grades": ["SCM440", "SNCM439"],
-              "description": "高强度，适用于重型机械和传动部件。"
-            },
-            {
-              "name": "碳钢",
-              "icon": "mdi:steel",
-              "grades": ["S45C", "ST41"],
-              "description": "常用于轴、齿轮和结构部件。"
-            }
+          "subtitle": "我们拥有加工各种材料的专业知识，以满足您的工业需求。",
+          "items": [
+            { "name": "不锈钢", "icon": "mdi:shield-star", "grades": ["SS304", "SS316"], "description": "耐腐蚀，适用于食品级、化工和医疗应用。" },
+            { "name": "碳钢", "icon": "mdi:cylinder", "grades": ["S45C", "ST41"], "description": "常用于轴、齿轮和结构部件。" },
+            { "name": "合金钢", "icon": "mdi:hexagon-multiple", "grades": ["SCM440", "SNCM439"], "description": "高强度，适用于重型机械和传动部件。" },
+            { "name": "铝", "icon": "mdi:alpha-a-box", "grades": ["6061-T6", "7075-T6"], "description": "轻质、耐腐蚀、易加工。适用于汽车、航空航天和电子元件。" },
+            { "name": "铸铁", "icon": "mdi:anvil", "grades": ["FC250", "FCD450"], "description": "良好的减振性和耐磨性。适用于发动机缸体、外壳和重型部件。" },
+            { "name": "工程塑料", "icon": "mdi:molecule", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "轻质、耐化学腐蚀、自润滑。用于衬套、非金属齿轮和绝缘体。" },
+            { "name": "橡胶", "icon": "mdi:circle-outline", "grades": ["NBR", "EPDM", "Silicone"], "description": "弹性好，耐油耐候。用于密封件、垫片、支架和减震器。" }
           ]
         },
         "contact": {

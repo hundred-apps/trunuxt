@@ -23,8 +23,8 @@
         <p
           class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-600 md:text-base"
         >
-          Optimize energy, stabilize the system, and ensure operations continue
-          running with the Battery Energy Storage System.
+          Optimalkan energi, stabilkan sistem, dan pastikan operasional tetap
+          berjalan dengan Battery Energy Storage System.
         </p>
       </div>
 
@@ -80,7 +80,7 @@
               Solar Energy
             </div>
             <div class="text-[10px] text-gray-500 md:text-xs">
-              Generate clean energy
+              Hasilkan energi bersih
             </div>
           </div>
 
@@ -95,11 +95,11 @@
               Grid
             </div>
             <div class="text-[10px] text-gray-500 md:text-xs">
-              Import / Export
+              Impor / Ekspor
             </div>
           </div>
 
-          <!-- BESS (Center) -->
+          <!-- BESS (Tengah) -->
           <div
             class="relative flex flex-col items-center justify-center text-center"
           >
@@ -130,10 +130,10 @@
               <BessIcons name="factory" class="h-full w-full" />
             </div>
             <div class="text-sm font-bold text-[#0c2a59] md:text-base">
-              Load
+              Beban
             </div>
             <div class="text-[10px] text-gray-500 md:text-xs">
-              Reliable operation
+              Operasi andal
             </div>
           </div>
 
@@ -148,25 +148,25 @@
               EV Charging
             </div>
             <div class="text-[10px] text-gray-500 md:text-xs">
-              Clean transportation
+              Transportasi bersih
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 3 MAIN BENEFITS OF BESS -->
+      <!-- 3 MANFAAT UTAMA BESS -->
       <div class="mx-auto max-w-6xl">
         <div class="mb-8 text-center">
           <h3 class="text-xl font-bold text-[#0c2a59] md:text-2xl">
-            3 Main Benefits of BESS
+            3 Manfaat Utama BESS
           </h3>
           <p class="text-sm text-gray-500">
-            Click on each benefit to see how BESS works
+            Klik pada setiap manfaat untuk melihat bagaimana BESS bekerja
           </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          <!-- 3 Benefits - 3 columns on the left -->
+          <!-- 3 Manfaat - 3 kolom di kiri -->
           <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               v-for="benefit in benefits"
@@ -230,7 +230,7 @@
                     : 'text-gray-400'
                 "
               >
-                Explore benefit
+                Jelajahi manfaat
                 <span
                   class="transition-transform duration-300 group-hover:translate-x-1"
                   >→</span
@@ -239,13 +239,13 @@
             </button>
           </div>
 
-          <!-- Why is BESS Important? - 1 column on the right -->
+          <!-- Kenapa BESS Penting? - 1 kolom di kanan -->
           <div class="lg:col-span-1">
             <div
               class="rounded-2xl bg-white border border-gray-200 shadow-sm p-4 h-full flex flex-col hover:shadow-md transition-shadow"
             >
               <h4 class="text-center text-lg font-bold text-[#0c2a59] mb-4">
-                Why is BESS Important?
+                Kenapa BESS Penting?
               </h4>
 
               <div class="flex-1 space-y-4">
@@ -255,10 +255,10 @@
                   <div class="text-3xl shrink-0">💰</div>
                   <div class="flex flex-col">
                     <h5 class="font-bold text-sm text-[#0c2a59]">
-                      Cost Savings
+                      Hemat Biaya
                     </h5>
                     <p class="text-xs text-gray-500 mt-0.5">
-                      Reduce operational costs by up to 30%
+                      Kurangi biaya operasional hingga 30%
                     </p>
                   </div>
                 </div>
@@ -269,10 +269,10 @@
                   <div class="text-3xl shrink-0">⚡</div>
                   <div class="flex flex-col">
                     <h5 class="font-bold text-sm text-[#0c2a59]">
-                      System Stability
+                      Sistem Stabil
                     </h5>
                     <p class="text-xs text-gray-500 mt-0.5">
-                      Stable voltage, longer equipment life
+                      Tegangan stabil, peralatan lebih awet
                     </p>
                   </div>
                 </div>
@@ -283,10 +283,10 @@
                   <div class="text-3xl shrink-0">🔄</div>
                   <div class="flex flex-col">
                     <h5 class="font-bold text-sm text-[#0c2a59]">
-                      24/7 Operations
+                      Operasional 24/7
                     </h5>
                     <p class="text-xs text-gray-500 mt-0.5">
-                      Backup power during outages
+                      Backup power saat listrik padam
                     </p>
                   </div>
                 </div>
@@ -339,13 +339,13 @@ const arrowHeads = [
   { points: "930,245 940,250 930,255", color: "#2563eb" },
 ];
 
-const particles = [
-  { cx: 200, cy: 250, color: "#2563eb" },
-  { cx: 380, cy: 250, color: "#16a34a" },
-  { cx: 600, cy: 250, color: "#16a34a" },
-  { cx: 800, cy: 250, color: "#2563eb" },
-  { cx: 900, cy: 250, color: "#16a34a" },
-];
+// const particles = [
+//   { cx: 200, cy: 250, color: "#2563eb" },
+//   { cx: 380, cy: 250, color: "#16a34a" },
+//   { cx: 600, cy: 250, color: "#16a34a" },
+//   { cx: 800, cy: 250, color: "#2563eb" },
+//   { cx: 900, cy: 250, color: "#16a34a" },
+// ];
 
 // ============ BENEFITS ============
 const benefits = [
@@ -353,27 +353,27 @@ const benefits = [
     id: "peak",
     number: "01",
     title: "Peak Shaving",
-    headline: "Reduce Peak Load. Optimize Costs.",
+    headline: "Kurangi Beban Puncak. Optimalkan Biaya.",
     description:
-      "BESS stores energy when electricity demand is low and uses it when the load reaches its peak.",
+      "BESS menyimpan energi saat kebutuhan listrik rendah dan menggunakannya ketika beban mencapai puncak.",
     icon: "⚡",
   },
   {
     id: "power",
     number: "02",
     title: "Power Factor",
-    headline: "Control Reactive Power. Stabilize the System.",
+    headline: "Kendalikan Daya Reaktif. Stabilkan Sistem.",
     description:
-      "BESS helps optimize reactive power needs to improve the efficiency and stability of the electrical system.",
+      "BESS membantu mengoptimalkan kebutuhan daya reaktif untuk meningkatkan efisiensi dan stabilitas sistem kelistrikan.",
     icon: "〽",
   },
   {
     id: "always",
     number: "03",
     title: "Always On",
-    headline: "Power Outage? Operations Keep Running.",
+    headline: "Listrik Padam. Operasional Tetap Jalan.",
     description:
-      "When a grid disturbance occurs, BESS can take over the energy supply so operations continue uninterrupted.",
+      "Ketika terjadi gangguan jaringan, BESS dapat mengambil alih suplai energi sehingga operasional tetap berjalan.",
     icon: "◉",
   },
 ];
@@ -392,8 +392,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content:
-        t("page.principal.vinenergo.seo.description") || "BESS Solutions",
+      content: t("page.principal.vinenergo.seo.description") || "Solusi BESS",
     },
   ],
 });
