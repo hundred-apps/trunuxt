@@ -424,7 +424,7 @@
             },
             {
               "title": "Bending & Forming",
-              "icon": "mdi:shape",
+              "icon": "griddy-icons:arrow-elbow-down-right",
               "description": "Pembengkokan dan pembentukan plat serta profil baja."
             },
             {
@@ -437,11 +437,11 @@
         "industries": {
           "title": "Industri yang Kami Layani",
           "items": [
-            { "name": "Otomotif", "image": "/principal/machining/automotive.jpg" },
-            { "name": "Makanan & Minuman", "image": "/principal/machining/fnb.jpg" },
-            { "name": "Manufaktur", "image": "/principal/machining/manufacture.jpg" },
-            { "name": "Penggilingan", "image": "/principal/machining/mill.jpg" },
-            { "name": "Tekstil", "image": "/principal/machining/textile.jpg" }
+            { "name": "Otomotif", "image": "https://migration.trumecs.com/principal/machining/automotive.jpg" },
+            { "name": "Makanan & Minuman", "image": "https://migration.trumecs.com/principal/machining/fnb.jpg" },
+            { "name": "Manufaktur", "image": "https://migration.trumecs.com/principal/machining/manufacture.jpg" },
+            { "name": "Penggilingan", "image": "https://migration.trumecs.com/principal/machining/mill.jpg" },
+            { "name": "Tekstil", "image": "https://migration.trumecs.com/principal/machining/textile.jpg" }
           ]
         },
         "methods": {
@@ -451,13 +451,13 @@
           "items": [
             {
               "title": "Milling",
-              "icon": "mdi:cog-outline",
+              "icon": "streamline-pixel:ecology-windmill-1",
               "description": "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.",
               "features": ["3-axis hingga 5-axis", "Permukaan datar & kontur", "Slot & keyway", "Toleransi ±0.01mm"]
             },
             {
               "title": "Turning",
-              "icon": "mdi:rotate-3d",
+              "icon": "mdi:rotate-3d-variant",
               "description": "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.",
               "features": ["Shaft & axle", "Bushing & bearing", "Thread & ulir", "Toleransi ±0.005mm"]
             },
@@ -486,14 +486,14 @@
           "title": "Produk yang Kami Hasilkan",
           "subtitle": "Berbagai komponen presisi yang kami produksi untuk berbagai industri manufaktur.",
           "items": [
-            { "name": "Shaft Gear", "image": "/principal/machining/shaft.png" },
-            { "name": "Rantai", "image": "/principal/machining/chain.png" },
-            { "name": "Bearing Housing", "image": "/principal/machining/housing.png" },
-            { "name": "Conveyor Roller", "image": "/principal/machining/roller.png" },
-            { "name": "Sprocket", "image": "/principal/machining/sprocket.png" },
-            { "name": "Gergaji", "image": "/principal/machining/saw.png" },
-            { "name": "Kopling", "image": "/principal/machining/coupling.png" },
-            { "name": "Lembaran Perforasi", "image": "/principal/machining/perforated.png" }
+            { "name": "Shaft Gear", "image": "https://migration.trumecs.com/principal/machining/shaft.png" },
+            { "name": "Rantai", "image": "https://migration.trumecs.com/principal/machining/chain.png" },
+            { "name": "Bearing Housing", "image": "https://migration.trumecs.com/principal/machining/housing.png" },
+            { "name": "Conveyor Roller", "image": "https://migration.trumecs.com/principal/machining/roller.png" },
+            { "name": "Sprocket", "image": "https://migration.trumecs.com/principal/machining/sprocket.png" },
+            { "name": "Gergaji", "image": "https://migration.trumecs.com/principal/machining/saw.png" },
+            { "name": "Kopling", "image": "https://migration.trumecs.com/principal/machining/coupling.png" },
+            { "name": "Lembaran Perforasi", "image": "https://migration.trumecs.com/principal/machining/perforated.png" }
           ]
         },
         "materials": {
@@ -501,12 +501,15 @@
           "title": "Material yang Kami Kuasai",
           "subtitle": "Kami memiliki keahlian dalam memproses berbagai material untuk memenuhi kebutuhan industri Anda.",
           "items": [
-            { "name": "Stainless Steel", "icon": "mdi:shield-star", "grades": ["SS304", "SS316"], "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis." },
-            { "name": "Carbon Steel", "icon": "mdi:cylinder", "grades": ["S45C", "ST41"], "description": "Umum digunakan untuk shaft, gear, dan komponen struktural." },
-            { "name": "Alloy Steel", "icon": "mdi:hexagon-multiple", "grades": ["SCM440", "SNCM439"], "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi." },
-            { "name": "Aluminium", "icon": "mdi:alpha-a-box", "grades": ["6061-T6", "7075-T6"], "description": "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik." },
+            { "name": "Stainless Steel", "icon": "mdi:silverware-fork-knife",
+          "grades": ["SS304", "SS316"], "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis." },
+            { "name": "Carbon Steel", "icon": "material-symbols:thermostat-carbon-outline", "grades": ["S45C", "ST41"], "description": "Umum digunakan untuk shaft, gear, dan komponen struktural." },
+            { "name": "Alloy Steel", "icon": "mdi:factory",
+          "grades": ["SCM440", "SNCM439"], "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi." },
+            { "name": "Aluminium", "icon": "mdi:cube-outline",
+          "grades": ["6061-T6", "7075-T6"], "description": "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik." },
             { "name": "Cast Iron", "icon": "mdi:anvil", "grades": ["FC250", "FCD450"], "description": "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat." },
-            { "name": "Engineering Plastics", "icon": "mdi:molecule", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator." },
+            { "name": "Engineering Plastics", "icon": "guidance:plastic", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator." },
             { "name": "Rubber", "icon": "mdi:circle-outline", "grades": ["NBR", "EPDM", "Silicone"], "description": "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator." }
           ]
         },

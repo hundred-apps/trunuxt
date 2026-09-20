@@ -9,7 +9,7 @@
         <div
           class="bg-cover bg-center w-full h-[80dvh] rounded-b-3xl"
           :style="{
-            backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuARdKjmt1GsJqLX36SI3POXwA2GT6XW60m0U_y73R4f3ofMEgWPUaBAgKYQ6iuAgW7WdnlOiseqWHy9dfmrmR75n42eXXW87-zBpJT3zGZ5G9OZJX3CvIyXNWE2qCokbR0LV_unkm-8JYD1UXnih8WN_fJw5ZMCqhjhkE-Co4PifaVKVaOOt8vGSSFAYtpCmBQwR8RCbWwgm4YQaxcW_0Q1q9b1HBbwrX8FYax1rBmBhfvFhBa56O2X')`,
+            backgroundImage: `url('https://migration.trumecs.com/principal/machining/hero.jpg')`,
           }"
         ></div>
 
@@ -116,7 +116,7 @@
               <img
                 :src="product.image"
                 :alt="product.name"
-                class="w-full h-full object-center group-hover:scale-110 transition-transform duration-500"
+                class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                 loading="lazy"
               />
             </div>
@@ -182,7 +182,7 @@
               class="absolute -inset-4 bg-gray-100 rounded-2xl transform rotate-3 z-0 opacity-50"
             ></div>
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqRoCAqyU-Vv0JveUI0ickT1MrOJQFHcYtQrJZDGym22rCLAO7HI7GovKB9AIu2UEVQqx0CJqPX7uz87gqu3blDtBnX56FH3Kq0B5N9r2JdNzihBXIkZKNthLDmWcWxlBekkz2DO-zVlvbQzyi7OxPVuWGQQzjulaA_LPP6sfEXMsoI1Gs0eCg-_aD8PDun1NZdIIL-ppS6fwQg1CuxpJVoAfK5n9lN4HgCRWms5kAj1ILQOtP5BF5"
+              src="https://migration.trumecs.com/principal/machining/hero-machining.jpg"
               alt="Machining Excellence"
               class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
               loading="lazy"
@@ -207,7 +207,7 @@
               class="relative z-10 w-full h-auto rounded-xl shadow-lg border border-gray-200/30 aspect-[4/3] bg-gradient-to-br from-orange-50 to-gray-100 flex items-center justify-center"
             >
               <img
-                src="/principal/machining/fabrication.jpg"
+                src="https://migration.trumecs.com/principal/machining/fabrication.jpg"
                 alt="Fabrication Excellence"
                 class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
                 loading="lazy"
@@ -494,198 +494,298 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
+const { t, tm, rt } = useI18n();
 
-const industries = [
-  {
-    name: "Automotive",
-    image: "/principal/machining/automotive.jpg",
-  },
-  {
-    name: "Food & Beverage",
-    image: "/principal/machining/fnb.jpg",
-  },
-  {
-    name: "Manufacture",
-    image: "/principal/machining/manufacture.jpg",
-  },
-  {
-    name: "Mill",
-    image: "/principal/machining/mill.jpg",
-  },
-  {
-    name: "Textile",
-    image: "/principal/machining/textile.jpg",
-  },
-];
+const industries = computed(() => {
+  const items = tm("page.principal.machining.industries.items");
 
-const products = [
-  { name: "Shaft Gear", image: "/principal/machining/shaft.png" },
-  { name: "Chain", image: "/principal/machining/chain.png" },
-  { name: "Bearing Housing", image: "/principal/machining/housing.png" },
-  { name: "Conveyor Roller", image: "/principal/machining/roller.png" },
-  { name: "Sprocket", image: "/principal/machining/sprocket.png" },
-  { name: "Saw", image: "/principal/machining/saw.png" },
-  { name: "Coupling", image: "/principal/machining/coupling.png" },
-  { name: "Preforated Sheet", image: "/principal/machining/perforated.png" },
-];
+  if (!Array.isArray(items)) return [];
 
-const aboutMachiningHighlights = [
-  {
-    title: "CNC Machining",
-    icon: "mdi:cpu-64-bit",
-    description:
-      "Computer Numerical Control memungkinkan presisi tinggi dan reproduktifitas yang konsisten.",
-  },
-  {
-    title: "Toleransi Presisi",
-    icon: "mdi:tune-variant",
-    description: "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis.",
-  },
-  {
-    title: "Multi-Axis Capability",
-    icon: "mdi:axis-arrow",
-    description: "Mesin 3-axis hingga 5-axis untuk geometri kompleks.",
-  },
-  {
-    title: "Quality Control",
-    icon: "mdi:shield-check",
-    description: "Inspeksi CMM dan dokumentasi ketat di setiap tahap.",
-  },
-];
+  return items.map((item: any) => ({
+    name: rt(item.name),
+    image: rt(item.image),
+  }));
+});
 
-const aboutFabrikasiHighlights = [
-  {
-    title: "Cutting & Shaping",
-    icon: "mdi:content-cut",
-    description: "Pemotongan presisi menggunakan laser, plasma, atau waterjet.",
-  },
-  {
-    title: "Welding & Joining",
-    icon: "mdi:fire",
-    description: "Pengelasan MIG, TIG, dan SMAW untuk struktur kokoh.",
-  },
-  {
-    title: "Bending & Forming",
-    icon: "griddy-icons:arrow-elbow-down-right",
-    description: "Pembengkokan dan pembentukan plat serta profil baja.",
-  },
-  {
-    title: "Assembly",
-    icon: "mdi:puzzle-check",
-    description: "Perakitan komponen menjadi produk akhir yang siap install.",
-  },
-];
+// const industries = [
+//   {
+//     name: "Automotive",
+//     image: "https://migration.trumecs.com/principal/machining/automotive.jpg",
+//   },
+//   {
+//     name: "Food & Beverage",
+//     image: "https://migration.trumecs.com/principal/machining/fnb.jpg",
+//   },
+//   {
+//     name: "Manufacture",
+//     image: "https://migration.trumecs.com/principal/machining/manufacture.jpg",
+//   },
+//   {
+//     name: "Mill",
+//     image: "https://migration.trumecs.com/principal/machining/mill.jpg",
+//   },
+//   {
+//     name: "Textile",
+//     image: "https://migration.trumecs.com/principal/machining/textile.jpg",
+//   },
+// ];
 
-const methods = [
-  {
-    title: "Milling",
-    icon: "streamline-pixel:ecology-windmill-1",
-    description:
-      "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.",
-    features: [
-      "3-axis hingga 5-axis",
-      "Permukaan datar & kontur",
-      "Slot & keyway",
-      "Toleransi ±0.01mm",
-    ],
-  },
-  {
-    title: "Turning",
-    icon: "mdi:rotate-3d-variant",
-    description:
-      "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.",
-    features: [
-      "Shaft & axle",
-      "Bushing & bearing",
-      "Thread & ulir",
-      "Toleransi ±0.005mm",
-    ],
-  },
-  {
-    title: "Grinding",
-    icon: "mdi:blur",
-    description:
-      "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.",
-    features: [
-      "Surface grinding",
-      "Cylindrical grinding",
-      "Surface finish Ra 0.4μm",
-      "Flatness < 0.005mm",
-    ],
-  },
-  {
-    title: "Cutting",
-    icon: "mdi:content-cut",
-    description:
-      "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.",
-    features: [
-      "Band saw cutting",
-      "Wire EDM",
-      "Laser cutting",
-      "Waterjet cutting",
-    ],
-  },
-  {
-    title: "Fabrication",
-    icon: "mdi:factory",
-    description:
-      "Proses fabrikasi untuk menghasilkan komponen dengan teknologi canggih.",
-    features: ["Welding", "Assembly"],
-  },
-];
+const products = computed(() => {
+  const items = tm("page.principal.machining.products.items");
+
+  if (!Array.isArray(items)) return [];
+
+  return items.map((item: any) => ({
+    name: rt(item.name),
+    image: rt(item.image),
+  }));
+});
+
+// const products = [
+//   {
+//     name: "Shaft Gear",
+//     image: "https://migration.trumecs.com/principal/machining/shaft.png",
+//   },
+//   {
+//     name: "Chain",
+//     image: "https://migration.trumecs.com/principal/machining/chain.png",
+//   },
+//   {
+//     name: "Bearing Housing",
+//     image: "https://migration.trumecs.com/principal/machining/housing.png",
+//   },
+//   {
+//     name: "Conveyor Roller",
+//     image: "https://migration.trumecs.com/principal/machining/roller.png",
+//   },
+//   {
+//     name: "Sprocket",
+//     image: "https://migration.trumecs.com/principal/machining/sprocket.png",
+//   },
+//   {
+//     name: "Saw",
+//     image: "https://migration.trumecs.com/principal/machining/saw.png",
+//   },
+//   {
+//     name: "Coupling",
+//     image: "https://migration.trumecs.com/principal/machining/coupling.png",
+//   },
+//   {
+//     name: "Preforated Sheet",
+//     image: "https://migration.trumecs.com/principal/machining/perforated.png",
+//   },
+// ];
+
+const aboutMachiningHighlights = computed(() => {
+  const items = tm("page.principal.machining.aboutMachining.highlights");
+
+  if (!Array.isArray(items)) return [];
+
+  return items.map((item: any) => ({
+    title: rt(item.title),
+    icon: rt(item.icon),
+    description: rt(item.description),
+  }));
+});
+
+// const aboutMachiningHighlights = [
+//   {
+//     title: "CNC Machining",
+//     icon: "mdi:cpu-64-bit",
+//     description:
+//       "Computer Numerical Control memungkinkan presisi tinggi dan reproduktifitas yang konsisten.",
+//   },
+//   {
+//     title: "Toleransi Presisi",
+//     icon: "mdi:tune-variant",
+//     description: "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis.",
+//   },
+//   {
+//     title: "Multi-Axis Capability",
+//     icon: "mdi:axis-arrow",
+//     description: "Mesin 3-axis hingga 5-axis untuk geometri kompleks.",
+//   },
+//   {
+//     title: "Quality Control",
+//     icon: "mdi:shield-check",
+//     description: "Inspeksi CMM dan dokumentasi ketat di setiap tahap.",
+//   },
+// ];
+
+const aboutFabrikasiHighlights = computed(() => {
+  const items = tm("page.principal.machining.aboutFabrikasi.highlights");
+
+  if (!Array.isArray(items)) return [];
+
+  return items.map((item: any) => ({
+    title: rt(item.title),
+    icon: rt(item.icon),
+    description: rt(item.description),
+  }));
+});
+
+// const aboutFabrikasiHighlights = [
+//   {
+//     title: "Cutting & Shaping",
+//     icon: "mdi:content-cut",
+//     description: "Pemotongan presisi menggunakan laser, plasma, atau waterjet.",
+//   },
+//   {
+//     title: "Welding & Joining",
+//     icon: "mdi:fire",
+//     description: "Pengelasan MIG, TIG, dan SMAW untuk struktur kokoh.",
+//   },
+//   {
+//     title: "Bending & Forming",
+//     icon: "griddy-icons:arrow-elbow-down-right",
+//     description: "Pembengkokan dan pembentukan plat serta profil baja.",
+//   },
+//   {
+//     title: "Assembly",
+//     icon: "mdi:puzzle-check",
+//     description: "Perakitan komponen menjadi produk akhir yang siap install.",
+//   },
+// ];
+
+const methods = computed(() => {
+  const items = tm("page.principal.machining.methods.items");
+
+  if (!Array.isArray(items)) return [];
+
+  return items.map((item: any) => ({
+    title: rt(item.title), // ✅ title, bukan name
+    icon: rt(item.icon),
+    description: rt(item.description),
+    features: Array.isArray(item.features) // ✅ handle array
+      ? item.features.map((f: any) => rt(f))
+      : [],
+  }));
+});
+
+// const methods = [
+//   {
+//     title: "Milling",
+//     icon: "streamline-pixel:ecology-windmill-1",
+//     description:
+//       "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.",
+//     features: [
+//       "3-axis hingga 5-axis",
+//       "Permukaan datar & kontur",
+//       "Slot & keyway",
+//       "Toleransi ±0.01mm",
+//     ],
+//   },
+//   {
+//     title: "Turning",
+//     icon: "mdi:rotate-3d-variant",
+//     description:
+//       "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.",
+//     features: [
+//       "Shaft & axle",
+//       "Bushing & bearing",
+//       "Thread & ulir",
+//       "Toleransi ±0.005mm",
+//     ],
+//   },
+//   {
+//     title: "Grinding",
+//     icon: "mdi:blur",
+//     description:
+//       "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.",
+//     features: [
+//       "Surface grinding",
+//       "Cylindrical grinding",
+//       "Surface finish Ra 0.4μm",
+//       "Flatness < 0.005mm",
+//     ],
+//   },
+//   {
+//     title: "Cutting",
+//     icon: "mdi:content-cut",
+//     description:
+//       "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.",
+//     features: [
+//       "Band saw cutting",
+//       "Wire EDM",
+//       "Laser cutting",
+//       "Waterjet cutting",
+//     ],
+//   },
+//   {
+//     title: "Fabrication",
+//     icon: "mdi:factory",
+//     description:
+//       "Proses fabrikasi untuk menghasilkan komponen dengan teknologi canggih.",
+//     features: ["Welding", "Assembly"],
+//   },
+// ];
 
 const heroImage = "#";
 
-const materials = [
-  {
-    name: "Stainless Steel",
-    icon: "mdi:silverware-fork-knife",
-    grades: ["SS304", "SS316"],
-    description:
-      "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis.",
-  },
-  {
-    name: "Alloy Steel",
-    icon: "mdi:factory",
-    grades: ["SCM440", "SNCM439"],
-    description: "Kekuatan tinggi untuk komponen mesin berat dan transmisi.",
-  },
-  {
-    name: "Carbon Steel",
-    icon: "material-symbols:thermostat-carbon-outline",
-    grades: ["S45C", "ST41"],
-    description: "Umum digunakan untuk shaft, gear, dan komponen struktural.",
-  },
-  {
-    name: "Aluminium",
-    icon: "mdi:cube-outline",
-    grades: ["6061-T6", "7075-T6"],
-    description:
-      "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik.",
-  },
-  {
-    name: "Cast Iron",
-    icon: "mdi:anvil",
-    grades: ["FC250", "FCD450"],
-    description:
-      "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat.",
-  },
-  {
-    name: "Engineering Plastics",
-    icon: "guidance:plastic",
-    grades: ["POM", "PTFE", "Nylon PA6"],
-    description:
-      "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator.",
-  },
-  {
-    name: "Rubber",
-    icon: "mdi:circle-outline",
-    grades: ["NBR", "EPDM", "Silicone"],
-    description:
-      "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator.",
-  },
-];
+const materials = computed(() => {
+  const items = tm("page.principal.machining.materials.items");
+
+  if (!Array.isArray(items)) return [];
+
+  return items.map((item: any) => ({
+    name: rt(item.name),
+    icon: rt(item.icon),
+    description: rt(item.description),
+    grades: Array.isArray(item.grades) // ✅ handle array
+      ? item.grades.map((f: any) => rt(f))
+      : [],
+  }));
+});
+
+// const materials = [
+//   {
+//     name: "Stainless Steel",
+//     icon: "mdi:silverware-fork-knife",
+//     grades: ["SS304", "SS316"],
+//     description:
+//       "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis.",
+//   },
+//   {
+//     name: "Alloy Steel",
+//     icon: "mdi:factory",
+//     grades: ["SCM440", "SNCM439"],
+//     description: "Kekuatan tinggi untuk komponen mesin berat dan transmisi.",
+//   },
+//   {
+//     name: "Carbon Steel",
+//     icon: "material-symbols:thermostat-carbon-outline",
+//     grades: ["S45C", "ST41"],
+//     description: "Umum digunakan untuk shaft, gear, dan komponen struktural.",
+//   },
+//   {
+//     name: "Aluminium",
+//     icon: "mdi:cube-outline",
+//     grades: ["6061-T6", "7075-T6"],
+//     description:
+//       "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik.",
+//   },
+//   {
+//     name: "Cast Iron",
+//     icon: "mdi:anvil",
+//     grades: ["FC250", "FCD450"],
+//     description:
+//       "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat.",
+//   },
+//   {
+//     name: "Engineering Plastics",
+//     icon: "guidance:plastic",
+//     grades: ["POM", "PTFE", "Nylon PA6"],
+//     description:
+//       "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator.",
+//   },
+//   {
+//     name: "Rubber",
+//     icon: "mdi:circle-outline",
+//     grades: ["NBR", "EPDM", "Silicone"],
+//     description:
+//       "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator.",
+//   },
+// ];
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
 
