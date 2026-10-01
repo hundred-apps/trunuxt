@@ -22,6 +22,26 @@
       >
         {{ $t("page.product.text.sold") }}
       </div>
+
+      <!-- Tags: pojok kiri bawah (chip terbuka semua, tanpa tooltip) -->
+      <div
+        v-if="displayTags.length > 0"
+        class="absolute bottom-2 left-2 right-2 flex flex-col items-start gap-1.5 z-10 max-w-full"
+      >
+        <span
+          v-for="tag in displayTags.slice(0, 2)"
+          :key="tag.id || tag.tag"
+          class="px-2.5 py-0.5 rounded bg-orange-500/90 text-white text-[11px] font-medium"
+        >
+          {{ tagLabel(tag) }}
+        </span>
+        <span
+          v-if="displayTags.length > 2"
+          class="px-2.5 py-0.5 rounded bg-gray-800/80 text-white text-[11px] font-medium"
+        >
+          +{{ displayTags.length - 2 }}
+        </span>
+      </div>
     </div>
     <div class="p-3">
       <!-- ✅ Perbaiki brand - cek tipe data -->
@@ -66,6 +86,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
 interface ProductItem {
   id: number;
@@ -77,11 +98,32 @@ interface ProductItem {
   stock: number;
 }
 
+interface TagItem {
+  id?: string | number;
+  tag?: string;
+  tag_en?: string;
+  tag_ch?: string;
+}
+
 const props = defineProps<{
   product: ProductItem;
+  tags?: TagItem[];
 }>();
 
 const config = useRuntimeConfig();
+const { locale } = useI18n();
+
+const displayTags = computed(() => {
+  if (!Array.isArray(props.tags)) return [];
+  return props.tags.filter((t) => t && (t.tag || t.tag_en || t.tag_ch));
+});
+
+const tagLabel = (tag: TagItem) => {
+  const lang = String(locale.value).toLowerCase();
+  if (lang === "en") return tag.tag_en || tag.tag || "";
+  if (lang === "zh") return tag.tag_ch || tag.tag || "";
+  return tag.tag || tag.tag_en || "";
+};
 
 // ✅ Perbaiki productImage dengan fallback
 const productImage = computed(() => {

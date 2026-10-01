@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-white lg:rounded-xl lg:shadow-sm lg:border lg:border-gray-100">
+  <div>
     <!-- Main Image with Zoom -->
     <div
       ref="imageContainer"
-      class="relative bg-gray-50 lg:rounded-lg overflow-hidden aspect-square mb-0 group touch-manipulation"
+      class="relative bg-gray-50 overflow-hidden aspect-square mb-3 group touch-manipulation"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
@@ -130,10 +130,10 @@
           <div
             v-for="(img, index) in allImages"
             :key="index"
-            class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden cursor-pointer border-2 transition-all hover:shadow-md hover:scale-105"
+            class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden cursor-pointer border-2 transition-all"
             :class="
               selectedImage === index
-                ? 'border-orange-500 shadow-md scale-105'
+                ? 'border-orange-500 ring-2 ring-orange-500/30'
                 : 'border-gray-200 hover:border-gray-400'
             "
             @click="selectImage(index)"
@@ -150,7 +150,7 @@
       </div>
 
       <!-- Mobile: Dot Indicators -->
-      <div v-else class="flex justify-center gap-2 mt-1">
+      <div v-else class="flex justify-center gap-2">
         <span
           v-for="(img, index) in allImages"
           :key="index"

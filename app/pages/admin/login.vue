@@ -79,7 +79,7 @@
             to="/admin/forgot-password"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t("auth.forgotPassword") }}
+            {{ $t("auth.forgotPassword.title") }}
           </NuxtLink>
         </p>
       </div>

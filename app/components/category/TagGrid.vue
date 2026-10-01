@@ -1,50 +1,52 @@
 <template>
-  <section class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm" aria-labelledby="subcat-heading">
+  <section
+    class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"
+    aria-labelledby="tag-heading"
+  >
     <header class="mb-4 flex items-center justify-between">
       <h2
-        id="subcat-heading"
+        id="tag-heading"
         class="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-700"
       >
         <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
-          <Icon name="material-symbols:folder-shared" class="text-lg" />
+          <Icon name="material-symbols:local-offer" class="text-lg" />
         </span>
         {{ title }}
+
+        <span
+          v-if="tags.length > 0"
+          class="rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-600"
+        >
+          {{ tags.length }}
+        </span>
       </h2>
-      <Trulink
-        v-if="seeAllUrl"
-        :to="seeAllUrl"
-        class="text-xs font-medium text-orange-500 hover:text-orange-600"
-      >
-        {{ $t('button.seeAll') }}
-      </Trulink>
     </header>
 
     <!-- Loading -->
     <div v-if="loading" class="space-y-2">
-      <div v-for="i in 6" :key="i" class="h-10 animate-pulse rounded-xl bg-gray-100" />
+      <div v-for="i in 4" :key="i" class="h-10 animate-pulse rounded-xl bg-gray-100" />
     </div>
 
     <!-- Empty -->
-    <div v-else-if="subcategories.length === 0" class="py-8 text-center">
-      <Icon name="material-symbols:inventory-2" class="mx-auto text-3xl text-gray-300" />
-      <p class="mt-2 text-sm text-gray-400">{{ $t('page.category.noSubcategories') }}</p>
+    <div v-else-if="tags.length === 0" class="py-8 text-center">
+      <Icon name="material-symbols:local-offer" class="mx-auto text-3xl text-gray-300" />
+      <p class="mt-2 text-sm text-gray-400">{{ $t('page.category.noBrands') }}</p>
     </div>
 
     <!-- List -->
     <ul
       v-else
       class="space-y-1.5 overflow-y-auto pr-1"
-      :class="{ 'max-h-[320px]': subcategories.length > 8 }"
+      :class="{ 'max-h-[320px]': tags.length > 8 }"
     >
-      <li v-for="sub in subcategories" :key="sub.id">
+      <li v-for="tag in tags" :key="tag.id">
         <button
           type="button"
-          @click="handleClick(sub.id)"
-          :disabled="disabled?.includes(sub.id)"
-          :aria-pressed="isActive(sub.id)"
+          @click="handleClick(tag.id)"
+          :aria-pressed="isActive(tag.id)"
           class="group flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-all duration-200"
           :class="
-            isActive(sub.id)
+            isActive(tag.id)
               ? 'border-orange-500 bg-orange-500 text-white shadow-sm'
               : 'border-gray-100 bg-white text-gray-700 hover:border-orange-200 hover:bg-orange-50/60'
           "
@@ -52,7 +54,7 @@
           <span
             class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors"
             :class="
-              isActive(sub.id)
+              isActive(tag.id)
                 ? 'border-white bg-white text-orange-500'
                 : 'border-gray-300 bg-white text-transparent group-hover:border-orange-300'
             "
@@ -60,26 +62,37 @@
             <Icon name="material-symbols:check" class="text-xs font-bold" />
           </span>
 
+          <span
+            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md"
+            :class="
+              isActive(tag.id)
+                ? 'bg-white/20 text-white'
+                : 'bg-orange-50 text-orange-500'
+            "
+          >
+            <Icon name="material-symbols:sell" class="text-sm" />
+          </span>
+
           <span class="min-w-0 flex-1 truncate text-sm font-medium">
-            {{ sub.name }}
+            {{ label(tag) }}
           </span>
 
           <span
             class="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold"
             :class="
-              isActive(sub.id)
+              isActive(tag.id)
                 ? 'bg-white/20 text-white'
                 : 'bg-gray-100 text-gray-500 group-hover:bg-orange-100 group-hover:text-orange-600'
             "
           >
-            {{ counts[sub.id] ?? 0 }}
+            {{ counts[String(tag.id)] ?? 0 }}
           </span>
         </button>
       </li>
     </ul>
 
     <p
-      v-if="subcategories.length > 8"
+      v-if="tags.length > 8"
       class="mt-2 flex items-center gap-1 text-[11px] text-gray-400"
     >
       <Icon name="material-symbols:unfold-more" class="text-xs" />
@@ -87,7 +100,7 @@
     </p>
 
     <Trubutton
-      v-if="activeId && subcategories.length > 0"
+      v-if="activeIds.length > 0"
       :text="$t('button.clearFilters')"
       variant="ghost"
       size="mini"
@@ -99,53 +112,53 @@
 </template>
 
 <script setup lang="ts">
-interface Subcategory {
-  id: number;
-  name: string;
-  url: string;
-  icon?: string;
+import { useI18n } from "vue-i18n";
+
+interface TagItem {
+  id: string | number;
+  tag?: string;
+  tag_en?: string;
+  tag_ch?: string;
 }
 
 const props = defineProps({
-  subcategories: {
-    type: Array as () => Subcategory[],
+  tags: {
+    type: Array as () => TagItem[],
     required: true,
   },
-  activeId: {
-    type: Number,
-    default: null,
-  },
-  disabled: {
-    type: Array as () => number[],
+  activeIds: {
+    type: Array as () => Array<string | number>,
     default: () => [],
+  },
+  counts: {
+    type: Object as () => Record<string, number>,
+    default: () => ({}),
   },
   title: {
     type: String,
-    default: 'Sub Kategori',
-  },
-  seeAllUrl: {
-    type: String,
-    default: '',
+    default: "Tags",
   },
   loading: {
     type: Boolean,
     default: false,
   },
-  counts: {
-    type: Object as () => Record<number, number>,
-    default: () => ({}),
-  },
 });
 
 const emit = defineEmits<{
-  select: [id: number];
+  toggle: [id: string | number];
   clear: [];
 }>();
 
-const isActive = (id: number) => props.activeId === id;
+const { locale } = useI18n();
 
-const handleClick = (id: number) => {
-  if (props.disabled?.includes(id)) return;
-  emit('select', id);
+const label = (tag: TagItem) => {
+  const lang = String(locale.value).toLowerCase();
+  if (lang === "en") return tag.tag_en || tag.tag || "";
+  if (lang === "zh") return tag.tag_ch || tag.tag || "";
+  return tag.tag || tag.tag_en || "";
 };
+
+const isActive = (id: string | number) => props.activeIds.includes(id);
+
+const handleClick = (id: string | number) => emit("toggle", id);
 </script>

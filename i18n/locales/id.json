@@ -17,13 +17,414 @@
     "seeDetail": "Lihat Selengkapnya",
     "buyNow": "Beli Sekarang",
     "submitRFQ": "Kirim RFQ",
-    "learnMore": "Pelajari Lebih Lanjut"
+    "learnMore": "Pelajari Lebih Lanjut",
+    "clearFilters": "Reset Filter",
+    "showFilters": "Filter",
+    "hideFilters": "Tutup Filter",
+    "apply": "Terapkan",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "back": "Kembali",
+    "next": "Lanjut",
+    "submit": "Kirim"
+  },
+  "search": {
+    "title": "Pencarian Produk",
+    "subtitle": "Menampilkan {total} hasil untuk \"{keyword}\"",
+    "sort": {
+      "relevance": "Paling Relevan",
+      "priceLow": "Harga Terendah",
+      "priceHigh": "Harga Tertinggi",
+      "newest": "Terbaru"
+    },
+    "noResults": "Produk Tidak Ditemukan",
+    "noResultsDesc": "Tidak ada hasil untuk \"{keyword}\". Coba kata kunci lain atau jelajahi semua produk kami.",
+    "browseAll": "Jelajahi Semua Produk"
+  },
+  "compare": {
+    "title": "Bandingkan Produk",
+    "subtitle": "Bandingkan hingga {max} produk sekaligus",
+    "empty": "Belum ada produk untuk dibandingkan",
+    "emptyDesc": "Pilih produk pada halaman produk untuk mulai membandingkan.",
+    "startComparing": "Mulai Bandingkan",
+    "specifications": "Spesifikasi",
+    "share": "Bagikan",
+    "clearAll": "Hapus Semua",
+    "shareTitle": "Bagikan Perbandingan",
+    "recipientEmails": "Email Penerima",
+    "emailsHint": "email1{'@'}domain.com, email2{'@'}domain.com",
+    "message": "Pesan",
+    "messagePlaceholder": "Pesan opsional...",
+    "send": "Kirim",
+    "confirmClearTitle": "Konfirmasi",
+    "confirmClearDesc": "Hapus semua produk dari perbandingan?",
+    "confirmClearConfirm": "Hapus Semua",
+    "cleared": "Perbandingan dikosongkan",
+    "noProductsToShare": "Tidak ada produk untuk dibagikan",
+    "emailRequired": "Masukkan minimal satu email",
+    "shared": "Perbandingan telah dibagikan",
+    "sendFailed": "Gagal mengirim"
+  },
+  "rental": {
+    "title": "Rental Alat Berat",
+    "subtitle": "Sewa alat berat berkualitas untuk kebutuhan proyek Anda",
+    "filters": "Filter",
+    "priceRange": "Rentang Harga",
+    "availability": "Ketersediaan",
+    "withOperator": "Dengan Operator",
+    "withFuel": "Dengan BBM",
+    "availableNow": "Tersedia Sekarang",
+    "showing": "Menampilkan {from}-{to} dari {total} unit",
+    "noResults": "Tidak Ada Unit Tersedia",
+    "noResultsDesc": "Tidak ada unit yang cocok dengan filter Anda. Ubah filter untuk melihat lebih banyak.",
+    "searchPlaceholder": "Cari alat berat...",
+    "categoryPlaceholder": "Kategori",
+    "durationPlaceholder": "Durasi",
+    "locationPlaceholder": "Lokasi",
+    "durationDaily": "Harian",
+    "durationWeekly": "Mingguan",
+    "durationMonthly": "Bulanan",
+    "locationOther": "Lainnya",
+    "priceMinLabel": "Rp 0",
+    "priceMaxLabel": "Rp 50 Juta",
+    "perDay": "/hari",
+    "perMonth": "/bulan",
+    "viewDetail": "Lihat Detail"
+  },
+  "jasa": {
+    "title": "Jasa Mekanikal",
+    "subtitle": "Layanan mekanikal profesional dari mitra terpercaya",
+    "providers": "Penyedia Layanan",
+    "featuredProviders": "Penyedia Unggulan",
+    "viewProfile": "Lihat Profil",
+    "ctaTitle": "Siap Membutuhkan Layanan?",
+    "ctaDesc": "Kirim kebutuhan Anda dan dapatkan penawaran dari penyedia layanan terpercaya.",
+    "becomeProvider": "Daftar Jadi Penyedia",
+    "requestService": "Ajukan Permintaan",
+    "reviews": "{count} ulasan",
+    "available": "Tersedia",
+    "busy": "Sibuk",
+    "categoryMaintenance": "Perawatan Rutin",
+    "categoryRepair": "Perbaikan/Reparasi",
+    "categoryInspection": "Inspeksi & Audit",
+    "categoryTesting": "Pengujian/Testing",
+    "categoryRepairService": "Perawatan & Reparasi",
+    "categoryHydraulic": "Sistem Hidrolik",
+    "categoryOverhaul": "Overhaul Mesin",
+    "categoryMobile": "Service Keliling"
+  },
+  "requestForm": {
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "company": "Perusahaan",
+    "productName": "Nama Produk",
+    "serviceType": "Jenis Jasa",
+    "equipmentType": "Tipe Alat",
+    "rentalDuration": "Durasi Sewa",
+    "rentalLocation": "Lokasi Sewa",
+    "description": "Deskripsi",
+    "agree": "Saya setuju dengan",
+    "terms": "Syarat & Ketentuan",
+    "phName": "Nama lengkap",
+    "phEmail": "Email",
+    "phPhone": "Nomor telepon/WhatsApp",
+    "phCompany": "Nama perusahaan",
+    "phProductName": "Nama produk yang dicari",
+    "phServiceType": "Pilih jenis jasa",
+    "phEquipmentType": "Pilih tipe alat",
+    "phRentalDuration": "Durasi sewa",
+    "phRentalLocation": "Lokasi proyek/sewa",
+    "phDescription": "Jelaskan kebutuhan Anda secara detail (spesifikasi, jumlah, kondisi, timeline, dll.)",
+    "titleProduct": "Permintaan Produk",
+    "titleService": "Permintaan Jasa",
+    "titleRental": "Permintaan Rental",
+    "titleAll": "Kirim Permintaan",
+    "descProduct": "Butuh produk yang tidak tersedia di katalog? Kirim permintaan dan tim kami akan mencarikannya untuk Anda.",
+    "descService": "Butuh jasa perawatan, perbaikan, atau inspeksi alat berat? Kami menghubungkan Anda dengan bengkel terpercaya.",
+    "descRental": "Butuh alat berat untuk proyek? Kami menyediakan rental alat berat dengan operator berpengalaman.",
+    "descAll": "Kirimkan kebutuhan Anda, tim kami akan menghubungi Anda segera.",
+    "errRequired": "Lengkapi kolom yang wajib diisi",
+    "errAgree": "Anda harus menyetujui syarat dan ketentuan",
+    "errTypeRequired": "Lengkapi kolom yang wajib diisi untuk tipe ini",
+    "success": "Permintaan berhasil dikirim! Tim kami akan menghubungi Anda segera.",
+    "fail": "Gagal mengirim permintaan"
+  },
+  "scrap": {
+    "title": "Jual Unit Bekas",
+    "subtitle": "Ikut serta dalam program pembelian unit bekas kami",
+    "description": "Lengkapi informasi berikut dan tim kami akan menghubungi Anda untuk penawaran jual unit bekas.",
+    "name": "Nama",
+    "phone": "Nomor Telepon/WhatsApp",
+    "phoneHint": "Gunakan format: 08xxxxxxxxxx",
+    "email": "Email",
+    "emailHint": "Kami akan mengirimkan detail penawaran ke email ini",
+    "unitType": "Tipe Unit",
+    "phUnit": "Contoh: Excavator PC 200, Bulldozer D85, Dump Truck",
+    "condition": "Deskripsi Unit",
+    "location": "Lokasi Unit",
+    "phLocation": "Contoh: Jakarta, Surabaya, Balikpapan",
+    "phDescription": "Kondisi unit, tahun, jam operasi, kelengkapan dokumen, dll.",
+    "phName": "Masukkan nama lengkap Anda",
+    "phPhone": "Contoh: 08123456789",
+    "phEmail": "contoh{'@'}email.com",
+    "phUnitType": "Pilih tipe unit",
+    "phLocationUnit": "Contoh: Jakarta, Surabaya, Balikpapan",
+    "agreeTerms": "Saya setuju dengan",
+    "terms": "Syarat & Ketentuan",
+    "submit": "Kirim Penawaran",
+    "errRequired": "Lengkapi kolom yang wajib diisi",
+    "errAgree": "Anda harus menyetujui syarat dan ketentuan",
+    "waOpening": "Membuka WhatsApp...",
+    "waFail": "Gagal membuka WhatsApp",
+    "waIntro": "Halo Trumecs, saya ingin menjual scrap alat berat:",
+    "waClosing": "Mohon dihubungi untuk penawaran."
+  },
+  "address": {
+    "province": "Provinsi",
+    "selectProvince": "Pilih Provinsi",
+    "city": "Kota/Kabupaten",
+    "selectRegency": "Pilih Kota/Kabupaten",
+    "district": "Kecamatan",
+    "selectDistrict": "Pilih Kecamatan",
+    "village": "Desa/Kelurahan",
+    "selectVillage": "Pilih Desa/Kelurahan",
+    "zipcode": "Kode Pos",
+    "zipcodePlaceholder": "Masukkan kode pos"
+  },
+  "status": {
+    "waiting_quotes": "Menunggu Penawaran",
+    "quoted": "Sudah Dikutip",
+    "completed": "Selesai",
+    "cancelled": "Dibatalkan",
+    "processing": "Diproses",
+    "shipped": "Dikirim",
+    "delivered": "Diterima"
+  },
+  "auth": {
+    "firstName": "Nama Depan",
+    "lastName": "Nama Belakang",
+    "email": "Email",
+    "phone": "Telepon",
+    "company": "Perusahaan",
+    "password": "Password",
+    "confirmPassword": "Konfirmasi Password",
+    "passwordMismatch": "Password tidak cocok",
+    "rememberMe": "Ingat saya",
+    "rememberPassword": "Ingat password Anda?",
+    "or": "atau",
+    "loginWithWhatsapp": "Masuk dengan WhatsApp",
+    "noAccount": "Belum punya akun?",
+    "hasAccount": "Sudah punya akun?",
+    "termsAgreement": "Dengan masuk, Anda menyetujui",
+    "terms": "Syarat & Ketentuan",
+    "and": "dan",
+    "privacy": "Kebijakan Privasi",
+    "agreeTermsPart1": "Saya menyetujui",
+    "mustAgreeTerms": "Anda harus menyetujui syarat dan ketentuan",
+    "login": {
+      "title": "Masuk",
+      "subtitle": "Masuk untuk mengakses dashboard member Anda"
+    },
+    "register": {
+      "title": "Daftar Akun",
+      "subtitle": "Buat akun untuk mulai belanja di Trumecs"
+    },
+    "forgotPassword": {
+      "title": "Lupa Password",
+      "subtitle": "Masukkan email Anda dan kami akan mengirimkan link reset password",
+      "success": "Link reset telah dikirim ke email Anda",
+      "sendLink": "Kirim Link Reset",
+      "sendFail": "Gagal mengirim link reset. Silakan coba lagi."
+    },
+    "verifyEmail": {
+      "title": "Verifikasi Email",
+      "subtitle": "Kami telah mengirim link verifikasi ke email Anda",
+      "checking": "Memeriksa verifikasi...",
+      "checkingDesc": "Tunggu sebentar, kami sedang memverifikasi akun Anda",
+      "verified": "Email Terverifikasi!",
+      "verifiedDesc": "Akun Anda berhasil diverifikasi. Silakan masuk.",
+      "expired": "Link Kedaluwarsa",
+      "expiredDesc": "Link verifikasi sudah kedaluwarsa. Kirim ulang untuk mendapatkan link baru.",
+      "error": "Verifikasi Gagal",
+      "resend": "Kirim Ulang",
+      "didNotReceive": "Tidak menerima email?",
+      "resendLink": "Kirim ulang link verifikasi",
+      "tokenMissing": "Token verifikasi tidak ditemukan",
+      "tokenInvalid": "Verifikasi gagal. Token tidak valid.",
+      "resendSuccess": "Link verifikasi baru telah dikirim",
+      "resendFail": "Gagal mengirim ulang"
+    },
+    "whatsappIntro": "Halo Trumecs, saya ingin login via WhatsApp",
+    "loginSuccess": "Login berhasil",
+    "loginFail": "Login gagal. Silakan coba lagi.",
+    "registerSuccess": "Registrasi berhasil. Silakan cek email untuk verifikasi.",
+    "registerFail": "Registrasi gagal. Silakan coba lagi.",
+    "mustAgree": "Anda harus menyetujui syarat dan ketentuan",
+    "confirmMismatch": "Konfirmasi password tidak cocok"
+  },
+  "member": {
+    "viewAll": "Lihat Semua",
+    "logout": "Keluar",
+    "notifications": "Notifikasi",
+    "markAllRead": "Tandai Semua Dibaca",
+    "noNotifications": "Tidak ada notifikasi",
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Halo, {name}!",
+      "activeRfq": "RFQ Aktif",
+      "pendingOrders": "Pesanan Menunggu",
+      "completedOrders": "Pesanan Selesai",
+      "unreadMessages": "Pesan Belum Dibaca",
+      "quickActions": "Aksi Cepat",
+      "createRfq": "Buat RFQ",
+      "createRfqDesc": "Buat permintaan penawaran baru",
+      "viewRfq": "Lihat RFQ",
+      "viewRfqDesc": "Kelola permintaan penawaran Anda",
+      "messages": "Pesan",
+      "messagesDesc": "Lihat pesan dari supplier",
+      "findProducts": "Cari Produk",
+      "findProductsDesc": "Jelajahi katalog produk kami",
+      "recentRfq": "RFQ Terbaru",
+      "recentOrders": "Pesanan Terbaru",
+      "noRfq": "Belum ada RFQ",
+      "noOrders": "Belum ada pesanan"
+    },
+    "profile": {
+      "title": "Profil Saya",
+      "subtitle": "Kelola informasi akun Anda",
+      "emailNotVerified": "Email belum terverifikasi",
+      "emailCannotChange": "Email tidak dapat diubah",
+      "address": "Alamat",
+      "changePassword": "Ubah Password",
+      "currentPassword": "Password Saat Ini",
+      "newPassword": "Password Baru",
+      "confirmNewPassword": "Konfirmasi Password Baru",
+      "dangerZone": "Zona Berbahaya",
+      "dangerZoneDesc": "Menghapus akun akan menghapus semua data Anda secara permanen",
+      "deleteAccount": "Hapus Akun",
+      "saveSuccess": "Profil berhasil diperbarui",
+      "saveFail": "Gagal memperbarui profil",
+      "passwordSuccess": "Password berhasil diubah",
+      "passwordFail": "Gagal mengubah password",
+      "deleteConfirmDesc": "Apakah Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.",
+      "deleteConfirmTitle": "Hapus Akun",
+      "deleteConfirmBtn": "Hapus",
+      "deleteSuccess": "Akun berhasil dihapus",
+      "deleteFail": "Gagal menghapus akun"
+    },
+    "rfq": {
+      "title": "RFQ Saya",
+      "subtitle": "Kelola permintaan penawaran Anda",
+      "all": "Semua",
+      "createTitle": "Buat RFQ Baru",
+      "createSubtitle": "Isi detail kebutuhan Anda dalam 3 langkah mudah",
+      "createNew": "Buat RFQ",
+      "createFirst": "Buat RFQ Pertama",
+      "empty": "Belum ada RFQ",
+      "emptyDesc": "Buat permintaan penawaran pertama Anda sekarang",
+      "viewDetails": "Lihat Detail",
+      "cancel": "Batal",
+      "submit": "Kirim RFQ",
+      "remove": "Hapus",
+      "cancelConfirm": "Batalkan RFQ ini?",
+      "cancelConfirmTitle": "Konfirmasi",
+      "cancelConfirmBtn": "Batalkan",
+      "cancelSuccess": "RFQ dibatalkan",
+      "step1": {
+        "title": "Kategori & Produk",
+        "category": "Kategori utama",
+        "subcategory": "Subkategori",
+        "brand": "Merek",
+        "productName": "Nama produk",
+        "partNumber": "Nomor part",
+        "quantity": "Jumlah"
+      },
+      "step2": {
+        "title": "Spesifikasi",
+        "description": "Deskripsi",
+        "condition": "Kondisi",
+        "budgetMin": "Budget Minimum",
+        "budgetMax": "Budget Maksimum",
+        "requiredBy": "Dibutuhkan Sebelum",
+        "attachments": "Lampiran",
+        "uploadFiles": "Tarik file ke sini atau klik untuk upload",
+        "chooseFiles": "Pilih File",
+        "fileTypes": "PDF, JPG, JPEG, PNG, DOC, DOCX (maks 10MB per file)",
+        "fileTooLarge": "{name} melebihi 10MB"
+      },
+      "step3": {
+        "title": "Pengiriman & Kontak",
+        "deliveryAddress": "Alamat pengiriman",
+        "contactPerson": "Nama kontak",
+        "contactPhone": "Nomor telepon/WhatsApp",
+        "notes": "Catatan tambahan"
+      },
+      "phCategory": "Pilih kategori utama",
+      "phSubcategory": "Pilih subkategori",
+      "phBrand": "Pilih merek (opsional)",
+      "phProductName": "Contoh: Engine Assembly Komatsu PC200-8",
+      "phPartNumber": "Nomor part (jika diketahui)",
+      "phDescription": "Jelaskan spesifikasi detail, kondisi, aplikasi, dll.",
+      "phCondition": "Pilih kondisi",
+      "phRequiredBy": "Pilih tanggal",
+      "phDeliveryAddress": "Alamat lengkap pengiriman",
+      "phContactPerson": "Nama kontak",
+      "phContactPhone": "Nomor telepon/WhatsApp",
+      "phNotes": "Catatan tambahan untuk supplier (opsional)",
+      "conditionNew": "Baru",
+      "conditionUsed": "Bekas / Copotan (Used)",
+      "conditionRefurbished": "Refurbished / Rebuilt",
+      "errCategory": "Pilih kategori terlebih dahulu",
+      "errProductName": "Nama produk wajib diisi",
+      "errDelivery": "Lengkapi data pengiriman dan kontak",
+      "success": "RFQ berhasil dikirim ke supplier",
+      "fail": "Gagal mengirim RFQ"
+    }
+  },
+  "calculator": {
+    "bess": {
+      "systemType": "Jenis Sistem",
+      "bessOnly": "BESS Only",
+      "bessSolar": "BESS + Solar",
+      "bessConfig": "Konfigurasi BESS",
+      "capacity": "Kapasitas BESS (kWh)",
+      "power": "Daya Output (kW)",
+      "dod": "Depth of Discharge (%)",
+      "efficiency": "Efisiensi Siklus (%)",
+      "investment": "Biaya Investasi BESS (Rp)",
+      "solarConfig": "Konfigurasi Solar Panel",
+      "solarCapacity": "Kapasitas Panel (kWp)",
+      "sunHours": "Jam Sinar Matahari (jam/hari)",
+      "panelEfficiency": "Efisiensi Panel (%)",
+      "solarCost": "Biaya Solar Panel (Rp)",
+      "usage": "Konsumsi & Tarif",
+      "dailyLoad": "Daya Beban Harian (kWh/hari)",
+      "rate": "Tarif Listrik (Rp/kWh)",
+      "peakRate": "Tarif Peak (Rp/kWh)",
+      "peakHours": "Jam Operasi Puncak (jam/hari)",
+      "calculate": "Hitung Efisiensi",
+      "result": "Hasil Perhitungan",
+      "noData": "Masukkan data untuk melihat hasil",
+      "dailySavings": "Harian",
+      "monthlySavings": "Bulanan",
+      "annualSavings": "Tahunan",
+      "roi": "ROI",
+      "totalInvestment": "Total Investasi",
+      "solarEnergy": "Energi Solar/Hari",
+      "bessEnergy": "Energi BESS/Hari",
+      "totalEnergy": "Total Energi Hemat/Hari",
+      "payback": "Payback Period",
+      "co2Reduction": "Pengurangan Emisi CO2"
+    }
   },
   "label": {
     "article": "Artikel",
     "trendingArticle": "Artikel Populer",
     "relatedArticle": "Artikel Terkait",
     "promo": "Promo",
+    "bundle": "Bundle",
+    "industry": "Industri",
     "featuredProducts": "Produk Unggulan",
     "latestArticles": "Artikel Terbaru",
     "category": "Kategori",
@@ -37,6 +438,9 @@
     "brand": "Merk",
     "grade": "Grade",
     "price": "Harga",
+    "condition": "Kondisi",
+    "moq": "MOQ",
+    "new": "Baru",
     "minPrice": "Harga Minimum",
     "maxPrice": "Harga Maksimum",
     "search": "Cari",
@@ -62,7 +466,8 @@
     "writeToUs": "Hubungi Kami",
     "followOurSocial": "Ikuti Media Sosial Kami",
     "exploreCategories": "Jelajahi Kategori",
-    "featuredPromo": "Promo Unggulan"
+    "featuredPromo": "Promo Unggulan",
+    "language": "Bahasa"
   },
   "placeholder": {
     "inputYourEmail": "Masukan Email Anda",
@@ -91,7 +496,8 @@
       "category": "Kategori",
       "rental": "Rental",
       "rfq": "RFQ",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "title": "Menu"
     }
   },
   "footer": {
@@ -111,14 +517,421 @@
     }
   },
   "breadcrumb": {
-    "home": "Beranda"
+    "home": "Beranda",
+    "article": "Artikel"
+  },
+  "admin": {
+    "active": "Aktif",
+    "inactive": "Nonaktif",
+    "viewAll": "Lihat Semua",
+    "loading": "Memuat...",
+    "logout": "Keluar",
+    "lowStock": "Stok Rendah",
+    "markAllRead": "Tandai Semua Dibaca",
+    "noNotifications": "Tidak ada notifikasi",
+    "notifications": "Notifikasi",
+    "profile": "Profil",
+    "enabled": "Aktif",
+    "disabled": "Nonaktif",
+    "nav": {
+      "overview": "Ringkasan",
+      "dashboard": "Dashboard",
+      "management": "Manajemen",
+      "members": "Member",
+      "products": "Produk",
+      "orders": "Order",
+      "promos": "Promo",
+      "articles": "Artikel",
+      "principals": "Principal",
+      "addresses": "Alamat",
+      "catalog": "Katalog",
+      "categories": "Kategori",
+      "brands": "Merek",
+      "grades": "Grade",
+      "system": "Sistem",
+      "roles": "Peran",
+      "settings": "Pengaturan"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Ringkasan Sistem",
+      "totalMembers": "Total Member",
+      "totalProducts": "Total Produk",
+      "totalOrders": "Total Order",
+      "totalRevenue": "Total Pendapatan",
+      "recentMembers": "Member Terbaru",
+      "recentOrders": "Order Terbaru",
+      "lowStock": "Stok Rendah"
+    },
+    "login": {
+      "title": "Login Admin",
+      "subtitle": "Masuk ke panel administrator",
+      "addNew": "Tambah Admin Baru",
+      "submit": "Login",
+      "forgotPassword": "Lupa Kata Sandi"
+    },
+    "forgotPassword": {
+      "title": "Lupa Kata Sandi",
+      "subtitle": "Masukkan email Anda untuk menerima tautan reset.",
+      "success": "Tautan reset berhasil dikirim ke email Anda.",
+      "sendLink": "Kirim Tautan",
+      "rememberPassword": "Ingat kata sandi?"
+    },
+    "filters": {
+      "all": "Semua",
+      "active": "Aktif",
+      "inactive": "Nonaktif",
+      "newest": "Terbaru",
+      "oldest": "Terlama",
+      "nameAsc": "Nama A-Z",
+      "nameDesc": "Nama Z-A",
+      "show": "Ditampilkan",
+      "draft": "Draf",
+      "lowStock": "Stok Rendah",
+      "outOfStock": "Stok Habis",
+      "to": "sampai",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Selesai",
+      "type": "Tipe",
+      "status": "Status"
+    },
+    "table": {
+      "action": "Aksi",
+      "actions": "Aksi",
+      "author": "Penulis",
+      "brand": "Merek",
+      "buyer": "Pembeli",
+      "category": "Kategori",
+      "company": "Perusahaan",
+      "contact": "Kontak",
+      "date": "Tanggal",
+      "delete": "Hapus",
+      "edit": "Edit",
+      "email": "Email",
+      "image": "Gambar",
+      "items": "Item",
+      "joined": "Bergabung",
+      "level": "Level",
+      "logo": "Logo",
+      "member": "Member",
+      "moq": "Min Order",
+      "name": "Nama",
+      "orderId": "ID Order",
+      "parent": "Induk",
+      "payment": "Pembayaran",
+      "phone": "Telepon",
+      "price": "Harga",
+      "product": "Produk",
+      "products": "Produk",
+      "status": "Status",
+      "stock": "Stok",
+      "supplier": "Supplier",
+      "title": "Judul",
+      "total": "Total",
+      "type": "Tipe",
+      "view": "Lihat",
+      "views": "Tampilan"
+    },
+    "addresses": {
+      "subtitle": "Kelola data alamat.",
+      "lookupTitle": "Cari Alamat",
+      "fullAddress": "Alamat Lengkap",
+      "searchTitle": "Pencarian",
+      "searchPlaceholder": "Cari berdasarkan provinsi, kota, atau alamat lengkap...",
+      "provinces": "Provinsi",
+      "regencyCount": "Kota/Kabupaten",
+      "viewRegencies": "Lihat Kota",
+      "viewDistricts": "Lihat Kecamatan",
+      "viewVillages": "Lihat Desa",
+      "close": "Tutup"
+    },
+    "articles": {
+      "title": "Artikel",
+      "subtitle": "Kelola artikel",
+      "addNew": "Tambah Artikel Baru",
+      "addFirst": "Tambah Artikel Pertama",
+      "empty": "Belum ada artikel",
+      "emptyDesc": "Mulai buat artikel baru",
+      "delete": "Hapus",
+      "duplicate": "Duplikat",
+      "status": {
+        "published": "Terbit",
+        "draft": "Draf",
+        "archived": "Diarsipkan"
+      }
+    },
+    "brands": {
+      "title": "Merek",
+      "subtitle": "Kelola merek produk",
+      "addNew": "Tambah Merek Baru",
+      "addFirst": "Tambah Merek Pertama",
+      "empty": "Belum ada merek",
+      "emptyDesc": "Tambahkan merek pertama Anda"
+    },
+    "categories": {
+      "title": "Kategori",
+      "subtitle": "Kelola kategori produk",
+      "addNew": "Tambah Kategori Baru"
+    },
+    "grades": {
+      "title": "Grade",
+      "subtitle": "Kelola grade produk",
+      "addNew": "Tambah Grade Baru",
+      "addFirst": "Tambah Grade Pertama",
+      "empty": "Belum ada grade",
+      "emptyDesc": "Tambahkan grade pertama Anda"
+    },
+    "members": {
+      "title": "Member",
+      "subtitle": "Kelola member",
+      "addNew": "Tambah Member Baru",
+      "addFirst": "Tambah Member Pertama",
+      "edit": "Edit Member",
+      "empty": "Belum ada member",
+      "emptyDesc": "Member baru akan muncul di sini",
+      "detail": "Detail Member",
+      "personalInfo": "Informasi Pribadi",
+      "companyInfo": "Informasi Perusahaan",
+      "addressInfo": "Informasi Alamat",
+      "point": "Poin",
+      "position": "Posisi",
+      "companyEmail": "Email Perusahaan",
+      "companyPhone": "Telepon Perusahaan",
+      "companyField": "Bidang Perusahaan",
+      "address": "Alamat",
+      "province": "Provinsi",
+      "city": "Kota",
+      "district": "Kecamatan",
+      "postalCode": "Kode Pos",
+      "currentAddress": "Alamat Saat Ini"
+    },
+    "orders": {
+      "title": "Order",
+      "subtitle": "Kelola pesanan",
+      "export": "Ekspor",
+      "create": "Buat Order Baru",
+      "createFirst": "Buat Order Pertama",
+      "empty": "Belum ada order",
+      "emptyDesc": "Order baru akan muncul di sini",
+      "print": "Cetak",
+      "notify": "Notifikasi",
+      "status": {
+        "unpaid": "Belum Bayar",
+        "waiting_po": "Menunggu PO",
+        "waiting_invoice": "Menunggu Invoice",
+        "process": "Diproses",
+        "delivery": "Pengiriman",
+        "completed": "Selesai",
+        "cancelled": "Dibatalkan"
+      },
+      "payment": {
+        "pending": "Tertunda",
+        "paid": "Lunas",
+        "partial": "Sebagian"
+      }
+    },
+    "principals": {
+      "title": "Principal",
+      "subtitle": "Kelola principal",
+      "addNew": "Tambah Principal Baru",
+      "addFirst": "Tambah Principal Pertama",
+      "empty": "Belum ada principal",
+      "emptyDesc": "Tambahkan principal pertama Anda"
+    },
+    "products": {
+      "title": "Produk",
+      "subtitle": "Kelola produk",
+      "import": "Impor",
+      "export": "Ekspor",
+      "addNew": "Tambah Produk Baru",
+      "addFirst": "Tambah Produk Pertama",
+      "empty": "Belum ada produk",
+      "emptyDesc": "Tambahkan produk pertama Anda",
+      "setDraft": "Jadikan Draf",
+      "setShow": "Tampilkan",
+      "duplicate": "Duplikat",
+      "delete": "Hapus"
+    },
+    "promos": {
+      "title": "Promo",
+      "subtitle": "Kelola promo",
+      "addNew": "Tambah Promo Baru",
+      "addFirst": "Tambah Promo Pertama",
+      "empty": "Belum ada promo",
+      "emptyDesc": "Tambahkan promo pertama Anda",
+      "searchPlaceholder": "Cari nama promo...",
+      "ended": "Berakhir",
+      "activeUntil": "Berlaku hingga",
+      "items": "item",
+      "loadError": "Gagal memuat data promo",
+      "type": {
+        "promo": "Promo",
+        "bundle": "Bundle"
+      },
+      "status": {
+        "active": "Aktif",
+        "ended": "Berakhir",
+        "upcoming": "Akan Datang"
+      }
+    },
+    "roles": {
+      "title": "Peran",
+      "subtitle": "Kelola peran & izin",
+      "addNew": "Tambah Peran Baru",
+      "addFirst": "Tambah Peran Pertama",
+      "empty": "Belum ada peran",
+      "emptyDesc": "Tambahkan peran pertama Anda",
+      "menus": "Menu",
+      "addMenu": "Tambah Menu"
+    },
+    "settings": {
+      "title": "Pengaturan",
+      "subtitle": "Kelola pengaturan sistem",
+      "enabled": "Aktif",
+      "disabled": "Nonaktif",
+      "saveSuccess": "Pengaturan disimpan",
+      "saveError": "Gagal menyimpan pengaturan",
+      "uploadSuccess": "Berkas berhasil diunggah",
+      "removeSuccess": "Berkas berhasil dihapus",
+      "menu": {
+        "general": "Umum",
+        "appearance": "Tampilan",
+        "email": "Email",
+        "api": "API",
+        "integrations": "Integrasi"
+      },
+      "general": {
+        "title": "Pengaturan Umum",
+        "siteName": "Nama Situs",
+        "siteUrl": "URL Situs",
+        "adminEmail": "Email Admin",
+        "currency": "Mata Uang",
+        "timezone": "Zona Waktu"
+      },
+      "appearance": {
+        "title": "Pengaturan Tampilan",
+        "logo": "Logo",
+        "uploadLogo": "Unggah Logo",
+        "remove": "Hapus",
+        "primaryColor": "Warna Utama",
+        "secondaryColor": "Warna Sekunder",
+        "favicon": "Favicon",
+        "upload": "Unggah"
+      },
+      "email": {
+        "title": "Pengaturan Email",
+        "smtpHost": "Host SMTP",
+        "smtpPort": "Port SMTP",
+        "username": "Username",
+        "password": "Password",
+        "fromEmail": "Email Pengirim",
+        "fromName": "Nama Pengirim",
+        "encryption": "Enkripsi",
+        "testConnection": "Uji Koneksi",
+        "testing": "Menguji koneksi email...",
+        "testSuccess": "Koneksi email berhasil"
+      },
+      "api": {
+        "title": "Pengaturan API",
+        "baseUrl": "Base URL",
+        "timeout": "Timeout",
+        "allowedOrigins": "Origin yang Diizinkan"
+      },
+      "integrations": {
+        "title": "Integrasi"
+      }
+    }
   },
   "page": {
     "home": {
+      "metaDescription": "Temukan kebutuhan mekanikal Anda dari ribuan produk berkualitas. Sparepart, pelumas, ban, alat berat, dan peralatan kerja.",
       "hero": {
         "title": "Solusi Pengadaan Mekanikal Terpercaya",
         "subtitle": "Temukan kebutuhan mekanikal Anda dari ribuan produk berkualitas",
-        "cta": "Jelajahi Produk"
+        "cta": "Jelajahi Produk",
+        "slides": {
+          "sparepart": {
+            "title": "Sparepart & Komponen",
+            "subtitle": "Ribuan sparepart berkualitas untuk kebutuhan industri Anda",
+            "cta": "Jelajahi Produk"
+          },
+          "promo": {
+            "title": "Promo Terbaru",
+            "subtitle": "Jangan lewatkan penawaran menarik dari Trumecs",
+            "cta": "Lihat Promo"
+          },
+          "rfq": {
+            "title": "Solusi Pengadaan Mekanikal",
+            "subtitle": "Hubungi kami untuk kebutuhan pengadaan skala besar",
+            "cta": "Kirim RFQ"
+          }
+        }
+      },
+      "showcase": {
+        "lubricants": {
+          "title": "Pelumas",
+          "grease": "Grease",
+          "hydraulicOil": "Hydraulic Oil",
+          "engineOil": "Engine Oil",
+          "gearOil": "Gear Oil",
+          "compressorOil": "Compressor Oil",
+          "greaseTagline": "Memastikan pengoperasian yang lancar dan menjaga kesehatan komponen agar tahan lama.",
+          "hydraulicOilTagline": "Kualitas tak tertandingi untuk meningkatkan efisiensi dan perlindungan transmisi.",
+          "engineOilTagline": "Tingkatkan performa mesin Anda! Formula canggih untuk performa kelas atas dan keandalan jangka panjang.",
+          "gearOilTagline": "Optimalkan transfer torsi sekaligus mengurangi gesekan dan kebisingan.",
+          "compressorOilTagline": "Maksimalkan umur dan performa mesin dengan pelumas industri berkualitas tinggi!"
+        },
+        "tires": {
+          "title": "Ban",
+          "heavyeq": "Ban Alat Berat",
+          "truck": "Ban Truck",
+          "forklift": "Ban Forklift",
+          "innerTube": "Inner Tube",
+          "flap": "Flap",
+          "heavyeqTagline": "Maksimalkan produktivitas dengan ban OTR yang tangguh untuk pertambangan dan konstruksi.",
+          "truckTagline": "Cengkeram jalan dengan penuh percaya diri ban premium untuk setiap perjalanan.",
+          "forkliftTagline": "Dipercaya oleh pengendara untuk performa andal di jalan perkotaan maupun jalan raya.",
+          "innerTubeTagline": "Pelepasan panas yang optimal untuk menjaga suhu tetap stabil dalam operasional jarak jauh.",
+          "flapTagline": "Desain tapak yang dioptimalkan untuk traksi maksimal di kondisi basah maupun kering."
+        },
+        "sparepart": {
+          "title": "Sparepart",
+          "filter": "Filter",
+          "bearing": "Bearing",
+          "seal": "Seal",
+          "belt": "Belt",
+          "hose": "Hose",
+          "filterTagline": "Sparepart andal untuk menjaga produktivitas alat berat di setiap proyek.",
+          "bearingTagline": "Komponen berkualitas untuk mendukung perjalanan jarak jauh yang aman dan lancar.",
+          "sealTagline": "Segel berkualitas untuk mencegah kebocoran dan menjaga sistem Anda tetap prima.",
+          "beltTagline": "Transmisi daya yang efisien untuk kinerja mesin yang konsisten dan tahan lama.",
+          "hoseTagline": "Selang fleksibel berkualitas tinggi untuk sirkulasi yang aman dan andal."
+        },
+        "unit": {
+          "title": "Unit",
+          "heavyeq": "Alat Berat",
+          "truck": "Truck",
+          "forklift": "Forklift",
+          "crane": "Crane",
+          "excavator": "Excavator",
+          "heavyeqTagline": "Tulang punggung sistem logistik dan transportasi publik.",
+          "truckTagline": "Teknologi inovatif untuk mengoptimalkan proses penanaman dan panen.",
+          "forkliftTagline": "Tangguh dan gesit untuk kelancaran operasional pergudangan dan material handling.",
+          "craneTagline": "Dirancang untuk lautan kapal laut andal untuk berbagai misi. Dibuat untuk keamanan dan stabilitas di perairan yang ganas.",
+          "excavatorTagline": "Dirancang untuk tenaga, stabilitas, dan performa terbaik di lokasi kerja."
+        },
+        "tools": {
+          "title": "Tools & Peralatan",
+          "handTools": "Hand Tools",
+          "powerTools": "Power Tools",
+          "safetyEquipment": "Safety Equipment",
+          "handToolsTagline": "Peralatan yang tepat membuat setiap pekerjaan lebih aman dan efisien.",
+          "powerToolsTagline": "Tingkatkan produktivitas dengan teknologi inovatif yang menghemat waktu. Solusi cerdas untuk para profesional yang mengutamakan kualitas terbaik.",
+          "safetyEquipmentTagline": "Lindungi tenaga kerja Anda dengan perlengkapan dan alat keselamatan bersertifikasi. Perlengkapan keselamatan yang tahan lama, dirancang untuk kenyamanan dan performa maksimal."
+        }
+      },
+      "industri": {
+        "subtitle": "Jelajahi produk berdasarkan sektor industri Anda"
       },
       "categories": {
         "title": "Jelajahi Kategori",
@@ -142,6 +955,22 @@
         "button": "Kirim RFQ Sekarang"
       }
     },
+    "article": {
+      "loading": "Memuat Artikel...",
+      "loadingDesc": "Mohon tunggu, artikel sedang dimuat.",
+      "share": "Bagikan :",
+      "tags": "Tags:",
+      "loadError": "Gagal memuat data artikel",
+      "metaTitle": "Artikel",
+      "metaDesc": "Baca artikel terbaru seputar tips perawatan alat berat, panduan sparepart, dan berita industri dari Trumecs.",
+      "formName": "Nama Lengkap",
+      "formEmail": "Email",
+      "formCompany": "Nama Perusahaan",
+      "formPhone": "Nomor Telepon",
+      "formRequest": "Deskripsikan kebutuhan Anda...",
+      "formSubmit": "Kirim Permintaan",
+      "formSuccess": "Permintaan berhasil dikirim!"
+    },
     "category": {
       "title": "Produk",
       "filter": {
@@ -164,7 +993,26 @@
       "empty": "Tidak ada produk ditemukan",
       "showing": "Menampilkan {from}-{to} dari {total} produk",
       "searchResult": "Hasil pencarian \"{keyword}\"",
-      "perPage": "per halaman"
+      "perPage": "per halaman",
+      "categories": "Kategori",
+      "subcategories": "Sub Kategori",
+      "brands": "Merek",
+      "noSubcategories": "Tidak ada sub kategori",
+      "noBrands": "Tidak ada merek",
+      "scrollHint": "Gulir untuk melihat semua",
+      "products": "Produk",
+      "productsCount": "{count} produk",
+      "exploreAll": "Jelajahi Semua"
+    },
+    "tag": {
+      "title": "Tags",
+      "hubTitle": "Jelajahi Tags",
+      "hubSubtitle": "Temukan produk berdasarkan jenis produk",
+      "totalTags": "Total {count} tags",
+      "productCount": "{count} produk",
+      "showing": "Menampilkan {from}-{to} dari {total} produk",
+      "empty": "Tidak ada produk ditemukan",
+      "labels": {}
     },
     "promo": {
       "title": "Promo",
@@ -211,7 +1059,10 @@
         "back": "Kembali",
         "load": "Memuat Produk...",
         "noProduct": "Produk Tidak Ditemukan",
-        "sorryProduct": "Maaf, produk yang Anda cari tidak tersedia."
+        "sorryProduct": "Maaf, produk yang Anda cari tidak tersedia.",
+        "replica": "Replika",
+        "loadError": "Gagal memuat data produk",
+        "metaDesc": "Produk berkualitas dari Trumecs"
       },
       "button": {
         "buy": "Beli via Whatsapp",
@@ -271,11 +1122,26 @@
               "customer": "Residential & Office",
               "description": "Solusi penyimpanan energi untuk rumah dan kantor kecil. Desain compact, mudah dipasang, dan mendukung hingga 5 stack modul.",
               "specs": [
-                { "label": "Nominal Voltage", "value": "51.2V" },
-                { "label": "Battery Cell", "value": "LFP 3.2V/52Ah" },
-                { "label": "Capacity", "value": "5.1 - 26.5 kWh" },
-                { "label": "Scalability", "value": "Up to 5 stacks" },
-                { "label": "Cycle Life", "value": "> 4,000 cycles" }
+                {
+                  "label": "Nominal Voltage",
+                  "value": "51.2V"
+                },
+                {
+                  "label": "Battery Cell",
+                  "value": "LFP 3.2V/52Ah"
+                },
+                {
+                  "label": "Capacity",
+                  "value": "5.1 - 26.5 kWh"
+                },
+                {
+                  "label": "Scalability",
+                  "value": "Up to 5 stacks"
+                },
+                {
+                  "label": "Cycle Life",
+                  "value": "> 4,000 cycles"
+                }
               ]
             },
             {
@@ -284,11 +1150,26 @@
               "customer": "Commercial & Industrial",
               "description": "Sistem penyimpanan energi kabinet untuk operasional komersial dan industri. Dilengkapi fire suppression dan active cooling.",
               "specs": [
-                { "label": "Rated Capacity", "value": "138.3 kWh" },
-                { "label": "Power Output", "value": "66 kW" },
-                { "label": "Efficiency", "value": "≥ 96.5%" },
-                { "label": "Cycle Life", "value": "8,000 cycles" },
-                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+                {
+                  "label": "Rated Capacity",
+                  "value": "138.3 kWh"
+                },
+                {
+                  "label": "Power Output",
+                  "value": "66 kW"
+                },
+                {
+                  "label": "Efficiency",
+                  "value": "â‰¥ 96.5%"
+                },
+                {
+                  "label": "Cycle Life",
+                  "value": "8,000 cycles"
+                },
+                {
+                  "label": "Certifications",
+                  "value": "UL 1973, UL 9540"
+                }
               ]
             },
             {
@@ -297,11 +1178,26 @@
               "customer": "Large Scale Commercial & Industrial",
               "description": "Solusi penyimpanan energi skala besar berbasis kontainer 20ft. Kapasitas masif untuk jaringan industri dan utilitas.",
               "specs": [
-                { "label": "Rated Energy", "value": "3,686 kWh" },
-                { "label": "Nominal Voltage", "value": "1,229V" },
-                { "label": "Cooling", "value": "Active liquid cooling" },
-                { "label": "Weight", "value": "~ 33 Tons" },
-                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+                {
+                  "label": "Rated Energy",
+                  "value": "3,686 kWh"
+                },
+                {
+                  "label": "Nominal Voltage",
+                  "value": "1,229V"
+                },
+                {
+                  "label": "Cooling",
+                  "value": "Active liquid cooling"
+                },
+                {
+                  "label": "Weight",
+                  "value": "~ 33 Tons"
+                },
+                {
+                  "label": "Certifications",
+                  "value": "UL 1973, UL 9540"
+                }
               ]
             }
           ]
@@ -340,7 +1236,7 @@
         "benefits": {
           "sectionLabel": "Why BESS?",
           "title": "How BESS Can Cut Your Electricity Cost",
-          "subtitle": "BESS bukan hanya teknologi — ini adalah investasi cerdas untuk menekan biaya operasional kelistrikan Anda.",
+          "subtitle": "BESS bukan hanya teknologi â€” ini adalah investasi cerdas untuk menekan biaya operasional kelistrikan Anda.",
           "items": [
             {
               "title": "Grid Stabilization",
@@ -393,7 +1289,7 @@
             {
               "title": "Toleransi Presisi",
               "icon": "mdi:tune-variant",
-              "description": "Mencapai toleransi hingga ±0.001mm untuk aplikasi kritis."
+              "description": "Mencapai toleransi hingga Â±0.001mm untuk aplikasi kritis."
             },
             {
               "title": "Multi-Axis Capability",
@@ -437,11 +1333,26 @@
         "industries": {
           "title": "Industri yang Kami Layani",
           "items": [
-            { "name": "Otomotif", "image": "https://migration.trumecs.com/principal/machining/automotive.jpg" },
-            { "name": "Makanan & Minuman", "image": "https://migration.trumecs.com/principal/machining/fnb.jpg" },
-            { "name": "Manufaktur", "image": "https://migration.trumecs.com/principal/machining/manufacture.jpg" },
-            { "name": "Penggilingan", "image": "https://migration.trumecs.com/principal/machining/mill.jpg" },
-            { "name": "Tekstil", "image": "https://migration.trumecs.com/principal/machining/textile.jpg" }
+            {
+              "name": "Otomotif",
+              "image": "https://migration.trumecs.com/principal/machining/automotive-2.png"
+            },
+            {
+              "name": "Makanan & Minuman",
+              "image": "https://migration.trumecs.com/principal/machining/fnb-2.png"
+            },
+            {
+              "name": "Manufaktur",
+              "image": "https://migration.trumecs.com/principal/machining/manufacture-2.png"
+            },
+            {
+              "name": "Penggilingan",
+              "image": "https://migration.trumecs.com/principal/machining/mill-2.png"
+            },
+            {
+              "name": "Tekstil",
+              "image": "https://migration.trumecs.com/principal/machining/textile-2.png"
+            }
           ]
         },
         "methods": {
@@ -453,31 +1364,54 @@
               "title": "Milling",
               "icon": "streamline-pixel:ecology-windmill-1",
               "description": "Proses pemotongan menggunakan frais berputar untuk menghasilkan permukaan datar, slot, dan geometri kompleks pada benda kerja.",
-              "features": ["3-axis hingga 5-axis", "Permukaan datar & kontur", "Slot & keyway", "Toleransi ±0.01mm"]
+              "features": [
+                "3-axis hingga 5-axis",
+                "Permukaan datar & kontur",
+                "Slot & keyway",
+                "Toleransi Â±0.01mm"
+              ]
             },
             {
               "title": "Turning",
               "icon": "mdi:rotate-3d-variant",
               "description": "Proses pembubutan untuk membuat komponen silindris dengan presisi tinggi menggunakan pahat statis pada benda kerja yang berputar.",
-              "features": ["Shaft & axle", "Bushing & bearing", "Thread & ulir", "Toleransi ±0.005mm"]
+              "features": [
+                "Shaft & axle",
+                "Bushing & bearing",
+                "Thread & ulir",
+                "Toleransi Â±0.005mm"
+              ]
             },
             {
               "title": "Grinding",
               "icon": "mdi:blur",
               "description": "Proses penghalusan permukaan menggunakan batu gerinda untuk mencapai kekasaran permukaan dan dimensi akhir yang sangat presisi.",
-              "features": ["Surface grinding", "Cylindrical grinding", "Surface finish Ra 0.4μm", "Flatness < 0.005mm"]
+              "features": [
+                "Surface grinding",
+                "Cylindrical grinding",
+                "Surface finish Ra 0.4Î¼m",
+                "Flatness < 0.005mm"
+              ]
             },
             {
               "title": "Cutting",
               "icon": "mdi:content-cut",
               "description": "Proses pemotongan material menggunakan berbagai metode untuk mendapatkan ukuran dan bentuk yang diinginkan.",
-              "features": ["Band saw cutting", "Wire EDM", "Laser cutting", "Waterjet cutting"]
+              "features": [
+                "Band saw cutting",
+                "Wire EDM",
+                "Laser cutting",
+                "Waterjet cutting"
+              ]
             },
             {
               "title": "Fabrication",
               "icon": "mdi:factory",
               "description": "Proses fabrikasi untuk menghasilkan komponen dengan teknologi canggih.",
-              "features": ["Welding", "Assembly"]
+              "features": [
+                "Welding",
+                "Assembly"
+              ]
             }
           ]
         },
@@ -486,14 +1420,38 @@
           "title": "Produk yang Kami Hasilkan",
           "subtitle": "Berbagai komponen presisi yang kami produksi untuk berbagai industri manufaktur.",
           "items": [
-            { "name": "Shaft Gear", "image": "https://migration.trumecs.com/principal/machining/shaft.png" },
-            { "name": "Rantai", "image": "https://migration.trumecs.com/principal/machining/chain.png" },
-            { "name": "Bearing Housing", "image": "https://migration.trumecs.com/principal/machining/housing.png" },
-            { "name": "Conveyor Roller", "image": "https://migration.trumecs.com/principal/machining/roller.png" },
-            { "name": "Sprocket", "image": "https://migration.trumecs.com/principal/machining/sprocket.png" },
-            { "name": "Gergaji", "image": "https://migration.trumecs.com/principal/machining/saw.png" },
-            { "name": "Kopling", "image": "https://migration.trumecs.com/principal/machining/coupling.png" },
-            { "name": "Lembaran Perforasi", "image": "https://migration.trumecs.com/principal/machining/perforated.png" }
+            {
+              "name": "Shaft Gear",
+              "image": "https://migration.trumecs.com/principal/machining/shaft.png"
+            },
+            {
+              "name": "Rantai",
+              "image": "https://migration.trumecs.com/principal/machining/chain.png"
+            },
+            {
+              "name": "Bearing Housing",
+              "image": "https://migration.trumecs.com/principal/machining/housing.png"
+            },
+            {
+              "name": "Conveyor Roller",
+              "image": "https://migration.trumecs.com/principal/machining/roller.png"
+            },
+            {
+              "name": "Sprocket",
+              "image": "https://migration.trumecs.com/principal/machining/sprocket.png"
+            },
+            {
+              "name": "Gergaji",
+              "image": "https://migration.trumecs.com/principal/machining/saw.png"
+            },
+            {
+              "name": "Kopling",
+              "image": "https://migration.trumecs.com/principal/machining/coupling.png"
+            },
+            {
+              "name": "Lembaran Perforasi",
+              "image": "https://migration.trumecs.com/principal/machining/perforated.png"
+            }
           ]
         },
         "materials": {
@@ -501,16 +1459,71 @@
           "title": "Material yang Kami Kuasai",
           "subtitle": "Kami memiliki keahlian dalam memproses berbagai material untuk memenuhi kebutuhan industri Anda.",
           "items": [
-            { "name": "Stainless Steel", "icon": "mdi:silverware-fork-knife",
-          "grades": ["SS304", "SS316"], "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis." },
-            { "name": "Carbon Steel", "icon": "material-symbols:thermostat-carbon-outline", "grades": ["S45C", "ST41"], "description": "Umum digunakan untuk shaft, gear, dan komponen struktural." },
-            { "name": "Alloy Steel", "icon": "mdi:factory",
-          "grades": ["SCM440", "SNCM439"], "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi." },
-            { "name": "Aluminium", "icon": "mdi:cube-outline",
-          "grades": ["6061-T6", "7075-T6"], "description": "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik." },
-            { "name": "Cast Iron", "icon": "mdi:anvil", "grades": ["FC250", "FCD450"], "description": "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat." },
-            { "name": "Engineering Plastics", "icon": "guidance:plastic", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator." },
-            { "name": "Rubber", "icon": "mdi:circle-outline", "grades": ["NBR", "EPDM", "Silicone"], "description": "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator." }
+            {
+              "name": "Stainless Steel",
+              "icon": "game-icons:steel-claws",
+              "grades": [
+                "SS304",
+                "SS316"
+              ],
+              "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis."
+            },
+            {
+              "name": "Carbon Steel",
+              "icon": "material-symbols:thermostat-carbon-outline",
+              "grades": [
+                "S45C",
+                "ST41"
+              ],
+              "description": "Umum digunakan untuk shaft, gear, dan komponen struktural."
+            },
+            {
+              "name": "Alloy Steel",
+              "icon": "file-icons:alloy",
+              "grades": [
+                "SCM440",
+                "SNCM439"
+              ],
+              "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi."
+            },
+            {
+              "name": "Aluminium",
+              "icon": "mdi:cube-outline",
+              "grades": [
+                "6061-T6",
+                "7075-T6"
+              ],
+              "description": "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik."
+            },
+            {
+              "name": "Cast Iron",
+              "icon": "mdi:anvil",
+              "grades": [
+                "FC250",
+                "FCD450"
+              ],
+              "description": "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat."
+            },
+            {
+              "name": "Engineering Plastics",
+              "icon": "guidance:plastic",
+              "grades": [
+                "POM",
+                "PTFE",
+                "Nylon PA6"
+              ],
+              "description": "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator."
+            },
+            {
+              "name": "Rubber",
+              "icon": "jam:rubber",
+              "grades": [
+                "NBR",
+                "EPDM",
+                "Silicone"
+              ],
+              "description": "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator."
+            }
           ]
         },
         "contact": {
@@ -521,11 +1534,16 @@
           "email": "Kirim Email",
           "locationTitle": "Lokasi & Area Layanan Utama",
           "locationDesc": "Kami berlokasi strategis untuk melayani kebutuhan machining dan fabrikasi di area berikut dengan cepat dan tanggap.",
-          "locations": ["Jakarta", "Bekasi", "Cikarang", "Tangerang"]
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ]
         },
         "seo": {
-          "title": "Precision Machining & Fabrikasi - Trumecs",
-          "description": "Solusi machining dan fabrikasi presisi dengan teknologi canggih, insinyur berpengalaman, dan kontrol kualitas ketat."
+          "title": "Solusi Machining & Fabrikasi Terpercaya - Trumecs",
+          "description": "Menyediakan layanan machining presisi tinggi dengan teknologi canggih dan teknisi berpengalaman untuk memenuhi kebutuhan manufaktur industri Anda."
         }
       },
       "struman": {
@@ -542,7 +1560,7 @@
         "useCases": {
           "sectionLabel": "Solusi Untuk Berbagai Kebutuhan",
           "title": "STRUMAN Bisa Digunakan Di Mana Saja",
-          "subtitle": "Dari hunian rumah hingga operasi industri berat — STRUMAN hadir sebagai solusi energi mandiri yang andal, tanpa instalasi rumit, tanpa genset berisik.",
+          "subtitle": "Dari hunian rumah hingga operasi industri berat â€” STRUMAN hadir sebagai solusi energi mandiri yang andal, tanpa instalasi rumit, tanpa genset berisik.",
           "items": [
             {
               "title": "Rumah & Hunian",
@@ -556,7 +1574,7 @@
             },
             {
               "title": "Kantor & Komersial",
-              "description": "Backup daya untuk operasional kantor yang tidak boleh terhenti. Tidak perlu instalasi — plug and play.",
+              "description": "Backup daya untuk operasional kantor yang tidak boleh terhenti. Tidak perlu instalasi â€” plug and play.",
               "recommendation": "Rekomendasi: G24 PRO / M50"
             },
             {
@@ -576,12 +1594,21 @@
             }
           ],
           "stats": [
-            { "value": "3000+", "label": "Siklus Pemakaian (+8 Tahun)" },
-            { "value": "17,4 kWh", "label": "Kapasitas Maksimum" },
-            { "value": "4500 W", "label": "Daya Output Tertinggi (M50)" },
+            {
+              "value": "3000+",
+              "label": "Siklus Pemakaian (+8 Tahun)"
+            },
+            {
+              "value": "17,4 kWh",
+              "label": "Kapasitas Maksimum"
+            },
+            {
+              "value": "4500 W",
+              "label": "Daya Output Tertinggi (M50)"
+            },
             {
               "value": "Pure Sine Wave",
-              "label": "Seperti listrik PLN — Aman Semua Perangkat"
+              "label": "Seperti listrik PLN â€” Aman Semua Perangkat"
             }
           ]
         },
@@ -637,7 +1664,7 @@
       },
       "usedsparepart": {
         "hero": {
-          "badge": "Ready Stock • Garansi",
+          "badge": "Ready Stock â€¢ Garansi",
           "titleLine1": "Suku Cadang Alat Berat",
           "titleLine2": "Copotan Berkualitas & Bergaransi",
           "subtitle": "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai.",

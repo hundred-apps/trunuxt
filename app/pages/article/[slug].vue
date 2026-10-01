@@ -8,8 +8,8 @@
         name="svg-spinners:90-ring-with-bg"
         class="text-6xl text-orange-500 mb-4 animate-spin"
       />
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">Memuat Artikel...</h2>
-      <p class="text-gray-500 mb-6">Mohon tunggu, artikel sedang dimuat.</p>
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">{{ $t("page.article.loading") }}</h2>
+      <p class="text-gray-500 mb-6">{{ $t("page.article.loadingDesc") }}</p>
     </div>
 
     <!-- Main Content - Only show if article exists -->
@@ -83,7 +83,7 @@
                   >
                     <div class="flex flex-wrap gap-2">
                       <span class="text-sm font-semibold text-gray-600"
-                        >Tags:</span
+                        >{{ $t("page.article.tags") }}</span
                       >
                       <Trulink
                         v-for="tag in article.tags"
@@ -100,7 +100,7 @@
                   <div
                     class="share-buttons mt-6 pt-4 px-2 border-t border-gray-200"
                   >
-                    <span class="font-semibold mr-3">Bagikan :</span>
+                    <span class="font-semibold mr-3">{{ $t("page.article.share") }}</span>
                     <div class="flex gap-2">
                       <button
                         v-for="share in shareButtons"
@@ -236,7 +236,7 @@ const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 const article = ref<CardArticle | null>(null);
 
 useHead({
-  title: computed(() => article.value?.title || "Artikel"),
+  title: computed(() => article.value?.title || t("breadcrumb.article")),
   titleTemplate: "%s | Trumecs.com",
 });
 
@@ -307,9 +307,9 @@ const setRandomAds = () => {
 
 // Breadcrumb - buat menjadi computed agar bisa update otomatis
 const articleBreadcrumb = computed(() => [
-  { text: "Home", to: "/" },
-  { text: "Artikel", to: "/article" },
-  { text: article.value?.title || "Loading..." }, // judul artikel sebagai breadcrumb terakhir
+  { text: t("breadcrumb.home"), to: "/" },
+  { text: t("breadcrumb.article"), to: "/article" },
+  { text: article.value?.title || t("label.loading") },
 ]);
 
 // Fetch detail artikel
@@ -401,8 +401,25 @@ const fetchDetailArticle = async () => {
 
     if (response.status === "success") {
       const apiData = response.data!.payload;
+      const updateView = await useFetchApi<BaseResponse<Article>>(
+        `article/update-view/${apiData.id}`,
+        `article-update-view-${apiData.id}`,
+        "put",
+        null
+      );
 
-      // Transform data ke format CardArticle
+      if (updateView.status === "success") {
+        console.log(
+          "View count updated successfully for article ID:",
+          apiData.id
+        );
+      } else {
+        console.error(
+          "Failed to update view count for article ID:",
+          apiData.id
+        );
+      }
+
       const config = useRuntimeConfig();
 
       // Helper function untuk extract categories dari tags
@@ -468,7 +485,7 @@ const fetchDetailArticle = async () => {
     }
   } catch (error) {
     console.error("Error fetching article:", error);
-    ElMessage.error("Gagal memuat data artikel");
+    ElMessage.error(t("page.article.loadError"));
     article.value = null;
   } finally {
     loading.value = false;

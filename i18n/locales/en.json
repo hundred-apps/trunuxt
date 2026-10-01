@@ -17,13 +17,414 @@
     "seeDetail": "See Detail",
     "buyNow": "Buy Now",
     "submitRFQ": "Submit RFQ",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "clearFilters": "Clear Filters",
+    "showFilters": "Filter",
+    "hideFilters": "Close Filter",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit"
+  },
+  "search": {
+    "title": "Product Search",
+    "subtitle": "Showing {total} results for \"{keyword}\"",
+    "sort": {
+      "relevance": "Most Relevant",
+      "priceLow": "Lowest Price",
+      "priceHigh": "Highest Price",
+      "newest": "Newest"
+    },
+    "noResults": "No Products Found",
+    "noResultsDesc": "No results for \"{keyword}\". Try a different keyword or browse all our products.",
+    "browseAll": "Browse All Products"
+  },
+  "compare": {
+    "title": "Compare Products",
+    "subtitle": "Compare up to {max} products at once",
+    "empty": "No products to compare yet",
+    "emptyDesc": "Select products on the product page to start comparing.",
+    "startComparing": "Start Comparing",
+    "specifications": "Specifications",
+    "share": "Share",
+    "clearAll": "Clear All",
+    "shareTitle": "Share Comparison",
+    "recipientEmails": "Recipient Emails",
+    "emailsHint": "email1{'@'}domain.com, email2{'@'}domain.com",
+    "message": "Message",
+    "messagePlaceholder": "Optional message...",
+    "send": "Send",
+    "confirmClearTitle": "Confirm",
+    "confirmClearDesc": "Remove all products from the comparison?",
+    "confirmClearConfirm": "Clear All",
+    "cleared": "Comparison cleared",
+    "noProductsToShare": "No products to share",
+    "emailRequired": "Enter at least one email",
+    "shared": "Comparison shared successfully",
+    "sendFailed": "Failed to send"
+  },
+  "rental": {
+    "title": "Heavy Equipment Rental",
+    "subtitle": "Rent quality heavy equipment for your project needs",
+    "filters": "Filters",
+    "priceRange": "Price Range",
+    "availability": "Availability",
+    "withOperator": "With Operator",
+    "withFuel": "With Fuel",
+    "availableNow": "Available Now",
+    "showing": "Showing {from}-{to} of {total} units",
+    "noResults": "No Units Available",
+    "noResultsDesc": "No units match your filters. Adjust filters to see more.",
+    "searchPlaceholder": "Search heavy equipment...",
+    "categoryPlaceholder": "Category",
+    "durationPlaceholder": "Duration",
+    "locationPlaceholder": "Location",
+    "durationDaily": "Daily",
+    "durationWeekly": "Weekly",
+    "durationMonthly": "Monthly",
+    "locationOther": "Other",
+    "priceMinLabel": "IDR 0",
+    "priceMaxLabel": "IDR 50 Million",
+    "perDay": "/day",
+    "perMonth": "/month",
+    "viewDetail": "View Details"
+  },
+  "jasa": {
+    "title": "Mechanical Services",
+    "subtitle": "Professional mechanical services from trusted partners",
+    "providers": "Service Providers",
+    "featuredProviders": "Featured Providers",
+    "viewProfile": "View Profile",
+    "ctaTitle": "Need a Service?",
+    "ctaDesc": "Send us your needs and get offers from trusted service providers.",
+    "becomeProvider": "Become a Provider",
+    "requestService": "Submit Request",
+    "reviews": "{count} reviews",
+    "available": "Available",
+    "busy": "Busy",
+    "categoryMaintenance": "Routine Maintenance",
+    "categoryRepair": "Repair Services",
+    "categoryInspection": "Inspection & Audit",
+    "categoryTesting": "Testing Services",
+    "categoryRepairService": "Maintenance & Repair",
+    "categoryHydraulic": "Hydraulic Systems",
+    "categoryOverhaul": "Engine Overhaul",
+    "categoryMobile": "Mobile Service"
+  },
+  "requestForm": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "productName": "Product Name",
+    "serviceType": "Service Type",
+    "equipmentType": "Equipment Type",
+    "rentalDuration": "Rental Duration",
+    "rentalLocation": "Rental Location",
+    "description": "Description",
+    "agree": "I agree to the",
+    "terms": "Terms & Conditions",
+    "phName": "Full name",
+    "phEmail": "Email",
+    "phPhone": "Phone/WhatsApp number",
+    "phCompany": "Company name",
+    "phProductName": "Product name you are looking for",
+    "phServiceType": "Select service type",
+    "phEquipmentType": "Select equipment type",
+    "phRentalDuration": "Rental duration",
+    "phRentalLocation": "Project/rental location",
+    "phDescription": "Describe your needs in detail (specifications, quantity, condition, timeline, etc.)",
+    "titleProduct": "Product Request",
+    "titleService": "Service Request",
+    "titleRental": "Rental Request",
+    "titleAll": "Submit Request",
+    "descProduct": "Need a product not available in the catalog? Submit a request and our team will find it for you.",
+    "descService": "Need heavy equipment maintenance, repair, or inspection services? We connect you with trusted workshops.",
+    "descRental": "Need heavy equipment for your project? We provide equipment rental with experienced operators.",
+    "descAll": "Send us your needs, our team will contact you shortly.",
+    "errRequired": "Please fill in the required fields",
+    "errAgree": "You must agree to the terms and conditions",
+    "errTypeRequired": "Please fill in the required fields for this type",
+    "success": "Request sent successfully! Our team will contact you shortly.",
+    "fail": "Failed to send request"
+  },
+  "scrap": {
+    "title": "Sell Used Units",
+    "subtitle": "Join our used unit buy-back program",
+    "description": "Fill in the details below and our team will contact you with a buy-back offer for your used unit.",
+    "name": "Name",
+    "phone": "Phone/WhatsApp Number",
+    "phoneHint": "Use format: 08xxxxxxxxxx",
+    "email": "Email",
+    "emailHint": "We will send the offer details to this email",
+    "unitType": "Unit Type",
+    "phUnit": "Example: Excavator PC 200, Bulldozer D85, Dump Truck",
+    "condition": "Unit Description",
+    "location": "Unit Location",
+    "phLocation": "Example: Jakarta, Surabaya, Balikpapan",
+    "phDescription": "Unit condition, year, operating hours, document completeness, etc.",
+    "phName": "Enter your full name",
+    "phPhone": "Example: 08123456789",
+    "phEmail": "example{'@'}email.com",
+    "phUnitType": "Select unit type",
+    "phLocationUnit": "Example: Jakarta, Surabaya, Balikpapan",
+    "agreeTerms": "I agree to the",
+    "terms": "Terms & Conditions",
+    "submit": "Submit Offer",
+    "errRequired": "Please fill in the required fields",
+    "errAgree": "You must agree to the terms and conditions",
+    "waOpening": "Opening WhatsApp...",
+    "waFail": "Failed to open WhatsApp",
+    "waIntro": "Hello Trumecs, I would like to sell my used heavy equipment:",
+    "waClosing": "Please contact me with an offer."
+  },
+  "address": {
+    "province": "Province",
+    "selectProvince": "Select Province",
+    "city": "City/Regency",
+    "selectRegency": "Select City/Regency",
+    "district": "District",
+    "selectDistrict": "Select District",
+    "village": "Village/Sub-district",
+    "selectVillage": "Select Village/Sub-district",
+    "zipcode": "Postal Code",
+    "zipcodePlaceholder": "Enter postal code"
+  },
+  "status": {
+    "waiting_quotes": "Waiting for Quotes",
+    "quoted": "Quoted",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "delivered": "Delivered"
+  },
+  "auth": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "passwordMismatch": "Passwords do not match",
+    "rememberMe": "Remember me",
+    "rememberPassword": "Remember your password?",
+    "or": "or",
+    "loginWithWhatsapp": "Login with WhatsApp",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "termsAgreement": "By logging in, you agree to the",
+    "terms": "Terms & Conditions",
+    "and": "and",
+    "privacy": "Privacy Policy",
+    "agreeTermsPart1": "I agree to the",
+    "mustAgreeTerms": "You must agree to the terms and conditions",
+    "login": {
+      "title": "Login",
+      "subtitle": "Log in to access your member dashboard"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Create an account to start shopping at Trumecs"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email and we will send you a password reset link",
+      "success": "Reset link has been sent to your email",
+      "sendLink": "Send Reset Link",
+      "sendFail": "Failed to send reset link. Please try again."
+    },
+    "verifyEmail": {
+      "title": "Verify Email",
+      "subtitle": "We have sent a verification link to your email",
+      "checking": "Checking verification...",
+      "checkingDesc": "Just a moment, we are verifying your account",
+      "verified": "Email Verified!",
+      "verifiedDesc": "Your account has been verified. Please log in.",
+      "expired": "Link Expired",
+      "expiredDesc": "The verification link has expired. Resend to get a new link.",
+      "error": "Verification Failed",
+      "resend": "Resend",
+      "didNotReceive": "Didn't receive the email?",
+      "resendLink": "Resend verification link",
+      "tokenMissing": "Verification token not found",
+      "tokenInvalid": "Verification failed. Invalid token.",
+      "resendSuccess": "A new verification link has been sent",
+      "resendFail": "Failed to resend"
+    },
+    "whatsappIntro": "Hello Trumecs, I would like to login via WhatsApp",
+    "loginSuccess": "Login successful",
+    "loginFail": "Login failed. Please try again.",
+    "registerSuccess": "Registration successful. Please check your email to verify.",
+    "registerFail": "Registration failed. Please try again.",
+    "mustAgree": "You must agree to the terms and conditions",
+    "confirmMismatch": "Password confirmation does not match"
+  },
+  "member": {
+    "viewAll": "View All",
+    "logout": "Logout",
+    "notifications": "Notifications",
+    "markAllRead": "Mark All Read",
+    "noNotifications": "No notifications",
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Hello, {name}!",
+      "activeRfq": "Active RFQs",
+      "pendingOrders": "Pending Orders",
+      "completedOrders": "Completed Orders",
+      "unreadMessages": "Unread Messages",
+      "quickActions": "Quick Actions",
+      "createRfq": "Create RFQ",
+      "createRfqDesc": "Create a new request for quotation",
+      "viewRfq": "View RFQs",
+      "viewRfqDesc": "Manage your requests for quotation",
+      "messages": "Messages",
+      "messagesDesc": "View messages from suppliers",
+      "findProducts": "Find Products",
+      "findProductsDesc": "Browse our product catalog",
+      "recentRfq": "Recent RFQs",
+      "recentOrders": "Recent Orders",
+      "noRfq": "No RFQs yet",
+      "noOrders": "No orders yet"
+    },
+    "profile": {
+      "title": "My Profile",
+      "subtitle": "Manage your account information",
+      "emailNotVerified": "Email not verified",
+      "emailCannotChange": "Email cannot be changed",
+      "address": "Address",
+      "changePassword": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "dangerZone": "Danger Zone",
+      "dangerZoneDesc": "Deleting your account will permanently remove all your data",
+      "deleteAccount": "Delete Account",
+      "saveSuccess": "Profile updated successfully",
+      "saveFail": "Failed to update profile",
+      "passwordSuccess": "Password changed successfully",
+      "passwordFail": "Failed to change password",
+      "deleteConfirmDesc": "Are you sure you want to delete your account? This action cannot be undone.",
+      "deleteConfirmTitle": "Delete Account",
+      "deleteConfirmBtn": "Delete",
+      "deleteSuccess": "Account deleted successfully",
+      "deleteFail": "Failed to delete account"
+    },
+    "rfq": {
+      "title": "My RFQs",
+      "subtitle": "Manage your requests for quotation",
+      "all": "All",
+      "createTitle": "Create New RFQ",
+      "createSubtitle": "Fill in your requirements in 3 easy steps",
+      "createNew": "Create RFQ",
+      "createFirst": "Create Your First RFQ",
+      "empty": "No RFQs yet",
+      "emptyDesc": "Create your first request for quotation now",
+      "viewDetails": "View Details",
+      "cancel": "Cancel",
+      "submit": "Submit RFQ",
+      "remove": "Remove",
+      "cancelConfirm": "Cancel this RFQ?",
+      "cancelConfirmTitle": "Confirmation",
+      "cancelConfirmBtn": "Cancel",
+      "cancelSuccess": "RFQ cancelled",
+      "step1": {
+        "title": "Category & Product",
+        "category": "Main category",
+        "subcategory": "Subcategory",
+        "brand": "Brand",
+        "productName": "Product name",
+        "partNumber": "Part number",
+        "quantity": "Quantity"
+      },
+      "step2": {
+        "title": "Specifications",
+        "description": "Description",
+        "condition": "Condition",
+        "budgetMin": "Minimum Budget",
+        "budgetMax": "Maximum Budget",
+        "requiredBy": "Required By",
+        "attachments": "Attachments",
+        "uploadFiles": "Drag files here or click to upload",
+        "chooseFiles": "Choose Files",
+        "fileTypes": "PDF, JPG, JPEG, PNG, DOC, DOCX (max 10MB per file)",
+        "fileTooLarge": "{name} exceeds 10MB"
+      },
+      "step3": {
+        "title": "Delivery & Contact",
+        "deliveryAddress": "Delivery address",
+        "contactPerson": "Contact person",
+        "contactPhone": "Phone/WhatsApp number",
+        "notes": "Additional notes"
+      },
+      "phCategory": "Select main category",
+      "phSubcategory": "Select subcategory",
+      "phBrand": "Select brand (optional)",
+      "phProductName": "Example: Engine Assembly Komatsu PC200-8",
+      "phPartNumber": "Part number (if known)",
+      "phDescription": "Describe detailed specifications, condition, application, etc.",
+      "phCondition": "Select condition",
+      "phRequiredBy": "Select date",
+      "phDeliveryAddress": "Full delivery address",
+      "phContactPerson": "Contact person name",
+      "phContactPhone": "Phone/WhatsApp number",
+      "phNotes": "Additional notes for supplier (optional)",
+      "conditionNew": "New",
+      "conditionUsed": "Used",
+      "conditionRefurbished": "Refurbished / Rebuilt",
+      "errCategory": "Please select a category first",
+      "errProductName": "Product name is required",
+      "errDelivery": "Please complete delivery and contact information",
+      "success": "RFQ sent to supplier successfully",
+      "fail": "Failed to send RFQ"
+    }
+  },
+  "calculator": {
+    "bess": {
+      "systemType": "System Type",
+      "bessOnly": "BESS Only",
+      "bessSolar": "BESS + Solar",
+      "bessConfig": "BESS Configuration",
+      "capacity": "BESS Capacity (kWh)",
+      "power": "Output Power (kW)",
+      "dod": "Depth of Discharge (%)",
+      "efficiency": "Cycle Efficiency (%)",
+      "investment": "BESS Investment Cost (Rp)",
+      "solarConfig": "Solar Panel Configuration",
+      "solarCapacity": "Panel Capacity (kWp)",
+      "sunHours": "Sun Hours (hours/day)",
+      "panelEfficiency": "Panel Efficiency (%)",
+      "solarCost": "Solar Panel Cost (Rp)",
+      "usage": "Consumption & Tariff",
+      "dailyLoad": "Daily Load (kWh/day)",
+      "rate": "Electricity Tariff (Rp/kWh)",
+      "peakRate": "Peak Tariff (Rp/kWh)",
+      "peakHours": "Peak Hours (hours/day)",
+      "calculate": "Calculate Efficiency",
+      "result": "Calculation Result",
+      "noData": "Enter data to see the result",
+      "dailySavings": "Daily",
+      "monthlySavings": "Monthly",
+      "annualSavings": "Annual",
+      "roi": "ROI",
+      "totalInvestment": "Total Investment",
+      "solarEnergy": "Solar Energy/Day",
+      "bessEnergy": "BESS Energy/Day",
+      "totalEnergy": "Total Energy Saved/Day",
+      "payback": "Payback Period",
+      "co2Reduction": "CO2 Emission Reduction"
+    }
   },
   "label": {
     "article": "Article",
     "trendingArticle": "Trending Article",
     "relatedArticle": "Related Article",
     "promo": "Promo",
+    "bundle": "Bundle",
+    "industry": "Industry",
     "featuredProducts": "Featured Products",
     "latestArticles": "Latest Articles",
     "category": "Category",
@@ -37,6 +438,9 @@
     "brand": "Brand",
     "grade": "Grade",
     "price": "Price",
+    "condition": "Condition",
+    "moq": "MOQ",
+    "new": "New",
     "minPrice": "Min Price",
     "maxPrice": "Max Price",
     "search": "Search",
@@ -62,7 +466,8 @@
     "writeToUs": "Contact Us",
     "followOurSocial": "Follow Our Social Media",
     "exploreCategories": "Explore Categories",
-    "featuredPromo": "Featured Promos"
+    "featuredPromo": "Featured Promos",
+    "language": "Language"
   },
   "placeholder": {
     "inputYourEmail": "Input Your Email",
@@ -91,7 +496,8 @@
       "category": "Category",
       "rental": "Rental",
       "rfq": "RFQ",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "title": "Menu"
     }
   },
   "footer": {
@@ -111,14 +517,421 @@
     }
   },
   "breadcrumb": {
-    "home": "Home"
+    "home": "Home",
+    "article": "Articles"
+  },
+  "admin": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "logout": "Logout",
+    "lowStock": "Low Stock",
+    "markAllRead": "Mark All Read",
+    "noNotifications": "No notifications",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "nav": {
+      "overview": "Overview",
+      "dashboard": "Dashboard",
+      "management": "Management",
+      "members": "Members",
+      "products": "Products",
+      "orders": "Orders",
+      "promos": "Promos",
+      "articles": "Articles",
+      "principals": "Principals",
+      "addresses": "Addresses",
+      "catalog": "Catalog",
+      "categories": "Categories",
+      "brands": "Brands",
+      "grades": "Grades",
+      "system": "System",
+      "roles": "Roles",
+      "settings": "Settings"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "System Summary",
+      "totalMembers": "Total Members",
+      "totalProducts": "Total Products",
+      "totalOrders": "Total Orders",
+      "totalRevenue": "Total Revenue",
+      "recentMembers": "Recent Members",
+      "recentOrders": "Recent Orders",
+      "lowStock": "Low Stock"
+    },
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Log in to the admin panel",
+      "addNew": "Add New Admin",
+      "submit": "Log in",
+      "forgotPassword": "Forgot Password"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email to receive a reset link.",
+      "success": "Reset link sent to your email.",
+      "sendLink": "Send Link",
+      "rememberPassword": "Remember your password?"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "inactive": "Inactive",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "nameAsc": "Name A-Z",
+      "nameDesc": "Name Z-A",
+      "show": "Show",
+      "draft": "Draft",
+      "lowStock": "Low Stock",
+      "outOfStock": "Out of Stock",
+      "to": "to",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "type": "Type",
+      "status": "Status"
+    },
+    "table": {
+      "action": "Action",
+      "actions": "Actions",
+      "author": "Author",
+      "brand": "Brand",
+      "buyer": "Buyer",
+      "category": "Category",
+      "company": "Company",
+      "contact": "Contact",
+      "date": "Date",
+      "delete": "Delete",
+      "edit": "Edit",
+      "email": "Email",
+      "image": "Image",
+      "items": "Items",
+      "joined": "Joined",
+      "level": "Level",
+      "logo": "Logo",
+      "member": "Member",
+      "moq": "MOQ",
+      "name": "Name",
+      "orderId": "Order ID",
+      "parent": "Parent",
+      "payment": "Payment",
+      "phone": "Phone",
+      "price": "Price",
+      "product": "Product",
+      "products": "Products",
+      "status": "Status",
+      "stock": "Stock",
+      "supplier": "Supplier",
+      "title": "Title",
+      "total": "Total",
+      "type": "Type",
+      "view": "View",
+      "views": "Views"
+    },
+    "addresses": {
+      "subtitle": "Manage address data.",
+      "lookupTitle": "Lookup Address",
+      "fullAddress": "Full Address",
+      "searchTitle": "Search",
+      "searchPlaceholder": "Search by province, city, or full address...",
+      "provinces": "Provinces",
+      "regencyCount": "Regencies",
+      "viewRegencies": "View Regencies",
+      "viewDistricts": "View Districts",
+      "viewVillages": "View Villages",
+      "close": "Close"
+    },
+    "articles": {
+      "title": "Articles",
+      "subtitle": "Manage articles",
+      "addNew": "Add New Article",
+      "addFirst": "Add First Article",
+      "empty": "No articles yet",
+      "emptyDesc": "Start creating a new article",
+      "delete": "Delete",
+      "duplicate": "Duplicate",
+      "status": {
+        "published": "Published",
+        "draft": "Draft",
+        "archived": "Archived"
+      }
+    },
+    "brands": {
+      "title": "Brands",
+      "subtitle": "Manage product brands",
+      "addNew": "Add New Brand",
+      "addFirst": "Add First Brand",
+      "empty": "No brands yet",
+      "emptyDesc": "Add your first brand"
+    },
+    "categories": {
+      "title": "Categories",
+      "subtitle": "Manage product categories",
+      "addNew": "Add New Category"
+    },
+    "grades": {
+      "title": "Grades",
+      "subtitle": "Manage product grades",
+      "addNew": "Add New Grade",
+      "addFirst": "Add First Grade",
+      "empty": "No grades yet",
+      "emptyDesc": "Add your first grade"
+    },
+    "members": {
+      "title": "Members",
+      "subtitle": "Manage members",
+      "addNew": "Add New Member",
+      "addFirst": "Add First Member",
+      "edit": "Edit Member",
+      "empty": "No members yet",
+      "emptyDesc": "New members will appear here",
+      "detail": "Member Detail",
+      "personalInfo": "Personal Information",
+      "companyInfo": "Company Information",
+      "addressInfo": "Address Information",
+      "point": "Points",
+      "position": "Position",
+      "companyEmail": "Company Email",
+      "companyPhone": "Company Phone",
+      "companyField": "Company Field",
+      "address": "Address",
+      "province": "Province",
+      "city": "City",
+      "district": "District",
+      "postalCode": "Postal Code",
+      "currentAddress": "Current Address"
+    },
+    "orders": {
+      "title": "Orders",
+      "subtitle": "Manage orders",
+      "export": "Export",
+      "create": "Create New Order",
+      "createFirst": "Create First Order",
+      "empty": "No orders yet",
+      "emptyDesc": "New orders will appear here",
+      "print": "Print",
+      "notify": "Notify",
+      "status": {
+        "unpaid": "Unpaid",
+        "waiting_po": "Waiting PO",
+        "waiting_invoice": "Waiting Invoice",
+        "process": "Processing",
+        "delivery": "Delivery",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      },
+      "payment": {
+        "pending": "Pending",
+        "paid": "Paid",
+        "partial": "Partial"
+      }
+    },
+    "principals": {
+      "title": "Principals",
+      "subtitle": "Manage principals",
+      "addNew": "Add New Principal",
+      "addFirst": "Add First Principal",
+      "empty": "No principals yet",
+      "emptyDesc": "Add your first principal"
+    },
+    "products": {
+      "title": "Products",
+      "subtitle": "Manage products",
+      "import": "Import",
+      "export": "Export",
+      "addNew": "Add New Product",
+      "addFirst": "Add First Product",
+      "empty": "No products yet",
+      "emptyDesc": "Add your first product",
+      "setDraft": "Set as Draft",
+      "setShow": "Show",
+      "duplicate": "Duplicate",
+      "delete": "Delete"
+    },
+    "promos": {
+      "title": "Promos",
+      "subtitle": "Manage promos",
+      "addNew": "Add New Promo",
+      "addFirst": "Add First Promo",
+      "empty": "No promos yet",
+      "emptyDesc": "Add your first promo",
+      "searchPlaceholder": "Search promo name...",
+      "ended": "Ended",
+      "activeUntil": "Valid until",
+      "items": "items",
+      "loadError": "Failed to load promo data",
+      "type": {
+        "promo": "Promo",
+        "bundle": "Bundle"
+      },
+      "status": {
+        "active": "Active",
+        "ended": "Ended",
+        "upcoming": "Upcoming"
+      }
+    },
+    "roles": {
+      "title": "Roles",
+      "subtitle": "Manage roles & permissions",
+      "addNew": "Add New Role",
+      "addFirst": "Add First Role",
+      "empty": "No roles yet",
+      "emptyDesc": "Add your first role",
+      "menus": "Menus",
+      "addMenu": "Add Menu"
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Manage system settings",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "saveSuccess": "Settings saved",
+      "saveError": "Failed to save settings",
+      "uploadSuccess": "File uploaded successfully",
+      "removeSuccess": "File removed successfully",
+      "menu": {
+        "general": "General",
+        "appearance": "Appearance",
+        "email": "Email",
+        "api": "API",
+        "integrations": "Integrations"
+      },
+      "general": {
+        "title": "General Settings",
+        "siteName": "Site Name",
+        "siteUrl": "Site URL",
+        "adminEmail": "Admin Email",
+        "currency": "Currency",
+        "timezone": "Timezone"
+      },
+      "appearance": {
+        "title": "Appearance Settings",
+        "logo": "Logo",
+        "uploadLogo": "Upload Logo",
+        "remove": "Remove",
+        "primaryColor": "Primary Color",
+        "secondaryColor": "Secondary Color",
+        "favicon": "Favicon",
+        "upload": "Upload"
+      },
+      "email": {
+        "title": "Email Settings",
+        "smtpHost": "SMTP Host",
+        "smtpPort": "SMTP Port",
+        "username": "Username",
+        "password": "Password",
+        "fromEmail": "From Email",
+        "fromName": "From Name",
+        "encryption": "Encryption",
+        "testConnection": "Test Connection",
+        "testing": "Testing email connection...",
+        "testSuccess": "Email connection successful"
+      },
+      "api": {
+        "title": "API Settings",
+        "baseUrl": "Base URL",
+        "timeout": "Timeout",
+        "allowedOrigins": "Allowed Origins"
+      },
+      "integrations": {
+        "title": "Integrations"
+      }
+    }
   },
   "page": {
     "home": {
+      "metaDescription": "Find your mechanical needs from thousands of quality products. Spare parts, lubricants, tires, heavy equipment, and work tools.",
       "hero": {
         "title": "Trusted Mechanical Procurement Solutions",
         "subtitle": "Find your mechanical needs from thousands of quality products",
-        "cta": "Explore Products"
+        "cta": "Explore Products",
+        "slides": {
+          "sparepart": {
+            "title": "Spare Parts & Components",
+            "subtitle": "Thousands of quality spare parts for your industrial needs",
+            "cta": "Explore Products"
+          },
+          "promo": {
+            "title": "Latest Promos",
+            "subtitle": "Don't miss Trumecs' exciting offers",
+            "cta": "View Promos"
+          },
+          "rfq": {
+            "title": "Mechanical Procurement Solutions",
+            "subtitle": "Contact us for large-scale procurement needs",
+            "cta": "Submit RFQ"
+          }
+        }
+      },
+      "showcase": {
+        "lubricants": {
+          "title": "Lubricants",
+          "grease": "Grease",
+          "hydraulicOil": "Hydraulic Oil",
+          "engineOil": "Engine Oil",
+          "gearOil": "Gear Oil",
+          "compressorOil": "Compressor Oil",
+          "greaseTagline": "Ensures smooth operation and keeps every component healthy for long-lasting performance.",
+          "hydraulicOilTagline": "Unmatched quality to boost efficiency and protection for your transmission.",
+          "engineOilTagline": "Boost your engine's performance! Advanced formula for top-tier performance and long-term reliability.",
+          "gearOilTagline": "Optimize torque transfer while reducing friction and noise.",
+          "compressorOilTagline": "Maximize engine life and performance with high-quality industrial lubricants!"
+        },
+        "tires": {
+          "title": "Tires",
+          "heavyeq": "Heavy Equipment Tires",
+          "truck": "Truck Tires",
+          "forklift": "Forklift Tires",
+          "innerTube": "Inner Tube",
+          "flap": "Flap",
+          "heavyeqTagline": "Maximize productivity with rugged OTR tires built for mining and construction.",
+          "truckTagline": "Grip the road with confidence with premium tires for every journey.",
+          "forkliftTagline": "Trusted by operators for reliable performance on city streets and highways.",
+          "innerTubeTagline": "Optimal heat dissipation to keep temperatures stable on long-distance operations.",
+          "flapTagline": "Optimized tread design for maximum traction in wet and dry conditions."
+        },
+        "sparepart": {
+          "title": "Spare Parts",
+          "filter": "Filter",
+          "bearing": "Bearing",
+          "seal": "Seal",
+          "belt": "Belt",
+          "hose": "Hose",
+          "filterTagline": "Reliable spare parts to keep heavy equipment productive on every project.",
+          "bearingTagline": "Quality components to support safe and smooth long-distance journeys.",
+          "sealTagline": "Quality seals to prevent leaks and keep your systems in top condition.",
+          "beltTagline": "Efficient power transmission for consistent, long-lasting machine performance.",
+          "hoseTagline": "High-quality flexible hoses for safe and reliable circulation."
+        },
+        "unit": {
+          "title": "Units",
+          "heavyeq": "Heavy Equipment",
+          "truck": "Truck",
+          "forklift": "Forklift",
+          "crane": "Crane",
+          "excavator": "Excavator",
+          "heavyeqTagline": "The backbone of logistics systems and public transportation.",
+          "truckTagline": "Innovative technology to optimize planting and harvesting processes.",
+          "forkliftTagline": "Tough and agile for smooth warehousing and material handling operations.",
+          "craneTagline": "Reliable marine vessels for various missions. Built for safety and stability in harsh waters.",
+          "excavatorTagline": "Engineered for power, stability, and best-in-class performance on site."
+        },
+        "tools": {
+          "title": "Tools & Equipment",
+          "handTools": "Hand Tools",
+          "powerTools": "Power Tools",
+          "safetyEquipment": "Safety Equipment",
+          "handToolsTagline": "The right tools make every job safer and more efficient.",
+          "powerToolsTagline": "Boost productivity with innovative time-saving technology. Smart solutions for professionals who demand the best.",
+          "safetyEquipmentTagline": "Protect your workforce with certified safety equipment. Durable gear designed for comfort and maximum performance."
+        }
+      },
+      "industri": {
+        "subtitle": "Explore products by your industry sector"
       },
       "categories": {
         "title": "Explore Categories",
@@ -138,9 +951,25 @@
       },
       "cta": {
         "title": "Need Help?",
-        "subtitle": "Submit your requirements and we'll help you find the right products",
+        "subtitle": "Send us your needs and we will help you find the right products",
         "button": "Submit RFQ Now"
       }
+    },
+    "article": {
+      "loading": "Loading Article...",
+      "loadingDesc": "Please wait, the article is loading.",
+      "share": "Share :",
+      "tags": "Tags:",
+      "loadError": "Failed to load article data",
+      "metaTitle": "Articles",
+      "metaDesc": "Read the latest articles on heavy equipment maintenance tips, spare parts guides, and industry news from Trumecs.",
+      "formName": "Full Name",
+      "formEmail": "Email",
+      "formCompany": "Company Name",
+      "formPhone": "Phone Number",
+      "formRequest": "Describe your needs...",
+      "formSubmit": "Submit Request",
+      "formSuccess": "Request sent successfully!"
     },
     "category": {
       "title": "Products",
@@ -164,7 +993,26 @@
       "empty": "No products found",
       "showing": "Showing {from}-{to} of {total} products",
       "searchResult": "Search results for \"{keyword}\"",
-      "perPage": "per page"
+      "perPage": "per page",
+      "categories": "Categories",
+      "subcategories": "Sub Categories",
+      "brands": "Brands",
+      "noSubcategories": "No sub categories",
+      "noBrands": "No brands",
+      "scrollHint": "Scroll to see all brands",
+      "products": "Products",
+      "productsCount": "{count} products",
+      "exploreAll": "Explore All"
+    },
+    "tag": {
+      "title": "Tags",
+      "hubTitle": "Explore Tags",
+      "hubSubtitle": "Find products by product type",
+      "totalTags": "{count} tags in total",
+      "productCount": "{count} products",
+      "showing": "Showing {from}-{to} of {total} products",
+      "empty": "No products found",
+      "labels": {}
     },
     "promo": {
       "title": "Promo",
@@ -211,7 +1059,10 @@
         "back": "Back",
         "load": "Load Product...",
         "noProduct": "Product Not Found",
-        "sorryProduct": "Sorry, Product Not Ready"
+        "sorryProduct": "Sorry, Product Not Ready",
+        "replica": "Replica",
+        "loadError": "Failed to load product data",
+        "metaDesc": "Quality product from Trumecs"
       },
       "button": {
         "buy": "Buy via Whatsapp",
@@ -271,11 +1122,26 @@
               "customer": "Residential & Office",
               "description": "Energy storage solution for homes and small offices. Compact design, easy to install, and supports up to 5 module stacks.",
               "specs": [
-                { "label": "Nominal Voltage", "value": "51.2V" },
-                { "label": "Battery Cell", "value": "LFP 3.2V/52Ah" },
-                { "label": "Capacity", "value": "5.1 - 26.5 kWh" },
-                { "label": "Scalability", "value": "Up to 5 stacks" },
-                { "label": "Cycle Life", "value": "> 4,000 cycles" }
+                {
+                  "label": "Nominal Voltage",
+                  "value": "51.2V"
+                },
+                {
+                  "label": "Battery Cell",
+                  "value": "LFP 3.2V/52Ah"
+                },
+                {
+                  "label": "Capacity",
+                  "value": "5.1 - 26.5 kWh"
+                },
+                {
+                  "label": "Scalability",
+                  "value": "Up to 5 stacks"
+                },
+                {
+                  "label": "Cycle Life",
+                  "value": "> 4,000 cycles"
+                }
               ]
             },
             {
@@ -284,11 +1150,26 @@
               "customer": "Commercial & Industrial",
               "description": "Cabinet energy storage system for commercial and industrial operations. Equipped with fire suppression and active cooling.",
               "specs": [
-                { "label": "Rated Capacity", "value": "138.3 kWh" },
-                { "label": "Power Output", "value": "66 kW" },
-                { "label": "Efficiency", "value": "≥ 96.5%" },
-                { "label": "Cycle Life", "value": "8,000 cycles" },
-                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+                {
+                  "label": "Rated Capacity",
+                  "value": "138.3 kWh"
+                },
+                {
+                  "label": "Power Output",
+                  "value": "66 kW"
+                },
+                {
+                  "label": "Efficiency",
+                  "value": "â‰¥ 96.5%"
+                },
+                {
+                  "label": "Cycle Life",
+                  "value": "8,000 cycles"
+                },
+                {
+                  "label": "Certifications",
+                  "value": "UL 1973, UL 9540"
+                }
               ]
             },
             {
@@ -297,11 +1178,26 @@
               "customer": "Large Scale Commercial & Industrial",
               "description": "Large-scale 20ft container-based energy storage solution. Massive capacity for industrial and utility networks.",
               "specs": [
-                { "label": "Rated Energy", "value": "3,686 kWh" },
-                { "label": "Nominal Voltage", "value": "1,229V" },
-                { "label": "Cooling", "value": "Active liquid cooling" },
-                { "label": "Weight", "value": "~ 33 Tons" },
-                { "label": "Certifications", "value": "UL 1973, UL 9540" }
+                {
+                  "label": "Rated Energy",
+                  "value": "3,686 kWh"
+                },
+                {
+                  "label": "Nominal Voltage",
+                  "value": "1,229V"
+                },
+                {
+                  "label": "Cooling",
+                  "value": "Active liquid cooling"
+                },
+                {
+                  "label": "Weight",
+                  "value": "~ 33 Tons"
+                },
+                {
+                  "label": "Certifications",
+                  "value": "UL 1973, UL 9540"
+                }
               ]
             }
           ]
@@ -340,7 +1236,7 @@
         "benefits": {
           "sectionLabel": "Why BESS?",
           "title": "How BESS Can Cut Your Electricity Cost",
-          "subtitle": "BESS is not just technology — it's a smart investment to reduce your electrical operational costs.",
+          "subtitle": "BESS is not just technology â€” it's a smart investment to reduce your electrical operational costs.",
           "items": [
             {
               "title": "Grid Stabilization",
@@ -393,7 +1289,7 @@
             {
               "title": "Precision Tolerances",
               "icon": "mdi:tune-variant",
-              "description": "Achieving tolerances up to ±0.001mm for critical applications."
+              "description": "Achieving tolerances up to Â±0.001mm for critical applications."
             },
             {
               "title": "Multi-Axis Capability",
@@ -437,11 +1333,26 @@
         "industries": {
           "title": "Industries We Serve",
           "items": [
-            { "name": "Automotive", "image": "https://migration.trumecs.com/principal/machining/automotive.jpg" },
-            { "name": "Food & Beverage", "image": "https://migration.trumecs.com/principal/machining/fnb.jpg" },
-            { "name": "Manufacturing", "image": "https://migration.trumecs.com/principal/machining/manufacture.jpg" },
-            { "name": "Mill", "image": "https://migration.trumecs.com/principal/machining/mill.jpg" },
-            { "name": "Textile", "image": "https://migration.trumecs.com/principal/machining/textile.jpg" }
+            {
+              "name": "Automotive",
+              "image": "https://migration.trumecs.com/principal/machining/automotive-2.png"
+            },
+            {
+              "name": "Food & Beverage",
+              "image": "https://migration.trumecs.com/principal/machining/fnb-2.png"
+            },
+            {
+              "name": "Manufacturing",
+              "image": "https://migration.trumecs.com/principal/machining/manufacture-2.png"
+            },
+            {
+              "name": "Mill",
+              "image": "https://migration.trumecs.com/principal/machining/mill-2.png"
+            },
+            {
+              "name": "Textile",
+              "image": "https://migration.trumecs.com/principal/machining/textile-2.png"
+            }
           ]
         },
         "methods": {
@@ -453,31 +1364,54 @@
               "title": "Milling",
               "icon": "streamline-pixel:ecology-windmill-1",
               "description": "Material removal process using rotating cutters to produce flat surfaces, slots, and complex geometries on the workpiece.",
-              "features": ["3-axis to 5-axis", "Flat surfaces & contours", "Slots & keyways", "Tolerance ±0.01mm"]
+              "features": [
+                "3-axis to 5-axis",
+                "Flat surfaces & contours",
+                "Slots & keyways",
+                "Tolerance Â±0.01mm"
+              ]
             },
             {
               "title": "Turning",
               "icon": "mdi:rotate-3d-variant",
               "description": "Lathe process for producing cylindrical components with high precision using static tools on a rotating workpiece.",
-              "features": ["Shaft & axle", "Bushing & bearing", "Thread & threading", "Tolerance ±0.005mm"]
+              "features": [
+                "Shaft & axle",
+                "Bushing & bearing",
+                "Thread & threading",
+                "Tolerance Â±0.005mm"
+              ]
             },
             {
               "title": "Grinding",
               "icon": "mdi:blur",
               "description": "Surface finishing process using grinding wheels to achieve extreme surface finish and final dimensional accuracy.",
-              "features": ["Surface grinding", "Cylindrical grinding", "Surface finish Ra 0.4μm", "Flatness < 0.005mm"]
+              "features": [
+                "Surface grinding",
+                "Cylindrical grinding",
+                "Surface finish Ra 0.4Î¼m",
+                "Flatness < 0.005mm"
+              ]
             },
             {
               "title": "Cutting",
               "icon": "mdi:content-cut",
               "description": "Material cutting process using various methods to obtain the desired size and shape.",
-              "features": ["Band saw cutting", "Wire EDM", "Laser cutting", "Waterjet cutting"]
+              "features": [
+                "Band saw cutting",
+                "Wire EDM",
+                "Laser cutting",
+                "Waterjet cutting"
+              ]
             },
             {
               "title": "Fabrication",
               "icon": "mdi:factory",
               "description": "Fabrication process to produce components with advanced technology.",
-              "features": ["Welding", "Assembly"]
+              "features": [
+                "Welding",
+                "Assembly"
+              ]
             }
           ]
         },
@@ -486,14 +1420,38 @@
           "title": "Products We Can Make",
           "subtitle": "Various precision components we produce for various manufacturing industries.",
           "items": [
-            { "name": "Shaft Gear", "image": "https://migration.trumecs.com/principal/machining/shaft.png" },
-            { "name": "Chain", "image": "https://migration.trumecs.com/principal/machining/chain.png" },
-            { "name": "Bearing Housing", "image": "https://migration.trumecs.com/principal/machining/housing.png" },
-            { "name": "Conveyor Roller", "image": "https://migration.trumecs.com/principal/machining/roller.png" },
-            { "name": "Sprocket", "image": "https://migration.trumecs.com/principal/machining/sprocket.png" },
-            { "name": "Saw", "image": "https://migration.trumecs.com/principal/machining/saw.png" },
-            { "name": "Coupling", "image": "https://migration.trumecs.com/principal/machining/coupling.png" },
-            { "name": "Perforated Sheet", "image": "https://migration.trumecs.com/principal/machining/perforated.png" }
+            {
+              "name": "Shaft Gear",
+              "image": "https://migration.trumecs.com/principal/machining/shaft.png"
+            },
+            {
+              "name": "Chain",
+              "image": "https://migration.trumecs.com/principal/machining/chain.png"
+            },
+            {
+              "name": "Bearing Housing",
+              "image": "https://migration.trumecs.com/principal/machining/housing.png"
+            },
+            {
+              "name": "Conveyor Roller",
+              "image": "https://migration.trumecs.com/principal/machining/roller.png"
+            },
+            {
+              "name": "Sprocket",
+              "image": "https://migration.trumecs.com/principal/machining/sprocket.png"
+            },
+            {
+              "name": "Saw",
+              "image": "https://migration.trumecs.com/principal/machining/saw.png"
+            },
+            {
+              "name": "Coupling",
+              "image": "https://migration.trumecs.com/principal/machining/coupling.png"
+            },
+            {
+              "name": "Perforated Sheet",
+              "image": "https://migration.trumecs.com/principal/machining/perforated.png"
+            }
           ]
         },
         "materials": {
@@ -501,16 +1459,71 @@
           "title": "Materials We Master",
           "subtitle": "We have expertise in machining various materials to meet your industrial needs.",
           "items": [
-            { "name": "Stainless Steel", "icon": "mdi:silverware-fork-knife",
-          "grades": ["SS304", "SS316"], "description": "Corrosion resistant, ideal for food grade, chemical, and medical applications." },
-            { "name": "Carbon Steel", "icon": "material-symbols:thermostat-carbon-outline", "grades": ["S45C", "ST41"], "description": "Commonly used for shafts, gears, and structural components." },
-            { "name": "Alloy Steel", "icon": "mdi:factory",
-          "grades": ["SCM440", "SNCM439"], "description": "High strength for heavy machinery and transmission components." },
-            { "name": "Aluminium", "icon": "mdi:cube-outline",
-          "grades": ["6061-T6", "7075-T6"], "description": "Lightweight, corrosion resistant, and easy to machine. Ideal for automotive, aerospace, and electronics components." },
-            { "name": "Cast Iron", "icon": "mdi:anvil", "grades": ["FC250", "FCD450"], "description": "Good vibration damping and wear resistance. Suitable for engine blocks, housings, and heavy components." },
-            { "name": "Engineering Plastics", "icon": "guidance:plastic", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "Lightweight, chemical resistant, and self-lubricating. For bushings, non-metal gears, and insulators." },
-            { "name": "Rubber", "icon": "mdi:circle-outline", "grades": ["NBR", "EPDM", "Silicone"], "description": "Elastic and resistant to oil and weather. Used for seals, gaskets, mounts, and vibration isolators." }
+            {
+              "name": "Stainless Steel",
+              "icon": "game-icons:steel-claws",
+              "grades": [
+                "SS304",
+                "SS316"
+              ],
+              "description": "Corrosion resistant, ideal for food grade, chemical, and medical applications."
+            },
+            {
+              "name": "Carbon Steel",
+              "icon": "material-symbols:thermostat-carbon-outline",
+              "grades": [
+                "S45C",
+                "ST41"
+              ],
+              "description": "Commonly used for shafts, gears, and structural components."
+            },
+            {
+              "name": "Alloy Steel",
+              "icon": "file-icons:alloy",
+              "grades": [
+                "SCM440",
+                "SNCM439"
+              ],
+              "description": "High strength for heavy machinery and transmission components."
+            },
+            {
+              "name": "Aluminium",
+              "icon": "mdi:cube-outline",
+              "grades": [
+                "6061-T6",
+                "7075-T6"
+              ],
+              "description": "Lightweight, corrosion resistant, and easy to machine. Ideal for automotive, aerospace, and electronics components."
+            },
+            {
+              "name": "Cast Iron",
+              "icon": "mdi:anvil",
+              "grades": [
+                "FC250",
+                "FCD450"
+              ],
+              "description": "Good vibration damping and wear resistance. Suitable for engine blocks, housings, and heavy components."
+            },
+            {
+              "name": "Engineering Plastics",
+              "icon": "guidance:plastic",
+              "grades": [
+                "POM",
+                "PTFE",
+                "Nylon PA6"
+              ],
+              "description": "Lightweight, chemical resistant, and self-lubricating. For bushings, non-metal gears, and insulators."
+            },
+            {
+              "name": "Rubber",
+              "icon": "jam:rubber",
+              "grades": [
+                "NBR",
+                "EPDM",
+                "Silicone"
+              ],
+              "description": "Elastic and resistant to oil and weather. Used for seals, gaskets, mounts, and vibration isolators."
+            }
           ]
         },
         "contact": {
@@ -521,11 +1534,16 @@
           "email": "Email Inquiry",
           "locationTitle": "Locations & Main Service Areas",
           "locationDesc": "We are strategically located to serve machining and fabrication needs in the following areas quickly and responsively.",
-          "locations": ["Jakarta", "Bekasi", "Cikarang", "Tangerang"]
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ]
         },
         "seo": {
-          "title": "Precision Machining & Fabrication - Trumecs",
-          "description": "Precision machining and fabrication solutions with advanced technology, experienced engineers, and strict quality control."
+          "title": "Trusted Machining & Fabrication Solutions - Trumecs",
+          "description": "Providing high-precision machining services with advanced technology and experienced technicians to meet your industrial manufacturing needs."
         }
       },
       "struman": {
@@ -542,7 +1560,7 @@
         "useCases": {
           "sectionLabel": "Solutions for Various Needs",
           "title": "STRUMAN Can Be Used Anywhere",
-          "subtitle": "From residential homes to heavy industrial operations — STRUMAN provides reliable independent energy solutions, no complicated installation, no noisy generators.",
+          "subtitle": "From residential homes to heavy industrial operations â€” STRUMAN provides reliable independent energy solutions, no complicated installation, no noisy generators.",
           "items": [
             {
               "title": "Residential",
@@ -556,7 +1574,7 @@
             },
             {
               "title": "Office & Commercial",
-              "description": "Power backup for office operations that must not stop. No installation needed — plug and play.",
+              "description": "Power backup for office operations that must not stop. No installation needed â€” plug and play.",
               "recommendation": "Recommended: G24 PRO / M50"
             },
             {
@@ -576,12 +1594,21 @@
             }
           ],
           "stats": [
-            { "value": "3000+", "label": "Usage Cycles (+8 Years)" },
-            { "value": "17.4 kWh", "label": "Maximum Capacity" },
-            { "value": "4500 W", "label": "Highest Output Power (M50)" },
+            {
+              "value": "3000+",
+              "label": "Usage Cycles (+8 Years)"
+            },
+            {
+              "value": "17.4 kWh",
+              "label": "Maximum Capacity"
+            },
+            {
+              "value": "4500 W",
+              "label": "Highest Output Power (M50)"
+            },
             {
               "value": "Pure Sine Wave",
-              "label": "Like PLN Electricity — Safe for All Devices"
+              "label": "Like PLN Electricity â€” Safe for All Devices"
             }
           ]
         },
@@ -637,7 +1664,7 @@
       },
       "usedsparepart": {
         "hero": {
-          "badge": "Ready Stock • Warranty",
+          "badge": "Ready Stock â€¢ Warranty",
           "titleLine1": "Heavy Equipment Spare Parts",
           "titleLine2": "Quality Salvage Parts & Warrantied",
           "subtitle": "Affordable and reliable solution for your heavy equipment spare part needs. Original & OEM, strictly inspected, and ready to use.",

@@ -112,30 +112,38 @@ onMounted(() => {
 
       <!-- Tombol dengan Bendera + Dropdown Icon -->
       <HeadlessListboxButton as="template">
-        <button
-          class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500"
+        <Trubutton
+          type="primary"
+          variant="light"
+          size="small"
+          shape="round"
           @click="isOpen = !isOpen"
         >
-          <!-- Flag -->
-          <Icon :name="currentLang?.flag" class="text-lg" />
+          <div class="flex items-center gap-1.5">
+            <!-- Flag -->
+            <Icon
+              :name="currentLang?.flag"
+              class="text-base shrink-0 leading-none"
+            />
 
-          <!-- Language Code -->
-          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
-            {{ currentLang?.label }}
-          </span>
+            <!-- Language Code -->
+            <span class="text-sm font-semibold leading-none">{{
+              currentLang?.label
+            }}</span>
 
-          <!-- Dropdown Icon -->
-          <Icon
-            name="mdi:chevron-down"
-            class="text-gray-400 text-lg transition-transform duration-200"
-            :class="{ 'rotate-180': isOpen }"
-          />
-        </button>
+            <!-- Dropdown Icon -->
+            <Icon
+              name="mdi:chevron-down"
+              class="text-base shrink-0 leading-none text-orange-400 dark:text-orange-400/80 transition-transform duration-200"
+              :class="{ 'rotate-180': isOpen }"
+            />
+          </div>
+        </Trubutton>
       </HeadlessListboxButton>
 
       <!-- Dropdown Menu -->
       <HeadlessListboxOptions
-        class="p-1 absolute z-50 origin-top-right top-full right-0 mt-1 outline-none bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-48 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300"
+        class="p-1 absolute z-50 origin-top-right top-full right-0 mt-1 outline-none bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-48 py-1 text-sm dark:ring-0 dark:highlight-white/5"
         enter="transition duration-100 ease-out"
         enter-from="transform scale-95 opacity-0"
         enter-to="transform scale-100 opacity-100"
@@ -153,23 +161,25 @@ onMounted(() => {
           <li
             class="py-2 px-3 flex items-center gap-3 cursor-pointer rounded transition-colors"
             :class="{
-              'text-orange-500 bg-gray-100 dark:bg-gray-600/30':
+              'text-orange-500 bg-orange-50 dark:text-orange-400 dark:bg-orange-500/15':
                 selectedLang === lang.key,
-              'hover:bg-gray-50 dark:hover:bg-gray-700/30':
+              'hover:bg-orange-50 dark:hover:bg-orange-500/10':
                 selectedLang !== lang.key,
             }"
           >
             <!-- Flag -->
-            <Icon :name="lang?.flag" class="text-lg" />
+            <Icon :name="lang?.flag" class="text-base shrink-0 leading-none" />
 
             <!-- Language Name -->
-            <span class="flex-1">{{ $t(`languages.${lang.key}`) }}</span>
+            <span class="flex-1 leading-none">{{
+              $t(`languages.${lang.key}`)
+            }}</span>
 
             <!-- Checkmark untuk active language -->
             <Icon
               v-if="selectedLang === lang.key"
               name="mdi:check"
-              class="text-orange-500 text-lg"
+              class="text-orange-500 dark:text-orange-400 text-base shrink-0"
             />
           </li>
         </HeadlessListboxOption>
@@ -192,44 +202,52 @@ onMounted(() => {
       </option>
     </select>
 
-    <!-- Simple Button Version -->
-    <div v-if="currentStyle === 'simple'" class="flex gap-1">
+    <!-- Segmented Version (untuk sidebar/menu) -->
+    <div
+      v-if="currentStyle === 'segmented'"
+      class="flex w-full items-center gap-1 rounded-xl bg-gray-100 p-1"
+      role="tablist"
+    >
       <button
         v-for="lang in availableLang"
         :key="lang.key"
+        type="button"
+        role="tab"
+        :aria-selected="selectedLang === lang.key"
+        class="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200"
+        :class="
+          selectedLang === lang.key
+            ? 'bg-white text-orange-600 shadow-sm'
+            : 'text-gray-500 hover:text-gray-700'
+        "
         @click="switchLanguage(lang.key)"
-        class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors"
-        :class="{
-          'bg-orange-500 text-white': selectedLang === lang.key,
-          'hover:bg-gray-100 dark:hover:bg-gray-800': selectedLang !== lang.key,
-        }"
       >
-        <span
-          :class="['fi', `fi-${lang.flag}`]"
-          class="text-base rounded-sm"
-        ></span>
-        <span class="text-sm font-medium">{{ lang.label }}</span>
+        <Icon :name="lang.flag" class="shrink-0 text-base leading-none" />
+        <span class="leading-none">{{ lang.label }}</span>
       </button>
+    </div>
+
+    <!-- Simple Button Version -->
+    <div v-if="currentStyle === 'simple'" class="flex gap-1">
+      <Trubutton
+        v-for="lang in availableLang"
+        :key="lang.key"
+        type="primary"
+        :variant="selectedLang === lang.key ? 'solid' : 'ghost'"
+        size="small"
+        shape="round"
+        @click="switchLanguage(lang.key)"
+      >
+        <span class="flex items-center gap-1.5">
+          <Icon :name="lang.flag" class="rounded-sm" />
+          <span class="text-sm font-medium">{{ lang.label }}</span>
+        </span>
+      </Trubutton>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Flag icon adjustments */
-.fi {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 1.5em;
-  height: 1.2em;
-}
-
-/* Dark mode support */
-.dark .fi {
-  filter: brightness(0.9);
-}
-
 /* Dropdown animation */
 .rotate-180 {
   transform: rotate(180deg);

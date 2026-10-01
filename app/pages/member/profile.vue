@@ -166,8 +166,10 @@
 import { ref, computed } from 'vue';
 import { useAuthStore } from '~/stores/auth';
 import { ElMessage, ElMessageBox } from 'element-plus';
+import { useI18n } from 'vue-i18n';
 
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const saving = ref(false);
 const changingPassword = ref(false);
@@ -191,9 +193,9 @@ const handleUpdateProfile = async () => {
   saving.value = true;
   try {
     await authStore.updateProfile(form.value);
-    ElMessage.success('Profil berhasil diperbarui');
+    ElMessage.success($t('member.profile.saveSuccess'));
   } catch (e: any) {
-    ElMessage.error(e.message || 'Gagal memperbarui profil');
+    ElMessage.error(e.message || $t('member.profile.saveFail'));
   } finally {
     saving.value = false;
   }
@@ -206,10 +208,10 @@ const handleChangePassword = async () => {
   changingPassword.value = true;
   try {
     await authStore.changePassword(passwordForm.value.currentPassword, passwordForm.value.newPassword);
-    ElMessage.success('Password berhasil diubah');
+    ElMessage.success($t('member.profile.passwordSuccess'));
     passwordForm.value = { currentPassword: '', newPassword: '', confirmNewPassword: '' };
   } catch (e: any) {
-    ElMessage.error(e.message || 'Gagal mengubah password');
+    ElMessage.error(e.message || $t('member.profile.passwordFail'));
   } finally {
     changingPassword.value = false;
   }
@@ -217,21 +219,21 @@ const handleChangePassword = async () => {
 
 const confirmDeleteAccount = () => {
   ElMessageBox.confirm(
-    'Apakah Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.',
-    'Hapus Akun',
+    $t('member.profile.deleteConfirmDesc'),
+    $t('member.profile.deleteConfirmTitle'),
     {
-      confirmButtonText: 'Hapus',
-      cancelButtonText: 'Batal',
+      confirmButtonText: $t('member.profile.deleteConfirmBtn'),
+      cancelButtonText: $t('button.cancel'),
       type: 'warning',
       confirmButtonClass: 'el-button--danger',
     }
   ).then(async () => {
     try {
       await authStore.deleteAccount();
-      ElMessage.success('Akun berhasil dihapus');
+      ElMessage.success($t('member.profile.deleteSuccess'));
       await navigateTo('/');
     } catch (e: any) {
-      ElMessage.error(e.message || 'Gagal menghapus akun');
+      ElMessage.error(e.message || $t('member.profile.deleteFail'));
     }
   }).catch(() => {});
 };

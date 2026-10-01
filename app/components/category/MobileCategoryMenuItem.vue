@@ -2,30 +2,29 @@
   <!-- Jika punya children, render sub-menu -->
   <div v-if="hasChildren" class="mobile-submenu">
     <div
-      class="flex items-center justify-between border-b py-3 border-gray-200 hover:text-gray-500 cursor-pointer"
+      class="flex items-center gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-gray-50 cursor-pointer"
       @click="toggleSubmenu"
     >
-      <span>{{ item.name }}</span>
-      <span class="text-gray-700">
-        <svg
-          :class="{ 'rotate-180': isOpen }"
-          class="w-4 h-4 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
+      <span
+        class="flex-1 min-w-0 truncate text-sm font-medium text-gray-800"
+        :class="isOpen ? 'text-orange-600' : ''"
+      >
+        {{ item.name }}
       </span>
+      <span
+        class="shrink-0 rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-500"
+      >
+        {{ item.children.length }}
+      </span>
+      <Icon
+        name="material-symbols:expand-more"
+        class="shrink-0 text-base text-gray-400 transition-transform duration-200"
+        :class="isOpen ? 'rotate-180' : ''"
+      />
     </div>
 
     <!-- Render children recursively -->
-    <div v-show="isOpen" class="ml-4">
+    <div v-show="isOpen" class="ml-3 border-l border-gray-100 pl-2">
       <MobileCategoryMenuItem
         v-for="(child, childIdx) in item.children"
         :key="child.id"
@@ -41,10 +40,10 @@
   <Trulink
     v-else
     :href="categoryUrl"
-    class="flex items-center gap-3 border-b py-3 text-gray-700 hover:bg-opacity-10 border-gray-200 hover:text-gray-500 cursor-pointer"
+    class="flex items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-colors hover:bg-gray-50 hover:text-orange-600 cursor-pointer"
     @click="handleCategoryClick"
   >
-    <span>{{ item.name }}</span>
+    <span class="flex-1 min-w-0 truncate text-sm">{{ item.name }}</span>
   </Trulink>
 </template>
 

@@ -27,6 +27,8 @@ export function useCategoryFilter(categoryId: number | string) {
   const allBrands = ref<Brand[]>([]);
   const allProducts = ref<Product[]>([]);
   const filteredProducts = ref<Product[]>([]);
+  // Nama root category (mis. "Pelumas") untuk filter server-side via jenisproduct
+  const rootCategoryName = ref("");
 
   const state = ref<CategoryFilterState>({
     selectedCategoryId: null,
@@ -37,6 +39,7 @@ export function useCategoryFilter(categoryId: number | string) {
   const currentPage = ref(1);
   const perPage = ref(20);
   const totalProducts = ref(0);
+  const sortBy = ref("default");
 
   // ============ HELPER FUNCTIONS ============
 
@@ -91,22 +94,6 @@ export function useCategoryFilter(categoryId: number | string) {
       );
       return allBrands.value.filter((b) => brandNames.has(b.name));
     }
-    if (state.value.selectedBrandId) {
-      // Get products from selected brand
-      const brand = findBrandById(state.value.selectedBrandId);
-      if (!brand) return allBrands.value;
-      const brandProducts = allProducts.value.filter(
-        (p) => p.brand === brand.name
-      );
-      const subcatIds = new Set(
-        brandProducts.map((p) => p.component).filter(Boolean)
-      );
-      return allBrands.value.filter((b) =>
-        allProducts.value.some(
-          (p) => p.brand === b.name && subcatIds.has(p.component)
-        )
-      );
-    }
     return allBrands.value;
   });
 
@@ -138,8 +125,8 @@ export function useCategoryFilter(categoryId: number | string) {
         null
       );
 
-      if (response.status.value === "success" && response.data.value) {
-        const payload = response.data.value.payload;
+      if (response.status === "success" && response.data) {
+        const payload = response.data.payload;
         const products = payload.category.products;
 
         // Find the root category by ID
@@ -151,6 +138,7 @@ export function useCategoryFilter(categoryId: number | string) {
           // Set category tree
           categoryTree.value = rootCat;
           state.value.selectedCategoryId = rootCat.id;
+          rootCategoryName.value = rootCat.name;
 
           // Set all brands from category
           allBrands.value = rootCat.brands || [];
@@ -172,6 +160,7 @@ export function useCategoryFilter(categoryId: number | string) {
                     brands: findBrandsForCategory(child.id, products),
                   } as ProductCategory;
                   state.value.selectedCategoryId = child.id;
+                  rootCategoryName.value = cat.name;
                   found = true;
                   break;
                 }
@@ -216,30 +205,73 @@ export function useCategoryFilter(categoryId: number | string) {
   async function fetchAllProducts() {
     loading.value = true;
     try {
-      const response = await useFetchApi<any>(
-        `product-search/category/${categoryId}`,
-        `category-${categoryId}-all`,
-        "post",
-        {
-          page: 1,
-          limit: 3000,
-          keyword: "",
-          category_id: categoryId,
-        }
-      );
+      // product-search membatasi limit maks 100 per halaman. Karena API tidak
+      // memfilter subcategori server-side, kita muat SEMUA produk dari root
+      // category (via jenisproduct) lalu scope ke tree category di client.
+      // Mirip CI3 getAllCategoryIdsInTree + where_in('component', ...).
+      const limitPerPage = 100;
+      const fallbackTotal = 3000;
 
-      if (response.status.value === "success" && response.data.value) {
-        const payload = response.data.value.payload;
-        allProducts.value = payload.products || [];
-        totalProducts.value = payload.total || allProducts.value.length;
-        applyFilters();
-        console.log("✅ Products loaded:", allProducts.value.length);
+      const merged: Product[] = [];
+      let page = 1;
+      let total = fallbackTotal;
+      let maxPages = 30; // guard: cap 30 halaman (30 x 100 = 3000)
+
+      while (page <= maxPages) {
+        const body: Record<string, any> = {
+          page,
+          limit: limitPerPage,
+          keyword: "",
+        };
+        // Server hanya memfilter kategori via jenisproduct (root category name)
+        if (rootCategoryName.value) {
+          body.jenisproduct = rootCategoryName.value;
+        }
+
+        const response = await useFetchApi<BaseResponse<Product[]>>(
+          "product-search",
+          `category-${categoryId}-page${page}`,
+          "post",
+          body
+        );
+
+        if (response.status === "success" && response.data) {
+          const list = response.data.payload || [];
+          if (list.length === 0) break;
+          merged.push(...list);
+          total = response.data.meta?.total ?? total;
+          // Paginasi sampai meta.total terpenuhi
+          page += 1;
+          if (merged.length >= total) break;
+        } else {
+          break;
+        }
       }
+
+      const treeIds = collectCategoryIds(categoryTree.value);
+      allProducts.value = merged.filter(
+        (p) => p.component && treeIds.has(p.component)
+      );
+      totalProducts.value = allProducts.value.length;
+      applyFilters();
+      console.log("✅ Products loaded:", allProducts.value.length);
     } catch (e) {
       console.error("❌ Failed to fetch products:", e);
     } finally {
       loading.value = false;
     }
+  }
+
+  // Collect this category id and all descendant ids (CI3 getAllCategoryIdsInTree)
+  function collectCategoryIds(cat: ProductCategory | null): Set<number> {
+    const ids = new Set<number>();
+    if (!cat) return ids;
+    const walk = (node: ProductCategory | CategoryChild) => {
+      ids.add(node.id);
+      (node.children || []).forEach(walk);
+    };
+    walk(cat);
+    return ids;
   }
 
   // ============ FILTER FUNCTIONS ============
@@ -264,11 +296,17 @@ export function useCategoryFilter(categoryId: number | string) {
 
     filteredProducts.value = result;
     totalProducts.value = result.length;
-    currentPage.value = 1;
+    const maxPage = Math.max(1, Math.ceil(result.length / perPage.value));
+    if (currentPage.value > maxPage) {
+      currentPage.value = maxPage;
+    }
+    // Reset ke halaman 1 di handler seleksi (selectSubcategory/selectBrand),
+    // bukan di sini, agar pagination (goToPage) tidak tertimpa.
   }
 
   function selectSubcategory(id: number | null) {
     state.value.selectedSubcategoryId = id;
+    currentPage.value = 1;
     // If brand selected but no products in this subcategory, clear brand
     if (id && state.value.selectedBrandId) {
       const brand = findBrandById(state.value.selectedBrandId);
@@ -285,6 +323,7 @@ export function useCategoryFilter(categoryId: number | string) {
 
   function selectBrand(id: number | null) {
     state.value.selectedBrandId = id;
+    currentPage.value = 1;
     // If subcategory selected but no products in this brand, clear subcategory
     if (id && state.value.selectedSubcategoryId) {
       const brand = findBrandById(id);
@@ -304,6 +343,7 @@ export function useCategoryFilter(categoryId: number | string) {
   function clearFilters() {
     state.value.selectedSubcategoryId = null;
     state.value.selectedBrandId = null;
+    currentPage.value = 1;
     applyFilters();
     syncUrl();
   }
@@ -337,12 +377,45 @@ export function useCategoryFilter(categoryId: number | string) {
     applyFilters();
   }
 
+  // ============ SORT ============
+
+  function setSortBy(value: string) {
+    sortBy.value = value;
+    currentPage.value = 1;
+    applyFilters();
+  }
+
+  const sortedProducts = computed(() => {
+    const list = [...filteredProducts.value];
+    switch (sortBy.value) {
+      case "price_asc":
+        list.sort(
+          (a, b) => (Number(a.price) || 0) - (Number(b.price) || 0)
+        );
+        break;
+      case "price_desc":
+        list.sort(
+          (a, b) => (Number(b.price) || 0) - (Number(a.price) || 0)
+        );
+        break;
+      case "newest":
+        list.sort((a, b) => (Number(b.id) || 0) - (Number(a.id) || 0));
+        break;
+      case "popular":
+        list.sort((a, b) => (Number(b.view) || 0) - (Number(a.view) || 0));
+        break;
+      default:
+        break;
+    }
+    return list;
+  });
+
   // ============ PAGINATION ============
 
   const paginatedProducts = computed(() => {
     const start = (currentPage.value - 1) * perPage.value;
     const end = start + perPage.value;
-    return filteredProducts.value.slice(start, end);
+    return sortedProducts.value.slice(start, end);
   });
 
   const totalPages = computed(() =>
@@ -373,6 +446,8 @@ export function useCategoryFilter(categoryId: number | string) {
     totalPages,
     currentPage,
     perPage,
+    sortBy,
+    setSortBy,
     fetchCategoryTree,
     fetchAllProducts,
     selectSubcategory,

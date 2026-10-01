@@ -124,7 +124,7 @@
                   v-model="shareForm.message"
                   type="textarea"
                   :rows="3"
-                  placeholder="Pesan opsional..."
+                  :placeholder="$t('compare.messagePlaceholder')"
                   class="w-full"
                 />
               </div>
@@ -180,14 +180,14 @@ const allSpecs = computed(() => {
   if (compareProducts.value.length === 0) return [];
 
   const specs = [
-    { key: 'brand', label: 'Merek' },
-    { key: 'price', label: 'Harga' },
-    { key: 'stock', label: 'Stok' },
-    { key: 'condition', label: 'Kondisi' },
-    { key: 'moq', label: 'MOQ' },
-    { key: 'unit', label: 'Unit' },
-    { key: 'weight', label: 'Berat' },
-    { key: 'warranty', label: 'Garansi' },
+    { key: 'brand', label: $t('label.brand') },
+    { key: 'price', label: $t('label.price') },
+    { key: 'stock', label: $t('page.product.text.stock') },
+    { key: 'condition', label: $t('label.condition') },
+    { key: 'moq', label: $t('label.moq') },
+    { key: 'unit', label: $t('page.product.text.unit') },
+    { key: 'weight', label: $t('page.product.text.weight') },
+    { key: 'warranty', label: $t('page.product.text.warranty') },
   ];
 
   // Add dynamic specs from product.specs
@@ -209,8 +209,8 @@ const getPrice = (product: any) => {
 const getSpecValue = (product: any, key: string) => {
   if (key === 'brand') return product.brand;
   if (key === 'price') return formatPrice(getPrice(product));
-  if (key === 'stock') return product.stock > 0 ? `${product.stock} ${product.unit}` : 'Habis';
-  if (key === 'condition') return product.condition === 'new' ? 'Baru' : 'Bekas';
+  if (key === 'stock') return product.stock > 0 ? `${product.stock} ${product.unit}` : $t('page.product.text.sold');
+  if (key === 'condition') return product.condition === 'new' ? $t('label.new') : $t('page.product.text.used');
   if (key === 'moq') return product.moq ? `${product.moq} ${product.unit}` : '-';
   if (key === 'unit') return product.unit;
   if (key === 'weight') return product.weight ? `${product.weight} kg` : '-';
@@ -240,20 +240,20 @@ const removeProduct = (id: number) => {
 };
 
 const clearAll = () => {
-  ElMessageBox.confirm('Hapus semua produk dari perbandingan?', 'Konfirmasi', {
-    confirmButtonText: 'Hapus Semua',
-    cancelButtonText: 'Batal',
+  ElMessageBox.confirm($t('compare.confirmClearDesc'), $t('compare.confirmClearTitle'), {
+    confirmButtonText: $t('compare.confirmClearConfirm'),
+    cancelButtonText: $t('button.cancel'),
     type: 'warning',
   }).then(() => {
     compareProducts.value = [];
     saveToStorage();
-    ElMessage.success('Perbandingan dikosongkan');
+    ElMessage.success($t('compare.cleared'));
   }).catch(() => {});
 };
 
 const openShareModal = () => {
   if (compareProducts.value.length === 0) {
-    ElMessage.warning('Tidak ada produk untuk dibagikan');
+    ElMessage.warning($t('compare.noProductsToShare'));
     return;
   }
   shareModalOpen.value = true;
@@ -261,18 +261,18 @@ const openShareModal = () => {
 
 const sendShare = async () => {
   if (!shareForm.value.emails.trim()) {
-    ElMessage.error('Masukkan minimal satu email');
+    ElMessage.error($t('compare.emailRequired'));
     return;
   }
   sharing.value = true;
   try {
     // Simulate API call
     await new Promise(r => setTimeout(r, 1000));
-    ElMessage.success('Perbandingan telah dibagikan');
+    ElMessage.success($t('compare.shared'));
     shareModalOpen.value = false;
     shareForm.value = { emails: '', message: '' };
   } catch {
-    ElMessage.error('Gagal mengirim');
+    ElMessage.error($t('compare.sendFailed'));
   } finally {
     sharing.value = false;
   }

@@ -17,13 +17,414 @@
     "seeDetail": "查看详情",
     "buyNow": "立即购买",
     "submitRFQ": "提交询价单",
-    "learnMore": "了解更多"
+    "learnMore": "了解更多",
+    "clearFilters": "重置筛选",
+    "showFilters": "筛选",
+    "hideFilters": "关闭筛选",
+    "apply": "应用",
+    "cancel": "取消",
+    "save": "保存",
+    "back": "返回",
+    "next": "下一步",
+    "submit": "提交"
+  },
+  "search": {
+    "title": "产品搜索",
+    "subtitle": "为 \"{keyword}\" 找到 {total} 个结果",
+    "sort": {
+      "relevance": "最相关",
+      "priceLow": "价格从低到高",
+      "priceHigh": "价格从高到低",
+      "newest": "最新"
+    },
+    "noResults": "未找到产品",
+    "noResultsDesc": "没有找到 \"{keyword}\" 的相关结果。请尝试其他关键词或浏览我们的全部产品。",
+    "browseAll": "浏览所有产品"
+  },
+  "compare": {
+    "title": "产品对比",
+    "subtitle": "一次对比最多 {max} 个产品",
+    "empty": "暂无产品可对比",
+    "emptyDesc": "在产品页面上选择产品以开始对比。",
+    "startComparing": "开始对比",
+    "specifications": "规格参数",
+    "share": "分享",
+    "clearAll": "清除全部",
+    "shareTitle": "分享对比",
+    "recipientEmails": "收件人邮箱",
+    "emailsHint": "email1{'@'}domain.com, email2{'@'}domain.com",
+    "message": "消息",
+    "messagePlaceholder": "可选消息...",
+    "send": "发送",
+    "confirmClearTitle": "确认",
+    "confirmClearDesc": "从对比中移除所有产品？",
+    "confirmClearConfirm": "清除全部",
+    "cleared": "对比已清空",
+    "noProductsToShare": "没有可分享的产品",
+    "emailRequired": "请输入至少一个邮箱",
+    "shared": "对比已成功分享",
+    "sendFailed": "发送失败"
+  },
+  "rental": {
+    "title": "重型设备租赁",
+    "subtitle": "为您的项目需求租赁优质重型设备",
+    "filters": "筛选",
+    "priceRange": "价格范围",
+    "availability": "可用性",
+    "withOperator": "含操作员",
+    "withFuel": "含燃油",
+    "availableNow": "现在可用",
+    "showing": "显示 {from}-{to} 共 {total} 台设备",
+    "noResults": "暂无可用设备",
+    "noResultsDesc": "没有符合您筛选条件的设备。调整筛选条件以查看更多。",
+    "searchPlaceholder": "搜索重型设备...",
+    "categoryPlaceholder": "分类",
+    "durationPlaceholder": "时长",
+    "locationPlaceholder": "位置",
+    "durationDaily": "日租",
+    "durationWeekly": "周租",
+    "durationMonthly": "月租",
+    "locationOther": "其他",
+    "priceMinLabel": "0印尼盾",
+    "priceMaxLabel": "5000万印尼盾",
+    "perDay": "/天",
+    "perMonth": "/月",
+    "viewDetail": "查看详情"
+  },
+  "jasa": {
+    "title": "机械服务",
+    "subtitle": "来自可信赖合作伙伴的专业机械服务",
+    "providers": "服务提供商",
+    "featuredProviders": "精选提供商",
+    "viewProfile": "查看资料",
+    "ctaTitle": "需要服务？",
+    "ctaDesc": "向我们发送您的需求，并从可信赖的服务提供商处获取报价。",
+    "becomeProvider": "成为提供商",
+    "requestService": "提交请求",
+    "reviews": "{count} 条评价",
+    "available": "可提供",
+    "busy": "繁忙",
+    "categoryMaintenance": "常规保养",
+    "categoryRepair": "维修/修理",
+    "categoryInspection": "检查与审计",
+    "categoryTesting": "检测服务",
+    "categoryRepairService": "保养与维修",
+    "categoryHydraulic": "液压系统",
+    "categoryOverhaul": "发动机大修",
+    "categoryMobile": "移动服务"
+  },
+  "requestForm": {
+    "name": "姓名",
+    "email": "邮箱",
+    "phone": "电话",
+    "company": "公司",
+    "productName": "产品名称",
+    "serviceType": "服务类型",
+    "equipmentType": "设备类型",
+    "rentalDuration": "租赁时长",
+    "rentalLocation": "租赁地点",
+    "description": "描述",
+    "agree": "我同意",
+    "terms": "条款与条件",
+    "phName": "全名",
+    "phEmail": "邮箱",
+    "phPhone": "电话/WhatsApp号码",
+    "phCompany": "公司名称",
+    "phProductName": "您要查找的产品名称",
+    "phServiceType": "选择服务类型",
+    "phEquipmentType": "选择设备类型",
+    "phRentalDuration": "租赁时长",
+    "phRentalLocation": "项目/租赁地点",
+    "phDescription": "请详细描述您的需求（规格、数量、状况、时间安排等）",
+    "titleProduct": "产品询价",
+    "titleService": "服务询价",
+    "titleRental": "租赁询价",
+    "titleAll": "提交请求",
+    "descProduct": "需要目录中没有的产品？提交请求，我们的团队将为您寻找。",
+    "descService": "需要重型设备维护、维修或检查服务？我们为您对接可靠的维修厂。",
+    "descRental": "项目需要重型设备？我们提供配备经验丰富操作员的设备租赁。",
+    "descAll": "请将您的需求发送给我们，我们的团队将尽快与您联系。",
+    "errRequired": "请填写必填字段",
+    "errAgree": "您必须同意条款与条件",
+    "errTypeRequired": "请为当前类型填写必填字段",
+    "success": "请求提交成功！我们的团队将尽快与您联系。",
+    "fail": "发送请求失败"
+  },
+  "scrap": {
+    "title": "出售二手设备",
+    "subtitle": "加入我们的二手设备回购计划",
+    "description": "请填写以下信息，我们的团队将与您联系并为您提供二手设备的回购报价。",
+    "name": "姓名",
+    "phone": "电话/WhatsApp号码",
+    "phoneHint": "格式示例：08xxxxxxxxxx",
+    "email": "邮箱",
+    "emailHint": "我们将把报价详情发送到此邮箱",
+    "unitType": "设备类型",
+    "phUnit": "示例：挖掘机PC 200、推土机D85、自卸卡车",
+    "condition": "设备描述",
+    "location": "设备位置",
+    "phLocation": "示例：雅加达、泗水、巴厘巴板",
+    "phDescription": "设备状况、年份、工作时间、文件齐全度等。",
+    "phName": "请输入您的全名",
+    "phPhone": "示例：08123456789",
+    "phEmail": "example{'@'}email.com",
+    "phUnitType": "选择设备类型",
+    "phLocationUnit": "示例：雅加达、泗水、巴厘巴板",
+    "agreeTerms": "我同意",
+    "terms": "条款与条件",
+    "submit": "提交报价",
+    "errRequired": "请填写必填字段",
+    "errAgree": "您必须同意条款与条件",
+    "waOpening": "正在打开WhatsApp...",
+    "waFail": "打开WhatsApp失败",
+    "waIntro": "你好Trumecs，我想出售我的二手重型设备：",
+    "waClosing": "请联系我提供报价。"
+  },
+  "address": {
+    "province": "省份",
+    "selectProvince": "选择省份",
+    "city": "城市/县",
+    "selectRegency": "选择城市/县",
+    "district": "区",
+    "selectDistrict": "选择区",
+    "village": "村/街道",
+    "selectVillage": "选择村/街道",
+    "zipcode": "邮政编码",
+    "zipcodePlaceholder": "输入邮政编码"
+  },
+  "status": {
+    "waiting_quotes": "等待报价",
+    "quoted": "已报价",
+    "completed": "已完成",
+    "cancelled": "已取消",
+    "processing": "处理中",
+    "shipped": "已发货",
+    "delivered": "已送达"
+  },
+  "auth": {
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "email": "邮箱",
+    "phone": "电话",
+    "company": "公司",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "passwordMismatch": "两次输入的密码不一致",
+    "rememberMe": "记住我",
+    "rememberPassword": "记得您的密码？",
+    "or": "或",
+    "loginWithWhatsapp": "使用WhatsApp登录",
+    "noAccount": "还没有账号？",
+    "hasAccount": "已有账号？",
+    "termsAgreement": "登录即表示您同意",
+    "terms": "条款与条件",
+    "and": "和",
+    "privacy": "隐私政策",
+    "agreeTermsPart1": "我同意",
+    "mustAgreeTerms": "您必须同意条款与条件",
+    "login": {
+      "title": "登录",
+      "subtitle": "登录以访问您的会员仪表板"
+    },
+    "register": {
+      "title": "创建账号",
+      "subtitle": "创建账号以开始在Trumecs购物"
+    },
+    "forgotPassword": {
+      "title": "忘记密码",
+      "subtitle": "输入您的邮箱，我们将向您发送密码重置链接",
+      "success": "重置链接已发送到您的邮箱",
+      "sendLink": "发送重置链接",
+      "sendFail": "发送重置链接失败，请重试。"
+    },
+    "verifyEmail": {
+      "title": "验证邮箱",
+      "subtitle": "我们已向您的邮箱发送验证链接",
+      "checking": "正在检查验证...",
+      "checkingDesc": "请稍候，我们正在验证您的账号",
+      "verified": "邮箱已验证！",
+      "verifiedDesc": "您的账号已验证成功，请登录。",
+      "expired": "链接已过期",
+      "expiredDesc": "验证链接已过期，请重新发送以获取新链接。",
+      "error": "验证失败",
+      "resend": "重新发送",
+      "didNotReceive": "没有收到邮件？",
+      "resendLink": "重新发送验证链接",
+      "tokenMissing": "未找到验证令牌",
+      "tokenInvalid": "验证失败，令牌无效。",
+      "resendSuccess": "新的验证链接已发送",
+      "resendFail": "重新发送失败"
+    },
+    "whatsappIntro": "你好Trumecs，我想通过WhatsApp登录",
+    "loginSuccess": "登录成功",
+    "loginFail": "登录失败，请重试。",
+    "registerSuccess": "注册成功，请检查您的邮箱完成验证。",
+    "registerFail": "注册失败，请重试。",
+    "mustAgree": "您必须同意条款与条件",
+    "confirmMismatch": "确认密码不一致"
+  },
+  "member": {
+    "viewAll": "查看全部",
+    "logout": "退出登录",
+    "notifications": "通知",
+    "markAllRead": "全部标为已读",
+    "noNotifications": "暂无通知",
+    "dashboard": {
+      "title": "仪表板",
+      "subtitle": "你好，{name}！",
+      "activeRfq": "进行中的询价单",
+      "pendingOrders": "待处理订单",
+      "completedOrders": "已完成订单",
+      "unreadMessages": "未读消息",
+      "quickActions": "快捷操作",
+      "createRfq": "创建询价单",
+      "createRfqDesc": "创建新的询价请求",
+      "viewRfq": "查看询价单",
+      "viewRfqDesc": "管理您的询价请求",
+      "messages": "消息",
+      "messagesDesc": "查看供应商发来的消息",
+      "findProducts": "查找产品",
+      "findProductsDesc": "浏览我们的产品目录",
+      "recentRfq": "最近的询价单",
+      "recentOrders": "最近的订单",
+      "noRfq": "暂无询价单",
+      "noOrders": "暂无订单"
+    },
+    "profile": {
+      "title": "我的资料",
+      "subtitle": "管理您的账号信息",
+      "emailNotVerified": "邮箱未验证",
+      "emailCannotChange": "邮箱无法更改",
+      "address": "地址",
+      "changePassword": "修改密码",
+      "currentPassword": "当前密码",
+      "newPassword": "新密码",
+      "confirmNewPassword": "确认新密码",
+      "dangerZone": "危险区",
+      "dangerZoneDesc": "删除账号将永久移除您的所有数据",
+      "deleteAccount": "删除账号",
+      "saveSuccess": "资料更新成功",
+      "saveFail": "更新资料失败",
+      "passwordSuccess": "密码修改成功",
+      "passwordFail": "修改密码失败",
+      "deleteConfirmDesc": "您确定要删除您的账号吗？此操作无法撤销。",
+      "deleteConfirmTitle": "删除账号",
+      "deleteConfirmBtn": "删除",
+      "deleteSuccess": "账号删除成功",
+      "deleteFail": "删除账号失败"
+    },
+    "rfq": {
+      "title": "我的询价单",
+      "subtitle": "管理您的询价请求",
+      "all": "全部",
+      "createTitle": "创建新询价单",
+      "createSubtitle": "3步轻松填写您的需求",
+      "createNew": "创建询价单",
+      "createFirst": "创建您的第一份询价单",
+      "empty": "暂无询价单",
+      "emptyDesc": "现在创建您的第一份询价请求",
+      "viewDetails": "查看详情",
+      "cancel": "取消",
+      "submit": "提交询价单",
+      "remove": "删除",
+      "cancelConfirm": "取消此询价单？",
+      "cancelConfirmTitle": "确认",
+      "cancelConfirmBtn": "取消",
+      "cancelSuccess": "询价单已取消",
+      "step1": {
+        "title": "分类与产品",
+        "category": "主分类",
+        "subcategory": "子分类",
+        "brand": "品牌",
+        "productName": "产品名称",
+        "partNumber": "部件编号",
+        "quantity": "数量"
+      },
+      "step2": {
+        "title": "规格",
+        "description": "描述",
+        "condition": "状况",
+        "budgetMin": "最低预算",
+        "budgetMax": "最高预算",
+        "requiredBy": "所需日期",
+        "attachments": "附件",
+        "uploadFiles": "将文件拖到此处或点击上传",
+        "chooseFiles": "选择文件",
+        "fileTypes": "PDF, JPG, JPEG, PNG, DOC, DOCX（每个文件最大10MB）",
+        "fileTooLarge": "{name} 超过10MB"
+      },
+      "step3": {
+        "title": "配送与联系方式",
+        "deliveryAddress": "配送地址",
+        "contactPerson": "联系人",
+        "contactPhone": "电话/WhatsApp号码",
+        "notes": "附加备注"
+      },
+      "phCategory": "选择主分类",
+      "phSubcategory": "选择子分类",
+      "phBrand": "选择品牌（可选）",
+      "phProductName": "示例：小松PC200-8发动机总成",
+      "phPartNumber": "部件编号（如已知）",
+      "phDescription": "请描述详细规格、状况、用途等",
+      "phCondition": "选择状况",
+      "phRequiredBy": "选择日期",
+      "phDeliveryAddress": "完整配送地址",
+      "phContactPerson": "联系人姓名",
+      "phContactPhone": "电话/WhatsApp号码",
+      "phNotes": "给供应商的附加备注（可选）",
+      "conditionNew": "全新",
+      "conditionUsed": "二手",
+      "conditionRefurbished": "翻新/再造",
+      "errCategory": "请先选择分类",
+      "errProductName": "产品名称必填",
+      "errDelivery": "请填写完整的配送和联系信息",
+      "success": "询价单已成功发送给供应商",
+      "fail": "发送询价单失败"
+    }
+  },
+  "calculator": {
+    "bess": {
+      "systemType": "系统类型",
+      "bessOnly": "仅BESS",
+      "bessSolar": "BESS + 太阳能",
+      "bessConfig": "BESS配置",
+      "capacity": "BESS容量 (kWh)",
+      "power": "输出功率 (kW)",
+      "dod": "放电深度 (%)",
+      "efficiency": "循环效率 (%)",
+      "investment": "BESS投资成本 (Rp)",
+      "solarConfig": "太阳能板配置",
+      "solarCapacity": "面板容量 (kWp)",
+      "sunHours": "日照时间 (小时/天)",
+      "panelEfficiency": "面板效率 (%)",
+      "solarCost": "太阳能板成本 (Rp)",
+      "usage": "用电与电价",
+      "dailyLoad": "日负荷 (kWh/天)",
+      "rate": "电价 (Rp/kWh)",
+      "peakRate": "峰值电价 (Rp/kWh)",
+      "peakHours": "峰值时段 (小时/天)",
+      "calculate": "计算效率",
+      "result": "计算结果",
+      "noData": "输入数据以查看结果",
+      "dailySavings": "每日",
+      "monthlySavings": "每月",
+      "annualSavings": "每年",
+      "roi": "投资回报率",
+      "totalInvestment": "总投资",
+      "solarEnergy": "每日太阳能发电量",
+      "bessEnergy": "每日BESS储能",
+      "totalEnergy": "每日总节省电量",
+      "payback": "回收期",
+      "co2Reduction": "CO2减排量"
+    }
   },
   "label": {
     "article": "文章",
     "trendingArticle": "热门文章",
     "relatedArticle": "相关文章",
     "promo": "促销",
+    "bundle": "套餐",
+    "industry": "工业",
     "featuredProducts": "精选产品",
     "latestArticles": "最新文章",
     "category": "分类",
@@ -37,6 +438,9 @@
     "brand": "品牌",
     "grade": "等级",
     "price": "价格",
+    "condition": "状况",
+    "moq": "MOQ",
+    "new": "新品",
     "minPrice": "最低价格",
     "maxPrice": "最高价格",
     "search": "搜索",
@@ -62,7 +466,8 @@
     "writeToUs": "联系我们",
     "followOurSocial": "关注我们的社交媒体",
     "exploreCategories": "浏览分类",
-    "featuredPromo": "精选促销"
+    "featuredPromo": "精选促销",
+    "language": "语言"
   },
   "placeholder": {
     "inputYourEmail": "输入您的电子邮件",
@@ -91,7 +496,8 @@
       "category": "分类",
       "rental": "租赁",
       "rfq": "询价单",
-      "faq": "常见问题"
+      "faq": "常见问题",
+      "title": "菜单"
     }
   },
   "footer": {
@@ -111,14 +517,421 @@
     }
   },
   "breadcrumb": {
-    "home": "首页"
+    "home": "首页",
+    "article": "文章"
+  },
+  "admin": {
+    "active": "启用",
+    "inactive": "停用",
+    "viewAll": "查看全部",
+    "loading": "正在加载...",
+    "logout": "退出登录",
+    "lowStock": "库存不足",
+    "markAllRead": "全部标为已读",
+    "noNotifications": "暂无通知",
+    "notifications": "通知",
+    "profile": "个人资料",
+    "enabled": "启用",
+    "disabled": "停用",
+    "nav": {
+      "overview": "概览",
+      "dashboard": "仪表盘",
+      "management": "管理",
+      "members": "会员",
+      "products": "产品",
+      "orders": "订单",
+      "promos": "促销活动",
+      "articles": "文章",
+      "principals": "品牌商",
+      "addresses": "地址",
+      "catalog": "目录",
+      "categories": "分类",
+      "brands": "品牌",
+      "grades": "等级",
+      "system": "系统",
+      "roles": "角色",
+      "settings": "设置"
+    },
+    "dashboard": {
+      "title": "仪表盘",
+      "subtitle": "系统概览",
+      "totalMembers": "会员总数",
+      "totalProducts": "产品总数",
+      "totalOrders": "订单总数",
+      "totalRevenue": "总收入",
+      "recentMembers": "最新会员",
+      "recentOrders": "最新订单",
+      "lowStock": "库存不足"
+    },
+    "login": {
+      "title": "管理员登录",
+      "subtitle": "登录管理后台",
+      "addNew": "添加新管理员",
+      "submit": "登录",
+      "forgotPassword": "忘记密码"
+    },
+    "forgotPassword": {
+      "title": "忘记密码",
+      "subtitle": "输入您的邮箱以接收重置链接。",
+      "success": "重置链接已发送至您的邮箱。",
+      "sendLink": "发送链接",
+      "rememberPassword": "记得密码？"
+    },
+    "filters": {
+      "all": "全部",
+      "active": "启用",
+      "inactive": "停用",
+      "newest": "最新",
+      "oldest": "最旧",
+      "nameAsc": "名称 A-Z",
+      "nameDesc": "名称 Z-A",
+      "show": "显示",
+      "draft": "草稿",
+      "lowStock": "库存不足",
+      "outOfStock": "缺货",
+      "to": "至",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "type": "类型",
+      "status": "状态"
+    },
+    "table": {
+      "action": "操作",
+      "actions": "操作",
+      "author": "作者",
+      "brand": "品牌",
+      "buyer": "买家",
+      "category": "分类",
+      "company": "公司",
+      "contact": "联系人",
+      "date": "日期",
+      "delete": "删除",
+      "edit": "编辑",
+      "email": "邮箱",
+      "image": "图片",
+      "items": "项目",
+      "joined": "加入时间",
+      "level": "等级",
+      "logo": "标志",
+      "member": "会员",
+      "moq": "最小订购量",
+      "name": "名称",
+      "orderId": "订单号",
+      "parent": "上级",
+      "payment": "付款",
+      "phone": "电话",
+      "price": "价格",
+      "product": "产品",
+      "products": "产品",
+      "status": "状态",
+      "stock": "库存",
+      "supplier": "供应商",
+      "title": "标题",
+      "total": "合计",
+      "type": "类型",
+      "view": "查看",
+      "views": "查看次数"
+    },
+    "addresses": {
+      "subtitle": "管理地址数据。",
+      "lookupTitle": "查询地址",
+      "fullAddress": "完整地址",
+      "searchTitle": "搜索",
+      "searchPlaceholder": "按省、市或完整地址搜索...",
+      "provinces": "省份",
+      "regencyCount": "市/县",
+      "viewRegencies": "查看市",
+      "viewDistricts": "查看区",
+      "viewVillages": "查看村",
+      "close": "关闭"
+    },
+    "articles": {
+      "title": "文章",
+      "subtitle": "管理文章",
+      "addNew": "添加新文章",
+      "addFirst": "添加第一篇文章",
+      "empty": "暂无文章",
+      "emptyDesc": "开始创建新文章",
+      "delete": "删除",
+      "duplicate": "复制",
+      "status": {
+        "published": "已发布",
+        "draft": "草稿",
+        "archived": "已归档"
+      }
+    },
+    "brands": {
+      "title": "品牌",
+      "subtitle": "管理产品品牌",
+      "addNew": "添加新品牌",
+      "addFirst": "添加第一个品牌",
+      "empty": "暂无品牌",
+      "emptyDesc": "添加您的第一个品牌"
+    },
+    "categories": {
+      "title": "分类",
+      "subtitle": "管理产品分类",
+      "addNew": "添加新分类"
+    },
+    "grades": {
+      "title": "等级",
+      "subtitle": "管理产品等级",
+      "addNew": "添加新等级",
+      "addFirst": "添加第一个等级",
+      "empty": "暂无等级",
+      "emptyDesc": "添加您的第一个等级"
+    },
+    "members": {
+      "title": "会员",
+      "subtitle": "管理会员",
+      "addNew": "添加新会员",
+      "addFirst": "添加第一个会员",
+      "edit": "编辑会员",
+      "empty": "暂无会员",
+      "emptyDesc": "新会员将显示在这里",
+      "detail": "会员详情",
+      "personalInfo": "个人信息",
+      "companyInfo": "公司信息",
+      "addressInfo": "地址信息",
+      "point": "积分",
+      "position": "职位",
+      "companyEmail": "公司邮箱",
+      "companyPhone": "公司电话",
+      "companyField": "公司领域",
+      "address": "地址",
+      "province": "省份",
+      "city": "城市",
+      "district": "区",
+      "postalCode": "邮政编码",
+      "currentAddress": "当前地址"
+    },
+    "orders": {
+      "title": "订单",
+      "subtitle": "管理订单",
+      "export": "导出",
+      "create": "创建新订单",
+      "createFirst": "创建第一笔订单",
+      "empty": "暂无订单",
+      "emptyDesc": "新订单将显示在这里",
+      "print": "打印",
+      "notify": "通知",
+      "status": {
+        "unpaid": "未付款",
+        "waiting_po": "等待采购单",
+        "waiting_invoice": "等待发票",
+        "process": "处理中",
+        "delivery": "配送中",
+        "completed": "已完成",
+        "cancelled": "已取消"
+      },
+      "payment": {
+        "pending": "待定",
+        "paid": "已付款",
+        "partial": "部分付款"
+      }
+    },
+    "principals": {
+      "title": "品牌商",
+      "subtitle": "管理品牌商",
+      "addNew": "添加新品牌商",
+      "addFirst": "添加第一个品牌商",
+      "empty": "暂无品牌商",
+      "emptyDesc": "添加您的第一个品牌商"
+    },
+    "products": {
+      "title": "产品",
+      "subtitle": "管理产品",
+      "import": "导入",
+      "export": "导出",
+      "addNew": "添加新产品",
+      "addFirst": "添加第一个产品",
+      "empty": "暂无产品",
+      "emptyDesc": "添加您的第一个产品",
+      "setDraft": "设为草稿",
+      "setShow": "显示",
+      "duplicate": "复制",
+      "delete": "删除"
+    },
+    "promos": {
+      "title": "促销活动",
+      "subtitle": "管理促销活动",
+      "addNew": "添加新促销",
+      "addFirst": "添加第一个促销",
+      "empty": "暂无促销",
+      "emptyDesc": "添加您的第一个促销",
+      "searchPlaceholder": "搜索促销名称...",
+      "ended": "已结束",
+      "activeUntil": "有效期至",
+      "items": "件",
+      "loadError": "加载促销数据失败",
+      "type": {
+        "promo": "促销",
+        "bundle": "套餐"
+      },
+      "status": {
+        "active": "进行中",
+        "ended": "已结束",
+        "upcoming": "即将开始"
+      }
+    },
+    "roles": {
+      "title": "角色",
+      "subtitle": "管理角色与权限",
+      "addNew": "添加新角色",
+      "addFirst": "添加第一个角色",
+      "empty": "暂无角色",
+      "emptyDesc": "添加您的第一个角色",
+      "menus": "菜单",
+      "addMenu": "添加菜单"
+    },
+    "settings": {
+      "title": "设置",
+      "subtitle": "管理系统设置",
+      "enabled": "启用",
+      "disabled": "停用",
+      "saveSuccess": "设置已保存",
+      "saveError": "保存设置失败",
+      "uploadSuccess": "文件上传成功",
+      "removeSuccess": "文件删除成功",
+      "menu": {
+        "general": "常规",
+        "appearance": "外观",
+        "email": "邮件",
+        "api": "API",
+        "integrations": "集成"
+      },
+      "general": {
+        "title": "常规设置",
+        "siteName": "网站名称",
+        "siteUrl": "网站地址",
+        "adminEmail": "管理员邮箱",
+        "currency": "货币",
+        "timezone": "时区"
+      },
+      "appearance": {
+        "title": "外观设置",
+        "logo": "标志",
+        "uploadLogo": "上传标志",
+        "remove": "移除",
+        "primaryColor": "主颜色",
+        "secondaryColor": "次要颜色",
+        "favicon": "网站图标",
+        "upload": "上传"
+      },
+      "email": {
+        "title": "邮件设置",
+        "smtpHost": "SMTP 主机",
+        "smtpPort": "SMTP 端口",
+        "username": "用户名",
+        "password": "密码",
+        "fromEmail": "发件邮箱",
+        "fromName": "发件人名称",
+        "encryption": "加密方式",
+        "testConnection": "测试连接",
+        "testing": "正在测试邮件连接...",
+        "testSuccess": "邮件连接成功"
+      },
+      "api": {
+        "title": "API 设置",
+        "baseUrl": "基础地址",
+        "timeout": "超时",
+        "allowedOrigins": "允许的来源"
+      },
+      "integrations": {
+        "title": "集成"
+      }
+    }
   },
   "page": {
     "home": {
+      "metaDescription": "从数千种优质产品中找到您的机械需求。零部件、润滑油、轮胎、重型设备与工作工具。",
       "hero": {
         "title": "值得信赖的机械采购解决方案",
         "subtitle": "从数千种优质产品中找到您的机械需求",
-        "cta": "浏览产品"
+        "cta": "浏览产品",
+        "slides": {
+          "sparepart": {
+            "title": "零部件与组件",
+            "subtitle": "数千种优质零部件，满足您的工业需求",
+            "cta": "浏览产品"
+          },
+          "promo": {
+            "title": "最新促销",
+            "subtitle": "不要错过特鲁梅克斯的优惠活动",
+            "cta": "查看促销"
+          },
+          "rfq": {
+            "title": "机械采购解决方案",
+            "subtitle": "联系我们获取大规模采购需求",
+            "cta": "提交询价单"
+          }
+        }
+      },
+      "showcase": {
+        "lubricants": {
+          "title": "润滑油",
+          "grease": "润滑脂",
+          "hydraulicOil": "液压油",
+          "engineOil": "发动机油",
+          "gearOil": "齿轮油",
+          "compressorOil": "空压机油",
+          "greaseTagline": "确保运行顺畅，保持各部件健康以实现持久性能。",
+          "hydraulicOilTagline": "卓越的品质，提升传动效率与保护能力。",
+          "engineOilTagline": "提升发动机性能！先进配方带来顶级性能与长期可靠性。",
+          "gearOilTagline": "优化扭矩传递，同时减少摩擦与噪音。",
+          "compressorOilTagline": "以高品质工业润滑油延长发动机寿命并提升性能！"
+        },
+        "tires": {
+          "title": "轮胎",
+          "heavyeq": "重型设备轮胎",
+          "truck": "卡车轮胎",
+          "forklift": "叉车轮胎",
+          "innerTube": "内胎",
+          "flap": "垫带",
+          "heavyeqTagline": "以坚固的OTR轮胎最大化工地与建筑生产力。",
+          "truckTagline": "以优质轮胎自信抓地，助您驰骋每一段旅程。",
+          "forkliftTagline": "深受操作员信赖，在城市道路与高速公路上表现可靠。",
+          "innerTubeTagline": "最佳的散热性能，确保长途作业时温度保持稳定。",
+          "flapTagline": "优化胎面设计，在干湿路况下实现最大牵引力。"
+        },
+        "sparepart": {
+          "title": "零部件",
+          "filter": "滤清器",
+          "bearing": "轴承",
+          "seal": "密封件",
+          "belt": "皮带",
+          "hose": "软管",
+          "filterTagline": "可靠的零部件，让重型设备在每个项目中保持高效。",
+          "bearingTagline": "高品质部件，支持安全顺畅的长途运输。",
+          "sealTagline": "高品质密封件，防止泄漏并保持系统处于最佳状态。",
+          "beltTagline": "高效的动力传输，确保机器性能稳定持久。",
+          "hoseTagline": "高品质柔性软管，实现安全可靠的流体循环。"
+        },
+        "unit": {
+          "title": "设备",
+          "heavyeq": "重型设备",
+          "truck": "卡车",
+          "forklift": "叉车",
+          "crane": "起重机",
+          "excavator": "挖掘机",
+          "heavyeqTagline": "物流系统与公共交通的中坚力量。",
+          "truckTagline": "创新技术，优化种植与收获流程。",
+          "forkliftTagline": "坚固灵活，助力仓储与物料搬运顺畅高效。",
+          "craneTagline": "可靠的海上船舶，承担各种任务，专为恶劣水域的安全与稳定而打造。",
+          "excavatorTagline": "专为强大动力、稳定性与现场最佳性能而设计。"
+        },
+        "tools": {
+          "title": "工具与设备",
+          "handTools": "手动工具",
+          "powerTools": "电动工具",
+          "safetyEquipment": "安全设备",
+          "handToolsTagline": "合适的工具让每项工作更安全、更高效。",
+          "powerToolsTagline": "以创新的省时科技提升生产力，为追求卓越的专业人士提供智能解决方案。",
+          "safetyEquipmentTagline": "以经认证的安全装备保护您的作业人员。耐用的装备，专为舒适与最佳性能而设计。"
+        }
+      },
+      "industri": {
+        "subtitle": "按您所在的行业领域浏览产品"
       },
       "categories": {
         "title": "浏览分类",
@@ -142,6 +955,22 @@
         "button": "立即提交询价单"
       }
     },
+    "article": {
+      "loading": "正在加载文章...",
+      "loadingDesc": "请稍候，文章正在加载中。",
+      "share": "分享：",
+      "tags": "标签：",
+      "loadError": "加载文章数据失败",
+      "metaTitle": "文章",
+      "metaDesc": "阅读特鲁梅克斯关于重型设备维护技巧、零部件指南和行业新闻的最新文章。",
+      "formName": "全名",
+      "formEmail": "邮箱",
+      "formCompany": "公司名称",
+      "formPhone": "电话号码",
+      "formRequest": "描述您的需求...",
+      "formSubmit": "提交请求",
+      "formSuccess": "请求提交成功！"
+    },
     "category": {
       "title": "产品",
       "filter": {
@@ -164,7 +993,25 @@
       "empty": "未找到产品",
       "showing": "显示 {from}-{to} 共 {total} 个产品",
       "searchResult": "搜索 \"{keyword}\" 的结果",
-      "perPage": "每页"
+      "perPage": "每页",
+      "categories": "分类",
+      "subcategories": "子类别",
+      "brands": "品牌",
+      "noSubcategories": "暂无子类别",
+      "noBrands": "暂无品牌",
+      "scrollHint": "滚动查看所有品牌",
+      "products": "产品",
+      "productsCount": "{count} 个产品",
+      "exploreAll": "浏览全部"
+    },
+    "tag": {
+      "title": "标签",
+      "hubTitle": "探索标签",
+      "hubSubtitle": "按产品类型查找产品",
+      "totalTags": "共 {count} 个标签",
+      "productCount": "{count} 个产品",
+      "showing": "显示 {from}-{to} 共 {total} 个产品",
+      "empty": "未找到产品"
     },
     "promo": {
       "title": "促销",
@@ -211,7 +1058,10 @@
         "back": "返回",
         "load": "加载产品...",
         "noProduct": "未找到产品",
-        "sorryProduct": "抱歉，产品不可用"
+        "sorryProduct": "抱歉，产品不可用",
+        "replica": "仿制品",
+        "loadError": "加载产品数据失败",
+        "metaDesc": "来自 Trumecs 的优质产品"
       },
       "button": {
         "buy": "通过 WhatsApp 购买",
@@ -271,11 +1121,26 @@
               "customer": "住宅与办公",
               "description": "适用于家庭和小型办公室的储能解决方案。设计紧凑，安装方便，支持最多5个模块堆叠。",
               "specs": [
-                { "label": "标称电压", "value": "51.2V" },
-                { "label": "电池单元", "value": "LFP 3.2V/52Ah" },
-                { "label": "容量", "value": "5.1 - 26.5 kWh" },
-                { "label": "可扩展性", "value": "最多5个堆叠" },
-                { "label": "循环寿命", "value": "> 4,000 次" }
+                {
+                  "label": "标称电压",
+                  "value": "51.2V"
+                },
+                {
+                  "label": "电池单元",
+                  "value": "LFP 3.2V/52Ah"
+                },
+                {
+                  "label": "容量",
+                  "value": "5.1 - 26.5 kWh"
+                },
+                {
+                  "label": "可扩展性",
+                  "value": "最多5个堆叠"
+                },
+                {
+                  "label": "循环寿命",
+                  "value": "> 4,000 次"
+                }
               ]
             },
             {
@@ -284,11 +1149,26 @@
               "customer": "商业与工业",
               "description": "用于商业和工业运营的柜式储能系统。配备灭火系统和主动冷却。",
               "specs": [
-                { "label": "额定容量", "value": "138.3 kWh" },
-                { "label": "输出功率", "value": "66 kW" },
-                { "label": "效率", "value": "≥ 96.5%" },
-                { "label": "循环寿命", "value": "8,000 次" },
-                { "label": "认证", "value": "UL 1973, UL 9540" }
+                {
+                  "label": "额定容量",
+                  "value": "138.3 kWh"
+                },
+                {
+                  "label": "输出功率",
+                  "value": "66 kW"
+                },
+                {
+                  "label": "效率",
+                  "value": "≥ 96.5%"
+                },
+                {
+                  "label": "循环寿命",
+                  "value": "8,000 次"
+                },
+                {
+                  "label": "认证",
+                  "value": "UL 1973, UL 9540"
+                }
               ]
             },
             {
@@ -297,11 +1177,26 @@
               "customer": "大型商业与工业",
               "description": "基于20英尺集装箱的大型储能解决方案。超大容量，适用于工业和公用事业网络。",
               "specs": [
-                { "label": "额定能量", "value": "3,686 kWh" },
-                { "label": "标称电压", "value": "1,229V" },
-                { "label": "冷却", "value": "主动液冷" },
-                { "label": "重量", "value": "~ 33 吨" },
-                { "label": "认证", "value": "UL 1973, UL 9540" }
+                {
+                  "label": "额定能量",
+                  "value": "3,686 kWh"
+                },
+                {
+                  "label": "标称电压",
+                  "value": "1,229V"
+                },
+                {
+                  "label": "冷却",
+                  "value": "主动液冷"
+                },
+                {
+                  "label": "重量",
+                  "value": "~ 33 吨"
+                },
+                {
+                  "label": "认证",
+                  "value": "UL 1973, UL 9540"
+                }
               ]
             }
           ]
@@ -437,11 +1332,26 @@
         "industries": {
           "title": "我们服务的行业",
           "items": [
-            { "name": "汽车", "image": "https://migration.trumecs.com/principal/machining/automotive.jpg" },
-            { "name": "食品与饮料", "image": "https://migration.trumecs.com/principal/machining/fnb.jpg" },
-            { "name": "制造", "image": "https://migration.trumecs.com/principal/machining/manufacture.jpg" },
-            { "name": "制粉", "image": "https://migration.trumecs.com/principal/machining/mill.jpg" },
-            { "name": "纺织", "image": "https://migration.trumecs.com/principal/machining/textile.jpg" }
+            {
+              "name": "汽车",
+              "image": "https://migration.trumecs.com/principal/machining/automotive.jpg"
+            },
+            {
+              "name": "食品与饮料",
+              "image": "https://migration.trumecs.com/principal/machining/fnb.jpg"
+            },
+            {
+              "name": "制造",
+              "image": "https://migration.trumecs.com/principal/machining/manufacture.jpg"
+            },
+            {
+              "name": "制粉",
+              "image": "https://migration.trumecs.com/principal/machining/mill.jpg"
+            },
+            {
+              "name": "纺织",
+              "image": "https://migration.trumecs.com/principal/machining/textile.jpg"
+            }
           ]
         },
         "methods": {
@@ -453,31 +1363,54 @@
               "title": "铣削",
               "icon": "streamline-pixel:ecology-windmill-1",
               "description": "利用旋转刀具切削工件，加工平面、凹槽和复杂几何形状。",
-              "features": ["3-5 轴加工", "平面与轮廓", "键槽与槽", "公差 ±0.01mm"]
+              "features": [
+                "3-5 轴加工",
+                "平面与轮廓",
+                "键槽与槽",
+                "公差 ±0.01mm"
+              ]
             },
             {
               "title": "车削",
               "icon": "mdi:rotate-3d-variant",
               "description": "在旋转工件上使用固定刀具加工高精度圆柱形零件。",
-              "features": ["轴与杆", "衬套与轴承", "螺纹与螺扣", "公差 ±0.005mm"]
+              "features": [
+                "轴与杆",
+                "衬套与轴承",
+                "螺纹与螺扣",
+                "公差 ±0.005mm"
+              ]
             },
             {
               "title": "磨削",
               "icon": "mdi:blur",
               "description": "使用砂轮进行表面精加工，实现极高的表面粗糙度和最终尺寸精度。",
-              "features": ["平面磨削", "外圆磨削", "表面粗糙度 Ra 0.4μm", "平面度 < 0.005mm"]
+              "features": [
+                "平面磨削",
+                "外圆磨削",
+                "表面粗糙度 Ra 0.4μm",
+                "平面度 < 0.005mm"
+              ]
             },
             {
               "title": "切割",
               "icon": "mdi:content-cut",
               "description": "使用各种方法对材料进行切割，以获得所需的尺寸和形状。",
-              "features": ["带锯切割", "线切割 EDM", "激光切割", "水刀切割"]
+              "features": [
+                "带锯切割",
+                "线切割 EDM",
+                "激光切割",
+                "水刀切割"
+              ]
             },
             {
               "title": "制造",
               "icon": "mdi:factory",
               "description": "利用先进工艺制造零部件的生产过程。",
-              "features": ["焊接", "装配"]
+              "features": [
+                "焊接",
+                "装配"
+              ]
             }
           ]
         },
@@ -486,14 +1419,38 @@
           "title": "我们能生产的产品",
           "subtitle": "我们为各类制造业生产的各种精密零件。",
           "items": [
-            { "name": "齿轮轴", "image": "https://migration.trumecs.com/principal/machining/shaft.png" },
-            { "name": "链条", "image": "https://migration.trumecs.com/principal/machining/chain.png" },
-            { "name": "轴承座", "image": "https://migration.trumecs.com/principal/machining/housing.png" },
-            { "name": "输送滚轮", "image": "https://migration.trumecs.com/principal/machining/roller.png" },
-            { "name": "链轮", "image": "https://migration.trumecs.com/principal/machining/sprocket.png" },
-            { "name": "锯片", "image": "https://migration.trumecs.com/principal/machining/saw.png" },
-            { "name": "联轴器", "image": "https://migration.trumecs.com/principal/machining/coupling.png" },
-            { "name": "穿孔板", "image": "https://migration.trumecs.com/principal/machining/perforated.png" }
+            {
+              "name": "齿轮轴",
+              "image": "https://migration.trumecs.com/principal/machining/shaft.png"
+            },
+            {
+              "name": "链条",
+              "image": "https://migration.trumecs.com/principal/machining/chain.png"
+            },
+            {
+              "name": "轴承座",
+              "image": "https://migration.trumecs.com/principal/machining/housing.png"
+            },
+            {
+              "name": "输送滚轮",
+              "image": "https://migration.trumecs.com/principal/machining/roller.png"
+            },
+            {
+              "name": "链轮",
+              "image": "https://migration.trumecs.com/principal/machining/sprocket.png"
+            },
+            {
+              "name": "锯片",
+              "image": "https://migration.trumecs.com/principal/machining/saw.png"
+            },
+            {
+              "name": "联轴器",
+              "image": "https://migration.trumecs.com/principal/machining/coupling.png"
+            },
+            {
+              "name": "穿孔板",
+              "image": "https://migration.trumecs.com/principal/machining/perforated.png"
+            }
           ]
         },
         "materials": {
@@ -501,16 +1458,71 @@
           "title": "我们精通的材料",
           "subtitle": "我们拥有加工各种材料的专业知识，以满足您的工业需求。",
           "items": [
-            { "name": "不锈钢", "icon": "mdi:silverware-fork-knife",
-          "grades": ["SS304", "SS316"], "description": "耐腐蚀，适用于食品级、化工和医疗应用。" },
-            { "name": "碳钢", "icon": "material-symbols:thermostat-carbon-outline", "grades": ["S45C", "ST41"], "description": "常用于轴、齿轮和结构部件。" },
-            { "name": "合金钢", "icon": "mdi:factory",
-          "grades": ["SCM440", "SNCM439"], "description": "高强度，适用于重型机械和传动部件。" },
-            { "name": "铝", "icon": "mdi:cube-outline",
-          "grades": ["6061-T6", "7075-T6"], "description": "轻质、耐腐蚀、易加工。适用于汽车、航空航天和电子元件。" },
-            { "name": "铸铁", "icon": "mdi:anvil", "grades": ["FC250", "FCD450"], "description": "良好的减振性和耐磨性。适用于发动机缸体、外壳和重型部件。" },
-            { "name": "工程塑料", "icon": "guidance:plastic", "grades": ["POM", "PTFE", "Nylon PA6"], "description": "轻质、耐化学腐蚀、自润滑。用于衬套、非金属齿轮和绝缘体。" },
-            { "name": "橡胶", "icon": "mdi:circle-outline", "grades": ["NBR", "EPDM", "Silicone"], "description": "弹性好，耐油耐候。用于密封件、垫片、支架和减震器。" }
+            {
+              "name": "不锈钢",
+              "icon": "mdi:silverware-fork-knife",
+              "grades": [
+                "SS304",
+                "SS316"
+              ],
+              "description": "耐腐蚀，适用于食品级、化工和医疗应用。"
+            },
+            {
+              "name": "碳钢",
+              "icon": "material-symbols:thermostat-carbon-outline",
+              "grades": [
+                "S45C",
+                "ST41"
+              ],
+              "description": "常用于轴、齿轮和结构部件。"
+            },
+            {
+              "name": "合金钢",
+              "icon": "mdi:factory",
+              "grades": [
+                "SCM440",
+                "SNCM439"
+              ],
+              "description": "高强度，适用于重型机械和传动部件。"
+            },
+            {
+              "name": "铝",
+              "icon": "mdi:cube-outline",
+              "grades": [
+                "6061-T6",
+                "7075-T6"
+              ],
+              "description": "轻质、耐腐蚀、易加工。适用于汽车、航空航天和电子元件。"
+            },
+            {
+              "name": "铸铁",
+              "icon": "mdi:anvil",
+              "grades": [
+                "FC250",
+                "FCD450"
+              ],
+              "description": "良好的减振性和耐磨性。适用于发动机缸体、外壳和重型部件。"
+            },
+            {
+              "name": "工程塑料",
+              "icon": "guidance:plastic",
+              "grades": [
+                "POM",
+                "PTFE",
+                "Nylon PA6"
+              ],
+              "description": "轻质、耐化学腐蚀、自润滑。用于衬套、非金属齿轮和绝缘体。"
+            },
+            {
+              "name": "橡胶",
+              "icon": "mdi:circle-outline",
+              "grades": [
+                "NBR",
+                "EPDM",
+                "Silicone"
+              ],
+              "description": "弹性好，耐油耐候。用于密封件、垫片、支架和减震器。"
+            }
           ]
         },
         "contact": {
@@ -521,7 +1533,12 @@
           "email": "邮件咨询",
           "locationTitle": "位置与主要服务区域",
           "locationDesc": "我们地理位置优越，可在以下地区快速响应加工和制造需求。",
-          "locations": ["雅加达", "勿加泗", "卡拉旺", "丹格朗"]
+          "locations": [
+            "雅加达",
+            "勿加泗",
+            "卡拉旺",
+            "丹格朗"
+          ]
         },
         "seo": {
           "title": "精密加工与制造 - Trumecs",
@@ -576,10 +1593,22 @@
             }
           ],
           "stats": [
-            { "value": "3000+", "label": "使用周期（+8年）" },
-            { "value": "17.4 kWh", "label": "最大容量" },
-            { "value": "4500 W", "label": "最高输出功率（M50）" },
-            { "value": "Pure Sine Wave", "label": "如同 PLN 电力——所有设备安全使用" }
+            {
+              "value": "3000+",
+              "label": "使用周期（+8年）"
+            },
+            {
+              "value": "17.4 kWh",
+              "label": "最大容量"
+            },
+            {
+              "value": "4500 W",
+              "label": "最高输出功率（M50）"
+            },
+            {
+              "value": "Pure Sine Wave",
+              "label": "如同 PLN 电力——所有设备安全使用"
+            }
           ]
         },
         "catalog": {
@@ -667,10 +1696,30 @@
           "title": "精选零件",
           "subtitle": "我们目前状况最好的拆车件系列。",
           "parts": [
-            { "name": "发动机缸体", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" },
-            { "name": "控制阀", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" },
-            { "name": "锥形滚子轴承", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" },
-            { "name": "曲轴下轴承", "type": "OEM / 原装", "status": "有货", "condition": "已检测 & 就绪" }
+            {
+              "name": "发动机缸体",
+              "type": "OEM / 原装",
+              "status": "有货",
+              "condition": "已检测 & 就绪"
+            },
+            {
+              "name": "控制阀",
+              "type": "OEM / 原装",
+              "status": "有货",
+              "condition": "已检测 & 就绪"
+            },
+            {
+              "name": "锥形滚子轴承",
+              "type": "OEM / 原装",
+              "status": "有货",
+              "condition": "已检测 & 就绪"
+            },
+            {
+              "name": "曲轴下轴承",
+              "type": "OEM / 原装",
+              "status": "有货",
+              "condition": "已检测 & 就绪"
+            }
           ]
         },
         "brands": {

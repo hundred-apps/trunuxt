@@ -1,103 +1,128 @@
 <template>
-  <section class="mb-8 lg:mb-12" aria-labelledby="brand-heading">
-    <header class="flex items-center justify-between mb-6">
-      <h2 id="brand-heading" class="text-xl lg:text-2xl font-bold text-gray-800">
+  <section class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm" aria-labelledby="brand-heading">
+    <header class="mb-4 flex items-center justify-between">
+      <h2
+        id="brand-heading"
+        class="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-700"
+      >
+        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
+          <Icon name="material-symbols:business" class="text-lg" />
+        </span>
         {{ title }}
+
+        <span
+          v-if="brands.length > 0"
+          class="rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-600"
+        >
+          {{ brands.length }}
+        </span>
       </h2>
       <Trulink
         v-if="seeAllUrl"
         :to="seeAllUrl"
-        class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+        class="text-xs font-medium text-orange-500 hover:text-orange-600"
       >
         {{ $t('button.seeAll') }}
-        <Icon name="material-symbols:arrow-forward" class="text-sm" />
       </Trulink>
     </header>
 
-    <div v-if="loading" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
-      <div v-for="i in 10" :key="i" class="animate-pulse">
-        <div class="aspect-square bg-gray-200 rounded-xl" />
-        <div class="h-3 bg-gray-200 rounded mt-2 w-3/4 mx-auto" />
-      </div>
+    <!-- Loading -->
+    <div v-if="loading" class="space-y-2">
+      <div v-for="i in 6" :key="i" class="h-10 animate-pulse rounded-xl bg-gray-100" />
     </div>
 
-    <div v-else-if="brands.length === 0" class="text-center py-12">
-      <Icon name="material-symbols:business" class="text-4xl text-gray-300 mb-3" />
-      <p class="text-gray-500">{{ $t('page.category.noBrands') }}</p>
+    <!-- Empty -->
+    <div v-else-if="brands.length === 0" class="py-8 text-center">
+      <Icon name="material-symbols:inventory-2" class="mx-auto text-3xl text-gray-300" />
+      <p class="mt-2 text-sm text-gray-400">{{ $t('page.category.noBrands') }}</p>
     </div>
 
-    <div v-else class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 lg:gap-4">
-      <button
-        v-for="brand in brands"
-        :key="brand.id"
-        @click="handleClick(brand.id)"
-        :class="[
-          'group relative bg-white rounded-xl p-4 text-center shadow-sm border transition-all duration-300',
-          'min-h-[44px] min-w-[44px]',
-          isActive(brand.id)
-            ? 'border-2 border-orange-500 shadow-md ring-2 ring-orange-500/20'
-            : 'border-gray-100 hover:border-orange-200 hover:shadow-lg'
-        ]"
-        :disabled="disabled?.includes(brand.id)"
-        :aria-pressed="isActive(brand.id)"
-        type="button"
-      >
-        <div
-          class="w-16 h-16 mx-auto bg-gray-50 rounded-xl flex items-center justify-center mb-3 group-hover:bg-gray-100 transition-colors"
-          :class="isActive(brand.id) ? 'bg-orange-50' : ''"
+    <!-- List -->
+    <ul
+      v-else
+      class="space-y-1.5 overflow-y-auto pr-1"
+      :class="{ 'max-h-[320px]': brands.length > 8 }"
+    >
+      <li v-for="brand in brands" :key="brand.id">
+        <button
+          type="button"
+          @click="handleClick(brand.id)"
+          :disabled="disabled?.includes(brand.id)"
+          :aria-pressed="isActive(brand.id)"
+          class="group flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-all duration-200"
+          :class="
+            isActive(brand.id)
+              ? 'border-orange-500 bg-orange-500 text-white shadow-sm'
+              : 'border-gray-100 bg-white text-gray-700 hover:border-orange-200 hover:bg-orange-50/60'
+          "
         >
-          <img
-            v-if="brand.logo"
-            :src="brand.logo"
-            :alt="brand.name"
-            class="max-w-full max-h-full object-contain"
-            loading="lazy"
-          />
-          <Icon
-            v-else
-            :name="brand.icon || 'material-symbols:business'"
-            class="text-2xl text-gray-400 group-hover:text-orange-500 transition-colors"
-            :class="isActive(brand.id) ? 'text-orange-500' : ''"
-          />
-        </div>
-        <p
-          class="text-sm font-medium text-gray-700 group-hover:text-orange-500 transition-colors line-clamp-1"
-          :class="isActive(brand.id) ? 'text-orange-500 font-semibold' : ''"
-        >
-          {{ brand.name }}
-        </p>
+          <span
+            class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors"
+            :class="
+              isActive(brand.id)
+                ? 'border-white bg-white text-orange-500'
+                : 'border-gray-300 bg-white text-transparent group-hover:border-orange-300'
+            "
+          >
+            <Icon name="material-symbols:check" class="text-xs font-bold" />
+          </span>
 
-        <div
-          v-if="isActive(brand.id)"
-          class="absolute top-2 right-2 w-5 h-5 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs"
-        >
-          <Icon name="material-symbols:check" class="text-xs" />
-        </div>
+          <span
+            class="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-md text-xs font-bold"
+            :class="
+              isActive(brand.id)
+                ? 'bg-white/20 text-white'
+                : 'bg-orange-50 text-orange-500'
+            "
+          >
+            <img
+              v-if="brand.logo"
+              :src="brand.logo"
+              :alt="brand.name"
+              class="h-full w-full object-contain"
+            />
+            <Icon v-else :name="brand.icon || 'material-symbols:business'" class="text-sm" />
+          </span>
 
-        <div
-          v-if="disabled?.includes(brand.id)"
-          class="absolute inset-0 bg-white/70 rounded-xl flex items-center justify-center"
-        >
-          <Icon name="material-symbols:block" class="text-gray-400 text-xl" />
-        </div>
-      </button>
-    </div>
+          <span class="min-w-0 flex-1 truncate text-sm font-medium">
+            {{ brand.name }}
+          </span>
 
-    <div v-if="selectedCount > 0 && brands.length > 5" class="mt-4 text-center">
-      <Trubutton
-        :text="$t('button.clearFilters')"
-        variant="outline"
-        size="small"
-        icon="mdi:filter-remove"
-        @click="$emit('clear')"
-      />
-    </div>
+          <span
+            class="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold"
+            :class="
+              isActive(brand.id)
+                ? 'bg-white/20 text-white'
+                : 'bg-gray-100 text-gray-500 group-hover:bg-orange-100 group-hover:text-orange-600'
+            "
+          >
+            {{ counts[brand.id] ?? 0 }}
+          </span>
+        </button>
+      </li>
+    </ul>
+
+    <p
+      v-if="brands.length > 8"
+      class="mt-2 flex items-center gap-1 text-[11px] text-gray-400"
+    >
+      <Icon name="material-symbols:unfold-more" class="text-xs" />
+      {{ $t('page.category.scrollHint') }}
+    </p>
+
+    <Trubutton
+      v-if="activeId && brands.length > 0"
+      :text="$t('button.clearFilters')"
+      variant="ghost"
+      size="mini"
+      icon="mdi:filter-remove"
+      class="mt-3 w-full"
+      @click="$emit('clear')"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-
 interface Brand {
   id: number;
   name: string;
@@ -131,14 +156,16 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  counts: {
+    type: Object as () => Record<number, number>,
+    default: () => ({}),
+  },
 });
 
 const emit = defineEmits<{
   select: [id: number];
   clear: [];
 }>();
-
-const selectedCount = computed(() => (props.activeId ? 1 : 0));
 
 const isActive = (id: number) => props.activeId === id;
 

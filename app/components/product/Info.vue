@@ -70,6 +70,26 @@
       </div>
     </div>
 
+    <!-- ===== TAGS: Mobile (below price) ===== -->
+    <div
+      v-if="displayTags.length > 0"
+      class="mt-4 md:hidden"
+    >
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-sm text-gray-500"
+          >{{ $t("page.tag.title") }} :</span
+        >
+        <Trulink
+          v-for="tag in displayTags"
+          :key="tag.id"
+          :to="`/search?tag=${tag.id}`"
+          class="px-2.5 py-1 bg-orange-50 text-orange-600 text-xs font-medium rounded-full hover:bg-orange-100 transition-colors"
+        >
+          {{ tagLabel(tag) }}
+        </Trulink>
+      </div>
+    </div>
+
     <!-- ===== DESKTOP: Action Buttons ===== -->
     <div class="hidden md:block space-y-3">
       <div class="flex gap-2 w-full">
@@ -132,6 +152,23 @@
       </div>
     </div>
 
+    <!-- TAGS: Desktop (above share section) -->
+    <div v-if="displayTags.length > 0" class="hidden md:block mt-6 pt-6 border-t border-gray-100">
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-sm text-gray-500"
+          >{{ $t("page.tag.title") }} :</span
+        >
+        <Trulink
+          v-for="tag in displayTags"
+          :key="tag.id"
+          :to="`/search?tag=${tag.id}`"
+          class="px-3 py-1.5 bg-orange-50 text-orange-600 text-xs font-medium rounded-full hover:bg-orange-100 transition-colors"
+        >
+          {{ tagLabel(tag) }}
+        </Trulink>
+      </div>
+    </div>
+
     <!-- Share Buttons -->
     <div class="mt-6 pt-6 border-t border-gray-100 hidden md:block">
       <div class="flex items-center gap-3 flex-wrap">
@@ -153,8 +190,7 @@
   <!-- ===== MOBILE: Floating Action Buttons ===== -->
   <div
     v-if="isMobile"
-    class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 transition-transform duration-300"
-    :class="isVisible ? 'translate-y-0' : 'translate-y-0'"
+    class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200"
   >
     <div class="flex items-center gap-2 px-3 pb-3">
       <!-- WhatsApp Button -->
@@ -183,6 +219,32 @@
         <Icon name="mdi:email" class="text-xl" /> Email
         <span class="hidden xs:inline text-sm">Email</span>
       </a>
+
+      <!-- Share Button -->
+      <div class="relative">
+        <button
+          @click="mobileShareOpen = !mobileShareOpen"
+          class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm min-w-[44px]"
+          aria-label="Share"
+        >
+          <Icon name="material-symbols:share" class="text-xl" />
+        </button>
+
+        <div
+          v-if="mobileShareOpen"
+          class="absolute bottom-full right-0 mb-2 bg-white rounded-xl shadow-lg border border-gray-100 p-2 z-50 min-w-[150px]"
+        >
+          <button
+            v-for="share in shareButtons"
+            :key="share.name"
+            @click="shareProduct(share)"
+            class="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm text-gray-700"
+          >
+            <Icon :name="share.icon" class="text-xl" />
+            <span class="capitalize">{{ share.name }}</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -191,7 +253,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 import type { Product } from "~/types/product";
 
 // ============ PROPS ============
@@ -202,8 +264,7 @@ const props = defineProps<{
 
 // ============ STATE ============
 const showContactInfo = ref(false);
-const isVisible = ref(true);
-const lastScrollY = ref(0);
+const mobileShareOpen = ref(false);
 
 // ============ SCREEN DETECTION ============
 const { higherThan } = useScreen();
@@ -213,6 +274,20 @@ const isMobile = computed(() => {
 });
 
 // ============ COMPUTED ============
+const { locale } = useI18n();
+
+const displayTags = computed(() => {
+  if (!Array.isArray(props.product.tags)) return [];
+  return props.product.tags.filter((t) => t && t.tag);
+});
+
+const tagLabel = (tag: { tag?: string; tag_en?: string; tag_ch?: string }) => {
+  const lang = String(locale.value).toLowerCase();
+  if (lang === "en") return tag.tag_en || tag.tag || "";
+  if (lang === "zh") return tag.tag_ch || tag.tag || "";
+  return tag.tag || "";
+};
+
 const displayPrice = computed(() => {
   const promo = Number(props.product.price_promo || 0);
   const price = Number(props.product.price || 0);
@@ -297,6 +372,7 @@ const shareProduct = (share: any) => {
     whatsapp: `https://wa.me/?text=${title}%20-%20${url}`,
   };
   window.open(shareUrls[share.name], "_blank", "width=600,height=400");
+  mobileShareOpen.value = false;
 };
 
 // ============ HANDLE WHATSAPP CLICK ============
@@ -311,26 +387,8 @@ const handleClickEmailLink = () => {
   window.open(emailLink.value, "_blank");
 };
 
-// ============ AUTO HIDE ON SCROLL ============
-const handleScroll = () => {
-  if (!isMobile.value) return;
-
-  const currentScrollY = window.scrollY;
-  if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
-    isVisible.value = false;
-  } else {
-    isVisible.value = true;
-  }
-  lastScrollY.value = currentScrollY;
-};
-
 // ============ LIFECYCLE ============
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll, { passive: true });
-});
-
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
   if (showContactInfo.value) {
     document.body.style.overflow = "";
   }

@@ -57,7 +57,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step1.category') }}</label>
             <el-select
               v-model="form.categoryId"
-              placeholder="Pilih kategori utama"
+              :placeholder="$t('member.rfq.phCategory')"
               class="w-full"
               @change="handleCategoryChange"
             >
@@ -74,7 +74,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step1.subcategory') }}</label>
             <el-select
               v-model="form.subcategoryId"
-              placeholder="Pilih subkategori"
+              :placeholder="$t('member.rfq.phSubcategory')"
               class="w-full"
               @change="handleSubcategoryChange"
             >
@@ -91,7 +91,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step1.brand') }}</label>
             <el-select
               v-model="form.brandId"
-              placeholder="Pilih merek (opsional)"
+              :placeholder="$t('member.rfq.phBrand')"
               class="w-full"
             >
               <el-option
@@ -107,7 +107,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step1.productName') }}</label>
             <el-input
               v-model="form.productName"
-              placeholder="Contoh: Engine Assembly Komatsu PC200-8"
+              :placeholder="$t('member.rfq.phProductName')"
               class="w-full"
             />
           </div>
@@ -116,7 +116,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step1.partNumber') }}</label>
             <el-input
               v-model="form.partNumber"
-              placeholder="Nomor part (jika diketahui)"
+              :placeholder="$t('member.rfq.phPartNumber')"
               class="w-full"
             />
           </div>
@@ -143,7 +143,7 @@
               v-model="form.description"
               type="textarea"
               :rows="4"
-              placeholder="Jelaskan spesifikasi detail, kondisi, aplikasi, dll."
+              :placeholder="$t('member.rfq.phDescription')"
               class="w-full"
             />
           </div>
@@ -152,12 +152,12 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step2.condition') }}</label>
             <el-select
               v-model="form.condition"
-              placeholder="Pilih kondisi"
+              :placeholder="$t('member.rfq.phCondition')"
               class="w-full"
             >
-              <el-option label="Baru" value="new" />
-              <el-option label="Bekas / Copotan (Used)" value="used" />
-              <el-option label:="Refurbished / Rebuilt" value="refurbished" />
+              <el-option :label="$t('member.rfq.conditionNew')" value="new" />
+              <el-option :label="$t('member.rfq.conditionUsed')" value="used" />
+              <el-option :label="$t('member.rfq.conditionRefurbished')" value="refurbished" />
             </el-select>
           </div>
 
@@ -187,7 +187,7 @@
             <el-date-picker
               v-model="form.requiredBy"
               type="date"
-              placeholder="Pilih tanggal"
+              :placeholder="$t('member.rfq.phRequiredBy')"
               class="w-full"
               value-format="YYYY-MM-DD"
             />
@@ -219,7 +219,7 @@
               >
                 <span class="text-sm">{{ file.name }} ({{ formatFileSize(file.size) }})</span>
                 <button type="button" @click="files.splice(index, 1)" class="text-red-500 hover:underline text-sm">
-                  Hapus
+                  {{ $t('member.rfq.remove') }}
                 </button>
               </div>
             </div>
@@ -238,7 +238,7 @@
               v-model="form.deliveryAddress"
               type="textarea"
               :rows="3"
-              placeholder="Alamat lengkap pengiriman"
+              :placeholder="$t('member.rfq.phDeliveryAddress')"
               class="w-full"
             />
           </div>
@@ -248,7 +248,7 @@
               <label class="block text-sm font-medium text-gray-700 mb-2">{{ $t('member.rfq.step3.contactPerson') }}</label>
               <el-input
                 v-model="form.contactPerson"
-                placeholder="Nama kontak"
+                :placeholder="$t('member.rfq.phContactPerson')"
                 class="w-full"
               />
             </div>
@@ -257,7 +257,7 @@
               <el-input
                 v-model="form.contactPhone"
                 type="tel"
-                placeholder="Nomor telepon/WhatsApp"
+                :placeholder="$t('member.rfq.phContactPhone')"
                 class="w-full"
               />
             </div>
@@ -269,7 +269,7 @@
               v-model="form.notes"
               type="textarea"
               :rows="3"
-              placeholder="Catatan tambahan untuk supplier (opsional)"
+              :placeholder="$t('member.rfq.phNotes')"
               class="w-full"
             />
           </div>
@@ -316,9 +316,11 @@ import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const currentStep = ref(0);
 const submitting = ref(false);
@@ -326,11 +328,11 @@ const submitting = ref(false);
 const fileInput = ref<HTMLInputElement | null>(null);
 const files = ref<File[]>([]);
 
-const steps = [
-  { id: 1, label: 'Kategori & Produk' },
-  { id: 2, label: 'Spesifikasi' },
-  { id: 3, label: 'Pengiriman & Kontak' },
-];
+const steps = computed(() => [
+  { id: 1, label: $t('member.rfq.step1.title') },
+  { id: 2, label: $t('member.rfq.step2.title') },
+  { id: 3, label: $t('member.rfq.step3.title') },
+]);
 
 const categories = ref([
   { id: 1, name: 'Pelumas' },
@@ -403,7 +405,7 @@ const handleFiles = (e: Event) => {
       if (f.size <= 10 * 1024 * 1024) {
         files.value.push(f);
       } else {
-        ElMessage.error(`${f.name} melebihi 10MB`);
+        ElMessage.error($t('member.rfq.step2.fileTooLarge', { name: f.name }));
       }
     });
   }
@@ -418,11 +420,11 @@ const formatFileSize = (bytes: number) => {
 
 const nextStep = () => {
   if (currentStep.value === 0 && !form.value.categoryId) {
-    ElMessage.error('Pilih kategori terlebih dahulu');
+    ElMessage.error($t('member.rfq.errCategory'));
     return;
   }
   if (currentStep.value === 0 && !form.value.productName) {
-    ElMessage.error('Nama produk wajib diisi');
+    ElMessage.error($t('member.rfq.errProductName'));
     return;
   }
   if (currentStep.value < steps.length - 1) {
@@ -438,7 +440,7 @@ const prevStep = () => {
 
 const handleSubmit = async () => {
   if (!form.value.deliveryAddress || !form.value.contactPerson || !form.value.contactPhone) {
-    ElMessage.error('Lengkapi data pengiriman dan kontak');
+    ElMessage.error($t('member.rfq.errDelivery'));
     return;
   }
 
@@ -446,10 +448,10 @@ const handleSubmit = async () => {
   try {
     // Simulate API call
     await new Promise(r => setTimeout(r, 1500));
-    ElMessage.success('RFQ berhasil dikirim ke supplier');
+    ElMessage.success($t('member.rfq.success'));
     await router.push('/member/rfq');
   } catch (e: any) {
-    ElMessage.error(e.message || 'Gagal mengirim RFQ');
+    ElMessage.error(e.message || $t('member.rfq.fail'));
   } finally {
     submitting.value = false;
   }

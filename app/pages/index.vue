@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="homepage">
     <section class="hero-section relative overflow-hidden">
       <div class="relative">
@@ -12,36 +12,21 @@
               :key="index"
               class="w-full flex-shrink-0"
             >
-              <div
-                class="relative h-[200px] sm:h-[300px] lg:h-[400px] bg-gradient-to-r from-orange-500 to-orange-600 flex items-center"
+              <component
+                :is="slideTag(index)"
+                v-bind="slideAttrs(index)"
+                class="block w-full"
+                @click="slide.scrap ? openScrapModal() : undefined"
               >
-                <div
-                  class="absolute inset-0 bg-cover bg-center opacity-30"
-                  :style="{ backgroundImage: `url(${slide.image})` }"
+                <img
+                  :src="slide.image"
+                  :alt="slide.alt"
+                  class="w-full block h-auto object-contain lg:h-[680px]"
+                  :loading="index === 0 ? 'eager' : 'lazy'"
+                  :fetchpriority="index === 0 ? 'high' : 'auto'"
+                  decoding="async"
                 />
-                <div
-                  class="relative z-10 container mx-auto px-4 lg:px-8 max-w-[1280px]"
-                >
-                  <div class="max-w-lg">
-                    <h1
-                      class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3"
-                    >
-                      {{ slide.title }}
-                    </h1>
-                    <p class="text-white/90 text-sm sm:text-base mb-4">
-                      {{ slide.subtitle }}
-                    </p>
-                    <Trubutton
-                      :text="slide.cta"
-                      type="primary"
-                      size="medium"
-                      variant="solid"
-                      icon="mdi:arrow-right"
-                      @click="navigateTo(slide.link)"
-                    />
-                  </div>
-                </div>
-              </div>
+              </component>
             </div>
           </div>
         </div>
@@ -79,6 +64,91 @@
       </div>
     </section>
 
+    <!-- Industri / Tag Section -->
+    <section class="py-8 lg:py-12">
+      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+        <div class="flex items-center justify-between mb-6 lg:mb-8">
+          <div>
+            <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
+              {{ $t("label.industry") }}
+            </h2>
+            <p class="text-gray-500 text-sm lg:text-base mt-1">
+              {{ $t("page.home.industri.subtitle") }}
+            </p>
+          </div>
+          <!-- <Trulink
+            :to="`/tag`"
+            class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+          >
+            {{ $t("button.seeAll") }}
+            <Icon name="material-symbols:arrow-forward" class="text-sm" />
+          </Trulink> -->
+        </div>
+
+        <div
+          v-if="loadingTags"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 lg:gap-4"
+        >
+          <div v-for="i in 7" :key="i" class="animate-pulse">
+            <div class="aspect-[2/3] bg-gray-200 rounded-xl" />
+            <div class="h-3 bg-gray-200 rounded mt-2 w-3/4 mx-auto" />
+          </div>
+        </div>
+
+        <div
+          v-else-if="industriTags.length === 0"
+          class="text-center py-16 bg-white rounded-xl shadow-sm"
+        >
+          <Icon
+            name="material-symbols:label"
+            class="text-6xl text-gray-300 mb-4"
+          />
+          <h3 class="text-lg font-medium text-gray-600 mb-2">
+            {{ $t("page.tag.empty") }}
+          </h3>
+        </div>
+
+        <div
+          v-else
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 lg:gap-4"
+        >
+          <Trulink
+            v-for="tag in industriTags.slice(0, 10)"
+            :key="tag.id"
+            :to="`/search?tag=${tag.id}`"
+            class="group"
+          >
+            <div
+              class="relative aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
+            >
+              <img
+                v-if="!tagImgFailed(tag.id)"
+                :src="`${siteUrl}/public/tag/industries/${tag.id}.png`"
+                :alt="tagLabel(tag)"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                @error="markTagImgError(tag.id)"
+              />
+              <Icon
+                v-else
+                :name="tagIcon(tag)"
+                class="text-3xl lg:text-4xl text-gray-400"
+              />
+              <div
+                class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 group-hover:from-black/85"
+              />
+              <p
+                class="absolute left-0 right-0 bottom-0 p-2 lg:p-3 text-center text-white font-bold text-xs sm:text-sm leading-tight line-clamp-2"
+              >
+                {{ tagLabel(tag) }}
+              </p>
+            </div>
+          </Trulink>
+        </div>
+      </div>
+    </section>
+
     <section class="py-8 lg:py-12">
       <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
         <div class="text-center mb-6 lg:mb-8">
@@ -95,7 +165,7 @@
           class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4"
         >
           <div v-for="i in 6" :key="i" class="animate-pulse">
-            <div class="aspect-square bg-gray-200 rounded-xl" />
+            <div class="aspect-[2/3] bg-gray-200 rounded-xl" />
             <div class="h-3 bg-gray-200 rounded mt-2 w-3/4 mx-auto" />
           </div>
         </div>
@@ -107,15 +177,15 @@
           <Trulink
             v-for="category in categories"
             :key="category.id"
-            :href="`category/${category.id}`"
+            :href="`/search?cat=${category.id}`"
             class="group"
           >
             <div
-              class="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
+              class="relative aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
             >
               <img
                 v-if="category.img"
-                :src="`${config.public.baseCat}/../public/upload/categori/${category.img}`"
+                :src="`${config.public.baseImageCat}${category.img}`"
                 :alt="category.name"
                 class="w-full h-full object-cover"
                 loading="lazy"
@@ -124,14 +194,17 @@
               <Icon
                 v-else
                 name="material-symbols:category"
-                class="text-3xl lg:text-4xl text-orange-400"
+                class="text-3xl lg:text-4xl text-gray-400"
               />
+              <div
+                class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 group-hover:from-black/85"
+              />
+              <p
+                class="absolute left-0 right-0 bottom-0 p-2 lg:p-3 text-center text-white font-bold text-xs sm:text-sm leading-tight line-clamp-2"
+              >
+                {{ category.name }}
+              </p>
             </div>
-            <p
-              class="text-center text-xs sm:text-sm font-medium text-gray-700 mt-2 group-hover:text-orange-500 transition-colors line-clamp-2"
-            >
-              {{ category.name }}
-            </p>
           </Trulink>
         </div>
       </div>
@@ -237,35 +310,86 @@
               {{ $t("page.home.featured.subtitle") }}
             </p>
           </div>
+          <Trulink
+            :href="`/search`"
+            class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+          >
+            {{ $t("button.seeAll") }}
+            <Icon name="material-symbols:arrow-forward" class="text-sm" />
+          </Trulink>
         </div>
 
-        <div
-          v-if="loadingProducts"
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4"
-        >
-          <div
-            v-for="i in 8"
-            :key="i"
-            class="animate-pulse bg-white rounded-xl shadow-sm overflow-hidden"
-          >
-            <div class="aspect-square bg-gray-200" />
-            <div class="p-3 space-y-2">
-              <div class="h-3 bg-gray-200 rounded w-1/3" />
-              <div class="h-3 bg-gray-200 rounded w-full" />
-              <div class="h-3 bg-gray-200 rounded w-1/2" />
+        <div v-if="loadingFeatured" class="space-y-10">
+          <div v-for="i in 3" :key="i" class="animate-pulse">
+            <div class="h-6 bg-gray-200 rounded w-40 mb-4" />
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4"
+            >
+              <div
+                v-for="j in 4"
+                :key="j"
+                class="bg-white rounded-xl shadow-sm overflow-hidden"
+              >
+                <div class="aspect-square bg-gray-200" />
+                <div class="p-3 space-y-2">
+                  <div class="h-3 bg-gray-200 rounded w-1/3" />
+                  <div class="h-3 bg-gray-200 rounded w-full" />
+                  <div class="h-3 bg-gray-200 rounded w-1/2" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div
-          v-else
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4"
+          v-else-if="featuredGroups.length === 0"
+          class="text-center py-16 bg-white rounded-xl shadow-sm"
         >
-          <ProductCard
-            v-for="product in featuredProducts"
-            :key="product.id"
-            :product="product"
+          <Icon
+            name="material-symbols:inventory-2"
+            class="text-6xl text-gray-300 mb-4"
           />
+          <h3 class="text-lg font-medium text-gray-600">
+            {{ $t("page.category.empty") }}
+          </h3>
+        </div>
+
+        <!-- Grouped by kategori -->
+        <div v-else class="space-y-12">
+          <div v-for="group in featuredGroups" :key="group.id">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <span
+                  class="h-8 w-8 rounded-lg bg-orange-50 flex items-center justify-center"
+                >
+                  <Icon
+                    name="material-symbols:inventory-2"
+                    class="text-orange-500 text-lg"
+                  />
+                </span>
+                <h3 class="text-lg lg:text-xl font-bold text-gray-800">
+                  {{ group.name }}
+                </h3>
+              </div>
+              <Trulink
+                :href="`/search?cat=${group.id}`"
+                class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+              >
+                {{ $t("button.seeAll") }}
+                <Icon name="material-symbols:arrow-forward" class="text-sm" />
+              </Trulink>
+            </div>
+
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4"
+            >
+              <ProductCard
+                v-for="product in group.products"
+                :key="product.id"
+                :product="product"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -282,7 +406,7 @@
             {{ section.title }}
           </h2>
           <Trulink
-            :href="`${config.public.baseCat}/${section.url}`"
+            :href="`/search?cat=${section.id}`"
             class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
           >
             {{ $t("button.seeAll") }}
@@ -290,29 +414,71 @@
           </Trulink>
         </div>
 
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4"
-        >
-          <Trulink
-            v-for="sub in section.subcategories"
-            :key="sub.id"
-            :href="`${config.public.baseCat}/${section.url}/${sub.url}`"
-            class="group bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange-200 transition-all"
+        <div class="p-[2px] bg-white rounded-2xl shadow-sm ring-1 ring-black/5">
+          <div
+            class="relative overflow-hidden rounded-[14px]"
+            :style="{
+              backgroundImage: `url('${section.bg}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }"
           >
-            <div
-              class="w-12 h-12 lg:w-16 lg:h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-3 group-hover:bg-orange-100 transition-colors"
-            >
-              <Icon
-                name="material-symbols:inventory-2"
-                class="text-xl lg:text-2xl text-orange-500"
-              />
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-0">
+              <Trulink
+                v-for="(sub, subIdx) in section.subcategories"
+                :key="sub.id"
+                :href="`/search?cat=${sub.id}`"
+                class="group relative overflow-hidden flex border border-white"
+                :class="[
+                  subIdx === 0
+                    ? 'col-span-2 lg:col-span-2 lg:row-span-2'
+                    : 'col-span-1',
+                  subIdx === 0
+                    ? 'min-h-[18rem] lg:min-h-[24rem]'
+                    : 'min-h-[9rem] lg:min-h-[12rem]',
+                ]"
+              >
+                <div
+                  class="relative z-10 flex w-full items-start justify-between gap-3 p-4 lg:p-6"
+                >
+                  <h3
+                    class="flex-1 font-bold text-white text-base lg:text-xl leading-snug drop-shadow"
+                  >
+                    {{ sub.name }}
+                  </h3>
+                  <Icon
+                    name="material-symbols:arrow-forward"
+                    class="mt-0.5 shrink-0 text-lg text-orange-400 transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black/10 transition-opacity duration-300"
+                />
+                <div
+                  class="absolute inset-0 group-hover:bg-black/10 transition-colors duration-300"
+                />
+              </Trulink>
+
+              <Trulink
+                v-if="section.subcategories.length < 5"
+                :href="`/search?cat=${section.id}`"
+                :class="
+                  section.subcategories.length === 3
+                    ? 'col-span-2 lg:col-span-2'
+                    : 'col-span-1'
+                "
+                class="relative overflow-hidden flex items-center justify-center gap-2 bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition-colors border border-white"
+              >
+                <span class="text-white font-semibold text-sm lg:text-base">{{
+                  $t("button.seeAll")
+                }}</span>
+                <Icon
+                  name="material-symbols:arrow-forward"
+                  class="text-white text-lg"
+                />
+              </Trulink>
             </div>
-            <p
-              class="text-sm font-medium text-gray-700 group-hover:text-orange-500 transition-colors line-clamp-2"
-            >
-              {{ sub.name }}
-            </p>
-          </Trulink>
+          </div>
         </div>
       </div>
     </section>
@@ -399,7 +565,7 @@
       </div>
     </section>
 
-    <section
+    <!-- <section
       class="py-12 lg:py-16 bg-gradient-to-r from-orange-500 to-orange-600"
     >
       <div class="container mx-auto px-4 lg:px-8 max-w-[1280px] text-center">
@@ -411,32 +577,41 @@
         </p>
         <Trubutton
           :text="$t('page.home.cta.button')"
-          type="primary"
+          type="success"
           size="large"
           variant="solid"
           icon="mdi:email"
-          class="bg-white text-orange-500 hover:bg-gray-100 border-white"
+          class="text-orange-500 hover:bg-gray-100 border-white"
           @click="navigateTo(`${urlTrumecs}/bulk`)"
         />
       </div>
-    </section>
+    </section> -->
+    <ScrapModal />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import type { Product } from "~/types/product";
 import type { Promo } from "~/types/promo";
 import type { CardArticle } from "~/types/article";
+import { useProductTags } from "~/composables/useProductTags";
 
 const config = useRuntimeConfig();
 const urlTrumecs = config.public.info.linkTrumecsPhp;
 const siteUrl = (config.public.siteUrl as string) || "https://www.trumecs.com";
+const { t: $t } = useI18n();
+
+const {
+  loading: loadingTags,
+  tags: industriTags,
+  tagLabel,
+  tagCount,
+  load: loadTags,
+} = useProductTags();
 
 usePageSeo({
   title: "Trumecs.com",
-  description:
-    "Temukan kebutuhan mekanikal Anda dari ribuan produk berkualitas. Sparepart, pelumas, ban, alat berat, dan peralatan kerja.",
+  description: $t("page.home.metaDescription"),
   url: "/",
 });
 
@@ -465,29 +640,50 @@ useSchemaOrg([
 ]);
 
 const currentSlide = ref(0);
-const slides = ref([
+const slides = computed(() => [
   {
-    title: "Sparepart & Komponen",
-    subtitle: "Ribuan sparepart berkualitas untuk kebutuhan industri Anda",
-    cta: "Jelajahi Produk",
-    link: `${config.public.baseCat}/sparepart`,
-    image: "",
+    alt: "Power Supply Struman",
+    link: `${siteUrl}/principal/struman`,
+    image: `${siteUrl}/public/banner/promo-home/banner-struman.png`,
+    external: false,
   },
   {
-    title: "Promo Terbaru",
-    subtitle: "Jangan lewatkan penawaran menarik dari Trumecs",
-    cta: "Lihat Promo",
-    link: `${urlTrumecs}/promo`,
-    image: "",
+    alt: "banner trumecs.com",
+    link: `${siteUrl}/promo`,
+    image: `${siteUrl}/public/banner/home-mobile/6.png`,
+    external: false,
   },
   {
-    title: "Solusi Pengadaan Mekanikal",
-    subtitle: "Hubungi kami untuk kebutuhan pengadaan skala besar",
-    cta: "Kirim RFQ",
-    link: `${urlTrumecs}/bulk`,
-    image: "",
+    alt: "banner langkah",
+    link: "",
+    image: `${siteUrl}/public/banner/home-mobile/7.png`,
+    external: false,
+  },
+  {
+    alt: "Scrap alat berat di trumecs.com",
+    image: `${siteUrl}/public/banner/promo-home/banner-scrap-utama.png`,
+    external: false,
+    scrap: true,
+  },
+  {
+    alt: "Trumecs sudah bisa menggunakan kartu kredit",
+    link: `${siteUrl}/article/pembayaran-transaksi-atau-invoice-dengan-kartu-kredit`,
+    image: `${siteUrl}/public/banner/promo-home/banner-cc.png`,
+    external: false,
   },
 ]);
+
+// Preload banner pertama agar tampil lebih cepat
+useHead({
+  link: [
+    {
+      rel: "preload",
+      as: "image",
+      href: slides.value[0]?.image,
+      fetchpriority: "high",
+    },
+  ],
+});
 
 // SSR data fetching
 const { data: categoriesData, pending: loadingCategories } = await useAsyncData(
@@ -502,17 +698,76 @@ const { data: promosData, pending: loadingPromos } = await useAsyncData(
   { default: () => ({ status: "idle" as const, data: null, code: undefined }) }
 );
 
-const { data: productsData, pending: loadingProducts } = await useAsyncData(
-  "home-products",
-  () =>
-    useFetchApi<any>(
-      "product-read?page=1&limit=8",
-      "home-products",
-      "get",
-      null
-    ),
-  { default: () => ({ status: "idle" as const, data: null, code: undefined }) }
-);
+const { data: featuredGroupsData, pending: loadingFeatured } =
+  await useAsyncData(
+    "home-featured-groups",
+    async () => {
+      const apiFetch = async (endpoint: string, method: string, body: any) => {
+        try {
+          const res = await $fetch(`${config.public.baseURL}${endpoint}`, {
+            method: method.toUpperCase() as any,
+            body: body ?? undefined,
+          });
+          return { status: "success" as const, data: res, code: undefined };
+        } catch (err: any) {
+          return {
+            status: "error" as const,
+            data: null,
+            code: err?.statusCode || err?.status,
+          };
+        }
+      };
+
+      const catRes = await apiFetch("category-read", "get", null);
+      if (
+        catRes.status !== "success" ||
+        !catRes.data?.payload?.category?.products
+      ) {
+        return [];
+      }
+
+      const roots: any[] = catRes.data.payload.category.products;
+      const lower = (s: any) => String(s || "").toLowerCase();
+      // Pelumas & Ban dipaksa ke paling bawah, sisanya diacak
+      const pinned = roots.filter((r) =>
+        ["pelumas", "ban"].includes(lower(r.name))
+      );
+      const shuffled = [
+        ...roots.filter((r) => !["pelumas", "ban"].includes(lower(r.name))),
+      ];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      const ordered = [...shuffled, ...pinned];
+
+      const results = await Promise.all(
+        ordered.map(async (root) => {
+          const res = await apiFetch("product-search", "post", {
+            page: 1,
+            limit: 30,
+            jenisproduct: root.name,
+          });
+          if (
+            res.status === "success" &&
+            Array.isArray(res.data?.payload) &&
+            res.data.payload.length
+          ) {
+            return {
+              id: root.id,
+              name: root.name,
+              url: root.url || root.name,
+              products: pickRandom(res.data.payload, 5),
+            };
+          }
+          return null;
+        })
+      );
+
+      return results.filter(Boolean);
+    },
+    { default: () => [] }
+  );
 
 const { data: articlesData, pending: loadingArticles } = await useAsyncData(
   "home-articles",
@@ -538,10 +793,9 @@ const promos = computed(() => {
   return d.data?.payload || [];
 });
 
-const featuredProducts = computed(() => {
-  const d = productsData.value;
-  if (!d || d.status !== "success") return [];
-  return d.data?.payload || [];
+const featuredGroups = computed(() => {
+  const g = featuredGroupsData.value;
+  return Array.isArray(g) ? (g as any[]) : [];
 });
 
 const latestArticles = computed(() => {
@@ -565,61 +819,94 @@ const latestArticles = computed(() => {
   }));
 });
 
-const categoryShowcases = ref([
-  {
-    title: "Pelumas",
-    url: "pelumas",
-    subcategories: [
-      { id: 1, name: "Grease", url: "grease" },
-      { id: 2, name: "Hydraulic Oil", url: "hydraulic-oil" },
-      { id: 3, name: "Engine Oil", url: "engine-oil" },
-      { id: 4, name: "Gear Oil", url: "gear-oil" },
-      { id: 5, name: "Compressor Oil", url: "compressor-oil" },
-    ],
+// Kategori showcase diambil dari child kategori di API (diacak tiap load),
+// pelumas & ban tetap di akhir
+const showcaseBgNames = ["Pelumas", "Ban", "Sparepart", "Unit", "Tools"];
+const showcaseTitleKeys: Record<string, string> = {
+  Pelumas: "page.home.showcase.lubricants.title",
+  Ban: "page.home.showcase.tires.title",
+  Sparepart: "page.home.showcase.sparepart.title",
+  Unit: "page.home.showcase.unit.title",
+  Tools: "page.home.showcase.tools.title",
+};
+
+function pickRandom<T>(arr: T[], n: number): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, n);
+}
+
+const { data: showcaseData } = await useAsyncData(
+  "home-showcase-groups",
+  async () => {
+    const apiFetch = async (endpoint: string, method: string, body: any) => {
+      try {
+        const res = await $fetch(`${config.public.baseURL}${endpoint}`, {
+          method: method.toUpperCase() as any,
+          body: body ?? undefined,
+        });
+        return { status: "success" as const, data: res, code: undefined };
+      } catch (err: any) {
+        return {
+          status: "error" as const,
+          data: null,
+          code: err?.statusCode || err?.status,
+        };
+      }
+    };
+
+    const res = await apiFetch("category-read", "get", null);
+    if (res.status !== "success" || !res.data?.payload?.category?.products) {
+      return [];
+    }
+
+    const roots: any[] = res.data.payload.category.products;
+    const lower = (s: any) => String(s || "").toLowerCase();
+    const available = roots.filter((r) =>
+      showcaseBgNames.some((name) => lower(name) === lower(r.name))
+    );
+    const pinned = available.filter((r) =>
+      ["pelumas", "ban"].includes(lower(r.name))
+    );
+    const shuffled = available.filter(
+      (r) => !["pelumas", "ban"].includes(lower(r.name))
+    );
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    const ordered = [...shuffled, ...pinned];
+
+    return ordered.map((root) => {
+      const children: any[] = Array.isArray(root.children) ? root.children : [];
+      const name = String(root.name);
+      const bg = showcaseBgNames.find((b) => lower(b) === lower(name))!;
+      return {
+        id: root.id,
+        titleKey: showcaseTitleKeys[bg],
+        url: root.url || name,
+        bg: `${siteUrl}/public/landing/category/background/${bg}.png`,
+        subcategories: pickRandom(children, 5).map((child) => ({
+          id: child.id,
+          name: child.name,
+          url: child.url || child.name,
+        })),
+      };
+    });
   },
-  {
-    title: "Ban",
-    url: "ban",
-    subcategories: [
-      { id: 6, name: "Ban Alat Berat", url: "ban-alat-berat" },
-      { id: 7, name: "Ban Truck", url: "ban-truck" },
-      { id: 8, name: "Ban Forklift", url: "ban-forklift" },
-      { id: 9, name: "Inner Tube", url: "inner-tube" },
-      { id: 10, name: "Flap", url: "flap" },
-    ],
-  },
-  {
-    title: "Sparepart",
-    url: "sparepart",
-    subcategories: [
-      { id: 11, name: "Filter", url: "filter" },
-      { id: 12, name: "Bearing", url: "bearing" },
-      { id: 13, name: "Seal", url: "seal" },
-      { id: 14, name: "Belt", url: "belt" },
-      { id: 15, name: "Hose", url: "hose" },
-    ],
-  },
-  {
-    title: "Unit",
-    url: "unit",
-    subcategories: [
-      { id: 16, name: "Alat Berat", url: "alat-berat" },
-      { id: 17, name: "Truck", url: "truck" },
-      { id: 18, name: "Forklift", url: "forklift" },
-      { id: 19, name: "Crane", url: "crane" },
-      { id: 20, name: "Excavator", url: "excavator" },
-    ],
-  },
-  {
-    title: "Tools & Peralatan",
-    url: "tools",
-    subcategories: [
-      { id: 21, name: "Hand Tools", url: "hand-tools" },
-      { id: 22, name: "Power Tools", url: "power-tools" },
-      { id: 23, name: "Safety Equipment", url: "safety-equipment" },
-    ],
-  },
-]);
+  { default: () => [] }
+);
+
+const categoryShowcases = computed(() =>
+  (showcaseData.value || []).map((sec: any) => ({
+    ...sec,
+    title: $t(sec.titleKey || ""),
+    id: sec.id,
+  }))
+);
 
 let slideInterval: ReturnType<typeof setInterval>;
 
@@ -630,6 +917,38 @@ const nextSlide = () => {
 const prevSlide = () => {
   currentSlide.value =
     (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+};
+
+const openScrapModal = () => {
+  if (import.meta.client) {
+    (window as any).openScrapModal?.();
+  }
+};
+
+// Tag pembungkus tiap slide banner
+const slideTag = (index: number) => {
+  const slide = slides.value[index];
+  if (!slide) return "div";
+  if (slide.scrap) return "button";
+  if (slide.link) return "a";
+  return "div";
+};
+
+// Atribut pembungkus tiap slide banner
+const slideAttrs = (index: number) => {
+  const slide = slides.value[index];
+  if (!slide) return {};
+  if (slide.scrap) {
+    return { type: "button" };
+  }
+  if (slide.link) {
+    return {
+      href: slide.link,
+      target: "_blank",
+      rel: "noopener",
+    };
+  }
+  return {};
 };
 
 const isPromoEnded = (endDate: string) => {
@@ -649,13 +968,70 @@ const stripHtml = (html: string | null) => {
   return html.replace(/<[^>]*>/g, "").substring(0, 150);
 };
 
+const tagIconMap: Record<string, string> = {
+  "2": "material-symbols:mining",
+  "3": "material-symbols:agriculture",
+  "4": "material-symbols:local_shipping",
+  "5": "material-symbols:directions_boat",
+  "6": "material-symbols:precision_manufacturing",
+  "7": "material-symbols:lunch_dining",
+  "8": "material-symbols:electrical_services",
+};
+
+const tagIcon = (tag: any): string => {
+  if (!tag) return "material-symbols:label";
+  const id = String(tag.id);
+  if (tagIconMap[id]) return tagIconMap[id];
+  const name = `${tag.tag || ""} ${tag.tag_en || ""}`.toLowerCase();
+  if (name.includes("mining") || name.includes("pertambangan")) {
+    return "material-symbols:mining";
+  }
+  if (name.includes("agriculture") || name.includes("agrikultur")) {
+    return "material-symbols:agriculture";
+  }
+  if (name.includes("transportation") || name.includes("transportasi")) {
+    return "material-symbols:local_shipping";
+  }
+  if (
+    name.includes("shipping") ||
+    name.includes("perkapalan") ||
+    name.includes("boat")
+  ) {
+    return "material-symbols:directions_boat";
+  }
+  if (name.includes("manufacture") || name.includes("manufaktur")) {
+    return "material-symbols:precision_manufacturing";
+  }
+  if (
+    name.includes("beverage") ||
+    name.includes("food") ||
+    name.includes("makanan")
+  ) {
+    return "material-symbols:lunch_dining";
+  }
+  if (name.includes("power") || name.includes("listrik")) {
+    return "material-symbols:electrical_services";
+  }
+  return "material-symbols:label";
+};
+
 const handleImageError = (e: Event) => {
   const target = e.target as HTMLImageElement;
   target.style.display = "none";
 };
 
+const failedTagImages = ref(new Set<string>());
+const tagImgFailed = (tagId: string | number): boolean =>
+  failedTagImages.value.has(String(tagId));
+const markTagImgError = (tagId: string | number) => {
+  const next = new Set(failedTagImages.value);
+  next.add(String(tagId));
+  failedTagImages.value = next;
+};
+
 onMounted(() => {
   slideInterval = setInterval(nextSlide, 5000);
+  loadTags();
 });
 
 onUnmounted(() => {

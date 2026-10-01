@@ -62,7 +62,7 @@
                 to="/member/forgot-password"
                 class="font-medium text-orange-600 hover:text-orange-500"
               >
-                {{ $t('auth.forgotPassword') }}
+                {{ $t('auth.forgotPassword.title') }}
               </NuxtLink>
             </div>
           </div>
@@ -70,7 +70,7 @@
 
         <div>
           <Trubutton
-            :text="$t('auth.login')"
+            :text="$t('auth.login.title')"
             type="primary"
             size="large"
             variant="solid"
@@ -88,7 +88,7 @@
             to="/member/register"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t('auth.register') }}
+            {{ $t('auth.register.title') }}
           </NuxtLink>
         </p>
       </div>
@@ -132,10 +132,12 @@ import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 const route = useRoute();
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const loading = ref(false);
 const error = ref<string | null>(null);
@@ -154,10 +156,10 @@ const handleLogin = async () => {
 
   try {
     await authStore.login(form.value);
-    ElMessage.success('Login berhasil');
+    ElMessage.success($t('auth.loginSuccess'));
     await router.push(redirect);
   } catch (e: any) {
-    error.value = e.message || 'Login gagal. Silakan coba lagi.';
+    error.value = e.message || $t('auth.loginFail');
   } finally {
     loading.value = false;
   }
@@ -166,7 +168,7 @@ const handleLogin = async () => {
 const loginWithWhatsApp = () => {
   window.open(
     `https://wa.me/${useRuntimeConfig().public.info.phone}?text=${encodeURIComponent(
-      'Halo Trumecs, saya ingin login via WhatsApp'
+      $t('auth.whatsappIntro')
     )}`,
     '_blank'
   );

@@ -184,7 +184,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import {
@@ -195,21 +195,23 @@ import {
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
+const { t } = useI18n();
 
 useHead({
-  title: "Artikel",
+  title: computed(() => t("page.article.metaTitle")),
   titleTemplate: "%s | Trumecs.com",
   meta: [
     {
       name: "description",
-      content:
-        "Baca artikel terbaru seputar tips perawatan alat berat, panduan sparepart, dan berita industri dari Trumecs.",
+      content: computed(() => t("page.article.metaDesc")),
     },
-    { property: "og:title", content: "Artikel | Trumecs.com" },
+    {
+      property: "og:title",
+      content: computed(() => `${t("page.article.metaTitle")} | Trumecs.com`),
+    },
     {
       property: "og:description",
-      content:
-        "Baca artikel terbaru seputar tips perawatan alat berat, panduan sparepart, dan berita industri dari Trumecs.",
+      content: computed(() => t("page.article.metaDesc")),
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
@@ -221,8 +223,8 @@ useHead({
 useSchemaOrg([
   defineBreadcrumb({
     itemListElement: [
-      { position: 1, name: "Home", item: "https://www.trumecs.com" },
-      { position: 2, name: "Artikel", item: "https://www.trumecs.com/article" },
+      { position: 1, name: computed(() => t("breadcrumb.home")), item: "https://www.trumecs.com" },
+      { position: 2, name: computed(() => t("breadcrumb.article")), item: "https://www.trumecs.com/article" },
     ],
   }),
 ]);
@@ -234,24 +236,24 @@ const RequestForm = {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <el-input
           v-model="form.nama"
-          placeholder="Nama Lengkap"
+          :placeholder="t('page.article.formName')"
           size="large"
         />
         <el-input
           v-model="form.email"
-          placeholder="Email"
+          :placeholder="t('page.article.formEmail')"
           size="large"
         />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <el-input
           v-model="form.perusahaan"
-          placeholder="Nama Perusahaan"
+          :placeholder="t('page.article.formCompany')"
           size="large"
         />
         <el-input
           v-model="form.telepon"
-          placeholder="Nomor Telepon"
+          :placeholder="t('page.article.formPhone')"
           size="large"
         />
       </div>
@@ -259,7 +261,7 @@ const RequestForm = {
         v-model="form.permintaan"
         :rows="4"
         type="textarea"
-        placeholder="Deskripsikan kebutuhan Anda..."
+        :placeholder="t('page.article.formRequest')"
       />
       <div class="text-center">
         <el-button
@@ -268,12 +270,13 @@ const RequestForm = {
           size="large"
           :loading="loading"
         >
-          Kirim Permintaan
+          {{ t('page.article.formSubmit') }}
         </el-button>
       </div>
     </form>
   `,
   setup() {
+    const { t } = useI18n();
     const form = ref({
       nama: "",
       email: "",
@@ -288,7 +291,7 @@ const RequestForm = {
       // Simulate API call
       setTimeout(() => {
         loading.value = false;
-        ElMessage.success("Permintaan berhasil dikirim!");
+        ElMessage.success(t("page.article.formSuccess"));
         form.value = {
           nama: "",
           email: "",
@@ -299,7 +302,7 @@ const RequestForm = {
       }, 1500);
     };
 
-    return { form, loading, handleSubmit };
+    return { t, form, loading, handleSubmit };
   },
 };
 
@@ -308,7 +311,6 @@ const error = ref<string | null>(null);
 
 const route = useRoute();
 const router = useRouter();
-const { t } = useI18n();
 const goBack = () => router.back();
 
 // Update tipe data
@@ -526,7 +528,7 @@ const fetchArticle = async () => {
       }
     }
   } catch (error) {
-    ElMessage.error("Gagal memuat data artikel");
+    ElMessage.error(t("page.article.loadError"));
     goBack();
   } finally {
     loading.value = false;

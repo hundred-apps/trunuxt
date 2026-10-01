@@ -1,9 +1,9 @@
-<template>
+﻿<template>
   <div class="request-form-modal">
     <Teleport to="body">
       <div
         v-if="visible"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+        class="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm"
         @click.self="close"
       >
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -25,44 +25,44 @@
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.name') }} *</label>
-                  <el-input v-model="form.name" placeholder="Nama lengkap" class="w-full" required />
+                  <el-input v-model="form.name" :placeholder="$t('requestForm.phName')" class="w-full" required />
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.email') }} *</label>
-                  <el-input v-model="form.email" type="email" placeholder="Email" class="w-full" required />
+                  <el-input v-model="form.email" type="email" :placeholder="$t('requestForm.phEmail')" class="w-full" required />
                 </div>
               </div>
 
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.phone') }} *</label>
-                  <el-input v-model="form.phone" type="tel" placeholder="Nomor telepon/WhatsApp" class="w-full" required />
+                  <el-input v-model="form.phone" type="tel" :placeholder="$t('requestForm.phPhone')" class="w-full" required />
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.company') }}</label>
-                  <el-input v-model="form.company" placeholder="Nama perusahaan" class="w-full" />
+                  <el-input v-model="form.company" :placeholder="$t('requestForm.phCompany')" class="w-full" />
                 </div>
               </div>
 
               <div v-if="type === 'product' || type === 'all'">
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.productName') }} *</label>
-                <el-input v-model="form.productName" placeholder="Nama produk yang dicari" class="w-full" :required="type === 'product'" />
+                <el-input v-model="form.productName" :placeholder="$t('requestForm.phProductName')" class="w-full" :required="type === 'product'" />
               </div>
 
               <div v-if="type === 'service' || type === 'all'">
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.serviceType') }} *</label>
-                <el-select v-model="form.serviceType" placeholder="Pilih jenis jasa" class="w-full" :required="type === 'service'">
-                  <el-option label="Perawatan Alat Berat" value="maintenance" />
-                  <el-option label="Perbaikan/Reparasi" value="repair" />
-                  <el-option label="Inspeksi & Audit" value="inspection" />
-                  <el-option label:="Pengujian/Testing" value="testing" />
-                  <el-option label="Lainnya" value="other" />
+                <el-select v-model="form.serviceType" :placeholder="$t('requestForm.phServiceType')" class="w-full" :required="type === 'service'">
+                  <el-option :label="$t('jasa.categoryMaintenance')" value="maintenance" />
+                  <el-option :label="$t('jasa.categoryRepair')" value="repair" />
+                  <el-option :label="$t('jasa.categoryInspection')" value="inspection" />
+                  <el-option :label="$t('jasa.categoryTesting')" value="testing" />
+                  <el-option :label="$t('rental.locationOther')" value="other" />
                 </el-select>
               </div>
 
               <div v-if="type === 'rental' || type === 'all'">
                 <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.equipmentType') }} *</label>
-                <el-select v-model="form.equipmentType" placeholder="Pilih tipe alat" class="w-full" :required="type === 'rental'">
+                <el-select v-model="form.equipmentType" :placeholder="$t('requestForm.phEquipmentType')" class="w-full" :required="type === 'rental'">
                   <el-option label="Excavator" value="excavator" />
                   <el-option label="Bulldozer" value="bulldozer" />
                   <el-option label="Wheel Loader" value="wheel_loader" />
@@ -71,23 +71,23 @@
                   <el-option label="Forklift" value="forklift" />
                   <el-option label="Motor Grader" value="grader" />
                   <el-option label="Compactor" value="compactor" />
-                  <el-option label="Lainnya" value="other" />
+                  <el-option :label="$t('rental.locationOther')" value="other" />
                 </el-select>
               </div>
 
               <div class="grid grid-cols-2 gap-4">
                 <div v-if="type === 'rental' || type === 'all'">
                   <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.rentalDuration') }} *</label>
-                  <el-select v-model="form.rentalDuration" placeholder="Durasi sewa" class="w-full" :required="type === 'rental'">
-                    <el-option label="Harian" value="daily" />
-                    <el-option label="Mingguan" value="weekly" />
-                    <el-option label="Bulanan" value="monthly" />
+                  <el-select v-model="form.rentalDuration" :placeholder="$t('requestForm.phRentalDuration')" class="w-full" :required="type === 'rental'">
+                    <el-option :label="$t('rental.durationDaily')" value="daily" />
+                    <el-option :label="$t('rental.durationWeekly')" value="weekly" />
+                    <el-option :label="$t('rental.durationMonthly')" value="monthly" />
                     <el-option label="Proyek (custom)" value="project" />
                   </el-select>
                 </div>
                 <div v-if="type === 'rental' || type === 'all'">
                   <label class="block text-sm font-medium text-gray-700 mb-1">{{ $t('requestForm.rentalLocation') }} *</label>
-                  <el-input v-model="form.rentalLocation" placeholder="Lokasi proyek/sewa" class="w-full" :required="type === 'rental'" />
+                  <el-input v-model="form.rentalLocation" :placeholder="$t('requestForm.phRentalLocation')" class="w-full" :required="type === 'rental'" />
                 </div>
               </div>
 
@@ -97,7 +97,7 @@
                   v-model="form.description"
                   type="textarea"
                   :rows="4"
-                  placeholder="Jelaskan kebutuhan Anda secara detail (spesifikasi, jumlah, kondisi, timeline, dll.)"
+                  :placeholder="$t('requestForm.phDescription')"
                   class="w-full"
                   required
                 />
@@ -133,6 +133,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { ElMessage } from 'element-plus';
+import { useI18n } from 'vue-i18n';
+
+const { t: $t } = useI18n();
 
 interface Props {
   type: 'product' | 'service' | 'rental' | 'all';
@@ -161,29 +164,22 @@ const form = ref({
   agree: false,
 });
 
-const typeLabels: Record<string, string> = {
-  product: 'Produk',
-  service: 'Jasa',
-  rental: 'Rental',
-  all: 'Permintaan',
-};
-
 const titles: Record<string, string> = {
-  product: 'Permintaan Produk',
-  service: 'Permintaan Jasa',
-  rental: 'Permintaan Rental',
-  all: 'Kirim Permintaan',
+  product: 'requestForm.titleProduct',
+  service: 'requestForm.titleService',
+  rental: 'requestForm.titleRental',
+  all: 'requestForm.titleAll',
 };
 
 const descriptions: Record<string, string> = {
-  product: 'Butuh produk yang tidak tersedia di katalog? Kirim permintaan dan tim kami akan mencarikannya untuk Anda.',
-  service: 'Butuh jasa perawatan, perbaikan, atau inspeksi alat berat? Kami menghubungkan Anda dengan bengkel terpercaya.',
-  rental: 'Butuh alat berat untuk proyek? Kami menyediakan rental alat berat dengan operator berpengalaman.',
-  all: 'Kirimkan kebutuhan Anda, tim kami akan menghubungi Anda segera.',
+  product: 'requestForm.descProduct',
+  service: 'requestForm.descService',
+  rental: 'requestForm.descRental',
+  all: 'requestForm.descAll',
 };
 
-const title = computed(() => titles[props.type]);
-const description = computed(() => descriptions[props.type]);
+const title = computed(() => $t(titles[props.type]));
+const description = computed(() => $t(descriptions[props.type]));
 
 const close = () => {
   resetForm();
@@ -208,11 +204,11 @@ const resetForm = () => {
 
 const handleSubmit = async () => {
   if (!form.value.name || !form.value.email || !form.value.phone || !form.value.description) {
-    ElMessage.error('Lengkapi kolom yang wajib diisi');
+    ElMessage.error($t('requestForm.errRequired'));
     return;
   }
   if (!form.value.agree) {
-    ElMessage.error('Anda harus menyetujui syarat dan ketentuan');
+    ElMessage.error($t('requestForm.errAgree'));
     return;
   }
 
@@ -223,18 +219,18 @@ const handleSubmit = async () => {
   };
 
   if (requiredFields[props.type]?.some(f => !form.value[f])) {
-    ElMessage.error('Lengkapi kolom yang wajib diisi untuk tipe ini');
+    ElMessage.error($t('requestForm.errTypeRequired'));
     return;
   }
 
   submitting.value = true;
   try {
     await new Promise(r => setTimeout(r, 1500));
-    ElMessage.success('Permintaan berhasil dikirim! Tim kami akan menghubungi Anda segera.');
+    ElMessage.success($t('requestForm.success'));
     emit('submit', { ...form.value, type: props.type });
     close();
   } catch {
-    ElMessage.error('Gagal mengirim permintaan');
+    ElMessage.error($t('requestForm.fail'));
   } finally {
     submitting.value = false;
   }

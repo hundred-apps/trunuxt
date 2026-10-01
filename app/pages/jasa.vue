@@ -20,7 +20,7 @@
             <Icon :name="cat.icon" class="h-8 w-8 text-orange-500" />
           </div>
           <h3 class="font-semibold text-gray-800 group-hover:text-orange-500 transition-colors mb-1">
-            {{ cat.name }}
+            {{ $t('jasa.category' + cat.nameKey) }}
           </h3>
           <p class="text-sm text-gray-500">{{ cat.count }} {{ $t('jasa.providers') }}</p>
         </NuxtLink>
@@ -40,17 +40,17 @@
               </div>
               <div>
                 <h3 class="font-medium text-gray-900">{{ provider.name }}</h3>
-                <p class="text-sm text-gray-500">{{ provider.category }} · {{ provider.location }}</p>
+                <p class="text-sm text-gray-500">{{ $t('jasa.category' + provider.categoryKey) }} · {{ provider.location }}</p>
                 <div class="flex items-center gap-2 mt-1">
                   <Icon name="material-symbols:star" class="h-4 w-4 text-yellow-500" />
                   <span class="text-sm font-medium text-gray-700">{{ provider.rating }}</span>
-                  <span class="text-xs text-gray-400">({{ provider.reviews }} ulasan)</span>
+                  <span class="text-xs text-gray-400">({{ $t('jasa.reviews', { count: provider.reviews }) }})</span>
                 </div>
               </div>
             </div>
             <div class="flex items-center gap-3 sm:ml-4">
               <span class="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full">
-                {{ provider.status }}
+                {{ $t('jasa.' + provider.statusKey) }}
               </span>
               <Trulink :to="`/jasa/provider/${provider.id}`" class="text-sm text-orange-600 hover:underline font-medium">
                 {{ $t('jasa.viewProfile') }}
@@ -103,17 +103,17 @@ const breadcrumbs = computed(() => [
 ]);
 
 const serviceCategories = [
-  { id: 1, name: 'Perawatan Rutin', icon: 'material-symbols:build-circle', count: 45, slug: 'perawatan' },
-  { id: 2, name: 'Perbaikan/Reparasi', icon: 'material-symbols:construction', count: 62, slug: 'perbaikan' },
-  { id: 3, name: 'Inspeksi & Audit', icon: 'material-symbols:fact-check', count: 28, slug: 'inspeksi' },
-  { id: 4, name: 'Pengujian/Testing', icon: 'material-symbols:science', count: 15, slug: 'pengujian' },
+  { id: 1, nameKey: 'Maintenance', icon: 'material-symbols:build-circle', count: 45, slug: 'perawatan' },
+  { id: 2, nameKey: 'Repair', icon: 'material-symbols:construction', count: 62, slug: 'perbaikan' },
+  { id: 3, nameKey: 'Inspection', icon: 'material-symbols:fact-check', count: 28, slug: 'inspeksi' },
+  { id: 4, nameKey: 'Testing', icon: 'material-symbols:science', count: 15, slug: 'pengujian' },
 ];
 
 const featuredProviders = [
-  { id: 1, name: 'Bengkel Mandiri Jaya', category: 'Perawatan & Reparasi', location: 'Jakarta', rating: 4.8, reviews: 124, status: 'Tersedia', icon: 'material-symbols:build' },
-  { id: 2, name: 'Hydraulic Service Indonesia', category: 'Sistem Hidrolik', location: 'Bekasi', rating: 4.9, reviews: 89, status: 'Tersedia', icon: 'material-symbols:water-pump' },
-  { id: 3, name: 'Engine Rebuild Center', category: 'Overhaul Mesin', location: 'Cikarang', rating: 4.7, reviews: 67, status: 'Sibuk', icon: 'material-symbols:engine' },
-  { id: 4, name: 'Mobile Service Unit', category: 'Service Keliling', location: 'Jabodetabek', rating: 4.6, reviews: 203, status: 'Tersedia', icon: 'material-symbols:local-shipping' },
+  { id: 1, name: 'Bengkel Mandiri Jaya', categoryKey: 'RepairService', location: 'Jakarta', rating: 4.8, reviews: 124, statusKey: 'available', icon: 'material-symbols:build' },
+  { id: 2, name: 'Hydraulic Service Indonesia', categoryKey: 'Hydraulic', location: 'Bekasi', rating: 4.9, reviews: 89, statusKey: 'available', icon: 'material-symbols:water-pump' },
+  { id: 3, name: 'Engine Rebuild Center', categoryKey: 'Overhaul', location: 'Cikarang', rating: 4.7, reviews: 67, statusKey: 'busy', icon: 'material-symbols:engine' },
+  { id: 4, name: 'Mobile Service Unit', categoryKey: 'Mobile', location: 'Jabodetabek', rating: 4.6, reviews: 203, statusKey: 'available', icon: 'material-symbols:local-shipping' },
 ];
 
 const navigateToRegister = () => {

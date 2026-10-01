@@ -79,7 +79,7 @@
                 v-if="promo.type === 'bundle'"
                 class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded"
               >
-                Bundle
+                {{ $t("label.bundle") }}
               </span>
             </div>
 

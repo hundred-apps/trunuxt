@@ -11,6 +11,13 @@ export interface Product {
   price_bigsale: string;
   img: string;
   promo: any[];
+  tags?: Array<{
+    id?: string | number;
+    tag?: string;
+    tag_en?: string;
+    tag_ch?: string;
+    clicked?: string;
+  }>;
   categori: {
     id: number;
     name: string;

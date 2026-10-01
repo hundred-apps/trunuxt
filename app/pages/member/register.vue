@@ -139,7 +139,7 @@
 
         <div>
           <Trubutton
-            :text="$t('auth.register')"
+            :text="$t('auth.register.title')"
             type="primary"
             size="large"
             variant="solid"
@@ -158,7 +158,7 @@
             to="/member/login"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t('auth.login') }}
+            {{ $t('auth.login.title') }}
           </NuxtLink>
         </p>
       </div>
@@ -171,9 +171,11 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const loading = ref(false);
 const error = ref<string | null>(null);
@@ -191,11 +193,11 @@ const form = ref({
 
 const handleRegister = async () => {
   if (!form.value.agreeTerms) {
-    error.value = 'Anda harus menyetujui syarat dan ketentuan';
+    error.value = $t('auth.mustAgree');
     return;
   }
   if (form.value.password !== form.value.confirmPassword) {
-    error.value = 'Konfirmasi password tidak cocok';
+    error.value = $t('auth.confirmMismatch');
     return;
   }
 
@@ -211,10 +213,10 @@ const handleRegister = async () => {
       company: form.value.company,
       password: form.value.password,
     });
-    ElMessage.success('Registrasi berhasil. Silakan cek email untuk verifikasi.');
+    ElMessage.success($t('auth.registerSuccess'));
     await router.push('/member/verify-email');
   } catch (e: any) {
-    error.value = e.message || 'Registrasi gagal. Silakan coba lagi.';
+    error.value = e.message || $t('auth.registerFail');
   } finally {
     loading.value = false;
   }

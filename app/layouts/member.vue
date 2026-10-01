@@ -101,13 +101,13 @@
                       to="/member/profile"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                     >
-                      {{ $t('member.profile') }}
+                      {{ $t('member.profile.title') }}
                     </NuxtLink>
                     <NuxtLink
                       to="/member/dashboard"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                     >
-                      {{ $t('member.dashboard') }}
+                      {{ $t('member.dashboard.title') }}
                     </NuxtLink>
                     <hr class="my-2 border-gray-100" />
                     <button

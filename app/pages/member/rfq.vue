@@ -114,13 +114,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import { ElMessage } from 'element-plus';
+import { ElMessage, ElMessageBox } from 'element-plus';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const loading = ref(false);
 const activeTab = ref('all');
@@ -130,11 +132,11 @@ const totalItems = ref(0);
 const totalPages = ref(0);
 
 const tabs = computed(() => [
-  { value: 'all', label: 'Semua', count: 15 },
-  { value: 'waiting_quotes', label: 'Menunggu Penawaran', count: 3 },
-  { value: 'quoted', label: 'Sudah Dikutip', count: 5 },
-  { value: 'completed', label: 'Selesai', count: 7 },
-  { value: 'cancelled', label: 'Dibatalkan', count: 0 },
+  { value: 'all', label: $t('member.rfq.all'), count: 15 },
+  { value: 'waiting_quotes', label: $t('status.waiting_quotes'), count: 3 },
+  { value: 'quoted', label: $t('status.quoted'), count: 5 },
+  { value: 'completed', label: $t('status.completed'), count: 7 },
+  { value: 'cancelled', label: $t('status.cancelled'), count: 0 },
 ]);
 
 const rfqList = ref([
@@ -152,10 +154,10 @@ const filteredRfq = computed(() => {
 
 const getStatusLabel = (status: string) => {
   const labels: Record<string, string> = {
-    waiting_quotes: 'Menunggu Penawaran',
-    quoted: 'Sudah Dikutip',
-    completed: 'Selesai',
-    cancelled: 'Dibatalkan',
+    waiting_quotes: $t('status.waiting_quotes'),
+    quoted: $t('status.quoted'),
+    completed: $t('status.completed'),
+    cancelled: $t('status.cancelled'),
   };
   return labels[status] || status;
 };
@@ -180,12 +182,12 @@ const formatDate = (date: Date) => {
 
 const cancelRfq = async (id: number) => {
   try {
-    await ElMessageBox.confirm('Batalkan RFQ ini?', 'Konfirmasi', {
-      confirmButtonText: 'Batalkan',
-      cancelButtonText: 'Batal',
+    await ElMessageBox.confirm($t('member.rfq.cancelConfirm'), $t('member.rfq.cancelConfirmTitle'), {
+      confirmButtonText: $t('member.rfq.cancelConfirmBtn'),
+      cancelButtonText: $t('button.cancel'),
       type: 'warning',
     });
-    ElMessage.success('RFQ dibatalkan');
+    ElMessage.success($t('member.rfq.cancelSuccess'));
   } catch {}
 };
 

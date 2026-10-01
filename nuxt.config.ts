@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === "production";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  ssr: false,
+  ssr: true,
   pages: true,
   app: {
     head: {
@@ -43,6 +43,8 @@ export default defineNuxtConfig({
       baseImageProduct: "https://www.trumecs.com/public/image/product/",
       baseImageGallery: "https://www.trumecs.com/public/image/galery/",
       baseImagePromo: "https://www.trumecs.com/public/image/promo/",
+      baseImageCat: "https://www.trumecs.com/public/upload/categori/",
+      baseImageTag: process.env.NUXT_API_BASEIMGTAG || "https://www.trumecs.com/public/upload/tag/",
       baseCat: process.env.NUXT_API_CATC,
       googleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
       siteUrl: "https://www.trumecs.com",
@@ -84,6 +86,7 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     // "nuxt-schema-org",
     "nuxt-gtag",
+    "./modules/image-loading-hints",
   ],
 
   vite: {

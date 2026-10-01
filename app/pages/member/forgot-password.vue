@@ -61,7 +61,7 @@
             to="/member/login"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t('auth.login') }}
+            {{ $t('auth.login.title') }}
           </NuxtLink>
         </p>
       </div>
@@ -74,9 +74,11 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const loading = ref(false);
 const error = ref<string | null>(null);
@@ -94,7 +96,7 @@ const handleSubmit = async () => {
     await authStore.forgotPassword(form.value.email);
     success.value = true;
   } catch (e: any) {
-    error.value = e.message || 'Gagal mengirim link reset. Silakan coba lagi.';
+    error.value = e.message || $t('auth.forgotPassword.sendFail');
   } finally {
     loading.value = false;
   }

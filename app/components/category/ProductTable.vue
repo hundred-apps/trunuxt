@@ -1,16 +1,22 @@
 <template>
   <section class="mb-8 lg:mb-12" aria-labelledby="products-heading">
-    <header
-      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6"
+    <!-- Toolbar -->
+    <div
+      class="mb-5 flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between"
     >
       <div>
         <h2
           id="products-heading"
-          class="text-xl lg:text-2xl font-bold text-gray-800"
+          class="flex items-center gap-2 text-lg font-bold text-gray-800"
         >
-          {{ $t("page.category.products", { count: totalProducts }) }}
+          {{ $t("page.category.products") }}
+          <span
+            class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-600"
+          >
+            {{ totalProducts }}
+          </span>
         </h2>
-        <p class="text-sm text-gray-500 mt-1">
+        <p class="mt-0.5 text-sm text-gray-500">
           {{
             $t("page.category.showing", {
               from: showingFrom,
@@ -21,105 +27,118 @@
         </p>
       </div>
 
-      <div class="flex items-center gap-2 flex-wrap">
-        <div
-          class="hidden sm:flex items-center border rounded-lg overflow-hidden"
-        >
+      <div class="flex items-center gap-2">
+        <!-- View Toggle -->
+        <div class="flex items-center rounded-xl border border-gray-200 p-1">
           <button
             @click="$emit('view-change', 'grid')"
-            class="p-3 transition-colors min-w-[44px] min-h-[44px]"
+            class="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200"
             :class="
               viewMode === 'grid'
-                ? 'bg-orange-500 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
+                ? 'bg-orange-500 text-white shadow-sm'
+                : 'text-gray-500 hover:bg-gray-100'
             "
             :aria-pressed="viewMode === 'grid'"
+            :title="$t('label.gridView')"
             type="button"
           >
             <Icon name="material-symbols:grid-view" class="text-lg" />
           </button>
           <button
             @click="$emit('view-change', 'list')"
-            class="p-3 transition-colors min-w-[44px] min-h-[44px]"
+            class="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200"
             :class="
               viewMode === 'list'
-                ? 'bg-orange-500 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
+                ? 'bg-orange-500 text-white shadow-sm'
+                : 'text-gray-500 hover:bg-gray-100'
             "
             :aria-pressed="viewMode === 'list'"
+            :title="$t('label.listView')"
             type="button"
           >
             <Icon name="material-symbols:view-list" class="text-lg" />
           </button>
         </div>
 
-        <el-select
-          :model-value="sortBy"
-          @update:model-value="sortBy = $event"
-          size="small"
-          class="w-40 sm:w-48"
-          @change="$emit('sort-change', sortBy)"
-          placeholder="Urutkan"
-        >
-          <el-option
-            :label="$t('page.category.sort.default')"
-            value="default"
+        <!-- Sort Select -->
+        <div class="relative">
+          <Icon
+            name="material-symbols:swap-vert"
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base text-gray-400"
           />
-          <el-option
-            :label="$t('page.category.sort.priceLow')"
-            value="price_asc"
-          />
-          <el-option
-            :label="$t('page.category.sort.priceHigh')"
-            value="price_desc"
-          />
-          <el-option :label="$t('page.category.sort.newest')" value="newest" />
-        </el-select>
-      </div>
-    </header>
-
-    <div v-if="loading" :class="gridClass">
-      <div
-        v-for="i in 12"
-        :key="i"
-        class="animate-pulse bg-white rounded-xl shadow-sm overflow-hidden"
-      >
-        <div class="aspect-square bg-gray-200" />
-        <div class="p-3 space-y-2">
-          <div class="h-3 bg-gray-200 rounded w-1/3" />
-          <div class="h-3 bg-gray-200 rounded w-full" />
-          <div class="h-3 bg-gray-200 rounded w-1/2" />
+          <el-select
+            :model-value="sortBy"
+            size="default"
+            class="!w-44"
+            @change="handleSortChange"
+            :placeholder="'Urutkan'"
+          >
+            <el-option
+              :label="$t('page.category.sort.default')"
+              value="default"
+            />
+            <el-option
+              :label="$t('page.category.sort.priceLow')"
+              value="price_asc"
+            />
+            <el-option
+              :label="$t('page.category.sort.priceHigh')"
+              value="price_desc"
+            />
+            <el-option
+              :label="$t('page.category.sort.newest')"
+              value="newest"
+            />
+            <el-option
+              :label="$t('page.category.sort.popular')"
+              value="popular"
+            />
+          </el-select>
         </div>
       </div>
     </div>
 
+    <!-- Loading Skeleton -->
+    <div v-if="loading" :class="gridClass">
+      <div
+        v-for="i in 12"
+        :key="i"
+        class="animate-pulse overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+      >
+        <div class="aspect-square bg-gray-200" />
+        <div class="space-y-2 p-3">
+          <div class="h-3 w-1/3 rounded bg-gray-200" />
+          <div class="h-3 w-full rounded bg-gray-200" />
+          <div class="h-3 w-1/2 rounded bg-gray-200" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
     <div
       v-else-if="products.length === 0"
-      class="text-center py-16 bg-white rounded-xl shadow-sm"
+      class="rounded-2xl border border-dashed border-gray-200 bg-white py-16 text-center shadow-sm"
     >
-      <Icon
-        name="material-symbols:inventory-2"
-        class="text-6xl text-gray-300 mb-4"
-      />
-      <h3 class="text-lg font-medium text-gray-600 mb-2">
+      <Icon name="material-symbols:inventory-2" class="mx-auto text-6xl text-gray-200" />
+      <h3 class="mb-1 mt-4 text-lg font-semibold text-gray-600">
         {{ $t("page.category.empty") }}
       </h3>
-      <p class="text-sm text-gray-400">{{ $t("label.noResults") }}</p>
+      <p class="mb-5 text-sm text-gray-400">{{ $t("label.noResults") }}</p>
       <Trubutton
         v-if="hasActiveFilters"
         :text="$t('button.clearFilters')"
         variant="outline"
         icon="mdi:filter-remove"
-        class="mt-4"
         @click="$emit('clear-filters')"
       />
     </div>
 
+    <!-- Products -->
     <div v-else>
       <!-- Grid View -->
       <div
         v-if="viewMode === 'grid'"
-        class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4"
+        class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:gap-4 xl:grid-cols-4"
       >
         <ProductCard
           v-for="product in products"
@@ -133,34 +152,34 @@
         <div
           v-for="product in products"
           :key="product.id"
-          class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all"
+          class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-orange-200 hover:shadow-md"
         >
           <Trulink
             :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
             class="flex"
           >
-            <div class="w-32 h-32 flex-shrink-0 overflow-hidden bg-gray-50">
+            <div class="h-32 w-32 flex-shrink-0 overflow-hidden bg-gray-50 sm:h-36 sm:w-36">
               <img
                 :src="getProductImage(product.img)"
                 :alt="product.tittle"
-                class="w-full h-full object-cover"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
-            <div class="flex-1 p-4">
+            <div class="flex flex-1 flex-col justify-center p-4">
               <p
-                v-if="product.brand && product.brand.toLowerCase() !== 'other'"
-                class="text-xs text-orange-500 font-semibold mb-1"
+                v-if="product.brand && typeof product.brand === 'string' && product.brand.toLowerCase() !== 'other'"
+                class="mb-1 text-xs font-semibold text-orange-500"
               >
                 {{ product.brand }}
               </p>
-              <h3 class="font-medium text-gray-800 line-clamp-1 mb-1">
+              <h3 class="mb-1 line-clamp-2 font-semibold text-gray-800 transition-colors group-hover:text-orange-500">
                 {{ product.tittle }}
               </h3>
-              <p class="text-sm text-gray-500 line-clamp-2 mb-2">
-                {{ product.description?.substring(0, 100) }}
+              <p v-if="product.description" class="mb-2 line-clamp-2 text-sm text-gray-500">
+                {{ product.description }}
               </p>
-              <div class="flex items-center gap-4">
+              <div class="flex flex-wrap items-center gap-3">
                 <div v-if="Number(product.price) > 0">
                   <p
                     v-if="Number(product.price_promo) > 0"
@@ -168,7 +187,7 @@
                   >
                     {{ formatPrice(Number(product.price)) }}
                   </p>
-                  <p class="text-sm font-bold text-orange-600">
+                  <p class="text-base font-bold text-orange-600">
                     {{
                       formatPrice(
                         Number(product.price_promo) > 0
@@ -180,7 +199,7 @@
                 </div>
                 <span
                   v-if="product.stock > 0"
-                  class="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded"
+                  class="rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-600"
                 >
                   {{ $t("page.product.text.stock") }}: {{ product.stock }}
                 </span>
@@ -191,7 +210,7 @@
       </div>
 
       <!-- Pagination -->
-      <div class="flex justify-center mt-8" v-if="totalPages > 1">
+      <div v-if="totalPages > 1" class="mt-8 flex justify-center">
         <el-pagination
           background
           layout="prev, pager, next"
@@ -258,14 +277,17 @@ const emit = defineEmits<{
 
 const config = useRuntimeConfig();
 
-const gridClass = computed(() => {
-  if (props.viewMode === "grid") {
-    return "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4";
-  }
-  return "";
-});
+const gridClass = computed(() =>
+  props.viewMode === "grid"
+    ? "grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-4"
+    : ""
+);
 
-const showingFrom = computed(() => (props.currentPage - 1) * props.perPage + 1);
+const showingFrom = computed(() =>
+  props.totalProducts === 0
+    ? 0
+    : (props.currentPage - 1) * props.perPage + 1
+);
 const showingTo = computed(() =>
   Math.min(props.currentPage * props.perPage, props.totalProducts)
 );
@@ -287,12 +309,25 @@ const formatSlug = (text: string | null) => {
     .replace(/(^-|-$)/g, "");
 };
 
-const getProductImage = (img: string) => {
+const getProductImage = (img: string | null) => {
   if (img) return `${config.public.baseImageProduct}${img}`;
   return "https://via.placeholder.com/300x300?text=No+Image";
+};
+
+const handleSortChange = (value: string) => {
+  emit("sort-change", value);
 };
 
 const handlePageChange = (page: number) => {
   emit("page-change", page);
 };
 </script>
+
+<style scoped>
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style>

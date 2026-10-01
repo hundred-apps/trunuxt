@@ -14,13 +14,36 @@
           :model-value="filters.search"
           @update:model-value="$emit('update:filters', { ...filters, search: $event })"
           :placeholder="$t('placeholder.searchProducts')"
-          size="default"
+          size="small"
           clearable
         >
           <template #prefix>
             <Icon name="material-symbols:search" class="text-gray-400" />
           </template>
         </el-input>
+      </div>
+
+      <div v-if="tags && tags.length > 0">
+        <label class="block text-sm font-medium text-gray-700 mb-1">{{
+          $t("page.tag.title")
+        }}</label>
+        <el-select
+          :model-value="filters.tags"
+          @update:model-value="$emit('update:filters', { ...filters, tags: $event })"
+          :placeholder="$t('page.tag.title')"
+          size="small"
+          clearable
+          multiple
+          collapse-tags
+          class="w-full"
+        >
+          <el-option
+            v-for="tag in tags"
+            :key="tag.id"
+            :label="tagLabel(tag)"
+            :value="tag.id"
+          />
+        </el-select>
       </div>
 
       <div>
@@ -31,7 +54,7 @@
           :model-value="filters.brand"
           @update:model-value="$emit('update:filters', { ...filters, brand: $event })"
           :placeholder="$t('placeholder.selectBrand')"
-          size="default"
+          size="small"
           clearable
           class="w-full"
         >
@@ -52,13 +75,13 @@
           :model-value="filters.grade"
           @update:model-value="$emit('update:filters', { ...filters, grade: $event })"
           :placeholder="$t('placeholder.selectGrade')"
-          size="default"
+          size="small"
           clearable
           class="w-full"
         >
           <el-option label="Asli" value="asli" />
-          <el-option label="Replika" value="replika" />
-          <el-option label="Bekas" value="bekas" />
+          <el-option :label="$t('page.product.text.replica')" value="replika" />
+          <el-option :label="$t('page.product.text.used')" value="bekas" />
         </el-select>
       </div>
 
@@ -71,20 +94,20 @@
             :model-value="filters.minPrice"
             @update:model-value="$emit('update:filters', { ...filters, minPrice: $event })"
             :placeholder="$t('placeholder.minPrice')"
-            size="default"
+            size="small"
             type="number"
           />
           <el-input
             :model-value="filters.maxPrice"
             @update:model-value="$emit('update:filters', { ...filters, maxPrice: $event })"
             :placeholder="$t('placeholder.maxPrice')"
-            size="default"
+            size="small"
             type="number"
           />
         </div>
       </div>
 
-      <div class="flex gap-2 pt-2">
+      <div v-if="!hideActions" class="flex gap-2 pt-2">
         <el-button
           type="primary"
           class="flex-1 bg-orange-500 border-orange-500 hover:bg-orange-600"
@@ -101,15 +124,29 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
+
+const tagLabel = (tag: { tag?: string; tag_en?: string; tag_ch?: string }) => {
+  const lang = String(locale.value).toLowerCase();
+  if (lang === "en") return tag.tag_en || tag.tag || "";
+  if (lang === "zh") return tag.tag_ch || tag.tag || "";
+  return tag.tag || tag.tag_en || "";
+};
+
 defineProps<{
   filters: {
     search: string;
+    tags?: string | number | Array<string | number>;
     brand: string;
     grade: string;
     minPrice: string;
     maxPrice: string;
   };
   brands: Array<{ id: number; name: string; url: string }>;
+  tags?: Array<{ id: string | number; tag: string; tag_en?: string; tag_ch?: string }>;
+  hideActions?: boolean;
 }>();
 
 defineEmits<{

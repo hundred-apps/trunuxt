@@ -9,7 +9,7 @@
         <div
           class="bg-cover bg-center w-full h-[80dvh] rounded-b-3xl"
           :style="{
-            backgroundImage: `url('https://migration.trumecs.com/principal/machining/hero.jpg')`,
+            backgroundImage: `url('https://migration.trumecs.com/principal/machining/hero-2.jpg')`,
           }"
         ></div>
 

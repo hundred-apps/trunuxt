@@ -14,14 +14,14 @@
           <div class="flex-1">
             <el-input
               v-model="filters.search"
-              placeholder="Cari alat berat..."
+              :placeholder="$t('rental.searchPlaceholder')"
               class="w-full"
               prefix-icon="material-symbols:search"
               @keyup.enter="applyFilters"
             />
           </div>
           <div class="flex gap-2 flex-wrap">
-            <el-select v-model="filters.category" placeholder="Kategori" class="w-40" size="small">
+            <el-select v-model="filters.category" :placeholder="$t('rental.categoryPlaceholder')" class="w-40" size="small">
               <el-option label="Excavator" value="excavator" />
               <el-option label="Bulldozer" value="bulldozer" />
               <el-option label="Wheel Loader" value="wheel_loader" />
@@ -29,17 +29,17 @@
               <el-option label="Crane" value="crane" />
               <el-option label="Forklift" value="forklift" />
             </el-select>
-            <el-select v-model="filters.duration" placeholder="Durasi" class="w-40" size="small">
-              <el-option label="Harian" value="daily" />
-              <el-option label="Mingguan" value="weekly" />
-              <el-option label="Bulanan" value="monthly" />
+            <el-select v-model="filters.duration" :placeholder="$t('rental.durationPlaceholder')" class="w-40" size="small">
+              <el-option :label="$t('rental.durationDaily')" value="daily" />
+              <el-option :label="$t('rental.durationWeekly')" value="weekly" />
+              <el-option :label="$t('rental.durationMonthly')" value="monthly" />
             </el-select>
-            <el-select v-model="filters.location" placeholder="Lokasi" class="w-40" size="small">
+            <el-select v-model="filters.location" :placeholder="$t('rental.locationPlaceholder')" class="w-40" size="small">
               <el-option label="Jakarta" value="jakarta" />
               <el-option label="Bekasi" value="bekasi" />
               <el-option label="Cikarang" value="cikarang" />
               <el-option label="Tangerang" value="tangerang" />
-              <el-option label="Lainnya" value="other" />
+              <el-option :label="$t('rental.locationOther')" value="other" />
             </el-select>
           </div>
         </div>
@@ -63,8 +63,8 @@
                     class="w-full"
                   />
                   <div class="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>Rp 0</span>
-                    <span>Rp 50 Juta</span>
+                    <span>{{ $t('rental.priceMinLabel') }}</span>
+                    <span>{{ $t('rental.priceMaxLabel') }}</span>
                   </div>
                 </div>
                 <div>
@@ -150,7 +150,7 @@
                     <h3 class="font-medium text-gray-800 line-clamp-1 mb-1">{{ item.name }}</h3>
                     <p class="text-sm text-gray-500 line-clamp-2 mb-2">{{ item.location }}</p>
                     <div class="flex items-center gap-4">
-                      <div class="text-sm font-bold text-orange-600">{{ formatPrice(item.priceDaily) }}<span class="text-gray-500 font-normal">/hari</span></div>
+                      <div class="text-sm font-bold text-orange-600">{{ formatPrice(item.priceDaily) }}<span class="text-gray-500 font-normal">{{ $t('rental.perDay') }}</span></div>
                     </div>
                   </div>
                 </Trulink>

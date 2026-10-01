@@ -1,31 +1,199 @@
 <template>
-  <div class="category-page py-4">
-    <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
-      <Breadcrumbs :items="breadcrumbs" class="mb-4" />
+  <div class="category-page">
+    <div class="container mx-auto max-w-[1280px]">
+      <Breadcrumbs :items="breadcrumbs" class="my-2" />
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-        <div class="lg:col-span-3">
+      <!-- Page Header -->
+      <div
+        class="mb-5 rounded-2xl border border-gray-100 bg-white px-5 py-4 shadow-sm"
+      >
+        <div
+          class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <h1 class="text-xl lg:text-2xl font-bold text-gray-800">
+              {{ pageTitle }}
+            </h1>
+            <p
+              v-if="isSearchAll && searchKeyword"
+              class="mt-0.5 text-sm text-gray-400"
+            >
+              {{
+                $t("search.subtitle", {
+                  keyword: searchKeyword,
+                  total: pagination.total,
+                })
+              }}
+            </p>
+            <p v-else class="mt-0.5 text-sm text-gray-400">
+              {{
+                $t("page.category.showing", {
+                  from: pagination.from,
+                  to: pagination.to,
+                  total: pagination.total,
+                })
+              }}
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span
+              class="inline-flex items-center gap-1.5 rounded-lg bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-600"
+            >
+              <Icon name="material-symbols:inventory-2" class="text-sm" />
+              {{
+                $t("page.category.productsCount", { count: pagination.total })
+              }}
+            </span>
+            <span
+              v-if="availableBrands.length"
+              class="inline-flex items-center gap-1.5 rounded-lg bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-600"
+            >
+              <Icon name="material-symbols:business" class="text-sm" />
+              {{ availableBrands.length }} {{ $t("page.category.brands") }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+<!-- Mobile Filter Toggle (FAB) -->
+<div
+          class="lg:hidden fixed bottom-[calc(env(safe-area-inset-bottom,0px)+1rem)] right-4 z-[60]"
+        >
+          <button
+            type="button"
+            class="relative flex items-center gap-2 rounded-full bg-orange-500 pl-4 pr-5 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/30 transition-all duration-200 active:scale-95"
+            :aria-expanded="showFilters"
+            @click="showFilters = true"
+          >
+            <Icon name="material-symbols:tune" class="text-lg" />
+            <span>{{ $t("page.category.filter.title") }}</span>
+            <span
+              v-if="activeFilterCount > 0"
+              class="flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-white px-1.5 text-[11px] font-bold text-orange-600"
+            >
+              {{ activeFilterCount }}
+            </span>
+          </button>
+        </div>
+
+        <!-- Filter Bottom Sheet (mobile) -->
+        <Teleport to="body">
           <div
-            class="lg:sticky lg:top-[var(--header-height,150px)]"
-            style="--header-height: 150px"
+            v-if="showFilters"
+            class="lg:hidden fixed inset-0 z-[9999] flex items-end"
+          >
+            <div
+              class="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              @click="showFilters = false"
+            />
+            <div
+              class="relative w-full max-h-[88dvh] flex flex-col bg-white rounded-t-2xl shadow-2xl"
+            >
+              <!-- Sheet Header -->
+              <div
+                class="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0"
+              >
+                <div class="flex items-center gap-2">
+                  <Icon
+                    name="material-symbols:tune"
+                    class="text-orange-500 text-xl"
+                  />
+                  <h2 class="text-base font-bold text-gray-800">
+                    {{ $t("page.category.filter.title") }}
+                  </h2>
+                  <span
+                    v-if="activeFilterCount > 0"
+                    class="rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-600"
+                  >
+                    {{ activeFilterCount }}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  class="p-2 -mr-1 rounded-full hover:bg-gray-100 transition-colors"
+                  aria-label="close"
+                  @click="showFilters = false"
+                >
+                  <Icon name="material-symbols:close" class="text-xl text-gray-400" />
+                </button>
+              </div>
+
+              <!-- Sheet Body -->
+              <div class="flex-1 overflow-y-auto overscroll-contain px-5 py-4">
+                <ProductFilterSidebar
+                  :filters="filters"
+                  :brands="availableBrands"
+                  :tags="tagOptions"
+                  :hide-actions="true"
+                  @update:filters="updateFilters"
+                  @apply="applyFilters"
+                  @reset="resetFilters"
+                />
+              </div>
+
+              <!-- Sheet Footer -->
+              <div
+                class="flex gap-3 px-5 pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] border-t border-gray-100 bg-white flex-shrink-0"
+              >
+                <Trubutton
+                  variant="outline"
+                  size="large"
+                  class="flex-1"
+                  @click="resetFiltersAndClose"
+                >
+                  {{ $t("page.category.filter.reset") }}
+                </Trubutton>
+                <Trubutton
+                  variant="primary"
+                  size="large"
+                  class="flex-1"
+                  @click="applyFiltersAndClose"
+                >
+                  {{ $t("button.apply") }}
+                </Trubutton>
+              </div>
+            </div>
+          </div>
+        </Teleport>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8" :class="{ 'hidden': showFilters }">
+        <!-- Sidebar Filters -->
+        <aside class="lg:col-span-3">
+          <div
+            :class="[
+              'lg:sticky lg:top-[150px] space-y-6 lg:block',
+              showFilters ? 'block' : 'hidden',
+            ]"
           >
             <ProductFilterSidebar
               :filters="filters"
               :brands="availableBrands"
+              :tags="tagOptions"
               @update:filters="updateFilters"
               @apply="applyFilters"
               @reset="resetFilters"
             />
           </div>
-        </div>
+        </aside>
 
-        <div class="lg:col-span-9">
-          <div class="flex items-center justify-between mb-4">
+        <!-- Products -->
+        <main class="lg:col-span-9">
+          <!-- Toolbar -->
+          <div
+            class="mb-5 flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between"
+          >
             <div>
-              <h1 class="text-xl lg:text-2xl font-bold text-gray-800">
-                {{ pageTitle }}
-              </h1>
-              <p class="text-sm text-gray-500 mt-1">
+              <h2
+                class="flex items-center gap-2 text-lg font-bold text-gray-800"
+              >
+                {{ $t("page.category.products") }}
+                <span
+                  class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-600"
+                >
+                  {{ pagination.total }}
+                </span>
+              </h2>
+              <p class="mt-0.5 text-sm text-gray-500">
                 {{
                   $t("page.category.showing", {
                     from: pagination.from,
@@ -37,138 +205,199 @@
             </div>
 
             <div class="flex items-center gap-2">
-              <el-select
-                v-model="sortBy"
-                size="small"
-                class="w-40"
-                @change="applyFilters"
-              >
-                <el-option
-                  :label="$t('page.category.sort.default')"
-                  value="default"
-                />
-                <el-option
-                  :label="$t('page.category.sort.priceLow')"
-                  value="price_asc"
-                />
-                <el-option
-                  :label="$t('page.category.sort.priceHigh')"
-                  value="price_desc"
-                />
-                <el-option
-                  :label="$t('page.category.sort.newest')"
-                  value="newest"
-                />
-              </el-select>
-
+              <!-- View Toggle -->
               <div
-                class="hidden sm:flex items-center border rounded-lg overflow-hidden"
+                class="flex items-center rounded-xl border border-gray-200 p-1"
               >
                 <button
                   @click="viewMode = 'grid'"
-                  class="p-3 transition-colors min-w-[44px] min-h-[44px]"
+                  class="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200"
                   :class="
                     viewMode === 'grid'
-                      ? 'bg-orange-500 text-white'
-                      : 'bg-white text-gray-600 hover:bg-gray-50'
+                      ? 'bg-orange-500 text-white shadow-sm'
+                      : 'text-gray-500 hover:bg-gray-100'
                   "
+                  :aria-pressed="viewMode === 'grid'"
+                  :title="$t('label.gridView')"
+                  type="button"
                 >
                   <Icon name="material-symbols:grid-view" class="text-lg" />
                 </button>
                 <button
                   @click="viewMode = 'list'"
-                  class="p-3 transition-colors min-w-[44px] min-h-[44px]"
+                  class="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200"
                   :class="
                     viewMode === 'list'
-                      ? 'bg-orange-500 text-white'
-                      : 'bg-white text-gray-600 hover:bg-gray-50'
+                      ? 'bg-orange-500 text-white shadow-sm'
+                      : 'text-gray-500 hover:bg-gray-100'
                   "
+                  :aria-pressed="viewMode === 'list'"
+                  :title="$t('label.listView')"
+                  type="button"
                 >
                   <Icon name="material-symbols:view-list" class="text-lg" />
                 </button>
               </div>
-            </div>
-          </div>
 
-          <div v-if="loading" class="grid gap-4" :class="gridClass">
-            <div
-              v-for="i in 12"
-              :key="i"
-              class="animate-pulse bg-white rounded-xl shadow-sm overflow-hidden"
-            >
-              <div class="aspect-square bg-gray-200" />
-              <div class="p-3 space-y-2">
-                <div class="h-3 bg-gray-200 rounded w-1/3" />
-                <div class="h-3 bg-gray-200 rounded w-full" />
-                <div class="h-3 bg-gray-200 rounded w-1/2" />
+              <!-- Sort -->
+              <div class="relative">
+                <Icon
+                  name="material-symbols:swap-vert"
+                  class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base text-gray-400"
+                />
+                <el-select
+                  v-model="sortBy"
+                  size="default"
+                  class="!w-44"
+                  @change="applyFilters"
+                  :placeholder="$t('label.sort')"
+                >
+                  <el-option
+                    :label="$t('page.category.sort.default')"
+                    value="default"
+                  />
+                  <el-option
+                    :label="$t('page.category.sort.priceLow')"
+                    value="price_asc"
+                  />
+                  <el-option
+                    :label="$t('page.category.sort.priceHigh')"
+                    value="price_desc"
+                  />
+                  <el-option
+                    :label="$t('page.category.sort.newest')"
+                    value="newest"
+                  />
+                </el-select>
               </div>
             </div>
           </div>
 
-          <div
-            v-else-if="products.length === 0"
-            class="text-center py-16 bg-white rounded-xl shadow-sm"
-          >
-            <Icon
-              name="material-symbols:inventory-2"
-              class="text-6xl text-gray-300 mb-4"
-            />
-            <h3 class="text-lg font-medium text-gray-600 mb-2">
-              {{ $t("page.category.empty") }}
-            </h3>
-            <p class="text-sm text-gray-400">
-              {{ $t("label.noResults") }}
-            </p>
+          <!-- Loading -->
+          <div v-if="loading" :class="gridClass" class="grid gap-3 lg:gap-4">
+            <div
+              v-for="i in 12"
+              :key="i"
+              class="animate-pulse overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="aspect-square bg-gray-200" />
+              <div class="space-y-2 p-3">
+                <div class="h-3 w-1/3 rounded bg-gray-200" />
+                <div class="h-3 w-full rounded bg-gray-200" />
+                <div class="h-3 w-1/2 rounded bg-gray-200" />
+              </div>
+            </div>
           </div>
 
+          <!-- Empty -->
+          <div
+            v-else-if="products.length === 0"
+            class="rounded-2xl border border-dashed border-gray-200 bg-white py-16 text-center shadow-sm"
+          >
+            <Icon
+              name="material-symbols:search-off"
+              class="mx-auto text-6xl text-gray-200"
+            />
+            <h3 class="mb-1 mt-4 text-lg font-semibold text-gray-600">
+              {{ $t("page.category.empty") }}
+            </h3>
+            <p class="mb-4 text-sm text-gray-400">
+              {{ $t("label.noResults") }}
+            </p>
+            <div
+              class="flex flex-col items-center justify-center gap-3 sm:flex-row"
+            >
+              <Trubutton
+                :text="$t('button.clearFilters')"
+                variant="outline"
+                icon="mdi:filter-remove"
+                @click="resetFilters"
+              />
+              <NuxtLink to="/c/all/query">
+                <Trubutton
+                  :text="$t('search.browseAll')"
+                  variant="solid"
+                  icon="material-symbols:grid-view"
+                />
+              </NuxtLink>
+            </div>
+          </div>
+
+          <!-- Products -->
           <div v-else>
+            <!-- Grid View -->
             <div
               v-if="viewMode === 'grid'"
-              class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4"
+              class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:gap-4 xl:grid-cols-4"
             >
               <ProductCard
                 v-for="product in products"
                 :key="product.id"
                 :product="product"
+                :tags="tagsForProduct(product.id)"
               />
             </div>
 
+            <!-- List View -->
             <div v-else class="space-y-3">
               <div
                 v-for="product in products"
                 :key="product.id"
-                class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all"
+                class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-orange-200 hover:shadow-md"
               >
                 <Trulink
                   :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
                   class="flex"
                 >
                   <div
-                    class="w-32 h-32 flex-shrink-0 overflow-hidden bg-gray-50"
+                    class="relative h-32 w-32 flex-shrink-0 overflow-hidden bg-gray-50 sm:h-36 sm:w-36"
                   >
                     <img
                       :src="getProductImage(product.img)"
                       :alt="product.tittle"
-                      class="w-full h-full object-cover"
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
+                    <div
+                      v-if="tagsForProduct(product.id).length > 0"
+                      class="absolute bottom-1 left-1 z-10 flex items-center gap-1"
+                    >
+                      <span
+                        v-for="tag in tagsForProduct(product.id).slice(0, 2)"
+                        :key="tag.id || tag.tag"
+                        class="rounded bg-orange-500/90 px-1.5 py-0.5 text-[10px] font-medium text-white"
+                      >
+                        {{ tagLabel(tag) }}
+                      </span>
+                      <span
+                        v-if="tagsForProduct(product.id).length > 2"
+                        class="rounded bg-gray-800/80 px-1.5 py-0.5 text-[10px] font-medium text-white"
+                      >
+                        +{{ tagsForProduct(product.id).length - 2 }}
+                      </span>
+                    </div>
                   </div>
-                  <div class="flex-1 p-4">
+                  <div class="flex flex-1 flex-col justify-center p-4">
                     <p
                       v-if="
                         product.brand && product.brand.toLowerCase() !== 'other'
                       "
-                      class="text-xs text-orange-500 font-semibold mb-1"
+                      class="mb-1 text-xs font-semibold text-orange-500"
                     >
                       {{ product.brand }}
                     </p>
-                    <h3 class="font-medium text-gray-800 line-clamp-1 mb-1">
+                    <h3
+                      class="mb-1 line-clamp-2 font-semibold text-gray-800 transition-colors group-hover:text-orange-500"
+                    >
                       {{ product.tittle }}
                     </h3>
-                    <p class="text-sm text-gray-500 line-clamp-2 mb-2">
-                      {{ product.description?.substring(0, 100) }}
+                    <p
+                      v-if="product.description"
+                      class="mb-2 line-clamp-2 text-sm text-gray-500"
+                    >
+                      {{ product.description }}
                     </p>
-                    <div class="flex items-center gap-4">
+                    <div class="flex flex-wrap items-center gap-3">
                       <div v-if="Number(product.price) > 0">
                         <p
                           v-if="Number(product.price_promo) > 0"
@@ -176,7 +405,9 @@
                         >
                           {{ formatPrice(Number(product.price)) }}
                         </p>
-                        <p class="text-sm font-bold text-orange-600">
+                        <p
+                          class="text-sm font-bold text-orange-600 sm:text-base"
+                        >
                           {{
                             formatPrice(
                               Number(product.price_promo) > 0
@@ -188,7 +419,7 @@
                       </div>
                       <span
                         v-if="product.stock > 0"
-                        class="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded"
+                        class="rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-600"
                       >
                         {{ $t("page.product.text.stock") }}: {{ product.stock }}
                       </span>
@@ -198,7 +429,11 @@
               </div>
             </div>
 
-            <div class="flex justify-center mt-8">
+            <!-- Pagination -->
+            <div
+              v-if="pagination.total > perPage"
+              class="mt-8 flex justify-center"
+            >
               <el-pagination
                 background
                 layout="prev, pager, next"
@@ -209,22 +444,34 @@
               />
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { defineBreadcrumb, useSchemaOrg } from "@unhead/schema-org/vue";
 import { useI18n } from "vue-i18n";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { useProductTags } from "~/composables/useProductTags";
+import Breadcrumbs from "~/components/Breadcrumbs.vue";
+import ProductCard from "~/components/product/ProductCard.vue";
+import ProductFilterSidebar from "~/components/product/FilterSidebar.vue";
+import type { CategoryResponse } from "~/types/category";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
-const { t: $t } = useI18n();
+const { t: $t, locale } = useI18n();
+
+const tagLabel = (tag: { tag?: string; tag_en?: string; tag_ch?: string }) => {
+  const lang = String(locale.value).toLowerCase();
+  if (lang === "en") return tag.tag_en || tag.tag || "";
+  if (lang === "zh") return tag.tag_ch || tag.tag || "";
+  return tag.tag || tag.tag_en || "";
+};
 
 interface ProductItem {
   id: number;
@@ -322,15 +569,32 @@ const router = useRouter();
 const config = useRuntimeConfig();
 
 const loading = ref(true);
+const showFilters = ref(false);
 const products = ref<ProductItem[]>([]);
-const availableBrands = ref<any[]>([]);
+const availableBrands = ref<Array<{ id: number; name: string; url: string }>>(
+  []
+);
+const categoryInfo = ref<{
+  id: number;
+  name: string;
+  url: string;
+  description?: string;
+} | null>(null);
 const viewMode = ref<"grid" | "list">("grid");
 const sortBy = ref("default");
 const currentPage = ref(1);
 const perPage = ref(20);
 
+const {
+  tags: tagOptions,
+  tagsForProduct,
+  productsForTags,
+  load: loadTags,
+} = useProductTags();
+
 const filters = ref({
   search: "",
+  tags: [] as Array<string | number>,
   brand: "",
   grade: "",
   minPrice: "",
@@ -358,11 +622,18 @@ const isSearchAll = computed(() => {
 
 const searchKeyword = computed(() => (route.query.nama as string) || "");
 
+const tagMode = computed(() => {
+  return Array.isArray(filters.value.tags) && filters.value.tags.length > 0;
+});
+
 const pageTitle = computed(() => {
   if (isSearchAll.value) {
     return searchKeyword.value
       ? $t("page.category.searchResult", { keyword: searchKeyword.value })
       : $t("label.allProducts");
+  }
+  if (categoryInfo.value) {
+    return categoryInfo.value.name;
   }
   if (slugSegments.value.length === 0) {
     return $t("label.allProducts");
@@ -400,7 +671,7 @@ const breadcrumbs = computed(() => {
 
 const gridClass = computed(() => {
   if (viewMode.value === "grid") {
-    return "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3";
+    return "grid-cols-2 sm:grid-cols-3 xl:grid-cols-4";
   }
   return "";
 });
@@ -431,11 +702,67 @@ const updateFilters = (newFilters: any) => {
   filters.value = newFilters;
 };
 
+// Resolusi kategori dari slug segmen pertama (mis. /c/Pelumas)
+const loadCategoryInfo = async () => {
+  try {
+    const response = await useFetchApi<CategoryResponse>(
+      "category-read",
+      "category-read-c",
+      "get",
+      null
+    );
+    if (response.status === "success" && response.data) {
+      const roots = response.data.payload.category.products;
+      if (roots && roots.length > 0) {
+        // Semua brand dari root category
+        const allRootBrands = roots.flatMap((r) => r.brands || []);
+        availableBrands.value = allRootBrands.map((b) => ({
+          id: b.id,
+          name: b.name,
+          url: b.name,
+        }));
+
+        if (!isSearchAll.value && slugSegments.value.length > 0) {
+          const slugLower = slugSegments.value[0]
+            .toLowerCase()
+            .replace(/-/g, " ");
+          const match = roots.find(
+            (r) =>
+              r.name.toLowerCase() === slugLower ||
+              r.url.toLowerCase().replace(/-/g, " ") === slugLower
+          );
+          if (match) {
+            categoryInfo.value = {
+              id: match.id,
+              name: match.name,
+              url: match.url,
+              description: (match as any).description,
+            };
+            const catBrands = (match.brands || []).map((b) => ({
+              id: b.id,
+              name: b.name,
+              url: b.name,
+            }));
+            if (catBrands.length > 0) {
+              availableBrands.value = catBrands;
+            }
+          }
+        }
+      }
+    }
+  } catch (e) {
+    console.error("Failed to load category info:", e);
+  }
+};
+
 const buildQueryFromFilters = () => {
   const query: Record<string, any> = {};
   if (filters.value.search) {
     query.q = "on";
     query.nama = filters.value.search;
+  }
+  if (filters.value.tags && filters.value.tags.length) {
+    query.tags = filters.value.tags.join(",");
   }
   if (filters.value.brand) query.brand = filters.value.brand;
   if (filters.value.grade) query.quality = filters.value.grade;
@@ -447,6 +774,9 @@ const buildQueryFromFilters = () => {
 
 const syncFiltersFromRoute = () => {
   filters.value.search = (route.query.nama as string) || "";
+  filters.value.tags = ((route.query.tags as string) || "")
+    .split(",")
+    .filter(Boolean);
   filters.value.brand = (route.query.brand as string) || "";
   filters.value.grade = (route.query.quality as string) || "";
   filters.value.minPrice = (route.query.minp as string) || "";
@@ -467,6 +797,7 @@ const applyFilters = () => {
 const resetFilters = () => {
   filters.value = {
     search: "",
+    tags: [],
     brand: "",
     grade: "",
     minPrice: "",
@@ -482,15 +813,140 @@ const resetFilters = () => {
   }
 };
 
+// Jumlah filter aktif untuk badge pada tombol floating
+const activeFilterCount = computed(() => {
+  const f = filters.value as any;
+  let count = 0;
+  if (f.search) count++;
+  if (Array.isArray(f.tags) ? f.tags.length > 0 : !!f.tags) count++;
+  if (f.brand) count++;
+  if (f.grade) count++;
+  if (f.minPrice) count++;
+  if (f.maxPrice) count++;
+  return count;
+});
+
+const applyFiltersAndClose = () => {
+  applyFilters();
+  showFilters.value = false;
+};
+
+const resetFiltersAndClose = () => {
+  resetFilters();
+  showFilters.value = false;
+};
+
+// Kunci scroll body saat bottom sheet filter terbuka
+watch(showFilters, (open) => {
+  if (import.meta.client) {
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+});
+
+onBeforeUnmount(() => {
+  if (import.meta.client) {
+    document.body.style.overflow = "";
+  }
+});
+
 const handlePageChange = (page: number) => {
   currentPage.value = page;
   router.replace({ query: buildQueryFromFilters() });
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+const productPassesFilters = (p: ProductItem): boolean => {
+  const kw = (filters.value.search || "").toLowerCase();
+  if (kw) {
+    const haystack = [
+      p.tittle,
+      p.partnumber,
+      p.partnumber_trumecs,
+      p.tittle_en,
+      p.tittle_ch,
+      p.brand,
+    ]
+      .map((v) => String(v || "").toLowerCase())
+      .join(" ");
+    if (!haystack.includes(kw)) return false;
+  }
+  if (filters.value.brand) {
+    if (
+      String(p.brand).toLowerCase() !==
+      String(filters.value.brand).toLowerCase()
+    ) {
+      return false;
+    }
+  }
+  if (filters.value.grade) {
+    if (String(p.quality) !== String(filters.value.grade)) {
+      return false;
+    }
+  }
+  const effectivePrice =
+    Number(p.price_promo) > 0 ? Number(p.price_promo) : Number(p.price);
+  if (
+    filters.value.minPrice &&
+    effectivePrice < Number(filters.value.minPrice)
+  ) {
+    return false;
+  }
+  if (
+    filters.value.maxPrice &&
+    effectivePrice > Number(filters.value.maxPrice)
+  ) {
+    return false;
+  }
+  return true;
+};
+
+const applyClientSort = (list: ProductItem[]): ProductItem[] => {
+  const arr = [...list];
+  if (sortBy.value === "price_asc") {
+    arr.sort((a, b) => {
+      const pa =
+        Number(a.price_promo) > 0 ? Number(a.price_promo) : Number(a.price);
+      const pb =
+        Number(b.price_promo) > 0 ? Number(b.price_promo) : Number(b.price);
+      return pa - pb;
+    });
+  } else if (sortBy.value === "price_desc") {
+    arr.sort((a, b) => {
+      const pa =
+        Number(a.price_promo) > 0 ? Number(a.price_promo) : Number(a.price);
+      const pb =
+        Number(b.price_promo) > 0 ? Number(b.price_promo) : Number(b.price);
+      return pb - pa;
+    });
+  } else if (sortBy.value === "newest") {
+    arr.sort((a, b) => Number(b.id) - Number(a.id));
+  }
+  return arr;
+};
+
 const fetchProducts = async () => {
   loading.value = true;
   try {
+    // Mode tag: filter dari relasi product_tag (dijamin jalan tanpa bergantung backend)
+    if (tagMode.value) {
+      await loadTags();
+      let list = productsForTags(filters.value.tags).filter(
+        productPassesFilters
+      ) as ProductItem[];
+      list = applyClientSort(list);
+
+      const totalItems = list.length;
+      const start = (currentPage.value - 1) * perPage.value;
+      products.value = list.slice(start, start + perPage.value);
+      pagination.value = {
+        total: totalItems,
+        from: totalItems ? start + 1 : 0,
+        to: Math.min(start + perPage.value, totalItems),
+      };
+      loading.value = false;
+      return;
+    }
+
     const slug = slugSegments.value.join("/");
 
     const body: Record<string, any> = {
@@ -498,12 +954,22 @@ const fetchProducts = async () => {
       limit: perPage.value,
     };
 
-    if (!isSearchAll.value && slug) body.slug = slug;
+    if (!isSearchAll.value) {
+      // Server hanya memfilter kategori via jenisproduct
+      if (categoryInfo.value) {
+        body.jenisproduct = categoryInfo.value.name;
+      } else if (slug) {
+        body.jenisproduct = slug;
+      } else {
+        body.slug = "all";
+      }
+    } else {
+      body.slug = "all";
+    }
     if (filters.value.search) body.keyword = filters.value.search;
-    if (filters.value.brand) body.brand = filters.value.brand;
-    if (filters.value.grade) body.quality = filters.value.grade;
-    if (filters.value.minPrice) body.minp = filters.value.minPrice;
-    if (filters.value.maxPrice) body.maxp = filters.value.maxPrice;
+    if (filters.value.tags && filters.value.tags.length) {
+      body.tags = filters.value.tags.join(",");
+    }
     if (sortBy.value !== "default") body.sort = sortBy.value;
 
     const response = await useFetchApi<BaseResponse<ProductItem[]>>(
@@ -514,12 +980,23 @@ const fetchProducts = async () => {
     );
 
     if (response.status === "success" && response.data) {
-      products.value = response.data.payload || [];
-      const totalItems = response.data.meta?.total || products.value.length;
+      const list = (response.data.payload || []).filter(
+        productPassesFilters
+      ) as ProductItem[];
+      const totalItems = response.data.meta?.total || list.length;
+      const sortedTotal = totalItems;
+
+      const sortedPage = applyClientSort(list);
+      products.value = sortedPage.length > 0 ? sortedPage : list;
       pagination.value = {
-        total: totalItems,
-        from: (currentPage.value - 1) * perPage.value + 1,
-        to: Math.min(currentPage.value * perPage.value, totalItems),
+        total: sortedTotal,
+        from: sortedPage.length
+          ? (currentPage.value - 1) * perPage.value + 1
+          : 0,
+        to: Math.min(
+          (currentPage.value - 1) * perPage.value + sortedPage.length,
+          sortedTotal
+        ),
       };
     }
   } catch (e) {
@@ -571,8 +1048,9 @@ useSchemaOrg([
   }),
 ]);
 
-// SSR: fetch produk saat render server (top-level await), client lanjut via watcher
+// Inisialisasi: sync dari URL, muat data kategori/brands/tags, lalu fetch produk
 syncFiltersFromRoute();
+await Promise.all([loadCategoryInfo(), loadTags()]);
 await fetchProducts();
 
 onMounted(() => {
@@ -580,22 +1058,24 @@ onMounted(() => {
 });
 
 watch(
-  () => [route.params.slug, route.query],
+  () => route.params.slug,
+  () => {
+    currentPage.value = 1;
+    syncFiltersFromRoute();
+    loadCategoryInfo().then(() => fetchProducts());
+  }
+);
+
+watch(
+  () => route.query,
   () => {
     syncFiltersFromRoute();
-    currentPage.value = 1;
     fetchProducts();
   }
 );
 </script>
 
 <style scoped>
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

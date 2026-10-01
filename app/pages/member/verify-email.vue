@@ -31,7 +31,7 @@
           <h3 class="text-lg font-semibold mb-2">{{ $t('auth.verifyEmail.verified') }}</h3>
           <p class="text-sm mb-4">{{ $t('auth.verifyEmail.verifiedDesc') }}</p>
           <NuxtLink to="/member/login" class="text-orange-600 hover:underline font-medium">
-            {{ $t('auth.login') }}
+            {{ $t('auth.login.title') }}
           </NuxtLink>
         </div>
 
@@ -62,7 +62,7 @@
             />
             <NuxtLink to="/member/login" class="flex items-center">
               <Trubutton
-                :text="$t('auth.login')"
+                :text="$t('auth.login.title')"
                 type="primary"
                 variant="solid"
               />
@@ -92,6 +92,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const route = useRoute();
 const router = useRouter();
@@ -103,10 +104,12 @@ const resending = ref(false);
 
 const verifyToken = ref(route.query.token as string);
 
+const { t: $t } = useI18n();
+
 onMounted(async () => {
   if (!verifyToken.value) {
     status.value = 'error';
-    errorMessage.value = 'Token verifikasi tidak ditemukan';
+    errorMessage.value = $t('auth.verifyEmail.tokenMissing');
     return;
   }
   await verifyEmail();
@@ -122,7 +125,7 @@ const verifyEmail = async () => {
       status.value = 'expired';
     } else {
       status.value = 'error';
-      errorMessage.value = e.message || 'Verifikasi gagal. Token tidak valid.';
+      errorMessage.value = e.message || $t('auth.verifyEmail.tokenInvalid');
     }
   }
 };
@@ -133,14 +136,14 @@ const resendVerification = async () => {
     const email = authStore.getPendingVerificationEmail();
     if (email) {
       await authStore.resendVerification(email);
-      ElMessage.success('Link verifikasi baru telah dikirim');
+      ElMessage.success($t('auth.verifyEmail.resendSuccess'));
       status.value = 'pending';
       // Re-verify with new token would need new token from email
     } else {
       await router.push('/member/register');
     }
   } catch (e: any) {
-    ElMessage.error(e.message || 'Gagal mengirim ulang');
+    ElMessage.error(e.message || $t('auth.verifyEmail.resendFail'));
   } finally {
     resending.value = false;
   }

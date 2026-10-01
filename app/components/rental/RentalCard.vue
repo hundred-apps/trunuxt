@@ -13,10 +13,10 @@
       </div>
       <div class="absolute bottom-3 left-3 right-3 flex justify-between">
         <div class="bg-white/90 rounded-lg px-3 py-1.5 text-sm font-semibold text-orange-600">
-          {{ formatPrice(item.priceDaily) }}<span class="font-normal text-gray-500">/hari</span>
+          {{ formatPrice(item.priceDaily) }}<span class="font-normal text-gray-500">{{ $t('rental.perDay') }}</span>
         </div>
         <div v-if="item.priceMonthly" class="bg-white/90 rounded-lg px-3 py-1.5 text-sm text-gray-600">
-          {{ formatPrice(item.priceMonthly) }}<span class="font-normal">/bulan</span>
+          {{ formatPrice(item.priceMonthly) }}<span class="font-normal">{{ $t('rental.perMonth') }}</span>
         </div>
       </div>
     </div>

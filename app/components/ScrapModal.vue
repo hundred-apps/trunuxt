@@ -2,12 +2,12 @@
   <Teleport to="body">
     <div
       v-if="modalOpen"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      class="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm"
       @click.self="closeModal"
     >
-      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div class="bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl w-full sm:max-w-lg max-h-[92dvh] overflow-y-auto">
         <!-- Header -->
-        <div class="flex items-center justify-between p-6 border-b border-gray-200 sticky top-0 bg-white rounded-t-2xl z-10">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200 sticky top-0 bg-white rounded-t-2xl sm:rounded-t-2xl z-20">
           <div class="flex items-center gap-3">
             <div class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
               <Icon name="logos:whatsapp-icon" class="h-6 w-6 text-green-600" />
@@ -40,7 +40,7 @@
               <el-input
                 id="scrapName"
                 v-model="form.name"
-                placeholder="Masukkan nama lengkap Anda"
+                :placeholder="$t('scrap.phName')"
                 class="w-full"
                 required
               />
@@ -54,7 +54,7 @@
                 id="scrapPhone"
                 v-model="form.phone"
                 type="tel"
-                placeholder="Contoh: 08123456789"
+                :placeholder="$t('scrap.phPhone')"
                 class="w-full"
                 required
               />
@@ -69,7 +69,7 @@
                 id="scrapEmail"
                 v-model="form.email"
                 type="email"
-                placeholder="contoh@email.com"
+                :placeholder="$t('scrap.phEmail')"
                 class="w-full"
               />
               <p class="text-xs text-gray-500 mt-1">{{ $t('scrap.emailHint') }}</p>
@@ -82,7 +82,7 @@
               <el-input
                 id="scrapUnitType"
                 v-model="form.unitType"
-                placeholder="Contoh: Excavator PC 200, Bulldozer D85, Dump Truck"
+                :placeholder="$t('scrap.phUnit')"
                 class="w-full"
                 required
               />
@@ -95,7 +95,7 @@
               <el-input
                 id="scrapLocation"
                 v-model="form.location"
-                placeholder="Contoh: Jakarta, Surabaya, Balikpapan"
+                :placeholder="$t('scrap.phLocation')"
                 class="w-full"
                 required
               />
@@ -103,14 +103,14 @@
 
             <div>
               <label for="scrapDescription" class="block text-sm font-medium text-gray-700 mb-1">
-                {{ $t('scrap.description') }}
+                {{ $t('scrap.condition') }}
               </label>
               <el-input
                 id="scrapDescription"
                 v-model="form.description"
                 type="textarea"
                 :rows="4"
-                placeholder="Kondisi unit, tahun, jam operasi, kelengkapan dokumen, dll."
+                :placeholder="$t('scrap.phDescription')"
                 class="w-full"
               />
             </div>
@@ -152,8 +152,10 @@
 import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import { useRuntimeConfig } from '#app';
+import { useI18n } from 'vue-i18n';
 
 const config = useRuntimeConfig();
+const { t: $t } = useI18n();
 
 const modalOpen = ref(false);
 const submitting = ref(false);
@@ -193,31 +195,31 @@ const resetForm = () => {
 
 const handleSubmit = async () => {
   if (!form.value.name || !form.value.phone || !form.value.unitType || !form.value.location) {
-    ElMessage.error('Lengkapi kolom yang wajib diisi');
+    ElMessage.error($t('scrap.errRequired'));
     return;
   }
   if (!form.value.agree) {
-    ElMessage.error('Anda harus menyetujui syarat dan ketentuan');
+    ElMessage.error($t('scrap.errAgree'));
     return;
   }
 
   submitting.value = true;
   try {
     const message = encodeURIComponent(
-      `Halo Trumecs, saya ingin menjual scrap alat berat:\n\n` +
-      `Nama: ${form.value.name}\n` +
-      `Telepon: ${form.value.phone}\n` +
-      `Email: ${form.value.email || '-'}\n` +
-      `Type Unit: ${form.value.unitType}\n` +
-      `Lokasi: ${form.value.location}\n` +
-      `Deskripsi: ${form.value.description || '-'}\n\n` +
-      `Mohon dihubungi untuk penawaran.`
+      $t('scrap.waIntro') + `\n\n` +
+      $t('scrap.name') + `: ${form.value.name}\n` +
+      $t('scrap.phone') + `: ${form.value.phone}\n` +
+      $t('scrap.email') + `: ${form.value.email || '-'}\n` +
+      $t('scrap.unitType') + `: ${form.value.unitType}\n` +
+      $t('scrap.location') + `: ${form.value.location}\n` +
+      $t('scrap.condition') + `: ${form.value.description || '-'}\n\n` +
+      $t('scrap.waClosing')
     );
     window.open(`https://wa.me/${config.public.info.phone}?text=${message}`, '_blank');
-    ElMessage.success('Membuka WhatsApp...');
+    ElMessage.success($t('scrap.waOpening'));
     closeModal();
   } catch {
-    ElMessage.error('Gagal membuka WhatsApp');
+    ElMessage.error($t('scrap.waFail'));
   } finally {
     submitting.value = false;
   }

@@ -162,8 +162,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useAuthStore } from '~/stores/auth';
+import { useI18n } from 'vue-i18n';
 
 const authStore = useAuthStore();
+const { t: $t } = useI18n();
 
 const stats = ref({
   activeRfq: 3,
@@ -203,13 +205,13 @@ const formatPrice = (price: number) => {
 
 const getStatusLabel = (status: string) => {
   const labels: Record<string, string> = {
-    waiting_quotes: 'Menunggu Penawaran',
-    quoted: 'Sudah Dikutip',
-    completed: 'Selesai',
-    cancelled: 'Dibatalkan',
-    processing: 'Diproses',
-    shipped: 'Dikirim',
-    delivered: 'Diterima',
+    waiting_quotes: $t('status.waiting_quotes'),
+    quoted: $t('status.quoted'),
+    completed: $t('status.completed'),
+    cancelled: $t('status.cancelled'),
+    processing: $t('status.processing'),
+    shipped: $t('status.shipped'),
+    delivered: $t('status.delivered'),
   };
   return labels[status] || status;
 };

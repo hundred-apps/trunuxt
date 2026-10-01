@@ -33,7 +33,7 @@
 
     <!-- Desktop Navbar -->
     <div class="hidden lg:block">
-      <div class="container mx-auto px-4 py-3 max-w-[1280px]">
+      <div class="container mx-auto py-3 max-w-[1280px]">
         <!-- Top Row -->
         <div class="flex items-center justify-between mb-3">
           <!-- Logo -->
@@ -158,13 +158,13 @@
                   </el-dropdown>
                 </template>
                 <template v-else>
-                  <Trulink
+                  <!-- <Trulink
                     :to="urlTrumecs + '/member/login'"
                     class="el-button el-button--outline-primary el-button--small px-4"
                     @click="handleLogin"
                   >
                     {{ $t("navbar.button.signUp") }}
-                  </Trulink>
+                  </Trulink> -->
                 </template>
               </div>
             </div>
@@ -238,7 +238,7 @@
         <form @submit.prevent="handleMobileSearch" class="flex gap-2">
           <el-input
             v-model="mobileSearchQuery"
-            placeholder="Cari produk..."
+            :placeholder="$t('navbar.placeholder.search')"
             size="large"
             ref="mobileSearchInput"
           />
@@ -257,22 +257,27 @@
       :with-header="false"
     >
       <div class="h-full flex flex-col bg-white text-gray-900">
-        <!-- User Info -->
+        <!-- Header -->
         <div
-          class="flex justify-between items-center p-4 border-b border-gray-100"
+          class="flex justify-between items-center px-4 py-3 border-b border-gray-100 flex-shrink-0"
         >
           <div class="flex-shrink-0">
             <Trulink :to="urlTrumecs">
               <img
                 src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
-                class="h-10"
+                class="h-9"
               />
             </Trulink>
           </div>
-          <div class="flex gap-4">
-            <SwitcherLang />
-          </div>
+          <button
+            type="button"
+            class="flex h-9 w-9 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700"
+            aria-label="Close menu"
+            @click="showMobileMenu = false"
+          >
+            <Icon name="material-symbols:close" class="text-xl" />
+          </button>
         </div>
 
         <!-- Skeleton Loading di Mobile Menu -->
@@ -300,57 +305,72 @@
         </div>
 
         <!-- Menu Items -->
-        <div v-else class="flex-grow overflow-y-auto">
-          <div class="p-4 border-b border-gray-200" v-if="isLoggedIn">
+        <div v-else class="flex flex-col flex-grow overflow-hidden">
+          <div v-if="isLoggedIn" class="px-4 py-3 border-b border-gray-100 flex-shrink-0">
             <div class="flex items-center gap-3">
-              <el-avatar :size="50" :src="userAvatar" />
-              <div>
-                <p class="font-bold">{{ userName }}</p>
-                <p class="text-sm text-gray-500">Akun Saya</p>
+              <el-avatar :size="44" :src="userAvatar" />
+              <div class="min-w-0">
+                <p class="font-bold text-sm truncate">{{ userName }}</p>
+                <p class="text-xs text-gray-500">Akun Saya</p>
               </div>
             </div>
           </div>
 
-          <div class="flex-grow overflow-y-auto">
-            <el-collapse>
-              <el-collapse-item
-                :title="$t('navbar.menu.category')"
-                name="1"
-                class="text-xl p-b-0"
+          <div class="flex-grow overflow-y-auto overscroll-contain px-4 py-3">
+            <!-- Kategori -->
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">
+              {{ $t('label.exploreCategories') }}
+            </p>
+            <div class="flex flex-col gap-0.5 mb-5">
+              <CategoryMobileCategoryMenuItem
+                v-for="category in products"
+                :key="category.id"
+                :item="category"
+                :level="0"
+                @close-mobile-menu="showMobileMenu = false"
+              />
+            </div>
+
+            <!-- Menu Links -->
+            <div v-if="mobileMenuItems.length > 0">
+              <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">
+                {{ $t('navbar.menu.title', 'Menu') }}
+              </p>
+              <div class="flex flex-col gap-0.5">
+              <Trulink
+                v-for="item in mobileMenuItems"
+                :key="item.to"
+                :to="item.to"
+                @click="handleClickMenuMobile(item.text)"
+                color="black"
+                class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-orange-600"
               >
-                <template
-                  v-for="(category, categoryIdx) in products"
-                  :key="category.id"
+                <Icon
+                  :name="item.icon || 'material-symbols:circle'"
+                  class="text-base text-gray-400 shrink-0"
+                />
+                <span class="flex-1 min-w-0 truncate">{{ item.text }}</span>
+                <span
+                  v-if="item.badge"
+                  class="shrink-0 rounded-full bg-orange-500 px-2 py-0.5 text-[11px] font-semibold text-white"
                 >
-                  <CategoryMobileCategoryMenuItem
-                    :item="category"
-                    :level="0"
-                    @close-mobile-menu="showMobileMenu = false"
-                  />
-                </template>
-              </el-collapse-item>
-            </el-collapse>
-            <Trulink
-              v-for="item in mobileMenuItems"
-              :key="item.to"
-              :to="item.to"
-              @click="handleClickMenuMobile(item.text)"
-              color="black"
-              class="flex items-center gap-3 border-b py-3 hover:bg-opacity-10 border-gray-200 hover:bg-gray-100 px-4"
-            >
-              <span>{{ item.text }}</span>
-            </Trulink>
+                  {{ item.badge }}
+                </span>
+              </Trulink>
+              </div>
+            </div>
           </div>
 
           <!-- Bottom Actions -->
-          <div class="border-t border-gray-200 p-4">
-            <Trulink
-              :to="urlTrumecs + '/bulk'"
-              class="el-button el-button--primary w-full mb-3"
-              @click="handleBulkMobile"
-            >
-              {{ $t("navbar.button.inquiry") }}
-            </Trulink>
+          <div class="border-t border-gray-200 p-4 flex-shrink-0">
+            <!-- Language Switcher -->
+            <div class="mb-3">
+              <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">
+                {{ $t('label.language', 'Bahasa') }}
+              </p>
+              <SwitcherLang type="segmented" />
+            </div>
+
             <div
               class="flex flex-col gap-1 justify-center items-center border-b pb-2"
             >
@@ -421,7 +441,7 @@ const loading = ref(true);
 const error = ref<string | null>(null);
 
 // Refs
-const searchQuery = ref(route.query.nama || "");
+const searchQuery = ref("");
 const mobileSearchQuery = ref("");
 const showMobileMenu = ref(false);
 const showMobileSearch = ref(false);
@@ -437,15 +457,8 @@ const unreadChats = computed(() => 2);
 
 // Mobile menu items
 const mobileMenuItems = computed(() => [
-  { to: urlTrumecs + "/jasa", text: t("navbar.menu.service") },
-  { to: urlTrumecs + "/rental", text: t("navbar.menu.rental") },
-  { to: "/article", text: t("navbar.menu.article") },
-  { to: "/promo", text: t("navbar.menu.promo") },
-  { to: "/principal", text: "Principal" },
-  { to: urlTrumecs + "/bulk", text: t("navbar.menu.rfq") },
-  { to: urlTrumecs + "/syarat", text: t("navbar.menu.term") },
-  { to: urlTrumecs + "/retur", text: t("navbar.menu.policy") },
-  { to: urlTrumecs + "/faq", text: t("navbar.menu.faq") },
+  { to: "/article", text: t("navbar.menu.article"), icon: "material-symbols:article" },
+  { to: "/promo", text: t("navbar.menu.promo"), icon: "material-symbols:sell" },
   ...(isLoggedIn.value
     ? [
         {
@@ -476,22 +489,17 @@ const mobileMenuItems = computed(() => [
           icon: "material-symbols:person",
         },
       ]
-    : [
-        {
-          to: urlTrumecs + "/member/login",
-          text: t("navbar.button.signUp"),
-          icon: "material-symbols:login",
-        },
-      ]),
+    : []),
 ]);
 
 // Methods
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
     trackClickButton("Cari : " + searchQuery.value.trim());
+    lastSubmittedKeyword.value = searchQuery.value.trim();
     navigateTo({
-      path: "/c/all/query",
-      query: { q: "on", nama: searchQuery.value.trim() },
+      path: "/search",
+      query: { q: searchQuery.value.trim() },
     });
   }
 };
@@ -500,21 +508,34 @@ const handleMobileSearch = () => {
   if (mobileSearchQuery.value.trim()) {
     showMobileSearch.value = false;
     trackClickButtonMobile("Cari : " + mobileSearchQuery.value.trim());
+    lastSubmittedKeyword.value = mobileSearchQuery.value.trim();
     navigateTo({
-      path: "/c/all/query",
-      query: { q: "on", nama: mobileSearchQuery.value.trim() },
+      path: "/search",
+      query: { q: mobileSearchQuery.value.trim() },
     });
   }
 };
 
+// Keyword terakhir yang dikirim dari navbar, dipakai agar input navbar tidak
+// ikut dikosongkan saat.keyword berubah karena aksi dari halaman lain.
+const lastSubmittedKeyword = ref("");
+
+// Kalau keyword berubah dari luar navbar (mis. difilter/ direset di halaman
+// search), isi field search navbar dikosongkan.
+watch(
+  () => route.query.q,
+  (value) => {
+    const keyword = typeof value === "string" ? value : "";
+    if (keyword !== lastSubmittedKeyword.value) {
+      searchQuery.value = "";
+      mobileSearchQuery.value = "";
+    }
+  }
+);
+
 const handleBulk = () => {
   trackClickButton("Button 'Info Kebutuhan'");
   navigateTo(urlTrumecs + "/bulk");
-};
-
-const handleBulkMobile = () => {
-  trackClickButtonMobile("Button 'Info Kebutuhan'");
-  showMobileMenu.value = false;
 };
 
 const handleClickLinkArticle = () => {
@@ -543,7 +564,6 @@ const fetchCategories = async () => {
 
     if (response.status === "success") {
       products.value = response.data!.payload.category.products;
-      console.log("Products loaded:", products.value);
     }
   } catch (err) {
     console.error("Error fetching categories:", err);
