@@ -106,6 +106,7 @@
               :categories="categories"
               :selected-ids="selectedCategoryIds"
               :counts="categoryCounts"
+              :check-state="getCategoryCheckState"
               :title="$t('page.category.categories')"
               :loading="loading"
               @toggle="toggleCategory"
@@ -262,6 +263,7 @@
               :categories="categories"
               :selected-ids="selectedCategoryIds"
               :counts="categoryCounts"
+              :check-state="getCategoryCheckState"
               :title="$t('page.category.categories')"
               :loading="loading"
               @toggle="toggleCategory"
@@ -351,6 +353,7 @@ const {
   selectedTagIds,
   hasActiveFilters,
   categoryCounts,
+  getCategoryCheckState,
   brandCounts,
   tagCounts,
   tagLabel,

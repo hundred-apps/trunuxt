@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <ul class="space-y-1">
     <li v-for="node in nodes" :key="node.id">
       <div
@@ -27,15 +27,27 @@
         <button
           type="button"
           @click="toggleSelect(node.id)"
-          :aria-pressed="isSelected(node.id)"
+          :aria-pressed="checkState(node.id) === 'all'"
+          :aria-checked="checkState(node.id) === 'all' ? 'true' : checkState(node.id) === 'partial' ? 'mixed' : 'false'"
           class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors"
           :class="
-            isSelected(node.id)
+            checkState(node.id) === 'all'
               ? 'border-orange-500 bg-orange-500 text-white'
-              : 'border-gray-300 bg-white text-transparent group-hover:border-orange-300'
+              : checkState(node.id) === 'partial'
+                ? 'border-orange-500 bg-orange-500 text-white'
+                : 'border-gray-300 bg-white text-transparent group-hover:border-orange-300'
           "
         >
-          <Icon name="material-symbols:check" class="text-xs font-bold" />
+          <Icon
+            v-if="checkState(node.id) === 'partial'"
+            name="material-symbols:remove"
+            class="text-xs font-bold"
+          />
+          <Icon
+            v-else
+            name="material-symbols:check"
+            class="text-xs font-bold"
+          />
         </button>
 
         <button
@@ -47,7 +59,7 @@
           <span
             class="block truncate text-sm font-medium"
             :class="
-              isSelected(node.id)
+              checkState(node.id) !== 'none'
                 ? 'text-orange-600'
                 : 'text-gray-700 group-hover:text-orange-600'
             "
@@ -59,7 +71,7 @@
         <span
           class="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold"
           :class="
-            isSelected(node.id)
+            checkState(node.id) !== 'none'
               ? 'bg-orange-100 text-orange-600'
               : 'bg-gray-100 text-gray-500'
           "
@@ -79,6 +91,7 @@
             :selected-ids="selectedIds"
             :counts="counts"
             :expanded-ids="expandedIds"
+            :check-state="checkState"
             @toggle="toggleSelect"
             @update:expanded-ids="emit('update:expandedIds', $event)"
           />
@@ -106,6 +119,7 @@ const props = defineProps<{
   selectedIds?: number[];
   counts?: Record<number, number>;
   expandedIds?: number[];
+  checkState?: (id: number) => "none" | "partial" | "all";
 }>();
 
 const emit = defineEmits<{
@@ -120,7 +134,11 @@ const expandedIds = computed(() => props.expandedIds || []);
 const hasChildren = (node: CategoryNode) =>
   Array.isArray(node.children) && node.children.length > 0;
 
-const isSelected = (id: number) => selectedIds.value.includes(id);
+// Status centang: none / partial (indeterminate) / all
+const checkState = (id: number): "none" | "partial" | "all" => {
+  if (props.checkState) return props.checkState(id);
+  return selectedIds.value.includes(id) ? "all" : "none";
+};
 
 const isExpanded = (node: CategoryNode) => expandedIds.value.includes(node.id);
 

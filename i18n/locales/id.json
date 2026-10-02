@@ -1766,6 +1766,17 @@
         "retry": "Coba Lagi",
         "backHome": "Kembali ke Beranda"
       }
+    },
+    "articleTag": {
+      "title": "Tag Artikel",
+      "subtitle": "Jelajahi artikel berdasarkan topik dan tags yang tersedia.",
+      "totalTags": "{count} tag",
+      "articleCount": "{count} artikel",
+      "scanning": "Mengambil data artikel...",
+      "scanningMore": "Memuat data artikel lainnya...",
+      "notFound": "Tag tidak ditemukan",
+      "backToTags": "Kembali ke daftar tag",
+      "subtitleWithTag": "Daftar artikel dengan tag {tag}"
     }
   }
 }

@@ -86,8 +86,29 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     // "nuxt-schema-org",
     "nuxt-gtag",
+    "@nuxt/image",
     "./modules/image-loading-hints",
   ],
+
+  image: {
+    // Optimization via ipx + sharp (server-side resize & format conversion)
+    provider: "ipx",
+    domains: [
+      "www.trumecs.com",
+      "migration.trumecs.com",
+      "migrationbe.trumecs.com",
+    ],
+    format: ["avif", "webp"],
+    quality: 70,
+    screens: {
+      xs: 375,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+  },
 
   vite: {
     plugins: [tailwindcss()],

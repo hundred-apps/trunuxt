@@ -1765,6 +1765,17 @@
         "retry": "重试",
         "backHome": "返回首页"
       }
+    },
+    "articleTag": {
+      "title": "文章标签",
+      "subtitle": "按主题和标签浏览文章。",
+      "totalTags": "{count} 个标签",
+      "articleCount": "{count} 篇文章",
+      "scanning": "正在获取文章数据...",
+      "scanningMore": "正在加载更多文章数据...",
+      "notFound": "未找到标签",
+      "backToTags": "返回标签列表",
+      "subtitleWithTag": "标签 {tag} 的文章列表"
     }
   }
 }

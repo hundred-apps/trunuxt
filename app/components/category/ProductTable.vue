@@ -159,10 +159,13 @@
             class="flex"
           >
             <div class="h-32 w-32 flex-shrink-0 overflow-hidden bg-gray-50 sm:h-36 sm:w-36">
-              <img
+              <AppImage
                 :src="getProductImage(product.img)"
                 :alt="product.tittle"
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="128px sm:144px"
+                width="144"
+                height="144"
                 loading="lazy"
               />
             </div>

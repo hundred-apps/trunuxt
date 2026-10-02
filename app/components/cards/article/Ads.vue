@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div
     class="hidden lg:block bg-[#F6F6F7] border border-gray-200 rounded-lg overflow-hidden"
   >
@@ -12,7 +12,7 @@
         {{ buttonText }}
       </a>
     </div>
-    <img :src="imageUrl" :alt="imageAlt" class="w-full" />
+    <AppImage :src="imageUrl" :alt="imageAlt" class="w-full" sizes="100vw lg:1280px" width="1280" height="400" loading="lazy" />
   </div>
 </template>
 

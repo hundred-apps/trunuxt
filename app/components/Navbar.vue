@@ -38,7 +38,7 @@
         <div class="flex items-center justify-between mb-3">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <Trulink href="https://trumecs.com">
+            <Trulink href="/">
               <img
                 src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
@@ -306,7 +306,10 @@
 
         <!-- Menu Items -->
         <div v-else class="flex flex-col flex-grow overflow-hidden">
-          <div v-if="isLoggedIn" class="px-4 py-3 border-b border-gray-100 flex-shrink-0">
+          <div
+            v-if="isLoggedIn"
+            class="px-4 py-3 border-b border-gray-100 flex-shrink-0"
+          >
             <div class="flex items-center gap-3">
               <el-avatar :size="44" :src="userAvatar" />
               <div class="min-w-0">
@@ -318,8 +321,10 @@
 
           <div class="flex-grow overflow-y-auto overscroll-contain px-4 py-3">
             <!-- Kategori -->
-            <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">
-              {{ $t('label.exploreCategories') }}
+            <p
+              class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2"
+            >
+              {{ $t("label.exploreCategories") }}
             </p>
             <div class="flex flex-col gap-0.5 mb-5">
               <CategoryMobileCategoryMenuItem
@@ -333,30 +338,32 @@
 
             <!-- Menu Links -->
             <div v-if="mobileMenuItems.length > 0">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">
-                {{ $t('navbar.menu.title', 'Menu') }}
+              <p
+                class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2"
+              >
+                {{ $t("navbar.menu.title", "Menu") }}
               </p>
               <div class="flex flex-col gap-0.5">
-              <Trulink
-                v-for="item in mobileMenuItems"
-                :key="item.to"
-                :to="item.to"
-                @click="handleClickMenuMobile(item.text)"
-                color="black"
-                class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-orange-600"
-              >
-                <Icon
-                  :name="item.icon || 'material-symbols:circle'"
-                  class="text-base text-gray-400 shrink-0"
-                />
-                <span class="flex-1 min-w-0 truncate">{{ item.text }}</span>
-                <span
-                  v-if="item.badge"
-                  class="shrink-0 rounded-full bg-orange-500 px-2 py-0.5 text-[11px] font-semibold text-white"
+                <Trulink
+                  v-for="item in mobileMenuItems"
+                  :key="item.to"
+                  :to="item.to"
+                  @click="handleClickMenuMobile(item.text)"
+                  color="black"
+                  class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-orange-600"
                 >
-                  {{ item.badge }}
-                </span>
-              </Trulink>
+                  <Icon
+                    :name="item.icon || 'material-symbols:circle'"
+                    class="text-base text-gray-400 shrink-0"
+                  />
+                  <span class="flex-1 min-w-0 truncate">{{ item.text }}</span>
+                  <span
+                    v-if="item.badge"
+                    class="shrink-0 rounded-full bg-orange-500 px-2 py-0.5 text-[11px] font-semibold text-white"
+                  >
+                    {{ item.badge }}
+                  </span>
+                </Trulink>
               </div>
             </div>
           </div>
@@ -365,8 +372,10 @@
           <div class="border-t border-gray-200 p-4 flex-shrink-0">
             <!-- Language Switcher -->
             <div class="mb-3">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">
-                {{ $t('label.language', 'Bahasa') }}
+              <p
+                class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2"
+              >
+                {{ $t("label.language", "Bahasa") }}
               </p>
               <SwitcherLang type="segmented" />
             </div>
@@ -457,7 +466,11 @@ const unreadChats = computed(() => 2);
 
 // Mobile menu items
 const mobileMenuItems = computed(() => [
-  { to: "/article", text: t("navbar.menu.article"), icon: "material-symbols:article" },
+  {
+    to: "/article",
+    text: t("navbar.menu.article"),
+    icon: "material-symbols:article",
+  },
   { to: "/promo", text: t("navbar.menu.promo"), icon: "material-symbols:sell" },
   ...(isLoggedIn.value
     ? [

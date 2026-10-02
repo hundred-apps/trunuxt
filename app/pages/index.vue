@@ -18,13 +18,19 @@
                 class="block w-full"
                 @click="slide.scrap ? openScrapModal() : undefined"
               >
-                <img
+                <NuxtImg
                   :src="slide.image"
                   :alt="slide.alt"
-                  class="w-full block h-auto object-contain lg:h-[680px]"
+                  class="w-full block h-auto object-contain lg:h-[680px] lg:object-cover"
                   :loading="index === 0 ? 'eager' : 'lazy'"
                   :fetchpriority="index === 0 ? 'high' : 'auto'"
+                  :preload="index === 0"
                   decoding="async"
+                  sizes="100vw sm:100vw md:100vw lg:1280px"
+                  width="1280"
+                  height="680"
+                  format="webp"
+                  quality="70"
                 />
               </component>
             </div>

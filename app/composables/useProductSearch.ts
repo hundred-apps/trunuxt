@@ -39,18 +39,24 @@ export function useProductSearch() {
   // Kumpulkan id node + semua descendant untuk satu/lebih root category
   function selectedSubcategorySet(): Set<number> {
     const set = new Set<number>();
-    const walk = (node: any) => {
+    const selected = selectedCategoryIds.value;
+
+    // Kumpulkan node terpilih beserta seluruh keturunannya
+    const collect = (node: any) => {
       set.add(node.id);
-      (node.children || []).forEach(walk);
+      (node.children || []).forEach(collect);
     };
-    for (const root of categories.value) {
-      if (selectedCategoryIds.value.includes(root.id)) walk(root);
-      else {
-        for (const child of root.children || []) {
-          if (selectedCategoryIds.value.includes(child.id)) walk(child);
-        }
+
+    // Cari node terpilih di kedalaman berapa pun (root / sub / subsub)
+    const search = (node: any): boolean => {
+      if (selected.includes(node.id)) {
+        collect(node);
+        return true;
       }
-    }
+      return (node.children || []).some(search);
+    };
+
+    categories.value.forEach(search);
     return set;
   }
 
@@ -173,13 +179,87 @@ export function useProductSearch() {
       keyword.value.trim() !== ""
   );
 
+  // ============ TRI-STATE CATEGORY ============
+
+  // Cari node berdasarkan id
+  function findCategoryNode(
+    id: number,
+    nodes: any[] = categories.value
+  ): any | null {
+    for (const node of nodes) {
+      if (node.id === id) return node;
+      const found = findCategoryNode(id, node.children || []);
+      if (found) return found;
+    }
+    return null;
+  }
+
+  // Node + seluruh keturunannya
+  function collectNodeIds(node: any): number[] {
+    const ids: number[] = [node.id];
+    for (const child of node.children || []) {
+      ids.push(...collectNodeIds(child));
+    }
+    return ids;
+  }
+
+  // "none" | "partial" | "all"
+  function getCategoryCheckState(id: number): "none" | "partial" | "all" {
+    const node = findCategoryNode(id);
+    if (!node) return "none";
+
+    const ids = collectNodeIds(node);
+    const selected = selectedCategoryIds.value;
+    const hit = ids.filter((n) => selected.includes(n)).length;
+
+    if (hit === 0) return "none";
+    if (hit === ids.length) return "all";
+    return "partial";
+  }
+
+  // Pilih parent -> semua child ikut tercentang; pilih yang sudah penuh -> lepas semua
   function toggleCategory(id: number) {
     currentPage.value = 1;
-    const idx = selectedCategoryIds.value.indexOf(id);
-    if (idx >= 0) selectedCategoryIds.value.splice(idx, 1);
-    else selectedCategoryIds.value.push(id);
+    const node = findCategoryNode(id);
+
+    if (!node) {
+      const idx = selectedCategoryIds.value.indexOf(id);
+      if (idx >= 0) selectedCategoryIds.value.splice(idx, 1);
+      else selectedCategoryIds.value.push(id);
+      applyFilters();
+      syncUrl();
+      return;
+    }
+
+    const ids = collectNodeIds(node);
+    const wasFull = getCategoryCheckState(id) === "all";
+
+    selectedCategoryIds.value = wasFull
+      ? selectedCategoryIds.value.filter((cid) => !ids.includes(cid))
+      : Array.from(new Set([...selectedCategoryIds.value, ...ids]));
+
     applyFilters();
     syncUrl();
+  }
+
+  // Rantai ancestor dari node terpilih, supaya node terpilih selalu terlihat
+  function ancestorsOfSelectedIds(): number[] {
+    const out = new Set<number>();
+    const selected = selectedCategoryIds.value;
+
+    const walk = (node: any, trail: number[]) => {
+      const selfTrail = [...trail, node.id];
+      if (selected.includes(node.id)) {
+        selfTrail.forEach((tid) => out.add(tid));
+        return;
+      }
+      for (const child of node.children || []) {
+        walk(child, selfTrail);
+      }
+    };
+
+    categories.value.forEach((node: any) => walk(node, []));
+    return Array.from(out);
   }
 
   function toggleTag(id: string | number) {
@@ -453,6 +533,8 @@ export function useProductSearch() {
     selectedTagIds,
     hasActiveFilters,
     categoryCounts,
+  getCategoryCheckState,
+  ancestorsOfSelectedIds,
     brandCounts,
     fetchCategories,
     fetchAllProducts,

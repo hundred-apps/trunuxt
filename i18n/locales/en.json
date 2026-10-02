@@ -1766,6 +1766,17 @@
         "retry": "Try Again",
         "backHome": "Back to Home"
       }
+    },
+    "articleTag": {
+      "title": "Article Tags",
+      "subtitle": "Explore articles by topic and available tags.",
+      "totalTags": "{count} tags",
+      "articleCount": "{count} articles",
+      "scanning": "Fetching article data...",
+      "scanningMore": "Loading more article data...",
+      "notFound": "Tag not found",
+      "backToTags": "Back to tag list",
+      "subtitleWithTag": "Article list with tag {tag}"
     }
   }
 }

@@ -1,11 +1,16 @@
 <template>
-  <section class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm" aria-labelledby="brand-heading">
+  <section
+    class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"
+    aria-labelledby="brand-heading"
+  >
     <header class="mb-4 flex items-center justify-between">
       <h2
         id="brand-heading"
         class="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-700"
       >
-        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
+        <span
+          class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-500"
+        >
           <Icon name="material-symbols:business" class="text-lg" />
         </span>
         {{ title }}
@@ -22,19 +27,28 @@
         :to="seeAllUrl"
         class="text-xs font-medium text-orange-500 hover:text-orange-600"
       >
-        {{ $t('button.seeAll') }}
+        {{ $t("button.seeAll") }}
       </Trulink>
     </header>
 
     <!-- Loading -->
     <div v-if="loading" class="space-y-2">
-      <div v-for="i in 6" :key="i" class="h-10 animate-pulse rounded-xl bg-gray-100" />
+      <div
+        v-for="i in 6"
+        :key="i"
+        class="h-10 animate-pulse rounded-xl bg-gray-100"
+      />
     </div>
 
     <!-- Empty -->
     <div v-else-if="brands.length === 0" class="py-8 text-center">
-      <Icon name="material-symbols:inventory-2" class="mx-auto text-3xl text-gray-300" />
-      <p class="mt-2 text-sm text-gray-400">{{ $t('page.category.noBrands') }}</p>
+      <Icon
+        name="material-symbols:inventory-2"
+        class="mx-auto text-3xl text-gray-300"
+      />
+      <p class="mt-2 text-sm text-gray-400">
+        {{ $t("page.category.noBrands") }}
+      </p>
     </div>
 
     <!-- List -->
@@ -76,12 +90,16 @@
             "
           >
             <img
-              v-if="brand.logo"
-              :src="brand.logo"
+              v-if="brand.img"
+              :src="`${config.public.baseImageCat}${brand.img}`"
               :alt="brand.name"
               class="h-full w-full object-contain"
             />
-            <Icon v-else :name="brand.icon || 'material-symbols:business'" class="text-sm" />
+            <Icon
+              v-else
+              :name="brand.icon || 'material-symbols:business'"
+              class="text-sm"
+            />
           </span>
 
           <span class="min-w-0 flex-1 truncate text-sm font-medium">
@@ -107,7 +125,7 @@
       class="mt-2 flex items-center gap-1 text-[11px] text-gray-400"
     >
       <Icon name="material-symbols:unfold-more" class="text-xs" />
-      {{ $t('page.category.scrollHint') }}
+      {{ $t("page.category.scrollHint") }}
     </p>
 
     <Trubutton
@@ -123,11 +141,12 @@
 </template>
 
 <script setup lang="ts">
+const config = useRuntimeConfig();
 interface Brand {
   id: number;
   name: string;
   url: string;
-  logo?: string;
+  img?: string;
   icon?: string;
 }
 
@@ -146,11 +165,11 @@ const props = defineProps({
   },
   title: {
     type: String,
-    default: 'Merek',
+    default: "Merek",
   },
   seeAllUrl: {
     type: String,
-    default: '',
+    default: "",
   },
   loading: {
     type: Boolean,
@@ -171,6 +190,6 @@ const isActive = (id: number) => props.activeId === id;
 
 const handleClick = (id: number) => {
   if (props.disabled?.includes(id)) return;
-  emit('select', id);
+  emit("select", id);
 };
 </script>

@@ -41,6 +41,7 @@
       :selected-ids="selectedIds"
       :counts="counts"
       :expanded-ids="expandedIds"
+      :check-state="checkState"
       class="max-h-[320px] overflow-y-auto pr-1"
       @toggle="toggleSelect"
       @update:expanded-ids="expandedIds = $event"
@@ -68,6 +69,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
+import type { PropType } from "vue";
 import CategoryTreeNode from "~/components/category/CategoryTreeNode.vue";
 
 interface CategoryNode {
@@ -98,6 +100,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // Status centang tri-state per node (disediakan parent)
+  checkState: {
+    type: Function as PropType<
+      (id: number) => "none" | "partial" | "all"
+    >,
+    default: undefined,
+  },
 });
 
 const emit = defineEmits<{
@@ -113,14 +122,50 @@ const rootCount = computed(() => props.categories.length);
 // setiap sibling bisa saling menutup.
 const expandedIds = ref<number[]>([]);
 
-// Buka otomatis node yang sedang terpilih agar tidak tersembunyi.
+// Kumpulkan rantai ancestor dari SETIAP node yang terpilih (tidak berhenti di
+// node atasnya), supaya semua kategori terpilih selalu terlihat.
+const hasSelectedInSubtree = (node: any): boolean => {
+  const selected = props.selectedIds || [];
+  if (selected.includes(node.id)) return true;
+  return (node.children || []).some(hasSelectedInSubtree);
+};
+
+const collectOpenIds = (
+  node: any,
+  trail: number[],
+  out: Set<number>
+) => {
+  const selected = props.selectedIds || [];
+  const selfTrail = [...trail, node.id];
+
+  // Node ini terpilih -> buka dirinya dan semua ancestor-nya
+  if (selected.includes(node.id)) {
+    selfTrail.forEach((id) => out.add(id));
+  }
+
+  // Tetap turun mencari_selected yang lebih dalam
+  (node.children || []).forEach((child) => {
+    if (hasSelectedInSubtree(child)) {
+      collectOpenIds(child, selfTrail, out);
+    }
+  });
+};
+
+// Buka otomatis node terpilih tanpa menimpa pilihan buka manual user
 watch(
   () => props.selectedIds,
-  (ids) => {
-    if (!ids || ids.length === 0) return;
-    const all = new Set(expandedIds.value);
-    ids.forEach((id) => all.add(id));
-    expandedIds.value = Array.from(all);
+  () => {
+    const selected = props.selectedIds || [];
+    if (selected.length === 0) return;
+
+    const out = new Set<number>();
+    props.categories.forEach((node) => collectOpenIds(node, [], out));
+
+    if (out.size > 0) {
+      expandedIds.value = Array.from(
+        new Set([...expandedIds.value, ...out])
+      );
+    }
   },
   { immediate: true, deep: true }
 );

@@ -88,8 +88,8 @@
                       <Trulink
                         v-for="tag in article.tags"
                         :key="tag"
-                        :to="`/article/tag/${tag.toLowerCase()}`"
-                        class="text-sm text-orange-500 hover:underline"
+                        :to="`/article/tag/${slugifyTag(tag)}`"
+                        class="inline-flex items-center text-sm text-orange-500 hover:underline"
                       >
                         #{{ tag }}
                       </Trulink>
@@ -231,6 +231,7 @@ import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory } from "~/types/category";
 import { defineBreadcrumb, useSchemaOrg } from "@unhead/schema-org/vue";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { slugifyTag } from "~/composables/useArticleTags";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 const article = ref<CardArticle | null>(null);

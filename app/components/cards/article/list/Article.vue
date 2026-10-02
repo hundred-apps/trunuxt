@@ -10,10 +10,10 @@
         <div class="hidden lg:flex gap-4 p-4">
           <!-- Image -->
           <div class="w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
-            <img
+<img
               :src="article.image"
               :alt="article.title"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              class="w-full h-full object-cover"
               loading="lazy"
             />
           </div>

@@ -4,10 +4,13 @@
     class="group block bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg border border-gray-100"
   >
     <div class="relative aspect-square overflow-hidden bg-gray-50">
-      <img
+      <AppImage
         :src="productImage"
         :alt="product.tittle"
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        sizes="100vw sm:50vw md:33vw lg:25vw xl:20vw"
+        width="400"
+        height="400"
         loading="lazy"
       />
       <div
