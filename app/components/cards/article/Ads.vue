@@ -5,14 +5,22 @@
     <div class="p-4">
       <h3 class="font-bold text-lg">{{ title }}</h3>
       <h6 class="text-gray-600 text-sm mb-2">{{ description }}</h6>
-      <a
+      <Trulink
         :href="buttonLink"
         class="text-orange-500 hover:underline text-sm inline-block"
       >
         {{ buttonText }}
-      </a>
+      </Trulink>
     </div>
-    <AppImage :src="imageUrl" :alt="imageAlt" class="w-full" sizes="100vw lg:1280px" width="1280" height="400" loading="lazy" />
+    <AppImage
+      :src="imageUrl"
+      :alt="imageAlt"
+      class="w-full"
+      sizes="100vw lg:1280px"
+      width="1280"
+      height="600"
+      loading="lazy"
+    />
   </div>
 </template>
 

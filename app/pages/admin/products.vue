@@ -8,30 +8,30 @@
         <p class="mt-1 text-gray-600">{{ $t("admin.products.subtitle") }}</p>
       </div>
       <div class="flex gap-3">
-        <NuxtLink to="/admin/products/import">
+        <Trulink to="/admin/products/import">
           <Trubutton
             :text="$t('admin.products.import')"
             type="primary"
             variant="outline"
             icon="material-symbols:upload"
           />
-        </NuxtLink>
-        <NuxtLink to="/admin/products/export">
+        </Trulink>
+        <Trulink to="/admin/products/export">
           <Trubutton
             :text="$t('admin.products.export')"
             type="primary"
             variant="outline"
             icon="material-symbols:download"
           />
-        </NuxtLink>
-        <NuxtLink to="/admin/products/create">
+        </Trulink>
+        <Trulink to="/admin/products/create">
           <Trubutton
             :text="$t('admin.products.addNew')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
     </div>
 
@@ -140,14 +140,14 @@
           {{ $t("admin.products.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.products.emptyDesc") }}</p>
-        <NuxtLink to="/admin/products/create">
+        <Trulink to="/admin/products/create">
           <Trubutton
             :text="$t('admin.products.addFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="overflow-x-auto">
@@ -203,11 +203,15 @@
               class="hover:bg-gray-50"
             >
               <td class="px-6 py-4">
-                <img
-                  :src="getProductImage(product.img)"
-                  :alt="product.name"
-                  class="h-12 w-12 object-cover rounded"
-                />
+                <AppImage
+:src="getProductImage(product.img)"
+:alt="product.name"
+class="h-12 w-12 object-cover rounded"
+                  width="48"
+                  height="48"
+                  sizes="48px"
+                  loading="lazy"
+                  />
               </td>
               <td class="px-6 py-4">
                 <div>
@@ -252,20 +256,20 @@
               </td>
               <td class="px-6 py-4 text-right w-32">
                 <div class="flex items-center justify-end gap-2">
-                  <NuxtLink
+                  <Trulink
                     :to="`/admin/products/${product.id}`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Detail"
                   >
                     <Icon name="material-symbols:visibility" class="h-4 w-4" />
-                  </NuxtLink>
-                  <NuxtLink
+                  </Trulink>
+                  <Trulink
                     :to="`/admin/products/${product.id}/edit`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Edit"
                   >
                     <Icon name="material-symbols:edit" class="h-4 w-4" />
-                  </NuxtLink>
+                  </Trulink>
                   <el-dropdown>
                     <template #dropdown>
                       <el-dropdown-menu>

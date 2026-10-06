@@ -4,11 +4,11 @@
     <ul class="flex items-center gap-1">
       <li v-for="product in products" :key="product.id">
         <Trulink
-          :href="hasChildren(product) ? undefined : categoryUrl(product)"
-          class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors"
+          :to="hasChildren(product) ? undefined : categoryUrl(product)"
+          class="flex items-center gap-1 rounded-lg pe-3 py-2 text-sm font-medium transition-colors"
           :class="
             isActiveRoot(product)
-              ? 'bg-orange-50 text-orange-600'
+              ? ' text-orange-600'
               : 'text-gray-700 hover:bg-gray-50 hover:text-orange-600'
           "
           @mouseenter="openRoot(product, $event)"
@@ -63,7 +63,7 @@
                   @focus="hoverItem(item, colIndex)"
                 >
                   <Trulink
-                    :href="categoryUrl(item)"
+                    :to="categoryUrl(item)"
                     class="min-w-0 flex-1 truncate"
                     @click="handleClick(item, colIndex)"
                   >

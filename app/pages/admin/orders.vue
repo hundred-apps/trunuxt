@@ -8,22 +8,22 @@
         <p class="mt-1 text-gray-600">{{ $t("admin.orders.subtitle") }}</p>
       </div>
       <div class="flex gap-3">
-        <NuxtLink to="/admin/orders/export">
+        <Trulink to="/admin/orders/export">
           <Trubutton
             :text="$t('admin.orders.export')"
             type="primary"
             variant="outline"
             icon="material-symbols:download"
           />
-        </NuxtLink>
-        <NuxtLink to="/admin/orders/create">
+        </Trulink>
+        <Trulink to="/admin/orders/create">
           <Trubutton
             :text="$t('admin.orders.create')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
     </div>
 
@@ -146,14 +146,14 @@
           {{ $t("admin.orders.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.orders.emptyDesc") }}</p>
-        <NuxtLink to="/admin/orders/create">
+        <Trulink to="/admin/orders/create">
           <Trubutton
             :text="$t('admin.orders.createFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="overflow-x-auto">
@@ -261,20 +261,20 @@
               </td>
               <td class="px-6 py-4 text-right w-32">
                 <div class="flex items-center justify-end gap-2">
-                  <NuxtLink
+                  <Trulink
                     :to="`/admin/orders/${order.id}`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Detail"
                   >
                     <Icon name="material-symbols:visibility" class="h-4 w-4" />
-                  </NuxtLink>
-                  <NuxtLink
+                  </Trulink>
+                  <Trulink
                     :to="`/admin/orders/${order.id}/edit`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Edit"
                   >
                     <Icon name="material-symbols:edit" class="h-4 w-4" />
-                  </NuxtLink>
+                  </Trulink>
                   <el-dropdown>
                     <template #dropdown>
                       <el-dropdown-menu>

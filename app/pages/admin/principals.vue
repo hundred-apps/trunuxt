@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.principals.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/principals/create">
+      <Trulink to="/admin/principals/create">
         <Trubutton
           :text="$t('admin.principals.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Filter -->
@@ -60,14 +60,14 @@
           {{ $t("admin.principals.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.principals.emptyDesc") }}</p>
-        <NuxtLink to="/admin/principals/create">
+        <Trulink to="/admin/principals/create">
           <Trubutton
             :text="$t('admin.principals.addFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="overflow-x-auto">
@@ -118,12 +118,16 @@
               class="hover:bg-gray-50"
             >
               <td class="px-6 py-4">
-                <img
-                  v-if="principal.logo"
-                  :src="getLogo(principal.logo)"
-                  :alt="principal.name"
-                  class="h-10 w-10 object-contain rounded"
-                />
+                <AppImage
+v-if="principal.logo"
+:src="getLogo(principal.logo)"
+:alt="principal.name"
+class="h-10 w-10 object-contain rounded"
+                  width="40"
+                  height="40"
+                  sizes="40px"
+                  loading="lazy"
+                  />
                 <div
                   v-else
                   class="h-10 w-10 rounded-lg bg-orange-100 flex items-center justify-center"
@@ -164,20 +168,20 @@
               </td>
               <td class="px-6 py-4 text-right w-32">
                 <div class="flex items-center justify-end gap-2">
-                  <NuxtLink
+                  <Trulink
                     :to="`/admin/principals/${principal.id}`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Detail"
                   >
                     <Icon name="material-symbols:visibility" class="h-4 w-4" />
-                  </NuxtLink>
-                  <NuxtLink
+                  </Trulink>
+                  <Trulink
                     :to="`/admin/principals/${principal.id}/edit`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Edit"
                   >
                     <Icon name="material-symbols:edit" class="h-4 w-4" />
-                  </NuxtLink>
+                  </Trulink>
                   <button
                     @click="toggleStatus(principal)"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"

@@ -107,7 +107,7 @@
                 <el-checkbox v-model="form.agree" size="small">
                   <span class="text-sm text-gray-600">
                     {{ $t('requestForm.agree') }}
-                    <NuxtLink to="/page/syarat-ketentuan" class="text-orange-600 hover:underline">{{ $t('requestForm.terms') }}</NuxtLink>
+                    <Trulink to="/terms-of-use" class="text-orange-600 hover:underline">{{ $t('requestForm.terms') }}</Trulink>
                   </span>
                 </el-checkbox>
               </div>

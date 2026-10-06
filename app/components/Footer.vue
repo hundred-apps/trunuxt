@@ -23,14 +23,18 @@
         <!-- Logo & Social Media -->
         <div class="lg:w-1/4 w-full py-1">
           <div
-            class="logo"
+            class="logo mb-5"
             :class="{ 'flex justify-center lg:justify-start': true }"
           >
             <Trulink to="/" @click="handleClickLogo">
-              <img
+              <AppImage
                 :src="footerLogo"
                 alt="Logo Trumecs Footer"
-                class="w-[200px]"
+                class="w-[200px] h-auto object-contain"
+                width="200"
+                height="40"
+                sizes="200px"
+                loading="lazy"
               />
             </Trulink>
           </div>
@@ -204,9 +208,37 @@
         </div>
       </div>
 
+      <!-- Legal Links -->
+      <div class="border-t border-white/10 py-2">
+        <div
+          class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm"
+        >
+          <Trulink
+            to="/terms-of-use"
+            class="text-white/70 hover:text-orange-400 transition-colors"
+          >
+            {{ $t("legal.terms") }}
+          </Trulink>
+          <span class="text-white/20">|</span>
+          <Trulink
+            to="/privacy-policy"
+            class="text-white/70 hover:text-orange-400 transition-colors"
+          >
+            {{ $t("legal.privacy") }}
+          </Trulink>
+          <span class="text-white/20">|</span>
+          <Trulink
+            to="/faq"
+            class="text-white/70 hover:text-orange-400 transition-colors"
+          >
+            {{ $t("legal.faq") }}
+          </Trulink>
+        </div>
+      </div>
+
       <!-- Copyright -->
-      <div class="row mt-4 py-4 bg-black">
-        <div class="col-lg-12 mt-4">
+      <div class="row py-4 bg-black">
+        <div class="col-lg-12">
           <p class="text-center text-white">
             Trumecs.com © 2022 | Tiyasa Makmur Perkasa
           </p>

@@ -13,10 +13,13 @@
         <div class="flex md:flex-col">
           <!-- Image Section -->
           <div class="w-1/3 md:w-full aspect-[4/3] overflow-hidden">
-            <img
+            <AppImage
               :src="article.image"
               :alt="article.title"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="33vw md:250px"
+              width="250"
+              height="188"
               loading="lazy"
             />
           </div>

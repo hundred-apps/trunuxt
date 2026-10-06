@@ -518,7 +518,8 @@
   },
   "breadcrumb": {
     "home": "Beranda",
-    "article": "Artikel"
+    "article": "Artikel",
+    "legal": "Informasi Legal"
   },
   "admin": {
     "active": "Aktif",
@@ -960,7 +961,16 @@
       "loadingDesc": "Mohon tunggu, artikel sedang dimuat.",
       "share": "Bagikan :",
       "tags": "Tags:",
+      "filterByTag": "Saring artikel:",
+      "search": "Cari",
+      "clearSearch": "Hapus pencarian",
+      "searchPlaceholder": "Cari artikel...",
+      "searchResultFor": "Hasil pencarian untuk",
+      "empty": "Tidak ada artikel",
+      "retry": "Coba lagi",
       "loadError": "Gagal memuat data artikel",
+      "notFound": "Artikel tidak ditemukan",
+      "notFoundDesc": "Artikel yang Anda cari mungkin telah dipindahkan atau dihapus.",
       "metaTitle": "Artikel",
       "metaDesc": "Baca artikel terbaru seputar tips perawatan alat berat, panduan sparepart, dan berita industri dari Trumecs.",
       "formName": "Nama Lengkap",
@@ -1772,11 +1782,29 @@
       "subtitle": "Jelajahi artikel berdasarkan topik dan tags yang tersedia.",
       "totalTags": "{count} tag",
       "articleCount": "{count} artikel",
+      "trending": "Trending di tag ini",
+      "related": "Artikel terkait",
       "scanning": "Mengambil data artikel...",
+"searchPlaceholder": "Cari tag artikel...",
       "scanningMore": "Memuat data artikel lainnya...",
       "notFound": "Tag tidak ditemukan",
       "backToTags": "Kembali ke daftar tag",
       "subtitleWithTag": "Daftar artikel dengan tag {tag}"
     }
+  },
+  "legal": {
+    "terms": "Syarat & Ketentuan",
+    "privacy": "Kebijakan Privasi",
+    "faq": "FAQ",
+    "legalTitle": "Informasi Legal",
+    "legalDesc": "Pelajari ketentuan penggunaan, kebijakan privasi, dan pertanyaan umum Trumecs.com.",
+    "lastUpdated": "Terakhir diperbarui",
+    "contactTitle": "Ada pertanyaan lebih lanjut?",
+    "contactDesc": "Tim kami siap membantu. Hubungi kami melalui WhatsApp atau email untuk informasi lebih lengkap.",
+    "contactCta": "Hubungi Kami",
+    "faqStillHelp": "Belum menemukan jawabannya?",
+    "searchPlaceholder": "Cari pertanyaan...",
+    "noMatch": "Tidak ada pertanyaan yang cocok dengan pencarian Anda.",
+    "relatedTitle": "Halaman terkait"
   }
 }

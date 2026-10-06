@@ -13,6 +13,9 @@ interface RawArticle {
   url?: string;
   img?: string;
   date?: string;
+  view?: number;
+  discription_seo?: string;
+  created_by?: string;
   tag?: string;
   tag_en?: string;
   tag_ch?: string;
@@ -43,7 +46,6 @@ let cache: {
   totalPages: number;
   totalData: number;
   done: boolean;
-  running: Promise<void> | null;
 } | null = null;
 
 function ensureCache() {
@@ -54,26 +56,50 @@ function ensureCache() {
       totalPages: 0,
       totalData: 0,
       done: false,
-      running: null,
     };
   }
   return cache;
 }
 
 /**
- * Pecah field tag menjadi daftar tag.
- * Format API: "#TagSatu #Tag Dua #TagTiga" -> tag dipisah oleh "#",
- * sehingga tag yang mengandung spasi (mis. "Alat Berat") tetap utuh.
+ * Antrean serial untuk scanning.
+ *
+ * Tanpa ini, `scanUntil()` (dari halaman tag detail) dan `scanNext()` /
+ * `scanAll()` bisa jalan bersamaan. Keduanya menghitung
+ * `nextPage = scannedPages + 1` dari state yang sama, jadi keduanya fetch
+ * halaman yang sama lalu `push()` dua kali -> artikel duplikat dan
+ * `articleCount` jadi ngawur.
+ *
+ * Semua scan wajib lewat `enqueue()`.
  */
-function parseTagString(raw?: string): string[] {
+let queue: Promise<unknown> = Promise.resolve();
+
+function enqueue<T>(fn: () => Promise<T>): Promise<T> {
+  const run = queue.then(fn, fn);
+  // Antrian harus tetap live walau satu task gagal.
+  queue = run.then(
+    () => undefined,
+    () => undefined
+  );
+  return run;
+}
+
+/**
+ * Pecah string tag dari API menjadi daftar tag terpisah.
+ *
+ * Format di lapangan:
+ *   "#TagA #TagB #TagC"             -> pisah "#"
+ *   "impact roller, roller conveyor" -> pisah koma, tapi ISI tag mengandung spasi
+ *   "TagA, TagB #TagC"              -> gabungan keduanya
+ *
+ * "#", koma, dan semicolon selalu jadi pemisah; spasi tunggal TIDAK
+ * memisahkan, supaya "impact roller" tetap satu tag.
+ */
+export function parseTagString(raw?: string): string[] {
   if (!raw) return [];
   const trimmed = raw.trim();
 
-  // Ada "#" -> pemisah utama adalah "#"
-  // Tanpa "#" -> pecah koma/semicolon, atau spasi ganda
-  const parts = trimmed.includes("#")
-    ? trimmed.split("#")
-    : trimmed.split(/[,;]+|\s{2,}/);
+  const parts = trimmed.split(/[#,;]+|\s{2,}/);
 
   return parts
     .map((t) => t.replace(/\s+/g, " ").trim())
@@ -104,32 +130,65 @@ function collectTags(article: RawArticle): { slug: string; name: string }[] {
   return out;
 }
 
-/** Samakan bentuk data artikel dengan CardArticle */
-function toCardArticle(article: RawArticle): CardArticle {
-  const locale = useI18n().locale.value.toLowerCase();
+/**
+ * Samakan bentuk data artikel dengan CardArticle.
+ *
+ * CATATAN: fungsi ini dipanggil dari dalam computed/callback, yaitu DI LUAR
+ * setup(). Karena itu locale & config harus diteruskan sebagai parameter —
+ * memanggil useI18n()/useRuntimeConfig() di sini akan memicu
+ * "NUXT_E1001: A composable that requires access to the Nuxt instance
+ *  was called outside of a plugin, Nuxt hook, Nuxt middleware,
+ *  or Vue setup function".
+ */
+function toCardArticle(
+  article: RawArticle,
+  lang: string,
+  baseImageArticle: string
+): CardArticle {
   const title =
-    (locale === "en"
+    (lang === "en"
       ? article.title_en
-      : locale === "zh"
+      : lang === "zh"
         ? article.title_ch
         : null) ||
     article.title ||
     "";
+
+  // collectTags() dipanggil sekali saja; dipakai untuk category + tags.
+  const tagNames = collectTags(article).map((t) => t.name);
 
   return {
     id: article.id,
     url: article.url || `article-${article.id}`,
     title,
     image: article.img
-      ? `${useRuntimeConfig().public.baseImageArticle}${article.img}`
-      : "https://via.placeholder.com/400x250?text=No+Image",
-    category: "",
+      ? article.img.startsWith("http")
+        ? article.img
+        : `${baseImageArticle}${article.img}`
+      : "",
+    category: tagNames[0] || "",
+    tags: tagNames,
     date: article.date || "",
+    excerpt: article.discription_seo || "",
+    description: article.discription_seo || "",
+    views: article.view || 0,
+    author: {
+      name: article.created_by || "Anonymous",
+      avatar: "",
+      role: article.created_by ? "Contributor" : "Guest",
+    },
   };
 }
 
 export function useArticleTags() {
   const config = useRuntimeConfig();
+
+  // Diambil sekali di dalam setup() lalu dipakai ulang, supaya composable
+  // tidak dipanggil dari luar konteks setup.
+  const { locale } = useI18n();
+  const currentLang = () => String(locale.value || "id").toLowerCase();
+  const baseImageArticle = () =>
+    (config.public.baseImageArticle as string) || "";
 
   const articles = ref<RawArticle[]>([]);
   const loading = ref(false);
@@ -159,19 +218,19 @@ export function useArticleTags() {
     };
   };
 
-  /** Scan satu chunk berikutnya. Return true jika masih ada halaman. */
-  const scanNext = async (): Promise<boolean> => {
+  /** Satu chunk berikutnya (versi internal, tanpa antrean). */
+  const scanStep = async (): Promise<boolean> => {
     const c = ensureCache();
     const nextPage = c.scannedPages + 1;
 
-    // Sudah semua
     if (c.totalPages > 0 && nextPage > c.totalPages) {
       c.done = true;
+      syncFromCache();
       return false;
     }
-    // Melewati total data
     if (c.totalData > 0 && c.articles.length >= c.totalData) {
       c.done = true;
+      syncFromCache();
       return false;
     }
 
@@ -186,21 +245,22 @@ export function useArticleTags() {
       c.scannedPages = nextPage;
       c.articles.push(...list);
 
-      if (c.totalPages > 0 && c.scannedPages >= c.totalPages) {
-        c.done = true;
-      }
-      if (c.totalData > 0 && c.articles.length >= c.totalData) {
-        c.done = true;
-      }
-    } catch {
+      if (c.totalPages > 0 && c.scannedPages >= c.totalPages) c.done = true;
+      if (c.totalData > 0 && c.articles.length >= c.totalData) c.done = true;
+    } catch (e) {
+      console.warn("[useArticleTags] scan halaman gagal:", nextPage, e);
       c.done = true;
     }
 
     syncFromCache();
-    progress.value = c.totalData > 0 ? c.articles.length / c.totalData : 0;
+    progress.value =
+      c.totalData > 0 ? Math.min(1, c.articles.length / c.totalData) : 0;
 
     return !c.done;
   };
+
+  /** Scan satu chunk berikutnya. Return true jika masih ada halaman. */
+  const scanNext = (): Promise<boolean> => enqueue(scanStep);
 
   /** Scan bertahap: pastikan minimal `minMatches` artikel untuk sebuah tag */
   const scanUntil = async (
@@ -208,7 +268,11 @@ export function useArticleTags() {
     minMatches: number
   ): Promise<void> => {
     const c = ensureCache();
-    if (loading.value) return;
+
+    // PENTING: cache module sudah bisa terisi dari halaman sebelumnya
+    // (mis. user datang dari /article/tag). Tanpa sync di sini, `articles`
+    // tetap kosong kalau loop langsung break di iterasi pertama.
+    syncFromCache();
     loading.value = true;
 
     try {
@@ -223,36 +287,28 @@ export function useArticleTags() {
         if (!more) break;
       }
     } finally {
+      syncFromCache();
       loading.value = false;
     }
   };
 
-  /** Scan semua (dipakai halaman index tag, progresif) */
+  /** Scan semua (dipakai halaman index tag) */
   const scanAll = async (): Promise<void> => {
-    const c = ensureCache();
-    if (loading.value) return;
-    loading.value = true;
+    syncFromCache();
 
-    try {
-      if (c.running) {
-        await c.running;
-        return;
+    // `scanNext()` di-enqueue sendiri, jadi di dalam enqueue harus pakai
+    // `scanStep()` langsung atau akan deadlock (menunggu dirinya sendiri).
+    await enqueue(async () => {
+      let guard = 0;
+      while (guard < 50) {
+        guard++;
+        const c = ensureCache();
+        if (c.done) break;
+        const more = await scanStep();
+        if (!more) break;
       }
-
-      c.running = (async () => {
-        let guard = 0;
-        while (guard < 50 && !c.done) {
-          guard++;
-          const more = await scanNext();
-          if (!more) break;
-        }
-      })();
-
-      await c.running;
-    } finally {
-      loading.value = false;
-      c.running = null;
-    }
+    });
+    loading.value = false;
   };
 
   /** Daftar semua tag + jumlah artikelnya */
@@ -277,18 +333,153 @@ export function useArticleTags() {
 
   /** Artikel yang punya tag tertentu */
   const articlesForTag = computed(() => (tagSlug: string) => {
-    const { locale } = useI18n();
-    const lang = String(locale.value || "id").toLowerCase();
-
     return articles.value
       .filter((a) => collectTags(a).some((t) => t.slug === tagSlug))
-      .map((a) => toCardArticle(a));
+      .map((a) => toCardArticle(a, currentLang(), baseImageArticle()));
   });
+
+  /** Semua artikel yang sudah terscan sebagai CardArticle, untuk pencarian global. */
+  const allCards = computed(() =>
+    articles.value.map((a) => toCardArticle(a, currentLang(), baseImageArticle()))
+  );
+
+  /**
+   * Tag lain yang muncul di artikel sebuah tag (untuk chip filter).
+   * Tag itu sendiri tidak ikut dihitung, jadi user bisa melihat artikel
+   * yang share topik lain dengan tag yang sedang dibuka.
+   */
+  const siblingTags = computed(() => (tagSlug: string, limit = 12) => {
+    const count = new Map<string, { name: string; count: number }>();
+
+    for (const article of articles.value) {
+      const mine = collectTags(article);
+      if (!mine.some((t) => t.slug === tagSlug)) continue;
+
+      const seenHere = new Set<string>();
+      for (const { slug, name } of mine) {
+        if (slug === tagSlug || seenHere.has(slug)) continue;
+        seenHere.add(slug);
+        const e = count.get(slug);
+        if (e) e.count += 1;
+        else count.set(slug, { name, count: 1 });
+      }
+    }
+
+    return [...count.entries()]
+      .map(([slug, v]) => ({ slug, name: v.name, count: v.count }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+      .slice(0, limit);
+  });
+
+  /** Artikel trending (paling banyak dibaca) di dalam sebuah tag */
+  const trendingForTag = computed(
+    () => (tagSlug: string, limit = 5) => {
+      return articlesForTag.value(tagSlug)
+        .slice()
+        .sort((a, b) => (b.views || 0) - (a.views || 0))
+        .slice(0, limit);
+    }
+  );
+
+  /**
+   * Artikel terkait: artikel yang share tag dengan tag yang sedang dibuka,
+   * DIKECUALIKAN artikel yang juga memakai tag tersebut (itu bukan "related",
+   * itu artikel yang sama).
+   * Diurutkan dari yang paling banyak tag-nya cocok.
+   */
+  const relatedForTag = computed(
+    () => (tagSlug: string, limit = 6) => {
+      const siblings = new Set<string>();
+      for (const article of articles.value) {
+        const mine = collectTags(article);
+        if (!mine.some((t) => t.slug === tagSlug)) continue;
+        for (const t of mine) {
+          if (t.slug !== tagSlug) siblings.add(t.slug);
+        }
+      }
+      if (siblings.size === 0) return [];
+
+      const pool: { card: CardArticle; score: number }[] = [];
+      for (const article of articles.value) {
+        const mine = collectTags(article);
+        if (mine.some((t) => t.slug === tagSlug)) continue;
+
+        let score = 0;
+        for (const t of mine) {
+          if (siblings.has(t.slug)) score += 1;
+        }
+        if (score === 0) continue;
+
+        pool.push({
+          card: toCardArticle(article, currentLang(), baseImageArticle()),
+          score,
+        });
+      }
+
+      if (pool.length > 0) {
+        return pool
+          .sort(
+            (a, b) =>
+              b.score - a.score ||
+              (b.card.views || 0) - (a.card.views || 0)
+          )
+          .slice(0, limit)
+          .map((e) => e.card);
+      }
+
+      /**
+       * Fallback. Data tag sangat sparse (602 tag untuk 885 artikel), jadi
+       * untuk sebagian besar tag tidak ada artikel LUAR tag yang share tag
+       * sibling. Kalau hasil ketatnya kosong, pakai artikel dalam tag ini
+       * yang paling banyak dibaca, kecuali 5 teratas yang sudah dipakai
+       * oleh section trending supaya tidak dobel.
+       */
+      const byViews = articlesForTag.value(tagSlug)
+        .slice()
+        .sort((a, b) => (b.views || 0) - (a.views || 0));
+
+      const trendingIds = new Set(
+        byViews.slice(0, 5).map((c) => String(c.id))
+      );
+
+      return byViews
+        .filter((c) => !trendingIds.has(String(c.id)))
+        .slice(0, limit);
+    }
+  );
 
   /** Cari nama tag yang enak dibaca dari slug */
   const tagNameBySlug = computed(() => (slug: string) => {
     return tags.value.find((t) => t.slug === slug)?.name || slug;
   });
+
+  /**
+   * True kalau tag benar-benar ada di hasil scan.
+   * Dipakai halaman detail untuk membedakan "tag tidak ada" dari
+   * "scan belum sempat sampai halaman itu".
+   */
+  const isKnownTag = computed(() => (slug: string) => {
+    return tags.value.some((t) => t.slug === slug);
+  });
+
+  /**
+   * Tambahkan satu artikel dari endpoint detail ke cache module.
+   * Dibutuhkan ketika artikel tidak muncul di list publik
+   * (`article-read`) namun dirujuk dari chip tag pada halaman detail.
+   */
+  const addArticle = (raw: RawArticle): void => {
+    const c = ensureCache();
+    if (c.articles.some((a) => String(a.id) === String(raw.id))) return;
+    c.articles.push(raw);
+    // Ref elements dalam syncFromCache menunjuk ke objek array yang sama,
+    // sehingga mendorong ke `articles.value` memperbarui keduanya.
+    articles.value.push(raw);
+  };
+
+  // Cache module sudah bisa terisi sebelum halaman ini dibuka (mis. user
+  // datang dari /article/tag). Tanpa sync awal, articles = [] dan tag
+  // yang valid akan terlihat "tidak ditemukan".
+  syncFromCache();
 
   return {
     loading,
@@ -297,8 +488,15 @@ export function useArticleTags() {
     totalData,
     progress,
     tags,
+    articles,
+    allCards,
     articlesForTag,
+    siblingTags,
+    trendingForTag,
+    relatedForTag,
     tagNameBySlug,
+    isKnownTag,
+    addArticle,
     scanNext,
     scanUntil,
     scanAll,

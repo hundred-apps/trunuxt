@@ -28,10 +28,15 @@
             >
               <div class="flex gap-3 p-2">
                 <div class="w-1/3 aspect-[4/3] overflow-hidden rounded-lg">
-                  <img
+                  <AppImage
                     :src="article.image"
                     :alt="article.title"
                     class="w-full h-full object-cover"
+                    sizes="100vw sm:50vw lg:800px"
+                    width="800"
+                    height="450"
+                    loading="eager"
+                    fetchpriority="high"
                   />
                 </div>
                 <div class="w-2/3 flex flex-col justify-center">
@@ -108,7 +113,7 @@
                     :articles="trendingArticle"
                     :show-ranking="false"
                     image-size="sm"
-                    max-title-lines="2"
+                    :max-title-lines="2"
                   />
                 </div>
               </div>
@@ -117,8 +122,67 @@
             <!-- Articles List -->
             <div class="grid grid-cols-1 gap-4">
               <p class="text-xl fw-bold">{{ $t("label.article") }}</p>
+
+              <!-- Pencarian artikel (hanya pencarian, tanpa filter tag) -->
+              <div class="relative">
+                <input
+                  v-model="searchDraft"
+                  type="search"
+                  :placeholder="$t('page.article.searchPlaceholder')"
+                  class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-11 text-sm outline-none transition-colors focus:border-orange-500"
+                  @keyup.enter="applySearch"
+                />
+                <button
+                  type="button"
+                  class="absolute right-1 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-orange-500"
+                  :aria-label="$t('page.article.search')"
+                  @click="applySearch"
+                >
+                  <Icon name="material-symbols:search" class="text-lg" />
+                </button>
+                <button
+                  v-if="searchDraft"
+                  type="button"
+                  class="absolute right-9 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-gray-600"
+                  :aria-label="$t('page.article.clearSearch')"
+                  @click="clearSearch"
+                >
+                  <Icon name="material-symbols:close" class="text-lg" />
+                </button>
+              </div>
+
+              <div
+                v-if="activeSearch"
+                class="flex items-center gap-2 text-sm text-gray-600"
+              >
+                <span>{{ $t("page.article.searchResultFor") }}</span>
+                <span class="font-semibold text-orange-600">
+                  "{{ activeSearch }}"
+                </span>
+                <span>({{ filteredArticles.length }})</span>
+              </div>
+
               <div v-if="loading" class="text-center py-8">
                 <el-skeleton :rows="3" animated />
+              </div>
+
+              <!-- Error state: tampilkan pesan, jangan goBack() -->
+              <div
+                v-else-if="error"
+                class="rounded-lg border border-red-200 bg-red-50 p-6 text-center"
+              >
+                <Icon
+                  name="material-symbols:error-outline"
+                  class="text-3xl text-red-500 mb-2"
+                />
+                <p class="text-red-700">{{ error }}</p>
+                <button
+                  type="button"
+                  class="mt-4 rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600"
+                  @click="fetchArticle()"
+                >
+                  {{ $t("page.article.retry") }}
+                </button>
               </div>
 
               <!-- Empty State -->
@@ -126,19 +190,19 @@
                 v-else-if="transformedArticles.length === 0"
                 class="text-center py-8"
               >
-                <el-empty description="Tidak ada artikel" />
+                <el-empty :description="$t('page.article.empty')" />
               </div>
 
               <!-- Article List -->
               <CardsArticleListArticle
                 v-else
-                :articles="transformedArticles"
+                :articles="filteredArticles"
                 @article-click="handleArticleClick"
               />
             </div>
 
-            <!-- Pagination -->
-            <div class="flex justify-center mt-8">
+            <!-- Pagination disembunyikan saat searching -->
+            <div v-if="!activeSearch" class="flex justify-center mt-8">
               <el-pagination
                 background
                 layout="prev, pager, next"
@@ -171,7 +235,7 @@
                     :articles="trendingArticle"
                     :show-ranking="false"
                     image-size="sm"
-                    max-title-lines="2"
+                    :max-title-lines="2"
                   />
                 </div>
               </div>
@@ -184,7 +248,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import {
@@ -193,9 +257,11 @@ import {
   useSchemaOrg,
 } from "@unhead/schema-org/vue";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { parseTagString, useArticleTags } from "~/composables/useArticleTags";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 const { t } = useI18n();
+const { allCards, scanAll: scanAllForSearch } = useArticleTags();
 
 useHead({
   title: computed(() => t("page.article.metaTitle")),
@@ -223,8 +289,16 @@ useHead({
 useSchemaOrg([
   defineBreadcrumb({
     itemListElement: [
-      { position: 1, name: computed(() => t("breadcrumb.home")), item: "https://www.trumecs.com" },
-      { position: 2, name: computed(() => t("breadcrumb.article")), item: "https://www.trumecs.com/article" },
+      {
+        position: 1,
+        name: computed(() => t("breadcrumb.home")),
+        item: "https://www.trumecs.com",
+      },
+      {
+        position: 2,
+        name: computed(() => t("breadcrumb.article")),
+        item: "https://www.trumecs.com/article",
+      },
     ],
   }),
 ]);
@@ -277,6 +351,11 @@ const RequestForm = {
   `,
   setup() {
     const { t } = useI18n();
+    // Diambil di scope setup, BUKAN di dalam async fetch* setelah await.
+    // Memanggil useRuntimeConfig() setelah await kehilangan konteks Nuxt
+    // dan memicu "NUXT_E1001: A composable that requires access to the
+    // Nuxt instance was called outside of ... Vue setup function".
+    const config = useRuntimeConfig();
     const form = ref({
       nama: "",
       email: "",
@@ -312,13 +391,13 @@ const error = ref<string | null>(null);
 const route = useRoute();
 const router = useRouter();
 const goBack = () => router.back();
+const config = useRuntimeConfig();
 
 // Update tipe data
 const dataArticle = ref<CardArticle[]>([]);
 const trendingArticle = ref<CardArticle[]>([]);
 
-const mainFeaturedArticle = computed(() => {
-  console.log("asrticle feat", featuredArticles.value[0]);
+const mainFeaturedArticle = computed<CardArticle | null>(() => {
   return featuredArticles.value[0] || null;
 });
 
@@ -353,6 +432,77 @@ const transformedArticles = computed(() => {
   return dataArticle.value;
 });
 
+// ============ PENCARIAN ARTIKEL ============
+//
+// Hanya pencarian teks di halaman list artikel. Tidak ada filter tag di sini
+// (filter tag hanya ada di halaman detail artikel).
+
+const searchDraft = ref(String(route.query.q || ""));
+const activeSearch = ref(String(route.query.q || ""));
+
+const normalizeText = (value: unknown): string =>
+  String(value ?? "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+
+const omitQuery = (
+  query: Record<string, any>,
+  key: string
+): Record<string, any> => {
+  const next = { ...query };
+  delete next[key];
+  return next;
+};
+
+const filteredArticles = computed<CardArticle[]>(() => {
+  const q = normalizeText(activeSearch.value);
+  if (!q) return transformedArticles.value;
+
+  // Saat searching, saring seluruh artikel yang sudah tersimpan di cache
+  // (seluruh dataset, bukan hanya halaman yang sedang dimuat di UI).
+  return allCards.value.filter((a) => {
+    const haystack = [a.title, (a as any).category, a.url, a.date]
+      .map(normalizeText)
+      .join(" ");
+    // semua kata kunci harus cocok (AND)
+    return q.split(" ").every((word) => haystack.includes(word));
+  });
+});
+
+const applySearch = async () => {
+  const q = searchDraft.value.trim();
+  activeSearch.value = q;
+  currentPage.value = 1;
+
+  // Pastikan seluruh dataset artikel sudah terscan, supaya pencarian
+  // tidak terbatas pada halaman artikel yang sedang ditampilkan.
+  if (q) scanAllForSearch();
+
+  await router.replace({
+    query: q ? { ...route.query, q } : omitQuery(route.query, "q"),
+  });
+};
+
+const clearSearch = async () => {
+  searchDraft.value = "";
+  await applySearch();
+};
+
+// Ikuti perubahan ?q= dari luar (mis. dari Navbar)
+watch(
+  () => route.query.q,
+  (value) => {
+    const q = String(value || "");
+    if (q !== activeSearch.value) {
+      activeSearch.value = q;
+      searchDraft.value = q;
+      if (q) scanAllForSearch();
+    }
+  },
+  { immediate: true }
+);
+
 const handleArticleClick = (article: Article) => {
   // Bisa untuk analytics
 };
@@ -371,8 +521,6 @@ const fetchTrendingArticles = async () => {
 
     if (response.status === "success") {
       const apiData = response.data!.payload.trend_article;
-      console.log("data trend: ", apiData);
-      const config = useRuntimeConfig();
 
       // Transform data featured
       trendingArticle.value = apiData.map((item: Article) => {
@@ -382,7 +530,7 @@ const fetchTrendingArticles = async () => {
           title: item.title || "Untitled",
           image: item.img
             ? `${
-                config.public.baseURLIMGARTICLE ||
+                config.public.baseImageArticle ||
                 "https://www.trumecs.com/public/image/artikel/"
               }${item.img}`
             : "https://via.placeholder.com/300x200?text=No+Image",
@@ -412,11 +560,9 @@ const fetchFeaturedArticles = async () => {
 
     if (response.status === "success") {
       const apiData = response.data!.payload.main_article;
-      const config = useRuntimeConfig();
 
       // Transform data featured
       featuredArticles.value = apiData.map((item: Article) => {
-        console.log("created_by", item.created_by);
         return {
           id: item.id,
           url: item.url || `article-${item.id}`,
@@ -425,7 +571,7 @@ const fetchFeaturedArticles = async () => {
             ? item.img.startsWith("http")
               ? item.img
               : `${
-                  config.public.baseURLIMGARTICLE ||
+                  config.public.baseImageArticle ||
                   "https://www.trumecs.com/public/image/artikel/"
                 }${item.img}`
             : "https://via.placeholder.com/300x200?text=No+Image",
@@ -452,88 +598,84 @@ const fetchFeaturedArticles = async () => {
   }
 };
 
+// Helper: nama kategori dari tag artikel.
+// Tag disimpan dalam dua format ("#A #B #C" atau "a, b"), jadi pakai
+// parseTagString supaya tidak menampilkan "#A #B #C" sebagai satu kategori.
+const extractCategoryFromTags = (tags: unknown): string => {
+  const list = parseTagString(typeof tags === "string" ? tags : undefined);
+  return list[0] || "General";
+};
+
+// Helper: excerpt dari description_seo atau isi artikel.
+// Field dari API bisa null/berupa objek, jadi selalu dipaksa jadi string
+// sebelum .replace() dipanggil (kalau tidak, akan throw).
+const createExcerpt = (description: unknown, content: unknown): string => {
+  const desc = typeof description === "string" ? description.trim() : "";
+  if (desc) return desc;
+
+  const body = typeof content === "string" ? content : "";
+  const stripped = body.replace(/<[^>]*>/g, "").trim();
+  if (!stripped) return "";
+
+  return stripped.length > 150 ? stripped.substring(0, 150) + "..." : stripped;
+};
+
+const articleImageBase = () =>
+  (config.public.baseImageArticle as string) ||
+  "https://www.trumecs.com/public/image/artikel/";
+
 const fetchArticle = async () => {
   loading.value = true;
+  error.value = null;
   try {
+    const page = currentPage.value || 1;
     const response = await useFetchApi<BaseResponse<Article>>(
-      `article-read?page=${currentPage.value}`,
-      `article-read-${currentPage.value}`,
+      `article-read?page=${page}`,
+      `article-read-${page}`,
       "get",
       null
     );
 
-    if (response.status === "success") {
-      const apiData = response.data!.payload.list_article;
-      const config = useRuntimeConfig();
-
-      // Helper function to extract category from tags
-      const extractCategoryFromTags = (tags: any): string => {
-        if (!tags) return "General";
-        if (Array.isArray(tags)) {
-          return tags[0] || "General";
-        }
-        if (typeof tags === "string") {
-          return tags.split(",")[0].trim() || "General";
-        }
-        return "General";
-      };
-
-      // Helper function to create excerpt from description_seo or value
-      const createExcerpt = (
-        description: string | null,
-        content: string | null
-      ): string => {
-        if (description) return description;
-        if (content) {
-          const stripped = content.replace(/<[^>]*>/g, "");
-          return stripped.length > 150
-            ? stripped.substring(0, 150) + "..."
-            : stripped;
-        }
-        return "No description available";
-      };
-
-      // Transform the data dan assign ke dataArticle.value
-      dataArticle.value = apiData.map((item: Article) => {
-        return {
-          id: item.id,
-          url: item.url || `article-${item.id}`,
-          title: item.title || "Untitled",
-          image: item.img
-            ? `${
-                config.public.baseURLIMGARTICLE ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${item.img}`
-            : "https://via.placeholder.com/300x200?text=No+Image",
-          category: extractCategoryFromTags(item.tag),
-          date: item.date,
-          excerpt: createExcerpt(item.discription_seo, item.value),
-          author: item.created_by
-            ? {
-                name: `${item.created_by}`,
-                avatar: "https://via.placeholder.com/40x40?text=User",
-                role: "Contributor",
-              }
-            : {
-                name: "Anonymous",
-                avatar: "https://via.placeholder.com/40x40?text=User",
-                role: "Guest",
-              },
-        };
-      });
-
-      // Update total articles jika ada dari response
-      if (response.data!.pagination.total_data) {
-        totalArticles.value = response.data!.pagination.total_data;
-      }
+    if (response.status !== "success" || !response.data) {
+      error.value = t("page.article.loadError");
+      return;
     }
-  } catch (error) {
-    ElMessage.error(t("page.article.loadError"));
-    goBack();
+
+    // Guard: payload / list_article bisa tidak ada kalau API berubah.
+    const list = response.data.payload?.list_article;
+    dataArticle.value = Array.isArray(list) ? list.map(transformArticle) : [];
+
+    // Guard: pagination tidak selalu dikirim API.
+    const total = response.data.pagination?.total_data;
+    if (typeof total === "number" && Number.isFinite(total)) {
+      totalArticles.value = total;
+    }
+  } catch (e) {
+    console.error("[article] fetchArticle gagal:", e);
+    error.value = t("page.article.loadError");
   } finally {
     loading.value = false;
   }
 };
+
+const transformArticle = (item: Article): CardArticle => ({
+  id: item.id,
+  url: item.url || `article-${item.id}`,
+  title: item.title || "Untitled",
+  image: item.img
+    ? item.img.startsWith("http")
+      ? item.img
+      : `${articleImageBase()}${item.img}`
+    : "",
+  category: extractCategoryFromTags(item.tag),
+  date: item.date,
+  excerpt: createExcerpt(item.discription_seo, item.value),
+  author: {
+    name: item.created_by ? `${item.created_by}` : "Anonymous",
+    avatar: "",
+    role: "Contributor",
+  },
+});
 
 // Methods
 const formatDate = (date: string) => {
@@ -565,23 +707,23 @@ onMounted(async () => {
   await fetchTrendingArticles();
   await fetchFeaturedArticles();
   const pageFromUrl = route.query.page ? Number(route.query.page) : 1;
-  currentPage.value = pageFromUrl;
-  await fetchArticle();
+  currentPage.value = pageFromUrl || 1;
+  // fetchArticle() dipanggil oleh watch(route.query.page) di bawah,
+  // JANGAN dipanggil lagi di sini atau data akan di-fetch 2x.
 });
 
-// Watch route query changes
+// Watch route query changes.
+// immediate: true + onMounted = fetch ganda, jadi watch ini tidak memakai
+// immediate; pemanggilan pertama dilakukan lewat flag di bawah.
+let initialFetchDone = false;
+
 watch(
   () => route.query.page,
-  async (newPage, oldPage) => {
-    // Set currentPage
-    if (newPage) {
-      currentPage.value = Number(newPage);
-    } else {
-      currentPage.value = 1;
-    }
-
-    // Panggil fetchArticle untuk mengambil data baru
+  async (newPage) => {
+    const next = newPage ? Number(newPage) : 1;
+    currentPage.value = Number.isFinite(next) && next > 0 ? next : 1;
     await fetchArticle();
+    initialFetchDone = true;
   },
   { immediate: true }
 );

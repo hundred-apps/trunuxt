@@ -39,7 +39,7 @@
   <!-- Jika tidak punya children, render menu item biasa -->
   <Trulink
     v-else
-    :href="categoryUrl"
+    :to="categoryUrl"
     class="flex items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-colors hover:bg-gray-50 hover:text-orange-600 cursor-pointer"
     @click="handleCategoryClick"
   >

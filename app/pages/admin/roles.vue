@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.roles.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/roles/create">
+      <Trulink to="/admin/roles/create">
         <Trubutton
           :text="$t('admin.roles.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Roles Grid -->
@@ -45,14 +45,14 @@
           {{ $t("admin.roles.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.roles.emptyDesc") }}</p>
-        <NuxtLink to="/admin/roles/create">
+        <Trulink to="/admin/roles/create">
           <Trubutton
             :text="$t('admin.roles.addFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="divide-y divide-gray-100">
@@ -82,13 +82,13 @@
             </div>
           </div>
           <div class="flex items-center gap-2 sm:ml-4">
-            <NuxtLink
+            <Trulink
               :to="`/admin/roles/${role.id}/edit`"
               class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
               title="Edit"
             >
               <Icon name="material-symbols:edit" class="h-4 w-4" />
-            </NuxtLink>
+            </Trulink>
             <button
               @click="deleteRole(role)"
               class="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg"
@@ -107,14 +107,14 @@
         <h2 class="text-xl font-bold text-gray-900">
           {{ $t("admin.roles.menus") }}
         </h2>
-        <NuxtLink to="/admin/roles/menus/create">
+        <Trulink to="/admin/roles/menus/create">
           <Trubutton
             :text="$t('admin.roles.addMenu')"
             type="primary"
             variant="outline"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div

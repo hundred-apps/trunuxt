@@ -15,7 +15,7 @@
         >
           <ul class="space-y-1">
             <li v-for="item in settingsMenu" :key="item.key">
-              <NuxtLink
+              <Trulink
                 :to="item.path"
                 class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors"
                 :class="[
@@ -26,7 +26,7 @@
               >
                 <Icon :name="item.icon" class="h-5 w-5" />
                 {{ t(`admin.settings.menu.${item.label}`) }}
-              </NuxtLink>
+              </Trulink>
             </li>
           </ul>
         </nav>

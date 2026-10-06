@@ -87,6 +87,7 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Product } from "~/types/product";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { articlePreview } from "~/utils/articlePreview";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
@@ -94,7 +95,7 @@ const loading = ref(true);
 const error = ref<string | null>(null);
 const route = useRoute();
 const router = useRouter();
-const { t: $t } = useI18n();
+const { t: $t, locale } = useI18n();
 const goBack = () => router.back();
 const id = route.params.id as string;
 const name = route.params.tittle as string;
@@ -201,8 +202,9 @@ const fetchDetailProduct = async () => {
 
     if (response.status === "success") {
       const apiData = response.data!.payload;
-      console.log("product: ", apiData);
       product.value = apiData;
+      // Pratinjau beberapa kata awal untuk card "Artikel Terkait".
+      await enrichArtikelPreviews(apiData);
     }
   } catch (error) {
     console.error("Error fetching product:", error);
@@ -214,6 +216,51 @@ const fetchDetailProduct = async () => {
 };
 
 const product = ref<Product | null>(null);
+
+/**
+ * Endpoint produk sering mengirim `artikel` tanpa teks apa pun (cuma
+ * id/url/title/img/view). Kalau begitu pratinjaunya kosong, jadi ambil
+ * detail artikelnya per slug supaya card tetap menampilkan beberapa kata
+ * awal seperti di halaman artikel — bukan kalimat "lihat selengkapnya".
+ * Tidak ada request tambahan kalau datanya sudah membawa teks.
+ */
+const enrichArtikelPreviews = async (target: Product | null) => {
+  const list = target?.artikel;
+  if (!Array.isArray(list) || list.length === 0) return;
+
+  const missing = list.filter((a) => !articlePreview(a));
+  if (missing.length === 0) return;
+
+  const suffix =
+    String(locale.value || "id").toLowerCase() === "en"
+      ? "_en"
+      : String(locale.value || "id").toLowerCase() === "zh"
+        ? "_ch"
+        : "";
+
+  await Promise.all(
+    missing.map(async (item) => {
+      if (!item?.url) return;
+      try {
+        const response = await useFetchApi<any>(
+          `article-read/${item.url}`,
+          `article-read-${item.url}`,
+          "get",
+          null
+        );
+        const data = response.data?.payload;
+        if (!data) return;
+
+        item.discription_seo =
+          data[`discription_seo${suffix}`] || data.discription_seo || "";
+        item.value = data[`value${suffix}`] || data.value || "";
+        item.seo_key = data[`seo_key${suffix}`] || data.seo_key || "";
+      } catch {
+        // Preview kosong tidak boleh menggagalkan halaman produk.
+      }
+    })
+  );
+};
 
 const generateProductSchema = (productData: Product | null) => {
   if (!productData) return null;

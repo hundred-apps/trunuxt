@@ -10,7 +10,7 @@
 
       <!-- Service Categories -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <NuxtLink
+        <Trulink
           v-for="cat in serviceCategories"
           :key="cat.id"
           :to="`/jasa/${cat.slug}`"
@@ -23,14 +23,14 @@
             {{ $t('jasa.category' + cat.nameKey) }}
           </h3>
           <p class="text-sm text-gray-500">{{ cat.count }} {{ $t('jasa.providers') }}</p>
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <!-- Featured Providers -->
       <div class="bg-white rounded-xl shadow-sm border border-gray-200">
         <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-gray-900">{{ $t('jasa.featuredProviders') }}</h2>
-          <NuxtLink to="/jasa/providers" class="text-sm text-orange-600 hover:underline">{{ $t('button.seeAll') }}</NuxtLink>
+          <Trulink to="/jasa/providers" class="text-sm text-orange-600 hover:underline">{{ $t('button.seeAll') }}</Trulink>
         </div>
         <div class="divide-y divide-gray-100">
           <div v-for="provider in featuredProviders" :key="provider.id" class="px-6 py-4 hover:bg-gray-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -101,6 +101,15 @@ const breadcrumbs = computed(() => [
   { text: $t('breadcrumb.home'), to: '/' },
   { text: $t('jasa.title'), to: '/jasa' },
 ]);
+
+useHead({
+  title: computed(() => $t('jasa.title')),
+  titleTemplate: "%s | Trumecs.com",
+  meta: computed(() => [
+    { name: 'description', content: $t('jasa.subtitle') },
+    { name: 'robots', content: 'noindex, nofollow' },
+  ]),
+});
 
 const serviceCategories = [
   { id: 1, nameKey: 'Maintenance', icon: 'material-symbols:build-circle', count: 45, slug: 'perawatan' },

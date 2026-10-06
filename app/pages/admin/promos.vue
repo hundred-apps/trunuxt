@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ t("admin.promos.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/promos/create">
+      <Trulink to="/admin/promos/create">
         <Trubutton
           :text="t('admin.promos.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Filter Bar -->
@@ -109,14 +109,14 @@
         <p class="text-gray-500 mb-4">
           {{ t("admin.promos.emptyDesc") || "Tambahkan promo pertama Anda" }}
         </p>
-        <NuxtLink to="/admin/promos/create">
+        <Trulink to="/admin/promos/create">
           <Trubutton
             :text="t('admin.promos.addFirst') || 'Tambah Promo'"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <!-- Promos Grid -->
@@ -130,12 +130,15 @@
           class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all"
         >
           <div class="relative h-40 mb-3">
-            <img
-              :src="getPromoImage(promo.img)"
-              :alt="promo.name"
-              class="w-full h-full object-cover rounded"
+            <AppImage
+:src="getPromoImage(promo.img)"
+:alt="promo.name"
+class="w-full h-full object-cover rounded"
+              width="400"
+              height="300"
+              sizes="200px"
               loading="lazy"
-            />
+              />
             <div class="absolute top-2 left-2 flex gap-1">
               <span
                 :class="promo.type === 'bundle' ? 'bg-blue-500' : 'bg-red-500'"
@@ -170,18 +173,18 @@
             </span>
           </div>
           <div class="flex gap-2">
-            <NuxtLink
+            <Trulink
               :to="`/admin/promos/${promo.id}`"
               class="flex-1 p-2 text-center text-sm text-orange-600 hover:bg-orange-50 rounded-lg"
             >
               {{ t("admin.table.view") || "Lihat" }}
-            </NuxtLink>
-            <NuxtLink
+            </Trulink>
+            <Trulink
               :to="`/admin/promos/${promo.id}/edit`"
               class="flex-1 p-2 text-center text-sm text-gray-600 hover:bg-gray-100 rounded-lg"
             >
               {{ t("admin.table.edit") || "Edit" }}
-            </NuxtLink>
+            </Trulink>
           </div>
         </div>
       </div>

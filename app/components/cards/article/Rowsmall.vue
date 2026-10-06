@@ -1,4 +1,4 @@
-<!-- components/TrendingArticles.vue -->
+<!-- components/cards/article/Rowsmall.vue -->
 <template>
   <div class="divide-y divide-gray-100">
     <Trulink
@@ -10,10 +10,13 @@
       <div
         class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"
       >
-        <img
+        <AppImage
           :src="article.image"
           :alt="article.title"
           class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+          sizes="96px"
+          width="96"
+          height="96"
           loading="lazy"
         />
       </div>
@@ -44,23 +47,12 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-
-// Types/Interfaces
-export interface TrendingArticle {
-  id: string | number;
-  url: string;
-  title: string;
-  image: string;
-  date?: string;
-  category?: string;
-  description?: string;
-  views?: number;
-}
+import type { CardArticle } from "~/types/article";
 
 // Props definition
 const props = withDefaults(
   defineProps<{
-    articles: TrendingArticle[];
+    articles: CardArticle[];
     imageSize?: "sm" | "md" | "lg";
     showCategory?: boolean;
     maxTitleLines?: 1 | 2 | 3;
@@ -71,7 +63,7 @@ const props = withDefaults(
     articles: () => [],
     imageSize: "md",
     showCategory: false,
-    maxTitleLines: "2",
+    maxTitleLines: 2,
     dateFormat: () => ({
       day: "numeric",
       month: "short",
@@ -83,8 +75,8 @@ const props = withDefaults(
 
 // Emits
 const emit = defineEmits<{
-  (e: "articleClick", article: TrendingArticle): void;
-  (e: "imageLoad", article: TrendingArticle): void;
+  (e: "articleClick", article: CardArticle): void;
+  (e: "imageLoad", article: CardArticle): void;
 }>();
 
 // Computed image size classes
@@ -115,12 +107,12 @@ const formatDate = (date?: string): string => {
 };
 
 // Handle article click
-const handleArticleClick = (article: TrendingArticle) => {
+const handleArticleClick = (article: CardArticle) => {
   emit("articleClick", article);
 };
 
 // Handle image load
-const handleImageLoad = (article: TrendingArticle) => {
+const handleImageLoad = (article: CardArticle) => {
   emit("imageLoad", article);
 };
 </script>

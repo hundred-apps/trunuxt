@@ -2,13 +2,17 @@
   <div class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8">
       <div>
-        <NuxtLink to="/" class="block text-center">
-          <img
+        <Trulink to="/" class="block text-center">
+          <AppImage
             src="https://migration.trumecs.com/logo/dark.png"
             alt="Trumecs"
-            class="mx-auto h-16 w-auto"
-          />
-        </NuxtLink>
+            class="mx-auto h-16 w-auto object-contain"
+            width="200"
+            height="40"
+            sizes="200px"
+            loading="lazy"
+            />
+        </Trulink>
         <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
           {{ $t('auth.register.title') }}
         </h2>
@@ -125,9 +129,9 @@
             <el-checkbox v-model="form.agreeTerms" size="small" class="mt-1">
               <span class="text-sm text-gray-600">
                 {{ $t('auth.agreeTermsPart1') }}
-                <NuxtLink to="/page/syarat-ketentuan" class="text-orange-600 hover:underline">{{ $t('auth.terms') }}</NuxtLink>
+                <Trulink to="/terms-of-use" class="text-orange-600 hover:underline">{{ $t('auth.terms') }}</Trulink>
                 {{ $t('auth.and') }}
-                <NuxtLink to="/page/kebijakan-privasi" class="text-orange-600 hover:underline">{{ $t('auth.privacy') }}</NuxtLink>
+                <Trulink to="/privacy-policy" class="text-orange-600 hover:underline">{{ $t('auth.privacy') }}</Trulink>
               </span>
             </el-checkbox>
           </div>
@@ -154,12 +158,12 @@
       <div class="text-center">
         <p class="text-sm text-gray-600">
           {{ $t('auth.hasAccount') }}
-          <NuxtLink
+          <Trulink
             to="/member/login"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
             {{ $t('auth.login.title') }}
-          </NuxtLink>
+          </Trulink>
         </p>
       </div>
     </div>

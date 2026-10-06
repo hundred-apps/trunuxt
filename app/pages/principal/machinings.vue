@@ -139,12 +139,15 @@
             <div
               class="absolute -inset-4 bg-gray-100 rounded-2xl transform rotate-3 z-0 opacity-50"
             ></div>
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqRoCAqyU-Vv0JveUI0ickT1MrOJQFHcYtQrJZDGym22rCLAO7HI7GovKB9AIu2UEVQqx0CJqPX7uz87gqu3blDtBnX56FH3Kq0B5N9r2JdNzihBXIkZKNthLDmWcWxlBekkz2DO-zVlvbQzyi7OxPVuWGQQzjulaA_LPP6sfEXMsoI1Gs0eCg-_aD8PDun1NZdIIL-ppS6fwQg1CuxpJVoAfK5n9lN4HgCRWms5kAj1ILQOtP5BF5"
-              alt="Machining Excellence"
-              class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+            <AppImage
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqRoCAqyU-Vv0JveUI0ickT1MrOJQFHcYtQrJZDGym22rCLAO7HI7GovKB9AIu2UEVQqx0CJqPX7uz87gqu3blDtBnX56FH3Kq0B5N9r2JdNzihBXIkZKNthLDmWcWxlBekkz2DO-zVlvbQzyi7OxPVuWGQQzjulaA_LPP6sfEXMsoI1Gs0eCg-_aD8PDun1NZdIIL-ppS6fwQg1CuxpJVoAfK5n9lN4HgCRWms5kAj1ILQOtP5BF5"
+alt="Machining Excellence"
+class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+              width="800"
+              height="600"
+              sizes="100vw md:600px"
               loading="lazy"
-            />
+              />
           </div>
         </div>
       </div>
@@ -169,12 +172,15 @@
             :key="index"
             class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer"
           >
-            <img
-              :src="industry.image"
-              :alt="industry.name"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            <AppImage
+:src="industry.image"
+:alt="industry.name"
+class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              width="800"
+              height="600"
+              sizes="100vw md:600px"
               loading="lazy"
-            />
+              />
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
             ></div>
@@ -415,11 +421,15 @@
       <div class="max-w-7xl mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div class="text-center md:text-left">
-            <img
-              src="https://migration.trumecs.com/logo/light.png"
-              alt="Trumecs"
-              class="h-10 mx-auto md:mx-0 mb-4"
-            />
+            <AppImage
+src="https://migration.trumecs.com/logo/light.png"
+alt="Trumecs"
+class="h-10 mx-auto md:mx-0 mb-4 w-auto object-contain"
+              width="200"
+              height="40"
+              sizes="200px"
+              loading="lazy"
+              />
             <p class="text-sm text-gray-300">
               Your Reliable Partner for Precision Machining & Industrial
               Manufacturing

@@ -77,6 +77,16 @@ export interface CategoryResponse {
   payload: CategoryPayload;
 }
 
+// Banner iklan yang dirender oleh components/cards/article/Ads.vue
+export interface ArticleAd {
+  title: string;
+  description: string;
+  imageUrl: string;
+  imageAlt: string;
+  buttonLink: string;
+  buttonText: string;
+}
+
 // Product - untuk produk dalam kategori
 export interface Product {
   id: number;

@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.articles.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/articles/create">
+      <Trulink to="/admin/articles/create">
         <Trubutton
           :text="$t('admin.articles.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Filter Bar -->
@@ -115,14 +115,14 @@
           {{ $t("admin.articles.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.articles.emptyDesc") }}</p>
-        <NuxtLink to="/admin/articles/create">
+        <Trulink to="/admin/articles/create">
           <Trubutton
             :text="$t('admin.articles.addFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="overflow-x-auto">
@@ -178,11 +178,15 @@
               class="hover:bg-gray-50"
             >
               <td class="px-6 py-4">
-                <img
-                  :src="getArticleImage(article.image)"
-                  :alt="article.title"
-                  class="h-12 w-16 object-cover rounded"
-                />
+                <AppImage
+:src="getArticleImage(article.image)"
+:alt="article.title"
+class="h-12 w-16 object-cover rounded"
+                  width="64"
+                  height="48"
+                  sizes="64px"
+                  loading="lazy"
+                  />
               </td>
               <td class="px-6 py-4">
                 <p class="font-medium text-gray-900 line-clamp-1 max-w-xs">
@@ -212,20 +216,20 @@
               </td>
               <td class="px-6 py-4 text-right w-32">
                 <div class="flex items-center justify-end gap-2">
-                  <NuxtLink
+                  <Trulink
                     :to="`/admin/articles/${article.id}`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Detail"
                   >
                     <Icon name="material-symbols:visibility" class="h-4 w-4" />
-                  </NuxtLink>
-                  <NuxtLink
+                  </Trulink>
+                  <Trulink
                     :to="`/admin/articles/${article.id}/edit`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Edit"
                   >
                     <Icon name="material-symbols:edit" class="h-4 w-4" />
-                  </NuxtLink>
+                  </Trulink>
                   <el-dropdown>
                     <template #dropdown>
                       <el-dropdown-menu>

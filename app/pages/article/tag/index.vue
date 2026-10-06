@@ -12,6 +12,45 @@
         </p>
       </header>
 
+      <!-- Pencarian tag (ada ratusan tag, jadi tidak bisa di-scroll semua) -->
+      <div class="relative mb-4">
+        <input
+          v-model="searchDraft"
+          type="search"
+          :placeholder="$t('page.articleTag.searchPlaceholder')"
+          class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-11 text-sm outline-none transition-colors focus:border-orange-500"
+          @keyup.enter="applySearch"
+        />
+        <button
+          type="button"
+          class="absolute right-1 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-orange-500"
+          :aria-label="$t('page.article.search')"
+          @click="applySearch"
+        >
+          <Icon name="material-symbols:search" class="text-lg" />
+        </button>
+        <button
+          v-if="searchDraft"
+          type="button"
+          class="absolute right-9 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-gray-600"
+          :aria-label="$t('page.article.clearSearch')"
+          @click="clearSearch"
+        >
+          <Icon name="material-symbols:close" class="text-lg" />
+        </button>
+      </div>
+
+      <div
+        v-if="activeSearch"
+        class="mb-4 flex items-center gap-2 text-sm text-gray-600"
+      >
+        <span>{{ $t("page.article.searchResultFor") }}</span>
+        <span class="font-semibold text-orange-600">
+          "{{ activeSearch }}"
+        </span>
+        <span>({{ filteredTags.length }})</span>
+      </div>
+
       <!-- Progress scan -->
       <div
         v-if="loading && tags.length === 0"
@@ -51,24 +90,37 @@
 
       <!-- Kosong -->
       <div
-        v-else-if="tags.length === 0"
+        v-else-if="filteredTags.length === 0"
         class="text-center py-16 bg-white rounded-xl border border-gray-100"
       >
-        <Icon name="material-symbols:sell" class="text-6xl text-gray-300 mb-4" />
+        <span class="inline-block text-6xl font-bold text-gray-300 mb-4">#</span>
         <h3 class="text-lg font-medium text-gray-600 mb-2">
           {{ $t("label.noResults") }}
         </h3>
+        <button
+          v-if="activeSearch"
+          type="button"
+          class="mt-4 rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
+          @click="clearSearch"
+        >
+          {{ $t("page.article.clearSearch") }}
+        </button>
       </div>
 
       <!-- Daftar tag -->
       <template v-else>
         <p class="text-sm text-gray-500 mb-4">
-          {{ $t("page.articleTag.totalTags", { count: tags.length }) }}
+          {{
+            activeSearch
+              ? $t("page.article.searchResultFor")
+              : $t("page.articleTag.totalTags", { count: filteredTags.length })
+          }}
+          <span v-if="activeSearch">({{ filteredTags.length }})</span>
         </p>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
           <Trulink
-            v-for="tag in tags"
+            v-for="tag in filteredTags"
             :key="tag.slug"
             :to="`/article/tag/${tag.slug}`"
             class="group bg-white rounded-xl border border-gray-100 p-4 transition-all duration-300 hover:shadow-lg hover:border-orange-200"
@@ -77,10 +129,7 @@
               <span
                 class="h-9 w-9 shrink-0 rounded-lg bg-orange-50 flex items-center justify-center transition-colors group-hover:bg-orange-100"
               >
-                <Icon
-                  name="material-symbols:sell"
-                  class="text-lg text-orange-500"
-                />
+                <span class="text-lg font-bold text-orange-500">#</span>
               </span>
               <div class="min-w-0">
                 <h3
@@ -107,16 +156,79 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRoute, useRouter } from "vue-router";
 import Breadcrumbs from "~/components/Breadcrumbs.vue";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
 import { useArticleTags } from "~/composables/useArticleTags";
 
 const { t: $t } = useI18n();
+const route = useRoute();
+const router = useRouter();
 const { updateHeaderHeight } = useHeaderHeight();
 
 const { loading, tags, progress, scanAll } = useArticleTags();
+
+// ============ PENCARIAN TAG ============
+const searchDraft = ref(String(route.query.q || ""));
+const activeSearch = ref(String(route.query.q || ""));
+
+const normalizeText = (value: unknown): string =>
+  String(value ?? "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+
+const omitQuery = (
+  query: Record<string, any>,
+  key: string
+): Record<string, any> => {
+  const next = { ...query };
+  delete next[key];
+  return next;
+};
+
+/**
+ * Filter tag berdasarkan nama. Cocokkan juga dengan slug supaya
+ * "roller conveyor" tetap menemukan tag `roller-conveyor`.
+ * Semua kata kunci harus cocok (AND).
+ */
+const filteredTags = computed(() => {
+  const q = normalizeText(activeSearch.value);
+  if (!q) return tags.value;
+
+  const words = q.split(" ");
+  return tags.value.filter((t) => {
+    const haystack = `${normalizeText(t.name)} ${normalizeText(t.slug)}`;
+    return words.every((word) => haystack.includes(word));
+  });
+});
+
+const applySearch = async () => {
+  const q = searchDraft.value.trim();
+  activeSearch.value = q;
+  await router.replace({
+    query: q ? { ...route.query, q } : omitQuery(route.query, "q"),
+  });
+};
+
+const clearSearch = async () => {
+  searchDraft.value = "";
+  await applySearch();
+};
+
+// Ikuti perubahan ?q= dari luar (mis. dari Navbar atau tombol back).
+watch(
+  () => route.query.q,
+  (value) => {
+    const q = String(value || "");
+    if (q !== activeSearch.value) {
+      activeSearch.value = q;
+      searchDraft.value = q;
+    }
+  }
+);
 
 const breadcrumbs = computed(() => [
   { text: $t("breadcrumb.home"), to: "/" },
@@ -130,6 +242,9 @@ useHead({
   meta: computed(() => [
     { name: "description", content: $t("page.articleTag.subtitle") },
     { name: "robots", content: "index, follow" },
+    { property: "og:title", content: $t("page.articleTag.title") },
+    { property: "og:description", content: $t("page.articleTag.subtitle") },
+    { property: "og:type", content: "website" },
   ]),
   link: computed(() => [
     { rel: "canonical", href: "https://www.trumecs.com/article/tag" },

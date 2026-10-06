@@ -98,28 +98,15 @@
       </div>
     </div>
 
-    <!-- Loading Skeleton -->
-    <div v-if="loading" :class="gridClass">
-      <div
-        v-for="i in 12"
-        :key="i"
-        class="animate-pulse overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
-      >
-        <div class="aspect-square bg-gray-200" />
-        <div class="space-y-2 p-3">
-          <div class="h-3 w-1/3 rounded bg-gray-200" />
-          <div class="h-3 w-full rounded bg-gray-200" />
-          <div class="h-3 w-1/2 rounded bg-gray-200" />
-        </div>
-      </div>
-    </div>
-
     <!-- Empty State -->
     <div
-      v-else-if="products.length === 0"
+      v-if="products.length === 0"
       class="rounded-2xl border border-dashed border-gray-200 bg-white py-16 text-center shadow-sm"
     >
-      <Icon name="material-symbols:inventory-2" class="mx-auto text-6xl text-gray-200" />
+      <Icon
+        name="material-symbols:inventory-2"
+        class="mx-auto text-6xl text-gray-200"
+      />
       <h3 class="mb-1 mt-4 text-lg font-semibold text-gray-600">
         {{ $t("page.category.empty") }}
       </h3>
@@ -138,7 +125,7 @@
       <!-- Grid View -->
       <div
         v-if="viewMode === 'grid'"
-        class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:gap-4 xl:grid-cols-4"
+        class="grid mx-1 grid-cols-2 gap-3 sm:grid-cols-3 lg:gap-4 xl:grid-cols-4"
       >
         <ProductCard
           v-for="product in products"
@@ -158,7 +145,9 @@
             :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
             class="flex"
           >
-            <div class="h-32 w-32 flex-shrink-0 overflow-hidden bg-gray-50 sm:h-36 sm:w-36">
+            <div
+              class="h-32 w-32 flex-shrink-0 overflow-hidden bg-gray-50 sm:h-36 sm:w-36"
+            >
               <AppImage
                 :src="getProductImage(product.img)"
                 :alt="product.tittle"
@@ -171,15 +160,24 @@
             </div>
             <div class="flex flex-1 flex-col justify-center p-4">
               <p
-                v-if="product.brand && typeof product.brand === 'string' && product.brand.toLowerCase() !== 'other'"
+                v-if="
+                  product.brand &&
+                  typeof product.brand === 'string' &&
+                  product.brand.toLowerCase() !== 'other'
+                "
                 class="mb-1 text-xs font-semibold text-orange-500"
               >
                 {{ product.brand }}
               </p>
-              <h3 class="mb-1 line-clamp-2 font-semibold text-gray-800 transition-colors group-hover:text-orange-500">
+              <h3
+                class="mb-1 line-clamp-2 font-semibold text-gray-800 transition-colors group-hover:text-orange-500"
+              >
                 {{ product.tittle }}
               </h3>
-              <p v-if="product.description" class="mb-2 line-clamp-2 text-sm text-gray-500">
+              <p
+                v-if="product.description"
+                class="mb-2 line-clamp-2 text-sm text-gray-500"
+              >
                 {{ product.description }}
               </p>
               <div class="flex flex-wrap items-center gap-3">
@@ -287,9 +285,7 @@ const gridClass = computed(() =>
 );
 
 const showingFrom = computed(() =>
-  props.totalProducts === 0
-    ? 0
-    : (props.currentPage - 1) * props.perPage + 1
+  props.totalProducts === 0 ? 0 : (props.currentPage - 1) * props.perPage + 1
 );
 const showingTo = computed(() =>
   Math.min(props.currentPage * props.perPage, props.totalProducts)

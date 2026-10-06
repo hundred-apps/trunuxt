@@ -125,30 +125,30 @@
       class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 animate-fadeIn"
     >
       <div class="space-y-2">
-        <a :href="platformContact('phoneLink')" target="_blank">
+        <Trulink :href="platformContact('phoneLink')" target="_blank">
           <div class="flex items-center gap-2">
             <Icon name="mdi:phone" class="text-orange-500" />
             <span>{{ platformContact("phone") }}</span>
           </div>
-        </a>
-        <a :href="platformContact('emailLink')" target="_blank">
+        </Trulink>
+        <Trulink :href="platformContact('emailLink')" target="_blank">
           <div class="flex items-center gap-2">
             <Icon name="mdi:email" class="text-orange-500" />
             <span>{{ platformContact("email") }}</span>
           </div>
-        </a>
-        <a :href="platformContact('linkWhatsapp')" target="_blank">
+        </Trulink>
+        <Trulink :href="platformContact('linkWhatsapp')" target="_blank">
           <div class="flex items-center gap-2">
             <Icon name="logos:whatsapp-icon" class="text-xl" />
             <span>{{ platformContact("whatsapp") }}</span>
           </div>
-        </a>
-        <a :href="platformContact('linkWhatsapp2')" target="_blank">
+        </Trulink>
+        <Trulink :href="platformContact('linkWhatsapp2')" target="_blank">
           <div class="flex items-center gap-2">
             <Icon name="logos:whatsapp-icon" class="text-xl" />
             <span>{{ platformContact("whatsapp2") }}</span>
           </div>
-        </a>
+        </Trulink>
       </div>
     </div>
 
@@ -194,31 +194,31 @@
   >
     <div class="flex items-center gap-2 px-3 pb-3">
       <!-- WhatsApp Button -->
-      <a
+      <Trulink
         :href="whatsappLink"
         target="_blank"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
         <Icon name="logos:whatsapp-icon" class="text-xl" /> WA 1
         <span class="hidden xs:inline text-sm">WhatsApp</span>
-      </a>
-      <a
+      </Trulink>
+      <Trulink
         :href="whatsappLink2"
         target="_blank"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
         <Icon name="logos:whatsapp-icon" class="text-xl" /> WA 2
         <span class="hidden xs:inline text-sm">WhatsApp</span>
-      </a>
+      </Trulink>
 
       <!-- Email Button -->
-      <a
+      <Trulink
         :href="emailLink"
         class="flex-1 flex items-center justify-center gap-1.5 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
         <Icon name="mdi:email" class="text-xl" /> Email
         <span class="hidden xs:inline text-sm">Email</span>
-      </a>
+      </Trulink>
 
       <!-- Share Button -->
       <div class="relative">

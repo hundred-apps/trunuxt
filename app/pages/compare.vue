@@ -13,14 +13,14 @@
         <Icon name="material-symbols:compare" class="text-6xl text-gray-300 mb-4" />
         <h3 class="text-lg font-medium text-gray-900 mb-2">{{ $t('compare.empty') }}</h3>
         <p class="text-gray-500 mb-6">{{ $t('compare.emptyDesc') }}</p>
-        <NuxtLink to="/c/all/query">
+        <Trulink to="/c/all/query">
           <Trubutton
             :text="$t('compare.startComparing')"
             type="primary"
             variant="solid"
             icon="material-symbols:search"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <!-- Compare Table -->
@@ -39,11 +39,15 @@
                   class="px-4 py-3 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
                 >
                   <div class="flex items-center justify-center gap-2">
-                    <img
-                      :src="getProductImage(product.img)"
-                      :alt="product.tittle"
-                      class="h-12 w-12 object-cover rounded"
-                    />
+<AppImage
+                           :src="getProductImage(product.img)"
+                           :alt="product.tittle"
+                           class="h-12 w-12 object-cover rounded"
+                           sizes="48px"
+                           width="48"
+                           height="48"
+                           loading="lazy"
+                         />
                     <button
                       @click="removeProduct(product.id)"
                       class="text-gray-400 hover:text-red-500 transition-colors"
@@ -175,6 +179,15 @@ const breadcrumbs = computed(() => [
   { text: $t('breadcrumb.home'), to: '/' },
   { text: $t('compare.title'), to: '/compare' },
 ]);
+
+useHead({
+  title: computed(() => $t('compare.title')),
+  titleTemplate: "%s | Trumecs.com",
+  meta: computed(() => [
+    { name: 'description', content: $t('compare.subtitle') },
+    { name: 'robots', content: 'noindex, nofollow' },
+  ]),
+});
 
 const allSpecs = computed(() => {
   if (compareProducts.value.length === 0) return [];

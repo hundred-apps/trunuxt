@@ -7,7 +7,7 @@ export type Article = {
   url: string | null;
   seo_key: string | null;
   discription_seo: string | null;
-  tag: [];
+  tag: string | string[] | null;
   view: number;
   created_by: string | null;
   title_en: string | null;
@@ -31,8 +31,12 @@ export interface CardArticle {
   title: string;
   image: string;
   category?: string;
+  tags?: string[];
   date?: string;
   excerpt?: string;
+  description?: string;
+  content?: string;
+  views?: number;
   author?: {
     name: string;
     avatar: string;

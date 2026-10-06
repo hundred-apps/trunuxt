@@ -1,10 +1,13 @@
 <template>
   <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all group">
     <div class="relative aspect-video overflow-hidden">
-      <img
+      <AppImage
         :src="getImage(item.image)"
         :alt="item.name"
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        sizes="100vw sm:50vw lg:25vw"
+        width="500"
+        height="333"
         loading="lazy"
       />
       <div class="absolute top-3 left-3 flex gap-2">

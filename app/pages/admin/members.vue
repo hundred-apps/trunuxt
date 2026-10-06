@@ -563,6 +563,9 @@ definePageMeta({ layout: "admin" });
 
 const router = useRouter();
 const adminStore = useAdminStore();
+// Diambil di scope setup, bukan di dalam async fetch*/save* setelah await,
+// jika tidak memicu NUXT_E1001 (komposable tanpa konteks Nuxt).
+const config = useRuntimeConfig();
 
 interface Member {
   id: number;
@@ -722,7 +725,6 @@ const saveForm = async () => {
   if (!form.value) return;
   saving.value = true;
   try {
-    const config = useRuntimeConfig();
     const body = buildBody();
     const response = await $fetch<{
       status: boolean;
@@ -776,7 +778,6 @@ const applyFilters = () => {
 const fetchMembers = async () => {
   loading.value = true;
   try {
-    const config = useRuntimeConfig();
     const body: Record<string, string> = {};
     if (filters.value.search) body.name = filters.value.search;
     if (filters.value.status) body.status = filters.value.status;

@@ -14,12 +14,15 @@
           <!-- Left Content -->
           <div class="space-y-3 sm:space-y-stack-md text-center md:text-left">
             <div class="flex justify-center md:justify-start">
-              <img
-                src="https://migration.trumecs.com/logo/principal/struman.png"
-                alt="STRUMAN Brand"
-                class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
+              <AppImage
+src="https://migration.trumecs.com/logo/principal/struman.png"
+alt="STRUMAN Brand"
+class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
+                width="200"
+                height="100"
+                sizes="200px"
                 loading="lazy"
-              />
+                />
             </div>
 
             <div
@@ -63,12 +66,15 @@
           <!-- Right Image -->
           <div class="hidden md:block">
             <div class="relative rounded-2xl overflow-hidden">
-              <img
-                class="w-full h-auto object-contain mix-blend-multiply"
-                src="https://migration.trumecs.com/principal/struman/struman-all.png"
-                alt="STRUMAN All"
+              <AppImage
+class="w-full h-auto object-contain mix-blend-multiply"
+src="https://migration.trumecs.com/principal/struman/struman-all.png"
+alt="STRUMAN All"
+                width="600"
+                height="600"
+                sizes="100vw md:300px"
                 loading="lazy"
-              />
+                />
             </div>
           </div>
         </div>
@@ -124,11 +130,15 @@
               :key="index"
               class="relative rounded-xl border border-outline-variant overflow-hidden technical-shadow hover:border-primary/40 transition-all group min-h-[calc(100dvh-4rem)] sm:min-h-[380px] lg:min-h-[420px]"
             >
-              <img
-                :src="useCase.image"
-                :alt="useCase.title"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+              <AppImage
+:src="useCase.image"
+:alt="useCase.title"
+class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                width="600"
+                height="600"
+                sizes="100vw md:300px"
+                loading="lazy"
+                />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/0"
               ></div>
@@ -192,17 +202,20 @@
             <div
               class="h-64 bg-surface-container-low flex items-center justify-center border-b border-outline-variant"
             >
-              <img
-                :src="product.image"
-                :alt="product.name"
-                class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+              <AppImage
+:src="product.image"
+:alt="product.name"
+class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                width="600"
+                height="600"
+                sizes="100vw md:300px"
                 loading="lazy"
-              />
+                />
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
                 <Trulink
-                  :to="`https://www.trumecs.com/product/${product.id}/${formatSlug(product.name)}`"
+                  :href="`https://www.trumecs.com/product/${product.id}/${formatSlug(product.name)}`"
                   class="font-headline-md text-headline-md text-industrial-black fs-4"
                 >
                   {{ product.name }}
@@ -281,11 +294,15 @@
               <div
                 class="bg-surface-container-low rounded-xl flex items-center justify-center h-48 mb-4 overflow-hidden"
               >
-                <img
-                  :src="selectedProduct.images[0]"
-                  :alt="selectedProduct.name"
-                  class="max-h-full max-w-full object-contain"
-                />
+                <AppImage
+:src="selectedProduct.images[0]"
+:alt="selectedProduct.name"
+class="max-h-full max-w-full object-contain"
+                  width="600"
+                  height="600"
+                  sizes="100vw md:300px"
+                  loading="lazy"
+                  />
               </div>
               <div class="flex gap-2 justify-center">
                 <button
@@ -299,11 +316,15 @@
                       : 'border-outline-variant'
                   "
                 >
-                  <img
-                    :src="img"
-                    :alt="`Thumbnail ${index + 1}`"
-                    class="max-h-full max-w-full object-contain"
-                  />
+                  <AppImage
+:src="img"
+:alt="`Thumbnail ${index + 1}`"
+class="max-h-full max-w-full object-contain"
+                    width="600"
+                    height="600"
+                    sizes="100vw md:300px"
+                    loading="lazy"
+                    />
                 </button>
               </div>
             </div>
@@ -372,7 +393,7 @@
               </div>
 
               <Trulink
-                :to="`${selectedProduct.link}`"
+                :href="`${selectedProduct.link}`"
                 target="_blank"
                 class="w-full bg-secondary-container py-3 rounded font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >

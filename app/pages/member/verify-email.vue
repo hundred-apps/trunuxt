@@ -2,13 +2,17 @@
   <div class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8 text-center">
       <div>
-        <NuxtLink to="/" class="block">
-          <img
+        <Trulink to="/" class="block">
+          <AppImage
             src="https://migration.trumecs.com/logo/dark.png"
             alt="Trumecs"
-            class="mx-auto h-16 w-auto"
-          />
-        </NuxtLink>
+            class="mx-auto h-16 w-auto object-contain"
+            width="200"
+            height="40"
+            sizes="200px"
+            loading="lazy"
+            />
+        </Trulink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">
           {{ $t('auth.verifyEmail.title') }}
         </h2>
@@ -30,9 +34,9 @@
           <Icon name="material-symbols:check-circle" class="mx-auto h-12 w-12 text-green-500 mb-3" />
           <h3 class="text-lg font-semibold mb-2">{{ $t('auth.verifyEmail.verified') }}</h3>
           <p class="text-sm mb-4">{{ $t('auth.verifyEmail.verifiedDesc') }}</p>
-          <NuxtLink to="/member/login" class="text-orange-600 hover:underline font-medium">
+          <Trulink to="/member/login" class="text-orange-600 hover:underline font-medium">
             {{ $t('auth.login.title') }}
-          </NuxtLink>
+          </Trulink>
         </div>
 
         <div v-else-if="status === 'expired'" class="bg-yellow-50 text-yellow-700 p-4 rounded-lg">
@@ -60,13 +64,13 @@
               @click="resendVerification"
               :loading="resending"
             />
-            <NuxtLink to="/member/login" class="flex items-center">
+            <Trulink to="/member/login" class="flex items-center">
               <Trubutton
                 :text="$t('auth.login.title')"
                 type="primary"
                 variant="solid"
               />
-            </NuxtLink>
+            </Trulink>
           </div>
         </div>
       </div>

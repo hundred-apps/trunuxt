@@ -93,12 +93,15 @@
               <div
                 class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10"
               >
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeTRnZrdiqij9vDG_CRXkKQDK11a2Rhu-c_uxBUZXQLn4IJSiJOfAkXmWAX1pR2GdG4JTWFC6NaYklvLs2HpJiScidi1DoRAuAWKZD7Z5y7YjpCsACspcGb8YvBSEANSpKnSbnzQRYTFwDGPlbHFI7Et7cwkGgR6se2hGhDewuFx_tVK5w8evHqLupABx4SOjQbHppr0rawsl063G02C7P4WMB4VncqeqXScybateHPvueYebRv2BY7A"
-                  alt="{{ t('page.principal.usedsparepart.hero.titleLine1') }}"
-                  class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
+                <AppImage
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeTRnZrdiqij9vDG_CRXkKQDK11a2Rhu-c_uxBUZXQLn4IJSiJOfAkXmWAX1pR2GdG4JTWFC6NaYklvLs2HpJiScidi1DoRAuAWKZD7Z5y7YjpCsACspcGb8YvBSEANSpKnSbnzQRYTFwDGPlbHFI7Et7cwkGgR6se2hGhDewuFx_tVK5w8evHqLupABx4SOjQbHppr0rawsl063G02C7P4WMB4VncqeqXScybateHPvueYebRv2BY7A"
+alt="{{ t('page.principal.usedsparepart.hero.titleLine1') }}"
+class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
+                  width="800"
+                  height="600"
+                  sizes="100vw md:600px"
                   loading="lazy"
-                />
+                  />
                 <!-- Gradient overlay -->
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"

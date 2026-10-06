@@ -113,6 +113,11 @@ export interface Product {
     img: string;
     view: number;
     description?: string;
+    // API produk tidak selalu mengirim `description`; field yang benar-benar
+    // dipakai artikel adalah `discription_seo`, `seo_key`, dan `value` (HTML).
+    discription_seo?: string;
+    seo_key?: string;
+    value?: string;
   }>;
   gallery_img: Array<{
     img: string;

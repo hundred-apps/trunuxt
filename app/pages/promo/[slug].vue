@@ -31,12 +31,17 @@
           <div class="lg:col-span-8">
             <div class="bg-white rounded-xl shadow-sm overflow-hidden">
               <div class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
-                <img
-                  v-if="promo.img"
-                  :src="`${config.public.baseImagePromo}${promo.img}`"
-                  :alt="promo.name"
-                  class="w-full h-full object-cover"
-                />
+<AppImage
+                       v-if="promo.img"
+                       :src="`${config.public.baseImagePromo}${promo.img}`"
+                       :alt="promo.name"
+                       class="w-full h-full object-cover"
+                       sizes="100vw lg:800px"
+                       width="800"
+                       height="450"
+                       loading="eager"
+                       fetchpriority="high"
+                     />
                 <div
                   v-else
                   class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"

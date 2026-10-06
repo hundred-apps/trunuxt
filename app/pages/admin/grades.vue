@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.grades.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/grades/create">
+      <Trulink to="/admin/grades/create">
         <Trubutton
           :text="$t('admin.grades.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Filter -->
@@ -56,14 +56,14 @@
           {{ $t("admin.grades.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.grades.emptyDesc") }}</p>
-        <NuxtLink to="/admin/grades/create">
+        <Trulink to="/admin/grades/create">
           <Trubutton
             :text="$t('admin.grades.addFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="overflow-x-auto">
@@ -127,13 +127,13 @@
               </td>
               <td class="px-6 py-4 text-right w-32">
                 <div class="flex items-center justify-end gap-2">
-                  <NuxtLink
+                  <Trulink
                     :to="`/admin/grades/${grade.id}/edit`"
                     class="p-2 text-gray-500 hover:text-orange-600 hover:bg-gray-50 rounded-lg"
                     title="Edit"
                   >
                     <Icon name="material-symbols:edit" class="h-4 w-4" />
-                  </NuxtLink>
+                  </Trulink>
                   <button
                     @click="deleteGrade(grade)"
                     class="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg"

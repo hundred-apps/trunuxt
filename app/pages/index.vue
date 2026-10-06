@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="homepage">
     <section class="hero-section relative overflow-hidden">
       <div class="relative">
@@ -91,8 +91,9 @@
           </Trulink> -->
         </div>
 
+        <!-- Fallback skeleton hanya kalau data belum sama sekali tersedia -->
         <div
-          v-if="loadingTags"
+          v-if="industriesList.length === 0 && loadingTags"
           class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 lg:gap-4"
         >
           <div v-for="i in 7" :key="i" class="animate-pulse">
@@ -102,7 +103,7 @@
         </div>
 
         <div
-          v-else-if="industriTags.length === 0"
+          v-else-if="industriesList.length === 0"
           class="text-center py-16 bg-white rounded-xl shadow-sm"
         >
           <Icon
@@ -119,7 +120,7 @@
           class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 lg:gap-4"
         >
           <Trulink
-            v-for="tag in industriTags.slice(0, 10)"
+            v-for="(tag, tagIdx) in industriesList.slice(0, 10)"
             :key="tag.id"
             :to="`/search?tag=${tag.id}`"
             class="group"
@@ -127,12 +128,20 @@
             <div
               class="relative aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
             >
+              <!-- Kartu industri: file WebP dari mirror lokal public/ (tanpa /_ipx/) -->
               <img
                 v-if="!tagImgFailed(tag.id)"
-                :src="`${siteUrl}/public/tag/industries/${tag.id}.png`"
-                :alt="tagLabel(tag)"
+                :src="staticImg(`/public/tag/industries/${tag.id}.png`)"
+                :srcset="
+                  staticImgSrcset(`/public/tag/industries/${tag.id}.png`)
+                "
+                :sizes="TAG_IMG_SIZES"
+                :alt="tagLabelByLocale(tag)"
                 class="w-full h-full object-cover"
-                loading="lazy"
+                width="1024"
+                height="1536"
+                loading="eager"
+                :fetchpriority="tagIdx < 3 ? 'high' : 'auto'"
                 decoding="async"
                 @error="markTagImgError(tag.id)"
               />
@@ -147,7 +156,7 @@
               <p
                 class="absolute left-0 right-0 bottom-0 p-2 lg:p-3 text-center text-white font-bold text-xs sm:text-sm leading-tight line-clamp-2"
               >
-                {{ tagLabel(tag) }}
+                {{ tagLabelByLocale(tag) }}
               </p>
             </div>
           </Trulink>
@@ -183,17 +192,20 @@
           <Trulink
             v-for="category in categories"
             :key="category.id"
-            :href="`/search?cat=${category.id}`"
+            :to="`/search?cat=${category.id}`"
             class="group"
           >
             <div
               class="relative aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
             >
-              <img
+              <AppImage
                 v-if="category.img"
                 :src="`${config.public.baseImageCat}${category.img}`"
                 :alt="category.name"
                 class="w-full h-full object-cover"
+                sizes="33vw sm:25vw lg:16vw"
+                width="400"
+                height="600"
                 loading="lazy"
                 @error="handleImageError"
               />
@@ -249,11 +261,14 @@
             class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
           >
             <div class="relative h-40 sm:h-48 overflow-hidden">
-              <img
+              <AppImage
                 v-if="promo.img"
                 :src="`${config.public.baseImagePromo}${promo.img}`"
                 :alt="promo.name"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="100vw sm:50vw lg:33vw"
+                width="600"
+                height="360"
                 loading="lazy"
               />
               <div
@@ -317,7 +332,7 @@
             </p>
           </div>
           <Trulink
-            :href="`/search`"
+            :to="`/search`"
             class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
           >
             {{ $t("button.seeAll") }}
@@ -378,7 +393,7 @@
                 </h3>
               </div>
               <Trulink
-                :href="`/search?cat=${group.id}`"
+                :to="`/search?cat=${group.id}`"
                 class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
               >
                 {{ $t("button.seeAll") }}
@@ -433,7 +448,7 @@
               <Trulink
                 v-for="(sub, subIdx) in section.subcategories"
                 :key="sub.id"
-                :href="`/search?cat=${sub.id}`"
+                :to="`/search?cat=${sub.id}`"
                 class="group relative overflow-hidden flex border border-white"
                 :class="[
                   subIdx === 0
@@ -467,7 +482,7 @@
 
               <Trulink
                 v-if="section.subcategories.length < 5"
-                :href="`/search?cat=${section.id}`"
+:to="`/search?cat=${section.id}`"
                 :class="
                   section.subcategories.length === 3
                     ? 'col-span-2 lg:col-span-2'
@@ -538,10 +553,13 @@
             class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
           >
             <div class="aspect-video overflow-hidden">
-              <img
+              <AppImage
                 :src="article.image"
                 :alt="article.title"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="100vw sm:50vw lg:33vw"
+                width="600"
+                height="338"
                 loading="lazy"
               />
             </div>
@@ -607,6 +625,10 @@ const urlTrumecs = config.public.info.linkTrumecsPhp;
 const siteUrl = (config.public.siteUrl as string) || "https://www.trumecs.com";
 const { t: $t } = useI18n();
 
+// Aset statis (industries + banner) dilayani dari mirror lokal public/
+// sebagai WebP; aset dinamis (produk/artikel/promo) tetap dari trumecs.com.
+const { resolve: staticImg, srcset: staticImgSrcset } = useStaticImage();
+
 const {
   loading: loadingTags,
   tags: industriTags,
@@ -614,6 +636,28 @@ const {
   tagCount,
   load: loadTags,
 } = useProductTags();
+
+// Label tag mengikuti locale (id/en/zh)
+const { locale } = useI18n();
+const tagLabelByLocale = (tag: any): string => {
+  if (!tag) return "";
+  const lang = String(locale.value || "id").toLowerCase();
+  if (lang === "en") return tag.tag_en || tag.tag || "";
+  if (lang === "zh") return tag.tag_ch || tag.tag || "";
+  return tag.tag || tag.tag_en || "";
+};
+
+// Prioritaskan data SSR, fallback ke data composable (client)
+const industriesList = computed<any[]>(() => {
+  const ssr = tagsData.value?.data?.payload;
+  if (Array.isArray(ssr) && ssr.length > 0) return ssr;
+  return industriTags.value || [];
+});
+
+// Gambar industri: file WebP hasil mirror (scripts/mirror-static-images.cjs)
+// ada di public/tag/industries/, jadi dilayani lokal tanpa /_ipx/.
+// Kalau file lokal hilang, markTagImgError() menampilkan icon sebagai ganti.
+const TAG_IMG_SIZES = "(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 16vw";
 
 usePageSeo({
   title: "Trumecs.com",
@@ -650,31 +694,31 @@ const slides = computed(() => [
   {
     alt: "Power Supply Struman",
     link: `${siteUrl}/principal/struman`,
-    image: `${siteUrl}/public/banner/promo-home/banner-struman.png`,
+    image: staticImg("/public/banner/promo-home/banner-struman.png"),
     external: false,
   },
   {
     alt: "banner trumecs.com",
     link: `${siteUrl}/promo`,
-    image: `${siteUrl}/public/banner/home-mobile/6.png`,
+    image: staticImg("/public/banner/home-mobile/6.png"),
     external: false,
   },
   {
     alt: "banner langkah",
     link: "",
-    image: `${siteUrl}/public/banner/home-mobile/7.png`,
+    image: staticImg("/public/banner/home-mobile/7.png"),
     external: false,
   },
   {
     alt: "Scrap alat berat di trumecs.com",
-    image: `${siteUrl}/public/banner/promo-home/banner-scrap-utama.png`,
+    image: staticImg("/public/banner/promo-home/banner-scrap-utama.png"),
     external: false,
     scrap: true,
   },
   {
     alt: "Trumecs sudah bisa menggunakan kartu kredit",
     link: `${siteUrl}/article/pembayaran-transaksi-atau-invoice-dengan-kartu-kredit`,
-    image: `${siteUrl}/public/banner/promo-home/banner-cc.png`,
+    image: staticImg("/public/banner/promo-home/banner-cc.png"),
     external: false,
   },
 ]);
@@ -695,6 +739,15 @@ useHead({
 const { data: categoriesData, pending: loadingCategories } = await useAsyncData(
   "home-categories",
   () => useFetchApi<any>("category-read", "home-categories", "get", null),
+  { default: () => ({ status: "idle" as const, data: null, code: undefined }) }
+);
+
+// Tag industri diambil di server supaya kartu (dan gambar-nya) sudah ada di
+// HTML awal. Kalau ini hanya client-side, gambar baru mulai diunduh setelah
+// JS selesai -> paling lama di mobile.
+const { data: tagsData } = await useAsyncData(
+  "home-tags",
+  () => useFetchApi<any>("tags/read", "home-tags", "get", null),
   { default: () => ({ status: "idle" as const, data: null, code: undefined }) }
 );
 
@@ -1026,9 +1079,12 @@ const handleImageError = (e: Event) => {
   target.style.display = "none";
 };
 
+// Kalau gambar industri gagal dimuat -> tampilkan Icon sebagai gantinya.
 const failedTagImages = ref(new Set<string>());
+
 const tagImgFailed = (tagId: string | number): boolean =>
   failedTagImages.value.has(String(tagId));
+
 const markTagImgError = (tagId: string | number) => {
   const next = new Set(failedTagImages.value);
   next.add(String(tagId));

@@ -5,11 +5,15 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <NuxtLink to="/member/dashboard" class="flex-shrink-0">
-              <img
+              <AppImage
                 src="https://migration.trumecs.com/logo/dark.png"
                 alt="Trumecs"
-                class="h-10 w-auto"
-              />
+                class="h-10 w-auto object-contain"
+                width="200"
+                height="40"
+                sizes="200px"
+                loading="lazy"
+                />
             </NuxtLink>
             <div class="hidden md:ml-8 md:flex md:space-x-4">
               <NuxtLink

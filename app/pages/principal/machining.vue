@@ -113,12 +113,15 @@
             <div
               class="rounded-xl p-6 mb-3 aspect-square flex items-center justify-center group-hover:bg-orange-50 transition-colors"
             >
-              <img
-                :src="product.image"
-                :alt="product.name"
-                class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+              <AppImage
+:src="product.image"
+:alt="product.name"
+class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+                width="800"
+                height="600"
+                sizes="100vw md:600px"
                 loading="lazy"
-              />
+                />
             </div>
             <h3 class="font-semibold text-primary text-sm md:text-base">
               {{ product.name }}
@@ -181,12 +184,15 @@
             <div
               class="absolute -inset-4 bg-gray-100 rounded-2xl transform rotate-3 z-0 opacity-50"
             ></div>
-            <img
-              src="https://migration.trumecs.com/principal/machining/hero-machining.jpg"
-              alt="Machining Excellence"
-              class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+            <AppImage
+src="https://migration.trumecs.com/principal/machining/hero-machining.jpg"
+alt="Machining Excellence"
+class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+              width="800"
+              height="600"
+              sizes="100vw md:600px"
               loading="lazy"
-            />
+              />
           </div>
         </div>
       </div>
@@ -206,12 +212,15 @@
             <div
               class="relative z-10 w-full h-auto rounded-xl shadow-lg border border-gray-200/30 aspect-[4/3] bg-gradient-to-br from-orange-50 to-gray-100 flex items-center justify-center"
             >
-              <img
-                src="https://migration.trumecs.com/principal/machining/fabrication.jpg"
-                alt="Fabrication Excellence"
-                class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+              <AppImage
+src="https://migration.trumecs.com/principal/machining/fabrication.jpg"
+alt="Fabrication Excellence"
+class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+                width="800"
+                height="600"
+                sizes="100vw md:600px"
                 loading="lazy"
-              />
+                />
             </div>
           </div>
 
@@ -290,12 +299,15 @@
             :key="index"
             class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer"
           >
-            <img
-              :src="industry.image"
-              :alt="industry.name"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            <AppImage
+:src="industry.image"
+:alt="industry.name"
+class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              width="800"
+              height="600"
+              sizes="100vw md:600px"
               loading="lazy"
-            />
+              />
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
             ></div>

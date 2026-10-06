@@ -60,7 +60,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">{{ $t('member.dashboard.quickActions') }}</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <NuxtLink
+        <Trulink
           to="/member/rfq/create"
           class="group p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-colors"
         >
@@ -69,9 +69,9 @@
           </div>
           <h3 class="font-medium text-gray-900">{{ $t('member.dashboard.createRfq') }}</h3>
           <p class="text-sm text-gray-500 mt-1">{{ $t('member.dashboard.createRfqDesc') }}</p>
-        </NuxtLink>
+        </Trulink>
 
-        <NuxtLink
+        <Trulink
           to="/member/rfq"
           class="group p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"
         >
@@ -80,9 +80,9 @@
           </div>
           <h3 class="font-medium text-gray-900">{{ $t('member.dashboard.viewRfq') }}</h3>
           <p class="text-sm text-gray-500 mt-1">{{ $t('member.dashboard.viewRfqDesc') }}</p>
-        </NuxtLink>
+        </Trulink>
 
-        <NuxtLink
+        <Trulink
           to="/member/chat"
           class="group p-4 rounded-xl border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-colors"
         >
@@ -91,9 +91,9 @@
           </div>
           <h3 class="font-medium text-gray-900">{{ $t('member.dashboard.messages') }}</h3>
           <p class="text-sm text-gray-500 mt-1">{{ $t('member.dashboard.messagesDesc') }}</p>
-        </NuxtLink>
+        </Trulink>
 
-        <NuxtLink
+        <Trulink
           to="/c/all/query?q=on"
           class="group p-4 rounded-xl border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-colors"
         >
@@ -102,7 +102,7 @@
           </div>
           <h3 class="font-medium text-gray-900">{{ $t('member.dashboard.findProducts') }}</h3>
           <p class="text-sm text-gray-500 mt-1">{{ $t('member.dashboard.findProductsDesc') }}</p>
-        </NuxtLink>
+        </Trulink>
       </div>
     </div>
 
@@ -112,7 +112,7 @@
       <div class="bg-white rounded-xl shadow-sm border border-gray-200">
         <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-gray-900">{{ $t('member.dashboard.recentRfq') }}</h2>
-          <NuxtLink to="/member/rfq" class="text-sm text-orange-600 hover:underline">{{ $t('member.viewAll') }}</NuxtLink>
+          <Trulink to="/member/rfq" class="text-sm text-orange-600 hover:underline">{{ $t('member.viewAll') }}</Trulink>
         </div>
         <div class="divide-y divide-gray-100">
           <div v-for="rfq in recentRfq" :key="rfq.id" class="px-6 py-4 hover:bg-gray-50">
@@ -136,7 +136,7 @@
       <div class="bg-white rounded-xl shadow-sm border border-gray-200">
         <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-gray-900">{{ $t('member.dashboard.recentOrders') }}</h2>
-          <NuxtLink to="/member/orders" class="text-sm text-orange-600 hover:underline">{{ $t('member.viewAll') }}</NuxtLink>
+          <Trulink to="/member/orders" class="text-sm text-orange-600 hover:underline">{{ $t('member.viewAll') }}</Trulink>
         </div>
         <div class="divide-y divide-gray-100">
           <div v-for="order in recentOrders" :key="order.id" class="px-6 py-4 hover:bg-gray-50">

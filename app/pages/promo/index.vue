@@ -52,13 +52,16 @@
           class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
         >
           <div class="relative h-48 sm:h-56 overflow-hidden">
-            <img
-              v-if="promo.img"
-              :src="`${config.public.baseImagePromo}${promo.img}`"
-              :alt="promo.name"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              loading="lazy"
-            />
+<AppImage
+                   v-if="promo.img"
+                   :src="`${config.public.baseImagePromo}${promo.img}`"
+                   :alt="promo.name"
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                   sizes="100vw sm:50vw lg:33vw"
+                   width="600"
+                   height="360"
+                   loading="lazy"
+                 />
             <div
               v-else
               class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"

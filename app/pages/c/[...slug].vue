@@ -313,13 +313,13 @@
                 icon="mdi:filter-remove"
                 @click="resetFilters"
               />
-              <NuxtLink to="/c/all/query">
+              <Trulink to="/c/all/query">
                 <Trubutton
                   :text="$t('search.browseAll')"
                   variant="solid"
                   icon="material-symbols:grid-view"
                 />
-              </NuxtLink>
+              </Trulink>
             </div>
           </div>
 
@@ -352,10 +352,13 @@
                   <div
                     class="relative h-32 w-32 flex-shrink-0 overflow-hidden bg-gray-50 sm:h-36 sm:w-36"
                   >
-                    <img
+                    <AppImage
                       :src="getProductImage(product.img)"
                       :alt="product.tittle"
                       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="50vw sm:33vw lg:25vw"
+                      width="400"
+                      height="400"
                       loading="lazy"
                     />
                     <div

@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.categories.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/categories/create">
+      <Trulink to="/admin/categories/create">
         <Trubutton
           :text="$t('admin.categories.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Search -->

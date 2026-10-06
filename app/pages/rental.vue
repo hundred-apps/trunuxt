@@ -140,7 +140,7 @@
               <div v-for="item in equipment" :key="item.id" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all">
                 <Trulink :to="`/rental/${item.id}/${formatSlug(item.name)}`" class="flex">
                   <div class="w-32 h-32 flex-shrink-0 overflow-hidden bg-gray-50">
-                    <img :src="getImage(item.image)" :alt="item.name" class="w-full h-full object-cover" loading="lazy" />
+                    <AppImage :src="getImage(item.image)" :alt="item.name" class="w-full h-full object-cover" sizes="100vw sm:50vw lg:33vw" width="500" height="333" loading="lazy" />
                   </div>
                   <div class="flex-1 p-4">
                     <div class="flex items-center gap-2 mb-1">
@@ -205,6 +205,15 @@ const breadcrumbs = computed(() => [
   { text: $t('breadcrumb.home'), to: '/' },
   { text: $t('rental.title'), to: '/rental' },
 ]);
+
+useHead({
+  title: computed(() => $t('rental.title')),
+  titleTemplate: "%s | Trumecs.com",
+  meta: computed(() => [
+    { name: 'description', content: $t('rental.subtitle') },
+    { name: 'robots', content: 'noindex, nofollow' },
+  ]),
+});
 
 const gridClass = computed(() => {
   if (viewMode.value === 'grid') return 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6';

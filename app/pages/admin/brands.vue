@@ -7,14 +7,14 @@
         </h1>
         <p class="mt-1 text-gray-600">{{ $t("admin.brands.subtitle") }}</p>
       </div>
-      <NuxtLink to="/admin/brands/create">
+      <Trulink to="/admin/brands/create">
         <Trubutton
           :text="$t('admin.brands.addNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Filter -->
@@ -57,14 +57,14 @@
           {{ $t("admin.brands.empty") }}
         </h3>
         <p class="text-gray-500 mb-4">{{ $t("admin.brands.emptyDesc") }}</p>
-        <NuxtLink to="/admin/brands/create">
+        <Trulink to="/admin/brands/create">
           <Trubutton
             :text="$t('admin.brands.addFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div
@@ -77,12 +77,16 @@
           class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all text-center"
         >
           <div class="aspect-square mb-3 overflow-hidden rounded">
-            <img
-              v-if="brand.logo"
-              :src="getBrandLogo(brand.logo)"
-              :alt="brand.name"
-              class="w-full h-full object-contain p-2"
-            />
+            <AppImage
+v-if="brand.logo"
+:src="getBrandLogo(brand.logo)"
+:alt="brand.name"
+class="w-full h-full object-contain p-2"
+              width="120"
+              height="120"
+              sizes="120px"
+              loading="lazy"
+              />
             <div
               v-else
               class="aspect-square bg-gray-200 rounded flex items-center justify-center"
@@ -100,12 +104,12 @@
             {{ brand.categoryCount }} kategori
           </p>
           <div class="flex gap-2">
-            <NuxtLink
+            <Trulink
               :to="`/admin/brands/${brand.id}/edit`"
               class="flex-1 p-2 text-sm text-orange-600 hover:bg-orange-50 rounded-lg"
             >
               {{ $t("admin.table.edit") }}
-            </NuxtLink>
+            </Trulink>
             <button
               @click="deleteBrand(brand)"
               class="flex-1 p-2 text-sm text-red-600 hover:bg-red-50 rounded-lg"

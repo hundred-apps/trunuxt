@@ -17,7 +17,7 @@
 
   <!-- Jika tidak punya children, render menu item biasa -->
   <el-menu-item v-else :index="computedIndex">
-    <Trulink :href="categoryUrl" @click="handleCategoryClick">
+    <Trulink :to="categoryUrl" @click="handleCategoryClick">
       {{ item.name }}
     </Trulink>
   </el-menu-item>

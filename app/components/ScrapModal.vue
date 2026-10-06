@@ -119,7 +119,7 @@
               <el-checkbox v-model="form.agree" size="small">
                 <span class="text-sm text-gray-600">
                   {{ $t('scrap.agreeTerms') }}
-                  <NuxtLink to="/page/syarat-ketentuan" class="text-orange-600 hover:underline">{{ $t('scrap.terms') }}</NuxtLink>
+                  <Trulink to="/terms-of-use" class="text-orange-600 hover:underline">{{ $t('scrap.terms') }}</Trulink>
                 </span>
               </el-checkbox>
             </div>

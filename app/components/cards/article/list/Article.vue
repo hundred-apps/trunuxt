@@ -9,11 +9,14 @@
         <!-- Desktop Article Row (hidden on mobile) -->
         <div class="hidden lg:flex gap-4 p-4">
           <!-- Image -->
-          <div class="w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
-<img
+<div class="w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+            <AppImage
               :src="article.image"
               :alt="article.title"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="192px lg:192px"
+              width="192"
+              height="128"
               loading="lazy"
             />
           </div>
@@ -64,10 +67,13 @@
         <div class="lg:hidden flex gap-3 p-3">
           <!-- Image -->
           <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-            <img
+            <AppImage
               :src="article.image"
               :alt="article.title"
               class="w-full h-full object-cover"
+              sizes="80px"
+              width="80"
+              height="80"
               loading="lazy"
             />
           </div>
@@ -104,29 +110,12 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-
-// Types/Interfaces
-export interface ArticleAuthor {
-  name: string;
-  avatar: string;
-  role?: string;
-}
-
-export interface Article {
-  id: string | number;
-  url: string;
-  title: string;
-  image: string;
-  category?: string;
-  date?: string;
-  excerpt?: string;
-  author?: ArticleAuthor;
-}
+import type { CardArticle } from "~/types/article";
 
 // Props definition
 const props = withDefaults(
   defineProps<{
-    articles: Article[];
+    articles: CardArticle[];
     dateFormat?: Intl.DateTimeFormatOptions;
     showAuthor?: boolean;
     desktopImageSize?: {
@@ -153,8 +142,8 @@ const props = withDefaults(
 
 // Emits
 const emit = defineEmits<{
-  (e: "articleClick", article: Article): void;
-  (e: "imageLoad", article: Article): void;
+  (e: "articleClick", article: CardArticle): void;
+  (e: "imageLoad", article: CardArticle): void;
 }>();
 
 // Computed classes
@@ -181,12 +170,12 @@ const formatDate = (date?: string): string => {
 };
 
 // Handle article click
-const handleArticleClick = (article: Article) => {
+const handleArticleClick = (article: CardArticle) => {
   emit("articleClick", article);
 };
 
 // Handle image load
-const handleImageLoad = (article: Article) => {
+const handleImageLoad = (article: CardArticle) => {
   emit("imageLoad", article);
 };
 </script>

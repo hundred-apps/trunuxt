@@ -55,7 +55,7 @@
           <h2 class="text-lg font-semibold text-gray-900">
             {{ $t("admin.dashboard.recentOrders") }}
           </h2>
-          <NuxtLink
+          <Trulink
             to="/admin/orders"
             class="text-sm text-orange-600 hover:underline"
             >{{ $t("admin.viewAll") }}</NuxtLink
@@ -101,7 +101,7 @@
           <h2 class="text-lg font-semibold text-gray-900">
             {{ $t("admin.dashboard.recentMembers") }}
           </h2>
-          <NuxtLink
+          <Trulink
             to="/admin/members"
             class="text-sm text-orange-600 hover:underline"
             >{{ $t("admin.viewAll") }}</NuxtLink
@@ -149,7 +149,7 @@
         <h2 class="text-lg font-semibold text-gray-900">
           {{ $t("admin.dashboard.lowStock") }}
         </h2>
-        <NuxtLink
+        <Trulink
           to="/admin/products?stock=low"
           class="text-sm text-orange-600 hover:underline"
           >{{ $t("admin.viewAll") }}</NuxtLink
@@ -189,11 +189,15 @@
             >
               <td class="px-6 py-4">
                 <div class="flex items-center gap-3">
-                  <img
-                    :src="getProductImage(product.img)"
-                    :alt="product.name"
-                    class="h-10 w-10 object-cover rounded"
-                  />
+                  <AppImage
+:src="getProductImage(product.img)"
+:alt="product.name"
+class="h-10 w-10 object-cover rounded"
+                    width="40"
+                    height="40"
+                    sizes="40px"
+                    loading="lazy"
+                    />
                   <div>
                     <p class="font-medium text-gray-900">{{ product.name }}</p>
                     <p class="text-sm text-gray-500">{{ product.sku }}</p>

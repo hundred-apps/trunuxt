@@ -14,11 +14,15 @@
           class="flex items-center justify-between h-16 px-6 border-b border-gray-200"
         >
           <NuxtLink to="/admin" class="flex items-center gap-2">
-            <img
+            <AppImage
               src="https://migration.trumecs.com/logo/light.png"
               alt="Trumecs Admin"
-              class="h-8 w-auto"
-            />
+              class="h-8 w-auto object-contain"
+              width="200"
+              height="40"
+              sizes="200px"
+              loading="lazy"
+              />
           </NuxtLink>
           <button
             class="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg"

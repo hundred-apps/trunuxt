@@ -86,7 +86,7 @@
               {{ $t("page.profile.loginPrompt") }}
             </p>
             <Trulink
-              :to="`${urlTrumecs}/member/login`"
+              :href="`${urlTrumecs}/member/login`"
               class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-medium transition-colors"
             >
               {{ $t("page.profile.loginButton") }}
@@ -106,7 +106,11 @@ import { ElMessageBox } from "element-plus";
 useHead({
   title: "Profil",
   titleTemplate: "%s | Trumecs.com",
-  meta: [{ name: "robots", content: "noindex, nofollow" }],
+  meta: [
+    { name: "description", content: "Kelola profil akun Anda di Trumecs.com" },
+    { name: "robots", content: "noindex, nofollow" },
+  ],
+  link: [{ rel: "canonical", href: "https://www.trumecs.com/profile" }],
 });
 
 const config = useRuntimeConfig();

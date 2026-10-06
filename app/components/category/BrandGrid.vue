@@ -11,7 +11,7 @@
         <span
           class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-500"
         >
-          <Icon name="material-symbols:business" class="text-lg" />
+          <Icon name="duo-icons:app" class="text-lg" />
         </span>
         {{ title }}
 
@@ -31,17 +31,8 @@
       </Trulink>
     </header>
 
-    <!-- Loading -->
-    <div v-if="loading" class="space-y-2">
-      <div
-        v-for="i in 6"
-        :key="i"
-        class="h-10 animate-pulse rounded-xl bg-gray-100"
-      />
-    </div>
-
     <!-- Empty -->
-    <div v-else-if="brands.length === 0" class="py-8 text-center">
+    <div v-if="brands.length === 0" class="py-8 text-center">
       <Icon
         name="material-symbols:inventory-2"
         class="mx-auto text-3xl text-gray-300"
@@ -89,17 +80,14 @@
                 : 'bg-orange-50 text-orange-500'
             "
           >
-            <img
+            <AppImage
               v-if="brand.img"
               :src="`${config.public.baseImageCat}${brand.img}`"
               :alt="brand.name"
               class="h-full w-full object-contain"
+              loading="lazy"
             />
-            <Icon
-              v-else
-              :name="brand.icon || 'material-symbols:business'"
-              class="text-sm"
-            />
+            <Icon v-else name="material-symbols:block" class="text-sm" />
           </span>
 
           <span class="min-w-0 flex-1 truncate text-sm font-medium">

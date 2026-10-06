@@ -29,7 +29,7 @@
               {{ $t("page.principal.principalDesc") }}
             </p>
             <Trulink
-              :to="`${urlTrumecs}/principal/form`"
+:href="`${urlTrumecs}/principal/form`"
               class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               {{ $t("page.principal.register") }}
@@ -52,7 +52,7 @@
               {{ $t("page.principal.agentDesc") }}
             </p>
             <Trulink
-              :to="`${urlTrumecs}/principal/partnership`"
+              :href="`${urlTrumecs}/principal/partnership`"
               class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               {{ $t("page.principal.register") }}

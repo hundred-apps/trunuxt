@@ -175,32 +175,36 @@
                   <h3
                     class="text-lg font-semibold text-gray-800 hover:text-orange-500 transition-colors"
                   >
-                    <a
+                    <Trulink
                       :href="`https://www.trumecs.com/promo/${promo.url}`"
                       class="hover:underline"
                     >
                       {{ promo.name }}
-                    </a>
+                    </Trulink>
                   </h3>
                   <p class="text-xs text-gray-500 mt-1">
                     {{ $t("page.product.text.end") }}:
                     {{ formatDate(promo.end_date) }}
                   </p>
-                  <a
+                  <Trulink
                     :href="`https://www.trumecs.com/promo/${promo.url}`"
                     class="text-orange-500 hover:text-orange-600 text-sm font-medium whitespace-nowrap flex items-center gap-1"
                   >
                     {{ $t("page.product.text.seeDetail") }}
                     <Icon name="mdi:chevron-right" class="text-lg" />
-                  </a>
+                  </Trulink>
                 </div>
               </div>
             </div>
             <div>
-              <img
+              <AppImage
                 :src="`https://www.trumecs.com/public/image/promo/${promo.img}`"
                 alt=""
                 class="w-full object-cover rounded-lg"
+                sizes="100vw lg:640px"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

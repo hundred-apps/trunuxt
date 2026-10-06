@@ -437,6 +437,15 @@ const breadcrumbs = computed(() => [
   { text: $t("page.category.title") || "Produk", to: "" },
 ]);
 
+useHead({
+  title: computed(() => $t("page.category.title")),
+  titleTemplate: "%s | Trumecs.com",
+  meta: computed(() => [
+    { name: "description", content: $t("page.category.subtitle") },
+    { name: "robots", content: "noindex, nofollow" },
+  ]),
+});
+
 // Lifecycle
 onMounted(async () => {
   updateHeaderHeight();

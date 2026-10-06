@@ -518,7 +518,8 @@
   },
   "breadcrumb": {
     "home": "Home",
-    "article": "Articles"
+    "article": "Articles",
+    "legal": "Legal Information"
   },
   "admin": {
     "active": "Active",
@@ -960,7 +961,16 @@
       "loadingDesc": "Please wait, the article is loading.",
       "share": "Share :",
       "tags": "Tags:",
+      "filterByTag": "Filter articles:",
+      "search": "Search",
+      "clearSearch": "Clear search",
+      "searchPlaceholder": "Search articles...",
+      "searchResultFor": "Search results for",
+      "empty": "No articles found",
+      "retry": "Try again",
       "loadError": "Failed to load article data",
+      "notFound": "Article not found",
+      "notFoundDesc": "The article you are looking for may have been moved or removed.",
       "metaTitle": "Articles",
       "metaDesc": "Read the latest articles on heavy equipment maintenance tips, spare parts guides, and industry news from Trumecs.",
       "formName": "Full Name",
@@ -1772,11 +1782,29 @@
       "subtitle": "Explore articles by topic and available tags.",
       "totalTags": "{count} tags",
       "articleCount": "{count} articles",
+      "trending": "Trending in this tag",
+      "related": "Related articles",
       "scanning": "Fetching article data...",
+"searchPlaceholder": "Search article tags...",
       "scanningMore": "Loading more article data...",
       "notFound": "Tag not found",
       "backToTags": "Back to tag list",
       "subtitleWithTag": "Article list with tag {tag}"
     }
+  },
+  "legal": {
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "faq": "FAQ",
+    "legalTitle": "Legal Information",
+    "legalDesc": "Read our terms of use, privacy policy and answers to frequently asked questions at Trumecs.com.",
+    "lastUpdated": "Last updated",
+    "contactTitle": "Have further questions?",
+    "contactDesc": "Our team is ready to help. Reach us via WhatsApp or email for more detailed information.",
+    "contactCta": "Contact Us",
+    "faqStillHelp": "Could not find your answer?",
+    "searchPlaceholder": "Search questions...",
+    "noMatch": "No questions match your search.",
+    "relatedTitle": "Related pages"
   }
 }

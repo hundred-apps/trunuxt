@@ -2,14 +2,37 @@
   <div class="article-detail-page">
     <!-- Breadcrumb -->
 
-    <!-- Article Not Found -->
-    <div v-if="!article" class="container py-12 text-center">
+    <!-- Loading -->
+    <div v-if="loading && !article" class="container py-12 text-center">
       <Icon
         name="svg-spinners:90-ring-with-bg"
         class="text-6xl text-orange-500 mb-4 animate-spin"
       />
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">{{ $t("page.article.loading") }}</h2>
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">
+        {{ $t("page.article.loading") }}
+      </h2>
       <p class="text-gray-500 mb-6">{{ $t("page.article.loadingDesc") }}</p>
+    </div>
+
+    <!-- Error / Not Found -->
+    <div v-else-if="!article" class="container py-12 text-center">
+      <Icon
+        name="material-symbols:error-outline"
+        class="text-6xl text-red-400 mb-4"
+      />
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">
+        {{ $t("page.article.notFound") }}
+      </h2>
+      <p class="text-gray-500 mb-6">
+        {{ error || $t("page.article.notFoundDesc") }}
+      </p>
+      <button
+        type="button"
+        class="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
+        @click="fetchDetailArticle()"
+      >
+        {{ $t("page.article.retry") }}
+      </button>
     </div>
 
     <!-- Main Content - Only show if article exists -->
@@ -47,25 +70,33 @@
                     </div>
                   </div>
 
-                  <!-- Categories -->
-                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- Tags -->
+                  <div
+                    v-if="articleTags.length"
+                    class="flex flex-wrap gap-2 mb-4 px-2"
+                  >
                     <span
-                      v-for="cat in article.categories"
-                      :key="cat"
+                      v-for="tag in articleTags"
+                      :key="tag"
                       class="text-xs bg-orange-50 text-orange-600 px-3 py-1 rounded-full"
                     >
-                      {{ cat }}
+                      {{ tag }}
                     </span>
                   </div>
 
                   <!-- Featured Image -->
                   <div class="article-image mb-6">
-                    <img
+                    <AppImage
                       :src="article.image"
                       :alt="article.title"
                       class="w-full"
                       :style="{ maxHeight: '500px', objectFit: 'cover' }"
-                      loading="lazy"
+                      sizes="100vw lg:800px"
+                      width="800"
+                      height="500"
+                      loading="eager"
+                      fetchpriority="high"
+                      preload
                     />
                   </div>
 
@@ -78,18 +109,18 @@
 
                   <!-- Tags -->
                   <div
-                    v-if="article.tags?.length"
-                    class="mt-6 pt-4 border-t border-gray-200"
+                    v-if="articleTags.length"
+                    class="mt-6 pt-4 px-2 border-t border-gray-200"
                   >
-                    <div class="flex flex-wrap gap-2">
-                      <span class="text-sm font-semibold text-gray-600"
-                        >{{ $t("page.article.tags") }}</span
-                      >
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="text-sm font-semibold text-gray-600 mr-1">
+                        {{ $t("page.article.tags") }}
+                      </span>
                       <Trulink
-                        v-for="tag in article.tags"
+                        v-for="tag in articleTags"
                         :key="tag"
-                        :to="`/article/tag/${slugifyTag(tag)}`"
-                        class="inline-flex items-center text-sm text-orange-500 hover:underline"
+                        :to="tagFilterLink(tag)"
+                        class="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-600 transition-colors hover:border-orange-300 hover:bg-orange-100"
                       >
                         #{{ tag }}
                       </Trulink>
@@ -100,7 +131,9 @@
                   <div
                     class="share-buttons mt-6 pt-4 px-2 border-t border-gray-200"
                   >
-                    <span class="font-semibold mr-3">{{ $t("page.article.share") }}</span>
+                    <span class="font-semibold mr-3">{{
+                      $t("page.article.share")
+                    }}</span>
                     <div class="flex gap-2">
                       <button
                         v-for="share in shareButtons"
@@ -139,7 +172,7 @@
                         :articles="trendingArticles"
                         :show-ranking="false"
                         image-size="sm"
-                        max-title-lines="2"
+                        :max-title-lines="2"
                       />
                     </div>
                   </div>
@@ -156,10 +189,10 @@
                   <div class="p-3">
                     <div class="space-y-3">
                       <CardsArticleRowsmall
-                        :articles="relatedArticles"
+                        :articles="visibleRelatedArticles"
                         :show-ranking="false"
                         image-size="sm"
-                        max-title-lines="2"
+                        :max-title-lines="2"
                       />
                     </div>
                   </div>
@@ -225,17 +258,39 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
-import type { ProductCategory } from "~/types/category";
-import { defineBreadcrumb, useSchemaOrg } from "@unhead/schema-org/vue";
+import type { ProductCategory, ArticleAd } from "~/types/category";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
-import { slugifyTag } from "~/composables/useArticleTags";
+import {
+  slugifyTag,
+  parseTagString,
+  useArticleTags,
+} from "~/composables/useArticleTags";
 
+// ============ SETUP COMPOSABLES (di atas!) ============
+const route = useRoute();
+const router = useRouter();
+const { t } = useI18n();
+const config = useRuntimeConfig();
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
-const article = ref<CardArticle | null>(null);
 
+// ============ STATE ============
+const article = ref<CardArticle | null>(null);
+const loading = ref(true);
+const error = ref<string | null>(null);
+const slug = ref(route.params.slug as string);
+
+// ✅ Deklarasi SEBELUM computed yang menggunakannya
+const trendingArticles = ref<CardArticle[]>([]);
+const relatedArticles = ref<CardArticle[]>([]);
+const categories = ref<ArticleAd[]>([]);
+const randomAdsTop = ref<ArticleAd | null>(null);
+const randomAdsBottom = ref<ArticleAd | null>(null);
+const activeRelatedTag = ref<string | null>(null);
+
+// ============ SEO (setelah t dideklarasikan) ============
 useHead({
   title: computed(() => article.value?.title || t("breadcrumb.article")),
   titleTemplate: "%s | Trumecs.com",
@@ -261,137 +316,216 @@ useSeoMeta({
   ogSiteName: "Trumecs.com",
   twitterCard: "summary_large_image",
   robots: "index, follow",
+  canonical: computed(() => `https://www.trumecs.com/article/${article.value?.url}`),
 });
 
 useSchemaOrg([
-  defineBreadcrumb({
-    itemListElement: [
-      { position: 1, name: "Home", item: "https://www.trumecs.com" },
-      { position: 2, name: "Artikel", item: "https://www.trumecs.com/article" },
-      {
-        position: 3,
-        name: computed(() => article.value?.title || "Artikel"),
-        item: computed(
-          () => `https://www.trumecs.com/article/${article.value?.url}`
-        ),
-      },
-    ],
-  }),
+  computed(() =>
+    defineBreadcrumb({
+      itemListElement: [
+        { position: 1, name: "Home", item: "https://www.trumecs.com" },
+        {
+          position: 2,
+          name: "Artikel",
+          item: "https://www.trumecs.com/article",
+        },
+        {
+          position: 3,
+          name: article.value?.title || "Artikel",
+          item: `https://www.trumecs.com/article/${article.value?.url}`,
+        },
+      ],
+    })
+  ),
 ]);
 
-const loading = ref(true);
-const error = ref<string | null>(null);
+// ============ COMPUTED TAGS ============
+// Panggil di scope setup; hasilnya dipakai di computed + fetch.
+const { articlesForTag, scanAll } = useArticleTags();
 
-const route = useRoute();
-const router = useRouter();
-const { t } = useI18n();
-const goBack = () => router.back();
-let slug = ref(route.params.slug as string);
+const articleTags = computed<string[]>(() => article.value?.tags ?? []);
 
-// State untuk artikel detail - ini yang akan digunakan di template
-
-const trendingArticles = ref<CardArticle[]>([]);
-const relatedArticles = ref<CardArticle[]>([]);
-const categories = ref<ProductCategory[]>([]);
-
-const randomAdsTop = ref(null);
-const randomAdsBottom = ref(null);
-
-const setRandomAds = () => {
-  if (categories.value.length < 2) return;
-
-  const shuffled = [...categories.value].sort(() => 0.5 - Math.random());
-
-  randomAdsTop.value = shuffled[0];
-  randomAdsBottom.value = shuffled[1];
+const tagFilterLink = (tag: string): string => {
+  const from = article.value?.url
+    ? `?from=${encodeURIComponent(article.value.url)}`
+    : "";
+  return `/article/tag/${slugifyTag(tag)}${from}`;
 };
 
-// Breadcrumb - buat menjadi computed agar bisa update otomatis
+const relatedArticleTags = computed<string[]>(() => articleTags.value);
+
+/**
+ * Chip filter memakai tag milik ARTIKEL INI.
+ *
+ * Sebelumnya chip diambil dari tag artikel `related`, tapi endpoint
+ * `article-read/{slug}` mengembalikan `related` dengan kolom `tag` kosong.
+ * Akibatnya `relatedArticleTags` selalu [] dan blok filter tidak pernah tampil.
+ */
+const localRelatedArticles = computed<CardArticle[]>(() => {
+  const seen = new Set<string>([String(article.value?.id ?? "")]);
+  const out: CardArticle[] = [];
+
+  for (const tag of articleTags.value) {
+    for (const a of articlesForTag.value(slugifyTag(tag))) {
+      const id = String(a.id);
+      if (seen.has(id)) continue;
+      seen.add(id);
+      out.push(a);
+    }
+  }
+
+  return out;
+});
+
+/**
+ * Related = hasil scan lokal (punya tag, bisa difilter) digabung dengan
+ * `related` dari API (sudah dinormalisasi server berdasarkan `score`).
+ */
+const allRelatedArticles = computed<CardArticle[]>(() => {
+  const out: CardArticle[] = [];
+  const seen = new Set<string>();
+
+  for (const a of [...localRelatedArticles.value, ...relatedArticles.value]) {
+    const id = String(a.id);
+    if (seen.has(id)) continue;
+    seen.add(id);
+    out.push(a);
+  }
+
+  return out.slice(0, 5);
+});
+
+const relatedCountByTag = computed<Record<string, number>>(() => {
+  const out: Record<string, number> = {};
+  for (const tag of relatedArticleTags.value) {
+    out[tag] = allRelatedArticles.value.filter((a) =>
+      (a.tags || []).includes(tag)
+    ).length;
+  }
+  return out;
+});
+
+const toggleRelatedTag = (tag: string) => {
+  activeRelatedTag.value = activeRelatedTag.value === tag ? null : tag;
+};
+
+const visibleRelatedArticles = computed<CardArticle[]>(() => {
+  if (!activeRelatedTag.value) return allRelatedArticles.value;
+  return allRelatedArticles.value.filter((a) =>
+    (a.tags || []).includes(activeRelatedTag.value as string)
+  );
+});
+
+// ============ BREADCRUMB ============
 const articleBreadcrumb = computed(() => [
   { text: t("breadcrumb.home"), to: "/" },
   { text: t("breadcrumb.article"), to: "/article" },
   { text: article.value?.title || t("label.loading") },
 ]);
 
-// Fetch detail artikel
+// ============ HELPERS ============
+const goBack = () => router.back();
 
+// config.public.baseImageArticle (bukan baseURLIMGARTICLE) adalah key yang benar.
+const articleImageBase = () =>
+  (config.public.baseImageArticle as string) ||
+  "https://www.trumecs.com/public/image/artikel/";
+
+// Tag artikel datang dalam dua format ("#A #B #C" atau "a, b"),
+// jadi selalu lewat parseTagString supaya tiap tag terpisah.
+const extractTags = (tags: unknown): string[] =>
+  parseTagString(typeof tags === "string" ? tags : undefined);
+
+const setRandomAds = () => {
+  if (categories.value.length < 2) return;
+  const shuffled = [...categories.value].sort(() => 0.5 - Math.random());
+  randomAdsTop.value = shuffled[0];
+  randomAdsBottom.value = shuffled[1];
+};
+
+const formatDate = (date: string) => {
+  try {
+    return new Date(date).toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  } catch {
+    return date;
+  }
+};
+
+// ============ FETCH FUNCTIONS ============
 const fetchTrendingArticles = async () => {
   try {
-    // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
     const response = await useFetchApi<BaseResponse<Article>>(
-      `article-read`, // Gunakan endpoint yang sama dengan limit
+      `article-read`,
       `trending-articles`,
       "get",
       null
     );
 
-    if (response.status === "success") {
+    // ✅ Gunakan .value untuk Ref
+    if (response.status === "success" && response.data) {
       const apiData = response.data!.payload.trend_article;
-      const config = useRuntimeConfig();
 
-      // Transform data featured
-      trendingArticles.value = apiData.map((item: Article) => {
-        return {
-          id: item.id,
-          url: item.url || `article-${item.url}`,
-          title: item.title || "Untitled",
-          image: item.img
-            ? `${
-                config.public.baseURLIMGARTICLE ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${item.img}`
-            : "https://via.placeholder.com/300x200?text=No+Image",
-          category: item.tag,
-          date: item.date,
-          views: item.view,
-        };
-      });
+      trendingArticles.value = Array.isArray(apiData)
+        ? apiData.map((item: Article) => ({
+            id: item.id,
+            url: item.url || `article-${item.id}`,
+            title: item.title || "Untitled",
+            image: item.img
+              ? item.img.startsWith("http")
+                ? item.img
+                : `${articleImageBase()}${item.img}`
+              : "",
+            category: item.tag,
+            date: item.date,
+            views: item.view,
+          }))
+        : [];
     }
-  } catch (error) {
-  } finally {
-    loading.value = false;
+  } catch (e) {
+    console.error("Failed to fetch trending:", e);
   }
 };
 
 const fetchRelatedArticles = async () => {
   try {
-    // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
     const response = await useFetchApi<BaseResponse<Article>>(
-      `article-read/${slug}`,
-      `article-trending-${slug}`,
+      `article-read/${slug.value}`,
+      `article-trending-${slug.value}`,
       "get",
       null
     );
 
-    if (response.status === "success") {
-      const apiData = response.data!.payload.related;
-      const config = useRuntimeConfig();
+    if (response.status === "success" && response.data) {
+      const apiData = response.data!.payload?.related;
 
-      relatedArticles.value = apiData.map((item: Article) => {
-        return {
-          id: item.id,
-          url: item.url || `article-${item.url}`,
-          title: item.title || "Untitled",
-          image: item.img
-            ? `${
-                config.public.baseURLIMGARTICLE ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${item.img}`
-            : "https://via.placeholder.com/300x200?text=No+Image",
-          category: item.tag,
-          date: item.date,
-          views: item.view,
-        };
-      });
+      relatedArticles.value = Array.isArray(apiData)
+        ? apiData.map((item: Article) => ({
+            id: item.id,
+            url: item.url || `article-${item.id}`,
+            title: item.title || "Untitled",
+            image: item.img
+              ? item.img.startsWith("http")
+                ? item.img
+                : `${articleImageBase()}${item.img}`
+              : "",
+            category: item.tag,
+            date: item.date,
+            views: item.view,
+          }))
+        : [];
     }
-  } catch (error) {
-  } finally {
-    loading.value = false;
+  } catch (e) {
+    console.error("Failed to fetch related:", e);
   }
 };
 
 const fetchDetailArticle = async () => {
   loading.value = true;
+  error.value = null;
   try {
     const response = await useFetchApi<BaseResponse<Article>>(
       `article-read/${slug.value}`,
@@ -400,93 +534,51 @@ const fetchDetailArticle = async () => {
       null
     );
 
-    if (response.status === "success") {
-      const apiData = response.data!.payload;
-      const updateView = await useFetchApi<BaseResponse<Article>>(
+    if (response.status !== "success" || !response.data?.payload?.id) {
+      error.value = t("page.article.loadError");
+      article.value = null;
+      return;
+    }
+
+    const apiData = response.data!.payload;
+
+    // Update view (opsional, tidak boleh menggagalkan render)
+    try {
+      await useFetchApi(
         `article/update-view/${apiData.id}`,
         `article-update-view-${apiData.id}`,
         "put",
         null
       );
-
-      if (updateView.status === "success") {
-        console.log(
-          "View count updated successfully for article ID:",
-          apiData.id
-        );
-      } else {
-        console.error(
-          "Failed to update view count for article ID:",
-          apiData.id
-        );
-      }
-
-      const config = useRuntimeConfig();
-
-      // Helper function untuk extract categories dari tags
-      const extractCategories = (tags: any): string[] => {
-        if (!tags) return ["General"];
-        if (Array.isArray(tags)) {
-          return tags.length ? tags : ["General"];
-        }
-        if (typeof tags === "string") {
-          return tags
-            .split(",")
-            .map((t) => t.trim())
-            .filter(Boolean);
-        }
-        return ["General"];
-      };
-
-      // Helper function untuk extract tags
-      const extractTags = (tags: any): string[] => {
-        if (!tags) return [];
-        if (Array.isArray(tags)) {
-          return tags;
-        }
-        if (typeof tags === "string") {
-          return tags
-            .split(",")
-            .map((t) => t.trim())
-            .filter(Boolean);
-        }
-        return [];
-      };
-
-      // Assign ke article.value
-      article.value = {
-        id: apiData.id,
-        url: apiData.url || `article-${apiData.id}`,
-        title: apiData.title || "Untitled",
-        image: apiData.img
-          ? apiData.img.startsWith("http")
-            ? apiData.img
-            : `${
-                config.public.baseURLIMGARTICLE ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${apiData.img}`
-          : "https://via.placeholder.com/300x200?text=No+Image",
-        category: extractCategories(apiData.tag)[0] || "General",
-        tags: extractTags(apiData.tag),
-        date: apiData.date,
-        excerpt: apiData.discription_seo || "",
-        content: apiData.value || "", // untuk v-html
-        author: apiData.created_by
-          ? {
-              name: apiData.created_by,
-              avatar: "https://via.placeholder.com/40x40?text=User",
-              role: "Contributor",
-            }
-          : {
-              name: "Anonymous",
-              avatar: "https://via.placeholder.com/40x40?text=User",
-              role: "Guest",
-            },
-      };
+    } catch (e) {
+      console.warn("Failed to update view:", e);
     }
-  } catch (error) {
-    console.error("Error fetching article:", error);
-    ElMessage.error(t("page.article.loadError"));
+
+    const tags = extractTags(apiData.tag);
+
+    article.value = {
+      id: apiData.id,
+      url: apiData.url || `article-${apiData.id}`,
+      title: apiData.title || "Untitled",
+      image: apiData.img
+        ? apiData.img.startsWith("http")
+          ? apiData.img
+          : `${articleImageBase()}${apiData.img}`
+        : "",
+      category: tags[0] || "General",
+      tags,
+      date: apiData.date,
+      excerpt: apiData.discription_seo || "",
+      content: apiData.value || "",
+      author: {
+        name: apiData.created_by || "Anonymous",
+        avatar: "",
+        role: apiData.created_by ? "Contributor" : "Guest",
+      },
+    };
+  } catch (e) {
+    console.error("Error fetching article:", e);
+    error.value = t("page.article.loadError");
     article.value = null;
   } finally {
     loading.value = false;
@@ -495,7 +587,6 @@ const fetchDetailArticle = async () => {
 
 const fetchCategories = async () => {
   try {
-    // Ambil 5 artikel untuk featured (misalnya page=1 dengan limit=5)
     const response = await useFetchApi<BaseResponse<ProductCategory>>(
       `category-read/`,
       `category-for-ads`,
@@ -503,40 +594,35 @@ const fetchCategories = async () => {
       null
     );
 
-    if (response.status === "success") {
-      const apiData = response.data!.payload.category.products;
-      console.log("data categories :", apiData);
-      const config = useRuntimeConfig();
+    if (response.status === "success" && response.data) {
+      const apiData = response.data!.payload?.category?.products;
 
-      categories.value = apiData.map((item: ProductCategory) => {
-        return {
-          title: `Segala Hal Tentang ${item.name}`,
-          description: `Bingung memilih ${item.name} sesuai dengan kebutuhan anda?`,
-          imageUrl: `https://migration.trumecs.com/article/ads/${item.name?.toLowerCase()}.png`,
-          imageAlt: `Gambar Rekayasa Tentang ${item.name}`,
-          buttonLink: `https://wa.me/+6285176912338`,
-          buttonText: `Konsultasikan kebutuhan ${item.name} bersama kami`,
-        };
-      });
-      if (categories.value.length > 0) {
-        randomCategory.value = getRandomCategories(categories.value, 2);
-      }
+      categories.value = Array.isArray(apiData)
+        ? apiData.map((item: ProductCategory) => ({
+            title: `Segala Hal Tentang ${item.name}`,
+            description: `Bingung memilih ${item.name} sesuai dengan kebutuhan anda?`,
+            imageUrl: `https://migration.trumecs.com/article/ads/${item.name?.toLowerCase()}.png`,
+            imageAlt: `Gambar Rekayasa Tentang ${item.name}`,
+            buttonLink: `https://wa.me/+6285176912338`,
+            buttonText: `Konsultasikan kebutuhan ${item.name} bersama kami`,
+          }))
+        : [];
     }
-  } catch (error) {
-  } finally {
-    loading.value = false;
+  } catch (e) {
+    console.error("Failed to fetch categories:", e);
   }
 };
 
-// Processed content untuk v-html
-
+// ============ PROCESSED CONTENT ============
 const processedContent = computed(() => {
   return (
     article.value?.content
-      ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, "") // hapus paragraf kosong / hanya &nbsp;
+      ?.replace(/(<p>\s*(&nbsp;|\s)*<\/p>)/gi, "")
       ?.replace(/&nbsp;/g, " ") || ""
   );
 });
+
+// ============ SHARE ============
 const shareButtons = [
   {
     name: "facebook",
@@ -564,11 +650,10 @@ const shareButtons = [
     url: "https://wa.me/?text=",
   },
 ];
-// Share article function
+
 const shareArticle = (share: any) => {
   const url = encodeURIComponent(window.location.href);
   const title = encodeURIComponent(article.value?.title || "");
-
   let shareUrl = "";
 
   switch (share.name) {
@@ -594,22 +679,7 @@ const shareArticle = (share: any) => {
   window.open(shareUrl, "_blank", "width=600,height=400");
 };
 
-// Dummy Data - Related Products
-
-// Format date
-const formatDate = (date: string) => {
-  try {
-    return new Date(date).toLocaleDateString("id-ID", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  } catch {
-    return date;
-  }
-};
-
-// Handle 404 - redirect or show message
+// ============ LIFECYCLE ============
 onMounted(async () => {
   updateHeaderHeight();
   await fetchDetailArticle();
@@ -617,16 +687,24 @@ onMounted(async () => {
   await fetchRelatedArticles();
   await fetchCategories();
   setRandomAds();
+
+  // Artikel terkait + filter tag butuh tag artikel, yang hanya ada di
+  // hasil scan lokal. Cache-nya module scope, jadi sekali saja per sesi.
+  if (articleTags.value.length) {
+    scanAll();
+  }
 });
 
-// Watch for route changes (jika slug berubah)
 watch(
   () => route.params.slug,
-  (newSlug, oldSlug) => {
+  async (newSlug, oldSlug) => {
     if (newSlug !== oldSlug) {
       slug.value = newSlug as string;
-      fetchDetailArticle();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      await fetchDetailArticle();
+      await fetchRelatedArticles();
+      if (import.meta.client) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   }
 );

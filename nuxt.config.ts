@@ -48,6 +48,22 @@ export default defineNuxtConfig({
       baseCat: process.env.NUXT_API_CATC,
       googleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
       siteUrl: "https://www.trumecs.com",
+
+      // Base URL untuk aset STATIS yang sudah di-mirror ke public/
+      // (tag/industries + banner/*). File-nya hasil konversi WebP, jadi
+      // tidak perlu lewat /_ipx/ lagi.
+      //   dev  -> "" (dilayani Nuxt dari public/, cepat, tanpa bergantung
+      //           pada kecepatan trumecs.com)
+      //   prod -> https://www.trumecs.com (jika file belum di-upload)
+      // Set NUXT_PUBLIC_STATIC_IMG_BASE=https://www.trumecs.com untuk memakai
+      // file produksi.
+      staticImgBase: process.env.NUXT_PUBLIC_STATIC_IMG_BASE || "",
+      staticImgDirs: [
+        "/public/tag/industries",
+        "/public/banner/home-mobile",
+        "/public/banner/promo-home",
+        "/public/banner/category",
+      ],
       info: {
         phone: "6285176912338",
         email: "info@trumecs.com",
@@ -151,9 +167,30 @@ export default defineNuxtConfig({
 
   ogImage: { enabled: false },
 
+  // Redirect slug legal versi Indonesia -> versi Inggris.
+  // Hanya berlaku untuk route Nuxt, tidak menyentuh URL CI3.
+  routeRules: {
+    "/syarat-ketentuan": { redirect: { to: "/terms-of-use", statusCode: 301 } },
+    "/kebijakan-privasi": { redirect: { to: "/privacy-policy", statusCode: 301 } },
+
+    // Cache server-side untuk hasil optimasi gambar @nuxt/image (ipx).
+    // Tanpa ini, tiap request ke /_ipx/ akan re-encode (download source +
+    // decode + encode WebP) sehingga lambat dan membebani CPU.
+    // Dipakai untuk build production (nitro).
+    "/_ipx/**": {
+      headers: {
+        "cache-control": "public, max-age=31536000, immutable",
+      },
+    },
+  },
+
   nitro: {
     preset: "node-server",
     bundleDependencies: true,
+    // JANGAN pakai nitro.routeRules.cache untuk /_ipx/**: ipx mengirim
+    // response streaming, sedangkan cache handler Nitro menunggu response
+    // selesai -> request /_ipx/ hang (gambar tidak ter-load di lokal).
+    // Cache di sisi browser/CDN cukup lewat header cache-control di atas.
     // routeRules: {
     //   // Proxy untuk API dari CI3
     //   "/api/**": {
@@ -214,7 +251,11 @@ export default defineNuxtConfig({
     locales: [
       {
         code: "id",
-        domains: i18nDomains,
+        // Hanya domain miliknya sendiri. Kalau semua locale memakai
+        // domains: i18nDomains, @nuxtjs/i18n akan error
+        // "found multiple entries with trumecs.com" sehingga
+        // switchLocalePath + hreflang/canonical kosong.
+        domains: ["trumecs.com"],
         defaultForDomains: ["trumecs.com"],
         iso: "id-ID",
         name: "Bahasa Indonesia",
@@ -222,7 +263,7 @@ export default defineNuxtConfig({
       },
       {
         code: "en",
-        domains: i18nDomains,
+        domains: ["en.trumecs.com"],
         defaultForDomains: ["en.trumecs.com"],
         iso: "en-US",
         name: "English",
@@ -230,7 +271,7 @@ export default defineNuxtConfig({
       },
       {
         code: "zh",
-        domains: i18nDomains,
+        domains: ["zh.trumecs.com"],
         defaultForDomains: ["zh.trumecs.com"],
         iso: "zh-CN",
         name: "中文",
@@ -240,6 +281,9 @@ export default defineNuxtConfig({
     multiDomainLocales: true,
     // strategy: "prefix_except_default",
     strategy: "no_prefix",
+    // baseUrl wajib untuk multi-domain locale, tanpa ini hreflang/canonical
+    // antar-domain (id/en/zh) tidak bisa dibuat.
+    baseUrl: isProd ? "https://www.trumecs.com" : undefined,
     // lazy: true,
     langDir: "locales/",
     defaultLocale: "id",

@@ -8,12 +8,16 @@
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
     >
-      <img
+      <AppImage
         :src="mainImage.url"
         :alt="product.tittle"
         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-zoom-in"
-        @click="openLightbox(selectedImage)"
+        sizes="100vw sm:100vw lg:640px"
+        width="800"
+        height="800"
         loading="eager"
+        fetchpriority="high"
+        preload
         draggable="false"
       />
 
@@ -138,12 +142,14 @@
             "
             @click="selectImage(index)"
           >
-            <img
+            <AppImage
               :src="img.thumbnail"
               :alt="`${product.tittle} - Gambar ${index + 1}`"
               class="w-full h-full object-cover"
+              sizes="80px"
+              width="80"
+              height="80"
               loading="lazy"
-              decoding="async"
             />
           </div>
         </div>
@@ -199,11 +205,14 @@
           ›
         </button>
 
-        <img
+        <AppImage
           :src="lightboxImage.url"
           :alt="product.tittle"
           class="max-w-full max-h-[90vh] object-contain select-none"
-          @click.stop
+          sizes="100vw"
+          width="1200"
+          height="1200"
+          loading="lazy"
           draggable="false"
         />
 

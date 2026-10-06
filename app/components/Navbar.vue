@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <nav
     :class="[
       'navbar fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-white border-gray-200',
@@ -15,11 +15,16 @@
           <Icon name="material-symbols:menu" class="text-2xl text-gray-700" />
         </button>
 
-        <Trulink :to="urlTrumecs">
-          <img
+        <Trulink to="/">
+          <AppImage
             src="https://migration.trumecs.com/logo/light.png"
             alt="logo trumecs"
-            class="h-8"
+            class="h-8 w-auto object-contain"
+            width="200"
+            height="40"
+            sizes="200px"
+            loading="eager"
+            fetchpriority="high"
           />
         </Trulink>
       </div>
@@ -38,11 +43,16 @@
         <div class="flex items-center justify-between mb-3">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <Trulink href="/">
-              <img
+            <Trulink to="/">
+              <AppImage
                 src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
-                class="h-10"
+                class="h-10 w-auto object-contain"
+                width="200"
+                height="40"
+                sizes="200px"
+                loading="eager"
+                fetchpriority="high"
               />
             </Trulink>
           </div>
@@ -174,35 +184,8 @@
         <!-- Bottom Row - Categories & Menu -->
         <div class="flex items-center">
           <div class="flex items-center justify-between w-full">
-            <!-- 👇 SKELETON LOADING untuk Categories -->
-            <div v-if="loading" class="flex items-center gap-2 w-full">
-              <!-- Skeleton untuk menu items -->
-              <div class="flex items-center gap-4 w-full">
-                <div v-for="i in 6" :key="i" class="flex items-center gap-2">
-                  <el-skeleton-item
-                    variant="text"
-                    style="width: 80px; height: 20px"
-                  />
-                  <el-skeleton-item
-                    v-if="i < 6"
-                    variant="text"
-                    style="width: 12px; height: 16px"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Error state -->
-            <div v-else-if="error" class="text-center py-4 text-red-500">
-              {{ error }}
-            </div>
-
             <!-- Menu -->
-            <CategoryMenu
-              v-else
-              :products="products"
-              @select="handleCategorySelect"
-            />
+            <CategoryMenu :products="products" @select="handleCategorySelect" />
 
             <div class="flex gap-2">
               <Trulink
@@ -262,11 +245,16 @@
           class="flex justify-between items-center px-4 py-3 border-b border-gray-100 flex-shrink-0"
         >
           <div class="flex-shrink-0">
-            <Trulink :to="urlTrumecs">
-              <img
+            <Trulink to="/">
+              <AppImage
                 src="https://migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
-                class="h-9"
+                class="h-9 w-auto object-contain"
+                width="200"
+                height="40"
+                sizes="200px"
+                loading="eager"
+                fetchpriority="high"
               />
             </Trulink>
           </div>
@@ -387,7 +375,7 @@
                 {{ $t("page.product.text.contactUs") }} :
               </p>
               <Trulink
-                href="https://wa.me/+6285176912338"
+                :href="https://wa.me/+6285176912338"
                 target="_blank"
                 class="text-sm flex gap-1 items-center text-gray-500"
               >
@@ -395,7 +383,7 @@
                 <p>+6285176912338</p>
               </Trulink>
               <Trulink
-                href="mailto:info@trumecs.com"
+                :href="mailto:info@trumecs.com"
                 target="_blank"
                 class="text-sm flex gap-1 items-center text-gray-500"
               >
@@ -472,6 +460,17 @@ const mobileMenuItems = computed(() => [
     icon: "material-symbols:article",
   },
   { to: "/promo", text: t("navbar.menu.promo"), icon: "material-symbols:sell" },
+  {
+    to: "/terms-of-use",
+    text: t("legal.terms"),
+    icon: "material-symbols:description",
+  },
+  { to: "/faq", text: t("legal.faq"), icon: "material-symbols:help" },
+  {
+    to: "/privacy-policy",
+    text: t("legal.privacy"),
+    icon: "material-symbols:shield",
+  },
   ...(isLoggedIn.value
     ? [
         {

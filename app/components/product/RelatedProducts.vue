@@ -17,12 +17,14 @@
         class="group bg-gray-50 hover:bg-white rounded-lg transition-all hover:shadow-md border border-transparent hover:border-gray-200"
       >
         <div class="aspect-square bg-white rounded-lg overflow-hidden mb-2">
-          <img
+          <AppImage
             :src="`https://www.trumecs.com/public/image/product/${product.img || 'noimage.png'}`"
             :alt="product.tittle"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+            sizes="50vw sm:33vw lg:20vw"
+            width="300"
+            height="300"
             loading="lazy"
-            decoding="async"
           />
         </div>
         <h4

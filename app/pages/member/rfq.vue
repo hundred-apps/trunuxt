@@ -5,14 +5,14 @@
         <h1 class="text-2xl font-bold text-gray-900">{{ $t('member.rfq.title') }}</h1>
         <p class="mt-1 text-gray-600">{{ $t('member.rfq.subtitle') }}</p>
       </div>
-      <NuxtLink to="/member/rfq/create">
+      <Trulink to="/member/rfq/create">
         <Trubutton
           :text="$t('member.rfq.createNew')"
           type="primary"
           variant="solid"
           icon="material-symbols:add"
         />
-      </NuxtLink>
+      </Trulink>
     </div>
 
     <!-- Filter Tabs -->
@@ -50,14 +50,14 @@
         <Icon name="material-symbols:inventory-2" class="text-4xl text-gray-300 mx-auto mb-3" />
         <h3 class="text-lg font-medium text-gray-900 mb-1">{{ $t('member.rfq.empty') }}</h3>
         <p class="text-gray-500 mb-4">{{ $t('member.rfq.emptyDesc') }}</p>
-        <NuxtLink to="/member/rfq/create">
+        <Trulink to="/member/rfq/create">
           <Trubutton
             :text="$t('member.rfq.createFirst')"
             type="primary"
             variant="solid"
             icon="material-symbols:add"
           />
-        </NuxtLink>
+        </Trulink>
       </div>
 
       <div v-else class="divide-y divide-gray-100">
@@ -81,12 +81,12 @@
           </div>
 
           <div class="flex items-center gap-3 sm:ml-4">
-            <NuxtLink
+            <Trulink
               :to="`/member/rfq/${rfq.id}`"
               class="text-sm text-orange-600 hover:underline font-medium"
             >
               {{ $t('member.rfq.viewDetails') }}
-            </NuxtLink>
+            </Trulink>
             <button
               v-if="rfq.status === 'waiting_quotes'"
               @click="cancelRfq(rfq.id)"

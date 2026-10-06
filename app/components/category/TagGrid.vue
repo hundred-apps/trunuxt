@@ -9,7 +9,7 @@
         class="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gray-700"
       >
         <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
-          <Icon name="material-symbols:local-offer" class="text-lg" />
+          <Icon name="material-symbols:factory" class="text-lg" />
         </span>
         {{ title }}
 
@@ -22,14 +22,9 @@
       </h2>
     </header>
 
-    <!-- Loading -->
-    <div v-if="loading" class="space-y-2">
-      <div v-for="i in 4" :key="i" class="h-10 animate-pulse rounded-xl bg-gray-100" />
-    </div>
-
     <!-- Empty -->
-    <div v-else-if="tags.length === 0" class="py-8 text-center">
-      <Icon name="material-symbols:local-offer" class="mx-auto text-3xl text-gray-300" />
+    <div v-if="tags.length === 0" class="py-8 text-center">
+      <Icon name="material-symbols:factory" class="mx-auto text-3xl text-gray-300" />
       <p class="mt-2 text-sm text-gray-400">{{ $t('page.category.noBrands') }}</p>
     </div>
 
@@ -70,7 +65,7 @@
                 : 'bg-orange-50 text-orange-500'
             "
           >
-            <Icon name="material-symbols:sell" class="text-sm" />
+            <span class="text-sm font-bold text-orange-500">#</span>
           </span>
 
           <span class="min-w-0 flex-1 truncate text-sm font-medium">

@@ -22,13 +22,8 @@
       </h2>
     </header>
 
-    <!-- Loading -->
-    <div v-if="loading" class="space-y-2">
-      <div v-for="i in 6" :key="i" class="h-10 animate-pulse rounded-xl bg-gray-100" />
-    </div>
-
     <!-- Empty -->
-    <div v-else-if="categories.length === 0" class="py-8 text-center">
+    <div v-if="categories.length === 0" class="py-8 text-center">
       <Icon name="material-symbols:account-tree" class="mx-auto text-3xl text-gray-300" />
       <p class="mt-2 text-sm text-gray-400">{{ $t('page.category.noSubcategories') }}</p>
     </div>

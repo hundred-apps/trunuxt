@@ -27,12 +27,15 @@
         >
           <div class="max-w-3xl">
             <div class="flex items-center gap-3 mb-6">
-              <img
-                src="https://static.vinenergo.com/public/logo_c0ce5b3ebc.png?w=128&q=100"
-                alt="VinEnergo"
-                class="h-10 md:h-14 w-auto object-contain"
+              <AppImage
+src="https://static.vinenergo.com/public/logo_c0ce5b3ebc.png?w=128&q=100"
+alt="VinEnergo"
+class="h-10 md:h-14 w-auto object-contain"
+                width="800"
+                height="600"
+                sizes="100vw md:600px"
                 loading="lazy"
-              />
+                />
               <div
                 class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full"
               >
@@ -91,12 +94,15 @@
             </div>
             <div class="relative z-10 w-full max-w-md">
               <div class="relative overflow-hidden">
-                <img
-                  src="https://migration.trumecs.com/principal/vinenergo/container-bess.png"
-                  alt="VinEnergo BESS"
-                  class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
+                <AppImage
+src="https://migration.trumecs.com/principal/vinenergo/container-bess.png"
+alt="VinEnergo BESS"
+class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
+                  width="800"
+                  height="600"
+                  sizes="100vw md:600px"
                   loading="lazy"
-                />
+                  />
               </div>
             </div>
           </div>
@@ -135,12 +141,15 @@
             <div
               class="h-56 bg-gray-100 relative overflow-hidden flex items-center justify-center"
             >
-              <img
-                :src="product.image"
-                :alt="product.title"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              <AppImage
+:src="product.image"
+:alt="product.title"
+class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                width="800"
+                height="600"
+                sizes="100vw md:600px"
                 loading="lazy"
-              />
+                />
               <div
                 class="absolute top-4 left-4 bg-green-600 text-white text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider"
               >
