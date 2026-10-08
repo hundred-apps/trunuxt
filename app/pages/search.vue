@@ -1,7 +1,7 @@
 ﻿<template>
   <div class="search-page">
     <div class="container mx-auto max-w-[1280px]">
-      <Breadcrumbs :items="breadcrumbs" class="my-2" />
+      <Breadcrumbs :items="breadcrumbs" class="mt-4 mb-2" />
 
       <!-- Page Header -->
       <!-- <div
@@ -197,7 +197,10 @@
             class="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0"
           >
             <div class="flex items-center gap-2">
-              <Icon name="material-symbols:tune" class="text-orange-500 text-xl" />
+              <Icon
+                name="material-symbols:tune"
+                class="text-orange-500 text-xl"
+              />
               <h2 class="text-base font-bold text-gray-800">
                 {{ $t("page.category.filter.title") }}
               </h2>
@@ -214,12 +217,17 @@
               aria-label="close"
               @click="showFilterSheet = false"
             >
-              <Icon name="material-symbols:close" class="text-xl text-gray-400" />
+              <Icon
+                name="material-symbols:close"
+                class="text-xl text-gray-400"
+              />
             </button>
           </div>
 
           <!-- Sheet Body -->
-          <div class="flex-1 overflow-y-auto overscroll-contain px-5 py-4 space-y-5">
+          <div
+            class="flex-1 overflow-y-auto overscroll-contain px-5 py-4 space-y-5"
+          >
             <div
               class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm"
             >
