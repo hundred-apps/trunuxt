@@ -29,13 +29,16 @@
         >
           {{ article.title }}
         </h4>
-        <p class="text-xs text-gray-500 mt-1 line-clamp-2">
-          {{ article.description || "Baca artikel selengkapnya..." }}
+        <p
+          v-if="preview(article)"
+          class="text-xs text-gray-500 mt-1 line-clamp-2"
+        >
+          {{ preview(article) }}
         </p>
         <div class="text-xs text-gray-400 mt-2">
           <span class="flex items-center gap-1">
             <Icon name="mdi:eye" class="text-sm" />
-            {{ article.views || 0 }} views
+            {{ article.views || 0 }}
           </span>
         </div>
       </div>
@@ -51,6 +54,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { CardArticle } from "~/types/article";
+import { articlePreview } from "~/utils/articlePreview";
 
 // Props definition
 const props = withDefaults(
@@ -108,6 +112,10 @@ const formatDate = (date?: string): string => {
     return date;
   }
 };
+
+// Preview teks kartu: ambil beberapa kata awal dari data artikel,
+// tanpa kalimat placeholder seperti "Baca artikel selengkapnya...".
+const preview = (article: CardArticle): string => articlePreview(article);
 
 // Handle article click
 const handleArticleClick = (article: CardArticle) => {

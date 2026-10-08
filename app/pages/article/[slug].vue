@@ -47,7 +47,7 @@
                 <div class="">
                   <!-- Title -->
                   <h1
-                    class="text-2xl lg:text-3xl font-bold mb-3 px-2"
+                    class="text-2xl lg:text-3xl font-bold mb-3 px-2 lg:px-0"
                     itemprop="headline"
                   >
                     {{ article.title }}
@@ -55,7 +55,7 @@
 
                   <!-- Meta Info -->
                   <div
-                    class="flex flex-wrap items-center gap-4 text-gray-500 text-sm mb-4 px-2"
+                    class="flex flex-wrap items-center gap-4 text-gray-500 text-sm mb-4 px-2 lg:px-0"
                   >
                     <div class="flex items-center">
                       <Icon
@@ -73,7 +73,7 @@
                   <!-- Tags -->
                   <div
                     v-if="articleTags.length"
-                    class="flex flex-wrap gap-2 mb-4 px-2"
+                    class="flex flex-wrap gap-2 mb-4 px-2 lg:px-0"
                   >
                     <span
                       v-for="tag in articleTags"
@@ -102,7 +102,7 @@
 
                   <!-- Article Content with Dynamic Insertions -->
                   <div
-                    class="article-content prose prose-sm lg:prose-base max-w-none px-2"
+                    class="article-content prose prose-sm lg:prose-base max-w-none px-2 lg:px-0"
                   >
                     <div v-html="processedContent"></div>
                   </div>
@@ -129,7 +129,7 @@
 
                   <!-- Share Buttons - Mobile Only -->
                   <div
-                    class="share-buttons mt-6 pt-4 px-2 border-t border-gray-200"
+                    class="share-buttons mt-6 pt-4 px-2 lg:px-0 border-t border-gray-200"
                   >
                     <span class="font-semibold mr-3">{{
                       $t("page.article.share")

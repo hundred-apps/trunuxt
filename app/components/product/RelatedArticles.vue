@@ -48,7 +48,7 @@
         <div class="text-xs text-gray-400 mt-2">
           <span class="flex items-center gap-1">
             <Icon name="mdi:eye" class="text-sm" />
-            {{ article.view || 0 }} {{ $t("page.product.text.views") }}
+             {{ article.view || 0 }}
           </span>
         </div>
       </div>

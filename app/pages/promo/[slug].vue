@@ -83,7 +83,7 @@
                   </span>
                   <span class="flex items-center gap-1">
                     <Icon name="material-symbols:visibility" class="text-sm" />
-                    {{ promo.view || 0 }} {{ $t("page.product.text.views") }}
+                     {{ promo.view || 0 }}
                   </span>
                 </div>
 
