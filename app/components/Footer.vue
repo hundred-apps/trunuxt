@@ -7,9 +7,16 @@
           <div class="col-lg-12 text-center">
             <p class="text-xl text-white">
               {{ $t("footer.expand") }}
-              <Trulink to="#" class="el-button el-button--primary ml-2">
+              <a
+                :href="joinWhatsappLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="el-button el-button--primary ml-2"
+                data-no-analytics
+                @click="handleClickJoinNow"
+              >
                 {{ $t("button.joinNow") }}
-              </Trulink>
+              </a>
             </p>
           </div>
         </div>
@@ -26,7 +33,7 @@
             class="logo mb-5"
             :class="{ 'flex justify-center lg:justify-start': true }"
           >
-            <Trulink to="/" @click="handleClickLogo">
+            <Trulink to="/" data-no-analytics @click="handleClickLogo">
               <AppImage
                 :src="footerLogo"
                 alt="Logo Trumecs Footer"
@@ -58,6 +65,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="text-white hover:text-orange-500 transition-colors"
+              data-no-analytics
               @click="handleClickSosmed(social.name)"
             >
               <Icon :name="social.icon" class="text-2xl" />
@@ -81,6 +89,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-white hover:text-orange-500 transition-colors"
+                  data-no-analytics
                   @click="handleClickWa"
                 >
                   <p class="text-base mb-0">
@@ -100,6 +109,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-white hover:text-orange-500 transition-colors"
+                  data-no-analytics
                   @click="handleClickEmail"
                 >
                   <p class="text-base mb-0">
@@ -119,6 +129,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-white hover:text-orange-500 transition-colors"
+                  data-no-analytics
                   @click="handleClickAddress"
                 >
                   <p class="text-base mb-0">
@@ -156,8 +167,9 @@
                 {{ $t("footer.teach.contentAfter") }}
               </p>
               <Trulink
-                :to="urlTrumecs + '/page'"
+                :to="'/about-trumecs'"
                 class="el-button el-button--primary"
+                data-no-analytics
                 @click="handleButtonClickAboutTrumecs"
               >
                 {{ $t("button.readFirst") }}
@@ -189,6 +201,7 @@
                     type="primary"
                     native-type="submit"
                     class="rounded-none font-bold bg-[#fa8420] hover:bg-[#e6761a] border-[#fa8420] hover:border-[#e6761a]"
+                    data-no-analytics
                     @click="handleSubmitEmail"
                   >
                     {{ $t("button.send") }}
@@ -344,6 +357,20 @@ const handleClickLogo = () => {
     trackClickLinkMobile("Logo Footer");
   } else {
     trackClickLink("Logo Footer");
+  }
+};
+
+const joinWhatsappLink = computed(() => {
+  const message =
+    "Halo Trumecs, saya tertarik menjadi principal dan ingin bergabung. Bisakah Trumecs membantu saya?";
+  return `https://wa.me/6285176912338?text=${encodeURIComponent(message)}`;
+});
+
+const handleClickJoinNow = () => {
+  if (isMobile.value) {
+    trackClickButtonMobile("Join Now Footer");
+  } else {
+    trackClickButton("Join Now Footer");
   }
 };
 

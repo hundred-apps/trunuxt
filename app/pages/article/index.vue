@@ -24,6 +24,9 @@
           >
             <Trulink
               :to="`/article/${article.url}`"
+              data-track-card="article"
+              :data-track-id="String(article.id)"
+              :data-track-title="article.title"
               class="block bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
             >
               <div class="flex gap-3 p-2">
@@ -60,9 +63,6 @@
         </div>
       </div>
     </div>
-    <section id="article-list" class="pt-8"></section>
-
-    <!-- Tabs Search Section -->
     <!-- <section class="tabsearch py-8 lg:py-12 bg-gray-50">
       <div class="container">
         <div class="text-center mb-6 lg:mb-8">
@@ -93,7 +93,7 @@
     </section> -->
 
     <!-- Main Content Area -->
-    <section class="article-content py-8 lg:py-12">
+    <section class="article-content py-4 lg:py-4">
       <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           <!-- Articles List - Left Column (lg:col-span-8) -->
@@ -118,11 +118,7 @@
                 </div>
               </div>
             </div>
-
-            <!-- Articles List -->
             <div class="grid grid-cols-1 gap-4">
-              <p class="text-xl fw-bold">{{ $t("label.article") }}</p>
-
               <!-- Pencarian artikel (hanya pencarian, tanpa filter tag) -->
               <div class="relative">
                 <input
@@ -698,7 +694,7 @@ const scrollToSection = (sectionId: string) => {
 
 const handlePageChange = async (page: number) => {
   await router.push({ query: { ...route.query, page } });
-  scrollToSection("article-list");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 // Initialize from URL query

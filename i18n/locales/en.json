@@ -1027,6 +1027,8 @@
     "promo": {
       "title": "Promo",
       "listTitle": "Latest Promos",
+      "searchPlaceholder": "Search promos...",
+      "searchProductsPlaceholder": "Search products in this promo...",
       "empty": "No active promos at the moment",
       "ended": "Promo Ended",
       "activeUntil": "Valid until",

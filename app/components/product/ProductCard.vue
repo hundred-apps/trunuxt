@@ -1,6 +1,9 @@
 <template>
   <Trulink
     :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
+    data-track-card="product"
+    :data-track-id="String(product.id)"
+    :data-track-title="product.tittle"
     class="group block bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg border border-gray-100"
   >
     <div class="relative aspect-square overflow-hidden bg-gray-50">

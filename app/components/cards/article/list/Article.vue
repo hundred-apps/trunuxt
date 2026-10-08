@@ -4,6 +4,9 @@
     <div v-for="article in articles" :key="article.id">
       <Trulink
         :to="`/article/${article.url}`"
+        data-track-card="article"
+        :data-track-id="String(article.id)"
+        :data-track-title="article.title"
         class="block bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 group"
       >
         <!-- Desktop Article Row (hidden on mobile) -->

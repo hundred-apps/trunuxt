@@ -258,6 +258,9 @@
             v-for="promo in promos.slice(0, 3)"
             :key="promo.id"
             :href="`${urlTrumecs}/promo/${promo.url}`"
+            data-track-card="promo"
+            :data-track-id="String(promo.id)"
+            :data-track-title="promo.name"
             class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
           >
             <div class="relative h-40 sm:h-48 overflow-hidden">
@@ -550,6 +553,9 @@
             v-for="article in latestArticles"
             :key="article.id"
             :to="`/article/${article.url}`"
+            data-track-card="article"
+            :data-track-id="String(article.id)"
+            :data-track-title="article.title"
             class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
           >
             <div class="aspect-video overflow-hidden">

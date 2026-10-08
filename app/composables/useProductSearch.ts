@@ -48,12 +48,12 @@ export function useProductSearch() {
     };
 
     // Cari node terpilih di kedalaman berapa pun (root / sub / subsub)
-    const search = (node: any): boolean => {
+    const search = (node: any) => {
       if (selected.includes(node.id)) {
         collect(node);
-        return true;
+        return;
       }
-      return (node.children || []).some(search);
+      (node.children || []).forEach(search);
     };
 
     categories.value.forEach(search);

@@ -1027,6 +1027,8 @@
     "promo": {
       "title": "Promo",
       "listTitle": "Promo Terbaru",
+      "searchPlaceholder": "Cari promo...",
+      "searchProductsPlaceholder": "Cari produk dalam promo...",
       "empty": "Belum ada promo aktif saat ini",
       "ended": "Promo Berakhir",
       "activeUntil": "Berlaku hingga",

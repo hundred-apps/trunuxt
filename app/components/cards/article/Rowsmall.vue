@@ -5,6 +5,9 @@
       v-for="article in articles"
       :key="article.id"
       :to="`/article/${article.url}`"
+      data-track-card="article"
+      :data-track-id="String(article.id)"
+      :data-track-title="article.title"
       class="group flex gap-4 bg-gray-50 hover:bg-white rounded-lg p-1 transition-all hover:shadow-md border border-transparent hover:border-gray-200"
     >
       <div

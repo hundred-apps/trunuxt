@@ -262,6 +262,7 @@ const handlePageChange = (page: number) => {
       from: route.query.from || undefined,
     },
   });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 // Scan bertahap: ambil artikel secukupnya untuk halaman yang sedang dilihat

@@ -160,52 +160,55 @@
           <div
             v-for="(promo, index) in product.promo"
             :key="index"
+            data-track-card="promo"
+            :data-track-id="promo.url"
+            :data-track-title="promo.name"
             class="mb-6 last:mb-0 border-b border-gray-200 last:border-0 pb-6 last:pb-0"
           >
-            <div
-              class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4"
-            >
-              <div class="flex items-start gap-2">
-                <div>
-                  <span
-                    class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
-                  >
-                    {{ promo.type || $t("navbar.menu.promo") }}
-                  </span>
-                  <h3
-                    class="text-lg font-semibold text-gray-800 hover:text-orange-500 transition-colors"
-                  >
-                    <Trulink
-                      :href="`https://www.trumecs.com/promo/${promo.url}`"
-                      class="hover:underline"
-                    >
-                      {{ promo.name }}
-                    </Trulink>
-                  </h3>
-                  <p class="text-xs text-gray-500 mt-1">
-                    {{ $t("page.product.text.end") }}:
-                    {{ formatDate(promo.end_date) }}
-                  </p>
+            <div class="flex items-start gap-3 sm:gap-4">
+              <Trulink
+                :href="`https://www.trumecs.com/promo/${promo.url}`"
+                class="block w-28 shrink-0 sm:w-44"
+              >
+                <AppImage
+                  :src="`https://www.trumecs.com/public/image/promo/${promo.img}`"
+                  alt=""
+                  class="h-20 w-full rounded-lg object-cover sm:h-28"
+                  sizes="176px"
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                />
+              </Trulink>
+
+              <div class="min-w-0 flex-1">
+                <span
+                  class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+                >
+                  {{ promo.type || $t("navbar.menu.promo") }}
+                </span>
+                <h3
+                  class="mt-1 text-base sm:text-lg font-semibold text-gray-800 hover:text-orange-500 transition-colors"
+                >
                   <Trulink
                     :href="`https://www.trumecs.com/promo/${promo.url}`"
-                    class="text-orange-500 hover:text-orange-600 text-sm font-medium whitespace-nowrap flex items-center gap-1"
+                    class="hover:underline"
                   >
-                    {{ $t("page.product.text.seeDetail") }}
-                    <Icon name="mdi:chevron-right" class="text-lg" />
+                    {{ promo.name }}
                   </Trulink>
-                </div>
+                </h3>
+                <p class="mt-1 text-xs text-gray-500">
+                  {{ $t("page.product.text.end") }}:
+                  {{ formatDate(promo.end_date) }}
+                </p>
+                <Trulink
+                  :href="`https://www.trumecs.com/promo/${promo.url}`"
+                  class="mt-1.5 inline-flex items-center gap-1 text-orange-500 hover:text-orange-600 text-sm font-medium whitespace-nowrap"
+                >
+                  {{ $t("page.product.text.seeDetail") }}
+                  <Icon name="mdi:chevron-right" class="text-lg" />
+                </Trulink>
               </div>
-            </div>
-            <div>
-              <AppImage
-                :src="`https://www.trumecs.com/public/image/promo/${promo.img}`"
-                alt=""
-                class="w-full object-cover rounded-lg"
-                sizes="100vw lg:640px"
-                width="600"
-                height="400"
-                loading="lazy"
-              />
             </div>
           </div>
         </div>

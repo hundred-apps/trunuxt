@@ -8,6 +8,9 @@
     >
       <Trulink
         :to="`/article/${article.url}`"
+        data-track-card="article"
+        :data-track-id="article.url"
+        :data-track-title="article.title"
         class="block bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
       >
         <div class="flex md:flex-col">

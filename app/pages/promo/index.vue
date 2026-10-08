@@ -1,13 +1,27 @@
 <template>
-  <div class="promo-page py-4 lg:py-8">
-    <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
-      <Breadcrumbs :items="breadcrumbs" class="mb-4" />
+  <div class="promo-page py-4">
+    <div class="container mx-auto max-w-[1280px]">
+      <Breadcrumbs :items="breadcrumbs" />
 
       <div class="mb-6 lg:mb-8">
         <h1 class="text-2xl lg:text-3xl font-bold text-gray-800">
           {{ $t("page.promo.listTitle") }}
         </h1>
         <p class="text-gray-500 mt-1">{{ $t("page.home.promo.subtitle") }}</p>
+      </div>
+
+      <!-- Search -->
+      <div class="mb-5">
+        <el-input
+          v-model="searchQuery"
+          clearable
+          :placeholder="$t('page.promo.searchPlaceholder')"
+          class="max-w-md"
+        >
+          <template #prefix>
+            <Icon name="material-symbols:search" class="text-gray-400" />
+          </template>
+        </el-input>
       </div>
 
       <div
@@ -42,26 +56,42 @@
       </div>
 
       <div
-        v-else
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6"
+        v-else-if="filteredPromos.length === 0"
+        class="text-center py-16 bg-white rounded-xl shadow-sm"
       >
+        <Icon
+          name="material-symbols:search-off"
+          class="text-6xl text-gray-300 mb-4"
+        />
+        <h3 class="text-lg font-medium text-gray-600 mb-2">
+          {{ $t("label.noResults") }}
+        </h3>
+      </div>
+
+      <template v-else>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6"
+        >
         <Trulink
-          v-for="promo in promos"
+          v-for="promo in pagedPromos"
           :key="promo.id"
           :to="`/promo/${promo.url}`"
+          data-track-card="promo"
+          :data-track-id="String(promo.id)"
+          :data-track-title="promo.name"
           class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
         >
           <div class="relative h-48 sm:h-56 overflow-hidden">
-<AppImage
-                   v-if="promo.img"
-                   :src="`${config.public.baseImagePromo}${promo.img}`"
-                   :alt="promo.name"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                   sizes="100vw sm:50vw lg:33vw"
-                   width="600"
-                   height="360"
-                   loading="lazy"
-                 />
+            <AppImage
+              v-if="promo.img"
+              :src="`${config.public.baseImagePromo}${promo.img}`"
+              :alt="promo.name"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="100vw sm:50vw lg:33vw"
+              width="600"
+              height="360"
+              loading="lazy"
+            />
             <div
               v-else
               class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
@@ -124,7 +154,7 @@
                 </p>
               </div>
               <span
-                v-if="promo.product && promo.product.length > 0"
+                v-if="promo.products && promo.products.length > 0"
                 class="text-xs text-orange-500 font-medium bg-orange-50 px-2 py-1 rounded"
               >
                 {{ promo.products.length }} {{ $t("page.promo.items") }}
@@ -132,23 +162,25 @@
             </div>
           </div>
         </Trulink>
-        <div class="flex justify-center mt-8">
+        </div>
+
+        <div v-if="totalPages > 1" class="mt-8 flex justify-center">
           <el-pagination
             background
             layout="prev, pager, next"
-            :total="totalArticles"
+            :total="filteredPromos.length"
             :page-size="perPage"
             v-model:current-page="currentPage"
             @update:current-page="handlePageChange"
           />
         </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import type { Promo } from "~/types/promo";
 
 useHead({
@@ -186,6 +218,40 @@ useSchemaOrg([
 const config = useRuntimeConfig();
 const loading = ref(true);
 const promos = ref<Promo[]>([]);
+
+// Search (filter lokal pada nama & deskripsi promo)
+const searchQuery = ref("");
+const filteredPromos = computed(() => {
+  const q = searchQuery.value.trim().toLowerCase();
+  if (!q) return promos.value;
+  return promos.value.filter((promo) => {
+    const name = `${promo.name} ${promo.name_en} ${promo.name_ch}`.toLowerCase();
+    const desc = stripHtml(promo.description).toLowerCase();
+    return name.includes(q) || desc.includes(q);
+  });
+});
+
+// Pagination (slice lokal, semua promo di-fetch sekaligus)
+const currentPage = ref(1);
+const perPage = 15;
+const totalPages = computed(() =>
+  Math.max(1, Math.ceil(filteredPromos.value.length / perPage))
+);
+const pagedPromos = computed(() =>
+  filteredPromos.value.slice(
+    (currentPage.value - 1) * perPage,
+    currentPage.value * perPage
+  )
+);
+
+watch(searchQuery, () => {
+  currentPage.value = 1;
+});
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const breadcrumbs = computed(() => [
   { text: $t("breadcrumb.home"), to: "/" },

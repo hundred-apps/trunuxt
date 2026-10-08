@@ -6,7 +6,13 @@
     dan Vue complained "Invalid prop: type check failed".
   -->
   <template v-if="article">
-    <Trulink :to="`/article/${article.url}`" class="block h-full group">
+    <Trulink
+      :to="`/article/${article.url}`"
+      data-track-card="article"
+      :data-track-id="article.url"
+      :data-track-title="article.title"
+      class="block h-full group"
+    >
       <div
         class="bg-white rounded-xl shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
       >

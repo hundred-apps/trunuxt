@@ -11,7 +11,8 @@
       <AppImage
         :src="mainImage.url"
         :alt="product.tittle"
-        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-zoom-in"
+        class="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 cursor-zoom-in"
+        :class="mainImageLoaded ? 'opacity-100' : 'opacity-0'"
         sizes="100vw sm:100vw lg:640px"
         width="800"
         height="800"
@@ -19,7 +20,19 @@
         fetchpriority="high"
         preload
         draggable="false"
+        @load="mainImageLoaded = true"
+        @error="mainImageLoaded = true"
       />
+
+      <!-- Main Image Loading Indicator -->
+      <div
+        v-if="!mainImageLoaded"
+        class="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none"
+      >
+        <div
+          class="animate-spin rounded-full h-10 w-10 border-4 border-orange-500 border-t-transparent"
+        ></div>
+      </div>
 
       <!-- Swipe Indicator (Optional) -->
       <div
@@ -177,12 +190,12 @@
     <Teleport to="body">
       <div
         v-if="lightboxOpen"
-        class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-        @click="closeLightbox"
+        class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+        @click.self="closeLightbox"
         @keydown.escape="closeLightbox"
       >
         <button
-          @click="closeLightbox"
+          @click.stop="closeLightbox"
           class="absolute top-4 right-4 text-white hover:text-gray-300 text-4xl transition-colors z-10"
           aria-label="Close lightbox"
         >
@@ -190,7 +203,7 @@
         </button>
 
         <button
-          @click="prevImage"
+          @click.stop="prevImage"
           class="absolute left-4 text-white hover:text-gray-300 text-4xl transition-colors z-10"
           aria-label="Previous image"
         >
@@ -198,22 +211,32 @@
         </button>
 
         <button
-          @click="nextImage"
+          @click.stop="nextImage"
           class="absolute right-4 text-white hover:text-gray-300 text-4xl transition-colors z-10"
           aria-label="Next image"
         >
           ›
         </button>
 
-        <AppImage
+        <!-- Lightbox Loading Indicator -->
+        <div
+          v-if="lightboxLoading"
+          class="absolute inset-0 flex items-center justify-center pointer-events-none"
+        >
+          <div
+            class="animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent"
+          ></div>
+        </div>
+
+        <img
           :src="lightboxImage.url"
           :alt="product.tittle"
-          class="max-w-full max-h-[90vh] object-contain select-none"
-          sizes="100vw"
-          width="1200"
-          height="1200"
-          loading="lazy"
+          class="max-w-full max-h-[90vh] object-contain select-none transition-opacity duration-200"
+          :class="lightboxLoading ? 'opacity-0' : 'opacity-100'"
+          loading="eager"
           draggable="false"
+          @load="lightboxLoading = false"
+          @error="lightboxLoading = false"
         />
 
         <div
@@ -239,6 +262,8 @@ const props = defineProps<{
 const selectedImage = ref(0);
 const lightboxOpen = ref(false);
 const lightboxIndex = ref(0);
+const mainImageLoaded = ref(false);
+const lightboxLoading = ref(false);
 const thumbnailContainer = ref<HTMLDivElement | null>(null);
 const imageContainer = ref<HTMLElement | null>(null);
 
@@ -441,6 +466,7 @@ const scrollThumbnails = (direction: "left" | "right") => {
 const openLightbox = (index: number) => {
   lightboxIndex.value = index;
   lightboxOpen.value = true;
+  lightboxLoading.value = true;
   document.body.style.overflow = "hidden";
 };
 
@@ -463,9 +489,20 @@ watch(
   () => props.product,
   () => {
     selectedImage.value = 0;
+    mainImageLoaded.value = false;
   },
   { deep: true }
 );
+
+watch(selectedImage, () => {
+  mainImageLoaded.value = false;
+});
+
+watch(lightboxIndex, () => {
+  if (lightboxOpen.value) {
+    lightboxLoading.value = true;
+  }
+});
 
 // ============ KEYBOARD EVENTS ============
 const handleKeydown = (e: KeyboardEvent) => {

@@ -156,7 +156,7 @@
           :total="totalItems"
           :page-size="pageSize"
           :current-page="currentPage"
-          @update:current-page="currentPage = $event"
+          @update:current-page="handlePageChange"
         />
       </div>
     </div>
@@ -175,6 +175,11 @@ const { confirmDelete } = useConfirm();
 const loading = ref(false);
 const grades = ref<any[]>([]);
 const currentPage = ref(1);
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 const pageSize = ref(20);
 const totalItems = ref(0);
 const totalPages = ref(0);

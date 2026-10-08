@@ -576,6 +576,7 @@ const sendNotification = (order: any) => {
 
 const handlePageChange = (page: number) => {
   currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
   fetchOrders();
 };
 

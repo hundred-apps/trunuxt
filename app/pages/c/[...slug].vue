@@ -347,6 +347,9 @@
               >
                 <Trulink
                   :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
+                  data-track-card="product"
+                  :data-track-id="String(product.id)"
+                  :data-track-title="product.tittle"
                   class="flex"
                 >
                   <div

@@ -1,6 +1,6 @@
 <template>
-  <div class="promo-detail-page py-4 lg:py-8">
-    <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+  <div class="promo-detail-page py-4">
+    <div class="container mx-auto max-w-[1280px]">
       <div v-if="loading" class="text-center py-16">
         <div
           class="animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent mx-auto"
@@ -25,23 +25,23 @@
       </div>
 
       <template v-else>
-        <Breadcrumbs :items="breadcrumbs" class="mb-4" />
+        <Breadcrumbs :items="breadcrumbs" class="mb-2" />
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           <div class="lg:col-span-8">
             <div class="bg-white rounded-xl shadow-sm overflow-hidden">
               <div class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
-<AppImage
-                       v-if="promo.img"
-                       :src="`${config.public.baseImagePromo}${promo.img}`"
-                       :alt="promo.name"
-                       class="w-full h-full object-cover"
-                       sizes="100vw lg:800px"
-                       width="800"
-                       height="450"
-                       loading="eager"
-                       fetchpriority="high"
-                     />
+                <AppImage
+                  v-if="promo.img"
+                  :src="`${config.public.baseImagePromo}${promo.img}`"
+                  :alt="promo.name"
+                  class="w-full h-full object-cover"
+                  sizes="100vw lg:800px"
+                  width="800"
+                  height="450"
+                  loading="eager"
+                  fetchpriority="high"
+                />
                 <div
                   v-else
                   class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center"
@@ -96,18 +96,67 @@
             </div>
 
             <div v-if="promoProducts.length > 0" class="mt-6">
-              <h2 class="text-lg font-bold text-gray-800 mb-4">
-                {{ $t("label.products") }}
-              </h2>
               <div
-                class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4"
+                class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
               >
-                <ProductCard
-                  v-for="product in promoProducts"
-                  :key="product.id"
-                  :product="product"
-                />
+                <h2 class="text-lg font-bold text-gray-800">
+                  {{ $t("label.products") }}
+                  <span
+                    class="ml-2 rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-600"
+                  >
+                    {{ promoProducts.length }}
+                  </span>
+                </h2>
+                <el-input
+                  v-model="productSearch"
+                  clearable
+                  :placeholder="$t('page.promo.searchProductsPlaceholder')"
+                  class="sm:max-w-xs"
+                >
+                  <template #prefix>
+                    <Icon name="material-symbols:search" class="text-gray-400" />
+                  </template>
+                </el-input>
               </div>
+
+              <div
+                v-if="filteredProducts.length === 0"
+                class="rounded-xl border border-dashed border-gray-200 bg-white py-12 text-center"
+              >
+                <Icon
+                  name="material-symbols:search-off"
+                  class="mx-auto text-5xl text-gray-300 mb-3"
+                />
+                <p class="text-sm font-medium text-gray-500">
+                  {{ $t("label.noResults") }}
+                </p>
+              </div>
+
+              <template v-else>
+                <div
+                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-4"
+                >
+                  <ProductCard
+                    v-for="product in pagedProducts"
+                    :key="product.id"
+                    :product="product"
+                  />
+                </div>
+
+                <div
+                  v-if="productTotalPages > 1"
+                  class="mt-8 flex justify-center"
+                >
+                  <el-pagination
+                    background
+                    layout="prev, pager, next"
+                    :total="filteredProducts.length"
+                    :page-size="productPerPage"
+                    v-model:current-page="productPage"
+                    @update:current-page="handleProductPageChange"
+                  />
+                </div>
+              </template>
             </div>
           </div>
 
@@ -240,6 +289,38 @@ const promoProducts = computed((): PromoProduct[] => {
   return promo.value.products;
 });
 
+// Search produk dalam promo (filter lokal pada nama & merek)
+const productSearch = ref("");
+const filteredProducts = computed((): PromoProduct[] => {
+  const q = productSearch.value.trim().toLowerCase();
+  if (!q) return promoProducts.value;
+  return promoProducts.value.filter((product) =>
+    `${product.tittle} ${product.brand}`.toLowerCase().includes(q)
+  );
+});
+
+// Pagination produk dalam promo (slice lokal, 10 per halaman)
+const productPage = ref(1);
+const productPerPage = 10;
+const productTotalPages = computed(() =>
+  Math.max(1, Math.ceil(filteredProducts.value.length / productPerPage))
+);
+const pagedProducts = computed(() =>
+  filteredProducts.value.slice(
+    (productPage.value - 1) * productPerPage,
+    productPage.value * productPerPage
+  )
+);
+
+watch(productSearch, () => {
+  productPage.value = 1;
+});
+
+const handleProductPageChange = (page: number) => {
+  productPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 const isPromoEnded = (endDate: string) => {
   return new Date(endDate) < new Date();
 };
@@ -362,6 +443,8 @@ onMounted(() => {
 });
 
 watch(slug, () => {
+  productSearch.value = "";
+  productPage.value = 1;
   fetchPromo();
 });
 </script>

@@ -4,7 +4,7 @@
   >
     <div class="max-w-md w-full space-y-8">
       <div class="text-center">
-        <NuxtLink to="/admin" class="inline-block">
+        <Trulink to="/admin" class="inline-block">
           <AppImage
 src="https://migration.trumecs.com/logo/light.png"
 alt="Trumecs Admin"
@@ -14,7 +14,7 @@ class="mx-auto h-16 w-auto object-contain"
             sizes="200px"
             loading="lazy"
             />
-        </NuxtLink>
+        </Trulink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">
           {{ $t("admin.login.title") }}
         </h2>
@@ -79,12 +79,12 @@ class="mx-auto h-16 w-auto object-contain"
       <div class="text-center">
         <p class="text-sm text-gray-600">
           {{ $t("admin.login.forgotPassword") }}
-          <NuxtLink
+          <Trulink
             to="/admin/forgot-password"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
             {{ $t("auth.forgotPassword.title") }}
-          </NuxtLink>
+          </Trulink>
         </p>
       </div>
     </div>

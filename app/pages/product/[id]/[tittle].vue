@@ -30,13 +30,13 @@
     </div>
 
     <template v-else>
-      <Breadcrumbs :items="detailProductBreadcrumb" class="mt-2" />
+      <Breadcrumbs :items="detailProductBreadcrumb" class="mt-4" />
 
-      <section class="py-0 lg:py-2">
+      <section class="py-0 lg:py-4">
         <div class="container mx-auto max-w-[1280px] px-0">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-1 lg:gap-8">
             <div
-              class="lg:col-span-4 lg:sticky lg:top-[var(--header-height,150px)] self-start"
+              class="lg:col-span-5 lg:sticky lg:top-[var(--header-height,150px)] self-start"
               style="
                 max-height: calc(100dvh - var(--header-height, 6rem));
                 --header-height: 150px;
@@ -46,7 +46,7 @@
             </div>
 
             <div
-              class="lg:col-span-8 lg:sticky lg:top-[var(--header-height,150px)]"
+              class="lg:col-span-7 lg:sticky lg:top-[var(--header-height,150px)]"
               style="--header-height: 150px"
             >
               <ProductInfo

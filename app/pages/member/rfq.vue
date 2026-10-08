@@ -106,7 +106,7 @@
           :total="totalItems"
           :page-size="pageSize"
           v-model:current-page="currentPage"
-          @update:current-page="fetchRfq"
+          @update:current-page="handlePageChange"
         />
       </div>
     </div>
@@ -195,6 +195,12 @@ const fetchRfq = async () => {
   loading.value = true;
   await new Promise(r => setTimeout(r, 500));
   loading.value = false;
+};
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  fetchRfq();
 };
 
 onMounted(() => {

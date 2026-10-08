@@ -315,7 +315,7 @@ class="h-12 w-12 object-cover rounded"
           :total="totalItems"
           :page-size="pageSize"
           :current-page="currentPage"
-          @update:current-page="currentPage = $event"
+          @update:current-page="handlePageChange"
         />
       </div>
     </div>
@@ -336,6 +336,11 @@ const products = ref<any[]>([]);
 const categories = ref<any[]>([]);
 const brands = ref<any[]>([]);
 const currentPage = ref(1);
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 const pageSize = ref(20);
 const totalItems = ref(0);
 const totalPages = ref(0);

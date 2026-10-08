@@ -1026,6 +1026,8 @@
     "promo": {
       "title": "促销",
       "listTitle": "最新促销",
+      "searchPlaceholder": "搜索促销...",
+      "searchProductsPlaceholder": "搜索促销中的产品...",
       "empty": "目前没有正在进行的促销活动",
       "ended": "促销已结束",
       "activeUntil": "有效期至",

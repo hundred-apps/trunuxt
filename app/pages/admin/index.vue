@@ -58,7 +58,7 @@
           <Trulink
             to="/admin/orders"
             class="text-sm text-orange-600 hover:underline"
-            >{{ $t("admin.viewAll") }}</NuxtLink
+            >{{ $t("admin.viewAll") }}</Trulink
           >
         </div>
         <div class="divide-y divide-gray-100">
@@ -104,7 +104,7 @@
           <Trulink
             to="/admin/members"
             class="text-sm text-orange-600 hover:underline"
-            >{{ $t("admin.viewAll") }}</NuxtLink
+>{{ $t("admin.viewAll") }}</Trulink
           >
         </div>
         <div class="divide-y divide-gray-100">
@@ -152,7 +152,7 @@
         <Trulink
           to="/admin/products?stock=low"
           class="text-sm text-orange-600 hover:underline"
-          >{{ $t("admin.viewAll") }}</NuxtLink
+          >{{ $t("admin.viewAll") }}</Trulink
         >
       </div>
       <div class="overflow-x-auto">

@@ -98,9 +98,22 @@
       </div>
     </div>
 
+    <!-- Loading State -->
+    <div
+      v-if="loading"
+      class="rounded-2xl border border-gray-100 bg-white shadow-sm"
+    >
+      <div class="flex min-h-[400px] flex-col items-center justify-center">
+        <div
+          class="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"
+        ></div>
+        <p class="mt-4 text-gray-600">{{ $t("page.product.text.load") }}</p>
+      </div>
+    </div>
+
     <!-- Empty State -->
     <div
-      v-if="products.length === 0"
+      v-else-if="products.length === 0"
       class="rounded-2xl border border-dashed border-gray-200 bg-white py-16 text-center shadow-sm"
     >
       <Icon
@@ -143,6 +156,9 @@
         >
           <Trulink
             :to="`/product/${product.id}/${formatSlug(product.tittle)}`"
+            data-track-card="product"
+            :data-track-id="String(product.id)"
+            :data-track-title="product.tittle"
             class="flex"
           >
             <div
@@ -319,6 +335,7 @@ const handleSortChange = (value: string) => {
 
 const handlePageChange = (page: number) => {
   emit("page-change", page);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 </script>
 

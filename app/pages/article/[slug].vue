@@ -37,13 +37,13 @@
 
     <!-- Main Content - Only show if article exists -->
     <template v-if="article">
-      <section class="article-detail py-2" id="article-detail">
+      <section class="article-detail py-4" id="article-detail">
         <div class="container">
           <Breadcrumbs :items="articleBreadcrumb" />
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             <!-- Left Column - Article Content (lg:col-span-8) -->
             <div class="lg:col-span-8">
-              <article class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <article class="overflow-hidden">
                 <div class="">
                   <!-- Title -->
                   <h1
@@ -156,7 +156,7 @@
                 style="--header-height: 80px"
               >
                 <!-- Trending Section -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="overflow-hidden">
                   <div class="border-b border-gray-200 py-3">
                     <h5 class="font-bold flex items-center">
                       <Icon
@@ -166,15 +166,13 @@
                       {{ $t("label.trendingArticle") }}
                     </h5>
                   </div>
-                  <div class="p-3">
-                    <div class="space-y-3">
-                      <CardsArticleRowsmall
-                        :articles="trendingArticles"
-                        :show-ranking="false"
-                        image-size="sm"
-                        :max-title-lines="2"
-                      />
-                    </div>
+                  <div class="py-3">
+                    <CardsArticleRowsmall
+                      :articles="trendingArticles"
+                      :show-ranking="false"
+                      image-size="sm"
+                      :max-title-lines="2"
+                    />
                   </div>
                 </div>
 
@@ -182,19 +180,17 @@
                 <CardsArticleAds v-if="randomAdsTop" v-bind="randomAdsTop" />
 
                 <!-- Related Articles -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="overflow-hidden">
                   <div class="border-b border-gray-200 px-2 py-3">
                     <h5 class="font-bold">{{ $t("label.relatedArticle") }}</h5>
                   </div>
-                  <div class="p-3">
-                    <div class="space-y-3">
-                      <CardsArticleRowsmall
-                        :articles="visibleRelatedArticles"
-                        :show-ranking="false"
-                        image-size="sm"
-                        :max-title-lines="2"
-                      />
-                    </div>
+                  <div class="py-3">
+                    <CardsArticleRowsmall
+                      :articles="visibleRelatedArticles"
+                      :show-ranking="false"
+                      image-size="sm"
+                      :max-title-lines="2"
+                    />
                   </div>
                 </div>
 
@@ -316,7 +312,9 @@ useSeoMeta({
   ogSiteName: "Trumecs.com",
   twitterCard: "summary_large_image",
   robots: "index, follow",
-  canonical: computed(() => `https://www.trumecs.com/article/${article.value?.url}`),
+  canonical: computed(
+    () => `https://www.trumecs.com/article/${article.value?.url}`
+  ),
 });
 
 useSchemaOrg([

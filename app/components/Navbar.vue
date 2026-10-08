@@ -71,8 +71,10 @@
                     <template #append>
                       <el-button
                         type="primary"
-                        native-type="submit"
+                        native-type="button"
                         class="bg-orange-500"
+                        data-no-analytics
+                        @click="handleSearch"
                       >
                         <Icon name="material-symbols:search" class="text-lg" />
                       </el-button>
@@ -97,6 +99,7 @@
                   variant="solid"
                   icon="mdi:email"
                   full-width
+                  data-no-analytics
                   @click="handleBulk"
                 />
               </div>
@@ -191,6 +194,7 @@
               <Trulink
                 to="/article"
                 class="transition-colors text-gray-700"
+                data-no-analytics
                 @click="handleClickLinkArticle"
               >
                 {{ $t("navbar.menu.article") }}
@@ -199,6 +203,7 @@
               <Trulink
                 to="/promo"
                 class="transition-colors text-gray-700"
+                data-no-analytics
                 @click="handleClickLinkPromo"
               >
                 {{ $t("navbar.menu.promo") }}
@@ -224,8 +229,9 @@
             :placeholder="$t('navbar.placeholder.search')"
             size="large"
             ref="mobileSearchInput"
+            @keyup.enter="handleMobileSearch"
           />
-          <el-button type="primary" native-type="submit" size="large">
+          <el-button type="primary" native-type="button" size="large" data-no-analytics @click="handleMobileSearch">
             <Icon name="material-symbols:search" />
           </el-button>
         </form>
@@ -336,6 +342,7 @@
                   v-for="item in mobileMenuItems"
                   :key="item.to"
                   :to="item.to"
+                  data-no-analytics
                   @click="handleClickMenuMobile(item.text)"
                   color="black"
                   class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-orange-600"
@@ -375,16 +382,17 @@
                 {{ $t("page.product.text.contactUs") }} :
               </p>
               <Trulink
-                :href="https://wa.me/+6285176912338"
-                target="_blank"
+                :to="{
+                  path: 'https://wa.me/+6285176912338',
+                  query: {}
+                }"
                 class="text-sm flex gap-1 items-center text-gray-500"
               >
                 <Icon name="logos:whatsapp-icon" />
                 <p>+6285176912338</p>
               </Trulink>
               <Trulink
-                :href="mailto:info@trumecs.com"
-                target="_blank"
+                href="mailto:info@trumecs.com"
                 class="text-sm flex gap-1 items-center text-gray-500"
               >
                 <Icon name="material-symbols:mail-outline" />
@@ -547,7 +555,12 @@ watch(
 
 const handleBulk = () => {
   trackClickButton("Button 'Info Kebutuhan'");
-  navigateTo(urlTrumecs + "/bulk");
+  const message =
+    "Halo Trumecs, saya ada beberapa permintaan barang, bisakah trumecs membantu saya?";
+  window.open(
+    `https://wa.me/6285176912338?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
 };
 
 const handleClickLinkArticle = () => {
