@@ -23,9 +23,11 @@ jobs:
           PORT=${{ secrets.PORT }}
           NUXT_API_URL=${{ secrets.NUXT_API_URL }}
           NUXT_API_BASEIMGARTICLE=${{ secrets.NUXT_API_BASEIMGARTICLE }}
+          NUXT_API_BASEIMGCAT=${{ secrets.NUXT_API_BASEIMGCAT }}
           NUXT_API_CATC=${{ secrets.NUXT_API_CATC }}
           NUXT_PUBLIC_GTM_ID=${{ secrets.NUXT_PUBLIC_GTM_ID }}
           NUXT_PUBLIC_GTAG_ID=${{ secrets.NUXT_PUBLIC_GTAG_ID }}
+          NUXT_API_BASEIMGTAG=${{ secrets.NUXT_API_BASEIMGTAG }}
           EOF
 
       - name: Install dependencies
