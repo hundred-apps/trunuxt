@@ -336,10 +336,13 @@
           </div>
           <Trulink
             :to="`/search`"
-            class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+            class="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105"
           >
             {{ $t("button.seeAll") }}
-            <Icon name="material-symbols:arrow-forward" class="text-sm" />
+            <Icon
+              name="material-symbols:arrow-forward"
+              class="text-base transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Trulink>
         </div>
 

@@ -13,7 +13,7 @@
     "joinNow": "Bergabung Sekarang",
     "readFirst": "Baca Dulu",
     "send": "Kirim",
-    "seeAll": "Lihat Semua",
+    "seeAll": "Lihat Semua Produk",
     "seeDetail": "Lihat Selengkapnya",
     "buyNow": "Beli Sekarang",
     "submitRFQ": "Kirim RFQ",
@@ -424,7 +424,7 @@
     "relatedArticle": "Artikel Terkait",
     "promo": "Promo",
     "bundle": "Bundle",
-    "industry": "Industri",
+    "industry": "Jelajahi Berdasarkan Industri",
     "featuredProducts": "Produk Unggulan",
     "latestArticles": "Artikel Terbaru",
     "category": "Kategori",
@@ -943,8 +943,8 @@
         "subtitle": "Jangan lewatkan penawaran menarik dari kami"
       },
       "featured": {
-        "title": "Produk Unggulan",
-        "subtitle": "Produk pilihan terbaik untuk Anda"
+        "title": "Produk Terpopuler",
+        "subtitle": "Pilihan terbaik yang disukai pelanggan"
       },
       "articles": {
         "title": "Artikel Terbaru",
@@ -1787,7 +1787,7 @@
       "trending": "Trending di tag ini",
       "related": "Artikel terkait",
       "scanning": "Mengambil data artikel...",
-"searchPlaceholder": "Cari tag artikel...",
+      "searchPlaceholder": "Cari tag artikel...",
       "scanningMore": "Memuat data artikel lainnya...",
       "notFound": "Tag tidak ditemukan",
       "backToTags": "Kembali ke daftar tag",

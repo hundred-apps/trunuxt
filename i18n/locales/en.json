@@ -13,7 +13,7 @@
     "joinNow": "Join Now",
     "readFirst": "Read First",
     "send": "Send",
-    "seeAll": "See All",
+    "seeAll": "See All Products",
     "seeDetail": "See Detail",
     "buyNow": "Buy Now",
     "submitRFQ": "Submit RFQ",
@@ -424,7 +424,7 @@
     "relatedArticle": "Related Article",
     "promo": "Promo",
     "bundle": "Bundle",
-    "industry": "Industry",
+    "industry": "Jelajahi Berdasarkan Industri",
     "featuredProducts": "Featured Products",
     "latestArticles": "Latest Articles",
     "category": "Category",
@@ -943,8 +943,8 @@
         "subtitle": "Don't miss our attractive offers"
       },
       "featured": {
-        "title": "Featured Products",
-        "subtitle": "Best selected products for you"
+        "title": "Produk Terpopuler",
+        "subtitle": "Pilihan terbaik yang disukai pelanggan"
       },
       "articles": {
         "title": "Latest Articles",
@@ -1787,7 +1787,7 @@
       "trending": "Trending in this tag",
       "related": "Related articles",
       "scanning": "Fetching article data...",
-"searchPlaceholder": "Search article tags...",
+      "searchPlaceholder": "Search article tags...",
       "scanningMore": "Loading more article data...",
       "notFound": "Tag not found",
       "backToTags": "Back to tag list",
