@@ -1,38 +1,48 @@
 <template>
-  <div class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div
+    class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+  >
     <div class="max-w-md w-full space-y-8">
       <div>
         <Trulink to="/" class="block text-center">
           <AppImage
-            src="https://migration.trumecs.com/logo/dark.png"
+            src="https://fe-migration.trumecs.com/logo/dark.png"
             alt="Trumecs"
             class="mx-auto h-16 w-auto object-contain"
             width="200"
             height="40"
             sizes="200px"
             loading="lazy"
-            />
+          />
         </Trulink>
         <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
-          {{ $t('auth.forgotPassword.title') }}
+          {{ $t("auth.forgotPassword.title") }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          {{ $t('auth.forgotPassword.subtitle') }}
+          {{ $t("auth.forgotPassword.subtitle") }}
         </p>
       </div>
 
       <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
-        <div v-if="error" class="bg-red-50 text-red-600 text-sm p-3 rounded-lg" role="alert">
+        <div
+          v-if="error"
+          class="bg-red-50 text-red-600 text-sm p-3 rounded-lg"
+          role="alert"
+        >
           {{ error }}
         </div>
 
-        <div v-if="success" class="bg-green-50 text-green-600 text-sm p-3 rounded-lg" role="alert">
-          {{ $t('auth.forgotPassword.success') }}
+        <div
+          v-if="success"
+          class="bg-green-50 text-green-600 text-sm p-3 rounded-lg"
+          role="alert"
+        >
+          {{ $t("auth.forgotPassword.success") }}
         </div>
 
         <div class="space-y-4">
           <div>
-            <label for="email" class="sr-only">{{ $t('auth.email') }}</label>
+            <label for="email" class="sr-only">{{ $t("auth.email") }}</label>
             <el-input
               id="email"
               v-model="form.email"
@@ -60,12 +70,12 @@
 
       <div class="text-center">
         <p class="text-sm text-gray-600">
-          {{ $t('auth.rememberPassword') }}
+          {{ $t("auth.rememberPassword") }}
           <Trulink
             to="/member/login"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t('auth.login.title') }}
+            {{ $t("auth.login.title") }}
           </Trulink>
         </p>
       </div>
@@ -74,11 +84,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { ElMessage } from 'element-plus';
-import { useAuthStore } from '~/stores/auth';
-import { useI18n } from 'vue-i18n';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { ElMessage } from "element-plus";
+import { useAuthStore } from "~/stores/auth";
+import { useI18n } from "vue-i18n";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -89,7 +99,7 @@ const error = ref<string | null>(null);
 const success = ref(false);
 
 const form = ref({
-  email: '',
+  email: "",
 });
 
 const handleSubmit = async () => {
@@ -100,7 +110,7 @@ const handleSubmit = async () => {
     await authStore.forgotPassword(form.value.email);
     success.value = true;
   } catch (e: any) {
-    error.value = e.message || $t('auth.forgotPassword.sendFail');
+    error.value = e.message || $t("auth.forgotPassword.sendFail");
   } finally {
     loading.value = false;
   }

@@ -540,8 +540,8 @@ const generalSettings = ref({
 
 // ============ APPEARANCE SETTINGS ============
 const appearanceSettings = ref({
-  logo: "https://migration.trumecs.com/logo/dark.png",
-  favicon: "https://migration.trumecs.com/favicon.ico",
+  logo: "https://fe-migration.trumecs.com/logo/dark.png",
+  favicon: "https://fe-migration.trumecs.com/favicon.ico",
   primaryColor: "#fa8420",
   secondaryColor: "#1a1a2e",
 });

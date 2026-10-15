@@ -44,7 +44,9 @@ export default defineNuxtConfig({
       baseImageGallery: "https://www.trumecs.com/public/image/galery/",
       baseImagePromo: "https://www.trumecs.com/public/image/promo/",
       baseImageCat: "https://www.trumecs.com/public/upload/categori/",
-      baseImageTag: process.env.NUXT_API_BASEIMGTAG || "https://www.trumecs.com/public/upload/tag/",
+      baseImageTag:
+        process.env.NUXT_API_BASEIMGTAG ||
+        "https://www.trumecs.com/public/upload/tag/",
       baseCat: process.env.NUXT_API_CATC,
       googleTagId: process.env.NUXT_PUBLIC_GTAG_ID,
       siteUrl: "https://www.trumecs.com",
@@ -111,7 +113,7 @@ export default defineNuxtConfig({
     provider: "ipx",
     domains: [
       "www.trumecs.com",
-      "migration.trumecs.com",
+      "fe-migration.trumecs.com",
       "migrationbe.trumecs.com",
     ],
     format: ["avif", "webp"],
@@ -171,7 +173,9 @@ export default defineNuxtConfig({
   // Hanya berlaku untuk route Nuxt, tidak menyentuh URL CI3.
   routeRules: {
     "/syarat-ketentuan": { redirect: { to: "/terms-of-use", statusCode: 301 } },
-    "/kebijakan-privasi": { redirect: { to: "/privacy-policy", statusCode: 301 } },
+    "/kebijakan-privasi": {
+      redirect: { to: "/privacy-policy", statusCode: 301 },
+    },
 
     // Cache server-side untuk hasil optimasi gambar @nuxt/image (ipx).
     // Tanpa ini, tiap request ke /_ipx/ akan re-encode (download source +
@@ -208,19 +212,19 @@ export default defineNuxtConfig({
     //   // Proxy untuk image
     //   "/public/image/**": {
     //     proxy: {
-    //       to: "https://migration.trumecs.com/public/image/**",
+    //       to: "https://fe-migration.trumecs.com/public/image/**",
     //     },
     //     swr: 3600, // Cache 1 jam
     //   },
     //   // Proxy untuk article dan product
     //   "/article/**": {
     //     proxy: {
-    //       to: "https://migration.trumecs.com/article/**",
+    //       to: "https://fe-migration.trumecs.com/article/**",
     //     },
     //   },
     //   "/product/**": {
     //     proxy: {
-    //       to: "https://migration.trumecs.com/product/**",
+    //       to: "https://fe-migration.trumecs.com/product/**",
     //     },
     //   },
     // },

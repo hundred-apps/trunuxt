@@ -105,7 +105,7 @@ console.log(name);
 // Breadcrumb dengan data dinamis
 const detailProductBreadcrumb = computed(() => {
   const items: { text: string; to: string }[] = [
-    { text: $t("breadcrumb.home"), to: "https://migration.trumecs.com" },
+    { text: $t("breadcrumb.home"), to: "https://fe-migration.trumecs.com" },
   ];
 
   if (!product.value?.categori) return items;
@@ -130,7 +130,7 @@ const detailProductBreadcrumb = computed(() => {
         .join("/");
       chain.push({
         text: parent.name,
-        to: `https://migration.trumecs.com/c/${url}`,
+        to: `https://fe-migration.trumecs.com/c/${url}`,
       });
     });
 
@@ -266,7 +266,7 @@ const generateProductSchema = (productData: Product | null) => {
   if (!productData) return null;
 
   const p = productData;
-  const baseUrl = "https://migration.trumecs.com";
+  const baseUrl = "https://fe-migration.trumecs.com";
   const productUrl = `${baseUrl}/product/${p.id}`;
 
   // Price - PASTIKAN MENGGUNAKAN NILAI YANG BENAR
@@ -358,7 +358,7 @@ const generateProductSchema = (productData: Product | null) => {
 const generateBreadcrumbSchema = (productData: Product | null) => {
   if (!productData) return null;
 
-  const baseUrl = "https://migration.trumecs.com";
+  const baseUrl = "https://fe-migration.trumecs.com";
   const items = [{ name: "Home", url: "/" }];
 
   // Add category chain
@@ -498,7 +498,7 @@ useHead({
     {
       rel: "canonical",
       href: product.value
-        ? `https://migration.trumecs.com/product/${product.value.id}`
+        ? `https://fe-migration.trumecs.com/product/${product.value.id}`
         : undefined,
     },
   ]),

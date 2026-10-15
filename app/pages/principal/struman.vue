@@ -15,14 +15,14 @@
           <div class="space-y-3 sm:space-y-stack-md text-center md:text-left">
             <div class="flex justify-center md:justify-start">
               <AppImage
-src="https://migration.trumecs.com/logo/principal/struman.png"
-alt="STRUMAN Brand"
-class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
+                src="https://fe-migration.trumecs.com/logo/principal/struman.png"
+                alt="STRUMAN Brand"
+                class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
                 width="200"
                 height="100"
                 sizes="200px"
                 loading="lazy"
-                />
+              />
             </div>
 
             <div
@@ -67,14 +67,14 @@ class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
           <div class="hidden md:block">
             <div class="relative rounded-2xl overflow-hidden">
               <AppImage
-class="w-full h-auto object-contain mix-blend-multiply"
-src="https://migration.trumecs.com/principal/struman/struman-all.png"
-alt="STRUMAN All"
+                class="w-full h-auto object-contain mix-blend-multiply"
+                src="https://fe-migration.trumecs.com/principal/struman/struman-all.png"
+                alt="STRUMAN All"
                 width="600"
                 height="600"
                 sizes="100vw md:300px"
                 loading="lazy"
-                />
+              />
             </div>
           </div>
         </div>
@@ -131,14 +131,14 @@ alt="STRUMAN All"
               class="relative rounded-xl border border-outline-variant overflow-hidden technical-shadow hover:border-primary/40 transition-all group min-h-[calc(100dvh-4rem)] sm:min-h-[380px] lg:min-h-[420px]"
             >
               <AppImage
-:src="useCase.image"
-:alt="useCase.title"
-class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                :src="useCase.image"
+                :alt="useCase.title"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 width="600"
                 height="600"
                 sizes="100vw md:300px"
                 loading="lazy"
-                />
+              />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/0"
               ></div>
@@ -203,14 +203,14 @@ class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transit
               class="h-64 bg-surface-container-low flex items-center justify-center border-b border-outline-variant"
             >
               <AppImage
-:src="product.image"
-:alt="product.name"
-class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                :src="product.image"
+                :alt="product.name"
+                class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 width="600"
                 height="600"
                 sizes="100vw md:300px"
                 loading="lazy"
-                />
+              />
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
@@ -295,14 +295,14 @@ class="max-h-full object-contain group-hover:scale-105 transition-transform dura
                 class="bg-surface-container-low rounded-xl flex items-center justify-center h-48 mb-4 overflow-hidden"
               >
                 <AppImage
-:src="selectedProduct.images[0]"
-:alt="selectedProduct.name"
-class="max-h-full max-w-full object-contain"
+                  :src="selectedProduct.images[0]"
+                  :alt="selectedProduct.name"
+                  class="max-h-full max-w-full object-contain"
                   width="600"
                   height="600"
                   sizes="100vw md:300px"
                   loading="lazy"
-                  />
+                />
               </div>
               <div class="flex gap-2 justify-center">
                 <button
@@ -317,14 +317,14 @@ class="max-h-full max-w-full object-contain"
                   "
                 >
                   <AppImage
-:src="img"
-:alt="`Thumbnail ${index + 1}`"
-class="max-h-full max-w-full object-contain"
+                    :src="img"
+                    :alt="`Thumbnail ${index + 1}`"
+                    class="max-h-full max-w-full object-contain"
                     width="600"
                     height="600"
                     sizes="100vw md:300px"
                     loading="lazy"
-                    />
+                  />
                 </button>
               </div>
             </div>
@@ -420,42 +420,42 @@ const selectedProductId = ref<string | null>(null);
 
 const useCases = [
   {
-    image: "https://migration.trumecs.com/principal/struman/struman-10.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/struman-10.png",
     title: "Rumah & Hunian",
     description:
       "Backup listrik saat PLN padam. Cocok diisi dari panel surya di atap untuk menekan tagihan listrik bulanan.",
     recommendation: "Rekomendasi: HS1800 / G24 PRO",
   },
   {
-    image: "https://migration.trumecs.com/principal/struman/struman-7.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/struman-7.png",
     title: "Outdoor & Camping",
     description:
       "Portable dan mudah dibawa ke lokasi manapun tanpa perlu akses PLN. Isi daya dari panel surya di lapangan.",
     recommendation: "Rekomendasi: HS1800 / HS3600",
   },
   {
-    image: "https://migration.trumecs.com/principal/struman/struman-5.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/struman-5.png",
     title: "Kantor & Komersial",
     description:
       "Backup daya untuk operasional kantor yang tidak boleh terhenti. Tidak perlu instalasi — plug and play.",
     recommendation: "Rekomendasi: G24 PRO / M50",
   },
   {
-    image: "https://migration.trumecs.com/principal/struman/struman-8.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/struman-8.png",
     title: "Medis & Klinik",
     description:
       "Pure Sine Wave output menjaga peralatan medis sensitif dari distorsi listrik. Aman untuk alat diagnostik dan monitoring.",
     recommendation: "Rekomendasi: M50 / HS3600",
   },
   {
-    image: "https://migration.trumecs.com/principal/struman/struman-9.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/struman-9.png",
     title: "Konstruksi & Lapangan",
     description:
       "Pengganti genset berbahan bakar yang berisik dan berbau. Daya besar untuk peralatan kerja berat di lokasi proyek terpencil.",
     recommendation: "Rekomendasi: M50",
   },
   {
-    image: "https://migration.trumecs.com/principal/struman/struman-1.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/struman-1.png",
     title: "Sistem Energi Surya",
     description:
       "Semua unit mendukung input panel surya (PV). Kembangkan kapasitas G24 PRO + BT30 hingga 17,4 kWh untuk kemandirian energi penuh.",
@@ -480,7 +480,7 @@ const products = [
     badge: "BATERAI",
     price: "Call",
     badgeColor: "bg-status-success/10 text-status-success",
-    image: "https://migration.trumecs.com/principal/struman/g24pro.PNG",
+    image: "https://fe-migration.trumecs.com/principal/struman/g24pro.PNG",
     specs: [
       { label: "Kapasitas", value: "2048 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -494,7 +494,7 @@ const products = [
     badge: "BATERAI",
     price: "Call",
     badgeColor: "bg-status-success/10 text-status-success",
-    image: "https://migration.trumecs.com/principal/struman/bt30.PNG",
+    image: "https://fe-migration.trumecs.com/principal/struman/bt30.PNG",
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Dimensi", value: "51 × 35 × 38 cm" },
@@ -508,7 +508,7 @@ const products = [
     badge: "BATERAI",
     price: "Call",
     badgeColor: "bg-status-success/10 text-status-success",
-    image: "https://migration.trumecs.com/principal/struman/hs1800.PNG",
+    image: "https://fe-migration.trumecs.com/principal/struman/hs1800.PNG",
     specs: [
       { label: "Kapasitas", value: "1536 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -522,7 +522,7 @@ const products = [
     badge: "BATERAI",
     price: "Call",
     badgeColor: "bg-status-success/10 text-status-success",
-    image: "https://migration.trumecs.com/principal/struman/hs3600.PNG",
+    image: "https://fe-migration.trumecs.com/principal/struman/hs3600.PNG",
     specs: [
       { label: "Kapasitas", value: "3072 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -536,7 +536,7 @@ const products = [
     badge: "BATERAI",
     price: "Call",
     badgeColor: "bg-status-success/10 text-status-success",
-    image: "https://migration.trumecs.com/principal/struman/m50.PNG",
+    image: "https://fe-migration.trumecs.com/principal/struman/m50.PNG",
     specs: [
       { label: "Kapasitas", value: "5120 Wh" },
       { label: "Dimensi", value: "101 x 45 x 3 cm/modul" },
@@ -550,7 +550,7 @@ const products = [
     badge: "SOLAR PANEL",
     price: "Call",
     badgeColor: "bg-power-blue-glow text-primary",
-    image: "https://migration.trumecs.com/principal/struman/SSP400.png",
+    image: "https://fe-migration.trumecs.com/principal/struman/SSP400.png",
     specs: [
       { label: "Kapasitas", value: "400 W (4 × 100 W)" },
       { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
@@ -564,7 +564,7 @@ const products = [
     badge: "SOLAR PANEL",
     price: "Call",
     badgeColor: "bg-power-blue-glow text-primary",
-    image: "https://migration.trumecs.com/principal/struman/ssp800.PNG",
+    image: "https://fe-migration.trumecs.com/principal/struman/ssp800.PNG",
     specs: [
       { label: "Kapasitas", value: "800 W (8 × 100 W)" },
       { label: "Dimensi", value: "101 × 45 × 3 cm/modul" },
@@ -587,7 +587,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "BATERAI",
       badgeColor: "bg-status-success/10 text-status-success",
       sku: "SKU: STR-G24PRO",
-      images: ["https://migration.trumecs.com/principal/struman/g24pro.PNG"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/g24pro.PNG"],
       link: makeLink("G24 PRO"),
       specs: [
         { label: "Kapasitas", value: "2048 Wh" },
@@ -623,7 +623,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "BATERAI",
       badgeColor: "bg-status-success/10 text-status-success",
       sku: "SKU: STR-BT30",
-      images: ["https://migration.trumecs.com/principal/struman/bt30.PNG"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/bt30.PNG"],
       link: makeLink("BT30"),
       specs: [
         { label: "Kapasitas", value: "3072 Wh" },
@@ -652,7 +652,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "BATERAI",
       badgeColor: "bg-status-success/10 text-status-success",
       sku: "SKU: STR-HS1800",
-      images: ["https://migration.trumecs.com/principal/struman/hs1800.PNG"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/hs1800.PNG"],
       link: makeLink("HS1800"),
       specs: [
         { label: "Kapasitas", value: "1536 Wh" },
@@ -686,7 +686,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "BATERAI",
       badgeColor: "bg-status-success/10 text-status-success",
       sku: "SKU: STR-HS3600",
-      images: ["https://migration.trumecs.com/principal/struman/hs3600.PNG"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/hs3600.PNG"],
       link: makeLink("HS3600"),
       specs: [
         { label: "Kapasitas", value: "3072 Wh" },
@@ -720,7 +720,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "BATERAI",
       badgeColor: "bg-status-success/10 text-status-success",
       sku: "SKU: STR-M50",
-      images: ["https://migration.trumecs.com/principal/struman/m50.PNG"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/m50.PNG"],
       link: makeLink("M50"),
       specs: [
         { label: "Kapasitas", value: "5120 Wh" },
@@ -754,7 +754,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "SOLAR PANEL",
       badgeColor: "bg-power-blue-glow text-primary",
       sku: "SKU: STR-SSP400",
-      images: ["https://migration.trumecs.com/principal/struman/SSP400.png"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/SSP400.png"],
       link: makeLink("SSP400"),
       specs: [
         { label: "Kapasitas", value: "400 W (4 × 100 W)" },
@@ -788,7 +788,7 @@ const productDetails = computed<Record<string, any>>(() => {
       badge: "SOLAR PANEL",
       badgeColor: "bg-power-blue-glow text-primary",
       sku: "SKU: STR-SSP800",
-      images: ["https://migration.trumecs.com/principal/struman/ssp800.PNG"],
+      images: ["https://fe-migration.trumecs.com/principal/struman/ssp800.PNG"],
       link: makeLink("SSP800"),
       specs: [
         { label: "Kapasitas", value: "800 W (8 × 100 W)" },

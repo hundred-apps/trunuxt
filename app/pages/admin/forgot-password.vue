@@ -6,14 +6,14 @@
       <div class="text-center">
         <Trulink to="/admin" class="inline-block">
           <AppImage
-src="https://migration.trumecs.com/logo/light.png"
-alt="Trumecs Admin"
-class="mx-auto h-16 w-auto object-contain"
+            src="https://fe-migration.trumecs.com/logo/light.png"
+            alt="Trumecs Admin"
+            class="mx-auto h-16 w-auto object-contain"
             width="200"
             height="40"
             sizes="200px"
             loading="lazy"
-            />
+          />
         </Trulink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">
           {{ $t("admin.forgotPassword.title") }}

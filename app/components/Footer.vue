@@ -281,8 +281,8 @@ const subscribeSuccess = ref(false);
 const isDark = computed(() => useColorMode().preference === "dark");
 const footerLogo = computed(() =>
   isDark.value
-    ? "https://migration.trumecs.com/logo/dark.png"
-    : "https://migration.trumecs.com/logo/dark.png"
+    ? "https://fe-migration.trumecs.com/logo/dark.png"
+    : "https://fe-migration.trumecs.com/logo/dark.png"
 );
 const socialMedia = [
   {

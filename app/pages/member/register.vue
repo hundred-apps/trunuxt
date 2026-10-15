@@ -1,35 +1,43 @@
 <template>
-  <div class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div
+    class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+  >
     <div class="max-w-md w-full space-y-8">
       <div>
         <Trulink to="/" class="block text-center">
           <AppImage
-            src="https://migration.trumecs.com/logo/dark.png"
+            src="https://fe-migration.trumecs.com/logo/dark.png"
             alt="Trumecs"
             class="mx-auto h-16 w-auto object-contain"
             width="200"
             height="40"
             sizes="200px"
             loading="lazy"
-            />
+          />
         </Trulink>
         <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
-          {{ $t('auth.register.title') }}
+          {{ $t("auth.register.title") }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          {{ $t('auth.register.subtitle') }}
+          {{ $t("auth.register.subtitle") }}
         </p>
       </div>
 
       <form class="mt-8 space-y-6" @submit.prevent="handleRegister">
-        <div v-if="error" class="bg-red-50 text-red-600 text-sm p-3 rounded-lg" role="alert">
+        <div
+          v-if="error"
+          class="bg-red-50 text-red-600 text-sm p-3 rounded-lg"
+          role="alert"
+        >
           {{ error }}
         </div>
 
         <div class="space-y-4">
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label for="firstName" class="sr-only">{{ $t('auth.firstName') }}</label>
+              <label for="firstName" class="sr-only">{{
+                $t("auth.firstName")
+              }}</label>
               <el-input
                 id="firstName"
                 v-model="form.firstName"
@@ -41,7 +49,9 @@
               />
             </div>
             <div>
-              <label for="lastName" class="sr-only">{{ $t('auth.lastName') }}</label>
+              <label for="lastName" class="sr-only">{{
+                $t("auth.lastName")
+              }}</label>
               <el-input
                 id="lastName"
                 v-model="form.lastName"
@@ -55,7 +65,7 @@
           </div>
 
           <div>
-            <label for="email" class="sr-only">{{ $t('auth.email') }}</label>
+            <label for="email" class="sr-only">{{ $t("auth.email") }}</label>
             <el-input
               id="email"
               v-model="form.email"
@@ -68,7 +78,7 @@
           </div>
 
           <div>
-            <label for="phone" class="sr-only">{{ $t('auth.phone') }}</label>
+            <label for="phone" class="sr-only">{{ $t("auth.phone") }}</label>
             <el-input
               id="phone"
               v-model="form.phone"
@@ -81,7 +91,9 @@
           </div>
 
           <div>
-            <label for="company" class="sr-only">{{ $t('auth.company') }}</label>
+            <label for="company" class="sr-only">{{
+              $t("auth.company")
+            }}</label>
             <el-input
               id="company"
               v-model="form.company"
@@ -94,7 +106,9 @@
           </div>
 
           <div>
-            <label for="password" class="sr-only">{{ $t('auth.password') }}</label>
+            <label for="password" class="sr-only">{{
+              $t("auth.password")
+            }}</label>
             <el-input
               id="password"
               v-model="form.password"
@@ -108,7 +122,9 @@
           </div>
 
           <div>
-            <label for="confirmPassword" class="sr-only">{{ $t('auth.confirmPassword') }}</label>
+            <label for="confirmPassword" class="sr-only">{{
+              $t("auth.confirmPassword")
+            }}</label>
             <el-input
               id="confirmPassword"
               v-model="form.confirmPassword"
@@ -121,23 +137,36 @@
             />
           </div>
 
-          <div v-if="form.password !== form.confirmPassword && form.confirmPassword" class="text-red-600 text-sm">
-            {{ $t('auth.passwordMismatch') }}
+          <div
+            v-if="
+              form.password !== form.confirmPassword && form.confirmPassword
+            "
+            class="text-red-600 text-sm"
+          >
+            {{ $t("auth.passwordMismatch") }}
           </div>
 
           <div class="flex items-start">
             <el-checkbox v-model="form.agreeTerms" size="small" class="mt-1">
               <span class="text-sm text-gray-600">
-                {{ $t('auth.agreeTermsPart1') }}
-                <Trulink to="/terms-of-use" class="text-orange-600 hover:underline">{{ $t('auth.terms') }}</Trulink>
-                {{ $t('auth.and') }}
-                <Trulink to="/privacy-policy" class="text-orange-600 hover:underline">{{ $t('auth.privacy') }}</Trulink>
+                {{ $t("auth.agreeTermsPart1") }}
+                <Trulink
+                  to="/terms-of-use"
+                  class="text-orange-600 hover:underline"
+                  >{{ $t("auth.terms") }}</Trulink
+                >
+                {{ $t("auth.and") }}
+                <Trulink
+                  to="/privacy-policy"
+                  class="text-orange-600 hover:underline"
+                  >{{ $t("auth.privacy") }}</Trulink
+                >
               </span>
             </el-checkbox>
           </div>
 
           <div v-if="!form.agreeTerms" class="text-red-600 text-sm hidden">
-            {{ $t('auth.mustAgreeTerms') }}
+            {{ $t("auth.mustAgreeTerms") }}
           </div>
         </div>
 
@@ -150,19 +179,21 @@
             full-width
             :loading="loading"
             native-type="submit"
-            :disabled="!form.agreeTerms || form.password !== form.confirmPassword"
+            :disabled="
+              !form.agreeTerms || form.password !== form.confirmPassword
+            "
           />
         </div>
       </form>
 
       <div class="text-center">
         <p class="text-sm text-gray-600">
-          {{ $t('auth.hasAccount') }}
+          {{ $t("auth.hasAccount") }}
           <Trulink
             to="/member/login"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t('auth.login.title') }}
+            {{ $t("auth.login.title") }}
           </Trulink>
         </p>
       </div>
@@ -171,11 +202,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { ElMessage } from 'element-plus';
-import { useAuthStore } from '~/stores/auth';
-import { useI18n } from 'vue-i18n';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { ElMessage } from "element-plus";
+import { useAuthStore } from "~/stores/auth";
+import { useI18n } from "vue-i18n";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -185,23 +216,23 @@ const loading = ref(false);
 const error = ref<string | null>(null);
 
 const form = ref({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  company: '',
-  password: '',
-  confirmPassword: '',
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  company: "",
+  password: "",
+  confirmPassword: "",
   agreeTerms: false,
 });
 
 const handleRegister = async () => {
   if (!form.value.agreeTerms) {
-    error.value = $t('auth.mustAgree');
+    error.value = $t("auth.mustAgree");
     return;
   }
   if (form.value.password !== form.value.confirmPassword) {
-    error.value = $t('auth.confirmMismatch');
+    error.value = $t("auth.confirmMismatch");
     return;
   }
 
@@ -217,10 +248,10 @@ const handleRegister = async () => {
       company: form.value.company,
       password: form.value.password,
     });
-    ElMessage.success($t('auth.registerSuccess'));
-    await router.push('/member/verify-email');
+    ElMessage.success($t("auth.registerSuccess"));
+    await router.push("/member/verify-email");
   } catch (e: any) {
-    error.value = e.message || $t('auth.registerFail');
+    error.value = e.message || $t("auth.registerFail");
   } finally {
     loading.value = false;
   }

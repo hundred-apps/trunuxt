@@ -17,7 +17,7 @@
 
         <Trulink to="/">
           <AppImage
-            src="https://migration.trumecs.com/logo/light.png"
+            src="https://fe-migration.trumecs.com/logo/light.png"
             alt="logo trumecs"
             class="h-8 w-auto object-contain"
             width="200"
@@ -45,7 +45,7 @@
           <div class="flex-shrink-0">
             <Trulink to="/">
               <AppImage
-                src="https://migration.trumecs.com/logo/light.png"
+                src="https://fe-migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
                 class="h-10 w-auto object-contain"
                 width="200"
@@ -231,7 +231,13 @@
             ref="mobileSearchInput"
             @keyup.enter="handleMobileSearch"
           />
-          <el-button type="primary" native-type="button" size="large" data-no-analytics @click="handleMobileSearch">
+          <el-button
+            type="primary"
+            native-type="button"
+            size="large"
+            data-no-analytics
+            @click="handleMobileSearch"
+          >
             <Icon name="material-symbols:search" />
           </el-button>
         </form>
@@ -253,7 +259,7 @@
           <div class="flex-shrink-0">
             <Trulink to="/">
               <AppImage
-                src="https://migration.trumecs.com/logo/light.png"
+                src="https://fe-migration.trumecs.com/logo/light.png"
                 alt="logo trumecs"
                 class="h-9 w-auto object-contain"
                 width="200"
@@ -384,7 +390,7 @@
               <Trulink
                 :to="{
                   path: 'https://wa.me/+6285176912338',
-                  query: {}
+                  query: {},
                 }"
                 class="text-sm flex gap-1 items-center text-gray-500"
               >

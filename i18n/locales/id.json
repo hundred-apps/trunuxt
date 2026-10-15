@@ -1347,23 +1347,23 @@
           "items": [
             {
               "name": "Otomotif",
-              "image": "https://migration.trumecs.com/principal/machining/automotive-2.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/automotive-2.png"
             },
             {
               "name": "Makanan & Minuman",
-              "image": "https://migration.trumecs.com/principal/machining/fnb-2.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/fnb-2.png"
             },
             {
               "name": "Manufaktur",
-              "image": "https://migration.trumecs.com/principal/machining/manufacture-2.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/manufacture-2.png"
             },
             {
               "name": "Penggilingan",
-              "image": "https://migration.trumecs.com/principal/machining/mill-2.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/mill-2.png"
             },
             {
               "name": "Tekstil",
-              "image": "https://migration.trumecs.com/principal/machining/textile-2.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/textile-2.png"
             }
           ]
         },
@@ -1420,10 +1420,7 @@
               "title": "Fabrication",
               "icon": "mdi:factory",
               "description": "Proses fabrikasi untuk menghasilkan komponen dengan teknologi canggih.",
-              "features": [
-                "Welding",
-                "Assembly"
-              ]
+              "features": ["Welding", "Assembly"]
             }
           ]
         },
@@ -1434,35 +1431,35 @@
           "items": [
             {
               "name": "Shaft Gear",
-              "image": "https://migration.trumecs.com/principal/machining/shaft.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/shaft.png"
             },
             {
               "name": "Rantai",
-              "image": "https://migration.trumecs.com/principal/machining/chain.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/chain.png"
             },
             {
               "name": "Bearing Housing",
-              "image": "https://migration.trumecs.com/principal/machining/housing.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/housing.png"
             },
             {
               "name": "Conveyor Roller",
-              "image": "https://migration.trumecs.com/principal/machining/roller.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/roller.png"
             },
             {
               "name": "Sprocket",
-              "image": "https://migration.trumecs.com/principal/machining/sprocket.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/sprocket.png"
             },
             {
               "name": "Gergaji",
-              "image": "https://migration.trumecs.com/principal/machining/saw.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/saw.png"
             },
             {
               "name": "Kopling",
-              "image": "https://migration.trumecs.com/principal/machining/coupling.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/coupling.png"
             },
             {
               "name": "Lembaran Perforasi",
-              "image": "https://migration.trumecs.com/principal/machining/perforated.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/perforated.png"
             }
           ]
         },
@@ -1474,66 +1471,43 @@
             {
               "name": "Stainless Steel",
               "icon": "game-icons:steel-claws",
-              "grades": [
-                "SS304",
-                "SS316"
-              ],
+              "grades": ["SS304", "SS316"],
               "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis."
             },
             {
               "name": "Carbon Steel",
               "icon": "material-symbols:thermostat-carbon-outline",
-              "grades": [
-                "S45C",
-                "ST41"
-              ],
+              "grades": ["S45C", "ST41"],
               "description": "Umum digunakan untuk shaft, gear, dan komponen struktural."
             },
             {
               "name": "Alloy Steel",
               "icon": "file-icons:alloy",
-              "grades": [
-                "SCM440",
-                "SNCM439"
-              ],
+              "grades": ["SCM440", "SNCM439"],
               "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi."
             },
             {
               "name": "Aluminium",
               "icon": "mdi:cube-outline",
-              "grades": [
-                "6061-T6",
-                "7075-T6"
-              ],
+              "grades": ["6061-T6", "7075-T6"],
               "description": "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik."
             },
             {
               "name": "Cast Iron",
               "icon": "mdi:anvil",
-              "grades": [
-                "FC250",
-                "FCD450"
-              ],
+              "grades": ["FC250", "FCD450"],
               "description": "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat."
             },
             {
               "name": "Engineering Plastics",
               "icon": "guidance:plastic",
-              "grades": [
-                "POM",
-                "PTFE",
-                "Nylon PA6"
-              ],
+              "grades": ["POM", "PTFE", "Nylon PA6"],
               "description": "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator."
             },
             {
               "name": "Rubber",
               "icon": "jam:rubber",
-              "grades": [
-                "NBR",
-                "EPDM",
-                "Silicone"
-              ],
+              "grades": ["NBR", "EPDM", "Silicone"],
               "description": "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator."
             }
           ]
@@ -1546,12 +1520,7 @@
           "email": "Kirim Email",
           "locationTitle": "Lokasi & Area Layanan Utama",
           "locationDesc": "Kami berlokasi strategis untuk melayani kebutuhan machining dan fabrikasi di area berikut dengan cepat dan tanggap.",
-          "locations": [
-            "Jakarta",
-            "Bekasi",
-            "Cikarang",
-            "Tangerang"
-          ]
+          "locations": ["Jakarta", "Bekasi", "Cikarang", "Tangerang"]
         },
         "seo": {
           "title": "Solusi Machining & Fabrikasi Terpercaya - Trumecs",

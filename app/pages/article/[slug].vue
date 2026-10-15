@@ -599,7 +599,7 @@ const fetchCategories = async () => {
         ? apiData.map((item: ProductCategory) => ({
             title: `Segala Hal Tentang ${item.name}`,
             description: `Bingung memilih ${item.name} sesuai dengan kebutuhan anda?`,
-            imageUrl: `https://migration.trumecs.com/article/ads/${item.name?.toLowerCase()}.png`,
+            imageUrl: `https://fe-migration.trumecs.com/article/ads/${item.name?.toLowerCase()}.png`,
             imageAlt: `Gambar Rekayasa Tentang ${item.name}`,
             buttonLink: `https://wa.me/+6285176912338`,
             buttonText: `Konsultasikan kebutuhan ${item.name} bersama kami`,

@@ -9,7 +9,7 @@
         <div
           class="bg-cover bg-center w-full h-[80dvh] rounded-b-3xl"
           :style="{
-            backgroundImage: `url('https://migration.trumecs.com/principal/machining/hero-2.jpg')`,
+            backgroundImage: `url('https://fe-migration.trumecs.com/principal/machining/hero-2.jpg')`,
           }"
         ></div>
 
@@ -114,14 +114,14 @@
               class="rounded-xl p-6 mb-3 aspect-square flex items-center justify-center group-hover:bg-orange-50 transition-colors"
             >
               <AppImage
-:src="product.image"
-:alt="product.name"
-class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+                :src="product.image"
+                :alt="product.name"
+                class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                 width="800"
                 height="600"
                 sizes="100vw md:600px"
                 loading="lazy"
-                />
+              />
             </div>
             <h3 class="font-semibold text-primary text-sm md:text-base">
               {{ product.name }}
@@ -185,14 +185,14 @@ class="max-h-full max-w-full object-contain group-hover:scale-110 transition-tra
               class="absolute -inset-4 bg-gray-100 rounded-2xl transform rotate-3 z-0 opacity-50"
             ></div>
             <AppImage
-src="https://migration.trumecs.com/principal/machining/hero-machining.jpg"
-alt="Machining Excellence"
-class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+              src="https://fe-migration.trumecs.com/principal/machining/hero-machining.jpg"
+              alt="Machining Excellence"
+              class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
               width="800"
               height="600"
               sizes="100vw md:600px"
               loading="lazy"
-              />
+            />
           </div>
         </div>
       </div>
@@ -213,14 +213,14 @@ class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border bord
               class="relative z-10 w-full h-auto rounded-xl shadow-lg border border-gray-200/30 aspect-[4/3] bg-gradient-to-br from-orange-50 to-gray-100 flex items-center justify-center"
             >
               <AppImage
-src="https://migration.trumecs.com/principal/machining/fabrication.jpg"
-alt="Fabrication Excellence"
-class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
+                src="https://fe-migration.trumecs.com/principal/machining/fabrication.jpg"
+                alt="Fabrication Excellence"
+                class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border border-gray-200/30 aspect-[4/3]"
                 width="800"
                 height="600"
                 sizes="100vw md:600px"
                 loading="lazy"
-                />
+              />
             </div>
           </div>
 
@@ -300,14 +300,14 @@ class="relative z-10 w-full h-auto rounded-xl shadow-lg object-cover border bord
             class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer"
           >
             <AppImage
-:src="industry.image"
-:alt="industry.name"
-class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              :src="industry.image"
+              :alt="industry.name"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               width="800"
               height="600"
               sizes="100vw md:600px"
               loading="lazy"
-              />
+            />
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
             ></div>
@@ -522,23 +522,23 @@ const industries = computed(() => {
 // const industries = [
 //   {
 //     name: "Automotive",
-//     image: "https://migration.trumecs.com/principal/machining/automotive.jpg",
+//     image: "https://fe-migration.trumecs.com/principal/machining/automotive.jpg",
 //   },
 //   {
 //     name: "Food & Beverage",
-//     image: "https://migration.trumecs.com/principal/machining/fnb.jpg",
+//     image: "https://fe-migration.trumecs.com/principal/machining/fnb.jpg",
 //   },
 //   {
 //     name: "Manufacture",
-//     image: "https://migration.trumecs.com/principal/machining/manufacture.jpg",
+//     image: "https://fe-migration.trumecs.com/principal/machining/manufacture.jpg",
 //   },
 //   {
 //     name: "Mill",
-//     image: "https://migration.trumecs.com/principal/machining/mill.jpg",
+//     image: "https://fe-migration.trumecs.com/principal/machining/mill.jpg",
 //   },
 //   {
 //     name: "Textile",
-//     image: "https://migration.trumecs.com/principal/machining/textile.jpg",
+//     image: "https://fe-migration.trumecs.com/principal/machining/textile.jpg",
 //   },
 // ];
 
@@ -556,35 +556,35 @@ const products = computed(() => {
 // const products = [
 //   {
 //     name: "Shaft Gear",
-//     image: "https://migration.trumecs.com/principal/machining/shaft.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/shaft.png",
 //   },
 //   {
 //     name: "Chain",
-//     image: "https://migration.trumecs.com/principal/machining/chain.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/chain.png",
 //   },
 //   {
 //     name: "Bearing Housing",
-//     image: "https://migration.trumecs.com/principal/machining/housing.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/housing.png",
 //   },
 //   {
 //     name: "Conveyor Roller",
-//     image: "https://migration.trumecs.com/principal/machining/roller.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/roller.png",
 //   },
 //   {
 //     name: "Sprocket",
-//     image: "https://migration.trumecs.com/principal/machining/sprocket.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/sprocket.png",
 //   },
 //   {
 //     name: "Saw",
-//     image: "https://migration.trumecs.com/principal/machining/saw.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/saw.png",
 //   },
 //   {
 //     name: "Coupling",
-//     image: "https://migration.trumecs.com/principal/machining/coupling.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/coupling.png",
 //   },
 //   {
 //     name: "Preforated Sheet",
-//     image: "https://migration.trumecs.com/principal/machining/perforated.png",
+//     image: "https://fe-migration.trumecs.com/principal/machining/perforated.png",
 //   },
 // ];
 

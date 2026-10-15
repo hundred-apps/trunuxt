@@ -1,34 +1,40 @@
 <template>
-  <div class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div
+    class="member-auth-page min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+  >
     <div class="max-w-md w-full space-y-8">
       <div>
         <Trulink to="/" class="block text-center">
           <AppImage
-            src="https://migration.trumecs.com/logo/dark.png"
+            src="https://fe-migration.trumecs.com/logo/dark.png"
             alt="Trumecs"
             class="mx-auto h-16 w-auto object-contain"
             width="200"
             height="40"
             sizes="200px"
             loading="lazy"
-            />
+          />
         </Trulink>
         <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
-          {{ $t('auth.login.title') }}
+          {{ $t("auth.login.title") }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          {{ $t('auth.login.subtitle') }}
+          {{ $t("auth.login.subtitle") }}
         </p>
       </div>
 
       <form class="mt-8 space-y-6" @submit.prevent="handleLogin">
-        <div v-if="error" class="bg-red-50 text-red-600 text-sm p-3 rounded-lg" role="alert">
+        <div
+          v-if="error"
+          class="bg-red-50 text-red-600 text-sm p-3 rounded-lg"
+          role="alert"
+        >
           {{ error }}
         </div>
 
         <div class="space-y-4">
           <div>
-            <label for="email" class="sr-only">{{ $t('auth.email') }}</label>
+            <label for="email" class="sr-only">{{ $t("auth.email") }}</label>
             <el-input
               id="email"
               v-model="form.email"
@@ -41,7 +47,9 @@
           </div>
 
           <div>
-            <label for="password" class="sr-only">{{ $t('auth.password') }}</label>
+            <label for="password" class="sr-only">{{
+              $t("auth.password")
+            }}</label>
             <el-input
               id="password"
               v-model="form.password"
@@ -57,7 +65,7 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center">
               <el-checkbox v-model="form.remember" size="small">
-                {{ $t('auth.rememberMe') }}
+                {{ $t("auth.rememberMe") }}
               </el-checkbox>
             </div>
 
@@ -66,7 +74,7 @@
                 to="/member/forgot-password"
                 class="font-medium text-orange-600 hover:text-orange-500"
               >
-                {{ $t('auth.forgotPassword.title') }}
+                {{ $t("auth.forgotPassword.title") }}
               </Trulink>
             </div>
           </div>
@@ -87,12 +95,12 @@
 
       <div class="text-center">
         <p class="text-sm text-gray-600">
-          {{ $t('auth.noAccount') }}
+          {{ $t("auth.noAccount") }}
           <Trulink
             to="/member/register"
             class="font-medium text-orange-600 hover:text-orange-500 ml-1"
           >
-            {{ $t('auth.register.title') }}
+            {{ $t("auth.register.title") }}
           </Trulink>
         </p>
       </div>
@@ -102,7 +110,7 @@
           <div class="w-full border-t border-gray-300" />
         </div>
         <div class="relative flex justify-center text-sm">
-          <span class="px-2 bg-gray-50 text-gray-500">{{ $t('auth.or') }}</span>
+          <span class="px-2 bg-gray-50 text-gray-500">{{ $t("auth.or") }}</span>
         </div>
       </div>
 
@@ -120,11 +128,17 @@
       </div>
 
       <div class="text-center text-sm text-gray-500">
-        <p>{{ $t('auth.termsAgreement') }}</p>
+        <p>{{ $t("auth.termsAgreement") }}</p>
         <p class="mt-1">
-          <Trulink to="/terms-of-use" class="text-orange-600 hover:underline">{{ $t('auth.terms') }}</Trulink>
-          {{ $t('auth.and') }}
-          <Trulink to="/privacy-policy" class="text-orange-600 hover:underline">{{ $t('auth.privacy') }}</Trulink>
+          <Trulink to="/terms-of-use" class="text-orange-600 hover:underline">{{
+            $t("auth.terms")
+          }}</Trulink>
+          {{ $t("auth.and") }}
+          <Trulink
+            to="/privacy-policy"
+            class="text-orange-600 hover:underline"
+            >{{ $t("auth.privacy") }}</Trulink
+          >
         </p>
       </div>
     </div>
@@ -132,11 +146,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
-import { ElMessage } from 'element-plus';
-import { useAuthStore } from '~/stores/auth';
-import { useI18n } from 'vue-i18n';
+import { ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { ElMessage } from "element-plus";
+import { useAuthStore } from "~/stores/auth";
+import { useI18n } from "vue-i18n";
 
 const router = useRouter();
 const route = useRoute();
@@ -147,12 +161,12 @@ const loading = ref(false);
 const error = ref<string | null>(null);
 
 const form = ref({
-  email: '',
-  password: '',
+  email: "",
+  password: "",
   remember: false,
 });
 
-const redirect = (route.query.redirect as string) || '/member/dashboard';
+const redirect = (route.query.redirect as string) || "/member/dashboard";
 
 const handleLogin = async () => {
   error.value = null;
@@ -160,10 +174,10 @@ const handleLogin = async () => {
 
   try {
     await authStore.login(form.value);
-    ElMessage.success($t('auth.loginSuccess'));
+    ElMessage.success($t("auth.loginSuccess"));
     await router.push(redirect);
   } catch (e: any) {
-    error.value = e.message || $t('auth.loginFail');
+    error.value = e.message || $t("auth.loginFail");
   } finally {
     loading.value = false;
   }
@@ -172,9 +186,9 @@ const handleLogin = async () => {
 const loginWithWhatsApp = () => {
   window.open(
     `https://wa.me/${useRuntimeConfig().public.info.phone}?text=${encodeURIComponent(
-      $t('auth.whatsappIntro')
+      $t("auth.whatsappIntro")
     )}`,
-    '_blank'
+    "_blank"
   );
 };
 </script>

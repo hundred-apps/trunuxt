@@ -29,7 +29,7 @@ const props = withDefaults(
 
 const OPTIMIZABLE_HOSTS = [
   "https://www.trumecs.com/",
-  "https://migration.trumecs.com/",
+  "https://fe-migration.trumecs.com/",
   "https://migrationbe.trumecs.com/",
 ];
 

@@ -1346,23 +1346,23 @@
           "items": [
             {
               "name": "汽车",
-              "image": "https://migration.trumecs.com/principal/machining/automotive.jpg"
+              "image": "https://fe-migration.trumecs.com/principal/machining/automotive.jpg"
             },
             {
               "name": "食品与饮料",
-              "image": "https://migration.trumecs.com/principal/machining/fnb.jpg"
+              "image": "https://fe-migration.trumecs.com/principal/machining/fnb.jpg"
             },
             {
               "name": "制造",
-              "image": "https://migration.trumecs.com/principal/machining/manufacture.jpg"
+              "image": "https://fe-migration.trumecs.com/principal/machining/manufacture.jpg"
             },
             {
               "name": "制粉",
-              "image": "https://migration.trumecs.com/principal/machining/mill.jpg"
+              "image": "https://fe-migration.trumecs.com/principal/machining/mill.jpg"
             },
             {
               "name": "纺织",
-              "image": "https://migration.trumecs.com/principal/machining/textile.jpg"
+              "image": "https://fe-migration.trumecs.com/principal/machining/textile.jpg"
             }
           ]
         },
@@ -1408,21 +1408,13 @@
               "title": "切割",
               "icon": "mdi:content-cut",
               "description": "使用各种方法对材料进行切割，以获得所需的尺寸和形状。",
-              "features": [
-                "带锯切割",
-                "线切割 EDM",
-                "激光切割",
-                "水刀切割"
-              ]
+              "features": ["带锯切割", "线切割 EDM", "激光切割", "水刀切割"]
             },
             {
               "title": "制造",
               "icon": "mdi:factory",
               "description": "利用先进工艺制造零部件的生产过程。",
-              "features": [
-                "焊接",
-                "装配"
-              ]
+              "features": ["焊接", "装配"]
             }
           ]
         },
@@ -1433,35 +1425,35 @@
           "items": [
             {
               "name": "齿轮轴",
-              "image": "https://migration.trumecs.com/principal/machining/shaft.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/shaft.png"
             },
             {
               "name": "链条",
-              "image": "https://migration.trumecs.com/principal/machining/chain.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/chain.png"
             },
             {
               "name": "轴承座",
-              "image": "https://migration.trumecs.com/principal/machining/housing.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/housing.png"
             },
             {
               "name": "输送滚轮",
-              "image": "https://migration.trumecs.com/principal/machining/roller.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/roller.png"
             },
             {
               "name": "链轮",
-              "image": "https://migration.trumecs.com/principal/machining/sprocket.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/sprocket.png"
             },
             {
               "name": "锯片",
-              "image": "https://migration.trumecs.com/principal/machining/saw.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/saw.png"
             },
             {
               "name": "联轴器",
-              "image": "https://migration.trumecs.com/principal/machining/coupling.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/coupling.png"
             },
             {
               "name": "穿孔板",
-              "image": "https://migration.trumecs.com/principal/machining/perforated.png"
+              "image": "https://fe-migration.trumecs.com/principal/machining/perforated.png"
             }
           ]
         },
@@ -1473,66 +1465,43 @@
             {
               "name": "不锈钢",
               "icon": "mdi:silverware-fork-knife",
-              "grades": [
-                "SS304",
-                "SS316"
-              ],
+              "grades": ["SS304", "SS316"],
               "description": "耐腐蚀，适用于食品级、化工和医疗应用。"
             },
             {
               "name": "碳钢",
               "icon": "material-symbols:thermostat-carbon-outline",
-              "grades": [
-                "S45C",
-                "ST41"
-              ],
+              "grades": ["S45C", "ST41"],
               "description": "常用于轴、齿轮和结构部件。"
             },
             {
               "name": "合金钢",
               "icon": "mdi:factory",
-              "grades": [
-                "SCM440",
-                "SNCM439"
-              ],
+              "grades": ["SCM440", "SNCM439"],
               "description": "高强度，适用于重型机械和传动部件。"
             },
             {
               "name": "铝",
               "icon": "mdi:cube-outline",
-              "grades": [
-                "6061-T6",
-                "7075-T6"
-              ],
+              "grades": ["6061-T6", "7075-T6"],
               "description": "轻质、耐腐蚀、易加工。适用于汽车、航空航天和电子元件。"
             },
             {
               "name": "铸铁",
               "icon": "mdi:anvil",
-              "grades": [
-                "FC250",
-                "FCD450"
-              ],
+              "grades": ["FC250", "FCD450"],
               "description": "良好的减振性和耐磨性。适用于发动机缸体、外壳和重型部件。"
             },
             {
               "name": "工程塑料",
               "icon": "guidance:plastic",
-              "grades": [
-                "POM",
-                "PTFE",
-                "Nylon PA6"
-              ],
+              "grades": ["POM", "PTFE", "Nylon PA6"],
               "description": "轻质、耐化学腐蚀、自润滑。用于衬套、非金属齿轮和绝缘体。"
             },
             {
               "name": "橡胶",
               "icon": "mdi:circle-outline",
-              "grades": [
-                "NBR",
-                "EPDM",
-                "Silicone"
-              ],
+              "grades": ["NBR", "EPDM", "Silicone"],
               "description": "弹性好，耐油耐候。用于密封件、垫片、支架和减震器。"
             }
           ]
@@ -1545,12 +1514,7 @@
           "email": "邮件咨询",
           "locationTitle": "位置与主要服务区域",
           "locationDesc": "我们地理位置优越，可在以下地区快速响应加工和制造需求。",
-          "locations": [
-            "雅加达",
-            "勿加泗",
-            "卡拉旺",
-            "丹格朗"
-          ]
+          "locations": ["雅加达", "勿加泗", "卡拉旺", "丹格朗"]
         },
         "seo": {
           "title": "精密加工与制造 - Trumecs",
