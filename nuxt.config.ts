@@ -27,7 +27,10 @@ export default defineNuxtConfig({
         { property: "og:locale:alternate", content: "zh_CN" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "apple-touch-icon", href: "/logo/light.png" },
+      ],
     },
     baseURL: "/",
     cdnURL: "/",

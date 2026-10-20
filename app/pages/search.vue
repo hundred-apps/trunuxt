@@ -378,6 +378,8 @@ const {
   syncFromUrl,
 } = useProductSearch();
 
+const { tags, allBrands } = useProductSearch() as any;
+
 const viewMode = ref<"grid" | "list">("grid");
 
 // Filter bottom sheet (mobile)
@@ -446,10 +448,30 @@ const breadcrumbs = computed(() => [
 ]);
 
 useHead({
-  title: computed(() => $t("page.category.title")),
+  title: computed(() => {
+    const parts: string[] = [];
+    if (keyword.value.trim()) parts.push(`"${keyword.value.trim()}"`);
+    if (selectedTagIds.value.length > 0) {
+      const tagLabels = selectedTagIds.value
+        .map((id: any) => tagLabel(tags.value.find((t: any) => String(t.id) === String(id))))
+        .filter(Boolean);
+      if (tagLabels.length) parts.push(tagLabels.slice(0, 2).join(", "));
+    }
+    if (selectedBrandId.value !== null) {
+      const brand = allBrands.value.find((b: any) => b.id === selectedBrandId.value);
+      if (brand?.name) parts.push(brand.name);
+    }
+    if (parts.length) return parts.join(" | ");
+    return $t("page.category.title");
+  }),
   titleTemplate: "%s | Trumecs.com",
   meta: computed(() => [
-    { name: "description", content: $t("page.category.subtitle") },
+    {
+      name: "description",
+      content: keyword.value.trim()
+        ? `${$t("page.category.title")} - ${keyword.value.trim()} | Trumecs.com`
+        : $t("page.category.subtitle"),
+    },
     { name: "robots", content: "noindex, nofollow" },
   ]),
 });
