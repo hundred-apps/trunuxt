@@ -8,19 +8,11 @@
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
     >
-      <AppImage
+      <img
+        v-else
         :src="mainImage.url"
         :alt="product.tittle"
-        class="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 cursor-zoom-in"
-        :class="mainImageLoaded ? 'opacity-100' : 'opacity-0'"
-        sizes="100vw sm:100vw lg:640px"
-        width="800"
-        height="800"
-        loading="eager"
-        fetchpriority="high"
-        preload
-        draggable="false"
-        @load="mainImageLoaded = true"
+        class="w-full h-full object-cover"
         @error="mainImageLoaded = true"
       />
 
@@ -155,15 +147,17 @@
             "
             @click="selectImage(index)"
           >
-            <AppImage
-              :src="img.thumbnail"
-              :alt="`${product.tittle} - Gambar ${index + 1}`"
-              class="w-full h-full object-cover"
-              sizes="80px"
-              width="80"
-              height="80"
-              loading="lazy"
-            />
+        <img
+          v-if="img.url"
+          :src="img.thumbnail || img.url"
+          :alt="`${product.tittle} - Gambar ${index + 1}`"
+          class="w-full h-full object-cover"
+          sizes="80px"
+          width="80"
+          height="80"
+          loading="lazy"
+          @error="(e) => { (e.target as HTMLImageElement).src = '/image/noimage-small.jpg'; }"
+        />
           </div>
         </div>
       </div>
@@ -236,7 +230,7 @@
           loading="eager"
           draggable="false"
           @load="lightboxLoading = false"
-          @error="lightboxLoading = false"
+          @error="lightboxLoading = false; (lightboxImage.url = '/image/noimage.png')"
         />
 
         <div
@@ -478,15 +472,14 @@ const nextImage = () => {
   lightboxIndex.value = (lightboxIndex.value + 1) % allImages.value.length;
 };
 
-// ============ WATCHERS ============
-watch(
-  () => props.product,
-  () => {
-    selectedImage.value = 0;
-    mainImageLoaded.value = false;
-  },
-  { deep: true }
-);
+const handleMainError = () => {
+  mainImageLoaded.value = true;
+  if (mainImage.value) {
+    mainImage.value.url = "/image/noimage.png";
+    mainImage.value.thumbnail = "/image/noimage-small.jpg";
+  }
+};
+
 
 watch(selectedImage, () => {
   mainImageLoaded.value = false;

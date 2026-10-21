@@ -223,25 +223,29 @@ const breadcrumbs = computed(() => [
 useHead({
   title: computed(() =>
     tagName.value
-      ? `${tagName.value} - ${$t("page.articleTag.title")}`
+      ? tagName.value
       : $t("page.articleTag.title")
   ),
   titleTemplate: "%s | Trumecs.com",
   meta: computed(() => [
     {
       name: "description",
-      content: $t("page.articleTag.subtitle", { tag: tagName.value }),
+      content: tagName.value
+        ? $t("page.articleTag.subtitle", { tag: tagName.value })
+        : $t("page.articleTag.subtitle", { tag: "" }),
     },
     { name: "robots", content: tagName.value ? "index, follow" : "noindex" },
     {
       property: "og:title",
       content: tagName.value
-        ? `${tagName.value} - ${$t("page.articleTag.title")}`
+        ? tagName.value
         : $t("page.articleTag.title"),
     },
     {
       property: "og:description",
-      content: $t("page.articleTag.subtitle", { tag: tagName.value }),
+      content: tagName.value
+        ? $t("page.articleTag.subtitle", { tag: tagName.value })
+        : $t("page.articleTag.subtitle", { tag: "" }),
     },
     { property: "og:type", content: "website" },
   ]),

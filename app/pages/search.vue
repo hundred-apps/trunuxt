@@ -450,18 +450,35 @@ const breadcrumbs = computed(() => [
 useHead({
   title: computed(() => {
     const parts: string[] = [];
-    if (keyword.value.trim()) parts.push(`"${keyword.value.trim()}"`);
-    if (selectedTagIds.value.length > 0) {
+    if (keyword.value.trim()) parts.push(keyword.value.trim());
+    if (selectedCategoryIds.value.length > 0 && categories.value.length) {
+      const names: string[] = [];
+      for (const cid of selectedCategoryIds.value) {
+        const find = (nodes: any[], id: number): any => {
+          for (const n of nodes) {
+            if (n.id === id) return n;
+            if (n.children) {
+              const r = find(n.children, id);
+              if (r) return r;
+            }
+          }
+        };
+        const n = find(categories.value, Number(cid));
+        if (n?.name) names.push(n.name);
+      }
+      if (names.length) parts.push(names.slice(0, 2).join(", "));
+    }
+    if (selectedTagIds.value.length > 0 && tags?.length) {
       const tagLabels = selectedTagIds.value
-        .map((id: any) => tagLabel(tags.value.find((t: any) => String(t.id) === String(id))))
+        .map((id: any) => tagLabel(tags.find((t: any) => String(t.id) === String(id))))
         .filter(Boolean);
       if (tagLabels.length) parts.push(tagLabels.slice(0, 2).join(", "));
     }
-    if (selectedBrandId.value !== null) {
-      const brand = allBrands.value.find((b: any) => b.id === selectedBrandId.value);
+    if (selectedBrandId.value !== null && allBrands?.length) {
+      const brand = allBrands.find((b: any) => b.id === selectedBrandId.value);
       if (brand?.name) parts.push(brand.name);
     }
-    if (parts.length) return parts.join(" | ");
+    if (parts.length) return parts.join(" - ");
     return $t("page.category.title");
   }),
   titleTemplate: "%s | Trumecs.com",
