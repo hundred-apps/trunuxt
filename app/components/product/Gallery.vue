@@ -9,11 +9,23 @@
       @touchend="handleTouchEnd"
     >
       <img
-        v-else
+  <img
+        v-if="!mainImageBroken"
         :src="mainImage.url"
         :alt="product.tittle"
+        class="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 cursor-zoom-in"
+        :class="mainImageLoaded ? 'opacity-100' : 'opacity-0'"
+        loading="eager"
+        fetchpriority="high"
+        draggable="false"
+        @load="mainImageLoaded = true"
+        @error="handleMainImageError"
+      />
+      <img
+        v-else
+        src="/image/noimage.png"
+        :alt="product.tittle"
         class="w-full h-full object-cover"
-        @error="mainImageLoaded = true"
       />
 
       <!-- Main Image Loading Indicator -->
@@ -257,6 +269,7 @@ const selectedImage = ref(0);
 const lightboxOpen = ref(false);
 const lightboxIndex = ref(0);
 const mainImageLoaded = ref(false);
+const mainImageBroken = ref(false);
 const lightboxLoading = ref(false);
 const thumbnailContainer = ref<HTMLDivElement | null>(null);
 const imageContainer = ref<HTMLElement | null>(null);
@@ -345,6 +358,14 @@ const allImages = computed<ImageObject[]>(() => {
 const mainImage = computed(() => {
   return allImages.value[selectedImage.value] || allImages.value[0];
 });
+
+const handleMainImageError = () => {
+  mainImageLoaded.value = true;
+  mainImageBroken.value = true;
+  const m = allImages.value[selectedImage.value] || allImages.value[0];
+  if (m) { m.url = "/image/noimage.png"; m.thumbnail = "/image/noimage-small.jpg"; }
+};
+const handleMainError = handleMainImageError;
 
 const lightboxImage = computed(() => {
   return allImages.value[lightboxIndex.value] || allImages.value[0];
@@ -471,15 +492,6 @@ const prevImage = () => {
 const nextImage = () => {
   lightboxIndex.value = (lightboxIndex.value + 1) % allImages.value.length;
 };
-
-const handleMainError = () => {
-  mainImageLoaded.value = true;
-  if (mainImage.value) {
-    mainImage.value.url = "/image/noimage.png";
-    mainImage.value.thumbnail = "/image/noimage-small.jpg";
-  }
-};
-
 
 watch(selectedImage, () => {
   mainImageLoaded.value = false;

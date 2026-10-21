@@ -453,16 +453,16 @@ useHead({
     if (keyword.value.trim()) parts.push(keyword.value.trim());
     if (selectedCategoryIds.value.length > 0 && categories.value.length) {
       const names: string[] = [];
-      for (const cid of selectedCategoryIds.value) {
-        const find = (nodes: any[], id: number): any => {
-          for (const n of nodes) {
-            if (n.id === id) return n;
-            if (n.children) {
-              const r = find(n.children, id);
-              if (r) return r;
-            }
+      const find = (nodes: any[], id: number): any => {
+        for (const n of nodes) {
+          if (n.id === id) return n;
+          if (n.children) {
+            const r = find(n.children, id);
+            if (r) return r;
           }
-        };
+        }
+      };
+      for (const cid of selectedCategoryIds.value) {
         const n = find(categories.value, Number(cid));
         if (n?.name) names.push(n.name);
       }
@@ -470,7 +470,10 @@ useHead({
     }
     if (selectedTagIds.value.length > 0 && tags?.length) {
       const tagLabels = selectedTagIds.value
-        .map((id: any) => tagLabel(tags.find((t: any) => String(t.id) === String(id))))
+        .map((id: any) => {
+          const t = tags.find((x: any) => String(x.id) === String(id));
+          return tagLabel ? tagLabel(t) : (t?.tag || t?.tag_en || t?.tag_ch || "");
+        })
         .filter(Boolean);
       if (tagLabels.length) parts.push(tagLabels.slice(0, 2).join(", "));
     }
