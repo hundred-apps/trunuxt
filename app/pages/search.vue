@@ -108,7 +108,7 @@
               :counts="categoryCounts"
               :check-state="getCategoryCheckState"
               :title="$t('page.category.categories')"
-              :loading="loading"
+              :loading="loadingCategories"
               @toggle="toggleCategory"
               @clear="clearFilters"
             />
@@ -273,7 +273,7 @@
               :counts="categoryCounts"
               :check-state="getCategoryCheckState"
               :title="$t('page.category.categories')"
-              :loading="loading"
+              :loading="loadingCategories"
               @toggle="toggleCategory"
               @clear="clearFilters"
             />
@@ -334,6 +334,8 @@ import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { useProductSearch } from "~/composables/useProductSearch";
+import { useProductTags } from "~/composables/useProductTags";
+import { useFetchApi } from "~/composables/useFetchApi";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
 import Breadcrumbs from "~/components/Breadcrumbs.vue";
 import CategoryTree from "~/components/category/CategoryTree.vue";
@@ -347,6 +349,7 @@ const { updateHeaderHeight } = useHeaderHeight();
 
 const {
   loading,
+  loadingCategories,
   categories,
   filteredBrands,
   filteredTags,
@@ -376,9 +379,41 @@ const {
   clearFilters,
   goToPage,
   syncFromUrl,
+  tags: allTags,
+  allBrands,
+  setCategories,
 } = useProductSearch();
 
-const { tags, allBrands } = useProductSearch() as any;
+const { setTags } = useProductTags();
+
+// ---- Data dasar diambil di server ----
+// Supaya meta title (category / tag / brand) sudah benar di HTML awal
+// dan sidebar tidak kosong saat pertama dibuka.
+const { data: categoryPayload } = await useAsyncData(
+  "search-categories",
+  () => useFetchApi<any>("category-read", "search-categories", "get", null),
+  { default: () => ({ status: "idle" as const, data: null, code: undefined }) }
+);
+
+const { data: tagsPayload } = await useAsyncData(
+  "search-tags",
+  () => useFetchApi<any>("tags/read", "search-tags", "get", null),
+  { default: () => ({ status: "idle" as const, data: null, code: undefined }) }
+);
+
+if (categoryPayload.value?.status === "success") {
+  setCategories(categoryPayload.value.data?.payload?.category ?? null);
+}
+if (tagsPayload.value?.status === "success") {
+  setTags(tagsPayload.value.data?.payload ?? null);
+}
+
+// Baca filter dari URL sejak awal (juga saat SSR) supaya meta title
+// dan pilihan filter sudah benar di render pertama.
+syncFromUrl();
+
+const tagsList = computed(() => allTags?.value || filteredTags.value || []);
+const brandsList = computed(() => allBrands?.value || filteredBrands.value || []);
 
 const viewMode = ref<"grid" | "list">("grid");
 
@@ -468,17 +503,17 @@ useHead({
       }
       if (names.length) parts.push(names.slice(0, 2).join(", "));
     }
-    if (selectedTagIds.value.length > 0 && tags?.length) {
+    if (selectedTagIds.value.length > 0 && tagsList.value?.length) {
       const tagLabels = selectedTagIds.value
         .map((id: any) => {
-          const t = tags.find((x: any) => String(x.id) === String(id));
+          const t = tagsList.value.find((x: any) => String(x.id) === String(id));
           return tagLabel ? tagLabel(t) : (t?.tag || t?.tag_en || t?.tag_ch || "");
         })
         .filter(Boolean);
       if (tagLabels.length) parts.push(tagLabels.slice(0, 2).join(", "));
     }
-    if (selectedBrandId.value !== null && allBrands?.length) {
-      const brand = allBrands.find((b: any) => b.id === selectedBrandId.value);
+    if (selectedBrandId.value !== null && brandsList.value?.length) {
+      const brand = brandsList.value.find((b: any) => b.id === selectedBrandId.value);
       if (brand?.name) parts.push(brand.name);
     }
     if (parts.length) return parts.join(" - ");
@@ -499,8 +534,8 @@ useHead({
 // Lifecycle
 onMounted(async () => {
   updateHeaderHeight();
-  await fetchCategories();
-  await fetchAllProducts();
+  // Kategori & produk bisa diambil paralel -> hemat 1 round trip
+  await Promise.all([fetchCategories(), fetchAllProducts()]);
   syncFromUrl();
 });
 

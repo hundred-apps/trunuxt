@@ -175,14 +175,10 @@ const breadcrumbItems = computed(() => {
     current = current.parent_categori;
   }
 
-  parents.forEach((parent, index) => {
-    const url = parents
-      .slice(0, index + 1)
-      .map((p: any) => p.url)
-      .join("/");
+  parents.forEach((parent) => {
     items.push({
       name: parent.name,
-      url: `/c/${url}`,
+      url: `/search?cat=${parent.id}`,
     });
   });
 

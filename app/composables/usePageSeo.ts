@@ -190,7 +190,10 @@ export function useProductSeo(product: Ref<any | null>) {
         current = current.parent_categori;
       }
       parents.forEach((parent: any) => {
-        items.push({ name: parent.name, url: `${siteUrl}/c/${parent.url}` });
+        items.push({
+          name: parent.name,
+          url: `${siteUrl}/search?cat=${parent.id}`,
+        });
       });
     }
     if (p.brand && p.brand.toLowerCase() !== "other") {

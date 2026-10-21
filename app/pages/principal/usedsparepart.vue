@@ -191,7 +191,7 @@ class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transf
           <Trulink
             v-for="(part, findex) in featuredParts"
             :key="findex"
-            :href="'https://www.trumecs.com/c/Sparepart/query?q=on&nama='"
+            :href="'https://www.trumecs.com/search'"
             target="_blank"
             class="bg-white rounded-lg border border-gray-200/10 overflow-hidden shadow-sm hover:shadow-lg transition-all"
           >

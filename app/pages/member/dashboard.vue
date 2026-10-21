@@ -94,7 +94,7 @@
         </Trulink>
 
         <Trulink
-          to="/c/all/query?q=on"
+          to="/search"
           class="group p-4 rounded-xl border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-colors"
         >
           <div class="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center mb-3 group-hover:bg-purple-200 transition-colors">

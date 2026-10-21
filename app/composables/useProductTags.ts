@@ -24,6 +24,16 @@ export interface ProductTagItem {
   tag: Tag | null;
 }
 
+// Satu promise_LOAD yang di-share supaya tidak ada request ganda
+let inflightLoad: Promise<void> | null = null;
+
+// ---- Cache global (data publik, di-share antar halaman & composable) ----
+// Sengaja di module scope: tidak masuk payload SSR (data produk cukup besar)
+const sharedLoading = ref(false);
+const sharedLoaded = ref(false);
+const sharedTags = ref<Tag[]>([]);
+const sharedProductTagItems = ref<ProductTagItem[]>([]);
+
 // --------------------
 // Composable
 // --------------------
@@ -31,10 +41,70 @@ export interface ProductTagItem {
 export function useProductTags() {
   const { locale } = useI18n();
 
-  const loading = ref(true);
-  const loaded = ref(false);
-  const tags = ref<Tag[]>([]);
-  const productTagItems = ref<ProductTagItem[]>([]);
+  // ---- State bersama (shared antar halaman & composable) ----
+  // Data diambil 1x saja lalu di-cache di module scope
+  const loading = sharedLoading;
+  const loaded = sharedLoaded;
+  const tags = sharedTags;
+  const productTagItems = sharedProductTagItems;
+
+  // ============ INDEXES (lookup O(1), bukan scan berulang) ============
+
+  // tag id -> Tag
+  const tagByIdMap = computed(() => {
+    const map = new Map<string, Tag>();
+    for (const t of tags.value) map.set(String(t.id), t);
+    return map;
+  });
+
+  // tag id -> item product_tag
+  const itemsByTagId = computed(() => {
+    const map = new Map<string, ProductTagItem[]>();
+    for (const item of productTagItems.value) {
+      const key = String(item.tag_id);
+      const arr = map.get(key);
+      if (arr) arr.push(item);
+      else map.set(key, [item]);
+    }
+    return map;
+  });
+
+  // product id -> item product_tag
+  const itemsByProductId = computed(() => {
+    const map = new Map<string, ProductTagItem[]>();
+    for (const item of productTagItems.value) {
+      const key = String(item.product_id);
+      const arr = map.get(key);
+      if (arr) arr.push(item);
+      else map.set(key, [item]);
+    }
+    return map;
+  });
+
+  // product id -> Set(tag id)
+  const tagIdsByProductId = computed(() => {
+    const map = new Map<string, Set<string>>();
+    const add = (pid: string, tagId: string) => {
+      let set = map.get(pid);
+      if (!set) {
+        set = new Set<string>();
+        map.set(pid, set);
+      }
+      set.add(tagId);
+    };
+    for (const item of productTagItems.value) {
+      const tagKey = String(item.tag_id);
+      const pid = String(item.product_id);
+      add(pid, tagKey);
+      // produk nested bisa punya id berbeda -> tetap ikut di-index
+      const nestedId = item.product?.id;
+      if (nestedId !== undefined && nestedId !== null) {
+        const nkey = String(nestedId);
+        if (nkey !== pid) add(nkey, tagKey);
+      }
+    }
+    return map;
+  });
 
   // Tag-friendly display name based on current locale
   function tagLabel(tag: Tag | null | undefined): string {
@@ -49,15 +119,14 @@ export function useProductTags() {
   function getTagById(id: string | number | null | undefined): Tag | null {
     if (id === null || id === undefined) return null;
     const key = String(id);
-    return tags.value.find((tg) => String(tg.id) === key) || null;
+    return tagByIdMap.value.get(key) || null;
   }
 
   // All products linked to a tag
   function getProductsByTag(tagId: string | number | null | undefined): ProductTagItem[] {
     if (tagId === null || tagId === undefined) return [];
-    const key = String(tagId);
-    return productTagItems.value.filter(
-      (item) => String(item.tag_id) === key && item.product
+    return (itemsByTagId.value.get(String(tagId)) || []).filter(
+      (item) => item.product
     );
   }
 
@@ -96,8 +165,7 @@ export function useProductTags() {
     const key = String(productId);
     const result: Tag[] = [];
     const seen = new Set<string>();
-    for (const item of productTagItems.value) {
-      if (String(item.product_id) !== key) continue;
+    for (const item of itemsByProductId.value.get(key) || []) {
       const t = item.tag || getTagById(item.tag_id);
       if (t && !seen.has(String(t.id))) {
         seen.add(String(t.id));
@@ -111,42 +179,75 @@ export function useProductTags() {
   function productsForTags(tagIds: string | number | Array<string | number>): Array<Record<string, any>> {
     const ids = (Array.isArray(tagIds) ? tagIds : [tagIds]).map((v) => String(v));
     const map = new Map<string, Record<string, any>>();
-    for (const item of productTagItems.value) {
-      if (!item.product) continue;
-      if (!ids.includes(String(item.tag_id))) continue;
-      map.set(String(item.product.id), item.product);
+    for (const id of ids) {
+      for (const item of itemsByTagId.value.get(id) || []) {
+        if (!item.product) continue;
+        const pid = String(item.product.id ?? item.product_id);
+        map.set(pid, item.product);
+      }
     }
     return Array.from(map.values());
   }
 
+  // Set of product ids untuk sekumpulan tag (jalur cepat untuk filter)
+  function productIdsForTags(tagIds: string | number | Array<string | number>): Set<string> {
+    const ids = (Array.isArray(tagIds) ? tagIds : [tagIds]).map((v) => String(v));
+    const out = new Set<string>();
+    for (const id of ids) {
+      for (const item of itemsByTagId.value.get(id) || []) {
+        const pid = item.product?.id ?? item.product_id;
+        if (pid !== undefined && pid !== null) out.add(String(pid));
+      }
+    }
+    return out;
+  }
+
+  // Set of tag ids untuk satu produk
+  function tagIdsForProduct(productId: string | number | null | undefined): Set<string> {
+    if (productId === null || productId === undefined) return new Set<string>();
+    return tagIdsByProductId.value.get(String(productId)) || new Set<string>();
+  }
+
+  // Isi cache dari data SSR (supaya tidak fetch ulang di client)
+  function setTags(data: Tag[] | null | undefined) {
+    if (Array.isArray(data) && data.length) tags.value = data;
+  }
+
   async function load() {
     if (loaded.value) return;
+    if (inflightLoad) return inflightLoad;
+
     loading.value = true;
-    try {
-      const [tagsRes, ptRes] = await Promise.all([
-        useFetchApi<BaseResponse<Tag[]>>("tags/read", "tags-read", "get", null),
-        useFetchApi<BaseResponse<ProductTagItem[]>>(
-          "product_tag/read",
-          "product-tag-read",
-          "get",
-          null
-        ),
-      ]);
+    inflightLoad = (async () => {
+      try {
+        const [tagsRes, ptRes] = await Promise.all([
+          useFetchApi<BaseResponse<Tag[]>>("tags/read", "tags-read", "get", null),
+          useFetchApi<BaseResponse<ProductTagItem[]>>(
+            "product_tag/read",
+            "product-tag-read",
+            "get",
+            null
+          ),
+        ]);
 
-      if (tagsRes.status === "success" && tagsRes.data?.payload) {
-        tags.value = tagsRes.data.payload;
-      }
+        if (tagsRes.status === "success" && tagsRes.data?.payload) {
+          tags.value = tagsRes.data.payload;
+        }
 
-      if (ptRes.status === "success" && Array.isArray(ptRes.data?.payload)) {
-        productTagItems.value = ptRes.data!.payload;
+        if (ptRes.status === "success" && Array.isArray(ptRes.data?.payload)) {
+          productTagItems.value = ptRes.data!.payload;
+        }
+      } catch (e) {
+        console.error("Failed to load tag data:", e);
+        tags.value = [];
+      } finally {
+        loading.value = false;
+        loaded.value = true;
+        inflightLoad = null;
       }
-    } catch (e) {
-      console.error("Failed to load tag data:", e);
-      tags.value = [];
-    } finally {
-      loading.value = false;
-      loaded.value = true;
-    }
+    })();
+
+    return inflightLoad;
   }
 
   return {
@@ -162,6 +263,9 @@ export function useProductTags() {
     availableBrands,
     tagsForProduct,
     productsForTags,
+    productIdsForTags,
+    tagIdsForProduct,
+    setTags,
     load,
   };
 }

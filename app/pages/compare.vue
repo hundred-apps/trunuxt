@@ -13,7 +13,7 @@
         <Icon name="material-symbols:compare" class="text-6xl text-gray-300 mb-4" />
         <h3 class="text-lg font-medium text-gray-900 mb-2">{{ $t('compare.empty') }}</h3>
         <p class="text-gray-500 mb-6">{{ $t('compare.emptyDesc') }}</p>
-        <Trulink to="/c/all/query">
+        <Trulink to="/search">
           <Trubutton
             :text="$t('compare.startComparing')"
             type="primary"

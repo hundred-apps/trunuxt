@@ -133,7 +133,7 @@
                 icon="mdi:filter-remove"
                 @click="resetFilters"
               />
-              <Trulink to="/c/all/query">
+              <Trulink to="/search">
                 <Trubutton
                   :text="$t('search.browseAll')"
                   variant="solid"

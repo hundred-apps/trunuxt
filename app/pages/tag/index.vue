@@ -56,7 +56,7 @@
           <Trulink
             v-for="tag in tags"
             :key="tag.id"
-            :to="`/c/all?tags=${tag.id}`"
+            :to="`/search?tag=${tag.id}`"
             class="group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-orange-200"
           >
             <div class="p-4 text-center">
