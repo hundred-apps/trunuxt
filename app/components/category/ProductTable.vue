@@ -326,7 +326,7 @@ const formatSlug = (text: string | null) => {
 
 const getProductImage = (img: string | null) => {
   if (img) return `${config.public.baseImageProduct}${img}`;
-  return "https://via.placeholder.com/300x300?text=No+Image";
+  return "/image/noimage.png";
 };
 
 const handleSortChange = (value: string) => {

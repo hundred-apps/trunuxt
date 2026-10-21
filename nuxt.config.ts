@@ -179,6 +179,7 @@ export default defineNuxtConfig({
     "/kebijakan-privasi": {
       redirect: { to: "/privacy-policy", statusCode: 301 },
     },
+    "/c/**": { redirect: { to: "/search", statusCode: 301 } },
 
     // Cache server-side untuk hasil optimasi gambar @nuxt/image (ipx).
     // Tanpa ini, tiap request ke /_ipx/ akan re-encode (download source +

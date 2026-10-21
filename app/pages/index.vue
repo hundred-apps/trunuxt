@@ -876,7 +876,7 @@ const latestArticles = computed(() => {
     title: item.title || "Untitled",
     image: item.img
       ? `${config.public.baseImageArticle}${item.img}`
-      : "https://via.placeholder.com/400x250?text=No+Image",
+      : "/image/noimage.png",
     category: Array.isArray(item.tag) ? item.tag[0] : item.tag || "General",
     date: item.date,
     excerpt: item.discription_seo
