@@ -295,13 +295,14 @@ export default defineNuxtConfig({
     langDir: "locales/",
     defaultLocale: "id",
     skipSettingLocaleOnNavigate: false,
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: "language",
-      redirectOn: "root",
-      alwaysRedirect: true,
-      cookieDomain: isProd ? ".trumecs.com" : undefined,
-    },
+    // detectBrowserLanguage: {
+    //   useCookie: true,
+    //   cookieKey: "language",
+    //   redirectOn: "root",
+    //   alwaysRedirect: true,
+    //   cookieDomain: isProd ? ".trumecs.com" : undefined,
+    // },
+    detectBrowserLanguage: false,
     // customRoutes: "config",
     // pages: {
     //   setting: {

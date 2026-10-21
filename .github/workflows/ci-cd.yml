@@ -3,7 +3,7 @@ name: TRUMECS NUXT DEPLOY
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "sandy"]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
