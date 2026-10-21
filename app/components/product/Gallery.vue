@@ -292,27 +292,21 @@ interface ImageObject {
 }
 
 const getImageUrl = (filename: string, isGallery: boolean = false) => {
-  if (!filename) return "/public/image/product/noimage.png";
-
   const basePath = isGallery
     ? "https://www.trumecs.com/public/image/galery"
     : "https://www.trumecs.com/public/image/product";
-
   if (filename.startsWith("http") || filename.startsWith("/")) {
     return filename;
   }
-
   return `${basePath}/${filename}`;
 };
 
 const getThumbnailUrl = (filename: string, isGallery: boolean = false) => {
-  if (!filename)
-    return "https://www.trumecs.com/public/image/product/noimage.png";
-
+  if (!filename) return "/image/noimage-small.jpg";
   const fullUrl = getImageUrl(filename, isGallery);
+  if (fullUrl === "/image/noimage.png" || fullUrl.includes("/noimage.png")) return "/image/noimage-small.jpg";
   return `https://www.trumecs.com/timthumb?w=80&h=80&src=${fullUrl}`;
 };
-
 // ============ COMPUTED ============
 const allImages = computed<ImageObject[]>(() => {
   const images: ImageObject[] = [];
@@ -344,8 +338,8 @@ const allImages = computed<ImageObject[]>(() => {
   if (images.length === 0) {
     images.push({
       filename: "noimage.png",
-      url: "https://www.trumecs.com/public/image/product/noimage.png",
-      thumbnail: "https://www.trumecs.com/public/image/product/noimage.png",
+      url: "/image/noimage.png",
+      thumbnail: "/image/noimage-small.jpg",
       isMain: true,
       isGallery: false,
     });

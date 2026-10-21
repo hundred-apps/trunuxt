@@ -21,7 +21,7 @@
         class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"
       >
         <AppImage
-          :src="`https://www.trumecs.com/public/image/artikel/${article.img || 'noimage.png'}`"
+          :src="article.img ? `https://www.trumecs.com/public/image/artikel/${article.img}` : '/image/noimage.png'"
           :alt="article.title"
           class="w-full h-full object-cover group-hover:scale-110 transition-transform"
           sizes="100vw sm:50vw lg:33vw"
