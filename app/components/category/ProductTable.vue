@@ -172,6 +172,7 @@
                 width="144"
                 height="144"
                 loading="lazy"
+                v-bind="imgAttrs('product', product.img)"
               />
             </div>
             <div class="flex flex-1 flex-col justify-center p-4">
@@ -245,6 +246,7 @@
 import { computed } from "vue";
 import ProductCard from "~/components/product/ProductCard.vue";
 import type { Product } from "~/types/product";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const props = defineProps({
   products: {
@@ -292,7 +294,6 @@ const emit = defineEmits<{
   "clear-filters": [];
 }>();
 
-const config = useRuntimeConfig();
 
 const gridClass = computed(() =>
   props.viewMode === "grid"
@@ -324,10 +325,8 @@ const formatSlug = (text: string | null) => {
     .replace(/(^-|-$)/g, "");
 };
 
-const getProductImage = (img: string | null) => {
-  if (img) return `${config.public.baseImageProduct}${img}`;
-  return "/image/noimage.png";
-};
+const { imgSrc, imgAttrs } = useImageUrl();
+const getProductImage = (img: string | null) => imgSrc("product", img);
 
 const handleSortChange = (value: string) => {
   emit("sort-change", value);

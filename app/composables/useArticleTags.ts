@@ -143,7 +143,7 @@ function collectTags(article: RawArticle): { slug: string; name: string }[] {
 function toCardArticle(
   article: RawArticle,
   lang: string,
-  baseImageArticle: string
+  articleImage: (img: string) => string
 ): CardArticle {
   const title =
     (lang === "en"
@@ -161,11 +161,7 @@ function toCardArticle(
     id: article.id,
     url: article.url || `article-${article.id}`,
     title,
-    image: article.img
-      ? article.img.startsWith("http")
-        ? article.img
-        : `${baseImageArticle}${article.img}`
-      : "",
+    image: articleImage(article.img),
     category: tagNames[0] || "",
     tags: tagNames,
     date: article.date || "",
@@ -187,8 +183,8 @@ export function useArticleTags() {
   // tidak dipanggil dari luar konteks setup.
   const { locale } = useI18n();
   const currentLang = () => String(locale.value || "id").toLowerCase();
-  const baseImageArticle = () =>
-    (config.public.baseImageArticle as string) || "";
+  const { imgSrc: articleImageSrc } = useImageUrl();
+  const baseImageArticle = () => "";
 
   const articles = ref<RawArticle[]>([]);
   const loading = ref(false);
@@ -335,12 +331,12 @@ export function useArticleTags() {
   const articlesForTag = computed(() => (tagSlug: string) => {
     return articles.value
       .filter((a) => collectTags(a).some((t) => t.slug === tagSlug))
-      .map((a) => toCardArticle(a, currentLang(), baseImageArticle()));
+      .map((a) => toCardArticle(a, currentLang(), (img) => articleImageSrc("artikel", img)));
   });
 
   /** Semua artikel yang sudah terscan sebagai CardArticle, untuk pencarian global. */
   const allCards = computed(() =>
-    articles.value.map((a) => toCardArticle(a, currentLang(), baseImageArticle()))
+    articles.value.map((a) => toCardArticle(a, currentLang(), (img) => articleImageSrc("artikel", img)))
   );
 
   /**
@@ -411,7 +407,7 @@ export function useArticleTags() {
         if (score === 0) continue;
 
         pool.push({
-          card: toCardArticle(article, currentLang(), baseImageArticle()),
+          card: toCardArticle(article, currentLang(), (img) => articleImageSrc("artikel", img)),
           score,
         });
       }

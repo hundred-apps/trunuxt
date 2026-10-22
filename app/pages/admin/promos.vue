@@ -208,9 +208,12 @@ class="w-full h-full object-cover rounded"
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { ref, watch, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import { useI18n } from "vue-i18n";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 definePageMeta({ layout: "admin" });
 
@@ -376,10 +379,7 @@ const formatDate = (date: string) => {
   }
 };
 
-const getPromoImage = (img: string) => {
-  if (img) return `https://www.trumecs.com/public/image/promo/${img}`;
-  return "https://via.placeholder.com/400x250?text=No+Image";
-};
+const getPromoImage = (img: string) => imgSrc("promo", img);
 
 // ============ WATCH ============
 watch(

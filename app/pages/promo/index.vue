@@ -84,13 +84,14 @@
           <div class="relative h-48 sm:h-56 overflow-hidden">
             <AppImage
               v-if="promo.img"
-              :src="`${config.public.baseImagePromo}${promo.img}`"
+              :src="imgSrc('promo', promo.img)"
               :alt="promo.name"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               sizes="100vw sm:50vw lg:33vw"
               width="600"
               height="360"
               loading="lazy"
+              v-bind="imgAttrs('promo', promo.img)"
             />
             <div
               v-else
@@ -180,8 +181,12 @@
 </template>
 
 <script setup lang="ts">
+
 import { ref, onMounted, watch, computed } from "vue";
+
+const { imgSrc, imgAttrs } = useImageUrl();
 import type { Promo } from "~/types/promo";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 useHead({
   title: "Promo",

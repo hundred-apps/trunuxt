@@ -226,9 +226,12 @@ class="h-10 w-10 object-cover rounded"
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { onMounted, ref, computed } from "vue";
 import { useAdminStore } from "~/stores/admin";
 import StatCard from "~/components/admin/StatCard.vue";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 definePageMeta({ layout: "admin" });
 
@@ -368,8 +371,5 @@ const getStatusClass = (status: string) => {
   return classes[status] || "bg-gray-100 text-gray-800";
 };
 
-const getProductImage = (img: string) => {
-  if (img) return `https://www.trumecs.com/public/image/product/${img}`;
-  return "https://via.placeholder.com/40x40?text=No+Image";
-};
+const getProductImage = (img: string) => imgSrc("product", img);
 </script>

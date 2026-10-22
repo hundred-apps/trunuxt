@@ -21,13 +21,14 @@
         class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg overflow-hidden"
       >
         <AppImage
-          :src="article.img ? `https://www.trumecs.com/public/image/artikel/${article.img}` : '/image/noimage.png'"
+          :src="imgSrc('artikel', article.img)"
           :alt="article.title"
           class="w-full h-full object-cover group-hover:scale-110 transition-transform"
           sizes="100vw sm:50vw lg:33vw"
           width="400"
           height="267"
           loading="lazy"
+          v-bind="imgAttrs('artikel', article.img)"
         />
       </div>
       <div class="flex-1 min-w-0">
@@ -57,8 +58,12 @@
 </template>
 
 <script setup lang="ts">
+
 import { computed } from "vue";
+
+const { imgSrc, imgAttrs } = useImageUrl();
 import { articlePreview } from "~/utils/articlePreview";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 type RelatedArticle = {
   id: number;

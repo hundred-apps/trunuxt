@@ -154,12 +154,15 @@
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { ref, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { defineBreadcrumb, useSchemaOrg } from '@unhead/schema-org/vue';
 import { useI18n } from 'vue-i18n';
 import Breadcrumbs from '~/components/Breadcrumbs.vue';
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const { t: $t } = useI18n();
 const route = useRoute();
@@ -242,10 +245,7 @@ const formatPrice = (price: number) => {
   }).format(price);
 };
 
-const getProductImage = (img: string) => {
-  if (img) return `${config.public.baseImageProduct}${img}`;
-  return 'https://via.placeholder.com/300x300?text=No+Image';
-};
+const getProductImage = (img: string) => imgSrc("product", img);
 
 const removeProduct = (id: number) => {
   compareProducts.value = compareProducts.value.filter(p => p.id !== id);

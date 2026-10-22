@@ -1420,7 +1420,10 @@
               "title": "Fabrication",
               "icon": "mdi:factory",
               "description": "Proses fabrikasi untuk menghasilkan komponen dengan teknologi canggih.",
-              "features": ["Welding", "Assembly"]
+              "features": [
+                "Welding",
+                "Assembly"
+              ]
             }
           ]
         },
@@ -1471,43 +1474,66 @@
             {
               "name": "Stainless Steel",
               "icon": "game-icons:steel-claws",
-              "grades": ["SS304", "SS316"],
+              "grades": [
+                "SS304",
+                "SS316"
+              ],
               "description": "Tahan karat, cocok untuk aplikasi food grade, kimia, dan medis."
             },
             {
               "name": "Carbon Steel",
               "icon": "material-symbols:thermostat-carbon-outline",
-              "grades": ["S45C", "ST41"],
+              "grades": [
+                "S45C",
+                "ST41"
+              ],
               "description": "Umum digunakan untuk shaft, gear, dan komponen struktural."
             },
             {
               "name": "Alloy Steel",
               "icon": "file-icons:alloy",
-              "grades": ["SCM440", "SNCM439"],
+              "grades": [
+                "SCM440",
+                "SNCM439"
+              ],
               "description": "Kekuatan tinggi untuk komponen mesin berat dan transmisi."
             },
             {
               "name": "Aluminium",
               "icon": "mdi:cube-outline",
-              "grades": ["6061-T6", "7075-T6"],
+              "grades": [
+                "6061-T6",
+                "7075-T6"
+              ],
               "description": "Ringan, tahan korosi, dan mudah di-machining. Ideal untuk komponen otomotif, aerospace, dan elektronik."
             },
             {
               "name": "Cast Iron",
               "icon": "mdi:anvil",
-              "grades": ["FC250", "FCD450"],
+              "grades": [
+                "FC250",
+                "FCD450"
+              ],
               "description": "Redaman getaran baik dan tahan aus. Cocok untuk blok mesin, housing, dan komponen berat."
             },
             {
               "name": "Engineering Plastics",
               "icon": "guidance:plastic",
-              "grades": ["POM", "PTFE", "Nylon PA6"],
+              "grades": [
+                "POM",
+                "PTFE",
+                "Nylon PA6"
+              ],
               "description": "Ringan, tahan kimia, dan self-lubricating. Untuk bushing, gear non-logam, dan insulator."
             },
             {
               "name": "Rubber",
               "icon": "jam:rubber",
-              "grades": ["NBR", "EPDM", "Silicone"],
+              "grades": [
+                "NBR",
+                "EPDM",
+                "Silicone"
+              ],
               "description": "Elastis dan tahan oli serta cuaca. Digunakan untuk seal, gasket, mounting, dan vibration isolator."
             }
           ]
@@ -1520,7 +1546,12 @@
           "email": "Kirim Email",
           "locationTitle": "Lokasi & Area Layanan Utama",
           "locationDesc": "Kami berlokasi strategis untuk melayani kebutuhan machining dan fabrikasi di area berikut dengan cepat dan tanggap.",
-          "locations": ["Jakarta", "Bekasi", "Cikarang", "Tangerang"]
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ]
         },
         "seo": {
           "title": "Solusi Machining & Fabrikasi Terpercaya - Trumecs",
@@ -1777,5 +1808,40 @@
     "searchPlaceholder": "Cari pertanyaan...",
     "noMatch": "Tidak ada pertanyaan yang cocok dengan pencarian Anda.",
     "relatedTitle": "Halaman terkait"
+  },
+  "products": {
+    "onlyOwn": "Anda hanya melihat produk yang Anda buat sendiri",
+    "searchPlaceholder": "Cari nama, part number, merek...",
+    "noCategory": "Tanpa kategori",
+    "creator": "Pembuat",
+    "detail": "Detail produk",
+    "edit": "Edit produk",
+    "created": "Produk berhasil ditambahkan",
+    "updated": "Produk berhasil diperbarui",
+    "createFailed": "Gagal menambahkan produk",
+    "updateFailed": "Gagal memperbarui produk",
+    "statusUpdated": "Status produk berhasil diubah",
+    "duplicated": "Produk berhasil diduplikasi",
+    "deleted": "Produk berhasil dihapus",
+    "form": {
+      "title": "Nama produk",
+      "partNumber": "Part number",
+      "partNumberTrumecs": "Part number Trumecs",
+      "physicalNumber": "Nomor fisik / S/N",
+      "promoPrice": "Harga promo",
+      "image": "Nama file gambar",
+      "titleRequired": "Nama produk wajib diisi",
+      "quality": "Mutu",
+      "area": "Area",
+      "warranty": "Garansi",
+      "made": "Negara buatan"
+    },
+    "loadFailed": "Gagal memuat detail produk"
+  },
+  "filters": {
+    "stock": "Stok"
+  },
+  "table": {
+    "productNumber": "Part number"
   }
 }

@@ -9,8 +9,6 @@
       @touchend="handleTouchEnd"
     >
       <img
-  <img
-        v-if="!mainImageBroken"
         :src="mainImage.url"
         :alt="product.tittle"
         class="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 cursor-zoom-in"
@@ -20,12 +18,7 @@
         draggable="false"
         @load="mainImageLoaded = true"
         @error="handleMainImageError"
-      />
-      <img
-        v-else
-        src="/image/noimage.png"
-        :alt="product.tittle"
-        class="w-full h-full object-cover"
+        v-bind="imgAttrs(mainImage.kind, mainImage.filename)"
       />
 
       <!-- Main Image Loading Indicator -->
@@ -159,17 +152,17 @@
             "
             @click="selectImage(index)"
           >
-        <img
-          v-if="img.url"
-          :src="img.thumbnail || img.url"
-          :alt="`${product.tittle} - Gambar ${index + 1}`"
-          class="w-full h-full object-cover"
-          sizes="80px"
-          width="80"
-          height="80"
-          loading="lazy"
-          @error="(e) => { (e.target as HTMLImageElement).src = '/image/noimage-small.jpg'; }"
-        />
+            <img
+              v-if="img.url"
+              :src="img.thumbnail || img.url"
+              :alt="`${product.tittle} - Gambar ${index + 1}`"
+              class="w-full h-full object-cover"
+              sizes="80px"
+              width="80"
+              height="80"
+              loading="lazy"
+              v-bind="imgAttrs(img.kind, img.filename)"
+            />
           </div>
         </div>
       </div>
@@ -242,7 +235,8 @@
           loading="eager"
           draggable="false"
           @load="lightboxLoading = false"
-          @error="lightboxLoading = false; (lightboxImage.url = '/image/noimage.png')"
+          @error="lightboxLoading = false"
+          v-bind="imgAttrs(lightboxImage.kind, lightboxImage.filename)"
         />
 
         <div
@@ -258,6 +252,8 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from "vue";
 import type { Product } from "~/types/product";
+import { useImageUrl } from "~/composables/useImageUrl";
+import type { ImageKind } from "~/utils/imageUrl";
 
 // ============ PROPS & EMITS ============
 const props = defineProps<{
@@ -294,25 +290,22 @@ interface ImageObject {
   filename: string;
   url: string;
   thumbnail: string;
+  kind: ImageKind;
   isMain: boolean;
   isGallery: boolean;
 }
 
+const { imgSrc, imgThumb, imgAttrs } = useImageUrl();
+
 const getImageUrl = (filename: string, isGallery: boolean = false) => {
-  const basePath = isGallery
-    ? "https://www.trumecs.com/public/image/galery"
-    : "https://www.trumecs.com/public/image/product";
-  if (filename.startsWith("http") || filename.startsWith("/")) {
-    return filename;
-  }
-  return `${basePath}/${filename}`;
+  const kind: ImageKind = isGallery ? "galery" : "product";
+  return imgSrc(kind, filename);
 };
 
 const getThumbnailUrl = (filename: string, isGallery: boolean = false) => {
+  const kind: ImageKind = isGallery ? "galery" : "product";
   if (!filename) return "/image/noimage-small.jpg";
-  const fullUrl = getImageUrl(filename, isGallery);
-  if (fullUrl === "/image/noimage.png" || fullUrl.includes("/noimage.png")) return "/image/noimage-small.jpg";
-  return `https://www.trumecs.com/timthumb?w=80&h=80&src=${fullUrl}`;
+  return imgThumb(kind, filename, 160);
 };
 // ============ COMPUTED ============
 const allImages = computed<ImageObject[]>(() => {
@@ -323,6 +316,7 @@ const allImages = computed<ImageObject[]>(() => {
       filename: props.product.img,
       url: getImageUrl(props.product.img, false),
       thumbnail: getThumbnailUrl(props.product.img, false),
+      kind: "product",
       isMain: true,
       isGallery: false,
     });
@@ -335,6 +329,7 @@ const allImages = computed<ImageObject[]>(() => {
           filename: item.img,
           url: getImageUrl(item.img, true),
           thumbnail: getThumbnailUrl(item.img, true),
+          kind: "galery",
           isMain: false,
           isGallery: true,
         });
@@ -347,6 +342,7 @@ const allImages = computed<ImageObject[]>(() => {
       filename: "noimage.png",
       url: "/image/noimage.png",
       thumbnail: "/image/noimage-small.jpg",
+      kind: "product",
       isMain: true,
       isGallery: false,
     });
@@ -359,13 +355,11 @@ const mainImage = computed(() => {
   return allImages.value[selectedImage.value] || allImages.value[0];
 });
 
+// Fallback handled global plugin (app/plugins/image-fallback.client.ts):
+// img coba local -> ipx produksi -> noimage.png
 const handleMainImageError = () => {
   mainImageLoaded.value = true;
-  mainImageBroken.value = true;
-  const m = allImages.value[selectedImage.value] || allImages.value[0];
-  if (m) { m.url = "/image/noimage.png"; m.thumbnail = "/image/noimage-small.jpg"; }
 };
-const handleMainError = handleMainImageError;
 
 const lightboxImage = computed(() => {
   return allImages.value[lightboxIndex.value] || allImages.value[0];

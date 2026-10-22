@@ -54,7 +54,10 @@
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { computed } from 'vue';
+import { useImageUrl } from "~/composables/useImageUrl";
 
 interface Props {
   item: any;
@@ -65,5 +68,5 @@ const config = useRuntimeConfig();
 
 const formatPrice = (price: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(price);
 const formatSlug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-const getImage = (img: string) => img ? `${config.public.baseImageProduct}${img}` : 'https://via.placeholder.com/400x300?text=No+Image';
+const getImage = (img: string) => imgSrc("product", img);
 </script>

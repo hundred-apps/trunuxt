@@ -82,10 +82,11 @@
           >
             <AppImage
               v-if="brand.img"
-              :src="`${config.public.baseImageCat}${brand.img}`"
+              :src="imgSrc('category', brand.img)"
               :alt="brand.name"
               class="h-full w-full object-contain"
               loading="lazy"
+              v-bind="imgAttrs('category', brand.img)"
             />
             <Icon v-else name="material-symbols:block" class="text-sm" />
           </span>
@@ -129,6 +130,9 @@
 </template>
 
 <script setup lang="ts">
+import { useImageUrl } from "~/composables/useImageUrl";
+
+const { imgSrc, imgAttrs } = useImageUrl();
 const config = useRuntimeConfig();
 interface Brand {
   id: number;

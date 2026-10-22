@@ -457,6 +457,8 @@
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { defineBreadcrumb, useSchemaOrg } from "@unhead/schema-org/vue";
@@ -467,6 +469,7 @@ import Breadcrumbs from "~/components/Breadcrumbs.vue";
 import ProductCard from "~/components/product/ProductCard.vue";
 import ProductFilterSidebar from "~/components/product/FilterSidebar.vue";
 import type { CategoryResponse } from "~/types/category";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
@@ -699,10 +702,7 @@ const formatSlug = (text: string | null) => {
     .replace(/(^-|-$)/g, "");
 };
 
-const getProductImage = (img: string) => {
-  if (img) return `${config.public.baseImageProduct}${img}`;
-  return "https://via.placeholder.com/300x300?text=No+Image";
-};
+const getProductImage = (img: string) => imgSrc("product", img);
 
 const updateFilters = (newFilters: any) => {
   filters.value = newFilters;

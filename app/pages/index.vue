@@ -200,14 +200,14 @@
             >
               <AppImage
                 v-if="category.img"
-                :src="`${config.public.baseImageCat}${category.img}`"
+                :src="imgSrc('category', category.img)"
                 :alt="category.name"
                 class="w-full h-full object-cover"
                 sizes="33vw sm:25vw lg:16vw"
                 width="400"
                 height="600"
                 loading="lazy"
-                @error="handleImageError"
+                v-bind="imgAttrs('category', category.img)"
               />
               <Icon
                 v-else
@@ -266,13 +266,14 @@
             <div class="relative h-40 sm:h-48 overflow-hidden">
               <AppImage
                 v-if="promo.img"
-                :src="`${config.public.baseImagePromo}${promo.img}`"
+                :src="imgSrc('promo', promo.img)"
                 :alt="promo.name"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="100vw sm:50vw lg:33vw"
                 width="600"
                 height="360"
                 loading="lazy"
+                v-bind="imgAttrs('promo', promo.img)"
               />
               <div
                 v-else
@@ -628,6 +629,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import type { Promo } from "~/types/promo";
 import type { CardArticle } from "~/types/article";
 import { useProductTags } from "~/composables/useProductTags";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const config = useRuntimeConfig();
 const urlTrumecs = config.public.info.linkTrumecsPhp;
@@ -637,6 +639,7 @@ const { t: $t } = useI18n();
 // Aset statis (industries + banner) dilayani dari mirror lokal public/
 // sebagai WebP; aset dinamis (produk/artikel/promo) tetap dari trumecs.com.
 const { resolve: staticImg, srcset: staticImgSrcset } = useStaticImage();
+const { imgSrc, imgAttrs } = useImageUrl();
 
 const {
   loading: loadingTags,
@@ -874,9 +877,7 @@ const latestArticles = computed(() => {
     id: item.id,
     url: item.url || `article-${item.id}`,
     title: item.title || "Untitled",
-    image: item.img
-      ? `${config.public.baseImageArticle}${item.img}`
-      : "/image/noimage.png",
+    image: imgSrc("artikel", item.img),
     category: Array.isArray(item.tag) ? item.tag[0] : item.tag || "General",
     date: item.date,
     excerpt: item.discription_seo

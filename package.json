@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "mirror:images": "node scripts/mirror-api-images.cjs",
+    "mirror:images:force": "node scripts/mirror-api-images.cjs --force"
   },
   "dependencies": {
     "@element-plus/nuxt": "^1.1.4",

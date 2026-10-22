@@ -254,8 +254,11 @@ import {
 } from "@unhead/schema-org/vue";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
 import { parseTagString, useArticleTags } from "~/composables/useArticleTags";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
+const { imgSrc, imgAttrs } = useImageUrl();
+
 const { t } = useI18n();
 const { allCards, scanAll: scanAllForSearch } = useArticleTags();
 
@@ -524,12 +527,7 @@ const fetchTrendingArticles = async () => {
           id: item.id,
           url: item.url || `article-${item.id}`,
           title: item.title || "Untitled",
-          image: item.img
-            ? `${
-                config.public.baseImageArticle ||
-                "https://www.trumecs.com/public/image/artikel/"
-              }${item.img}`
-            : "https://via.placeholder.com/300x200?text=No+Image",
+          image: imgSrc("artikel", item.img),
           category: item.tag,
           date: item.date,
           views: item.view,
@@ -563,14 +561,7 @@ const fetchFeaturedArticles = async () => {
           id: item.id,
           url: item.url || `article-${item.id}`,
           title: item.title || "Untitled",
-          image: item.img
-            ? item.img.startsWith("http")
-              ? item.img
-              : `${
-                  config.public.baseImageArticle ||
-                  "https://www.trumecs.com/public/image/artikel/"
-                }${item.img}`
-            : "https://via.placeholder.com/300x200?text=No+Image",
+          image: imgSrc("artikel", item.img),
           category: item.tag,
           date: item.date,
           excerpt:
@@ -616,9 +607,7 @@ const createExcerpt = (description: unknown, content: unknown): string => {
   return stripped.length > 150 ? stripped.substring(0, 150) + "..." : stripped;
 };
 
-const articleImageBase = () =>
-  (config.public.baseImageArticle as string) ||
-  "https://www.trumecs.com/public/image/artikel/";
+const articleImageBase = () => "https://www.trumecs.com/public/image/artikel/";
 
 const fetchArticle = async () => {
   loading.value = true;

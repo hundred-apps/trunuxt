@@ -285,9 +285,12 @@ class="h-12 w-16 object-cover rounded"
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import { useConfirm } from "~/composables/useConfirm";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 definePageMeta({ layout: "admin" });
 
@@ -444,10 +447,7 @@ const formatDate = (date: Date) => {
   });
 };
 
-const getArticleImage = (img: string) => {
-  if (img) return `https://www.trumecs.com/public/image/artikel/${img}`;
-  return "https://via.placeholder.com/64x48?text=No+Image";
-};
+const getArticleImage = (img: string) => imgSrc("artikel", img);
 
 const updateStatus = async (article: any, newStatus: string) => {
   try {

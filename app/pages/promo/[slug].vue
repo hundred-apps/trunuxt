@@ -33,7 +33,7 @@
               <div class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
                 <AppImage
                   v-if="promo.img"
-                  :src="`${config.public.baseImagePromo}${promo.img}`"
+                  :src="imgSrc('promo', promo.img)"
                   :alt="promo.name"
                   class="w-full h-full object-cover"
                   sizes="100vw lg:800px"
@@ -41,6 +41,7 @@
                   height="450"
                   loading="eager"
                   fetchpriority="high"
+                  v-bind="imgAttrs('promo', promo.img)"
                 />
                 <div
                   v-else
@@ -263,10 +264,14 @@
 </template>
 
 <script setup lang="ts">
+
 import { ref, computed, onMounted, watch } from "vue";
+
+const { imgSrc, imgAttrs } = useImageUrl();
 import { useRoute } from "vue-router";
 import type { Promo, PromoProduct } from "~/types/promo";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
@@ -398,7 +403,7 @@ useHead({
       ? promo.value.description.replace(/<[^>]*>/g, "").substring(0, 160)
       : "Promo terbaru dari Trumecs";
     const img = promo.value?.img
-      ? `https://www.trumecs.com/public/image/promo/${promo.value.img}`
+      ? `https://www.trumecs.com${localImageUrl("promo", promo.value.img)}`
       : undefined;
     const metas: Record<string, string>[] = [
       { name: "description", content: desc },

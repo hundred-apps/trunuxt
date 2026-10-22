@@ -15,6 +15,7 @@
         width="400"
         height="400"
         loading="lazy"
+        v-bind="imgAttrs('product', product.img)"
       />
       <div
         v-if="Number(product.price_promo) > 0"
@@ -93,6 +94,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 interface ProductItem {
   id: number;
@@ -116,7 +118,6 @@ const props = defineProps<{
   tags?: TagItem[];
 }>();
 
-const config = useRuntimeConfig();
 const { locale } = useI18n();
 
 const displayTags = computed(() => {
@@ -132,16 +133,8 @@ const tagLabel = (tag: TagItem) => {
 };
 
 // ✅ Perbaiki productImage dengan fallback
-const productImage = computed(() => {
-  if (props.product.img) {
-    // Cek apakah img sudah URL lengkap
-    if (props.product.img.startsWith("http")) {
-      return props.product.img;
-    }
-    return `${config.public.baseImageProduct || "https://www.trumecs.com/public/image/product/"}${props.product.img}`;
-  }
-  return "https://via.placeholder.com/300x300?text=No+Image";
-});
+const { imgSrc, imgAttrs } = useImageUrl();
+const productImage = computed(() => imgSrc("product", props.product.img));
 
 // ✅ Perbaiki brand display
 const displayBrand = computed(() => {

@@ -426,7 +426,6 @@ const goBack = () => router.back();
 
 // config.public.baseImageArticle (bukan baseURLIMGARTICLE) adalah key yang benar.
 const articleImageBase = () =>
-  (config.public.baseImageArticle as string) ||
   "https://www.trumecs.com/public/image/artikel/";
 
 // Tag artikel datang dalam dua format ("#A #B #C" atau "a, b"),

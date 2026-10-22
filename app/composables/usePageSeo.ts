@@ -98,7 +98,9 @@ export function useProductSeo(product: Ref<any | null>) {
     () => product.value?.description || "Produk berkualitas dari Trumecs"
   );
   const seoImage = computed(() =>
-    product.value?.img ? `${siteUrl}/public/image/product/${product.value.img}` : undefined
+    product.value?.img
+      ? `${siteUrl}${localImageUrl("product", product.value.img)}`
+      : undefined
   );
   const seoUrl = computed(() =>
     product.value ? `${siteUrl}/product/${product.value.id}/${product.value.tittle}` : undefined
@@ -142,10 +144,10 @@ export function useProductSeo(product: Ref<any | null>) {
 
     const price = Number(p.price_promo) > 0 ? Number(p.price_promo) : Number(p.price);
     const images = [];
-    if (p.img) images.push(`${siteUrl}/public/image/product/${p.img}`);
+    if (p.img) images.push(`${siteUrl}${localImageUrl("product", p.img)}`);
     if (p.gallery_img && Array.isArray(p.gallery_img)) {
       p.gallery_img.forEach((item: any) => {
-        if (item.img) images.push(`${siteUrl}/public/image/galery/${item.img}`);
+        if (item.img) images.push(`${siteUrl}${localImageUrl("galery", item.img)}`);
       });
     }
 

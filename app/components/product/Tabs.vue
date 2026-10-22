@@ -171,13 +171,14 @@
                 class="block w-28 shrink-0 sm:w-44"
               >
                 <AppImage
-                  :src="`https://www.trumecs.com/public/image/promo/${promo.img}`"
+                  :src="imgSrc('promo', promo.img)"
                   alt=""
                   class="h-20 w-full rounded-lg object-cover sm:h-28"
                   sizes="176px"
                   width="600"
                   height="400"
                   loading="lazy"
+                  v-bind="imgAttrs('promo', promo.img)"
                 />
               </Trulink>
 
@@ -224,8 +225,12 @@
 </template>
 
 <script setup lang="ts">
+
 import { ref, nextTick } from "vue";
+
+const { imgSrc, imgAttrs } = useImageUrl();
 import type { Product } from "~/types/product";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const props = defineProps<{
   product: Product;

@@ -168,6 +168,8 @@
 </template>
 
 <script setup lang="ts">
+const { imgSrc, imgAttrs } = useImageUrl();
+
 import { ref, computed, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { defineBreadcrumb, useSchemaOrg } from '@unhead/schema-org/vue';
@@ -175,6 +177,7 @@ import { useI18n } from 'vue-i18n';
 import { useHeaderHeight } from '~/composables/useHeaderHeight';
 import Breadcrumbs from '~/components/Breadcrumbs.vue';
 import RentalCard from '~/components/rental/RentalCard.vue';
+import { useImageUrl } from "~/composables/useImageUrl";
 
 const { t: $t } = useI18n();
 const route = useRoute();
@@ -225,7 +228,7 @@ const showingTo = computed(() => Math.min(currentPage.value * perPage.value, tot
 
 const formatPrice = (price: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(price);
 const formatSlug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-const getImage = (img: string) => img ? `${config.public.baseImageProduct}${img}` : 'https://via.placeholder.com/400x300?text=No+Image';
+const getImage = (img: string) => imgSrc("product", img);
 
 const applyFilters = () => { currentPage.value = 1; fetchEquipment(); };
 const resetFilters = () => { filters.value = { search: '', category: '', duration: '', location: '', withOperator: false, withFuel: false, availableNow: false }; priceRange.value = [0, 50000000]; fetchEquipment(); };
