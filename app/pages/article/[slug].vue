@@ -180,7 +180,7 @@
                 <CardsArticleAds v-if="randomAdsTop" v-bind="randomAdsTop" />
 
                 <!-- Related Articles -->
-                <div class="overflow-hidden">
+                <div ref="relatedSection" class="overflow-hidden">
                   <div class="border-b border-gray-200 px-2 py-3">
                     <h5 class="font-bold">{{ $t("label.relatedArticle") }}</h5>
                   </div>
@@ -254,7 +254,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory, ArticleAd } from "~/types/category";
@@ -339,7 +339,7 @@ useSchemaOrg([
 
 // ============ COMPUTED TAGS ============
 // Panggil di scope setup; hasilnya dipakai di computed + fetch.
-const { articlesForTag, scanAll } = useArticleTags();
+const { articlesForTag, scanUntil } = useArticleTags();
 
 const articleTags = computed<string[]>(() => article.value?.tags ?? []);
 
@@ -405,6 +405,28 @@ const relatedCountByTag = computed<Record<string, number>>(() => {
 
 const toggleRelatedTag = (tag: string) => {
   activeRelatedTag.value = activeRelatedTag.value === tag ? null : tag;
+};
+
+/**
+ * Index artikel lokal (yang punya tag) dibangun dengan scan
+ * `article-read?page=1..9`. Scan itu berat, jadi TIDAK dijalankan saat page
+ * load - baru saat section "artikel terkait" mau terlihat, dan berhenti begitu
+ * dapat 5 artikel (jumlah slot related).
+ */
+const relatedSection = ref<HTMLElement | null>(null);
+let relatedObserver: IntersectionObserver | null = null;
+
+const ensureLocalRelated = async () => {
+  if (relatedObserver) {
+    relatedObserver.disconnect();
+    relatedObserver = null;
+  }
+  const tagSlugs = articleTags.value.map((t) => slugifyTag(t)).filter(Boolean);
+  if (!tagSlugs.length) return;
+  for (const slug of tagSlugs) {
+    if (localRelatedArticles.value.length >= 5) break;
+    await scanUntil(slug, 5);
+  }
 };
 
 const visibleRelatedArticles = computed<CardArticle[]>(() => {
@@ -685,11 +707,25 @@ onMounted(async () => {
   await fetchCategories();
   setRandomAds();
 
-  // Artikel terkait + filter tag butuh tag artikel, yang hanya ada di
-  // hasil scan lokal. Cache-nya module scope, jadi sekali saja per sesi.
-  if (articleTags.value.length) {
-    scanAll();
+  // Artikel terkait dari API sudah tampil. Index artikel ber-tag (scan
+  // 9 halaman) baru dibangun kalau section terkait mau terlihat - supaya
+  // page load tidak menembak article-read?page=1..9.
+  if (import.meta.client && relatedSection.value) {
+    relatedObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          ensureLocalRelated();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    relatedObserver.observe(relatedSection.value);
   }
+});
+
+onBeforeUnmount(() => {
+  relatedObserver?.disconnect();
+  relatedObserver = null;
 });
 
 watch(

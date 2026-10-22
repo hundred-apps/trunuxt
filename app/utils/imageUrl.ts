@@ -26,6 +26,21 @@ export type ImageSource = "local" | "remote";
 export const NO_IMAGE = "/image/noimage.png";
 export const NO_IMAGE_SMALL = "/image/noimage-small.jpg";
 
+/**
+ * Daftar file gambar yang TIDAK tersedia di mirror lokal.
+ * Dihasilkan scripts/mirror-api-images.cjs -> app/data/image-missing.json
+ * (pakai nama file tanpa ekstensi, grouped per jenis gambar).
+ * Jadi frontend bisa langsung pakai noimage tanpa request yang sia-sia.
+ */
+import missingImages from "~/data/image-missing.json";
+
+const MISSING: Record<string, Set<string>> = Object.fromEntries(
+  Object.entries(missingImages as Record<string, string[]>).map(([k, v]) => [
+    k,
+    new Set(v),
+  ])
+);
+
 /** Server yang sekarang melayani file gambar. */
 const REMOTE_SITE = "https://migrationbe.trumecs.com";
 
@@ -69,6 +84,13 @@ export function imageBaseName(file: string): string {
   return String(file).replace(/\.[a-z0-9]+$/i, "");
 }
 
+/** True kalau file ini memang tidak ada di mirror lokal. */
+export function isMissingImage(kind: ImageKind, file: string): boolean {
+  const set = MISSING[kind];
+  if (!set || !set.size) return false;
+  return set.has(imageBaseName(file));
+}
+
 /** Apakah nilainya sudah berupa URL lengkap? */
 export function isAbsoluteUrl(value: string): boolean {
   return /^https?:\/\//i.test(String(value).trim());
@@ -87,23 +109,28 @@ export function remoteImageUrl(kind: ImageKind, file: string): string {
   return `${REMOTE_SITE}/${REMOTE_DIR[kind]}/${encodeURIComponent(file)}`;
 }
 
-/** Rantai sumber untuk satu gambar (sesuai urutan jenis). */
+/**
+ * Rantai sumber untuk satu gambar.
+ *
+ * Semua gambar dilayani dari mirror lokal (public/image/...).
+ * Kalau file-nya tidak ada di sana -> langsung pakai /image/noimage.png,
+ * tidak ada request bolak-balik ke server lain.
+ */
 export function imageSources(kind: ImageKind, file: string): string[] {
   const raw = String(file || "").trim();
   if (!raw) return [NO_IMAGE];
   // sudah URL lengkap (mis. artikel yang disimpan sebagai URL) -> pakai apa adanya
   if (isAbsoluteUrl(raw)) return [raw];
-  return ORDER[kind].map((source) =>
-    source === "local"
-      ? localImageUrl(kind, raw)
-      : remoteImageUrl(kind, raw)
-  );
+  // tidak ada di mirror lokal -> langsung noimage (tanpa request sia-sia)
+  if (isMissingImage(kind, raw)) return [NO_IMAGE];
+  return [localImageUrl(kind, raw), NO_IMAGE];
 }
 
 /** Src pertama (yang dipakai <img src>). */
 export function imageSrc(kind: ImageKind, file: string | null | undefined): string {
   const raw = String(file || "").trim();
   if (!raw) return NO_IMAGE;
+  if (isMissingImage(kind, raw)) return NO_IMAGE;
   return imageSources(kind, raw)[0];
 }
 
@@ -136,6 +163,7 @@ export function imageThumbUrl(
   const raw = String(file || "").trim();
   if (!raw) return NO_IMAGE_SMALL;
   if (isAbsoluteUrl(raw)) return raw;
+  if (isMissingImage(kind, raw)) return NO_IMAGE_SMALL;
   // ipx lokal: resize file hasil mirror jadi kecil
   return `/_ipx/f_webp&q_70&s_${size}x${size}${localImageUrl(kind, raw)}`;
 }

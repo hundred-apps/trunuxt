@@ -48,9 +48,12 @@ Sisa file yang tidak ada akan otomatis menampilkan `/image/noimage.png`.
 
 ```
 1. file lokal  /image/product/<nama>.webp      (mirror, cepat)
-2. server API  https://migrationbe.trumecs.com/image/product/<nama>.jpg
-3. /image/noimage.png
+2. /image/noimage.png                          (fallback)
 ```
+
+File yang **tidak ada** di mirror langsung pakai `noimage` tanpa request sia-sia.
+Daftar file yang hilang disimpan di `app/data/image-missing.json` (dihasilkan
+otomatis oleh script mirror) sehingga frontend tahu file mana yang tidak ada.
 
 Dipakai lewat composable:
 
@@ -63,6 +66,13 @@ global menukar `src` ke sumber berikutnya saat gambar gagal dimuat.
 
 Thumbnail memakai ipx lokal (`/_ipx/f_webp&q_70&s_160x160/...`); endpoint
 `timthumb` lama sudah 404.
+
+## Halaman detail artikel tidak perlu scan 9 halaman
+
+`article-read/{slug}` sudah mengembalikan artikel + related, jadi halaman detail
+tidak perlu membangun index artikel lokal (yang harusnya scan
+`article-read?page=1..9`). Scan hanya dijalankan kalau section "artikel terkait"
+masuk viewport, dan berhenti begitu dapat 5 artikel.
 
 ## Kalau produk / gambar baru ditambah
 

@@ -159,7 +159,7 @@ async function mirrorOne(relDir, dirs, file, kind) {
     return { ...r, file, from: "lokal" };
   }
   if (missingSamples.length < 3) missingSamples.push(`${file}: tidak ada di server API maupun website lama`);
-  return null;
+  return { file, missing: true, out: 0 };
 }
 
 // contoh error untuk file yang tidak ditemukan (3 pertama)
@@ -276,6 +276,7 @@ async function pool(items, worker, size = CONCURRENCY) {
   let totalFiles = 0;
   let totalOut = 0;
   const manifest = {};
+  const missing = {};
 
   for (const { kind, rel, dirs } of plan) {
     const unique = Array.from(new Set(jobs[kind]));
@@ -286,16 +287,19 @@ async function pool(items, worker, size = CONCURRENCY) {
     let miss = 0;
     let bytes = 0;
     const names = [];
+    const lost = [];
     for (const r of results) {
-      if (r) {
+      if (r && !r.missing) {
         ok += 1;
         bytes += r.out || 0;
         names.push(`${baseName(r.file)}.webp`);
       } else {
         miss += 1;
+        if (r) lost.push(baseName(r.file));
       }
     }
     manifest[kind] = names;
+    missing[kind] = lost;
     totalFiles += ok;
     totalOut += bytes;
     const fromProd = results.filter((r) => r && r.from === "api").length;
@@ -311,6 +315,14 @@ async function pool(items, worker, size = CONCURRENCY) {
     JSON.stringify(manifest, null, 0)
   );
   console.log("\nmanifest -> public/image/manifest.json");
+
+  // daftar file yang TIDAK ada -> frontend pakai noimage langsung
+  fs.writeFileSync(
+    path.join(ROOT, "app", "data", "image-missing.json"),
+    JSON.stringify(missing, null, 2) + "\n"
+  );
+  const totalMissing = Object.values(missing).reduce((a, b) => a + b.length, 0);
+  console.log(`${totalMissing} file hilang -> app/data/image-missing.json`);
 
   console.log("\n" + "=".repeat(56));
   console.log(`${totalFiles} file di-mirror, total ${human(totalOut)}`);
