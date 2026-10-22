@@ -15,7 +15,11 @@ export function usePageSeo(options: PageSeoOptions) {
 
   const resolvedTitle = computed(() => {
     const t = unref(options.title);
-    return t ? `${t} | Trumecs.com` : "Trumecs.com | Solusi Pengadaan Mekanikal Terpercaya";
+    if (!t) return "Trumecs.com | Solusi Pengadaan Mekanikal Terpercaya";
+    // Jangan ulangi nama brand kalau judul sudah memuatnya
+    // (mis. "Trumecs.com" -> "Trumecs.com | Trumecs.com")
+    if (/trumecs\.com/i.test(t)) return t;
+    return `${t} | Trumecs.com`;
   });
 
   const resolvedDescription = computed(() => unref(options.description) || "");
@@ -99,7 +103,7 @@ export function useProductSeo(product: Ref<any | null>) {
   );
   const seoImage = computed(() =>
     product.value?.img
-      ? `${siteUrl}${localImageUrl("product", product.value.img)}`
+      ? remoteImageUrl("product", product.value.img)
       : undefined
   );
   const seoUrl = computed(() =>
@@ -144,10 +148,10 @@ export function useProductSeo(product: Ref<any | null>) {
 
     const price = Number(p.price_promo) > 0 ? Number(p.price_promo) : Number(p.price);
     const images = [];
-    if (p.img) images.push(`${siteUrl}${localImageUrl("product", p.img)}`);
+    if (p.img) images.push(remoteImageUrl("product", p.img));
     if (p.gallery_img && Array.isArray(p.gallery_img)) {
       p.gallery_img.forEach((item: any) => {
-        if (item.img) images.push(`${siteUrl}${localImageUrl("galery", item.img)}`);
+        if (item.img) images.push(remoteImageUrl("galery", item.img));
       });
     }
 

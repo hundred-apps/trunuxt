@@ -954,7 +954,8 @@
         "title": "需要帮助？",
         "subtitle": "提交您的需求，我们将帮助您找到合适的产品",
         "button": "立即提交询价单"
-      }
+      },
+      "title": "首页"
     },
     "article": {
       "loading": "正在加载文章...",
@@ -1809,38 +1810,38 @@
     "relatedTitle": "相关页面"
   },
   "products": {
-    "onlyOwn": "????????????",
-    "searchPlaceholder": "???????????...",
-    "noCategory": "???",
-    "creator": "???",
-    "detail": "????",
-    "edit": "????",
-    "created": "??????",
-    "updated": "??????",
-    "createFailed": "??????",
-    "updateFailed": "??????",
-    "statusUpdated": "???????",
-    "duplicated": "?????",
-    "deleted": "?????",
+    "onlyOwn": "您只能看到自己创建的产品",
+    "searchPlaceholder": "搜索名称、零件号、品牌…",
+    "noCategory": "无分类",
+    "creator": "创建者",
+    "detail": "产品详情",
+    "edit": "编辑产品",
+    "created": "产品添加成功",
+    "updated": "产品更新成功",
+    "createFailed": "添加产品失败",
+    "updateFailed": "更新产品失败",
+    "statusUpdated": "产品状态已更新",
+    "duplicated": "产品已复制",
+    "deleted": "产品已删除",
     "form": {
-      "title": "????",
-      "partNumber": "???",
-      "partNumberTrumecs": "Trumecs ???",
-      "physicalNumber": "???? / S/N",
-      "promoPrice": "???",
-      "image": "?????",
-      "titleRequired": "????????",
-      "quality": "??",
-      "area": "??",
-      "warranty": "??",
-      "made": "??"
+      "title": "产品名称",
+      "partNumber": "零件号",
+      "partNumberTrumecs": "Trumecs 零件号",
+      "physicalNumber": "物理编号 / S/N",
+      "promoPrice": "促销价",
+      "image": "图片文件名",
+      "titleRequired": "产品名称为必填项",
+      "quality": "品质",
+      "area": "地区",
+      "warranty": "保修",
+      "made": "产地"
     },
-    "loadFailed": "????????"
+    "loadFailed": "加载产品详情失败"
   },
   "filters": {
-    "stock": "??"
+    "stock": "库存"
   },
   "table": {
-    "productNumber": "???"
+    "productNumber": "零件号"
   }
 }

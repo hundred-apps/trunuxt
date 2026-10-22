@@ -91,7 +91,7 @@ import type { Product } from "~/types/product";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
 import { articlePreview } from "~/utils/articlePreview";
 import { useImageUrl } from "~/composables/useImageUrl";
-import { localImageUrl } from "~/utils/imageUrl";
+import { remoteImageUrl } from "~/utils/imageUrl";
 
 const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 
@@ -277,12 +277,12 @@ const generateProductSchema = (productData: Product | null) => {
   // Images - PASTIKAN URL LENGKAP
   const images = [];
   if (p.img) {
-    images.push(`${baseUrl}${localImageUrl("product", p.img)}`);
+    images.push(remoteImageUrl("product", p.img));
   }
   if (p.gallery_img && Array.isArray(p.gallery_img)) {
     p.gallery_img.forEach((item) => {
       if (item.img) {
-        images.push(`${baseUrl}${localImageUrl("galery", item.img)}`);
+        images.push(remoteImageUrl("galery", item.img));
       }
     });
   }
@@ -511,7 +511,7 @@ useSeoMeta({
   ogDescription: computed(() => product.value?.description),
   ogImage: computed(() =>
     product.value?.img
-      ? `https://www.trumecs.com${localImageUrl("product", product.value.img)}`
+      ? remoteImageUrl("product", product.value.img)
       : undefined
   ),
   ogUrl: computed(() =>

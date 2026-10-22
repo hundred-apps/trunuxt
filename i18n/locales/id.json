@@ -954,7 +954,8 @@
         "title": "Butuh Bantuan?",
         "subtitle": "Kirim kebutuhan Anda dan kami akan membantu Anda menemukan produk yang tepat",
         "button": "Kirim RFQ Sekarang"
-      }
+      },
+      "title": "Beranda"
     },
     "article": {
       "loading": "Memuat Artikel...",

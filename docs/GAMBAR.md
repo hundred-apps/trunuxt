@@ -1,60 +1,77 @@
 # Gambar Produk & Artikel
 
-## Kenapa gambar sering tidak muncul?
+## Di mana gambarnya?
 
-Semua gambar konten (produk, artikel, promo, kategori) berasal dari **website lama**
-(CI3) dan hanya disimpan sebagai **nama file** di database API. File-nya ada di
-server `www.trumecs.com` dengan struktur web root CI3:
+Gambar konten (produk, artikel, promo, kategori) **dipakai langsung dari server API**:
 
 ```
-/public/image/product/<md5>.jpg
-/public/image/galery/<md5>.jpg
-/public/image/artikel/<file>
-/public/image/promo/<file>
-/public/upload/categori/<file>
+https://migrationbe.trumecs.com/image/product/<file>.jpg
+https://migrationbe.trumecs.com/image/galery/<file>.jpg
+https://migrationbe.trumecs.com/image/artikel/<file>
+https://migrationbe.trumecs.com/upload/categori/<file>
 ```
 
-Request langsung ke `https://www.trumecs.com/public/image/...` **balas 404**,
-karena `www.trumecs.com` sekarang aplikasi Nuxt yang tidak memetakan prefix
-`/public`. File-nya sendiri masih ada dan bisa diambil lewat gateway optimasi
-`/_ipx/<modifier>/<url-asli>`.
+Database API hanya menyimpan **nama file** (contoh: `img` = `c9137ad81aa302af00a9e82568dcc77b.jpg`).
 
-## Solusi di trunuxt
+URL lama `https://www.trumecs.com/public/image/...` sudah tidak dipakai — path itu
+web root website lama (CI3) dan sekarang **404**.
 
-1. **Mirror lokal** — file yang dipakai API disalin dari website lama ke
-   `trunuxt/public/` dalam format WebP (1400px + varian mobile 800px):
+## Kenapa ada mirror lokal?
 
-   ```bash
-   npm run mirror:images          # lewati file yang sudah ada
-   npm run mirror:images:force    # mirror ulang
-   ```
+Supaya halaman cepat dan tidak bergantung ke server API, file yang dipakai API
+di-*mirror* ke `trunuxt/public/` dalam format WebP (1400px + varian mobile 800px):
 
-   Sumber: `D:/Program/laragon/www/trumecs-live/public` (bisa diubah lewat env
-   `TRUMECS_LIVE_DIR`). File yang tidak ada di sana dicoba dari server produksi
-   lewat gateway ipx.
+```bash
+npm run mirror:images          # lewati file yang sudah ada
+npm run mirror:images:force    # mirror ulang
+```
 
-   Hasil saat ini: 1954/2024 gambar produk, 16/16 artikel, 19/47 kategori+brand.
-   Sisanya memang tidak ada di server mana pun -> tampil `noimage.png`.
+Sumber mirror (berurutan):
+1. `https://migrationbe.trumecs.com/<folder>/<file>` (server API, lengkap)
+2. `D:/Program/laragon/www/trumecs-live/public` (website lama, cadangan) — bisa
+   diubah lewat env `TRUMECS_LIVE_DIR`
 
-2. **Rantai fallback** (`app/utils/imageUrl.ts` + `app/plugins/image-fallback.client.ts`):
+Status saat ini:
 
-   ```
-   file lokal (public/image/...)  ->  ipx server produksi  ->  /image/noimage.png
-   ```
+| Jenis | Ter-mirror | Keterangan |
+|---|---|---|
+| produk | 2013 / 2024 | 11 file tidak ada di server mana pun |
+| galeri | 119 / 133 | 14 file tidak ada di server mana pun |
+| artikel | 16 / 16 | ✅ |
+| kategori + brand | 20 / 47 | 27 icon brand tidak ada di server mana pun |
 
-   Dipakai lewat composable:
+Sisa file yang tidak ada akan otomatis menampilkan `/image/noimage.png`.
 
-   ```vue
-   <img :src="imgSrc('product', product.img)" v-bind="imgAttrs('product', product.img)" />
-   ```
+## Rantai fallback
 
-   `imgAttrs` menandai elemen dengan `data-img-kind` / `data-img-file`, lalu
-   plugin global menukar `src` ke sumber berikutnya saat gambar gagal dimuat.
+`app/utils/imageUrl.ts` + `app/plugins/image-fallback.client.ts`:
 
-3. **Thumbnail** memakai ipx lokal (`/_ipx/f_webp&q_70&s_160x160/...`) —
-   endpoint `timthumb` lama sudah 404.
+```
+1. file lokal  /image/product/<nama>.webp      (mirror, cepat)
+2. server API  https://migrationbe.trumecs.com/image/product/<nama>.jpg
+3. /image/noimage.png
+```
 
-## Kalau gambar produk baru ditambah
+Dipakai lewat composable:
 
-Jalankan ulang `npm run mirror:images` — file baru yang belum ada di `public/`
-akan diunduh otomatis (dari website lama, atau dari server produksi).
+```vue
+<img :src="imgSrc('product', product.img)" v-bind="imgAttrs('product', product.img)" />
+```
+
+`imgAttrs` menandai elemen dengan `data-img-kind` / `data-img-file`, lalu plugin
+global menukar `src` ke sumber berikutnya saat gambar gagal dimuat.
+
+Thumbnail memakai ipx lokal (`/_ipx/f_webp&q_70&s_160x160/...`); endpoint
+`timthumb` lama sudah 404.
+
+## Kalau produk / gambar baru ditambah
+
+Jalankan ulang `npm run mirror:images` — file baru otomatis diunduh dari server API.
+
+## Catatan
+
+- `promo-read` di API mengembalikan HTML (bukan JSON) → section promo di beranda
+  tidak termuat. Perlu dicek ke tim backend. Folder gambar promo juga tidak ada
+  di server API.
+- Gambar artikel kadang berisi **URL lengkap** (`https://files.togu.co.id/...`).
+  Resolver mengenali itu dan tidak menggabungkannya dengan base path.

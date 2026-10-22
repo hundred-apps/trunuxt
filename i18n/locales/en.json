@@ -954,7 +954,8 @@
         "title": "Need Help?",
         "subtitle": "Send us your needs and we will help you find the right products",
         "button": "Submit RFQ Now"
-      }
+      },
+      "title": "Home"
     },
     "article": {
       "loading": "Loading Article...",

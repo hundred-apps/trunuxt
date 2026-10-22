@@ -83,19 +83,18 @@ const baseName = (file) => file.replace(/\.[a-z0-9]+$/i, "");
 /** Simpan versi webp (desktop + mobile). */
 /**
  * Sumber gambar:
- * 1. website lama di disk (D:/Program/laragon/www/trumecs-live/public) - paling lengkap
- * 2. gateway ipx server produksi - untuk file yang hanya ada di server (mis. produk
- *    terbaru yang belum masuk ke salinan website lama)
+ * 1. server API (baru) - https://migrationbe.trumecs.com/image/product/<file>
+ * 2. website lama di disk (D:/Program/laragon/www/trumecs-live/public) - cadangan
  */
-const PROD_SITE = "https://www.trumecs.com";
+const PROD_SITE = "https://migrationbe.trumecs.com";
 
 /** Folder di website lama per jenis gambar (path relatif web root). */
 const REMOTE_DIR = {
-  product: "public/image/product",
-  galery: "public/image/galery",
-  artikel: "public/image/artikel",
-  promo: "public/image/promo",
-  category: "public/upload/categori",
+  product: "image/product",
+  galery: "image/galery",
+  artikel: "image/artikel",
+  promo: "image/promo",
+  category: "upload/categori",
 };
 
 async function download(url) {
@@ -107,10 +106,9 @@ async function download(url) {
   return Buffer.from(await res.arrayBuffer());
 }
 
-/** Ambil file dari server produksi lewat gateway ipx (webp). */
+/** Ambil file dari server API (langsung, tanpa ipx). */
 async function downloadFromProd(kind, file) {
-  const src = `${PROD_SITE}/${REMOTE_DIR[kind]}/${encodeURIComponent(file)}`;
-  const url = `${PROD_SITE}/_ipx/f_webp&q_90&s_1600x1600/${src}`;
+  const url = `${PROD_SITE}/${REMOTE_DIR[kind]}/${encodeURIComponent(file)}`;
   return download(url);
 }
 
@@ -145,21 +143,23 @@ async function mirrorOne(relDir, dirs, file, kind) {
   if (!FORCE && fs.existsSync(outFile))
     return { skipped: true, size: 0, file };
 
+  // 1) server API (lengkap & selalu ter-update)
+  try {
+    const raw = await downloadFromProd(kind, file);
+    const r = await saveVariants(relDir, file, raw);
+    return { ...r, file, from: "api" };
+  } catch (e) {
+    // lanjut ke website lama
+  }
+  // 2) website lama di disk (cadangan)
   const src = findSource(dirs, file);
   if (src) {
     const raw = fs.readFileSync(src);
     const r = await saveVariants(relDir, file, raw);
     return { ...r, file, from: "lokal" };
   }
-  // fallback: ambil dari server produksi lewat ipx
-  try {
-    const raw = await downloadFromProd(kind, file);
-    const r = await saveVariants(relDir, file, raw);
-    return { ...r, file, from: "produksi" };
-  } catch (e) {
-    if (missingSamples.length < 3) missingSamples.push(`${file}: ${e.message}`);
-    return null;
-  }
+  if (missingSamples.length < 3) missingSamples.push(`${file}: tidak ada di server API maupun website lama`);
+  return null;
 }
 
 // contoh error untuk file yang tidak ditemukan (3 pertama)
@@ -298,9 +298,9 @@ async function pool(items, worker, size = CONCURRENCY) {
     manifest[kind] = names;
     totalFiles += ok;
     totalOut += bytes;
-    const fromProd = results.filter((r) => r && r.from === "produksi").length;
+    const fromProd = results.filter((r) => r && r.from === "api").length;
     console.log(
-      `  -> ${ok} di-mirror (${human(bytes)}; ${fromProd} dari server produksi), ${miss} tidak ada di mana pun`
+      `  -> ${ok} di-mirror (${human(bytes)}; ${fromProd} dari server API), ${miss} tidak ada di mana pun`
     );
     for (const m of missingSamples.splice(0)) console.log("     contoh error:", m);
   }

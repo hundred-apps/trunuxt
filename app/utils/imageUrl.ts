@@ -2,15 +2,17 @@
 // Resolver URL gambar untuk konten yang berasal dari API.
 //
 // LATAR BELAKANG:
-// - Gambar produk/artikel/promo TIDAK bisa diambil langsung dari
-//   https://www.trumecs.com/public/image/... karena path itu milik web root
-//   website lama (CI3). Request publik ke sana dibalas 404.
-// - File yang utuh ada di website lama, sudah di-mirror ke trunuxt/public/
-//   (lihat scripts/mirror-api-images.cjs) -> "/image/product/<nama>.webp".
-// - Sisanya (mis. file yang tidak ada di sumber, atau artikel yang hanya ada
-//   di server produksi) diambil lewat gateway ipx milik server produksi:
-//   https://www.trumecs.com/_ipx/<modifier>/<url-asli>
-// - Kalau semuanya gagal -> /image/noimage.png (fallback lokal).
+// - Gambar produk/artikel/promo TIDAK bisa diambil dari URL lama
+//   (https://www.trumecs.com/public/image/...) karena path itu milik web root
+//   website lama (CI3) dan sudah dipindah.
+// - Sekarang gambar dilayani langsung oleh server API:
+//     https://migrationbe.trumecs.com/image/product/<file>
+//     https://migrationbe.trumecs.com/image/artikel/<file>
+//     https://migrationbe.trumecs.com/image/galery/<file>
+//     https://migrationbe.trumecs.com/upload/categori/<file>
+// - Supaya cepat & tidak bergantung ke server API, file ALSO di-mirror ke
+//   trunuxt/public/ (scripts/mirror-api-images.cjs) -> "/image/product/<nama>.webp"
+// - Urutan sumber: lokal (mirror) -> server API -> /image/noimage.png
 
 export type ImageKind =
   | "product"
@@ -24,15 +26,16 @@ export type ImageSource = "local" | "remote";
 export const NO_IMAGE = "/image/noimage.png";
 export const NO_IMAGE_SMALL = "/image/noimage-small.jpg";
 
-const REMOTE_SITE = "https://www.trumecs.com";
+/** Server yang sekarang melayani file gambar. */
+const REMOTE_SITE = "https://migrationbe.trumecs.com";
 
-/** Folder di website lama (path relatif dari web root). */
+/** Folder di server API (path relatif dari root host). */
 const REMOTE_DIR: Record<ImageKind, string> = {
-  product: "public/image/product",
-  galery: "public/image/galery",
-  artikel: "public/image/artikel",
-  promo: "public/image/promo",
-  category: "public/upload/categori",
+  product: "image/product",
+  galery: "image/galery",
+  artikel: "image/artikel",
+  promo: "image/promo",
+  category: "upload/categori",
 };
 
 /** Folder hasil mirror di trunuxt/public. */
@@ -77,12 +80,11 @@ export function localImageUrl(kind: ImageKind, file: string): string {
 }
 
 /**
- * URL remote lewat gateway ipx milik server produksi.
+ * URL remote (server API).
  * Format ipx: /_ipx/<modifiers>/<url-asli>
  */
 export function remoteImageUrl(kind: ImageKind, file: string): string {
-  const src = `${REMOTE_SITE}/${REMOTE_DIR[kind]}/${encodeURIComponent(file)}`;
-  return `${REMOTE_SITE}/_ipx/f_webp&q_78&s_${DESKTOP_WIDTH}x${DESKTOP_WIDTH}/${src}`;
+  return `${REMOTE_SITE}/${REMOTE_DIR[kind]}/${encodeURIComponent(file)}`;
 }
 
 /** Rantai sumber untuk satu gambar (sesuai urutan jenis). */

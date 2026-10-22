@@ -672,7 +672,8 @@ const industriesList = computed<any[]>(() => {
 const TAG_IMG_SIZES = "(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 16vw";
 
 usePageSeo({
-  title: "Trumecs.com",
+  // "Beranda / Home / 首页" sesuai bahasa aktif (bukan "Trumecs.com | Trumecs.com")
+  title: computed(() => $t("page.home.title")),
   description: $t("page.home.metaDescription"),
   url: "/",
 });
