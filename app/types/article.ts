@@ -30,6 +30,8 @@ export interface CardArticle {
   url: string;
   title: string;
   image: string;
+  /** Nama file gambar asli (dipakai untuk fallback noimage saat load gagal) */
+  imgFile?: string | null;
   category?: string;
   tags?: string[];
   date?: string;

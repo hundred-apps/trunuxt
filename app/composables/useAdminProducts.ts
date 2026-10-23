@@ -1,6 +1,7 @@
 // composables/useAdminProducts.ts
 import { computed, ref } from "vue";
 import { useAdminStore } from "~/stores/admin";
+import { useProductTags } from "~/composables/useProductTags";
 
 export interface AdminProduct {
   id: number;
@@ -131,6 +132,7 @@ let inflight: Promise<void> | null = null;
 export function useAdminProducts() {
   const adminStore = useAdminStore();
   const config = useRuntimeConfig();
+  const tagsStore = useProductTags();
 
   const loading = ref(false);
   const saving = ref(false);
@@ -190,6 +192,7 @@ export function useAdminProducts() {
   }
 
   async function fetchAllByStatus(status: string): Promise<AdminProduct[]> {
+    try {
     const first = await fetchProductSearch({
       page: 1,
       limit: API_PAGE_SIZE,
@@ -219,6 +222,10 @@ export function useAdminProducts() {
       for (const r of results) merged.push(...r.payload);
     }
     return merged;
+    } catch (e) {
+      console.error("fetchAllByStatus", status, e);
+      return [];
+    }
   }
 
   // Muat seluruh produk (semua status) - cukup sekali per sesi
@@ -227,6 +234,7 @@ export function useAdminProducts() {
     if (inflight) return inflight;
 
     inflight = (async () => {
+      try {
       const perStatus = await Promise.all(
         STATUS_LIST.map((s) => fetchAllByStatus(s))
       );
@@ -239,8 +247,13 @@ export function useAdminProducts() {
           merged.push(p);
         }
       }
+      console.log("loadProducts: " + merged.length + " produk dimuat");
       cacheProducts.value = merged;
       cacheLoaded.value = true;
+      } catch (e) {
+        console.error("loadProducts gagal:", e);
+        cacheProducts.value = [];
+      }
     })();
 
     try {
@@ -284,6 +297,18 @@ export function useAdminProducts() {
   // ================= Filter =================
 
   // Admin biasa hanya boleh melihat produk yang dibuatnya sendiri
+  // ID tag milik produk (dari product_tag relation)
+  const productTagIds = computed(() => (id: number | null | undefined) => {
+    if (id === null || id === undefined) return [] as number[];
+    const items = tagsStore.productTagItems.value.filter((it) => String(it.product_id) === String(id));
+    const ids = new Set<number>();
+    for (const it of items) ids.add(Number(it.tag_id));
+    return Array.from(ids);
+  });
+
+  // semua tag (untuk dropdown)
+  const allTags = computed(() => tagsStore.tags.value);
+
   const scopedProducts = computed(() => {
     const all = cacheProducts.value;
     if (canSeeAll.value) return all;
@@ -454,6 +479,8 @@ export function useAdminProducts() {
       original?.created_by ?? currentAdminId.value ?? 0
     );
     if (!body.store_id) body.store_id = 0;
+    // tags: disimpan terpisah lewat endpoint product_tag/create (lihat TODO di bawah)
+
 
     return body;
   }
@@ -488,6 +515,9 @@ export function useAdminProducts() {
           created,
           ...cacheProducts.value.filter((p) => p.id !== created.id),
         ];
+        // simpan tag
+        const tagIds = (values as any)?.tag_ids || [];
+        if (tagIds.length) await syncProductTags(created.id, tagIds);
       }
       refreshList();
       return created;
@@ -517,6 +547,8 @@ export function useAdminProducts() {
         cacheProducts.value = cacheProducts.value.map((p) =>
           p.id === updated.id ? { ...p, ...updated } : p
         );
+        const tagIds = (values as any)?.tag_ids;
+        if (Array.isArray(tagIds)) await syncProductTags(updated.id, tagIds);
       }
       refreshList();
       return updated;
@@ -543,6 +575,25 @@ export function useAdminProducts() {
   async function toggleStatus(product: AdminProduct) {
     const next = product.status === "show" ? "draft" : "show";
     return updateProduct(product.id, { status: next }, product);
+  }
+
+  /** Sinkronisasi tag produk via endpoint product_tag. */
+  async function syncProductTags(productId: number, tagIds: number[]) {
+    // hapus relasi lama
+    try {
+      await $fetch(`${apiBase()}product_tag/delete?product_id=${productId}`, { method: "DELETE", headers: authHeaders.value });
+    } catch { /* mungkin tidak ada */ }
+    for (const tid of tagIds) {
+      try {
+        await $fetch(`${apiBase()}product_tag/create`, {
+          method: "POST",
+          body: { product_id: productId, tag_id: tid },
+          headers: authHeaders.value,
+        });
+      } catch (e) {
+        console.warn("syncProductTags gagal untuk tag", tid, e);
+      }
+    }
   }
 
   async function duplicateProduct(product: AdminProduct) {
@@ -584,6 +635,9 @@ export function useAdminProducts() {
     statusOptions,
     grades: GRADES,
     areas: AREAS,
+    allTags,
+    productTagIds,
+    tagsStore,
     currentPage,
     pageSize,
     totalItems,
@@ -602,6 +656,7 @@ export function useAdminProducts() {
     fetchProductDetail,
     createProduct,
     updateProduct,
+    syncProductTags,
     deleteProduct,
     toggleStatus,
     duplicateProduct,

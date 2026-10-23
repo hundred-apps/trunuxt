@@ -162,6 +162,7 @@ function toCardArticle(
     url: article.url || `article-${article.id}`,
     title,
     image: articleImage(article.img),
+    imgFile: article.img,
     category: tagNames[0] || "",
     tags: tagNames,
     date: article.date || "",

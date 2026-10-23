@@ -97,6 +97,7 @@
                       loading="eager"
                       fetchpriority="high"
                       preload
+                      v-bind="imgAttrs('artikel', article.imgFile)"
                     />
                   </div>
 
@@ -259,6 +260,7 @@ import { useRoute, useRouter } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory, ArticleAd } from "~/types/category";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { useImageUrl } from "~/composables/useImageUrl";
 import {
   slugifyTag,
   parseTagString,
@@ -340,6 +342,7 @@ useSchemaOrg([
 // ============ COMPUTED TAGS ============
 // Panggil di scope setup; hasilnya dipakai di computed + fetch.
 const { articlesForTag, scanUntil } = useArticleTags();
+const { imgSrc, imgAttrs } = useImageUrl();
 
 const articleTags = computed<string[]>(() => article.value?.tags ?? []);
 
@@ -446,10 +449,6 @@ const articleBreadcrumb = computed(() => [
 // ============ HELPERS ============
 const goBack = () => router.back();
 
-// config.public.baseImageArticle (bukan baseURLIMGARTICLE) adalah key yang benar.
-const articleImageBase = () =>
-  "https://www.trumecs.com/public/image/artikel/";
-
 // Tag artikel datang dalam dua format ("#A #B #C" atau "a, b"),
 // jadi selalu lewat parseTagString supaya tiap tag terpisah.
 const extractTags = (tags: unknown): string[] =>
@@ -493,11 +492,8 @@ const fetchTrendingArticles = async () => {
             id: item.id,
             url: item.url || `article-${item.id}`,
             title: item.title || "Untitled",
-            image: item.img
-              ? item.img.startsWith("http")
-                ? item.img
-                : `${articleImageBase()}${item.img}`
-              : "",
+            image: imgSrc("artikel", item.img),
+            imgFile: item.img,
             category: item.tag,
             date: item.date,
             views: item.view,
@@ -526,11 +522,8 @@ const fetchRelatedArticles = async () => {
             id: item.id,
             url: item.url || `article-${item.id}`,
             title: item.title || "Untitled",
-            image: item.img
-              ? item.img.startsWith("http")
-                ? item.img
-                : `${articleImageBase()}${item.img}`
-              : "",
+            image: imgSrc("artikel", item.img),
+            imgFile: item.img,
             category: item.tag,
             date: item.date,
             views: item.view,
@@ -579,11 +572,8 @@ const fetchDetailArticle = async () => {
       id: apiData.id,
       url: apiData.url || `article-${apiData.id}`,
       title: apiData.title || "Untitled",
-      image: apiData.img
-        ? apiData.img.startsWith("http")
-          ? apiData.img
-          : `${articleImageBase()}${apiData.img}`
-        : "",
+      image: imgSrc("artikel", apiData.img),
+      imgFile: apiData.img,
       category: tags[0] || "General",
       tags,
       date: apiData.date,

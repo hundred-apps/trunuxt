@@ -21,7 +21,8 @@
           width="96"
           height="96"
           loading="lazy"
-        />
+            v-bind="imgAttrs('artikel', article.imgFile)"
+          />
       </div>
       <div class="flex-1 min-w-0">
         <h4
@@ -52,9 +53,12 @@
 </template>
 
 <script setup lang="ts">
+const { imgAttrs } = useImageUrl();
+
 import { computed } from "vue";
 import type { CardArticle } from "~/types/article";
 import { articlePreview } from "~/utils/articlePreview";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 // Props definition
 const props = withDefaults(

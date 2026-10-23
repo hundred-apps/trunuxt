@@ -21,7 +21,8 @@
               width="192"
               height="128"
               loading="lazy"
-            />
+            v-bind="imgAttrs('artikel', article.imgFile)"
+          />
           </div>
 
           <!-- Content -->
@@ -112,8 +113,11 @@
 </template>
 
 <script setup lang="ts">
+const { imgAttrs } = useImageUrl();
+
 import { computed } from "vue";
 import type { CardArticle } from "~/types/article";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 // Props definition
 const props = withDefaults(

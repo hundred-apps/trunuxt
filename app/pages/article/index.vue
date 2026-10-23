@@ -528,6 +528,7 @@ const fetchTrendingArticles = async () => {
           url: item.url || `article-${item.id}`,
           title: item.title || "Untitled",
           image: imgSrc("artikel", item.img),
+          imgFile: item.img,
           category: item.tag,
           date: item.date,
           views: item.view,
@@ -562,6 +563,7 @@ const fetchFeaturedArticles = async () => {
           url: item.url || `article-${item.id}`,
           title: item.title || "Untitled",
           image: imgSrc("artikel", item.img),
+          imgFile: item.img,
           category: item.tag,
           date: item.date,
           excerpt:

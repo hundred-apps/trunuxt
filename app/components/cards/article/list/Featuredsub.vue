@@ -24,7 +24,8 @@
               width="250"
               height="188"
               loading="lazy"
-            />
+            v-bind="imgAttrs('artikel', article.imgFile)"
+          />
           </div>
 
           <!-- Content Section -->
@@ -60,7 +61,10 @@
 </template>
 
 <script setup lang="ts">
+const { imgAttrs } = useImageUrl();
+
 import { computed } from "vue";
+import { useImageUrl } from "~/composables/useImageUrl";
 
 // Types/Interfaces
 interface Article {

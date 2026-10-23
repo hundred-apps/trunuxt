@@ -751,7 +751,11 @@
       "setDraft": "Set as Draft",
       "setShow": "Show",
       "duplicate": "Duplicate",
-      "delete": "Delete"
+      "delete": "Delete",
+      "tags": "Tags",
+      "form": {
+        "tags": "Product tags"
+      }
     },
     "promos": {
       "title": "Promos",

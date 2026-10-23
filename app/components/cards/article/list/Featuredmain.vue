@@ -28,6 +28,7 @@
             height="450"
             loading="eager"
             fetchpriority="high"
+            v-bind="imgAttrs('artikel', article.imgFile)"
           />
         </div>
 
@@ -73,11 +74,16 @@
 </template>
 
 <script lang="ts" setup>
+import { useImageUrl } from "~/composables/useImageUrl";
+
+const { imgAttrs } = useImageUrl();
+
 // Props definition
 interface Article {
   url: string;
   title: string;
   image?: string;
+  imgFile?: string | null;
   category?: string;
   date?: string;
   excerpt?: string;

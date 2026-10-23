@@ -199,6 +199,11 @@
               <th
                 class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
               >
+                {{ $t("admin.products.tags") }}
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+              >
                 {{ $t("admin.table.price") }}
               </th>
               <th
@@ -237,6 +242,7 @@
                   class="h-12 w-12 object-cover rounded bg-gray-50"
                   loading="lazy"
                   @error="onImageError"
+                  v-bind="imgAttrs('product', product.img)"
                 />
               </td>
               <td class="px-6 py-4">
@@ -255,6 +261,21 @@
               </td>
               <td class="px-6 py-4 text-sm text-gray-500">
                 {{ product.brand || "-" }}
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    v-for="tid in productTagIds(product.id)"
+                    :key="tid"
+                    class="px-2 py-0.5 text-[10px] rounded-full bg-orange-100 text-orange-700"
+                  >
+                    {{ tagLabelById(tid) }}
+                  </span>
+                  <span
+                    v-if="productTagIds(product.id).length === 0"
+                    class="text-xs text-gray-400"
+                  >-</span>
+                </div>
               </td>
               <td class="px-6 py-4">
                 <p class="font-medium text-gray-900">
@@ -510,6 +531,22 @@
               />
             </el-select>
           </el-form-item>
+          <el-form-item :label="$t('admin.products.form.tags')" class="!mb-4">
+            <el-select
+              v-model="form.tag_ids"
+              multiple
+              filterable
+              class="w-full"
+              placeholder="Pilih tag"
+            >
+              <el-option
+                v-for="tag in allTags"
+                :key="tag.id"
+                :label="tag.tag || tag.tag_en"
+                :value="Number(tag.id)"
+              />
+            </el-select>
+          </el-form-item>
           <el-form-item :label="$t('admin.table.brand')" class="!mb-4">
             <el-select
               v-model="form.brand"
@@ -668,6 +705,8 @@ const {
   statusOptions,
   grades,
   areas,
+  allTags,
+  productTagIds,
   currentPage,
   pageSize,
   totalItems,
@@ -700,6 +739,7 @@ const emptyForm = () => ({
   brand: "",
   quality: "Asli",
   area: "",
+  tag_ids: [],
   price: "",
   price_promo: "",
   stock: 0,
@@ -740,6 +780,7 @@ const openEdit = async (product: AdminProduct) => {
       brand: src.brand || "",
       quality: src.quality || "Asli",
       area: src.area || "",
+      tag_ids: productTagIds(src.id),
       price: src.price ?? "",
       price_promo: src.price_promo ?? "",
       stock: src.stock ?? 0,
@@ -778,6 +819,7 @@ const saveForm = async () => {
     return;
   }
   const body = { ...form.value };
+  body.tag_ids = (form.value.tag_ids || []).map((x: any) => Number(x));
   // Nilai kosong dikirim sebagai null agar tidak menimpa nilai lama dengan string kosong
   for (const key of Object.keys(body)) {
     if (body[key] === "") body[key] = null;
@@ -870,6 +912,11 @@ const getCategoryName = (component?: number | null) => {
   if (!component) return "-";
   const cat = categories.value.find((c) => c.id === Number(component));
   return cat ? cat.name : "-";
+};
+
+const tagLabelById = (id: number) => {
+  const t = allTags?.find((x: any) => Number(x.id) === Number(id));
+  return t ? t.tag || t.tag_en || t.tag_ch || String(id) : String(id);
 };
 
 const getCreatorName = (createdBy?: number | null) => {

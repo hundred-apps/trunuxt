@@ -751,7 +751,11 @@
       "setDraft": "设为草稿",
       "setShow": "显示",
       "duplicate": "复制",
-      "delete": "删除"
+      "delete": "删除",
+      "tags": "??",
+      "form": {
+        "tags": "????"
+      }
     },
     "promos": {
       "title": "促销活动",

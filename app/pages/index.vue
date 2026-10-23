@@ -571,6 +571,7 @@
                 width="600"
                 height="338"
                 loading="lazy"
+                v-bind="imgAttrs('artikel', article.imgFile)"
               />
             </div>
             <div class="p-4">
@@ -879,6 +880,7 @@ const latestArticles = computed(() => {
     url: item.url || `article-${item.id}`,
     title: item.title || "Untitled",
     image: imgSrc("artikel", item.img),
+    imgFile: item.img,
     category: Array.isArray(item.tag) ? item.tag[0] : item.tag || "General",
     date: item.date,
     excerpt: item.discription_seo

@@ -751,7 +751,11 @@
       "setDraft": "Jadikan Draf",
       "setShow": "Tampilkan",
       "duplicate": "Duplikat",
-      "delete": "Hapus"
+      "delete": "Hapus",
+      "tags": "Tag",
+      "form": {
+        "tags": "Tag produk"
+      }
     },
     "promos": {
       "title": "Promo",
