@@ -1,12 +1,12 @@
 <template>
   <div
-    class="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="max-w-md w-full space-y-8">
       <div class="text-center">
         <Trulink to="/admin" class="inline-block">
           <AppImage
-            src="https://fe-migration.trumecs.com/logo/light.png"
+            src="/logo/light.png"
             alt="Trumecs Admin"
             class="mx-auto h-16 w-auto object-contain"
             width="200"

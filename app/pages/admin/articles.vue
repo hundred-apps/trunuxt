@@ -470,7 +470,7 @@ const duplicateArticle = async (article: any) => {
 
 const deleteArticle = async (article: any) => {
   try {
-    await confirmDelete(article.title, "Konfirmasi");
+    await confirmDelete(article.title);
     await new Promise((r) => setTimeout(r, 500));
     ElMessage.success("Artikel dihapus");
   } catch {}

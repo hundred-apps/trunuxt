@@ -15,7 +15,6 @@ import {
   remoteImageUrl,
   NO_IMAGE,
   NO_IMAGE_SMALL,
-  type ImageKind,
 } from "~/utils/imageUrl";
 
 export function useImageUrl() {
@@ -32,4 +31,3 @@ export function useImageUrl() {
   };
 }
 
-export type { ImageKind };

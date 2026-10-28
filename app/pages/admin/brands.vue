@@ -201,7 +201,7 @@ const fetchBrands = async () => {
 
 const deleteBrand = async (brand: any) => {
   try {
-    await confirmDelete(brand.name, "Konfirmasi");
+    await confirmDelete(brand.name);
     await new Promise((r) => setTimeout(r, 500));
     ElMessage.success("Merek dihapus");
   } catch {}

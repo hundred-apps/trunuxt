@@ -272,7 +272,7 @@ const fetchGrades = async () => {
 
 const deleteGrade = async (grade: any) => {
   try {
-    await confirmDelete(grade.name, "Konfirmasi");
+    await confirmDelete(grade.name);
     await new Promise((r) => setTimeout(r, 500));
     ElMessage.success("Grade dihapus");
   } catch {}
