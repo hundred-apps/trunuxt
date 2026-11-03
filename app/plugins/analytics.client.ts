@@ -7,6 +7,7 @@ export default defineNuxtPlugin(() => {
     trackClickLinkMobile,
     trackClickButton,
     trackClickButtonMobile,
+    trackWhatsAppClick,
   } = useAnalytics();
 
   const router = useRouter();
@@ -28,12 +29,41 @@ export default defineNuxtPlugin(() => {
     return text.slice(0, 120);
   };
 
+  const isWhatsAppHref = (href: string) =>
+    /wa\.me|api\.whatsapp\.com|web\.whatsapp\.com|whatsapp:\/\//i.test(href);
+
+  const phoneFromWaHref = (href: string): string => {
+    const match = href.match(/(?:wa\.me\/|phone=)([+\d]+)/i);
+    return match ? match[1].replace(/\D/g, "") : "";
+  };
+
   document.addEventListener("click", (event) => {
     const target = event.target as Element | null;
     if (!target || typeof target.closest !== "function") return;
 
     const manual = target.closest("[data-no-analytics]");
     if (manual) return;
+
+    // ---- Deteksi klik WhatsApp (link wa.me maupun tombol ber-atribut) ----
+    const waMarked = target.closest<HTMLElement>("[data-wa-source]");
+    const anchor = target.closest<HTMLAnchorElement>("a[href]");
+    const href = anchor?.getAttribute("href") || "";
+    const waByHref = !!href && isWhatsAppHref(href);
+
+    if (waMarked || waByHref) {
+      const el = waMarked || anchor;
+      trackWhatsAppClick(el?.getAttribute("data-wa-source") || "link", {
+        phone:
+          phoneFromWaHref(href) ||
+          el?.getAttribute("data-wa-phone") ||
+          "",
+        link_url: href || el?.getAttribute("data-wa-url") || "",
+        product_id: el?.getAttribute("data-wa-product-id") || "",
+        product_title: el?.getAttribute("data-wa-product-title") || "",
+        page_path: window.location.pathname,
+      });
+      return;
+    }
 
     const card = target.closest<HTMLElement>("[data-track-card]");
     if (card) {

@@ -199,42 +199,21 @@ export default defineNuxtConfig({
     // response streaming, sedangkan cache handler Nitro menunggu response
     // selesai -> request /_ipx/ hang (gambar tidak ter-load di lokal).
     // Cache di sisi browser/CDN cukup lewat header cache-control di atas.
-    // routeRules: {
-    //   // Proxy untuk API dari CI3
-    //   "/api/**": {
-    //     proxy: {
-    //       to: "https://migrationbe.trumecs.com/api/**",
-    //       headers: {
-    //         "X-Forwarded-Host": "trumecs.com",
-    //       },
-    //     },
-    //     // Tambahkan timeout dan retry
-    //     timeout: 10000,
-    //     retry: 3,
-    //     retryDelay: 1000,
-    //   },
-    //   // Proxy untuk image
-    //   "/public/image/**": {
-    //     proxy: {
-    //       to: "https://fe-migration.trumecs.com/public/image/**",
-    //     },
-    //     swr: 3600, // Cache 1 jam
-    //   },
-    //   // Proxy untuk article dan product
-    //   "/article/**": {
-    //     proxy: {
-    //       to: "https://fe-migration.trumecs.com/article/**",
-    //     },
-    //   },
-    //   "/product/**": {
-    //     proxy: {
-    //       to: "https://fe-migration.trumecs.com/product/**",
-    //     },
-    //   },
-    // },
-    // prerender: {
-    //   routes: ["/article", "/product"],
-    // },
+    // Proxy untuk API dari CI3 (aktif saat migrasi). API utama kini
+    // di-proxy lewat Nitro agar frontend Nuxt konsisten dengan baseURL yang sama.
+    routeRules: {
+      "/api/**": {
+        proxy: {
+          to: "https://migrationbe.trumecs.com/api/**",
+          headers: {
+            "X-Forwarded-Host": "trumecs.com",
+          },
+        },
+        timeout: 10000,
+        retry: 3,
+        retryDelay: 1000,
+      },
+    },
   },
   experimental: {
     writeEarlyHints: false,

@@ -137,13 +137,25 @@
             <span>{{ platformContact("email") }}</span>
           </div>
         </Trulink>
-        <Trulink :href="platformContact('linkWhatsapp')" target="_blank">
+        <Trulink
+          :href="platformContact('linkWhatsapp')"
+          target="_blank"
+          data-wa-source="product_contact_info"
+          :data-wa-product-id="product.id"
+          :data-wa-product-title="product.tittle"
+        >
           <div class="flex items-center gap-2">
             <Icon name="logos:whatsapp-icon" class="text-xl" />
             <span>{{ platformContact("whatsapp") }}</span>
           </div>
         </Trulink>
-        <Trulink :href="platformContact('linkWhatsapp2')" target="_blank">
+        <Trulink
+          :href="platformContact('linkWhatsapp2')"
+          target="_blank"
+          data-wa-source="product_contact_info_2"
+          :data-wa-product-id="product.id"
+          :data-wa-product-title="product.tittle"
+        >
           <div class="flex items-center gap-2">
             <Icon name="logos:whatsapp-icon" class="text-xl" />
             <span>{{ platformContact("whatsapp2") }}</span>
@@ -197,6 +209,9 @@
       <Trulink
         :href="whatsappLink"
         target="_blank"
+        data-wa-source="product_detail_mobile"
+        :data-wa-product-id="product.id"
+        :data-wa-product-title="product.tittle"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
         <Icon name="logos:whatsapp-icon" class="text-xl" /> WA 1
@@ -205,6 +220,9 @@
       <Trulink
         :href="whatsappLink2"
         target="_blank"
+        data-wa-source="product_detail_mobile_2"
+        :data-wa-product-id="product.id"
+        :data-wa-product-title="product.tittle"
         class="flex-1 flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-3 rounded-lg transition-all active:scale-95 text-sm"
       >
         <Icon name="logos:whatsapp-icon" class="text-xl" /> WA 2
@@ -265,6 +283,9 @@ const props = defineProps<{
 // ============ STATE ============
 const showContactInfo = ref(false);
 const mobileShareOpen = ref(false);
+
+// ============ ANALYTICS ============
+const { trackWhatsAppClick } = useAnalytics();
 
 // ============ SCREEN DETECTION ============
 const { higherThan } = useScreen();
@@ -371,16 +392,38 @@ const shareProduct = (share: any) => {
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
     whatsapp: `https://wa.me/?text=${title}%20-%20${url}`,
   };
+  if (share.name === "whatsapp") {
+    trackWhatsAppClick("product_share", {
+      product_id: props.product.id,
+      product_title: props.product.tittle,
+      link_url: shareUrls[share.name],
+      page_path: window.location.pathname,
+    });
+  }
   window.open(shareUrls[share.name], "_blank", "width=600,height=400");
   mobileShareOpen.value = false;
 };
 
 // ============ HANDLE WHATSAPP CLICK ============
 const handleClickWALink = () => {
+  trackWhatsAppClick("product_detail_desktop", {
+    phone: "6285176912338",
+    product_id: props.product.id,
+    product_title: props.product.tittle,
+    link_url: whatsappLink.value,
+    page_path: window.location.pathname,
+  });
   window.open(whatsappLink.value, "_blank");
 };
 
 const handleClickWALink2 = () => {
+  trackWhatsAppClick("product_detail_desktop_2", {
+    phone: "6285155406008",
+    product_id: props.product.id,
+    product_title: props.product.tittle,
+    link_url: whatsappLink2.value,
+    page_path: window.location.pathname,
+  });
   window.open(whatsappLink2.value, "_blank");
 };
 const handleClickEmailLink = () => {

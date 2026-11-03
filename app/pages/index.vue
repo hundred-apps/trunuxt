@@ -700,6 +700,11 @@ useSchemaOrg([
   defineWebSite({
     name: "Trumecs.com",
     url: siteUrl,
+    // Schema WebSite dengan SearchAction untuk fitur pencarian internal
+    // (/search?q={search_term_string}).
+    potentialAction: defineSearchAction({
+      target: `/search?q={search_term_string}`,
+    }),
   }),
 ]);
 

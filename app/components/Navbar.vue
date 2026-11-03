@@ -388,10 +388,11 @@
                 {{ $t("page.product.text.contactUs") }} :
               </p>
               <Trulink
-                :to="{
-                  path: 'https://wa.me/+6285176912338',
-                  query: {},
-                }"
+                href="https://wa.me/6285176912338"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-wa-source="navbar_mobile"
+                data-wa-phone="6285176912338"
                 class="text-sm flex gap-1 items-center text-gray-500"
               >
                 <Icon name="logos:whatsapp-icon" />
@@ -427,6 +428,7 @@ const {
   trackClickLinkMobile,
   trackClickButton,
   trackClickButtonMobile,
+  trackWhatsAppClick,
 } = useAnalytics();
 
 const config = useRuntimeConfig();
@@ -563,10 +565,15 @@ const handleBulk = () => {
   trackClickButton("Button 'Info Kebutuhan'");
   const message =
     "Halo Trumecs, saya ada beberapa permintaan barang, bisakah trumecs membantu saya?";
-  window.open(
-    `https://wa.me/6285176912338?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
+  const linkUrl = `https://wa.me/6285176912338?text=${encodeURIComponent(
+    message
+  )}`;
+  trackWhatsAppClick("navbar_bulk", {
+    phone: "6285176912338",
+    link_url: linkUrl,
+    page_path: window.location.pathname,
+  });
+  window.open(linkUrl, "_blank");
 };
 
 const handleClickLinkArticle = () => {

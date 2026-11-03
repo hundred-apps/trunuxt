@@ -1184,6 +1184,29 @@
       "loginPrompt": "Silakan masuk untuk melihat profil Anda",
       "loginButton": "Masuk"
     },
+    "agent": {
+      "title": "Jadi Agen Trumecs",
+      "subtitle": "Bergabung sebagai agen resmi Trumecs dan kembangkan jaringan bisnis Anda",
+      "badge": "Program Agen",
+      "heroTitle": "Jual Sparepart & Alat Berat, Raih Pasar Lebih Luas",
+      "heroSubtitle": "Akses produk sparepart, pelumas, ban, dan alat berat terbaik dari Trumecs untuk ditawarkan kepada ribuan pembeli industri.",
+      "benefitsTitle": "Mengapa Bergabung dengan Trumecs?",
+      "benefits": {
+        "market": "Akses Pasar Luas",
+        "marketDesc": "Jangkau ribuan pembeli di seluruh Indonesia",
+        "support": "Dukungan Penuh",
+        "supportDesc": "Tim kami siap membantu Anda setiap saat",
+        "growth": "Pertumbuhan Bisnis",
+        "growthDesc": "Tingkatkan penjualan dengan platform kami"
+      },
+      "becomeAgent": "Daftar Sekarang",
+      "browseProducts": "Jelajahi Produk",
+      "contact": "Hubungi Kami",
+      "seo": {
+        "title": "Jadi Agen Trumecs - Trumecs.com",
+        "description": "Bergabung sebagai agen resmi Trumecs. Temukan produk sparepart, pelumas, ban, dan alat berat untuk ditawarkan kepada ribuan pembeli industri."
+      }
+    },
     "principal": {
       "title": "Principal & Partner",
       "subtitle": "Bergabunglah menjadi partner resmi Trumecs",
@@ -1850,6 +1873,29 @@
           "title": "Suku Cadang Alat Berat Copotan",
           "description": "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai."
         }
+      }
+    },
+    "mechanic": {
+      "title": "Tru Expert: Tenaga Ahli Mekanikal",
+      "subtitle": "Solusi kebutuhan tenaga ahli mekanikal, driver, dan operator alat berat",
+      "badge": "Tru Expert",
+      "heroTitle": "Tenaga Ahli Mekanikal Terpercaya",
+      "heroSubtitle": "Temukan mekanik dan operator alat berat berpengalaman untuk kebutuhan perawatan, perbaikan, inspeksi, dan pengujian.",
+      "servicesTitle": "Layanan Kami",
+      "serviceMaintenance": "Perawatan",
+      "serviceRepair": "Perbaikan",
+      "serviceInspection": "Inspeksi",
+      "serviceTesting": "Pengujian",
+      "serviceMaintenanceDesc": "Perawatan preventive maintenance untuk alat berat",
+      "serviceRepairDesc": "Perbaikan komponen dan sistem kereta api",
+      "serviceInspectionDesc": "Inspeksi berkala dan kualitas produk",
+      "serviceTestingDesc": "Pengujian keandalan dan spesifikasi",
+      "ctaBrowseProducts": "Jelajahi Produk",
+      "ctaBecomeExpert": "Daftar Sebagai Pakar",
+      "contact": "Hubungi Kami",
+      "seo": {
+        "title": "Tru Expert: Tenaga Ahli Mekanikal - Trumecs.com",
+        "description": "Solusi kebutuhan tenaga ahli mekanikal, driver, dan operator alat berat untuk perawatan, perbaikan, inspeksi, dan pengujian."
       }
     },
     "error": {

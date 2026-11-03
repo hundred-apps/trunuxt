@@ -289,6 +289,8 @@ const randomAdsBottom = ref<ArticleAd | null>(null);
 const activeRelatedTag = ref<string | null>(null);
 
 // ============ SEO (setelah t dideklarasikan) ============
+const siteUrl = (config.public.siteUrl as string) || "https://www.trumecs.com";
+
 useHead({
   title: computed(() => article.value?.title || t("breadcrumb.article")),
   titleTemplate: "%s | Trumecs.com",
@@ -320,6 +322,29 @@ useSeoMeta({
 });
 
 useSchemaOrg([
+  computed(() =>
+    defineArticle({
+      headline: article.value?.title,
+      image: article.value?.image,
+      datePublished: article.value?.date,
+      author: {
+        "@type": "Person",
+        name: article.value?.author?.name || "Anonymous",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Trumecs",
+        logo: { "@type": "ImageObject", url: `${siteUrl}/logo.png` },
+      },
+      mainEntityOfPage: article.value?.url
+        ? `https://www.trumecs.com/article/${article.value?.url}`
+        : undefined,
+      description:
+        article.value?.excerpt ||
+        article.value?.content?.replace(/<[^>]*>/g, "").substring(0, 160) ||
+        "",
+    })
+  ),
   computed(() =>
     defineBreadcrumb({
       itemListElement: [

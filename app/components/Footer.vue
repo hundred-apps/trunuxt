@@ -268,6 +268,7 @@ const {
   trackClickLinkMobile,
   trackClickButton,
   trackClickButtonMobile,
+  trackWhatsAppClick,
 } = useAnalytics();
 const config = useRuntimeConfig();
 const urlTrumecs = config.public.info.linkTrumecsPhp;
@@ -372,6 +373,11 @@ const handleClickJoinNow = () => {
   } else {
     trackClickButton("Join Now Footer");
   }
+  trackWhatsAppClick("footer_join", {
+    phone: "6285176912338",
+    link_url: joinWhatsappLink.value,
+    page_path: window.location.pathname,
+  });
 };
 
 const handleClickSosmed = (name: String) => {
@@ -388,6 +394,11 @@ const handleClickWa = () => {
   } else {
     trackClickLink("Wa Footer");
   }
+  trackWhatsAppClick("footer", {
+    phone: contactInfo.whatsapp,
+    link_url: `https://wa.me/${contactInfo.whatsapp}`,
+    page_path: window.location.pathname,
+  });
 };
 
 const handleClickEmail = () => {

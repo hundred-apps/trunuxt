@@ -190,6 +190,16 @@ usePageSeo({
   url: "/faq",
 });
 
+// Schema FAQPage (https://schema.org/FAQPage) untuk rich result Google.
+// Pertanyaan dikumpulkan dari useLegalContent (faqContent.items).
+useSchemaOrg([
+  ...doc.value.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+]);
+
 onMounted(() => updateHeaderHeight());
 </script>
 
