@@ -1,5 +1,9 @@
 <template>
-  <section class="mb-8 lg:mb-12" aria-labelledby="products-heading">
+  <section
+    id="product-list-section"
+    class="mb-8 scroll-mt-[140px] lg:mb-12"
+    aria-labelledby="products-heading"
+  >
     <!-- Toolbar -->
     <div
       class="mb-5 flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between"
@@ -7,9 +11,14 @@
       <div>
         <h2
           id="products-heading"
-          class="flex items-center gap-2 text-lg font-bold text-gray-800"
+          class="flex flex-wrap items-center gap-2 text-lg font-bold text-gray-800"
         >
           {{ $t("page.category.products") }}
+          <span
+            v-if="filterTitle"
+            class="font-semibold text-gray-600"
+            >: {{ filterTitle }}</span
+          >
           <span
             class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-600"
           >
@@ -99,15 +108,52 @@
     </div>
 
     <!-- Loading State -->
-    <div
-      v-if="loading"
-      class="rounded-2xl border border-gray-100 bg-white shadow-sm"
-    >
-      <div class="flex min-h-[400px] flex-col items-center justify-center">
+    <div v-if="loading" class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+      <div
+        v-if="viewMode === 'grid'"
+        class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:gap-4 xl:grid-cols-4"
+      >
         <div
-          class="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"
-        ></div>
-        <p class="mt-4 text-gray-600">{{ $t("page.product.text.load") }}</p>
+          v-for="i in 8"
+          :key="'sk-g-' + i"
+          class="overflow-hidden rounded-xl border border-gray-100 bg-white"
+        >
+          <el-skeleton animated>
+            <template #template>
+              <el-skeleton-item variant="image" style="width: 100%; height: 160px" />
+              <div class="space-y-2 p-3">
+                <el-skeleton-item variant="text" style="width: 40%" />
+                <el-skeleton-item variant="text" style="width: 90%" />
+                <el-skeleton-item variant="text" style="width: 70%" />
+                <el-skeleton-item variant="text" style="width: 55%" />
+              </div>
+            </template>
+          </el-skeleton>
+        </div>
+      </div>
+      <div v-else class="space-y-3">
+        <div
+          v-for="i in 6"
+          :key="'sk-l-' + i"
+          class="flex gap-4 rounded-2xl border border-gray-100 p-3"
+        >
+          <el-skeleton animated style="width: 100%">
+            <template #template>
+              <div class="flex w-full gap-4">
+                <el-skeleton-item
+                  variant="image"
+                  style="width: 144px; height: 120px; flex-shrink: 0; border-radius: 8px"
+                />
+                <div class="flex-1 space-y-2 py-1">
+                  <el-skeleton-item variant="text" style="width: 30%" />
+                  <el-skeleton-item variant="text" style="width: 70%" />
+                  <el-skeleton-item variant="text" style="width: 50%" />
+                  <el-skeleton-item variant="text" style="width: 35%" />
+                </div>
+              </div>
+            </template>
+          </el-skeleton>
+        </div>
       </div>
     </div>
 
@@ -285,6 +331,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  filterTitle: {
+    type: String,
+    default: "",
+  },
 });
 
 const emit = defineEmits<{
@@ -334,7 +384,12 @@ const handleSortChange = (value: string) => {
 
 const handlePageChange = (page: number) => {
   emit("page-change", page);
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const el = document.getElementById("product-list-section");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 };
 </script>
 

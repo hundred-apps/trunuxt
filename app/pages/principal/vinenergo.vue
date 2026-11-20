@@ -614,10 +614,16 @@ const benefits = [
 
 const locations = ["Jakarta", "Bekasi", "Cikarang", "Tangerang"];
 
+const SITE_URL = "https://www.trumecs.com";
+const PAGE_PATH = "/principal/vinenergo";
+
+const localeHead = useLocaleHead();
 useHead({
-  title: t("page.principal.vinenergo.seo.title") || "VinEnergo BESS",
+  title: () => t("page.principal.vinenergo.seo.title") || "VinEnergo BESS",
   titleTemplate: "%s | Trumecs.com",
-  meta: [
+  htmlAttrs: computed(() => localeHead.value.htmlAttrs ?? {}),
+  meta: computed(() => [
+    ...(localeHead.value.meta ?? []),
     {
       name: "description",
       content: t("page.principal.vinenergo.seo.description") || "Solusi BESS",
@@ -633,11 +639,58 @@ useHead({
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },
-  ],
-  link: [
+  ]),
+  link: computed(() => [...(localeHead.value.link ?? [])]),
+});
+
+const geoJsonLd = computed(() => [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: t("breadcrumb.home"),
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("page.principal.title"),
+        item: `${SITE_URL}/principal`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: t("page.principal.vinenergo.seo.title") || "VinEnergo BESS",
+        item: `${SITE_URL}${PAGE_PATH}`,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Battery Energy Storage System (BESS)",
+    name: t("page.principal.vinenergo.seo.title") || "VinEnergo BESS",
+    description:
+      t("page.principal.vinenergo.seo.description") ||
+      "Solusi Battery Energy Storage System (BESS)",
+    url: `${SITE_URL}${PAGE_PATH}`,
+    provider: {
+      "@type": "Organization",
+      name: "Trumecs",
+      url: SITE_URL,
+    },
+    areaServed: { "@type": "Country", name: "Indonesia" },
+  },
+]);
+
+useHead({
+  script: [
     {
-      rel: "canonical",
-      href: "https://www.trumecs.com/principal/vinenergo",
+      type: "application/ld+json",
+      innerHTML: () => JSON.stringify(geoJsonLd.value),
     },
   ],
 });

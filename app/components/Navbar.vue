@@ -15,7 +15,7 @@
           <Icon name="material-symbols:menu" class="text-2xl text-gray-700" />
         </button>
 
-        <Trulink to="/">
+        <Trulink to="/" @click="handleLogoClick">
           <AppImage
             src="https://fe-migration.trumecs.com/logo/light.png"
             alt="logo trumecs"
@@ -43,9 +43,9 @@
         <div class="flex items-center justify-between mb-3">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <Trulink to="/">
+            <Trulink to="/" @click="handleLogoClick">
               <AppImage
-                src="https://fe-migration.trumecs.com/logo/light.png"
+                src="/logo/light.png"
                 alt="logo trumecs"
                 class="h-10 w-auto object-contain"
                 width="200"
@@ -257,9 +257,9 @@
           class="flex justify-between items-center px-4 py-3 border-b border-gray-100 flex-shrink-0"
         >
           <div class="flex-shrink-0">
-            <Trulink to="/">
+            <Trulink to="/" @click="handleLogoClick">
               <AppImage
-                src="https://fe-migration.trumecs.com/logo/light.png"
+                src="/logo/light.png"
                 alt="logo trumecs"
                 class="h-9 w-auto object-contain"
                 width="200"
@@ -651,6 +651,13 @@ const handleLogout = async () => {
 
 const handleLogin = () => {
   trackClickButton("Button 'Login'");
+};
+
+const handleLogoClick = () => {
+  showMobileMenu.value = false;
+  if (route.path === "/" && import.meta.client) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 };
 
 onMounted(async () => {

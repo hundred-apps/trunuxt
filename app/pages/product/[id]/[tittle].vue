@@ -1,13 +1,27 @@
 <template>
   <div class="product-detail-page min-h-screen">
     <!-- Loading State -->
-    <div v-if="loading" class="container mx-auto px-4 py-12">
-      <div class="flex flex-col items-center justify-center min-h-[400px]">
-        <div
-          class="animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent"
-        ></div>
-        <p class="mt-4 text-gray-600">{{ $t("page.product.text.load") }}</p>
-      </div>
+    <div v-if="loading" class="container mx-auto max-w-[1280px] px-4 py-6">
+      <el-skeleton animated>
+        <template #template>
+          <el-skeleton-item variant="text" style="width: 35%; height: 16px; margin-bottom: 16px" />
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            <div class="lg:col-span-5 space-y-3">
+              <el-skeleton-item variant="image" style="width: 100%; height: 420px; border-radius: 12px" />
+              <div class="grid grid-cols-4 gap-2">
+                <el-skeleton-item v-for="i in 4" :key="i" variant="image" style="width: 100%; height: 72px; border-radius: 8px" />
+              </div>
+            </div>
+            <div class="lg:col-span-7 space-y-4">
+              <el-skeleton-item variant="h1" style="width: 80%; height: 34px" />
+              <el-skeleton-item variant="text" style="width: 40%; height: 20px" />
+              <el-skeleton-item variant="text" style="width: 55%; height: 28px" />
+              <el-skeleton-item variant="rect" style="width: 100%; height: 140px; border-radius: 12px" />
+              <el-skeleton-item variant="rect" style="width: 100%; height: 220px; border-radius: 12px" />
+            </div>
+          </div>
+        </template>
+      </el-skeleton>
     </div>
 
     <!-- Product Not Found -->

@@ -150,6 +150,11 @@ export default defineNuxtConfig({
   components: true,
 
   elementPlus: {},
+  icon: {
+    // "/api/**" diproxy ke backend (lihat routeRules), jadi endpoint ikon
+    // lokal harus memakai path lain agar tidak ikut ter-proxy.
+    localApiEndpoint: "/_nuxt_icon",
+  },
   gtag: {
     id: process.env.NUXT_PUBLIC_GTAG_ID,
     loadingStrategy: "async",
@@ -242,9 +247,10 @@ export default defineNuxtConfig({
         // domains: i18nDomains, @nuxtjs/i18n akan error
         // "found multiple entries with trumecs.com" sehingga
         // switchLocalePath + hreflang/canonical kosong.
-        domains: ["trumecs.com"],
-        defaultForDomains: ["trumecs.com"],
+        domains: ["www.trumecs.com", "trumecs.com"],
+        defaultForDomains: ["www.trumecs.com", "trumecs.com"],
         iso: "id-ID",
+        language: "id-ID",
         name: "Bahasa Indonesia",
         file: "id.json",
       },
@@ -253,6 +259,7 @@ export default defineNuxtConfig({
         domains: ["en.trumecs.com"],
         defaultForDomains: ["en.trumecs.com"],
         iso: "en-US",
+        language: "en-US",
         name: "English",
         file: "en.json",
       },
@@ -261,6 +268,7 @@ export default defineNuxtConfig({
         domains: ["zh.trumecs.com"],
         defaultForDomains: ["zh.trumecs.com"],
         iso: "zh-CN",
+        language: "zh-CN",
         name: "中文",
         file: "zh.json",
       },

@@ -149,10 +149,11 @@
             :view-mode="viewMode"
             :sort-by="sortBy"
             :has-active-filters="hasActiveFilters"
+            :filter-title="activeFilterTitle"
             @view-change="viewMode = $event"
-            @sort-change="setSortBy"
-            @page-change="goToPage"
-            @clear-filters="clearFilters"
+            @sort-change="handleSortChange"
+            @page-change="handlePageChange"
+            @clear-filters="handleClearFilters"
           />
         </main>
       </div>
@@ -337,6 +338,7 @@ import { useProductSearch } from "~/composables/useProductSearch";
 import { useProductTags } from "~/composables/useProductTags";
 import { useFetchApi } from "~/composables/useFetchApi";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
+import { useAnalytics } from "~/composables/useAnalytics";
 import Breadcrumbs from "~/components/Breadcrumbs.vue";
 import CategoryTree from "~/components/category/CategoryTree.vue";
 import TagGrid from "~/components/category/TagGrid.vue";
@@ -346,6 +348,7 @@ import ProductTable from "~/components/category/ProductTable.vue";
 const { t: $t } = useI18n();
 const route = useRoute();
 const { updateHeaderHeight } = useHeaderHeight();
+const { trackEvent } = useAnalytics();
 
 const {
   loading,
@@ -439,12 +442,14 @@ const onKeywordInput = (value: string) => {
 const applyKeyword = () => {
   setKeyword(keywordDraft.value);
   goToPage(1);
+  scrollToProductList();
 };
 
 const clearKeyword = () => {
   keywordDraft.value = "";
   setKeyword("");
   goToPage(1);
+  scrollToProductList();
 };
 
 // Selaraskan draft dengan keyword dari URL
@@ -455,7 +460,94 @@ watch(keyword, (value) => {
 const resetFiltersAndClose = () => {
   clearFilters();
   showFilterSheet.value = false;
+  scrollToProductList();
 };
+
+const scrollToProductList = (behavior: ScrollBehavior = "smooth") => {
+  if (!import.meta.client) return;
+  const el = document.getElementById("product-list-section");
+  if (el) {
+    el.scrollIntoView({ behavior, block: "start" });
+  } else {
+    window.scrollTo({ top: 0, behavior });
+  }
+};
+
+const handlePageChange = (page: number) => {
+  goToPage(page);
+  trackEvent("search_pagination", {
+    page_number: page,
+    total_pages: totalPages.value,
+    per_page: perPage.value,
+    total_results: totalProducts.value,
+    search_term: keyword.value.trim() || undefined,
+    sort_by: sortBy.value,
+  });
+  scrollToProductList();
+};
+
+const handleSortChange = (value: string) => {
+  setSortBy(value);
+  scrollToProductList();
+};
+
+const handleClearFilters = () => {
+  clearFilters();
+  scrollToProductList();
+};
+
+const findCategoryById = (nodes: any[], id: number): any => {
+  for (const n of nodes || []) {
+    if (Number(n.id) === Number(id)) return n;
+    if (n.children?.length) {
+      const found = findCategoryById(n.children, id);
+      if (found) return found;
+    }
+  }
+  return null;
+};
+
+const activeFilterTitle = computed(() => {
+  const parts: string[] = [];
+  if (keyword.value.trim()) parts.push(`"${keyword.value.trim()}"`);
+  if (selectedCategoryIds.value.length > 0 && categories.value.length) {
+    const names = selectedCategoryIds.value
+      .map((cid: any) => findCategoryById(categories.value, Number(cid))?.name)
+      .filter(Boolean);
+    if (names.length) parts.push(names.slice(0, 2).join(", "));
+  }
+  if (selectedTagIds.value.length > 0 && (tagsList.value?.length || 0) > 0) {
+    const labels = selectedTagIds.value
+      .map((id: any) => {
+        const tag = tagsList.value.find((x: any) => String(x.id) === String(id));
+        return tagLabel ? tagLabel(tag) : tag?.tag || tag?.tag_en || tag?.tag_ch || "";
+      })
+      .filter(Boolean);
+    if (labels.length) parts.push(labels.slice(0, 2).join(", "));
+  }
+  if (selectedBrandId.value !== null && (brandsList.value?.length || 0) > 0) {
+    const brand = brandsList.value.find((b: any) => b.id === selectedBrandId.value);
+    if (brand?.name) parts.push(brand.name);
+  }
+  if (parts.length > 3) return `${parts.slice(0, 3).join(" • ")} +${parts.length - 3}`;
+  return parts.join(" • ");
+});
+
+const filterSignature = computed(
+  () =>
+    `${keyword.value}|${selectedCategoryIds.value.join(",")}|${selectedTagIds.value.join(",")}|${selectedBrandId.value ?? ""}|${sortBy.value}`
+);
+
+let filtersInitialized = false;
+watch(filterSignature, () => {
+  if (!import.meta.client) return;
+  if (!filtersInitialized) {
+    filtersInitialized = true;
+    return;
+  }
+  // scroll to products on filter/sort changes (not on initial hydration)
+  scrollToProductList();
+});
 
 // Kunci scroll body saat bottom sheet terbuka
 watch(showFilterSheet, (open) => {

@@ -13,10 +13,21 @@ export default defineNuxtPlugin(() => {
   const router = useRouter();
 
   router.afterEach((to) => {
+    const pageNumber = Number(to.query.page);
+    const searchTerm =
+      (to.query.q as string) ||
+      (to.query.nama as string) ||
+      (to.query.keyword as string) ||
+      "";
+
     trackEvent("page_view", {
       page: to.fullPath,
       page_path: to.fullPath,
       page_title: document.title,
+      ...(searchTerm ? { search_term: searchTerm } : {}),
+      ...(Number.isFinite(pageNumber) && pageNumber > 0
+        ? { page_number: pageNumber }
+        : {}),
     });
   });
 

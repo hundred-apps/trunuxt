@@ -27,20 +27,33 @@ export const useAnalytics = () => {
     trackEvent("sign_up", { method });
   };
 
-  const trackClickLink = (value: string) => {
-    trackEvent("click_link", { value });
+  /**
+   * Klik link. `params` opsional untuk konteks tambahan, mis.
+   * link_source, link_url, link_type, item_id, item_name, page_path.
+   */
+  const trackClickLink = (value: string, params: Record<string, any> = {}) => {
+    trackEvent("click_link", { link_label: value, ...params });
   };
 
-  const trackClickLinkMobile = (value: string) => {
-    trackEvent("click_link_mobile", { value });
+  const trackClickLinkMobile = (
+    value: string,
+    params: Record<string, any> = {}
+  ) => {
+    trackEvent("click_link_mobile", { link_label: value, ...params });
   };
 
-  const trackClickButton = (value: string) => {
-    trackEvent("button_click", { value });
+  const trackClickButton = (
+    value: string,
+    params: Record<string, any> = {}
+  ) => {
+    trackEvent("button_click", { button_label: value, ...params });
   };
 
-  const trackClickButtonMobile = (value: string) => {
-    trackEvent("button_click_mobile", { value });
+  const trackClickButtonMobile = (
+    value: string,
+    params: Record<string, any> = {}
+  ) => {
+    trackEvent("button_click_mobile", { button_label: value, ...params });
   };
 
   const trackClickCategory = (

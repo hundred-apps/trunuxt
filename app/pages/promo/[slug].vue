@@ -1,11 +1,23 @@
 <template>
   <div class="promo-detail-page py-4">
     <div class="container mx-auto max-w-[1280px]">
-      <div v-if="loading" class="text-center py-16">
-        <div
-          class="animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent mx-auto"
-        />
-        <p class="mt-4 text-gray-500">{{ $t("label.loading") }}</p>
+      <div v-if="loading" class="py-4">
+        <el-skeleton animated>
+          <template #template>
+            <el-skeleton-item variant="text" style="width: 30%; height: 16px; margin-bottom: 16px" />
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+              <div class="lg:col-span-8 space-y-4">
+                <el-skeleton-item variant="image" style="width: 100%; height: 360px; border-radius: 12px" />
+                <el-skeleton-item variant="h1" style="width: 70%; height: 32px" />
+                <el-skeleton-item v-for="i in 4" :key="i" variant="text" :style="{ width: i === 4 ? '60%' : '100%' }" />
+              </div>
+              <div class="lg:col-span-4 space-y-4">
+                <el-skeleton-item variant="rect" style="width: 100%; height: 260px; border-radius: 12px" />
+                <el-skeleton-item variant="rect" style="width: 100%; height: 160px; border-radius: 12px" />
+              </div>
+            </div>
+          </template>
+        </el-skeleton>
       </div>
 
       <div

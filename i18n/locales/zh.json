@@ -932,6 +932,23 @@
   "page": {
     "home": {
       "metaDescription": "从数千种优质产品中找到您的机械需求。零部件、润滑油、轮胎、重型设备与工作工具。",
+      "values": {
+        "title": "您的工业与能源解决方案合作伙伴",
+        "items": {
+          "engineering": {
+            "title": "工程技术专长",
+            "description": "以技术知识和实践经验提供合适的解决方案。"
+          },
+          "supply": {
+            "title": "可靠的工业供应",
+            "description": "优质产品与可信品牌，保障您的运营持续运行。"
+          },
+          "energy": {
+            "title": "综合能源解决方案",
+            "description": "助力更高效、更可持续的工业未来。"
+          }
+        }
+      },
       "hero": {
         "title": "值得信赖的机械采购解决方案",
         "subtitle": "从数千种优质产品中找到您的机械需求",
@@ -1021,8 +1038,18 @@
         "subtitle": "按您所在的行业领域浏览产品"
       },
       "categories": {
-        "title": "浏览分类",
-        "subtitle": "找到适合您需求的产品"
+        "title": "我们的产品与解决方案",
+        "subtitle": "可靠的工业产品与工程解决方案，助力您的业务运营",
+        "exploreMore": "了解更多",
+        "items": {
+          "industrialBearings": "工业轴承",
+          "renewableEnergy": "可再生能源解决方案",
+          "machiningFabrication": "机械加工与制造",
+          "industrialLubricants": "工业润滑油",
+          "conveyorBelt": "输送及配件",
+          "hydraulicHose": "液压软管",
+          "blueCollarHr": "人力资源"
+        }
       },
       "promo": {
         "title": "最新促销",
@@ -1030,18 +1057,27 @@
       },
       "featured": {
         "title": "热门产品",
-        "subtitle": "精选优质产品 深受客户喜爱"
+        "subtitle": "精选优质产品，深受客户喜爱"
       },
       "articles": {
         "title": "最新文章",
-        "subtitle": "机械行业的信息和技巧"
+        "subtitle": "机械行业的信息和技巧",
+        "untitled": "无标题",
+        "general": "综合"
       },
       "cta": {
         "title": "需要帮助？",
         "subtitle": "提交您的需求，我们将帮助您找到合适的产品",
         "button": "立即提交询价单"
       },
-      "title": "首页"
+      "title": "首页",
+      "heroBanners": {
+        "struman": "Struman 电源供应",
+        "trumecs": "Trumecs.com 横幅",
+        "steps": "下单步骤横幅",
+        "scrap": "在 Trumecs.com 出售重型设备废料",
+        "creditCard": "Trumecs 现已支持信用卡支付"
+      }
     },
     "article": {
       "loading": "正在加载文章...",
@@ -1848,6 +1884,4186 @@
         "seo": {
           "title": "重型设备拆车备件",
           "description": "为您重型设备备件需求提供经济可靠的解决方案。原装与OEM，严格检测，即用型。"
+        }
+      },
+      "conveyor": {
+        "hero": {
+          "badge": "ISO 9001:2015 认证",
+          "titleLine1": "输送带及配件",
+          "titleLine2": "一站式解决方案",
+          "subtitle": "提供高品质输送带及全套配件——皮带、辊筒、轴承、滚筒、托辊等，保障您生产线物料输送的顺畅运行。",
+          "ctaQuote": "获取报价",
+          "ctaServices": "浏览产品",
+          "scroll": "滚动"
+        },
+        "products": {
+          "sectionLabel": "产品与配件",
+          "title": "输送机零部件与配件",
+          "subtitle": "输送机零部件与配件，助力物料输送系统可靠、高效运行。点击产品查看详情。",
+          "detailLabels": {
+            "viewDetail": "查看详情",
+            "close": "关闭",
+            "description": "描述",
+            "specs": "规格",
+            "applications": "应用",
+            "beltTypes": "输送带类型"
+          },
+          "items": [
+            {
+              "name": "输送带",
+              "image": "/principal/conveyor/belt.jpg",
+              "description": "用于在各种工况下连续输送散料或单元货物的输送带。",
+              "specs": [
+                "材质：EP/NN/钢丝绳/PVC/PU",
+                "宽度按应用定制",
+                "多种等级与厚度"
+              ],
+              "applications": [
+                "矿山与骨料",
+                "工厂与制造",
+                "物流与港口"
+              ],
+              "beltTypes": [
+                {
+                  "name": "EP 织物芯输送带",
+                  "icon": "mdi:layers-triple",
+                  "description": "耐磨抗拉，是煤炭、砂石等磨琢性物料的常用选择。",
+                  "grades": [
+                    "EP100",
+                    "EP200",
+                    "EP300",
+                    "EP400"
+                  ]
+                },
+                {
+                  "name": "NN 织物芯输送带",
+                  "icon": "mdi:layers-outline",
+                  "description": "弹性与柔韧性好，适合重冲击加载与小直径滚筒。",
+                  "grades": [
+                    "NN100",
+                    "NN200",
+                    "NN300"
+                  ]
+                },
+                {
+                  "name": "钢丝绳芯输送带",
+                  "icon": "mdi:link-lock",
+                  "description": "抗拉强度极高，适用于港口、矿山等长距离重载线路。",
+                  "grades": [
+                    "ST1000",
+                    "ST2000",
+                    "ST3150"
+                  ]
+                },
+                {
+                  "name": "PVC 输送带",
+                  "icon": "mdi:silverware-clean",
+                  "description": "轻便、抗静电、易清洁，适用于食品、饮料与物流行业。",
+                  "grades": [
+                    "1 – 3 层",
+                    "食品级"
+                  ]
+                },
+                {
+                  "name": "PU 输送带",
+                  "icon": "mdi:flask-outline",
+                  "description": "耐油、耐化学品、耐温，广泛用于食品加工与制药行业。",
+                  "grades": [
+                    "食品级",
+                    "耐油"
+                  ]
+                },
+                {
+                  "name": "人字纹输送带",
+                  "icon": "mdi:chevron-triple-up",
+                  "description": "表面花纹设计，倾角40°以内输送散料不撒漏。",
+                  "grades": [
+                    "V形花纹",
+                    "Y形花纹",
+                    "多点花纹"
+                  ]
+                },
+                {
+                  "name": "波状挡边输送带",
+                  "icon": "mdi:border-outside",
+                  "description": "波状挡边与隔板设计，可实现最大90°大倾角输送。",
+                  "grades": [
+                    "40 mm",
+                    "80 mm",
+                    "120 mm"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "辊筒",
+              "image": "/principal/conveyor/roller-conv.jpg",
+              "description": "支撑皮带与物料运行的输送辊筒。",
+              "specs": [
+                "承载/回程/缓冲辊",
+                "钢制/HDPE 材质",
+                "多种直径与长度"
+              ],
+              "applications": [
+                "带式输送机",
+                "矿山",
+                "制造业"
+              ]
+            },
+            {
+              "name": "滚筒",
+              "image": "/principal/conveyor/pulley.jpg",
+              "description": "驱动/改向/尾部/张紧滚筒，用于驱动与导向输送带。",
+              "specs": [
+                "驱动、尾部、改向、张紧滚筒",
+                "可选包胶",
+                "可定制尺寸"
+              ],
+              "applications": [
+                "带式输送系统",
+                "重载输送"
+              ]
+            },
+            {
+              "name": "托辊",
+              "image": "/principal/conveyor/idler.jpg",
+              "description": "支撑皮带并保持运行对中的托辊组。",
+              "specs": [
+                "槽形、回程、缓冲、调心托辊",
+                "多种槽角",
+                "结构坚固"
+              ],
+              "applications": [
+                "长距离带式输送机",
+                "矿山与散料"
+              ]
+            },
+            {
+              "name": "皮带清扫器",
+              "image": "/principal/conveyor/belt-cleaner.jpg",
+              "description": "减少回料并保持输送系统清洁的皮带清扫器。",
+              "specs": [
+                "一级/二级清扫器",
+                "聚氨酯/合金刮刀",
+                "易维护"
+              ],
+              "applications": [
+                "头部滚筒区域",
+                "粘性/磨蚀性物料"
+              ]
+            },
+            {
+              "name": "导料槽橡胶板",
+              "image": "/principal/conveyor/skirtboard.jpg",
+              "description": "在转载/装料点抑制物料溢出的导料槽橡胶板。",
+              "specs": [
+                "耐磨橡胶",
+                "多种厚度",
+                "易安装"
+              ],
+              "applications": [
+                "装料与转载点",
+                "防尘/防溢料"
+              ]
+            },
+            {
+              "name": "滚筒包胶",
+              "image": "/principal/conveyor/lagging.webp",
+              "description": "提高摩擦力、减少打滑并延长滚筒/皮带寿命的包胶。",
+              "specs": [
+                "菱形/平面/陶瓷包胶",
+                "耐磨",
+                "增强抓地力"
+              ],
+              "applications": [
+                "驱动滚筒",
+                "潮湿/易滑工况"
+              ]
+            },
+            {
+              "name": "挡板/Cleat",
+              "image": "/principal/conveyor/cleat.jpg",
+              "description": "皮带挡板/型面，帮助在倾斜输送时防止物料滑落。",
+              "specs": [
+                "T型/人字/裙边型",
+                "橡胶/PVC/PU 材质",
+                "热硫化/冷粘"
+              ],
+              "applications": [
+                "倾斜输送机",
+                "倾斜散料输送"
+              ]
+            },
+            {
+              "name": "电机",
+              "image": "/principal/conveyor/motor-conveyor.jpg",
+              "description": "输送系统驱动电机，提供多种功率与扭矩选择。",
+              "specs": [
+                "电机/减速电机",
+                "多种功率与转速",
+                "工业工况"
+              ],
+              "applications": [
+                "输送机驱动",
+                "物料输送自动化"
+              ]
+            },
+            {
+              "name": "链条",
+              "image": "/principal/conveyor/chain-conveyor.jpg",
+              "description": "用于链式输送机动力传输与物料输送的输送链条。",
+              "specs": [
+                "滚子/附件链",
+                "耐磨钢材",
+                "多种节距"
+              ],
+              "applications": [
+                "链式输送机",
+                "重载/高温物料"
+              ]
+            },
+            {
+              "name": "链轮",
+              "image": "/principal/conveyor/sprocket.jpg",
+              "description": "链式输送系统链轮，确保精准可靠的动力传输。",
+              "specs": [
+                "单/双排",
+                "齿数与孔径可定制",
+                "钢制"
+              ],
+              "applications": [
+                "链式输送机",
+                "驱动与从动链轮"
+              ]
+            }
+          ]
+        },
+        "aboutAksesoris": {
+          "sectionLabel": "关于输送配件",
+          "title": "输送配件简介",
+          "description": "输送配件是保障输送系统稳定运行的关键支撑部件：辊筒和托辊支撑皮带，滚筒驱动运转，轴承保证顺畅旋转，清扫器和导料槽则保持皮带清洁并防止物料撒漏。我们提供兼容各种品牌和类型输送机的全套配件。",
+          "highlights": [
+            {
+              "title": "辊筒与托辊",
+              "icon": "mdi:cylinder",
+              "description": "承载与回程辊筒，高品质密封设计，转动顺畅，耐磨耐用。"
+            },
+            {
+              "title": "滚筒与包胶",
+              "icon": "mdi:cog-outline",
+              "description": "头部、尾部及改向滚筒，可选橡胶包胶以增强摩擦力。"
+            },
+            {
+              "title": "轴承",
+              "icon": "mdi:cog",
+              "description": "优质带座轴承（UC、UCP等），使用寿命长，维护方便。"
+            },
+            {
+              "title": "清扫器与导料槽",
+              "icon": "mdi:broom",
+              "description": "保持皮带清洁，防止物料粘附与沿线撒漏。"
+            }
+          ],
+          "imageAlt": "输送机配件"
+        },
+        "industries": {
+          "title": "服务的行业",
+          "items": [
+            {
+              "name": "制造业",
+              "image": "/principal/conveyor/manufacture-con.jpg"
+            },
+            {
+              "name": "食品与饮料",
+              "image": "/principal/conveyor/fnb-con.jpg"
+            },
+            {
+              "name": "矿业与水泥",
+              "image": "/principal/conveyor/mining-con.jpg"
+            },
+            {
+              "name": "棕榈油厂",
+              "image": "/principal/conveyor/sawit-con.jpg"
+            },
+            {
+              "name": "港口与物流",
+              "image": "/principal/conveyor/logistic-con.png"
+            }
+          ]
+        },
+        "types": {
+          "sectionLabel": "输送机类型",
+          "title": "我们提供的输送机类型",
+          "subtitle": "可根据物料、产能与场地布局调整的多种输送系统。",
+          "items": [
+            {
+              "title": "带式输送机",
+              "icon": "material-symbols:conveyor-belt",
+              "description": "最常见的带式输送系统，可连续输送散装物料及整件货物。",
+              "features": [
+                "带宽 500 – 2000 mm",
+                "水平与倾斜布置",
+                "EP / NN / 钢丝绳芯",
+                "运量达数百吨/小时"
+              ],
+              "image": "/principal/conveyor/conveyor-belt-1.webp"
+            },
+            {
+              "title": "辊筒输送机",
+              "icon": "mdi:cylinder",
+              "description": "由成排辊筒组成，适用于纸箱、托盘等整件货物的输送。",
+              "features": [
+                "重力式与动力式",
+                "钢制 / PVC 辊筒",
+                "转弯与分道",
+                "适用于托盘与纸箱"
+              ],
+              "image": "/principal/conveyor/roller-con.png"
+            },
+            {
+              "title": "链式输送机",
+              "icon": "mdi:link-variant",
+              "description": "结构坚固的链式输送机，适用于恶劣工况下重载、高温或磨琢性物料。",
+              "features": [
+                "重载能力",
+                "耐高温",
+                "埋刮板式",
+                "钢制结构"
+              ],
+              "image": "/principal/conveyor/chain-con-machine.jpg"
+            },
+            {
+              "title": "模块网带输送机",
+              "icon": "mdi:view-grid-outline",
+              "description": "采用易于清洁的塑料模块网带，是食品饮料行业的理想选择。",
+              "features": [
+                "食品级",
+                "易于清洁",
+                "转弯与螺旋",
+                "防滑"
+              ],
+              "image": "/principal/conveyor/modular-belt-con.jpg"
+            },
+            {
+              "title": "倾斜输送机",
+              "icon": "mdi:slope-uphill",
+              "description": "采用人字纹皮带或裙边皮带，将物料提升至指定高度的倾斜输送机。",
+              "features": [
+                "人字纹皮带",
+                "波状挡边皮带",
+                "倾角 > 30°",
+                "防撒漏"
+              ],
+              "image": "/principal/conveyor/incline-con.jpg"
+            },
+            {
+              "title": "垂直输送机",
+              "icon": "mdi:elevator",
+              "image": "/principal/conveyor/vertical-con.webp",
+              "description": "用于在不同楼层/高度之间高效输送物料或产品的垂直输送系统，占地面积小。",
+              "features": [
+                "楼层/高度间输送",
+                "连续式或往复式提升",
+                "节省占地空间",
+                "适用于箱体、托盘或散料"
+              ]
+            },
+            {
+              "title": "垂直螺旋输送机",
+              "icon": "mdi:rotate-3d-variant",
+              "image": "/principal/conveyor/spiral-con.jpg",
+              "description": "用于在不同高度/楼层之间连续上下输送产品的垂直螺旋输送机，占地面积极小。",
+              "features": [
+                "连续螺旋输送路径",
+                "占地面积小，节省空间",
+                "不同高度/楼层间输送",
+                "适用于箱体、纸箱及单元货物"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "联系方式与地点",
+          "needTitle": "需要咨询？",
+          "needDesc": "联系我们的销售团队，咨询输送带及配件需求。",
+          "whatsapp": "WhatsApp 聊天",
+          "email": "发送邮件",
+          "waText": "您好 Trumecs，我对贵公司的输送带及配件感兴趣。",
+          "emailSubject": "输送带及配件询价"
+        },
+        "seo": {
+          "title": "输送带及配件解决方案 - Trumecs",
+          "description": "提供输送带、辊筒、轴承、滚筒、托辊等全套输送配件，品质可靠，保障生产线物料输送顺畅运行。"
+        }
+      },
+      "renewable": {
+        "hero": {
+          "badge": "综合能源解决方案",
+          "titleLine1": "赋能企业运营，",
+          "titleLine2": "优化能源成本",
+          "subtitle": "一体化能源解决方案，助力您的企业更节能、更稳定，并为未来需求做好准备——覆盖规划、安装、运营到维护全流程。",
+          "ctaQuote": "获取报价",
+          "ctaServices": "了解解决方案",
+          "scroll": "滚动"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:factory",
+              "value": "±14%",
+              "label": "印尼工商业（C&I）企业已采用光伏"
+            },
+            {
+              "icon": "mdi:chart-line",
+              "value": "482.4",
+              "label": "MWh 印尼 C&I 光伏装机容量（2024）"
+            },
+            {
+              "icon": "mdi:cash-multiple",
+              "value": "降本",
+              "label": "自发能源让电力成本更可控"
+            },
+            {
+              "icon": "mdi:monitor-dashboard",
+              "value": "端到端",
+              "label": "TruMecs 团队提供规划至维护服务"
+            }
+          ]
+        },
+        "solutions": {
+          "sectionLabel": "我们的方案",
+          "subtitle": "从发电、储能到管理——根据您的用能特点量身定制的一体化解决方案。",
+          "flagshipTag": "核心方案",
+          "items": [
+            {
+              "name": "太阳能光伏系统",
+              "icon": "mdi:solar-power",
+              "description": "屋顶及地面光伏发电系统——涵盖可行性研究、设计、安装到调试验收。生产清洁电力，降低企业电费支出与碳排放。",
+              "chips": [
+                "屋顶 & 地面安装",
+                "并网 & 离网",
+                "太阳能水泵"
+              ]
+            },
+            {
+              "name": "风力发电系统",
+              "icon": "mdi:wind-turbine",
+              "description": "适用于沿海、高原等高风能资源地区的中小型风力发电机。",
+              "chips": []
+            },
+            {
+              "name": "电池储能系统",
+              "icon": "mdi:battery-charging-high",
+              "description": "用于备用电源、削峰填谷及离网应用的电池储能系统（BESS）。",
+              "chips": []
+            },
+            {
+              "name": "电动汽车充电站",
+              "icon": "mdi:ev-station",
+              "description": "与可再生能源发电系统一体化的电动汽车充电基础设施。",
+              "chips": []
+            },
+            {
+              "name": "能源管理",
+              "icon": "mdi:chart-arc",
+              "description": "能源审计与用能管理系统，实现全厂设施的最优能效。",
+              "chips": []
+            }
+          ],
+          "titleLine1": "一站式满足",
+          "titleLine2": "所有能源需求",
+          "learnMore": "了解更多"
+        },
+        "why": {
+          "sectionLabel": "为何转型",
+          "description": "可再生能源不仅关乎环境——更是一项明智的长期财务决策。转型越早，节省越多。",
+          "items": [
+            {
+              "title": "降低电费支出",
+              "icon": "mdi:cash-multiple",
+              "description": "利用太阳能和风能自主发电，电费最高可降低 70%。"
+            },
+            {
+              "title": "低碳排放",
+              "icon": "mdi:leaf",
+              "description": "减少企业碳足迹，满足日益严格的 ESG 目标与环保法规。"
+            },
+            {
+              "title": "能源独立",
+              "icon": "mdi:shield-check-outline",
+              "description": "发电与储能相结合，免受电价上涨和停电的影响。"
+            },
+            {
+              "title": "资产增值",
+              "icon": "mdi:lightning-bolt",
+              "description": "配备绿色能源系统的厂房和楼宇具有更高的转售价值和品牌形象。"
+            }
+          ],
+          "titleLine1": "既省钱",
+          "titleLine2": "又环保的投资",
+          "imageAlt": "风力发电机",
+          "certifiedLabel": "认证",
+          "certifiedName": "ISO 50001"
+        },
+        "process": {
+          "sectionLabel": "角色与职责",
+          "title": "从规划到维护",
+          "subtitle": "TruMecs.com 与战略合作伙伴将从初期阶段到后续维护全程为您提供支持。",
+          "items": [
+            {
+              "title": "规划",
+              "icon": "mdi:clipboard-search-outline",
+              "description": "TruMecs.com 与您的运营团队共同收集所需信息，并推荐最合适的方案。"
+            },
+            {
+              "title": "安装",
+              "icon": "mdi:tools",
+              "description": "在经验丰富合作伙伴的支持下，TruMecs.com 落实规划阶段达成一致的方案。"
+            },
+            {
+              "title": "运营",
+              "icon": "mdi:cog-play-outline",
+              "description": "TruMecs.com 全面负责已建成方案的运营，您无需额外配备专职人员。"
+            },
+            {
+              "title": "维护",
+              "icon": "mdi:wrench-clock-outline",
+              "description": "定期与例行维护，确保系统效率与能源优化表现。"
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "应用场景",
+          "items": [
+            {
+              "name": "工业园区",
+              "icon": "mdi:home-city"
+            },
+            {
+              "name": "工厂与制造业",
+              "icon": "mdi:factory"
+            },
+            {
+              "name": "仓储与物流",
+              "icon": "mdi:warehouse"
+            },
+            {
+              "name": "商业楼宇",
+              "icon": "mdi:storefront"
+            },
+            {
+              "name": "住宅与别墅",
+              "icon": "mdi:home"
+            },
+            {
+              "name": "农业与种植园",
+              "icon": "mdi:sprout"
+            }
+          ],
+          "titleLine1": "多样化",
+          "titleLine2": "应用场景",
+          "subtitle": "适用于各行业的灵活能源解决方案。"
+        },
+        "contact": {
+          "needDesc": "与我们的团队沟通您的能源需求——免费且无承诺约束。",
+          "whatsapp": "WhatsApp 聊天",
+          "email": "发送邮件",
+          "locationTitle": "主要服务地点",
+          "locationDesc": "我们在以下区域快速响应您的可再生能源需求。",
+          "locations": [
+            "雅加达",
+            "勿加泗",
+            "西卡朗",
+            "坦格朗"
+          ],
+          "eyebrow": "联系我们",
+          "titleLine1": "准备好转向",
+          "titleLine2": "清洁能源了吗？",
+          "waText": "您好 Trumecs，我对贵公司的可再生能源解决方案感兴趣。",
+          "emailSubject": "可再生能源解决方案询价"
+        },
+        "seo": {
+          "title": "综合能源解决方案 - TruMecs",
+          "description": "TruMecs 综合能源解决方案：光伏、储能（BESS）与能源管理，助力企业更高效、稳定、可持续。提供从规划到维护的端到端服务。"
+        },
+        "solarSystems": {
+          "sectionLabel": "太阳能系统",
+          "titleLine1": "并网、离网与",
+          "titleLine2": "混合系统对比",
+          "subtitle": "了解不同光伏系统类型的差异，以匹配您的用电需求、安装地点与预算。",
+          "items": [
+            {
+              "name": "并网系统（On-Grid）",
+              "icon": "mdi:transmission-tower",
+              "badge": "连接电网",
+              "description": "与公共电网连接的光伏系统。白天由太阳能供电，富余或不足的电力可与电网进行输出/输入（依当地规定）。",
+              "points": [
+                "白天利用太阳能发电，可降低电费",
+                "通常无需电池，初始投资相对较低",
+                "为安全起见，电网停电时一般不供电（除非配置特殊备电/电池功能）",
+                "适合电网接入稳定的住宅、商业与工业用户"
+              ]
+            },
+            {
+              "name": "离网系统（Off-Grid）",
+              "icon": "mdi:battery-charging",
+              "badge": "电池独立",
+              "description": "不连接公共电网的独立光伏系统。所有电能储存在电池中，可在夜间等任何时间使用。",
+              "points": [
+                "完全独立运行，不依赖公共电网",
+                "适合偏远地区或无电网覆盖的场所",
+                "需要配置电池组并进行合理的容量管理",
+                "因电池及控制设备，初始投资通常更高"
+              ]
+            },
+            {
+              "name": "混合系统（Hybrid）",
+              "icon": "mdi:solar-power-variant",
+              "badge": "灵活备电",
+              "description": "并网与离网的结合：既接入公共电网，又配备电池用于储能与备用电源。",
+              "points": [
+                "电网停电时可为关键负载供电（备电）",
+                "最大化太阳能自用，并管理电力的输入/输出",
+                "更灵活地满足自发自用与备用等变化需求",
+                "相比并网系统，成本与安装复杂度更高"
+              ]
+            }
+          ]
+        },
+        "benefits": {
+          "sectionLabel": "方案优势",
+          "titleLine1": "我们的四大",
+          "titleLine2": "能源优势",
+          "subtitle": "将能源管理交给 TruMecs，您可获得以下收益。",
+          "items": [
+            {
+              "icon": "mdi:solar-power-variant",
+              "title": "能源自立",
+              "description": "利用可再生自发能源满足日常运营用电需求。"
+            },
+            {
+              "icon": "mdi:chart-bell-curve-cumulative",
+              "title": "削峰填谷",
+              "description": "降低用电峰值负荷，从而减少电费支出。"
+            },
+            {
+              "icon": "mdi:layers-triple-outline",
+              "title": "可扩展",
+              "description": "模块化系统可根据业务需求逐步扩展。"
+            },
+            {
+              "icon": "mdi:sine-wave",
+              "title": "电能质量稳定",
+              "description": "自动调节功率，改善不良功率因数（kVArh）。"
+            }
+          ]
+        },
+        "facts": {
+          "sectionLabel": "关键事实",
+          "titleLine1": "真实采用与",
+          "titleLine2": "政府支持",
+          "subtitle": "在政府政策支持下，印尼工商业（C&I）领域的可再生能源持续增长。",
+          "adoptionTitle": "C&I 光伏渗透与增长",
+          "adoptionDesc": "约 14% 的印尼 C&I 企业已采用光伏——每 7 家中就有超过 1 家。",
+          "growthTitle": "印尼 C&I 光伏装机容量",
+          "growth": [
+            {
+              "year": "2020",
+              "value": "29.02 MWh"
+            },
+            {
+              "year": "2021",
+              "value": "34.86 MWh"
+            },
+            {
+              "year": "2022",
+              "value": "82.16 MWh"
+            },
+            {
+              "year": "2023",
+              "value": "265.59 MWh"
+            },
+            {
+              "year": "2024",
+              "value": "482.40 MWh"
+            }
+          ],
+          "supportTitle": "政府支持与为何是现在",
+          "supports": [
+            "启动 100 GWp 光伏计划，目标在三年内完成建设（2026 年 8 月 25 日）。",
+            "加快 100 GWp 光伏发展的总统令草案进入颁布阶段（2026 年 11 月 11 日）。",
+            "各行业已出现真实采用案例。",
+            "对企业未来而言，这是具有战略意义的可再生能源投资。"
+          ],
+          "note": "每个项目的机会与可行性将根据场地条件、负荷曲线、电价与电力规定以及适用法规进行评估。"
+        },
+        "schemes": {
+          "sectionLabel": "采购方案",
+          "titleLine1": "选择合适的",
+          "titleLine2": "方案",
+          "subtitle": "多种采购方案，灵活匹配您的投资与运营需求。",
+          "items": [
+            {
+              "icon": "mdi:cash-check",
+              "title": "直接购买（Capex）",
+              "tagline": "一次投资，拥有资产",
+              "description": "客户出资建设光伏及 BESS 系统并完全拥有资产。运维可自行负责或通过服务合同委托。",
+              "benefits": [
+                "长期节省电费",
+                "对资产与运营拥有完全控制权"
+              ]
+            },
+            {
+              "icon": "mdi:calendar-month-outline",
+              "title": "固定月付",
+              "tagline": "按月支付，轻松使用",
+              "description": "客户通过按月租赁或分期付款使用设备。所有权及合同到期选项依协议约定。",
+              "benefits": [
+                "初期资金压力更小",
+                "成本固定、易于规划"
+              ]
+            },
+            {
+              "icon": "mdi:meter-electric-outline",
+              "title": "按 kWh 付费",
+              "tagline": "按用电量付费",
+              "description": "由投资方/服务商出资并拥有系统。客户按合同约定电价，根据实际用电量（kWh）付费。",
+              "benefits": [
+                "费用更透明",
+                "无需前期投资"
+              ]
+            },
+            {
+              "icon": "mdi:handshake-outline",
+              "title": "建设-拥有-运营-移交（BOOT）",
+              "tagline": "一站式方案，期满移交",
+              "description": "服务商在合同期内建设、拥有并运营系统，期满后可按约定将资产移交给客户。",
+              "benefits": [
+                "无前期投资且无需承担运营事务",
+                "合同期满可按约定移交资产"
+              ]
+            }
+          ]
+        },
+        "assessment": {
+          "sectionLabel": "能源评估",
+          "titleLine1": "初步信息",
+          "titleLine2": "需求",
+          "subtitle": "每个解决方案都始于了解客户的用电需求与运营情况。为实现优化，TruMecs.com 团队将进行现场勘查并需要以下数据：",
+          "items": [
+            "近 6–12 个月的电费账单",
+            "用电量数据（kWh）及每小时用电数据（如有）",
+            "峰值负荷（kW/kVA）与功率因数",
+            "运营时间以及必须持续供电的设备清单",
+            "屋顶或场地的面积、朝向与状况",
+            "备用电力需求，以及关键设备需持续供电的时长",
+            "未来设施扩建计划"
+          ]
+        }
+      },
+      "industrialBearing": {
+        "hero": {
+          "eyebrow": "工业轴承与动力传动",
+          "titleLine1": "以精准品质",
+          "titleLine2": "驱动工业运转",
+          "subtitle": "适用于电机、水泵、齿轮箱和输送机的球轴承、滚子轴承、推力轴承及带座轴承。选型准确、供货可靠，并提供技术支持。",
+          "ctaBrowse": "浏览轴承类型",
+          "ctaQuote": "获取报价"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:shield-check-outline",
+              "title": "可靠性",
+              "description": "更长的使用寿命与稳定可靠的设备性能。"
+            },
+            {
+              "icon": "mdi:cash-multiple",
+              "title": "成本效益",
+              "description": "降低维护成本，减少意外停机时间。"
+            },
+            {
+              "icon": "mdi:cog-sync-outline",
+              "title": "技术适配性",
+              "description": "为特定工业应用选择合适的轴承。"
+            }
+          ]
+        },
+        "groups": {
+          "items": [
+            "全部",
+            "球轴承",
+            "滚子轴承",
+            "推力轴承",
+            "直线轴承",
+            "带座轴承",
+            "滑动轴承"
+          ]
+        },
+        "types": {
+          "sectionLabel": "轴承类型",
+          "titleLine1": "为每种载荷",
+          "titleLine2": "选择合适的轴承",
+          "subtitle": "每种结构对径向、轴向及联合载荷的承受方式不同。选择类别，了解各类型的优势与用途。",
+          "loadLabel": "承载能力",
+          "exampleLabel": "示例代号",
+          "items": [
+            {
+              "name": "深沟球轴承",
+              "icon": "mdi:circle-double",
+              "image": "/principal/bearing/88-20240130151414.png",
+              "groupIdx": 1,
+              "description": "最常见的球轴承类型，可在高速下承受径向载荷及轻微双向轴向载荷。",
+              "load": "径向 + 轻微轴向",
+              "example": "6205-2RS C3",
+              "uses": [
+                "电动机",
+                "输送机",
+                "风机与鼓风机"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 4,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                },
+                {
+                  "name": "泵、电机与风机",
+                  "summary": "旋转设备连续运转，低摩擦、热稳定性与正确游隙是长寿命的关键。",
+                  "equipment": [
+                    "离心泵",
+                    "工业电机",
+                    "鼓风机与冷却风机",
+                    "压缩机"
+                  ],
+                  "tip": "变频电机建议选用绝缘或混合轴承，防止电蚀损伤。"
+                },
+                {
+                  "name": "物料搬运",
+                  "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+                  "equipment": [
+                    "滚筒与带式输送机",
+                    "起重设备",
+                    "包装分拣线",
+                    "农业机械"
+                  ],
+                  "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+                }
+              ]
+            },
+            {
+              "name": "角接触球轴承",
+              "icon": "mdi:angle-acute",
+              "image": "/principal/bearing/89-20240130151451.png",
+              "groupIdx": 1,
+              "description": "用于同时承受径向与轴向载荷，常成对用于高速精密场合。",
+              "load": "径向 + 轴向（单/双向）",
+              "example": "7206-BEP",
+              "uses": [
+                "机床主轴",
+                "泵",
+                "精密工业设备"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 3,
+                "speed": 4,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                },
+                {
+                  "name": "泵、电机与风机",
+                  "summary": "旋转设备连续运转，低摩擦、热稳定性与正确游隙是长寿命的关键。",
+                  "equipment": [
+                    "离心泵",
+                    "工业电机",
+                    "鼓风机与冷却风机",
+                    "压缩机"
+                  ],
+                  "tip": "变频电机建议选用绝缘或混合轴承，防止电蚀损伤。"
+                }
+              ]
+            },
+            {
+              "name": "调心球轴承",
+              "icon": "mdi:circle-outline",
+              "image": "/principal/bearing/105-20240130152309.png",
+              "groupIdx": 1,
+              "description": "可补偿轴与轴承座之间的不同心与轴挠曲（调心性能）。",
+              "load": "径向 + 轻微轴向",
+              "example": "1206",
+              "uses": [
+                "易不同心的轴系",
+                "输送机",
+                "农业机械"
+              ],
+              "performance": {
+                "radial": 2,
+                "axial": 1,
+                "speed": 3,
+                "misalign": 4
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                },
+                {
+                  "name": "物料搬运",
+                  "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+                  "equipment": [
+                    "滚筒与带式输送机",
+                    "起重设备",
+                    "包装分拣线",
+                    "农业机械"
+                  ],
+                  "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+                }
+              ]
+            },
+            {
+              "name": "圆柱滚子轴承",
+              "icon": "mdi:cylinder",
+              "image": "/principal/bearing/91-20240130151636.png",
+              "groupIdx": 2,
+              "description": "采用圆柱滚子，可承受极高径向载荷及部分轴向载荷。",
+              "load": "极高径向载荷",
+              "example": "NU 310 ECP",
+              "uses": [
+                "齿轮箱",
+                "大型电机",
+                "重载输送滚筒"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 1,
+                "speed": 3,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                },
+                {
+                  "name": "泵、电机与风机",
+                  "summary": "旋转设备连续运转，低摩擦、热稳定性与正确游隙是长寿命的关键。",
+                  "equipment": [
+                    "离心泵",
+                    "工业电机",
+                    "鼓风机与冷却风机",
+                    "压缩机"
+                  ],
+                  "tip": "变频电机建议选用绝缘或混合轴承，防止电蚀损伤。"
+                }
+              ]
+            },
+            {
+              "name": "圆锥滚子轴承",
+              "icon": "mdi:cone",
+              "image": "/principal/bearing/92-20240130151708.png",
+              "groupIdx": 2,
+              "description": "圆锥滚子设计，可同时承受较大径向与轴向载荷，常成对安装。",
+              "load": "高径向与轴向载荷",
+              "example": "32210",
+              "uses": [
+                "轮毂",
+                "齿轮箱",
+                "差速器"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 3,
+                "speed": 2,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "矿山与水泥",
+                  "summary": "重载、冲击、粉尘与振动要求轴承坚固、承载高且密封良好。",
+                  "equipment": [
+                    "破碎机与磨机",
+                    "振动筛",
+                    "带式输送机",
+                    "回转窑与风机"
+                  ],
+                  "tip": "振动设备通常需要较大游隙和合适的保持架结构，请核对 OEM 规格。"
+                },
+                {
+                  "name": "物料搬运",
+                  "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+                  "equipment": [
+                    "滚筒与带式输送机",
+                    "起重设备",
+                    "包装分拣线",
+                    "农业机械"
+                  ],
+                  "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+                }
+              ]
+            },
+            {
+              "name": "调心滚子轴承",
+              "icon": "mdi:sphere",
+              "image": "/principal/bearing/93-20240130151732.png",
+              "groupIdx": 2,
+              "description": "可承受极重径向载荷，并能适应安装不同心的工况。",
+              "load": "极高径向 + 调心",
+              "example": "22212 E",
+              "uses": [
+                "破碎机与振动筛",
+                "矿用输送机",
+                "大型齿轮箱"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 4
+              },
+              "industries": [
+                {
+                  "name": "矿山与水泥",
+                  "summary": "重载、冲击、粉尘与振动要求轴承坚固、承载高且密封良好。",
+                  "equipment": [
+                    "破碎机与磨机",
+                    "振动筛",
+                    "带式输送机",
+                    "回转窑与风机"
+                  ],
+                  "tip": "振动设备通常需要较大游隙和合适的保持架结构，请核对 OEM 规格。"
+                },
+                {
+                  "name": "物料搬运",
+                  "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+                  "equipment": [
+                    "滚筒与带式输送机",
+                    "起重设备",
+                    "包装分拣线",
+                    "农业机械"
+                  ],
+                  "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+                }
+              ]
+            },
+            {
+              "name": "滚针轴承",
+              "icon": "mdi:dots-horizontal",
+              "image": "/principal/bearing/94-20240130151808.png",
+              "groupIdx": 2,
+              "description": "结构紧凑，适用于径向空间受限但需要高承载与高刚性的场合。",
+              "load": "高径向（紧凑空间）",
+              "example": "NK 25/20",
+              "uses": [
+                "自动变速箱",
+                "纺织机械",
+                "农业机械"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                }
+              ]
+            },
+            {
+              "name": "推力球轴承",
+              "icon": "mdi:arrow-collapse-vertical",
+              "image": "/principal/bearing/96-20240130151854.png",
+              "groupIdx": 3,
+              "description": "专用于承受单向（部分型号可双向）轴向/推力载荷。",
+              "load": "轴向（推力）",
+              "example": "51108",
+              "uses": [
+                "转台",
+                "汽车变速箱",
+                "立式泵"
+              ],
+              "performance": {
+                "radial": 0,
+                "axial": 3,
+                "speed": 2,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "泵、电机与风机",
+                  "summary": "旋转设备连续运转，低摩擦、热稳定性与正确游隙是长寿命的关键。",
+                  "equipment": [
+                    "离心泵",
+                    "工业电机",
+                    "鼓风机与冷却风机",
+                    "压缩机"
+                  ],
+                  "tip": "变频电机建议选用绝缘或混合轴承，防止电蚀损伤。"
+                }
+              ]
+            },
+            {
+              "name": "推力滚子轴承",
+              "icon": "mdi:arrow-up-down-bold",
+              "image": "/principal/bearing/97-20240130151933.png",
+              "groupIdx": 3,
+              "description": "可承受更高的推力/轴向载荷，有圆柱、调心、圆锥等设计。",
+              "load": "极高轴向载荷",
+              "example": "81212 TN",
+              "uses": [
+                "工业齿轮箱",
+                "挤出机",
+                "起重机吊钩"
+              ],
+              "performance": {
+                "radial": 0,
+                "axial": 4,
+                "speed": 2,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "矿山与水泥",
+                  "summary": "重载、冲击、粉尘与振动要求轴承坚固、承载高且密封良好。",
+                  "equipment": [
+                    "破碎机与磨机",
+                    "振动筛",
+                    "带式输送机",
+                    "回转窑与风机"
+                  ],
+                  "tip": "振动设备通常需要较大游隙和合适的保持架结构，请核对 OEM 规格。"
+                },
+                {
+                  "name": "泵、电机与风机",
+                  "summary": "旋转设备连续运转，低摩擦、热稳定性与正确游隙是长寿命的关键。",
+                  "equipment": [
+                    "离心泵",
+                    "工业电机",
+                    "鼓风机与冷却风机",
+                    "压缩机"
+                  ],
+                  "tip": "变频电机建议选用绝缘或混合轴承，防止电蚀损伤。"
+                }
+              ]
+            },
+            {
+              "name": "直线球轴承",
+              "icon": "mdi:swap-horizontal",
+              "image": "/principal/bearing/100-20240130152050.png",
+              "groupIdx": 4,
+              "description": "在直线轴上提供精密直线运动，广泛用于自动化与工业机械。",
+              "load": "直线/轻径向",
+              "example": "LM20UU",
+              "uses": [
+                "包装与印刷机械",
+                "自动化设备",
+                "CNC 与机器人"
+              ],
+              "performance": {
+                "radial": 2,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 0
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                }
+              ]
+            },
+            {
+              "name": "直线滚子轴承",
+              "icon": "mdi:swap-horizontal-bold",
+              "image": "/principal/bearing/101-20240130152120.png",
+              "groupIdx": 4,
+              "description": "与直线球轴承类似，但采用滚子以获得更高承载能力与刚性。",
+              "load": "高直线载荷",
+              "example": "MGN12H",
+              "uses": [
+                "机床导轨",
+                "CNC",
+                "精密自动化系统"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 0
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                }
+              ]
+            },
+            {
+              "name": "带座外球面轴承（Pillow Block）",
+              "icon": "mdi:cube-outline",
+              "image": "/principal/bearing/103-20240130152212.png",
+              "groupIdx": 5,
+              "description": "安装于轴承座中的带座单元，用于支撑旋转轴，安装与更换简便。",
+              "load": "取决于内置轴承",
+              "example": "UCP 205",
+              "uses": [
+                "输送机",
+                "工业风机",
+                "农业机械"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 3
+              },
+              "industries": [
+                {
+                  "name": "矿山与水泥",
+                  "summary": "重载、冲击、粉尘与振动要求轴承坚固、承载高且密封良好。",
+                  "equipment": [
+                    "破碎机与磨机",
+                    "振动筛",
+                    "带式输送机",
+                    "回转窑与风机"
+                  ],
+                  "tip": "振动设备通常需要较大游隙和合适的保持架结构，请核对 OEM 规格。"
+                },
+                {
+                  "name": "食品与饮料",
+                  "summary": "清洗与卫生要求需要耐腐蚀轴承与食品级润滑。",
+                  "equipment": [
+                    "灌装线",
+                    "输送机与混合机",
+                    "包装设备",
+                    "冲洗电机"
+                  ],
+                  "tip": "选择密封良好并使用食品级润滑脂的轴承，以承受频繁冲洗。"
+                },
+                {
+                  "name": "物料搬运",
+                  "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+                  "equipment": [
+                    "滚筒与带式输送机",
+                    "起重设备",
+                    "包装分拣线",
+                    "农业机械"
+                  ],
+                  "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+                }
+              ]
+            },
+            {
+              "name": "带座法兰轴承（Flange）",
+              "icon": "mdi:circle-box-outline",
+              "image": "/principal/bearing/104-20240130152238.png",
+              "groupIdx": 5,
+              "description": "带法兰的带座轴承，便于安装在与轴垂直的安装面上。",
+              "load": "取决于内置轴承",
+              "example": "UCFL 205",
+              "uses": [
+                "输送机",
+                "食品加工机械",
+                "包装设备"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "食品与饮料",
+                  "summary": "清洗与卫生要求需要耐腐蚀轴承与食品级润滑。",
+                  "equipment": [
+                    "灌装线",
+                    "输送机与混合机",
+                    "包装设备",
+                    "冲洗电机"
+                  ],
+                  "tip": "选择密封良好并使用食品级润滑脂的轴承，以承受频繁冲洗。"
+                },
+                {
+                  "name": "物料搬运",
+                  "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+                  "equipment": [
+                    "滚筒与带式输送机",
+                    "起重设备",
+                    "包装分拣线",
+                    "农业机械"
+                  ],
+                  "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+                }
+              ]
+            },
+            {
+              "name": "滑动轴承（衬套）",
+              "icon": "mdi:circle-slice-8",
+              "image": "/principal/bearing/98-20240130151957.png",
+              "groupIdx": 6,
+              "description": "无滚动体的滑动轴承，接触面平滑，结构简单且耐冲击。",
+              "load": "径向与轴向（滑动）",
+              "example": "DU 2515",
+              "uses": [
+                "曲轴与连杆",
+                "铰链与连杆机构",
+                "重型机械"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 1,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "制造业",
+                  "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+                  "equipment": [
+                    "电机与风机",
+                    "机床主轴",
+                    "齿轮箱与减速机",
+                    "包装机械"
+                  ],
+                  "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+                },
+                {
+                  "name": "矿山与水泥",
+                  "summary": "重载、冲击、粉尘与振动要求轴承坚固、承载高且密封良好。",
+                  "equipment": [
+                    "破碎机与磨机",
+                    "振动筛",
+                    "带式输送机",
+                    "回转窑与风机"
+                  ],
+                  "tip": "振动设备通常需要较大游隙和合适的保持架结构，请核对 OEM 规格。"
+                }
+              ]
+            }
+          ],
+          "searchPlaceholder": "搜索轴承类型...",
+          "noResults": "未找到匹配的轴承类型。",
+          "performanceTitle": "性能概览",
+          "performanceLabels": {
+            "radial": "径向载荷",
+            "axial": "轴向载荷",
+            "speed": "转速",
+            "misalign": "调心能力"
+          },
+          "industryTitle": "行业应用",
+          "detail": {
+            "description": "描述",
+            "specs": "规格",
+            "load": "载荷",
+            "example": "示例型号",
+            "uses": "典型应用",
+            "close": "关闭",
+            "viewDetails": "查看详情"
+          }
+        },
+        "compare": {
+          "sectionLabel": "快速对比",
+          "titleLine1": "性能",
+          "titleLine2": "一目了然",
+          "subtitle": "常用轴承类型的相对对比指南。实心点越多，表示该方面能力越强。",
+          "note": "仅供参考。实际能力取决于尺寸、系列、内部结构与制造商。请查阅目录获取准确额定值。",
+          "colType": "轴承类型",
+          "colRadial": "径向载荷",
+          "colAxial": "轴向载荷",
+          "colSpeed": "转速",
+          "colMisalign": "不对中",
+          "items": [
+            {
+              "name": "深沟球轴承",
+              "radial": 3,
+              "axial": 2,
+              "speed": 4,
+              "misalign": 1
+            },
+            {
+              "name": "角接触球轴承",
+              "radial": 3,
+              "axial": 3,
+              "speed": 4,
+              "misalign": 1
+            },
+            {
+              "name": "推力球轴承",
+              "radial": 0,
+              "axial": 3,
+              "speed": 2,
+              "misalign": 1
+            },
+            {
+              "name": "圆柱滚子轴承",
+              "radial": 4,
+              "axial": 1,
+              "speed": 3,
+              "misalign": 1
+            },
+            {
+              "name": "圆锥滚子轴承",
+              "radial": 4,
+              "axial": 3,
+              "speed": 2,
+              "misalign": 1
+            },
+            {
+              "name": "调心滚子轴承",
+              "radial": 4,
+              "axial": 2,
+              "speed": 2,
+              "misalign": 4
+            },
+            {
+              "name": "滚针轴承",
+              "radial": 4,
+              "axial": 0,
+              "speed": 3,
+              "misalign": 1
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "应用",
+          "titleLine1": "按行业",
+          "titleLine2": "查看用途",
+          "subtitle": "选择您的行业，查看典型设备与最常选用的轴承类型。",
+          "labelEquipment": "典型设备",
+          "labelBearings": "推荐轴承",
+          "items": [
+            {
+              "name": "制造业",
+              "icon": "mdi:factory",
+              "summary": "生产设备依赖电机、主轴与齿轮传动中精密耐用的轴承。突发轴承故障可能导致整线停机。",
+              "equipment": [
+                "电机与风机",
+                "机床主轴",
+                "齿轮箱与减速机",
+                "包装机械"
+              ],
+              "bearings": [
+                "密封深沟球轴承",
+                "角接触球轴承",
+                "圆柱滚子轴承",
+                "自动化直线轴承"
+              ],
+              "tip": "润滑不便处优先选用密封轴承，并按配合与工作温度选择合适游隙。"
+            },
+            {
+              "name": "矿山与水泥",
+              "icon": "mdi:excavator",
+              "summary": "重载、冲击、粉尘与振动要求轴承坚固、承载高且密封良好。",
+              "equipment": [
+                "破碎机与磨机",
+                "振动筛",
+                "带式输送机",
+                "回转窑与风机"
+              ],
+              "bearings": [
+                "调心滚子轴承",
+                "带座调心滚子单元",
+                "圆锥滚子轴承",
+                "重载带座单元"
+              ],
+              "tip": "振动设备通常需要较大游隙和合适的保持架结构，请核对 OEM 规格。"
+            },
+            {
+              "name": "泵、电机与风机",
+              "icon": "mdi:fan",
+              "summary": "旋转设备连续运转，低摩擦、热稳定性与正确游隙是长寿命的关键。",
+              "equipment": [
+                "离心泵",
+                "工业电机",
+                "鼓风机与冷却风机",
+                "压缩机"
+              ],
+              "bearings": [
+                "深沟球轴承（C3 游隙）",
+                "成对角接触球轴承",
+                "圆柱滚子轴承",
+                "立式泵推力球轴承"
+              ],
+              "tip": "变频电机建议选用绝缘或混合轴承，防止电蚀损伤。"
+            },
+            {
+              "name": "食品与饮料",
+              "icon": "mdi:food-variant",
+              "summary": "清洗与卫生要求需要耐腐蚀轴承与食品级润滑。",
+              "equipment": [
+                "灌装线",
+                "输送机与混合机",
+                "包装设备",
+                "冲洗电机"
+              ],
+              "bearings": [
+                "不锈钢球轴承",
+                "食品级润滑密封轴承",
+                "不锈钢带座单元",
+                "塑料/聚合物座体"
+              ],
+              "tip": "选择密封良好并使用食品级润滑脂的轴承，以承受频繁冲洗。"
+            },
+            {
+              "name": "物料搬运",
+              "icon": "mdi:truck-cargo-container",
+              "summary": "输送与起重设备需要可靠、易安装且容忍一定不对中的轴承。",
+              "equipment": [
+                "滚筒与带式输送机",
+                "起重设备",
+                "包装分拣线",
+                "农业机械"
+              ],
+              "bearings": [
+                "立式/法兰带座单元",
+                "调心球轴承",
+                "调心滚子轴承",
+                "深沟球轴承"
+              ],
+              "tip": "紧定套或偏心套锁紧的带座单元安装更快，维护更简单。"
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "技术参考",
+          "titleLine1": "读懂",
+          "titleLine2": "轴承代号",
+          "subtitle": "轴承代号将类型、尺寸、密封与游隙浓缩在几个字符中。以下解读一个常见示例。",
+          "decoder": [
+            {
+              "code": "6",
+              "label": "类型",
+              "meaning": "轴承类型：深沟球轴承"
+            },
+            {
+              "code": "2",
+              "label": "系列",
+              "meaning": "尺寸系列：轻系列（影响外径与宽度）"
+            },
+            {
+              "code": "05",
+              "label": "内径",
+              "meaning": "内径代号：05 × 5 = 内径 25 mm"
+            },
+            {
+              "code": "2RS",
+              "label": "密封",
+              "meaning": "两侧接触式橡胶密封"
+            },
+            {
+              "code": "C3",
+              "label": "游隙",
+              "meaning": "内部径向游隙大于标准"
+            }
+          ],
+          "clearanceTitle": "内部游隙",
+          "clearanceSub": "径向游隙等级（ISO 5753）",
+          "colCode": "代码",
+          "colClass": "等级",
+          "colMeaning": "含义",
+          "colUse": "典型用途",
+          "clearanceRows": [
+            {
+              "code": "C2",
+              "meaning": "小于标准",
+              "use": "精密场合、轻配合、低振动"
+            },
+            {
+              "code": "CN",
+              "meaning": "标准",
+              "use": "标准配合的一般应用"
+            },
+            {
+              "code": "C3",
+              "meaning": "大于标准",
+              "use": "电机、过盈配合、较高温度"
+            },
+            {
+              "code": "C4",
+              "meaning": "大于 C3",
+              "use": "大温差、重过盈配合"
+            }
+          ],
+          "suffixTitle": "常见后缀代号",
+          "suffixSub": "密封、保持架与内孔特征",
+          "colNote": "备注",
+          "suffixRows": [
+            {
+              "code": "ZZ",
+              "meaning": "两侧金属防尘盖",
+              "note": "非接触式，摩擦低"
+            },
+            {
+              "code": "2RS",
+              "meaning": "两侧橡胶接触密封",
+              "note": "防尘防潮更佳"
+            },
+            {
+              "code": "K",
+              "meaning": "圆锥孔 1:12",
+              "note": "用于紧定套或退卸套"
+            },
+            {
+              "code": "E",
+              "meaning": "优化内部设计",
+              "note": "承载能力更高"
+            },
+            {
+              "code": "M / J",
+              "meaning": "黄铜 / 冲压钢保持架",
+              "note": "因制造商而异"
+            }
+          ],
+          "suffixNote": "后缀代号因制造商而异，请务必与厂家目录核对。"
+        },
+        "selection": {
+          "sectionLabel": "选型指南",
+          "titleLine1": "如何选择",
+          "titleLine2": "合适的轴承",
+          "subtitle": "翻开样本之前，四个问题就能缩小大多数轴承选型范围。",
+          "items": [
+            {
+              "icon": "mdi:weight",
+              "title": "明确载荷",
+              "description": "确定径向、轴向或联合载荷及其方向，可立即缩小轴承类型范围。"
+            },
+            {
+              "icon": "mdi:speedometer",
+              "title": "核对转速",
+              "description": "高速偏向球轴承与精密设计；重载低速偏向滚子类轴承。"
+            },
+            {
+              "icon": "mdi:ruler-square",
+              "title": "确认尺寸与配合",
+              "description": "核对内径、外径与宽度，再选定轴与座的配合及合适游隙。"
+            },
+            {
+              "icon": "mdi:water-alert-outline",
+              "title": "考虑环境",
+              "description": "粉尘、潮湿、高温与清洗工况影响密封、材质与润滑剂的选择。"
+            }
+          ]
+        },
+        "care": {
+          "sectionLabel": "可靠性",
+          "titleLine1": "轴承为何失效",
+          "titleLine2": "及如何预防",
+          "subtitle": "大多数早期失效源于少数几个原因，良好的安装与维护即可避免。",
+          "items": [
+            {
+              "icon": "mdi:oil",
+              "title": "润滑不良",
+              "description": "润滑脂过少、过多或选型错误都会导致发热与磨损。请遵循正确的牌号与加注周期。"
+            },
+            {
+              "icon": "mdi:dots-grid",
+              "title": "污染",
+              "description": "污物与潮气损伤滚道。有效密封与清洁操作可显著延长寿命。"
+            },
+            {
+              "icon": "mdi:tools",
+              "title": "安装不当",
+              "description": "敲击、不对中或配合错误会造成早期损伤。请使用专用工具与加热方法。"
+            },
+            {
+              "icon": "mdi:flash-outline",
+              "title": "电蚀损伤",
+              "description": "电流通过轴承会引起搓板纹。变频电机建议采取绝缘或接地措施。"
+            }
+          ],
+          "standardsTitle": "标准与规范",
+          "standardsDesc": "尺寸、公差与额定寿命的常用参考标准。"
+        },
+        "faq": {
+          "sectionLabel": "常见问题",
+          "title": "常见问题",
+          "items": [
+            {
+              "q": "如何找到正确的替换轴承？",
+              "a": "先查看旧轴承上印制的编号。如无法辨认，请测量内径、外径和宽度，并记录类型与密封形式。把这些信息发给我们即可帮您匹配。"
+            },
+            {
+              "q": "ZZ 和 2RS 有什么区别？",
+              "a": "ZZ 采用不接触内圈的金属防尘盖，摩擦更低、允许转速更高；2RS 采用橡胶接触密封，防尘防潮更好，但摩擦略大。"
+            },
+            {
+              "q": "什么时候应选择 C3 游隙？",
+              "a": "电机及采用过盈配合或工作温度较高的场合常用 C3，因为装配受热后游隙会减小。请核对设备规格。"
+            },
+            {
+              "q": "可以用其他品牌替换吗？",
+              "a": "一般可以，轴承尺寸遵循标准。但请确认类型、尺寸、游隙、密封与保持架适合工况，不同厂家内部设计可能有差异。"
+            },
+            {
+              "q": "小批量和大批量都供应吗？",
+              "a": "供应。我们提供单件、项目批量及长期客户的定期供货。请提供物料编号与数量与我们联系。"
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "获取报价",
+          "titleLine1": "需要帮助寻找",
+          "titleLine2": "合适的配件？",
+          "desc": "请告知轴承编号，或轴径与工况信息。我们将为您匹配并确认库存。",
+          "whatsapp": "WhatsApp 咨询",
+          "email": "发送邮件询价",
+          "areasTitle": "供货区域",
+          "areasDesc": "面向工业及商业客户，提供单件、项目批量与定期供货。",
+          "locations": [
+            "雅加达",
+            "勿加泗",
+            "西卡朗",
+            "坦格朗"
+          ],
+          "waText": "您好 Trumecs，我想咨询工业轴承产品。",
+          "emailSubject": "工业轴承询价"
+        },
+        "seo": {
+          "title": "工业轴承与动力传动 - Trumecs",
+          "description": "工业轴承：深沟球、滚子、推力及带座单元。类型介绍、行业应用与选型技术指南。",
+          "serviceType": "工业轴承供应"
+        },
+        "accessories": {
+          "sectionLabel": "配件",
+          "titleLine1": "轴承",
+          "titleLine2": "配件",
+          "subtitle": "用于安装、监测与维护的轴承配件类别——每个类别提供多种产品选择。",
+          "categories": [
+            {
+              "name": "加热装置 / 感应加热器",
+              "icon": "mdi:radiator",
+              "description": "用于轴承热装的感应加热设备，安全、快速且可控——符合舍弗勒安装解决方案。",
+              "products": [
+                {
+                  "name": "Induction Bearing Heater",
+                  "image": "/principal/bearing/induction-bearing-heater.jpg",
+                  "description": "感应轴承加热器，用于高效、安全、可控的热装配。"
+                },
+                {
+                  "name": "Induction Heater with Medium-Frequency Technology (MFT)",
+                  "image": "/principal/bearing/induction-heater-mft.jpg",
+                  "description": "采用中频技术（MFT）的感应加热器，可对轴承部件进行可靠、精确的加热。"
+                },
+                {
+                  "name": "MF Induction Heater Handhelds",
+                  "image": "/principal/bearing/mf-induction-heater-handhelds.jpg",
+                  "description": "灵活的手持式 MF 感应加热设备，适用于现场加热与安装应用。"
+                }
+              ]
+            },
+            {
+              "name": "轴承与振动传感器",
+              "icon": "mdi:vibrate",
+              "description": "用于实时监测轴承健康状态的传感器。",
+              "products": [
+                {
+                  "name": "振动传感器探头",
+                  "image": "/principal/bearing/Vibration-Sensor-Probe.webp",
+                  "description": "用于早期发现轴承异常的振动探头。"
+                },
+                {
+                  "name": "PT100 温度传感器",
+                  "image": "/principal/bearing/temperature-sensor-pt-100.jpg",
+                  "description": "用于关键设备的轴承温度监测。"
+                },
+                {
+                  "name": "在线状态监测单元",
+                  "image": "/principal/bearing/condition-monitoring-solution.webp",
+                  "description": "轴承状态连续监测系统。"
+                },
+                {
+                  "name": "无线振动变送器",
+                  "image": "/principal/bearing/wireless-vibration-sensor.jpg",
+                  "description": "将振动数据无线传输至控制系统。"
+                }
+              ]
+            },
+            {
+              "name": "安装与拆卸工具（Mounting & Dismounting）",
+              "icon": "mdi:tools",
+              "description": "用于轴承安装与拆卸的工具，确保维护安全、快速且精准——参考舍弗勒（Schaeffler）安装/拆卸解决方案。",
+              "products": [
+                {
+                  "name": "机械拉拔器（2/3爪）",
+                  "image": "/principal/bearing/mechanical-puller-2-3-arm.jpg",
+                  "description": "用于安全拆卸轴承、齿轮及过盈配合件的机械拉拔器。"
+                },
+                {
+                  "name": "液压拉拔器",
+                  "image": "/principal/bearing/hydraulic-puller.jpg",
+                  "description": "用于可控拆卸大型轴承的液压拉拔器。"
+                },
+                {
+                  "name": "轴承安装工具套件（冲击式）",
+                  "image": "/principal/bearing/bearing-fitting-tool-kit-impact.jpg",
+                  "description": "采用冲击套圈/套筒的安装套件，可在不损伤滚动体的情况下精准安装轴承。"
+                },
+                {
+                  "name": "液压螺母与泵组",
+                  "image": "/principal/bearing/hydraulic-nut-pump-set.jpg",
+                  "description": "用于锥孔或紧定套轴承安装/拆卸的液压螺母与泵组。"
+                }
+              ]
+            },
+            {
+              "name": "轴承座与紧定套",
+              "icon": "mdi:cube-outline",
+              "description": "轴承座及安装配件，确保安装牢固可靠。",
+              "products": [
+                {
+                  "name": "立式轴承座（Pillow Block）",
+                  "image": "/principal/bearing/pillow-block-housing.jpg",
+                  "description": "适用于多种轴径的立式轴承座。"
+                },
+                {
+                  "name": "法兰轴承座单元",
+                  "image": "/principal/bearing/flange-housing-unit.jpg",
+                  "description": "用于墙面/机架安装的法兰座单元。"
+                },
+                {
+                  "name": "紧定套与锁紧螺母",
+                  "image": "/principal/bearing/sleeves-and-lock-nut.jpg",
+                  "description": "适用于锥孔轴承的紧定套与锁紧螺母。"
+                },
+                {
+                  "name": "退卸套",
+                  "image": "/principal/bearing/withdrawal-sleeves.jpg",
+                  "description": "便于轴承拆卸的退卸套。"
+                }
+              ]
+            },
+            {
+              "name": "密封件与润滑脂",
+              "icon": "mdi:water-opacity",
+              "description": "保护轴承免受污染与磨损的密封与润滑产品。",
+              "products": [
+                {
+                  "name": "NBR 油封",
+                  "image": "/principal/bearing/oil-seal-nbr.jpg",
+                  "description": "用于常规防护的 NBR 材质油封。"
+                },
+                {
+                  "name": "Viton 油封",
+                  "image": "/principal/bearing/oil-seal-viton.jpg",
+                  "description": "耐高温、耐化学介质的油封。"
+                },
+                {
+                  "name": "高温轴承润滑脂",
+                  "image": "/principal/bearing/grease-bearing.jpg",
+                  "description": "适用于高温与重载工况的润滑脂。"
+                },
+                {
+                  "name": "自动注油器",
+                  "image": "/principal/bearing/auto-bearing-grease.jpg",
+                  "description": "提供持续稳定润滑脂供给的自动注油器。"
+                }
+              ]
+            },
+            {
+              "name": "对中与测量工具",
+              "icon": "mdi:ruler-square",
+              "description": "用于确保工业设备轴/皮带轮对中及皮带张力合适的对中与测量设备。",
+              "products": [
+                {
+                  "name": "Shaft Alignment Tool",
+                  "image": "/principal/bearing/shaft-alignment-tool.jpg",
+                  "description": "轴对中工具，可实现精确的轴对中，帮助减少磨损与振动。"
+                },
+                {
+                  "name": "Belt Pulley Alignment Device",
+                  "image": "/principal/bearing/belt-pulley.jpg",
+                  "description": "皮带轮对中设备，确保皮带轮对中准确并优化传动性能。"
+                },
+                {
+                  "name": "Belt Tension Measuring Device",
+                  "image": "/principal/bearing/belt-tension.jpg",
+                  "description": "皮带张力测量设备，用于保持合适的皮带张力并延长部件寿命。"
+                }
+              ]
+            }
+          ]
+        },
+        "selectionCare": {
+          "sectionLabel": "选型与维护",
+          "titleLine1": "轴承选型与",
+          "titleLine2": "失效原因",
+          "subtitle": "正确选型指南及需避免的常见失效原因。",
+          "selectionTitle": "如何选择轴承",
+          "careTitle": "轴承为何失效"
+        },
+        "seoGeo": {
+          "sectionLabel": "SEO & GEO",
+          "title": "工业轴承解决方案，助力设备可靠运行",
+          "description": "TruMecs 为制造、矿业、汽车及其他工业应用提供工业轴承解决方案。从球轴承到重载滚子轴承，助您找到合适的轴承产品，提升设备可靠性、降低维护成本，并在印度尼西亚各地保持运营效率。",
+          "primaryLabel": "主要关键词",
+          "supportingLabel": "相关关键词",
+          "primary": [
+            "Industrial Bearings Indonesia",
+            "Industrial Bearing Supplier",
+            "Ball Bearings",
+            "Roller Bearings",
+            "Spherical Roller Bearings",
+            "Industrial Bearing Solutions",
+            "Bearing Replacement",
+            "Heavy Duty Bearings"
+          ],
+          "supporting": [
+            "印度尼西亚工业轴承供应商",
+            "工业轴承经销商",
+            "球轴承采购",
+            "滚子轴承采购",
+            "工业机械轴承",
+            "工业设备备件",
+            "制造业轴承",
+            "矿业轴承"
+          ]
+        }
+      },
+      "industrialLubricant": {
+        "hero": {
+          "eyebrow": "工业润滑解决方案",
+          "titleLine1": "让每台设备",
+          "titleLine2": "持续顺畅运转",
+          "subtitle": "液压油、齿轮油、压缩机油、汽轮机油及润滑脂，专为减少停机、延长设备寿命、保护您的生产线而设计。",
+          "ctaBrowse": "浏览润滑剂类型",
+          "ctaQuote": "咨询工程师"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:oil",
+              "value": "8+",
+              "label": "润滑剂类别"
+            },
+            {
+              "icon": "mdi:factory",
+              "value": "300+",
+              "label": "工业客户"
+            },
+            {
+              "icon": "mdi:clock-check-outline",
+              "value": "24/7",
+              "label": "技术支持"
+            },
+            {
+              "icon": "mdi:truck-fast-outline",
+              "value": "48H",
+              "label": "交货周期"
+            }
+          ]
+        },
+        "groups": {
+          "items": [
+            "全部",
+            "油品",
+            "润滑脂",
+            "特种油品"
+          ]
+        },
+        "types": {
+          "sectionLabel": "润滑剂类型",
+          "titleLine1": "为每种应用",
+          "titleLine2": "选择合适的油品",
+          "subtitle": "每种润滑剂针对特定载荷、速度与温度配方。选择类别查看典型牌号、标准与用途。",
+          "gradesLabel": "典型牌号",
+          "standardLabel": "标准",
+          "items": [
+            {
+              "name": "液压油",
+              "icon": "mdi:oil",
+              "groupIdx": 1,
+              "description": "在液压系统中传递动力，同时保护泵、阀与油缸免受磨损、锈蚀与气泡影响。",
+              "grades": "ISO VG 32 / 46 / 68",
+              "standard": "DIN 51524 HLP, ISO 11158 HM",
+              "uses": [
+                "注塑成型",
+                "压力机",
+                "挖掘机"
+              ]
+            },
+            {
+              "name": "齿轮油",
+              "icon": "mdi:cog-transfer",
+              "groupIdx": 1,
+              "description": "为重冲击载荷与高扭矩下的闭式齿轮箱提供极压保护。",
+              "grades": "ISO VG 150 – 460",
+              "standard": "DIN 51517 CLP, AGMA 9005",
+              "uses": [
+                "齿轮箱",
+                "输送机",
+                "搅拌机"
+              ]
+            },
+            {
+              "name": "压缩机油",
+              "icon": "mdi:gauge",
+              "groupIdx": 1,
+              "description": "为螺杆式与往复式空气压缩机提供高氧化稳定性和低积碳特性。",
+              "grades": "ISO VG 32 – 100",
+              "standard": "DIN 51506 VDL, ISO 6743-3",
+              "uses": [
+                "螺杆压缩机",
+                "真空泵"
+              ]
+            },
+            {
+              "name": "汽轮机油",
+              "icon": "mdi:fan",
+              "groupIdx": 1,
+              "description": "长寿命油品，为蒸汽与燃气轮机系统提供出色的分水性与防锈保护。",
+              "grades": "ISO VG 32 / 46",
+              "standard": "DIN 51515 TD, ISO 6743-5",
+              "uses": [
+                "汽轮机",
+                "发电机"
+              ]
+            },
+            {
+              "name": "工业润滑脂",
+              "icon": "mdi:cog-outline",
+              "groupIdx": 2,
+              "description": "锂基、复合锂及聚脲润滑脂，适用于轴承、衬套及低速运动部件。",
+              "grades": "NLGI 1 / 2 / 3",
+              "standard": "DIN 51825 K, ISO 6743-9",
+              "uses": [
+                "轴承",
+                "电动机",
+                "衬套"
+              ]
+            },
+            {
+              "name": "高温润滑脂",
+              "icon": "mdi:thermometer-high",
+              "groupIdx": 2,
+              "description": "耐高温复合润滑脂，适用于窑炉、烘箱及持续高温运转的轴承。",
+              "grades": "NLGI 2 / 3",
+              "standard": "DIN 51825 KP / KPF",
+              "uses": [
+                "窑车",
+                "干燥机",
+                "钢厂"
+              ]
+            },
+            {
+              "name": "金属加工液",
+              "icon": "mdi:saw-blade",
+              "groupIdx": 3,
+              "description": "切削油与水溶性切削液，降低刀具与工件界面的摩擦与热量。",
+              "grades": "可溶 / 半合成 / 纯油",
+              "standard": "ISO 6743-7 MA",
+              "uses": [
+                "数控加工",
+                "磨削",
+                "冲压"
+              ]
+            },
+            {
+              "name": "导热油",
+              "icon": "mdi:thermometer",
+              "groupIdx": 3,
+              "description": "闭式供热系统用热稳定油品，高温下抗裂解、抗油泥。",
+              "grades": "ISO VG 32 / 46",
+              "standard": "DIN 51522 Q",
+              "uses": [
+                "导热油炉",
+                "塑料",
+                "纺织"
+              ]
+            },
+            {
+              "name": "食品级润滑剂",
+              "icon": "mdi:silverware-fork-knife",
+              "groupIdx": 3,
+              "description": "适用于对卫生要求严格的生产环境中偶发性食品接触场合。",
+              "grades": "油品 VG 32–460 / 润滑脂 NLGI 1–2",
+              "standard": "NSF H1, ISO 21469",
+              "uses": [
+                "包装",
+                "灌装",
+                "烘焙"
+              ]
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "应用",
+          "titleLine1": "按行业",
+          "titleLine2": "查看用途",
+          "subtitle": "选择您的行业，查看典型设备与最常选用的润滑剂。",
+          "labelEquipment": "典型设备",
+          "labelLubricants": "推荐润滑剂",
+          "items": [
+            {
+              "name": "制造业",
+              "icon": "mdi:factory",
+              "summary": "连续生产线依赖清洁的液压系统、可靠的齿轮箱和稳定的压缩空气。此处润滑失效会导致整线停机。",
+              "equipment": [
+                "注塑与冲压设备",
+                "数控加工中心",
+                "螺杆空压机",
+                "输送机齿轮箱"
+              ],
+              "lubricants": [
+                "抗磨液压油 ISO VG 46",
+                "半合成金属加工液",
+                "回转式压缩机油 ISO VG 46",
+                "工业齿轮油 ISO VG 220"
+              ],
+              "tip": "严控液压油清洁度。多数液压故障始于颗粒污染。"
+            },
+            {
+              "name": "矿山与建筑",
+              "icon": "mdi:excavator",
+              "summary": "粉尘、冲击载荷与大幅温差要求强效添加剂配方并频繁监测。",
+              "equipment": [
+                "挖掘机与装载机",
+                "破碎机与筛分机",
+                "重载齿轮箱",
+                "开式齿轮与钢丝绳"
+              ],
+              "lubricants": [
+                "高粘度指数液压油 ISO VG 68",
+                "极压齿轮油 ISO VG 320 / 460",
+                "极压润滑脂 NLGI 2",
+                "开式齿轮润滑剂"
+              ],
+              "tip": "采用密封脂加注与清洁加注口。粉尘侵入是早期磨损的主因。"
+            },
+            {
+              "name": "发电",
+              "icon": "mdi:lightning-bolt",
+              "summary": "汽轮机及辅机长时间运行，氧化安定性与分水性至关重要。",
+              "equipment": [
+                "蒸汽与燃气轮机",
+                "发电机与轴承",
+                "锅炉给水泵",
+                "冷却风机"
+              ],
+              "lubricants": [
+                "汽轮机油 ISO VG 32 / 46",
+                "抗磨液压油",
+                "高温轴承脂",
+                "抗燃液压液"
+              ],
+              "tip": "定期对汽轮机油进行油液分析，跟踪氧化与油泥倾向。"
+            },
+            {
+              "name": "食品与饮料",
+              "icon": "mdi:food-variant",
+              "summary": "卫生标准要求润滑剂在与产品或包装偶然接触时仍然安全。",
+              "equipment": [
+                "灌装线",
+                "包装机械",
+                "混合机与输送机",
+                "冷水机组与压缩机"
+              ],
+              "lubricants": [
+                "NSF H1 液压油",
+                "NSF H1 齿轮油",
+                "NSF H1 白色润滑脂 NLGI 2",
+                "NSF H1 压缩机油"
+              ],
+              "tip": "切勿将 H1 润滑剂与普通油品混用。为润滑点加贴标识以防误用。"
+            },
+            {
+              "name": "钢铁与金属",
+              "icon": "mdi:anvil",
+              "summary": "极端高温、重载与水汽环境需要高温润滑脂与保护性强的油品。",
+              "equipment": [
+                "轧机",
+                "连铸生产线",
+                "炉用输送机",
+                "冷却泵"
+              ],
+              "lubricants": [
+                "高温复合润滑脂 NLGI 2",
+                "极压齿轮油 ISO VG 460",
+                "抗燃液压液",
+                "轧制油乳化液"
+              ],
+              "tip": "按工作温度校核补脂周期。高温会显著缩短润滑脂寿命。"
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "技术参考",
+          "titleLine1": "粘度",
+          "titleLine2": "与稠度",
+          "subtitle": "快速读懂油品数据表并为设备匹配牌号的指南。",
+          "viscosityTitle": "ISO VG 牌号",
+          "viscositySub": "40°C 运动粘度（中点值，cSt）",
+          "colGrade": "牌号",
+          "colCst": "cSt",
+          "colUse": "典型用途",
+          "viscosityRows": [
+            {
+              "grade": "VG 32",
+              "cst": "32",
+              "use": "低温环境液压系统、轻载主轴"
+            },
+            {
+              "grade": "VG 46",
+              "cst": "46",
+              "use": "通用液压、汽轮机、压缩机"
+            },
+            {
+              "grade": "VG 68",
+              "cst": "68",
+              "use": "温暖气候液压、压缩机"
+            },
+            {
+              "grade": "VG 100",
+              "cst": "100",
+              "use": "轻载齿轮箱、导轨"
+            },
+            {
+              "grade": "VG 150",
+              "cst": "150",
+              "use": "中等载荷闭式齿轮"
+            },
+            {
+              "grade": "VG 220",
+              "cst": "220",
+              "use": "最常用的工业齿轮油"
+            },
+            {
+              "grade": "VG 320",
+              "cst": "320",
+              "use": "重载齿轮箱"
+            },
+            {
+              "grade": "VG 460",
+              "cst": "460",
+              "use": "重冲击载荷、低速"
+            }
+          ],
+          "nlgiTitle": "NLGI 润滑脂牌号",
+          "nlgiSub": "从半流体到坚硬的稠度等级",
+          "colNlgi": "NLGI",
+          "colFeel": "手感",
+          "nlgiRows": [
+            {
+              "grade": "000 / 00",
+              "feel": "半流体",
+              "use": "集中润滑系统、齿轮箱"
+            },
+            {
+              "grade": "0",
+              "feel": "很软",
+              "use": "集中润滑、寒冷气候"
+            },
+            {
+              "grade": "1",
+              "feel": "软",
+              "use": "低温、可泵送系统"
+            },
+            {
+              "grade": "2",
+              "feel": "中等",
+              "use": "通用轴承（最常用）"
+            },
+            {
+              "grade": "3",
+              "feel": "较硬",
+              "use": "高速轴承、立式轴"
+            }
+          ],
+          "nlgiNote": "请务必按设备制造商建议确认牌号，本表仅供参考。"
+        },
+        "selection": {
+          "sectionLabel": "选型指南",
+          "titleLine1": "如何选择",
+          "titleLine2": "合适的润滑剂",
+          "subtitle": "翻开样本之前，四个问题即可缩小大多数润滑剂选型范围。",
+          "items": [
+            {
+              "icon": "mdi:book-open-variant",
+              "title": "查阅 OEM 手册",
+              "description": "从设备制造商推荐的粘度牌号与规格出发。"
+            },
+            {
+              "icon": "mdi:thermometer-lines",
+              "title": "了解温度",
+              "description": "工作与环境温度决定所需粘度牌号和基础油类型。"
+            },
+            {
+              "icon": "mdi:weight",
+              "title": "匹配载荷与速度",
+              "description": "重载需要更高粘度和极压添加剂；高速通常需要更低粘度。"
+            },
+            {
+              "icon": "mdi:water-alert-outline",
+              "title": "考虑环境",
+              "description": "潮湿、粉尘、化学品或食品接触可能要求特殊配方或认证。"
+            }
+          ]
+        },
+        "care": {
+          "sectionLabel": "润滑管理",
+          "titleLine1": "维护",
+          "titleLine2": "最佳实践",
+          "subtitle": "只有配合正确的储存、使用与监测，选对油品的价值才能兑现。",
+          "items": [
+            {
+              "icon": "mdi:flask-outline",
+              "title": "油液分析",
+              "description": "定期取样监测粘度、酸值、水分、颗粒与磨损金属，防患于未然。"
+            },
+            {
+              "icon": "mdi:filter-outline",
+              "title": "污染控制",
+              "description": "使用呼吸器、过滤装置与清洁的加注设备，隔绝颗粒与水分。"
+            },
+            {
+              "icon": "mdi:warehouse",
+              "title": "储存与搬运",
+              "description": "桶装密封存放，尽量置于室内，并执行先进先出的库存轮换。"
+            },
+            {
+              "icon": "mdi:tag-multiple-outline",
+              "title": "标识与色标",
+              "description": "专用带标识的容器与加注口，防止交叉污染和错用油品。"
+            }
+          ],
+          "standardsTitle": "标准与认证",
+          "standardsDesc": "选择工业润滑剂时常用的参考规范。"
+        },
+        "faq": {
+          "sectionLabel": "常见问题",
+          "title": "常见问题",
+          "items": [
+            {
+              "q": "可以混用不同品牌或类型的润滑剂吗？",
+              "a": "最好避免。不同添加剂配方与基础油可能不兼容并降低性能。如需更换，请遵循规范的冲洗与切换程序。"
+            },
+            {
+              "q": "工业油品应多久更换一次？",
+              "a": "没有统一的周期，取决于设备、工况与油品种类。以油液分析为依据的状态换油通常比固定周期更经济。"
+            },
+            {
+              "q": "矿物油与合成油有什么区别？",
+              "a": "矿物油从原油精炼而来，适合大多数常规工况；合成油在极端温度下稳定性更好，换油周期往往更长，但采购价格更高。"
+            },
+            {
+              "q": "如何确定润滑脂的 NLGI 牌号？",
+              "a": "通用轴承最常用 NLGI 2。较软牌号适合集中润滑与低温，较硬牌号适合高速或立式应用。请与 OEM 确认。"
+            },
+            {
+              "q": "提供桶装和散装供应吗？",
+              "a": "提供。我们供应包装产品、桶装、IBC 吨桶及长期客户的定期配送。请告知用量与所在地区与我们联系。"
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "获取报价",
+          "titleLine1": "不确定需要",
+          "titleLine2": "哪种牌号？",
+          "desc": "请发送设备清单与工况信息，我们将推荐合适的润滑剂及供货计划。",
+          "whatsapp": "WhatsApp 咨询",
+          "email": "发送邮件询价",
+          "areasTitle": "供货区域",
+          "areasDesc": "面向工业及商业客户提供桶装、IBC 吨桶及包装产品定期供货。",
+          "locations": [
+            "雅加达",
+            "勿加泗",
+            "西卡朗",
+            "坦格朗"
+          ],
+          "waText": "您好 Trumecs，我对贵公司的工业润滑油产品感兴趣。",
+          "emailSubject": "工业润滑油询价"
+        },
+        "seo": {
+          "title": "工业润滑油 - Trumecs",
+          "description": "液压油、齿轮油、压缩机油、汽轮机油及工业润滑脂。润滑剂类型、各行业应用及技术指南。"
+        }
+      },
+      "blueCollar": {
+        "hero": {
+          "eyebrow": "蓝领人力服务提供商",
+          "titleLine1": "一线作业人员",
+          "titleLine2": "即刻上岗 · 资质可靠",
+          "subtitle": "我们提供经过筛选与技能考核、并配套完善用工管理的一线人员——操作员、技术员、技工，以及仓储与物流团队。",
+          "ctaBrowse": "查看人员覆盖范围",
+          "ctaConsult": "咨询用工需求",
+          "crew": [
+            {
+              "role": "生产操作员",
+              "meta": "制造 · 轮班",
+              "status": "可派驻"
+            },
+            {
+              "role": "机械技术员",
+              "meta": "维护 · 工厂",
+              "status": "可派驻"
+            },
+            {
+              "role": "叉车操作员",
+              "meta": "仓储 · 物流",
+              "status": "可派驻"
+            }
+          ]
+        },
+        "usps": {
+          "items": [
+            {
+              "icon": "mdi:clipboard-check-outline",
+              "title": "人员筛选与技能考核",
+              "description": "我们提供的每位人员均通过证件核验、实操技能测试及岗位所需体检。"
+            },
+            {
+              "icon": "mdi:clock-fast",
+              "title": "快速派驻",
+              "description": "可按需快速提供人员，从单人到数十人的紧急或大规模用工需求均可满足。"
+            },
+            {
+              "icon": "mdi:file-document-check-outline",
+              "title": "完善的用工管理",
+              "description": "劳动合同、薪酬发放、社保及相关申报均按适用劳动法规规范管理。"
+            }
+          ]
+        },
+        "coreValues": {
+          "sectionLabel": "核心价值",
+          "titleLine1": "我们的",
+          "titleLine2": "价值基石",
+          "subtitle": "在提供人力服务的过程中，我们坚持核心价值，以保障运营可靠性、服务质量与长期合作。",
+          "items": [
+            {
+              "code": "DEFEND",
+              "title": "Defend 守护",
+              "icon": "mdi:shield-check-outline",
+              "description": "通过提供可靠、合规且能适应现场需求的人员，守护您业务运营的连续性。"
+            },
+            {
+              "code": "INNOVATE",
+              "title": "Innovate 创新",
+              "icon": "mdi:lightbulb-on-outline",
+              "description": "以结构化、透明且以绩效为导向的流程，实现更高效、可衡量的人力管理。"
+            },
+            {
+              "code": "SUSTAIN",
+              "title": "Sustain 共续",
+              "icon": "mdi:handshake-outline",
+              "description": "重视人员福利、安全与保障，建立互利共赢的长期合作伙伴关系，驱动持续生产力。"
+            }
+          ]
+        },
+        "professions": {
+          "seoInlineTitle": "面向各行业的蓝领人力服务",
+          "seoInlineDesc": "从生产操作员、维修技术员到建筑技工、重型设备操作员及仓储人员——我们提供覆盖多类一线岗位、经过筛选与核验的人力，以满足您的运营需求。",
+          "sectionLabel": "人员覆盖范围",
+          "titleLine1": "我们提供的",
+          "titleLine2": "蓝领人员",
+          "subtitle": "选择类别或搜索所需人员类型。点击卡片查看我们可提供人员的岗位范围、工作内容与能力资质。",
+          "searchPlaceholder": "搜索岗位，如焊工、叉车、技术员…",
+          "searchAria": "搜索岗位",
+          "more": "更多",
+          "viewDetail": "查看 {count} 个岗位覆盖",
+          "noResults": "未找到相关类别。请联系我们——我们可根据您的特殊需求提供人员。",
+          "groups": [
+            "全部",
+            "制造、食品与农业",
+            "工程与汽车",
+            "建筑与能源",
+            "物流与服务"
+          ],
+          "modal": {
+            "rolesTitle": "人员岗位覆盖（{count}）",
+            "tasksTitle": "主要工作内容",
+            "certsTitle": "相关资质证书",
+            "envLabel": "工作环境：",
+            "ctaText": "需要该类别的人员？",
+            "ctaButton": "咨询用工需求",
+            "close": "关闭"
+          }
+        },
+        "models": {
+          "sectionLabel": "合作模式",
+          "titleLine1": "选择适合的",
+          "titleLine2": "合作模式",
+          "subtitle": "不同企业需求各异。我们提供多种合作模式，灵活满足您的用工需求。",
+          "note": "具体用工形式将根据适用劳动法规进行调整。",
+          "items": [
+            {
+              "icon": "mdi:account-group-outline",
+              "title": "人力外包",
+              "description": "由我们提供的人员派驻至您的现场，我们负责合同、薪酬、社保及现场管理。",
+              "chips": [
+                "薪酬与社保",
+                "现场主管",
+                "人员替换"
+              ]
+            },
+            {
+              "icon": "mdi:calendar-clock",
+              "title": "项目/季节性用工",
+              "description": "为项目、停产检修或产能高峰提供周期明确的即用团队。",
+              "chips": [
+                "检修停机",
+                "旺季用工",
+                "建筑项目"
+              ]
+            },
+            {
+              "icon": "mdi:account-hard-hat-outline",
+              "title": "人员派驻",
+              "description": "我们按您的要求提供并准备合适人员，派驻并支持您的企业运营。",
+              "chips": [
+                "即刻上岗",
+                "筛选与考核",
+                "入职支持"
+              ]
+            },
+            {
+              "icon": "mdi:swap-horizontal",
+              "title": "人员替换与支持",
+              "description": "提供人员替换与用工规模调整支持，确保您的运营需求持续得到满足。",
+              "chips": [
+                "快速替换",
+                "规模调整",
+                "过程监控"
+              ]
+            }
+          ]
+        },
+        "process": {
+          "sectionLabel": "服务流程",
+          "titleLine1": "从需求",
+          "titleLine2": "到派驻",
+          "subtitle": "清晰可控的流程，确保我们提供的人员符合规格并可立即投入工作。",
+          "items": [
+            {
+              "icon": "mdi:chat-processing-outline",
+              "title": "需求沟通",
+              "description": "明确您所需的岗位、人数、规格、地点及工作安排。"
+            },
+            {
+              "icon": "mdi:account-group-outline",
+              "title": "人员准备与筛选",
+              "description": "从我们的人员储备中匹配合适人选，并按需求进行初步筛选。"
+            },
+            {
+              "icon": "mdi:clipboard-check-outline",
+              "title": "考核与核验",
+              "description": "进行实操技能测试、证件与资质核验，以及岗位所需体检。"
+            },
+            {
+              "icon": "mdi:account-hard-hat",
+              "title": "入职与派驻",
+              "description": "完成安全培训、行政手续与装备配备，并将人员派驻至您的现场。"
+            },
+            {
+              "icon": "mdi:monitor-dashboard",
+              "title": "监控与评估",
+              "description": "跟踪出勤与绩效，定期评估，并在需要时提供替换支持。"
+            }
+          ]
+        },
+        "quality": {
+          "sectionLabel": "质量与合规",
+          "titleLine1": "我们执行的",
+          "titleLine2": "筛选标准",
+          "subtitle": "一线作业存在真实风险，因此核验与安全准备绝非形式。",
+          "standardsTitle": "能力与合规",
+          "standardsDesc": "印尼一线作业常见的资质与保障要求。",
+          "items": [
+            {
+              "icon": "mdi:card-account-details-outline",
+              "title": "证件核验",
+              "description": "核实人员身份、工作经验，以及所需证书与操作许可的真实性。"
+            },
+            {
+              "icon": "mdi:tools",
+              "title": "实操技能测试",
+              "description": "按岗位对人员进行实操考核，确保其能力与上岗准备度。"
+            },
+            {
+              "icon": "mdi:heart-pulse",
+              "title": "健康检查",
+              "description": "根据岗位风险安排体检，尤其针对高空作业与重型设备操作。"
+            },
+            {
+              "icon": "mdi:shield-check-outline",
+              "title": "安全培训与防护装备",
+              "description": "派驻前进行安全培训并落实个人防护装备（PPE）的正确使用。"
+            }
+          ]
+        },
+        "industries": {
+          "sectionLabel": "服务行业",
+          "titleLine1": "我们服务的",
+          "titleLine2": "行业",
+          "items": [
+            {
+              "name": "制造业",
+              "icon": "mdi:factory"
+            },
+            {
+              "name": "汽车",
+              "icon": "mdi:car-wrench"
+            },
+            {
+              "name": "建筑",
+              "icon": "mdi:crane"
+            },
+            {
+              "name": "矿业",
+              "icon": "mdi:pickaxe"
+            },
+            {
+              "name": "物流与配送",
+              "icon": "mdi:truck-fast-outline"
+            },
+            {
+              "name": "食品与饮料",
+              "icon": "mdi:silverware-fork-knife"
+            },
+            {
+              "name": "能源与公用事业",
+              "icon": "mdi:lightning-bolt"
+            },
+            {
+              "name": "物业与设施",
+              "icon": "mdi:domain"
+            },
+            {
+              "name": "农牧与种植园",
+              "icon": "mdi:sprout"
+            },
+            {
+              "name": "港口与航运",
+              "icon": "mdi:anchor"
+            }
+          ]
+        },
+        "faq": {
+          "sectionLabel": "常见问题",
+          "title": "常见问题",
+          "items": [
+            {
+              "q": "满足用工需求需要多长时间？",
+              "a": "取决于岗位、人数及具体要求。收到您的需求简报后，我们将给出切实可行的人员供应时间预估。"
+            },
+            {
+              "q": "人员是否持有相关资质？",
+              "a": "对于叉车操作员、起重机操作员、焊工等需要资质的岗位，我们会在派驻前核验有效证书与操作许可。"
+            },
+            {
+              "q": "能否满足大规模用工需求？",
+              "a": "可以。针对产能高峰或项目等大批量需求，我们会按派驻计划制定分阶段的人员供应方案。"
+            },
+            {
+              "q": "薪酬与社保由谁负责？",
+              "a": "在人力外包模式下，我们负责劳动合同、薪酬及社保；其他派驻模式下，相关管理将按合作约定执行。"
+            },
+            {
+              "q": "如果人员不符合预期怎么办？",
+              "a": "我们会进行定期评估，并按约定提供人员替换机制，具体细节将在服务协议中明确。"
+            },
+            {
+              "q": "是否服务大雅加达以外地区？",
+              "a": "可按约定承接外地项目。请联系我们并告知地点与需求，以便进一步沟通。"
+            }
+          ]
+        },
+        "contact": {
+          "sectionLabel": "提交需求",
+          "titleLine1": "近期需要",
+          "titleLine2": "人员支持？",
+          "subtitle": "请简要告知您的需求，我们的团队将与您联系，沟通岗位规格、人数及派驻安排。",
+          "whatsapp": "通过 WhatsApp 咨询",
+          "email": "发送邮件",
+          "serviceArea": "服务大雅加达及周边工业区，外地项目可另行协商。",
+          "formTitle": "快速需求表单",
+          "companyLabel": "公司名称",
+          "companyPlaceholder": "公司…",
+          "positionLabel": "岗位",
+          "positionPlaceholder": "如：叉车操作员",
+          "qtyLabel": "人数",
+          "qtyPlaceholder": "10",
+          "locationLabel": "工作地点",
+          "locationPlaceholder": "如：芝卡朗、勿加泗",
+          "noteLabel": "备注（可选）",
+          "notePlaceholder": "工期、班次、必备资质等",
+          "submit": "通过 WhatsApp 提交需求",
+          "formHint": "此表单将打开已填写内容的 WhatsApp 消息，本站不保存任何数据。",
+          "formError": "请填写所需岗位及人员数量。",
+          "requiredMark": "*",
+          "waIntro": "您好 {brand}，我想提交一项蓝领人员需求。",
+          "waCompany": "公司：{value}",
+          "waPosition": "岗位：{value}",
+          "waQty": "人数：{value} 人",
+          "waLocation": "工作地点：{value}",
+          "waNote": "备注：{value}",
+          "waCategory": "您好 {brand}，我需要“{category}”类别的人员。请告知人员可用情况及提供流程。",
+          "waGeneral": "您好 {brand}，我对贵方的蓝领人力服务感兴趣，请提供更多信息。",
+          "emailSubject": "蓝领人员需求"
+        },
+        "seo": {
+          "title": "蓝领人力服务提供商 | 可靠的一线人员",
+          "description": "蓝领人力服务：生产操作员、技术员、建筑技工、重型设备操作员、仓储与物流人员。人员经过筛选与技能考核，并提供完善的用工管理。",
+          "breadcrumbHome": "首页",
+          "breadcrumbPage": "蓝领人力服务",
+          "serviceType": "蓝领人力与人员派驻服务提供商",
+          "catalogName": "蓝领人员类别"
+        },
+        "categories": [
+          {
+            "name": "制造与生产",
+            "icon": "mdi:factory",
+            "groupIdx": 1,
+            "description": "面向有产量目标与轮班制度工厂的生产线人员。",
+            "roles": [
+              "生产操作员",
+              "数控机床操作员",
+              "冲压机操作员",
+              "注塑机操作员",
+              "装配工",
+              "质检员",
+              "包装与整理",
+              "缝纫机操作员",
+              "生产助理",
+              "生产班组长"
+            ],
+            "tasks": [
+              "按 SOP 操作机器与设备",
+              "保持每日质量与产量目标",
+              "进行开机前检查并保持工作区清洁",
+              "遵守安全规定并正确佩戴 PPE"
+            ],
+            "requirements": [
+              "高中/职高或同等学历",
+              "机床操作岗位需相关经验",
+              "可接受轮班",
+              "身体健康并通过体检"
+            ],
+            "certs": [
+              "通用安全培训（K3）",
+              "BNSP 认证（相关领域）",
+              "设备操作证书"
+            ],
+            "env": "工厂环境，通常实行轮班制。"
+          },
+          {
+            "name": "食品与饮料",
+            "icon": "mdi:silverware-fork-knife",
+            "groupIdx": 1,
+            "description": "符合卫生与食品安全标准的食品生产人员。",
+            "roles": [
+              "食品加工操作员",
+              "灌装与装瓶操作员",
+              "食品级包装",
+              "工业厨房助理",
+              "烘焙/面包助理",
+              "肉类加工助理",
+              "冷库操作员",
+              "质量与卫生助理",
+              "生产清洁"
+            ],
+            "tasks": [
+              "操作加工与包装设备",
+              "保持生产区域清洁与卫生",
+              "执行卫生与食品安全程序",
+              "进行简单的生产记录"
+            ],
+            "requirements": [
+              "高中/职高或同等学历",
+              "身体健康并通过体检",
+              "遵守卫生规定（着装及专用 PPE）",
+              "细致守纪"
+            ],
+            "certs": [
+              "卫生与清洁培训",
+              "食品安全基础培训（HACCP）",
+              "通用安全培训（K3）"
+            ],
+            "env": "食品生产区，部分为低温环境（冷库）。"
+          },
+          {
+            "name": "农牧与种植园",
+            "icon": "mdi:sprout",
+            "groupIdx": 1,
+            "description": "面向种植园与农产品加工业的田间及收获处理人员。",
+            "roles": [
+              "采收工",
+              "拖拉机操作员",
+              "种植园工头",
+              "植株养护工",
+              "育苗工",
+              "加工厂助理",
+              "收获加工设备操作员",
+              "收获运输司机"
+            ],
+            "tasks": [
+              "按计划进行采收与植株养护",
+              "操作拖拉机及田间设备",
+              "运输与处理收获物",
+              "协助收获物初加工"
+            ],
+            "requirements": [
+              "身体健康",
+              "可派驻种植园或外地",
+              "相关岗位经验者优先",
+              "操作员/司机持相应驾照"
+            ],
+            "certs": [
+              "B1/B2 驾照（司机）",
+              "设备操作证书",
+              "通用安全培训（K3）"
+            ],
+            "env": "露天种植园及加工厂，常需外派。"
+          },
+          {
+            "name": "工程与维护",
+            "icon": "mdi:wrench",
+            "groupIdx": 2,
+            "description": "用于工业设施维护与维修的技术员及金属加工人员。",
+            "roles": [
+              "机械技术员",
+              "电气技术员",
+              "电子技术员",
+              "仪表技术员",
+              "暖通/空调技术员",
+              "生产设备技术员",
+              "焊工",
+              "钳工/装配技工",
+              "机加工（车铣）",
+              "维护助理"
+            ],
+            "tasks": [
+              "执行预防性与纠正性维护",
+              "故障排查与维修",
+              "阅读技术图纸与电气图",
+              "记录维修报告与备件使用"
+            ],
+            "requirements": [
+              "技术/职高或同等经验",
+              "具备相关领域经验（机械、电气、焊接等）",
+              "了解动火与电气安全",
+              "可随时待命或参与停机检修"
+            ],
+            "certs": [
+              "BNSP 认证（技术员/焊工）",
+              "焊工证（按焊接岗位）",
+              "电气安全认证",
+              "通用安全培训（K3）"
+            ],
+            "env": "车间与厂区，偶有停机检修或加班。"
+          },
+          {
+            "name": "汽车与重型设备",
+            "icon": "mdi:car-wrench",
+            "groupIdx": 2,
+            "description": "面向维修厂与企业车队的车辆及重型设备技师。",
+            "roles": [
+              "汽车技师",
+              "摩托车技师",
+              "柴油机技师",
+              "重型设备技师",
+              "车辆电气技术员",
+              "车辆空调技术员",
+              "钣金喷漆",
+              "维修助理",
+              "洗车与美容"
+            ],
+            "tasks": [
+              "定期保养与车辆维修",
+              "故障诊断与部件更换",
+              "按规程进行部件大修",
+              "保持车间与设备清洁"
+            ],
+            "requirements": [
+              "汽车相关职高或同等经验",
+              "熟悉维修 SOP 与车间安全",
+              "持相应驾照",
+              "细致守纪"
+            ],
+            "certs": [
+              "BNSP 认证（汽车）",
+              "A/C 驾照",
+              "通用安全培训（K3）"
+            ],
+            "env": "维修厂及服务区，偶尔需到客户现场。"
+          },
+          {
+            "name": "建筑与制造安装",
+            "icon": "mdi:crane",
+            "groupIdx": 3,
+            "description": "用于建筑、基础设施及安装制造项目的一线人员。",
+            "roles": [
+              "瓦工",
+              "木工",
+              "油漆工",
+              "钢筋工",
+              "建筑焊工",
+              "瓷砖工",
+              "管道工",
+              "脚手架工",
+              "索具工",
+              "起重机操作员",
+              "建筑助理",
+              "现场工长"
+            ],
+            "tasks": [
+              "按图纸及工长指令施工",
+              "保证施工质量与进度",
+              "安全使用 PPE 与工具",
+              "准备并整理作业区域"
+            ],
+            "requirements": [
+              "具备相应项目经验",
+              "身体健康",
+              "可派驻项目现场或外地",
+              "了解高空作业基本安全"
+            ],
+            "certs": [
+              "建筑能力证书（SKK）",
+              "建筑安全培训（K3）",
+              "脚手架/索具证书",
+              "起重机操作许可（SIO）"
+            ],
+            "env": "露天项目现场及高空作业，工期随项目而定。"
+          },
+          {
+            "name": "矿业与能源",
+            "icon": "mdi:pickaxe",
+            "groupIdx": 3,
+            "description": "面向矿山、电厂及公用设施的操作员与技术员。",
+            "roles": [
+              "挖掘机操作员",
+              "推土机操作员",
+              "装载机操作员",
+              "自卸卡车司机",
+              "矿区助理",
+              "重型设备技师",
+              "发电机技术员",
+              "锅炉操作员",
+              "公用设施操作员",
+              "管道钳工",
+              "管道焊工"
+            ],
+            "tasks": [
+              "按规程与作业计划操作重型设备",
+              "作业前进行日常检查",
+              "在高风险区域保持安全",
+              "报告设备状况及现场事件"
+            ],
+            "requirements": [
+              "持有效证书或操作许可（SIO）",
+              "具备相应机种操作经验",
+              "可接受轮换排班及偏远地点",
+              "通过定期体检"
+            ],
+            "certs": [
+              "重型设备 SIO（人力部）",
+              "B2 驾照",
+              "锅炉操作认证（人力部）",
+              "通用安全培训（K3）"
+            ],
+            "env": "矿区、电厂或工厂，常实行轮换排班。"
+          },
+          {
+            "name": "物流、仓储与港口",
+            "icon": "mdi:warehouse",
+            "groupIdx": 4,
+            "description": "保障供应链顺畅的仓储、运输及港口人员。",
+            "roles": [
+              "叉车操作员",
+              "前移式叉车操作员",
+              "仓库人员",
+              "核对员",
+              "拣货与包装",
+              "装卸工",
+              "卡车司机",
+              "配送司机",
+              "随车助理",
+              "港口起重机操作员",
+              "正面吊操作员",
+              "港口理货/核对员",
+              "装卸工人"
+            ],
+            "tasks": [
+              "货物收发与存储",
+              "按规程进行装卸",
+              "记录库存与运输单据",
+              "安全操作叉车及搬运设备"
+            ],
+            "requirements": [
+              "操作员/司机具备仓储或运输经验",
+              "持有效 SIO 或相应驾照",
+              "记录细致准确",
+              "可按需轮班及加班"
+            ],
+            "certs": [
+              "叉车 SIO（人力部）",
+              "起重机操作 SIO",
+              "B1/B2 驾照",
+              "通用安全培训（K3）"
+            ],
+            "env": "仓库、配送中心、堆场及港口，实行轮班制。"
+          },
+          {
+            "name": "设施与楼宇服务",
+            "icon": "mdi:domain",
+            "groupIdx": 4,
+            "description": "面向办公、工厂及物业的楼宇、清洁与运营服务人员。",
+            "roles": [
+              "保洁",
+              "办公助理",
+              "客房服务",
+              "楼宇工程师",
+              "管道技术员",
+              "楼宇电气技术员",
+              "园艺/绿化",
+              "虫害防治技术员",
+              "运营司机",
+              "安保（Gada Pratama）"
+            ],
+            "tasks": [
+              "保持设施清洁与整齐",
+              "楼宇系统（日常电、水、空调）维护",
+              "按计划提供日常运营服务",
+              "维护区域安全（安保岗位）"
+            ],
+            "requirements": [
+              "初中/高中学历（视岗位而定）",
+              "仪表整洁、遵守纪律",
+              "安保岗位需持 Gada 证书",
+              "楼宇技术员需相关经验"
+            ],
+            "certs": [
+              "Gada Pratama / Madya（安保）",
+              "通用安全培训（K3）",
+              "相关领域技术证书"
+            ],
+            "env": "办公楼、工厂、公寓、商场及园区。"
+          }
+        ]
+      },
+      "seo": {
+        "title": "合作伙伴与品牌方 | Trumecs",
+        "description": "成为 Trumecs 的品牌方或合作伙伴，展示您的产品与解决方案，触达印尼各地的潜在买家。"
+      },
+      "hydraulicHose": {
+        "hero": {
+          "eyebrow": "液压软管、接头与连接件",
+          "titleLine1": "工业液压软管与",
+          "titleLine2": "连接解决方案",
+          "subtitle": "从纺织编织到 PTFE 软管，以及接头、适配器、快速接头、阀门和弯管加工。为您的压力、温度和介质选择合适的类型。",
+          "ctaProducts": "查看产品类别",
+          "ctaQuote": "获取报价"
+        },
+        "usps": [
+          {
+            "icon": "mdi:view-grid-outline",
+            "title": "完整产品系列",
+            "description": "软管、接头、适配器、快换接头、阀门、防护套及弯管加工一站式供应。"
+          },
+          {
+            "icon": "mdi:certificate-outline",
+            "title": "符合标准",
+            "description": "产品符合液压行业常用的 EN、SAE 和 ISO 标准。"
+          },
+          {
+            "icon": "mdi:hammer-wrench",
+            "title": "总成与测试",
+            "description": "按所需长度和接头制作软管总成，发货前进行测试。"
+          }
+        ],
+        "products": {
+          "sectionLabel": "产品类别",
+          "seoTitle": "工业液压软管、接头、快速接头及配件",
+          "seoDesc": "完整的液压流体管路组件：纺织编织、钢丝编织、钢丝缠绕、热塑性和 PTFE 软管；多种螺纹标准的接头与适配器；快速接头、旋转接头、阀门、软管防护套及按图弯管。",
+          "titleLine1": "一站式满足",
+          "titleLine2": "整条液压管路需求",
+          "subtitle": "选择类别或搜索产品。点击卡片查看示例产品、一般规格、应用和选型说明。",
+          "searchPlaceholder": "搜索产品，如 2SN、PTFE、平面…",
+          "searchAria": "搜索产品",
+          "noResults": "未找到产品。请联系我们，我们可协助按规格为您寻找组件。",
+          "examplesLabel": "个示例产品"
+        },
+        "groups": [
+          "全部",
+          "软管",
+          "接头与连接",
+          "阀门与配件"
+        ],
+        "categories": [
+          {
+            "name": "纺织编织软管",
+            "icon": "mdi:pipe",
+            "image": "/principal/hose/selang-textile-braid.webp",
+            "groupIdx": 1,
+            "range": "Diameter 6 – 51 mm",
+            "description": "带纺织编织增强层的液压软管。重量轻、柔韧性好，适用于中低压。",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "6 – 51 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R3, R4, R6 · EN 854"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Rendah – menengah"
+              }
+            ],
+            "ratings": {
+              "pressure": 1,
+              "flex": 4,
+              "temp": 2,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 1TE / SAE 100R6",
+                "spec": "1 anyaman tekstil",
+                "description": "Ringan untuk jalur return, saluran oli, dan tekanan rendah."
+              },
+              {
+                "name": "Selang 2TE / SAE 100R3",
+                "spec": "2 anyaman tekstil",
+                "description": "Untuk tekanan menengah pada jalur suplai maupun return."
+              },
+              {
+                "name": "Selang 3TE (EN 854)",
+                "spec": "3 anyaman tekstil",
+                "description": "Tekanan menengah dengan fleksibilitas baik dan ketahanan impuls yang lebih tinggi."
+              },
+              {
+                "name": "Selang Suction & Return / SAE 100R4",
+                "spec": "Tekstil + helix kawat",
+                "description": "Untuk saluran hisap dan return, tahan terhadap tekanan negatif."
+              }
+            ],
+            "applications": [
+              "Jalur return oli",
+              "Saluran pilot & drain",
+              "Pelumasan",
+              "Mesin pertanian",
+              "Peralatan konstruksi ringan"
+            ],
+            "tip": "Pilih textile braid untuk tekanan rendah. Untuk tekanan kerja tinggi atau impuls berat, gunakan wire braid atau wire spiral."
+          },
+          {
+            "name": "钢丝编织软管",
+            "icon": "mdi:grid",
+            "image": "/principal/hose/selang-wire-braid.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 5 – 102 mm",
+            "description": "钢丝编织增强层，适用于中高压。通用液压系统中最常用的类型。",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "5 – 102 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "EN 853 (1SN/2SN) · EN 857 · SAE 100R1AT/R2AT/R5"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Menengah – tinggi (hingga ± 40 MPa pada diameter kecil)"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 3,
+              "temp": 2,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 1SN / SAE 100R1AT",
+                "spec": "1 anyaman kawat baja",
+                "description": "Serbaguna untuk tekanan menengah pada alat berat dan mesin industri."
+              },
+              {
+                "name": "Selang 2SN / SAE 100R2AT",
+                "spec": "2 anyaman kawat baja",
+                "description": "Tekanan kerja lebih tinggi untuk beban dan impuls yang lebih berat."
+              },
+              {
+                "name": "Selang Compact 1SC / 2SC (EN 857)",
+                "spec": "Diameter luar ringkas",
+                "description": "Radius tekuk lebih rapat untuk ruang instalasi yang sempit."
+              },
+              {
+                "name": "Selang SAE 100R5",
+                "spec": "Wire braid + cover tekstil",
+                "description": "Cover anyaman tekstil dengan penguat kawat baja untuk lingkungan umum."
+              },
+              {
+                "name": "Selang Big Bore",
+                "spec": "Hingga 102 mm",
+                "description": "Diameter besar untuk saluran suplai atau hisap berkapasitas tinggi."
+              }
+            ],
+            "applications": [
+              "Alat berat",
+              "Pertanian",
+              "Press & injection molding",
+              "Power pack",
+              "Truk & dump hoist"
+            ],
+            "tip": "Gunakan tipe compact bila ruang terbatas atau radius tekuk kecil dibutuhkan."
+          },
+          {
+            "name": "钢丝缠绕软管",
+            "icon": "mdi:autorenew",
+            "image": "/principal/hose/selang-wire-spiral.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 6 – 76 mm",
+            "description": "四至六层钢丝缠绕，适用于重型设备和矿山机械的高压及强脉冲工况。",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "6 – 76 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "EN 856 (4SP/4SH) · SAE 100R12/R13/R15"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Tinggi – sangat tinggi (tekanan kerja bervariasi per diameter)"
+              }
+            ],
+            "ratings": {
+              "pressure": 4,
+              "flex": 2,
+              "temp": 3,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 4SP (EN 856)",
+                "spec": "4 spiral kawat baja",
+                "description": "Tekanan tinggi untuk alat berat dan sistem dengan impuls berat."
+              },
+              {
+                "name": "Selang 4SH (EN 856)",
+                "spec": "4 spiral, tekanan lebih tinggi",
+                "description": "Tekanan kerja lebih tinggi untuk diameter menengah hingga besar."
+              },
+              {
+                "name": "Selang SAE 100R12",
+                "spec": "4 spiral · ± 28 MPa (4000 psi)",
+                "description": "Tahan impuls tinggi untuk aplikasi mobile equipment."
+              },
+              {
+                "name": "Selang SAE 100R13 / R15",
+                "spec": "Multi-spiral · ± 35 – 42 MPa",
+                "description": "Tekanan sangat tinggi untuk excavator dan mesin hidrolik besar."
+              },
+              {
+                "name": "Selang Spiral Tahan Abrasi / MSHA",
+                "spec": "Cover khusus",
+                "description": "Varian cover tahan abrasi dan sesuai persyaratan tambang (MSHA)."
+              }
+            ],
+            "applications": [
+              "Excavator",
+              "Peralatan tambang",
+              "Drilling",
+              "Press besar",
+              "Mesin hidrolik tekanan tinggi"
+            ],
+            "tip": "Selang spiral lebih kaku. Perhatikan radius tekuk minimum dan pasang fitting khusus spiral (multispiral/interlock)."
+          },
+          {
+            "name": "热塑性软管",
+            "icon": "mdi:feather",
+            "image": "/principal/hose/selang-thermoplastic.webp",
+            "groupIdx": 1,
+            "range": "Diameter 2 – 25 mm",
+            "description": "重量轻、弯曲半径小，耐磨耐候。适用于狭小空间和便携设备。",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "2 – 25 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R7 / R8 · EN 855"
+              },
+              {
+                "label": "Cover",
+                "value": "Poliuretan atau termoplastik tahan abrasi"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 4,
+              "temp": 2,
+              "chem": 3
+            },
+            "products": [
+              {
+                "name": "SAE 100R7 Textile Braid",
+                "spec": "Penguat serat tekstil",
+                "description": "Tekanan menengah, sangat ringan dan fleksibel."
+              },
+              {
+                "name": "SAE 100R8 Tekanan Tinggi",
+                "spec": "Penguat serat tekanan tinggi",
+                "description": "Tekanan lebih tinggi untuk peralatan hidrolik kompak."
+              },
+              {
+                "name": "Thermoplastic Wire Braid",
+                "spec": "1 atau 2 anyaman kawat baja",
+                "description": "Tekanan tinggi dengan cover tahan abrasi dan tanpa bekas tusukan (non pin-pricked)."
+              },
+              {
+                "name": "Selang Twin (Dua Jalur)",
+                "spec": "2 selang dalam 1 cover",
+                "description": "Satu selang untuk dua jalur suplai dan return agar instalasi lebih rapi."
+              },
+              {
+                "name": "Selang Non-Konduktif",
+                "spec": "Untuk kerja dekat listrik",
+                "description": "Varian non-konduktif untuk peralatan utilitas dan aerial lift."
+              }
+            ],
+            "applications": [
+              "Peralatan hidrolik portabel",
+              "Robotika & otomasi",
+              "Crane truk",
+              "Peralatan utilitas",
+              "Cat semprot tekanan tinggi"
+            ],
+            "tip": "Pilih thermoplastic bila bobot ringan, radius tekuk kecil, atau ketahanan abrasi lebih penting daripada ketahanan suhu tinggi."
+          },
+          {
+            "name": "PTFE 软管",
+            "icon": "mdi:flask-outline",
+            "image": "/principal/hose/selang-ptfe.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 5 – 51 mm",
+            "description": "PTFE 内管配不锈钢编织增强层。耐高温，几乎兼容所有化学介质。",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "5 – 51 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R14 dan sejenisnya"
+              },
+              {
+                "label": "Suhu",
+                "value": "Hingga ± 260°C (sesuai tipe)"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 2,
+              "temp": 4,
+              "chem": 4
+            },
+            "products": [
+              {
+                "name": "PTFE Smooth Bore / SAE 100R14",
+                "spec": "Lubang halus, braid stainless",
+                "description": "Aliran lancar dan mudah dibersihkan untuk suhu tinggi dan media agresif."
+              },
+              {
+                "name": "PTFE Corrugated (Convoluted)",
+                "spec": "Dinding bergelombang",
+                "description": "Lebih fleksibel dengan radius tekuk kecil untuk jalur yang berliku."
+              },
+              {
+                "name": "PTFE Konduktif (Antistatik)",
+                "spec": "Lapisan dalam konduktif",
+                "description": "Mencegah penumpukan listrik statis pada transfer fluida mudah terbakar."
+              },
+              {
+                "name": "PTFE Tekanan Tinggi Multi-Braid",
+                "spec": "Beberapa anyaman stainless",
+                "description": "Tekanan kerja lebih tinggi untuk sistem industri dan otomotif."
+              }
+            ],
+            "applications": [
+              "Industri kimia",
+              "Makanan & farmasi",
+              "Uap & suhu tinggi",
+              "Bahan bakar & pendingin",
+              "Cat dan pelarut"
+            ],
+            "tip": "Pastikan fitting kompatibel dengan PTFE. Jenis dan prosedur crimp berbeda dari selang karet."
+          },
+          {
+            "name": "软管接头",
+            "icon": "mdi:link-variant",
+            "image": "/principal/hose/selang-fitting.jpg",
+            "groupIdx": 2,
+            "range": "Baja karbon & stainless steel",
+            "description": "一体式和两件式软管端部接头，适用于标准至多层缠绕软管。",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Baja karbon & stainless steel"
+              },
+              {
+                "label": "Konstruksi",
+                "value": "One-piece & two-piece"
+              },
+              {
+                "label": "Koneksi",
+                "value": "BSP, NPT, Metrik, JIC, ORFS, SAE, Staple (tambang)"
+              }
+            ],
+            "products": [
+              {
+                "name": "Fitting One-Piece (Crimp)",
+                "spec": "Satu bagian",
+                "description": "Instalasi cepat dan efisien untuk produksi rakitan volume tinggi."
+              },
+              {
+                "name": "Fitting Two-Piece",
+                "spec": "Nipple + socket",
+                "description": "Kombinasi nipple dan socket yang fleksibel untuk berbagai ukuran dan ujung."
+              },
+              {
+                "name": "Fitting Multispiral / Interlock",
+                "spec": "Untuk selang spiral",
+                "description": "Socket yang mencengkeram lapisan penguat selang tekanan tinggi."
+              },
+              {
+                "name": "Fitting Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan laut, kimia, dan pengolahan pangan."
+              },
+              {
+                "name": "Fitting Flange SAE Code 61 / 62",
+                "spec": "Flange 4 baut",
+                "description": "Untuk diameter besar dan tekanan tinggi, umum pada alat berat."
+              }
+            ],
+            "applications": [
+              "Rakitan selang",
+              "Perawatan & perbaikan",
+              "Produksi OEM",
+              "Alat berat",
+              "Industri tambang"
+            ],
+            "tip": "Gunakan kombinasi selang, fitting, dan mesin crimp yang kompatibel serta ikuti data crimp dari produsen."
+          },
+          {
+            "name": "液压适配器",
+            "icon": "mdi:connection",
+            "image": "/principal/hose/adapter-hidrolik.webp",
+            "groupIdx": 2,
+            "range": "BSP · NPT · Metrik · JIC · ORFS · SAE",
+            "description": "用于连接泵、油缸、阀门和集成块等液压组件的接头和螺纹适配器。",
+            "specs": [
+              {
+                "label": "Koneksi",
+                "value": "BSP, NPT, Metrik (24°), JIC, ORFS, SAE"
+              },
+              {
+                "label": "Bentuk",
+                "value": "Lurus, elbow, tee, cross"
+              },
+              {
+                "label": "Material",
+                "value": "Baja karbon berlapis & stainless steel"
+              }
+            ],
+            "products": [
+              {
+                "name": "Adapter Lurus",
+                "spec": "Male–male / male–female",
+                "description": "Menghubungkan dua jenis ulir atau ukuran yang berbeda secara langsung."
+              },
+              {
+                "name": "Adapter Elbow 45° / 90°",
+                "spec": "Sudut tetap atau swivel",
+                "description": "Mengubah arah jalur untuk ruang sempit dan merapikan routing selang."
+              },
+              {
+                "name": "Adapter Tee & Cross",
+                "spec": "3 atau 4 port",
+                "description": "Membagi atau menggabungkan aliran pada satu titik koneksi."
+              },
+              {
+                "name": "Adapter Bulkhead",
+                "spec": "Menembus panel",
+                "description": "Menghubungkan jalur melalui dinding panel atau tangki dengan mur pengunci."
+              },
+              {
+                "name": "Plug, Cap & Reducer",
+                "spec": "Penutup & pengecil",
+                "description": "Menutup port yang tidak dipakai atau mengubah ukuran sambungan."
+              }
+            ],
+            "applications": [
+              "Konversi ulir",
+              "Manifold & blok hidrolik",
+              "Pompa & silinder",
+              "Power pack",
+              "Test bench"
+            ],
+            "tip": "Cocokkan jenis ulir, ukuran, dan permukaan seal (kerucut, O-ring, atau flat face) sebelum memesan."
+          },
+          {
+            "name": "快速及多路接头",
+            "icon": "mdi:lightning-bolt-outline",
+            "image": "/principal/hose/quick-coupling.jpg",
+            "groupIdx": 2,
+            "range": "Poppet · Flat Face · Screw Type",
+            "description": "无需工具即可快速连接和断开液压管路，包括可同时连接多路的多路快换系统。",
+            "specs": [
+              {
+                "label": "Tipe",
+                "value": "Poppet, flat face, screw-to-connect"
+              },
+              {
+                "label": "Standar",
+                "value": "ISO 7241 (poppet) · ISO 16028 (flat face)"
+              },
+              {
+                "label": "Fitur",
+                "value": "Tersedia versi sambung-lepas saat bertekanan"
+              }
+            ],
+            "products": [
+              {
+                "name": "Quick Coupling Poppet (ISO 7241)",
+                "spec": "Katup poppet",
+                "description": "Tipe umum untuk aplikasi serbaguna dengan interchangeability luas."
+              },
+              {
+                "name": "Quick Coupling Flat Face (ISO 16028)",
+                "spec": "Muka rata",
+                "description": "Kebocoran minimal saat dilepas dan mudah dibersihkan, cocok untuk lingkungan kotor."
+              },
+              {
+                "name": "Quick Coupling Screw Type",
+                "spec": "Sambungan ulir",
+                "description": "Pengunci ulir untuk tekanan tinggi dan beban dinamis."
+              },
+              {
+                "name": "Coupling Sambung Saat Bertekanan",
+                "spec": "Pressure connect",
+                "description": "Dapat disambung walau jalur masih bertekanan sehingga mempercepat penggantian attachment."
+              },
+              {
+                "name": "Multi-Coupling",
+                "spec": "Hidrolik / listrik / pneumatik",
+                "description": "Banyak jalur dalam satu sambungan untuk pergantian attachment yang cepat dan bebas salah sambung."
+              }
+            ],
+            "applications": [
+              "Implement traktor",
+              "Attachment excavator",
+              "Power pack",
+              "Test bench",
+              "Mesin mobile"
+            ],
+            "tip": "Pilih ukuran dan tipe sesuai laju aliran. Coupling yang terlalu kecil menyebabkan kehilangan tekanan dan panas."
+          },
+          {
+            "name": "插入式与旋转接头",
+            "icon": "mdi:rotate-3d-variant",
+            "image": "/principal/hose/swivel.jpg",
+            "groupIdx": 2,
+            "range": "Hingga ± 420 bar · Diameter hingga 51 mm",
+            "description": "用于快速、无误装配的插入式接头，以及用于旋转部件防止软管扭转的旋转接头。",
+            "specs": [
+              {
+                "label": "Tekanan (swivel)",
+                "value": "Hingga ± 420 bar (6000 psi), sesuai tipe"
+              },
+              {
+                "label": "Diameter",
+                "value": "Hingga 51 mm"
+              },
+              {
+                "label": "Koneksi",
+                "value": "Sesuai kebutuhan OEM / custom termination"
+              }
+            ],
+            "products": [
+              {
+                "name": "Konektor Plug-in",
+                "spec": "Pasang langsung",
+                "description": "Instalasi cepat dan minim kesalahan, ideal untuk ruang terbatas dan produksi massal."
+              },
+              {
+                "name": "Swivel Putaran Kontinu",
+                "spec": "Rotasi penuh",
+                "description": "Desain kompak dengan putaran halus untuk bagian yang berputar terus-menerus."
+              },
+              {
+                "name": "Swivel Putaran Intermiten",
+                "spec": "Osilasi / terbatas",
+                "description": "Untuk gerakan berputar sebagian atau berganti arah."
+              },
+              {
+                "name": "Swivel Custom OEM",
+                "spec": "Sesuai gambar kerja",
+                "description": "Termination dan ukuran disesuaikan dengan kebutuhan desain mesin."
+              }
+            ],
+            "applications": [
+              "Hose reel",
+              "Crane & winch",
+              "Drum berputar",
+              "Lengan robot",
+              "Mesin dengan bagian berputar"
+            ],
+            "tip": "Gunakan swivel di setiap titik yang berputar. Selang yang terpelintir akan cepat rusak dan berisiko bocor."
+          },
+          {
+            "name": "阀门（球阀与单向阀）",
+            "icon": "mdi:valve",
+            "image": "/principal/hose/ball-check-valve.jpg",
+            "groupIdx": 3,
+            "range": "Diameter nominal hingga 51 mm",
+            "description": "适用于低压和高压管路的球阀和单向阀，提供多种材质和端部类型。",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "Hingga 51 mm"
+              },
+              {
+                "label": "Material",
+                "value": "Kuningan, baja karbon, stainless steel"
+              },
+              {
+                "label": "Fungsi",
+                "value": "Buka-tutup (ball) & satu arah (check)"
+              }
+            ],
+            "products": [
+              {
+                "name": "Ball Valve Kuningan",
+                "spec": "Tekanan rendah",
+                "description": "Isolasi jalur untuk sistem tekanan rendah dan media umum."
+              },
+              {
+                "name": "Ball Valve Baja Karbon",
+                "spec": "Tekanan tinggi",
+                "description": "Konstruksi kuat untuk jalur hidrolik bertekanan tinggi."
+              },
+              {
+                "name": "Ball Valve Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan korosif, laut, dan pengolahan pangan."
+              },
+              {
+                "name": "Ball Valve 3-Way",
+                "spec": "Pengarah aliran",
+                "description": "Mengalihkan atau memilih jalur aliran pada satu valve."
+              },
+              {
+                "name": "Check Valve (Non-Return)",
+                "spec": "Aliran satu arah",
+                "description": "Mencegah aliran balik untuk melindungi pompa dan komponen sistem."
+              }
+            ],
+            "applications": [
+              "Isolasi jalur oli",
+              "Pengambilan sampel & drain",
+              "Power pack",
+              "Test bench",
+              "Perawatan sistem"
+            ],
+            "tip": "Pilih material dan tipe ujung sesuai media, tekanan kerja, dan jenis koneksi pada sistem Anda."
+          },
+          {
+            "name": "软管防护套",
+            "icon": "mdi:shield-half-full",
+            "image": "/principal/hose/pelindung-selang.jpg",
+            "groupIdx": 3,
+            "range": "Standard · MSHA · FRAS",
+            "description": "塑料螺旋防护套，用于抵抗磨损及其他缩短软管寿命的外部因素。",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Plastik spiral tepi membulat"
+              },
+              {
+                "label": "Versi",
+                "value": "Standard, MSHA, FRAS"
+              },
+              {
+                "label": "Pemasangan",
+                "value": "Mudah, tanpa alat khusus"
+              }
+            ],
+            "products": [
+              {
+                "name": "Spiral Guard Standar",
+                "spec": "Plastik spiral",
+                "description": "Perlindungan abrasi umum pada alat berat dan mesin industri."
+              },
+              {
+                "name": "Spiral Guard MSHA",
+                "spec": "Persyaratan tambang",
+                "description": "Varian yang memenuhi persyaratan penggunaan di area tambang."
+              },
+              {
+                "name": "Spiral Guard FRAS",
+                "spec": "Tahan api & antistatik",
+                "description": "Tahan api dan antistatik untuk lingkungan berisiko tinggi."
+              },
+              {
+                "name": "Pelindung Pegas Baja",
+                "spec": "Spring guard",
+                "description": "Perlindungan tambahan terhadap tekukan tajam dan benturan di titik rawan."
+              }
+            ],
+            "applications": [
+              "Tambang",
+              "Alat berat",
+              "Kehutanan",
+              "Area abrasif",
+              "Lingkungan panas"
+            ],
+            "tip": "Pelindung tidak menggantikan penggantian selang yang aus. Tetap lakukan inspeksi rutin."
+          },
+          {
+            "name": "弯管（成型管）",
+            "icon": "mdi:vector-polyline",
+            "image": "/principal/hose/pipa-bending.jpg",
+            "groupIdx": 3,
+            "range": "Diameter 4 – 200 mm (3/16\" – 8\")",
+            "description": "按 OEM 图纸成型的液压管，可与软管、接头和快换接头组合使用。",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Baja karbon & stainless steel"
+              },
+              {
+                "label": "Diameter",
+                "value": "4 – 200 mm (3/16\" – 8\")"
+              },
+              {
+                "label": "Kebersihan",
+                "value": "Hingga NAS 5 / ISO 4406 16/14/11 atau lebih baik"
+              }
+            ],
+            "products": [
+              {
+                "name": "Pipa Bending OEM",
+                "spec": "Sesuai gambar kerja",
+                "description": "Pembentukan presisi dengan pengukuran geometri 3D untuk hasil yang konsisten."
+              },
+              {
+                "name": "Rakitan Pipa dengan Fitting",
+                "spec": "Tube assembly",
+                "description": "Pipa lengkap dengan fitting dan seal, siap dipasang."
+              },
+              {
+                "name": "Pipa Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan korosif dan aplikasi yang menuntut kebersihan tinggi."
+              },
+              {
+                "name": "Pipa Flange SAE",
+                "spec": "Untuk diameter besar",
+                "description": "Pipa dengan ujung flange untuk jalur tekanan tinggi berdiameter besar."
+              },
+              {
+                "name": "Pipa Kebersihan Tinggi",
+                "spec": "Dibersihkan & disumbat",
+                "description": "Dibersihkan dan ditutup untuk menjaga tingkat kebersihan hingga pemasangan."
+              }
+            ],
+            "applications": [
+              "Alat berat",
+              "Mesin industri",
+              "Manifold & power unit",
+              "Jalur tetap tekanan tinggi",
+              "Produksi OEM"
+            ],
+            "tip": "Gunakan pipa untuk rute tetap bertekanan tinggi dan selang untuk bagian yang bergerak atau bergetar."
+          }
+        ],
+        "compare": {
+          "sectionLabel": "快速对比",
+          "titleLine1": "软管类型",
+          "titleLine2": "一览",
+          "subtitle": "比较五种软管类型的相对指南。填充点越多表示该方面性能越强。",
+          "thHose": "软管类型",
+          "note": "一般指南。实际性能取决于直径、结构和制造商规格。请始终参考产品数据表。"
+        },
+        "ratingLabels": {
+          "pressure": "压力",
+          "flex": "柔韧性",
+          "temp": "温度",
+          "chem": "耐化学性"
+        },
+        "assembly": {
+          "sectionLabel": "软管总成",
+          "titleLine1": "按需定制",
+          "titleLine2": "软管总成",
+          "subtitle": "发送规格或旧软管样品。我们按合适的长度、接头和角度为您准备总成。",
+          "steps": [
+            {
+              "icon": "mdi:ruler",
+              "title": "测量与规格",
+              "description": "确定软管类型、直径、长度、接头端和弯曲角度。"
+            },
+            {
+              "icon": "mdi:content-cut",
+              "title": "切割与清洁",
+              "description": "总成前对软管进行精密切割和内部清洁。"
+            },
+            {
+              "icon": "mdi:hammer-wrench",
+              "title": "按数据扣压",
+              "description": "按照软管与接头组合的扣压数据进行接头扣压。"
+            },
+            {
+              "icon": "mdi:gauge",
+              "title": "测试与标识",
+              "description": "发货前进行压力测试、目视检查和贴标。"
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "技术参考",
+          "titleLine1": "解读",
+          "titleLine2": "软管代码",
+          "subtitle": "软管代码包含结构、尺寸和标准信息。以下为解读示例，以及尺寸和连接类型表。",
+          "sizeTitle": "软管尺寸换算",
+          "sizeSub": "内径 (DN)、Dash 代码和英寸",
+          "thDn": "DN (mm)",
+          "thDash": "Dash",
+          "thInch": "英寸",
+          "threadTitle": "常见连接类型",
+          "threadSub": "常见螺纹与密封面",
+          "thType": "类型",
+          "thSeal": "密封 / 角度",
+          "thNote": "说明",
+          "threadNote": "外观相似的螺纹未必兼容。安装前请匹配螺纹类型、尺寸和密封面。",
+          "decoder": [
+            {
+              "code": "2SN",
+              "label": "结构",
+              "meaning": "两层钢丝编织增强层"
+            },
+            {
+              "code": "DN12",
+              "label": "直径",
+              "meaning": "公称内径 12 mm"
+            },
+            {
+              "code": "-8",
+              "label": "Dash",
+              "meaning": "Dash 尺寸代码：8/16 英寸 = 1/2 英寸"
+            },
+            {
+              "code": "EN 853",
+              "label": "标准",
+              "meaning": "钢丝编织液压软管标准"
+            }
+          ],
+          "sizeRows": [
+            {
+              "dn": 6,
+              "dash": "-4",
+              "inch": "1/4\""
+            },
+            {
+              "dn": 8,
+              "dash": "-5",
+              "inch": "5/16\""
+            },
+            {
+              "dn": 10,
+              "dash": "-6",
+              "inch": "3/8\""
+            },
+            {
+              "dn": 12,
+              "dash": "-8",
+              "inch": "1/2\""
+            },
+            {
+              "dn": 16,
+              "dash": "-10",
+              "inch": "5/8\""
+            },
+            {
+              "dn": 19,
+              "dash": "-12",
+              "inch": "3/4\""
+            },
+            {
+              "dn": 25,
+              "dash": "-16",
+              "inch": "1\""
+            },
+            {
+              "dn": 31,
+              "dash": "-20",
+              "inch": "1-1/4\""
+            },
+            {
+              "dn": 38,
+              "dash": "-24",
+              "inch": "1-1/2\""
+            },
+            {
+              "dn": 51,
+              "dash": "-32",
+              "inch": "2\""
+            }
+          ],
+          "threadRows": [
+            {
+              "code": "BSP",
+              "seal": "55° 管螺纹",
+              "note": "欧洲和亚洲常用 (BSPP / BSPT)"
+            },
+            {
+              "code": "NPT",
+              "seal": "60° 锥螺纹",
+              "note": "美标，螺纹密封"
+            },
+            {
+              "code": "JIC",
+              "seal": "37° 扩口",
+              "note": "金属对金属密封，重型设备常用"
+            },
+            {
+              "code": "ORFS",
+              "seal": "O 形圈端面密封",
+              "note": "防泄漏，适用于高压"
+            },
+            {
+              "code": "Metric",
+              "seal": "24° 锥面",
+              "note": "欧洲体系，轻型和重型"
+            },
+            {
+              "code": "SAE Flange",
+              "seal": "O 形圈 + 4 螺栓",
+              "note": "大口径，Code 61 / 62"
+            }
+          ]
+        },
+        "selection": {
+          "sectionLabel": "选型与安全",
+          "titleLine1": "正确选型，",
+          "titleLine2": "安全使用",
+          "subtitle": "通过正确选型和定期检查，几乎可以避免液压软管故障。",
+          "factorsTitle": "六大选型因素",
+          "failureTitle": "常见失效原因",
+          "warningTitle": "安全警告",
+          "warningDesc": "高压细微泄漏可穿透皮肤（液体注入）并造成危险。切勿用手检查泄漏。请使用纸板或木板，佩戴防护装备，并在拆卸软管或接头前释放系统压力。",
+          "standardsTitle": "参考标准",
+          "standardsDesc": "液压软管、接头和连接件常用参考规范。",
+          "factors": [
+            {
+              "icon": "mdi:ruler",
+              "title": "尺寸",
+              "description": "内径决定流量。过小会导致发热和压力损失。"
+            },
+            {
+              "icon": "mdi:thermometer",
+              "title": "温度",
+              "description": "考虑流体和环境温度，包括短时温度峰值。"
+            },
+            {
+              "icon": "mdi:tractor",
+              "title": "应用",
+              "description": "运动、振动、安装空间和弯曲半径决定结构类型。"
+            },
+            {
+              "icon": "mdi:flask-outline",
+              "title": "介质",
+              "description": "确保内胶与油、水-乙二醇、化学品或燃料兼容。"
+            },
+            {
+              "icon": "mdi:gauge",
+              "title": "压力",
+              "description": "计算工作压力及脉冲，并按标准设置安全系数。"
+            },
+            {
+              "icon": "mdi:link-variant",
+              "title": "端部连接",
+              "description": "确定螺纹类型、接头角度及与现有组件的兼容性。"
+            }
+          ],
+          "failures": [
+            {
+              "icon": "mdi:gauge-full",
+              "title": "过压与脉冲",
+              "description": "反复的压力冲击使增强层疲劳，最终导致爆破。"
+            },
+            {
+              "icon": "mdi:rotate-3d-variant",
+              "title": "弯曲与扭转",
+              "description": "弯曲半径小于极限或软管扭转会加速损坏。"
+            },
+            {
+              "icon": "mdi:shield-alert-outline",
+              "title": "磨损与环境",
+              "description": "摩擦、高温和化学品侵蚀会损坏外胶。请使用防护套并合理布管。"
+            },
+            {
+              "icon": "mdi:hammer-wrench",
+              "title": "接头与扣压错误",
+              "description": "接头组合不匹配或扣压不当会导致接头脱落。"
+            }
+          ],
+          "standards": [
+            "EN 853",
+            "EN 856",
+            "EN 854",
+            "EN 855",
+            "EN 857",
+            "SAE J517",
+            "ISO 1436",
+            "ISO 18752",
+            "ISO 17165",
+            "ISO 12151",
+            "ISO 8434",
+            "ISO 7241",
+            "ISO 16028",
+            "ISO 4406"
+          ]
+        },
+        "faq": {
+          "sectionLabel": "常见问题",
+          "title": "常见问题",
+          "items": [
+            {
+              "q": "如何选择合适的液压软管？",
+              "a": "确定工作压力（含脉冲）、内径、温度、介质类型、安装空间和端部连接类型，然后选择合适的结构和标准。如不确定，可将规格或旧软管样品发给我们。"
+            },
+            {
+              "q": "1SN 和 2SN 软管有什么区别？",
+              "a": "1SN 有一层钢丝编织增强层，2SN 有两层。在相同直径下，2SN 通常具有更高的工作压力。"
+            },
+            {
+              "q": "什么时候应使用 PTFE 软管？",
+              "a": "在高温、强腐蚀性化学品或食品制药等清洁要求场合选择 PTFE。重型设备的一般液压通常更适合钢丝编织或钢丝缠绕软管。"
+            },
+            {
+              "q": "可以混用不同制造商的软管和接头吗？",
+              "a": "不建议。软管、接头和扣压数据由制造商规定。未经官方数据混用组件会降低总成的安全性和工作压力。"
+            },
+            {
+              "q": "液压软管的使用寿命是多久？",
+              "a": "没有固定寿命，取决于压力、温度、运动和环境。应定期检查，如出现泄漏、外胶开裂、鼓包或增强层外露应及时更换。"
+            },
+            {
+              "q": "可以订购定制长度和接头的软管总成吗？",
+              "a": "可以。请提供软管类型、长度、接头类型和角度，或旧总成样品，我们将按规格制作。"
+            }
+          ]
+        },
+        "contact": {
+          "sectionLabel": "获取报价",
+          "titleLine1": "需要特定的",
+          "titleLine2": "软管或接头？",
+          "subtitle": "请提供类型、尺寸和数量。如不确定，可发送旧软管照片或样品，我们将协助匹配。",
+          "whatsapp": "WhatsApp 咨询",
+          "email": "发送邮件",
+          "formTitle": "快速询价表单",
+          "fieldProduct": "产品 / 类别",
+          "fieldSpec": "尺寸 / 规格",
+          "fieldQty": "数量",
+          "fieldNote": "备注（可选）",
+          "phProduct": "如 2SN 软管、平面快速接头",
+          "phSpec": "如 DN12, 400 bar, JIC",
+          "phQty": "10",
+          "phNote": "软管长度、介质类型、工作温度等",
+          "required": "*",
+          "submit": "通过 WhatsApp 发送",
+          "formHint": "此表单将打开带有预填信息的 WhatsApp。本网站不存储任何数据。",
+          "formError": "请填写所需的产品/类别和数量。",
+          "waIntro": "您好 Trumecs，我想咨询液压产品报价。",
+          "waProduct": "产品",
+          "waSpec": "尺寸 / 规格",
+          "waQty": "数量",
+          "waNote": "备注",
+          "waCategory": "您好 Trumecs，我想咨询“{name}”类别的报价。请提供产品信息和供货情况。",
+          "waGeneral": "您好 Trumecs，我对液压软管、接头和连接件感兴趣。请提供更多信息。",
+          "emailSubject": "液压产品报价请求"
+        },
+        "detail": {
+          "specsTitle": "一般规格",
+          "ratingsTitle": "特性（相对）",
+          "productsTitle": "示例产品（{count}）",
+          "applicationsTitle": "常见应用",
+          "ctaText": "需要此类别的报价？",
+          "ctaButton": "获取报价",
+          "close": "关闭"
+        },
+        "seo": {
+          "title": "液压软管、接头、适配器及快速接头 | Trumecs",
+          "description": "工业用纺织编织、钢丝编织、钢丝缠绕、热塑性和 PTFE 液压软管；接头、适配器、快速接头、阀门、软管防护套及弯管加工。"
         }
       }
     },

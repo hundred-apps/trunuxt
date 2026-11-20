@@ -389,19 +389,82 @@ const handleEmail = () => {
 };
 
 // ============ SEO ============
+const SITE_URL = "https://www.trumecs.com";
+const PAGE_PATH = "/principal/usedsparepart";
+
+const localeHead = useLocaleHead();
 useHead({
-  title: t('page.principal.usedsparepart.seo.title'),
+  title: () => t("page.principal.usedsparepart.seo.title"),
   titleTemplate: "%s | Trumecs.com",
-  meta: [
-    { name: "description", content: t('page.principal.usedsparepart.seo.description') },
-    { property: "og:title", content: `${t('page.principal.usedsparepart.seo.title')} | Trumecs.com` },
-    { property: "og:description", content: t('page.principal.usedsparepart.seo.description') },
+  htmlAttrs: computed(() => localeHead.value.htmlAttrs ?? {}),
+  meta: computed(() => [
+    ...(localeHead.value.meta ?? []),
+    {
+      name: "description",
+      content: t("page.principal.usedsparepart.seo.description"),
+    },
+    {
+      property: "og:title",
+      content: `${t("page.principal.usedsparepart.seo.title")} | Trumecs.com`,
+    },
+    {
+      property: "og:description",
+      content: t("page.principal.usedsparepart.seo.description"),
+    },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },
-  ],
-  link: [
-    { rel: "canonical", href: "https://www.trumecs.com/principal/usedsparepart" },
+  ]),
+  link: computed(() => [...(localeHead.value.link ?? [])]),
+});
+
+const geoJsonLd = computed(() => [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: t("breadcrumb.home"),
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("page.principal.title"),
+        item: `${SITE_URL}/principal`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: t("page.principal.usedsparepart.seo.title"),
+        item: `${SITE_URL}${PAGE_PATH}`,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Used & Copotan Spare Parts",
+    name: t("page.principal.usedsparepart.seo.title"),
+    description: t("page.principal.usedsparepart.seo.description"),
+    url: `${SITE_URL}${PAGE_PATH}`,
+    provider: {
+      "@type": "Organization",
+      name: "Trumecs",
+      url: SITE_URL,
+    },
+    areaServed: { "@type": "Country", name: "Indonesia" },
+  },
+]);
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: () => JSON.stringify(geoJsonLd.value),
+    },
   ],
 });
 </script>

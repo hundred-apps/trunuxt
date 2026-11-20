@@ -429,7 +429,7 @@
     "relatedArticle": "Related Article",
     "promo": "Promo",
     "bundle": "Bundle",
-    "industry": "Jelajahi Berdasarkan Industri",
+    "industry": "Browse by Industry",
     "featuredProducts": "Featured Products",
     "latestArticles": "Latest Articles",
     "category": "Category",
@@ -932,6 +932,23 @@
   "page": {
     "home": {
       "metaDescription": "Find your mechanical needs from thousands of quality products. Spare parts, lubricants, tires, heavy equipment, and work tools.",
+      "values": {
+        "title": "Your Partner in Industrial & Energy Solution",
+        "items": {
+          "engineering": {
+            "title": "Engineering Expertise",
+            "description": "Technical knowledge and practical experience to deliver the right solutions."
+          },
+          "supply": {
+            "title": "Reliable Industrial Supply",
+            "description": "Quality products and trusted brands to keep your operation running."
+          },
+          "energy": {
+            "title": "Integrated Energy Solution",
+            "description": "Supporting a more efficient and sustainable industrial future."
+          }
+        }
+      },
       "hero": {
         "title": "Trusted Mechanical Procurement Solutions",
         "subtitle": "Find your mechanical needs from thousands of quality products",
@@ -1021,27 +1038,46 @@
         "subtitle": "Explore products by your industry sector"
       },
       "categories": {
-        "title": "Explore Categories",
-        "subtitle": "Find products that match your needs"
+        "title": "Our Product & Solutions",
+        "subtitle": "Reliable industrial product and engineering solutions to support your business operations",
+        "exploreMore": "Explore More",
+        "items": {
+          "industrialBearings": "Industrial Bearings",
+          "renewableEnergy": "Renewable Energy Solutions",
+          "machiningFabrication": "Machining & Fabrication",
+          "industrialLubricants": "Industrial Lubricants",
+          "conveyorBelt": "Conveyor & Accessories",
+          "hydraulicHose": "Hydraulic Hose",
+          "blueCollarHr": "Human Resource"
+        }
       },
       "promo": {
         "title": "Latest Promos",
         "subtitle": "Don't miss our attractive offers"
       },
       "featured": {
-        "title": "Produk Terpopuler",
-        "subtitle": "Pilihan terbaik yang disukai pelanggan"
+        "title": "Popular Products",
+        "subtitle": "Top picks loved by customers"
       },
       "articles": {
         "title": "Latest Articles",
-        "subtitle": "Information and tips about the mechanical industry"
+        "subtitle": "Information and tips about the mechanical industry",
+        "untitled": "Untitled",
+        "general": "General"
       },
       "cta": {
         "title": "Need Help?",
         "subtitle": "Send us your needs and we will help you find the right products",
         "button": "Submit RFQ Now"
       },
-      "title": "Home"
+      "title": "Home",
+      "heroBanners": {
+        "struman": "Struman Power Supply",
+        "trumecs": "Trumecs.com banner",
+        "steps": "How-to-order banner",
+        "scrap": "Sell heavy equipment scrap on Trumecs.com",
+        "creditCard": "Trumecs now accepts credit card payments"
+      }
     },
     "article": {
       "loading": "Loading Article...",
@@ -1849,6 +1885,4186 @@
         "seo": {
           "title": "Heavy Equipment Salvage Spare Parts",
           "description": "Affordable and reliable solution for your heavy equipment spare part needs. Original & OEM, strictly inspected, and ready to use."
+        }
+      },
+      "conveyor": {
+        "hero": {
+          "badge": "ISO 9001:2015 Certified",
+          "titleLine1": "Complete Conveyor Part &",
+          "titleLine2": "Accessories Solutions",
+          "subtitle": "We provide conveyor and a complete range of accessories — belts, rollers, bearings, pulleys, and idlers — engineered to keep your production material flow running smoothly.",
+          "ctaQuote": "Request a Quote",
+          "ctaServices": "Explore Our Products",
+          "scroll": "Scroll"
+        },
+        "products": {
+          "sectionLabel": "Products & Accessories",
+          "title": "Conveyor Parts & Accessories",
+          "subtitle": "Conveyor components and accessories to support reliability, performance, and smooth material handling. Click a product for details.",
+          "detailLabels": {
+            "viewDetail": "View detail",
+            "close": "Close",
+            "description": "Description",
+            "specs": "Specifications",
+            "applications": "Applications",
+            "beltTypes": "Conveyor Belt Types"
+          },
+          "items": [
+            {
+              "name": "Conveyor Belt",
+              "image": "/principal/conveyor/belt.jpg",
+              "description": "Conveyor belts for continuous transport of bulk or unit loads across various operating conditions.",
+              "specs": [
+                "Material: EP/NN/Steel Cord/PVC/PU",
+                "Width per application",
+                "Various grades & thicknesses"
+              ],
+              "applications": [
+                "Mining & aggregates",
+                "Plants & manufacturing",
+                "Logistics & ports"
+              ],
+              "beltTypes": [
+                {
+                  "name": "EP Fabric Belt",
+                  "icon": "mdi:layers-triple",
+                  "description": "Wear and tensile resistant; the common choice for abrasive material such as coal and aggregate.",
+                  "grades": [
+                    "EP100",
+                    "EP200",
+                    "EP300",
+                    "EP400"
+                  ]
+                },
+                {
+                  "name": "NN Fabric Belt",
+                  "icon": "mdi:layers-outline",
+                  "description": "High elasticity and flexibility, suitable for heavy impact loading and small pulleys.",
+                  "grades": [
+                    "NN100",
+                    "NN200",
+                    "NN300"
+                  ]
+                },
+                {
+                  "name": "Steel Cord Belt",
+                  "icon": "mdi:link-lock",
+                  "description": "Very high tensile strength for long-distance, heavy-duty lines such as ports and mines.",
+                  "grades": [
+                    "ST1000",
+                    "ST2000",
+                    "ST3150"
+                  ]
+                },
+                {
+                  "name": "PVC Belt",
+                  "icon": "mdi:silverware-clean",
+                  "description": "Lightweight, antistatic, and easy to clean. Ideal for food, beverage, and logistics.",
+                  "grades": [
+                    "1 – 3 Ply",
+                    "Food Grade"
+                  ]
+                },
+                {
+                  "name": "PU Belt",
+                  "icon": "mdi:flask-outline",
+                  "description": "Resistant to oil, chemicals, and temperature. Common in food processing and pharmaceutical.",
+                  "grades": [
+                    "Food Grade",
+                    "Oil Resistant"
+                  ]
+                },
+                {
+                  "name": "Chevron Belt",
+                  "icon": "mdi:chevron-triple-up",
+                  "description": "Surface patterns for bulk material on inclines up to 40° without spillage.",
+                  "grades": [
+                    "Pattern V",
+                    "Pattern Y",
+                    "Multi-Chevron"
+                  ]
+                },
+                {
+                  "name": "Corrugated Sidewall",
+                  "icon": "mdi:border-outside",
+                  "description": "Corrugated sidewalls and cleats for steep-angle transport up to 90°.",
+                  "grades": [
+                    "40 mm",
+                    "80 mm",
+                    "120 mm"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Roller",
+              "image": "/principal/conveyor/roller-conv.jpg",
+              "description": "Conveyor rollers to support belt and material movement.",
+              "specs": [
+                "Carry/return/impact rollers",
+                "Steel/HDPE materials",
+                "Various diameters & lengths"
+              ],
+              "applications": [
+                "Belt conveyors",
+                "Mining",
+                "Manufacturing"
+              ]
+            },
+            {
+              "name": "Pulley",
+              "image": "/principal/conveyor/pulley.jpg",
+              "description": "Drive/tail/bend/snub pulleys to drive and guide the conveyor belt.",
+              "specs": [
+                "Drive, tail, bend, snub pulleys",
+                "Optional lagging",
+                "Custom sizes"
+              ],
+              "applications": [
+                "Belt conveyor systems",
+                "Heavy-duty handling"
+              ]
+            },
+            {
+              "name": "Idler",
+              "image": "/principal/conveyor/idler.jpg",
+              "description": "Idler sets to support the belt and maintain alignment along the conveyor.",
+              "specs": [
+                "Troughing, return, impact, training idlers",
+                "Various trough angles",
+                "Robust frames"
+              ],
+              "applications": [
+                "Long-distance belt conveyors",
+                "Mining & bulk material"
+              ]
+            },
+            {
+              "name": "Belt Cleaner",
+              "image": "/principal/conveyor/belt-cleaner.jpg",
+              "description": "Belt cleaners to reduce carryback and keep the system clean.",
+              "specs": [
+                "Primary & secondary cleaners",
+                "Polyurethane/carbide blades",
+                "Easy maintenance"
+              ],
+              "applications": [
+                "Head pulley area",
+                "Sticky/abrasive material"
+              ]
+            },
+            {
+              "name": "Skirtboard Rubber",
+              "image": "/principal/conveyor/skirtboard.jpg",
+              "description": "Skirtboard rubber to contain spillage at transfer/loading points.",
+              "specs": [
+                "Abrasion-resistant rubber",
+                "Various thicknesses",
+                "Easy installation"
+              ],
+              "applications": [
+                "Loading & transfer points",
+                "Dust/spillage control"
+              ]
+            },
+            {
+              "name": "Lagging Rubber",
+              "image": "/principal/conveyor/lagging.webp",
+              "description": "Pulley lagging to improve traction, reduce slip, and extend pulley/belt life.",
+              "specs": [
+                "Diamond/plain/ceramic lagging",
+                "Wear resistant",
+                "Improved grip"
+              ],
+              "applications": [
+                "Drive pulleys",
+                "Wet/slippery conditions"
+              ]
+            },
+            {
+              "name": "Cleat",
+              "image": "/principal/conveyor/cleat.jpg",
+              "description": "Belt cleats/profiles to help carry material on inclines and prevent slip.",
+              "specs": [
+                "T/Chevron/Sidewall profiles",
+                "Rubber/PVC/PU materials",
+                "Hot/cold bonded"
+              ],
+              "applications": [
+                "Incline conveyors",
+                "Inclined bulk material"
+              ]
+            },
+            {
+              "name": "Motor",
+              "image": "/principal/conveyor/motor-conveyor.jpg",
+              "description": "Drive motors for conveyor systems, available for various power and torque needs.",
+              "specs": [
+                "Electric/gear motors",
+                "Various power & rpm",
+                "Industrial duty cycle"
+              ],
+              "applications": [
+                "Conveyor drives",
+                "Material handling automation"
+              ]
+            },
+            {
+              "name": "Chain",
+              "image": "/principal/conveyor/chain-conveyor.jpg",
+              "description": "Conveyor chains for power transmission and material transport in chain conveyors.",
+              "specs": [
+                "Roller/attachment chains",
+                "Wear-resistant steel",
+                "Various pitches"
+              ],
+              "applications": [
+                "Chain conveyors",
+                "Heavy/hot material"
+              ]
+            },
+            {
+              "name": "Sprocket",
+              "image": "/principal/conveyor/sprocket.jpg",
+              "description": "Sprockets for chain conveyor systems, ensuring precise and reliable power transmission.",
+              "specs": [
+                "Single/double strand",
+                "Custom teeth & bore",
+                "Steel materials"
+              ],
+              "applications": [
+                "Chain conveyors",
+                "Drive & idler sprockets"
+              ]
+            }
+          ]
+        },
+        "aboutAksesoris": {
+          "sectionLabel": "About Accessories",
+          "title": "What are Conveyor Accessories?",
+          "description": "Conveyor accessories are the supporting components that keep the system running at its best: rollers and idlers support the belt, pulleys drive it, bearings keep everything spinning smoothly, while belt cleaners and skirtboards keep the belt clean and minimize spillage. We supply a complete range compatible with various conveyor brands and types.",
+          "highlights": [
+            {
+              "title": "Rollers & Idlers",
+              "icon": "mdi:cylinder",
+              "description": "Carrying and return rollers with quality sealing for smooth rotation and long wear life."
+            },
+            {
+              "title": "Pulleys & Lagging",
+              "icon": "mdi:cog-outline",
+              "description": "Head, tail, and snub pulleys with optional rubber lagging for maximum grip."
+            },
+            {
+              "title": "Bearings",
+              "icon": "mdi:cog",
+              "description": "Quality bearing units (UC, UCP, etc.) for long service life and easy maintenance."
+            },
+            {
+              "title": "Belt Cleaners & Skirtboards",
+              "icon": "mdi:broom",
+              "description": "Keep the belt clean from sticky material and prevent spillage along the line."
+            }
+          ],
+          "imageAlt": "Conveyor accessories"
+        },
+        "industries": {
+          "title": "Industries We Serve",
+          "items": [
+            {
+              "name": "Manufacturing",
+              "image": "/principal/conveyor/manufacture-con.jpg"
+            },
+            {
+              "name": "Food & Beverage",
+              "image": "/principal/conveyor/fnb-con.jpg"
+            },
+            {
+              "name": "Mining & Cement",
+              "image": "/principal/conveyor/mining-con.jpg"
+            },
+            {
+              "name": "Palm Oil Mill",
+              "image": "/principal/conveyor/sawit-con.jpg"
+            },
+            {
+              "name": "Ports & Logistics",
+              "image": "/principal/conveyor/logistic-con.png"
+            }
+          ]
+        },
+        "types": {
+          "sectionLabel": "Conveyor Types",
+          "title": "Conveyor Types We Provide",
+          "subtitle": "Various conveyor systems adaptable to your material, capacity, and plant layout.",
+          "items": [
+            {
+              "title": "Belt Conveyor",
+              "icon": "material-symbols:conveyor-belt",
+              "description": "The most common belt conveyor system for moving bulk and unit-load material continuously.",
+              "features": [
+                "Belt width 500 – 2000 mm",
+                "Horizontal & incline",
+                "EP / NN / Steel Cord",
+                "Up to hundreds of tons/hour"
+              ],
+              "image": "/principal/conveyor/conveyor-belt-1.webp"
+            },
+            {
+              "title": "Roller Conveyor",
+              "icon": "mdi:cylinder",
+              "description": "A conveyor with a row of rollers for moving unit-shaped goods such as cartons and pallets.",
+              "features": [
+                "Gravity & powered",
+                "Steel / PVC rollers",
+                "Curves & diverging",
+                "For pallets & cartons"
+              ],
+              "image": "/principal/conveyor/roller-con.png"
+            },
+            {
+              "title": "Chain Conveyor",
+              "icon": "mdi:link-variant",
+              "description": "A sturdy chain conveyor for heavy, hot, or abrasive material in demanding work environments.",
+              "features": [
+                "Heavy duty",
+                "Heat resistant",
+                "Redler & scraper",
+                "Steel construction"
+              ],
+              "image": "/principal/conveyor/chain-con-machine.jpg"
+            },
+            {
+              "title": "Modular Belt Conveyor",
+              "icon": "mdi:view-grid-outline",
+              "description": "A conveyor with easy-to-clean modular plastic belts, ideal for the food and beverage industry.",
+              "features": [
+                "Food grade",
+                "Easy to clean",
+                "Curve & spiral",
+                "Anti-slip"
+              ],
+              "image": "/principal/conveyor/modular-belt-con.jpg"
+            },
+            {
+              "title": "Incline Conveyor",
+              "icon": "mdi:slope-uphill",
+              "description": "An inclined conveyor for lifting material to a certain height using chevron or sidewall belts.",
+              "features": [
+                "Chevron belt",
+                "Corrugated sidewall",
+                "Incline > 30°",
+                "Anti-spillage"
+              ],
+              "image": "/principal/conveyor/incline-con.jpg"
+            },
+            {
+              "title": "Vertical Conveyor",
+              "icon": "mdi:elevator",
+              "image": "/principal/conveyor/vertical-con.webp",
+              "description": "A vertical conveyor system to move materials or products between levels/floors efficiently with minimal footprint.",
+              "features": [
+                "Inter-floor/level transfer",
+                "Continuous or reciprocating lift",
+                "Space-saving footprint",
+                "For boxes, pallets, or bulk material"
+              ]
+            },
+            {
+              "title": "Vertical Spiral Conveyor",
+              "icon": "mdi:rotate-3d-variant",
+              "image": "/principal/conveyor/spiral-con.jpg",
+              "description": "A vertical spiral conveyor to move products up/down between levels continuously with a very compact footprint.",
+              "features": [
+                "Continuous spiral path",
+                "Very space-saving footprint",
+                "Transfer between heights/levels",
+                "Suitable for boxes, cartons, and unit loads"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "Contact & Locations",
+          "needTitle": "Need a Consultation?",
+          "needDesc": "Contact our sales team to discuss your conveyor belt and accessories requirements.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Send Email",
+          "waText": "Hello Trumecs, I am interested in your conveyor belts and accessories.",
+          "emailSubject": "Conveyor Belt & Accessories Inquiry"
+        },
+        "seo": {
+          "title": "Trusted Conveyor Belt & Accessories Solutions - Trumecs",
+          "description": "Providing conveyor belts, rollers, bearings, pulleys, idlers, and complete conveyor accessories with top quality to keep your production material flow running smoothly."
+        }
+      },
+      "renewable": {
+        "hero": {
+          "badge": "Integrated Energy Solution",
+          "titleLine1": "Powering Business,",
+          "titleLine2": "Optimizing Energy",
+          "subtitle": "Integrated energy solutions to help your business save more, operate more stably, and be ready for future needs — from planning and installation to operation and maintenance.",
+          "ctaQuote": "Request a Quote",
+          "ctaServices": "Explore Our Solutions",
+          "scroll": "Scroll"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:factory",
+              "value": "±14%",
+              "label": "of C&I companies in Indonesia have adopted solar PV"
+            },
+            {
+              "icon": "mdi:chart-line",
+              "value": "482.4",
+              "label": "MWh Indonesia C&I solar PV capacity (2024)"
+            },
+            {
+              "icon": "mdi:cash-multiple",
+              "value": "Lower",
+              "label": "More controlled electricity costs with self-generated energy"
+            },
+            {
+              "icon": "mdi:monitor-dashboard",
+              "value": "End-to-End",
+              "label": "Planning to maintenance by the TruMecs team"
+            }
+          ]
+        },
+        "solutions": {
+          "sectionLabel": "Our Solutions",
+          "subtitle": "From generation and storage to management — integrated solutions tailored to your energy consumption profile.",
+          "flagshipTag": "Flagship Solution",
+          "items": [
+            {
+              "name": "Solar PV System",
+              "icon": "mdi:solar-power",
+              "description": "Rooftop and ground-mount solar power systems — from feasibility studies, design, and installation to commissioning. Generate clean electricity to cut your electricity bills and corporate carbon emissions.",
+              "chips": [
+                "Rooftop & Ground Mount",
+                "On-Grid & Off-Grid",
+                "Solar Water Pumping"
+              ]
+            },
+            {
+              "name": "Wind Turbine System",
+              "icon": "mdi:wind-turbine",
+              "description": "Small-to-medium scale wind turbines for high wind-potential sites such as coastal areas and highlands.",
+              "chips": []
+            },
+            {
+              "name": "Battery Energy Storage",
+              "icon": "mdi:battery-charging-high",
+              "description": "Battery energy storage systems (BESS) for power backup, peak shaving, and off-grid applications.",
+              "chips": []
+            },
+            {
+              "name": "EV Charging Station",
+              "icon": "mdi:ev-station",
+              "description": "EV charging infrastructure integrated with your renewable energy generation.",
+              "chips": []
+            },
+            {
+              "name": "Energy Management",
+              "icon": "mdi:chart-arc",
+              "description": "Energy audits and consumption management systems for optimal efficiency across your facilities.",
+              "chips": []
+            }
+          ],
+          "titleLine1": "One Door for All",
+          "titleLine2": "Your Energy Needs",
+          "learnMore": "Learn more"
+        },
+        "why": {
+          "sectionLabel": "Why Switch",
+          "description": "Renewable energy is not just about the environment — it is a smart financial decision for the long term. The earlier you transition, the greater the savings.",
+          "items": [
+            {
+              "title": "Lower Electricity Bills",
+              "icon": "mdi:cash-multiple",
+              "description": "Cut electricity bills by up to 70% by generating your own power from solar and wind."
+            },
+            {
+              "title": "Low Carbon Emissions",
+              "icon": "mdi:leaf",
+              "description": "Reduce your company's carbon footprint and meet increasingly strict ESG targets and environmental regulations."
+            },
+            {
+              "title": "Energy Independence",
+              "icon": "mdi:shield-check-outline",
+              "description": "Protect yourself from tariff increases and blackouts with a combination of generation and storage."
+            },
+            {
+              "title": "Higher Asset Value",
+              "icon": "mdi:lightning-bolt",
+              "description": "Buildings and factories with green energy systems command higher resale value and brand image."
+            }
+          ],
+          "titleLine1": "An Investment That Saves",
+          "titleLine2": "and Protects the Planet",
+          "imageAlt": "Wind turbines",
+          "certifiedLabel": "Certified",
+          "certifiedName": "ISO 50001"
+        },
+        "process": {
+          "sectionLabel": "Roles & Responsibilities",
+          "title": "From Planning to Maintenance",
+          "subtitle": "TruMecs.com and strategic partners are ready to support you from the initial stage through maintenance.",
+          "items": [
+            {
+              "title": "Planning",
+              "icon": "mdi:clipboard-search-outline",
+              "description": "TruMecs.com and your operations team gather the required information and recommend the most suitable scheme."
+            },
+            {
+              "title": "Installation",
+              "icon": "mdi:tools",
+              "description": "With experienced partners, TruMecs.com implements the scheme agreed upon during planning."
+            },
+            {
+              "title": "Operation",
+              "icon": "mdi:cog-play-outline",
+              "description": "TruMecs.com fully operates the built scheme, so you do not need additional dedicated manpower."
+            },
+            {
+              "title": "Maintenance",
+              "icon": "mdi:wrench-clock-outline",
+              "description": "Routine and periodic maintenance to sustain efficiency and energy optimization performance."
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "Applications",
+          "items": [
+            {
+              "name": "Industrial Estates",
+              "icon": "mdi:home-city"
+            },
+            {
+              "name": "Factories & Manufacturing",
+              "icon": "mdi:factory"
+            },
+            {
+              "name": "Warehouses & Logistics",
+              "icon": "mdi:warehouse"
+            },
+            {
+              "name": "Commercial Buildings",
+              "icon": "mdi:storefront"
+            },
+            {
+              "name": "Homes & Villas",
+              "icon": "mdi:home"
+            },
+            {
+              "name": "Agriculture & Plantations",
+              "icon": "mdi:sprout"
+            }
+          ],
+          "titleLine1": "Versatile",
+          "titleLine2": "Applications",
+          "subtitle": "Adaptable energy solutions across various industries."
+        },
+        "contact": {
+          "needDesc": "Discuss your energy needs with our team — free of charge and with no commitment.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Send Email",
+          "locationTitle": "Locations & Main Service Areas",
+          "locationDesc": "We serve renewable energy needs in the following areas quickly and responsively.",
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ],
+          "eyebrow": "Get in Touch",
+          "titleLine1": "Ready to Switch to",
+          "titleLine2": "Clean Energy?",
+          "waText": "Hello Trumecs, I am interested in your renewable energy solutions.",
+          "emailSubject": "Renewable Energy Solution Inquiry"
+        },
+        "seo": {
+          "title": "Integrated Energy Solution - TruMecs",
+          "description": "TruMecs integrated energy solutions: solar PV, BESS, and energy management for more efficient, stable, and sustainable businesses. End-to-end from planning to maintenance."
+        },
+        "solarSystems": {
+          "sectionLabel": "Solar PV Systems",
+          "titleLine1": "On-Grid, Off-Grid,",
+          "titleLine2": "and Hybrid Compared",
+          "subtitle": "Understand the differences between solar PV system types to match your power needs, location, and budget.",
+          "items": [
+            {
+              "name": "On-Grid (Grid-Tied)",
+              "icon": "mdi:transmission-tower",
+              "badge": "Connected to Grid",
+              "description": "A solar PV system connected to the utility grid. Solar energy powers daytime loads, while excess or shortfall can be exported to or imported from the grid (subject to local regulations).",
+              "points": [
+                "Reduces electricity bills by using solar power during the day",
+                "Lower upfront cost since batteries are typically not required",
+                "Usually does not supply power during grid outages (for safety), unless equipped with special backup/battery features",
+                "Best for homes and businesses with stable grid access"
+              ]
+            },
+            {
+              "name": "Off-Grid (Standalone)",
+              "icon": "mdi:battery-charging",
+              "badge": "Battery Independent",
+              "description": "A standalone solar PV system not connected to the utility grid. All energy is stored in batteries for use anytime, including at night.",
+              "points": [
+                "Operates fully independently without relying on the utility grid",
+                "Ideal for remote locations or areas without grid access",
+                "Requires a battery bank and proper capacity management",
+                "Higher upfront investment due to batteries and controls"
+              ]
+            },
+            {
+              "name": "Hybrid (Grid + Battery)",
+              "icon": "mdi:solar-power-variant",
+              "badge": "Flexible & Backup",
+              "description": "A combination of on-grid and off-grid systems: connected to the utility grid and equipped with batteries for storage and backup power.",
+              "points": [
+                "Can power critical loads during grid outages (backup)",
+                "Maximizes solar self-consumption and manages import/export of power",
+                "More flexible for changing needs (self-consumption & backup)",
+                "Higher cost and installation complexity than on-grid systems"
+              ]
+            }
+          ]
+        },
+        "benefits": {
+          "sectionLabel": "Solution Benefits",
+          "titleLine1": "4 Benefits of Our",
+          "titleLine2": "Energy Solutions",
+          "subtitle": "Benefits you gain by entrusting your energy management to TruMecs.",
+          "items": [
+            {
+              "icon": "mdi:solar-power-variant",
+              "title": "Energy Independence",
+              "description": "Utilize renewable self-generated energy for daily operational needs."
+            },
+            {
+              "icon": "mdi:chart-bell-curve-cumulative",
+              "title": "Peak Shaving",
+              "description": "Reduce peak demand so your electricity bills decrease."
+            },
+            {
+              "icon": "mdi:layers-triple-outline",
+              "title": "Scalable",
+              "description": "A modular system that can grow gradually according to business needs."
+            },
+            {
+              "icon": "mdi:sine-wave",
+              "title": "Power Stabilization",
+              "description": "Automatic power adjustment to reduce poor power factor (kVArh)."
+            }
+          ]
+        },
+        "facts": {
+          "sectionLabel": "Key Facts",
+          "titleLine1": "Real Adoption &",
+          "titleLine2": "Government Support",
+          "subtitle": "Renewable energy growth in Indonesia’s commercial & industrial (C&I) sector continues to rise, supported by government policy.",
+          "adoptionTitle": "C&I Solar PV Penetration & Growth",
+          "adoptionDesc": "±14% of C&I companies in Indonesia have adopted solar PV — more than 1 in 7 C&I companies.",
+          "growthTitle": "Indonesia C&I Solar PV Capacity",
+          "growth": [
+            {
+              "year": "2020",
+              "value": "29.02 MWh"
+            },
+            {
+              "year": "2021",
+              "value": "34.86 MWh"
+            },
+            {
+              "year": "2022",
+              "value": "82.16 MWh"
+            },
+            {
+              "year": "2023",
+              "value": "265.59 MWh"
+            },
+            {
+              "year": "2024",
+              "value": "482.40 MWh"
+            }
+          ],
+          "supportTitle": "Government Support & Why Now",
+          "supports": [
+            "The 100 GWp Solar PV Program was launched with a three-year development target (Aug 25, 2026).",
+            "The draft presidential regulation to accelerate the 100 GWp Solar PV program entered the promulgation stage (Nov 11, 2026).",
+            "Adoption is already proven across various industrial sectors.",
+            "A strategic renewable energy investment for your business’s future."
+          ],
+          "note": "Each project’s opportunity and feasibility are evaluated based on site conditions, load profile, electricity tariffs and provisions, and applicable regulations."
+        },
+        "schemes": {
+          "sectionLabel": "Procurement Schemes",
+          "titleLine1": "Choose the Right",
+          "titleLine2": "Scheme",
+          "subtitle": "Flexible procurement schemes to fit your investment and operational needs.",
+          "items": [
+            {
+              "icon": "mdi:cash-check",
+              "title": "Direct Purchase (Capex)",
+              "tagline": "Invest directly, own the asset",
+              "description": "The customer funds the Solar PV & BESS investment and fully owns the asset. O&M is managed in-house or via a service contract.",
+              "benefits": [
+                "Long-term electricity cost savings",
+                "Full control over assets and operations"
+              ]
+            },
+            {
+              "icon": "mdi:calendar-month-outline",
+              "title": "Fixed Monthly Payment",
+              "tagline": "Pay regularly, use without a heavy burden",
+              "description": "The customer uses the equipment through periodic monthly lease or installment payments. Ownership and end-of-contract options follow the agreement.",
+              "benefits": [
+                "Lighter upfront capital",
+                "Fixed, predictable costs"
+              ]
+            },
+            {
+              "icon": "mdi:meter-electric-outline",
+              "title": "Pay per kWh",
+              "tagline": "Pay for the energy you use",
+              "description": "An investor/provider funds and owns the system. The customer pays based on the electricity (kWh) consumed at the agreed tariff.",
+              "benefits": [
+                "More transparent costs",
+                "No upfront investment required"
+              ]
+            },
+            {
+              "icon": "mdi:handshake-outline",
+              "title": "Build Own Operate Transfer (BOOT)",
+              "tagline": "Complete solution, transfer at contract end",
+              "description": "The provider builds, owns, and operates the system during the contract, then the asset can be transferred to the customer as agreed.",
+              "benefits": [
+                "No upfront investment and no operational burden",
+                "Asset can be transferred at the end of the contract"
+              ]
+            }
+          ]
+        },
+        "assessment": {
+          "sectionLabel": "Energy Assessment",
+          "titleLine1": "Initial Information",
+          "titleLine2": "Requirements",
+          "subtitle": "Every solution starts with understanding the customer’s electricity needs and operations. For optimization, the TruMecs.com team will conduct a site visit and require the following data:",
+          "items": [
+            "Electricity bills for the last 6–12 months",
+            "Electricity consumption data (kWh) and hourly usage data (if available)",
+            "Peak load (kW/kVA) and power factor",
+            "Operating hours and a list of equipment that must remain on",
+            "Roof or land area, orientation, and condition",
+            "Backup power requirements and how long critical equipment must stay on",
+            "Future facility expansion plans"
+          ]
+        }
+      },
+      "industrialBearing": {
+        "hero": {
+          "eyebrow": "Industrial Bearings & Power Transmission",
+          "titleLine1": "Precision That Keeps",
+          "titleLine2": "Industry Turning",
+          "subtitle": "Ball, roller, thrust, and housed bearings for motors, pumps, gearboxes, and conveyors. Correctly specified, reliably supplied, and backed by technical support.",
+          "ctaBrowse": "Browse Bearing Types",
+          "ctaQuote": "Request a Quote"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:shield-check-outline",
+              "title": "Reliability",
+              "description": "Longer service life and dependable machine performance."
+            },
+            {
+              "icon": "mdi:cash-multiple",
+              "title": "Cost Efficiency",
+              "description": "Reduced maintenance expenses and unexpected downtime."
+            },
+            {
+              "icon": "mdi:cog-sync-outline",
+              "title": "Technical Suitability",
+              "description": "The right bearing selection for specific industrial applications."
+            }
+          ]
+        },
+        "groups": {
+          "items": [
+            "All",
+            "Ball",
+            "Roller",
+            "Thrust",
+            "Linear",
+            "Mounted",
+            "Plain"
+          ]
+        },
+        "types": {
+          "sectionLabel": "Bearing Types",
+          "titleLine1": "The Right Bearing for",
+          "titleLine2": "Every Load",
+          "subtitle": "Each design handles radial, axial, and combined loads differently. Choose a category to see what each type does best and where it is used.",
+          "loadLabel": "Load Capability",
+          "exampleLabel": "Example Designation",
+          "items": [
+            {
+              "name": "Deep Groove Ball Bearing",
+              "icon": "mdi:circle-double",
+              "image": "/principal/bearing/88-20240130151414.png",
+              "groupIdx": 1,
+              "description": "The most common ball bearing type, handling radial and light axial loads in both directions at high speed.",
+              "load": "Radial + light axial",
+              "example": "6205-2RS C3",
+              "uses": [
+                "Electric motors",
+                "Conveyors",
+                "Fans & blowers"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 4,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                },
+                {
+                  "name": "Pumps, Motors & Fans",
+                  "summary": "Rotating equipment runs continuously, so low friction, thermal stability, and correct clearance are key to long life.",
+                  "equipment": [
+                    "Centrifugal pumps",
+                    "Industrial electric motors",
+                    "Blowers and cooling fans",
+                    "Compressors"
+                  ],
+                  "tip": "On variable-frequency drive motors, consider insulated or hybrid bearings to prevent electrical damage."
+                },
+                {
+                  "name": "Material Handling",
+                  "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+                  "equipment": [
+                    "Roller and belt conveyors",
+                    "Hoists and cranes",
+                    "Packaging and sorting lines",
+                    "Agricultural equipment"
+                  ],
+                  "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+                }
+              ]
+            },
+            {
+              "name": "Angular Contact Ball Bearing",
+              "icon": "mdi:angle-acute",
+              "image": "/principal/bearing/89-20240130151451.png",
+              "groupIdx": 1,
+              "description": "Designed to handle combined radial and axial loads, commonly used in pairs for high-speed precision.",
+              "load": "Radial + axial (single/double)",
+              "example": "7206-BEP",
+              "uses": [
+                "Machine spindles",
+                "Pumps",
+                "Precision industrial equipment"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 3,
+                "speed": 4,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                },
+                {
+                  "name": "Pumps, Motors & Fans",
+                  "summary": "Rotating equipment runs continuously, so low friction, thermal stability, and correct clearance are key to long life.",
+                  "equipment": [
+                    "Centrifugal pumps",
+                    "Industrial electric motors",
+                    "Blowers and cooling fans",
+                    "Compressors"
+                  ],
+                  "tip": "On variable-frequency drive motors, consider insulated or hybrid bearings to prevent electrical damage."
+                }
+              ]
+            },
+            {
+              "name": "Self-Aligning Ball Bearing",
+              "icon": "mdi:circle-outline",
+              "image": "/principal/bearing/105-20240130152309.png",
+              "groupIdx": 1,
+              "description": "Accommodates misalignment and shaft deflection between shaft and housing.",
+              "load": "Radial + light axial",
+              "example": "1206",
+              "uses": [
+                "Misaligned shafts",
+                "Conveyors",
+                "Agricultural equipment"
+              ],
+              "performance": {
+                "radial": 2,
+                "axial": 1,
+                "speed": 3,
+                "misalign": 4
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                },
+                {
+                  "name": "Material Handling",
+                  "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+                  "equipment": [
+                    "Roller and belt conveyors",
+                    "Hoists and cranes",
+                    "Packaging and sorting lines",
+                    "Agricultural equipment"
+                  ],
+                  "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+                }
+              ]
+            },
+            {
+              "name": "Cylindrical Roller Bearing",
+              "icon": "mdi:cylinder",
+              "image": "/principal/bearing/91-20240130151636.png",
+              "groupIdx": 2,
+              "description": "Uses cylindrical rollers to carry very high radial loads and some axial load.",
+              "load": "Very high radial",
+              "example": "NU 310 ECP",
+              "uses": [
+                "Gearboxes",
+                "Large motors",
+                "Heavy conveyor rollers"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 1,
+                "speed": 3,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                },
+                {
+                  "name": "Pumps, Motors & Fans",
+                  "summary": "Rotating equipment runs continuously, so low friction, thermal stability, and correct clearance are key to long life.",
+                  "equipment": [
+                    "Centrifugal pumps",
+                    "Industrial electric motors",
+                    "Blowers and cooling fans",
+                    "Compressors"
+                  ],
+                  "tip": "On variable-frequency drive motors, consider insulated or hybrid bearings to prevent electrical damage."
+                }
+              ]
+            },
+            {
+              "name": "Tapered Roller Bearing",
+              "icon": "mdi:cone",
+              "image": "/principal/bearing/92-20240130151708.png",
+              "groupIdx": 2,
+              "description": "Tapered rollers handle large radial and axial loads together, often mounted in pairs.",
+              "load": "High radial & axial",
+              "example": "32210",
+              "uses": [
+                "Wheel hubs",
+                "Gearboxes",
+                "Differentials"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 3,
+                "speed": 2,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Mining & Cement",
+                  "summary": "Heavy loads, shock, dust, and vibration demand robust bearings with high load capacity and good sealing.",
+                  "equipment": [
+                    "Crushers and mills",
+                    "Vibrating screens",
+                    "Belt conveyors",
+                    "Kilns and fans"
+                  ],
+                  "tip": "Vibrating equipment typically needs bearings with higher clearance and a suitable cage design. Check the OEM specification."
+                },
+                {
+                  "name": "Material Handling",
+                  "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+                  "equipment": [
+                    "Roller and belt conveyors",
+                    "Hoists and cranes",
+                    "Packaging and sorting lines",
+                    "Agricultural equipment"
+                  ],
+                  "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+                }
+              ]
+            },
+            {
+              "name": "Spherical Roller Bearing",
+              "icon": "mdi:sphere",
+              "image": "/principal/bearing/93-20240130151732.png",
+              "groupIdx": 2,
+              "description": "Handles very heavy radial loads and tolerates misalignment in demanding applications.",
+              "load": "Very high radial + misalignment",
+              "example": "22212 E",
+              "uses": [
+                "Crushers & vibrating screens",
+                "Mining conveyors",
+                "Large gearboxes"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 4
+              },
+              "industries": [
+                {
+                  "name": "Mining & Cement",
+                  "summary": "Heavy loads, shock, dust, and vibration demand robust bearings with high load capacity and good sealing.",
+                  "equipment": [
+                    "Crushers and mills",
+                    "Vibrating screens",
+                    "Belt conveyors",
+                    "Kilns and fans"
+                  ],
+                  "tip": "Vibrating equipment typically needs bearings with higher clearance and a suitable cage design. Check the OEM specification."
+                },
+                {
+                  "name": "Material Handling",
+                  "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+                  "equipment": [
+                    "Roller and belt conveyors",
+                    "Hoists and cranes",
+                    "Packaging and sorting lines",
+                    "Agricultural equipment"
+                  ],
+                  "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+                }
+              ]
+            },
+            {
+              "name": "Needle Roller Bearing",
+              "icon": "mdi:dots-horizontal",
+              "image": "/principal/bearing/94-20240130151808.png",
+              "groupIdx": 2,
+              "description": "Compact roller bearing for limited radial space with high load capacity and stiffness.",
+              "load": "High radial (compact)",
+              "example": "NK 25/20",
+              "uses": [
+                "Automatic transmissions",
+                "Textile machinery",
+                "Agricultural equipment"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                }
+              ]
+            },
+            {
+              "name": "Thrust Ball Bearing",
+              "icon": "mdi:arrow-collapse-vertical",
+              "image": "/principal/bearing/96-20240130151854.png",
+              "groupIdx": 3,
+              "description": "Designed specifically to handle axial/thrust loads in one direction (or both in some types).",
+              "load": "Axial (thrust)",
+              "example": "51108",
+              "uses": [
+                "Turntables",
+                "Automotive transmissions",
+                "Vertical pumps"
+              ],
+              "performance": {
+                "radial": 0,
+                "axial": 3,
+                "speed": 2,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Pumps, Motors & Fans",
+                  "summary": "Rotating equipment runs continuously, so low friction, thermal stability, and correct clearance are key to long life.",
+                  "equipment": [
+                    "Centrifugal pumps",
+                    "Industrial electric motors",
+                    "Blowers and cooling fans",
+                    "Compressors"
+                  ],
+                  "tip": "On variable-frequency drive motors, consider insulated or hybrid bearings to prevent electrical damage."
+                }
+              ]
+            },
+            {
+              "name": "Thrust Roller Bearing",
+              "icon": "mdi:arrow-up-down-bold",
+              "image": "/principal/bearing/97-20240130151933.png",
+              "groupIdx": 3,
+              "description": "Handles higher thrust/axial loads; available in cylindrical, spherical, and tapered designs.",
+              "load": "Very high axial",
+              "example": "81212 TN",
+              "uses": [
+                "Industrial gearboxes",
+                "Extruders",
+                "Crane hooks"
+              ],
+              "performance": {
+                "radial": 0,
+                "axial": 4,
+                "speed": 2,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "Mining & Cement",
+                  "summary": "Heavy loads, shock, dust, and vibration demand robust bearings with high load capacity and good sealing.",
+                  "equipment": [
+                    "Crushers and mills",
+                    "Vibrating screens",
+                    "Belt conveyors",
+                    "Kilns and fans"
+                  ],
+                  "tip": "Vibrating equipment typically needs bearings with higher clearance and a suitable cage design. Check the OEM specification."
+                },
+                {
+                  "name": "Pumps, Motors & Fans",
+                  "summary": "Rotating equipment runs continuously, so low friction, thermal stability, and correct clearance are key to long life.",
+                  "equipment": [
+                    "Centrifugal pumps",
+                    "Industrial electric motors",
+                    "Blowers and cooling fans",
+                    "Compressors"
+                  ],
+                  "tip": "On variable-frequency drive motors, consider insulated or hybrid bearings to prevent electrical damage."
+                }
+              ]
+            },
+            {
+              "name": "Linear Ball Bearing",
+              "icon": "mdi:swap-horizontal",
+              "image": "/principal/bearing/100-20240130152050.png",
+              "groupIdx": 4,
+              "description": "Provides precise linear motion on shafts, widely used in automation and industrial machinery.",
+              "load": "Linear/light radial",
+              "example": "LM20UU",
+              "uses": [
+                "Packaging & printing machines",
+                "Automation",
+                "CNC & robotics"
+              ],
+              "performance": {
+                "radial": 2,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 0
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                }
+              ]
+            },
+            {
+              "name": "Linear Roller Bearing",
+              "icon": "mdi:swap-horizontal-bold",
+              "image": "/principal/bearing/101-20240130152120.png",
+              "groupIdx": 4,
+              "description": "Similar to linear ball bearings but uses rollers for higher load capacity and rigidity.",
+              "load": "High linear load",
+              "example": "MGN12H",
+              "uses": [
+                "Machine guideways",
+                "CNC",
+                "Precision automation systems"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 0
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                }
+              ]
+            },
+            {
+              "name": "Pillow Block Bearing",
+              "icon": "mdi:cube-outline",
+              "image": "/principal/bearing/103-20240130152212.png",
+              "groupIdx": 5,
+              "description": "A mounted bearing unit in a housing that supports a rotating shaft; easy to install and replace.",
+              "load": "Depends on insert bearing",
+              "example": "UCP 205",
+              "uses": [
+                "Conveyors",
+                "Industrial fans",
+                "Agriculture"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 3
+              },
+              "industries": [
+                {
+                  "name": "Mining & Cement",
+                  "summary": "Heavy loads, shock, dust, and vibration demand robust bearings with high load capacity and good sealing.",
+                  "equipment": [
+                    "Crushers and mills",
+                    "Vibrating screens",
+                    "Belt conveyors",
+                    "Kilns and fans"
+                  ],
+                  "tip": "Vibrating equipment typically needs bearings with higher clearance and a suitable cage design. Check the OEM specification."
+                },
+                {
+                  "name": "Food & Beverage",
+                  "summary": "Washdown cleaning and hygiene requirements call for corrosion-resistant bearings and food-safe lubrication.",
+                  "equipment": [
+                    "Filling and bottling lines",
+                    "Conveyors and mixers",
+                    "Packaging equipment",
+                    "Washdown motors"
+                  ],
+                  "tip": "Choose bearings with effective seals and food-safe grease to withstand frequent washdown."
+                },
+                {
+                  "name": "Material Handling",
+                  "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+                  "equipment": [
+                    "Roller and belt conveyors",
+                    "Hoists and cranes",
+                    "Packaging and sorting lines",
+                    "Agricultural equipment"
+                  ],
+                  "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+                }
+              ]
+            },
+            {
+              "name": "Flange Bearing",
+              "icon": "mdi:circle-box-outline",
+              "image": "/principal/bearing/104-20240130152238.png",
+              "groupIdx": 5,
+              "description": "A mounted bearing with a flange for easy mounting on surfaces perpendicular to the shaft.",
+              "load": "Depends on insert bearing",
+              "example": "UCFL 205",
+              "uses": [
+                "Conveyors",
+                "Food processing machines",
+                "Packaging equipment"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "Food & Beverage",
+                  "summary": "Washdown cleaning and hygiene requirements call for corrosion-resistant bearings and food-safe lubrication.",
+                  "equipment": [
+                    "Filling and bottling lines",
+                    "Conveyors and mixers",
+                    "Packaging equipment",
+                    "Washdown motors"
+                  ],
+                  "tip": "Choose bearings with effective seals and food-safe grease to withstand frequent washdown."
+                },
+                {
+                  "name": "Material Handling",
+                  "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+                  "equipment": [
+                    "Roller and belt conveyors",
+                    "Hoists and cranes",
+                    "Packaging and sorting lines",
+                    "Agricultural equipment"
+                  ],
+                  "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+                }
+              ]
+            },
+            {
+              "name": "Plain Bearing (Bushing)",
+              "icon": "mdi:circle-slice-8",
+              "image": "/principal/bearing/98-20240130151957.png",
+              "groupIdx": 6,
+              "description": "A sliding bearing (no rolling elements) with a flat contact surface; simple and shock resistant.",
+              "load": "Radial & axial (sliding)",
+              "example": "DU 2515",
+              "uses": [
+                "Crankshafts & connecting rods",
+                "Hinges & linkages",
+                "Heavy machinery"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 1,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "Manufacturing",
+                  "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+                  "equipment": [
+                    "Electric motors and fans",
+                    "Machine tool spindles",
+                    "Gearboxes and reducers",
+                    "Packaging machinery"
+                  ],
+                  "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+                },
+                {
+                  "name": "Mining & Cement",
+                  "summary": "Heavy loads, shock, dust, and vibration demand robust bearings with high load capacity and good sealing.",
+                  "equipment": [
+                    "Crushers and mills",
+                    "Vibrating screens",
+                    "Belt conveyors",
+                    "Kilns and fans"
+                  ],
+                  "tip": "Vibrating equipment typically needs bearings with higher clearance and a suitable cage design. Check the OEM specification."
+                }
+              ]
+            }
+          ],
+          "searchPlaceholder": "Search bearing types...",
+          "noResults": "No matching bearing types found.",
+          "performanceTitle": "Performance at a Glance",
+          "performanceLabels": {
+            "radial": "Radial Load",
+            "axial": "Axial Load",
+            "speed": "Speed",
+            "misalign": "Misalignment Tolerance"
+          },
+          "industryTitle": "Industry Applications",
+          "detail": {
+            "description": "Description",
+            "specs": "Specifications",
+            "load": "Load",
+            "example": "Example Code",
+            "uses": "Typical Applications",
+            "close": "Close",
+            "viewDetails": "View Details"
+          }
+        },
+        "compare": {
+          "sectionLabel": "Quick Comparison",
+          "titleLine1": "Performance",
+          "titleLine2": "At a Glance",
+          "subtitle": "A relative guide to how common bearing types compare. More filled dots mean stronger capability in that area.",
+          "note": "General guidance only. Actual capability depends on size, series, internal design, and manufacturer. Refer to the catalogue for exact ratings.",
+          "colType": "Bearing Type",
+          "colRadial": "Radial Load",
+          "colAxial": "Axial Load",
+          "colSpeed": "Speed",
+          "colMisalign": "Misalignment",
+          "items": [
+            {
+              "name": "Deep Groove Ball",
+              "radial": 3,
+              "axial": 2,
+              "speed": 4,
+              "misalign": 1
+            },
+            {
+              "name": "Angular Contact Ball",
+              "radial": 3,
+              "axial": 3,
+              "speed": 4,
+              "misalign": 1
+            },
+            {
+              "name": "Thrust Ball",
+              "radial": 0,
+              "axial": 3,
+              "speed": 2,
+              "misalign": 1
+            },
+            {
+              "name": "Cylindrical Roller",
+              "radial": 4,
+              "axial": 1,
+              "speed": 3,
+              "misalign": 1
+            },
+            {
+              "name": "Tapered Roller",
+              "radial": 4,
+              "axial": 3,
+              "speed": 2,
+              "misalign": 1
+            },
+            {
+              "name": "Spherical Roller",
+              "radial": 4,
+              "axial": 2,
+              "speed": 2,
+              "misalign": 4
+            },
+            {
+              "name": "Needle Roller",
+              "radial": 4,
+              "axial": 0,
+              "speed": 3,
+              "misalign": 1
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "Applications",
+          "titleLine1": "Usage by",
+          "titleLine2": "Industry",
+          "subtitle": "Select your industry to see typical machines and the bearing types most often specified.",
+          "labelEquipment": "Typical Equipment",
+          "labelBearings": "Recommended Bearings",
+          "items": [
+            {
+              "name": "Manufacturing",
+              "icon": "mdi:factory",
+              "summary": "Production machinery relies on precise, long-running bearings in motors, spindles, and gear drives. Unplanned bearing failure can stop an entire line.",
+              "equipment": [
+                "Electric motors and fans",
+                "Machine tool spindles",
+                "Gearboxes and reducers",
+                "Packaging machinery"
+              ],
+              "bearings": [
+                "Deep groove ball bearings, sealed",
+                "Angular contact ball bearings",
+                "Cylindrical roller bearings",
+                "Linear bearings for automation"
+              ],
+              "tip": "Use sealed bearings where lubrication access is limited, and match clearance to the fit and operating temperature."
+            },
+            {
+              "name": "Mining & Cement",
+              "icon": "mdi:excavator",
+              "summary": "Heavy loads, shock, dust, and vibration demand robust bearings with high load capacity and good sealing.",
+              "equipment": [
+                "Crushers and mills",
+                "Vibrating screens",
+                "Belt conveyors",
+                "Kilns and fans"
+              ],
+              "bearings": [
+                "Spherical roller bearings",
+                "Housed spherical roller units",
+                "Tapered roller bearings",
+                "Heavy-duty pillow blocks"
+              ],
+              "tip": "Vibrating equipment typically needs bearings with higher clearance and a suitable cage design. Check the OEM specification."
+            },
+            {
+              "name": "Pumps, Motors & Fans",
+              "icon": "mdi:fan",
+              "summary": "Rotating equipment runs continuously, so low friction, thermal stability, and correct clearance are key to long life.",
+              "equipment": [
+                "Centrifugal pumps",
+                "Industrial electric motors",
+                "Blowers and cooling fans",
+                "Compressors"
+              ],
+              "bearings": [
+                "Deep groove ball bearings (C3 clearance)",
+                "Angular contact ball bearings, paired",
+                "Cylindrical roller bearings",
+                "Thrust ball bearings, vertical pumps"
+              ],
+              "tip": "On variable-frequency drive motors, consider insulated or hybrid bearings to prevent electrical damage."
+            },
+            {
+              "name": "Food & Beverage",
+              "icon": "mdi:food-variant",
+              "summary": "Washdown cleaning and hygiene requirements call for corrosion-resistant bearings and food-safe lubrication.",
+              "equipment": [
+                "Filling and bottling lines",
+                "Conveyors and mixers",
+                "Packaging equipment",
+                "Washdown motors"
+              ],
+              "bearings": [
+                "Stainless steel ball bearings",
+                "Sealed, food-grade greased bearings",
+                "Stainless housed units",
+                "Plastic or polymer housings"
+              ],
+              "tip": "Choose bearings with effective seals and food-safe grease to withstand frequent washdown."
+            },
+            {
+              "name": "Material Handling",
+              "icon": "mdi:truck-cargo-container",
+              "summary": "Conveyor systems and lifting equipment need dependable, easy-to-install bearings that tolerate some misalignment.",
+              "equipment": [
+                "Roller and belt conveyors",
+                "Hoists and cranes",
+                "Packaging and sorting lines",
+                "Agricultural equipment"
+              ],
+              "bearings": [
+                "Pillow block and flange units",
+                "Self-aligning ball bearings",
+                "Spherical roller bearings",
+                "Deep groove ball bearings"
+              ],
+              "tip": "Housed units with set-screw or eccentric locking collars make installation faster and simplify maintenance."
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "Technical Reference",
+          "titleLine1": "Reading a",
+          "titleLine2": "Bearing Number",
+          "subtitle": "A bearing designation packs its type, size, seals, and clearance into a few characters. Here is how to decode a common one.",
+          "decoder": [
+            {
+              "code": "6",
+              "label": "Type",
+              "meaning": "Bearing type: deep groove ball bearing"
+            },
+            {
+              "code": "2",
+              "label": "Series",
+              "meaning": "Dimension series: light series (affects outside diameter and width)"
+            },
+            {
+              "code": "05",
+              "label": "Bore",
+              "meaning": "Bore code: 05 × 5 = 25 mm bore diameter"
+            },
+            {
+              "code": "2RS",
+              "label": "Seals",
+              "meaning": "Contact rubber seals on both sides"
+            },
+            {
+              "code": "C3",
+              "label": "Clearance",
+              "meaning": "Internal radial clearance greater than normal"
+            }
+          ],
+          "clearanceTitle": "Internal Clearance",
+          "clearanceSub": "Radial clearance classes (ISO 5753)",
+          "colCode": "Code",
+          "colClass": "Class",
+          "colMeaning": "Meaning",
+          "colUse": "Typical Use",
+          "clearanceRows": [
+            {
+              "code": "C2",
+              "meaning": "Less than normal",
+              "use": "Precision work, light fits, low vibration"
+            },
+            {
+              "code": "CN",
+              "meaning": "Normal",
+              "use": "General applications with standard fits"
+            },
+            {
+              "code": "C3",
+              "meaning": "More than normal",
+              "use": "Electric motors, interference fits, higher temperatures"
+            },
+            {
+              "code": "C4",
+              "meaning": "More than C3",
+              "use": "Large temperature differences, heavy interference fits"
+            }
+          ],
+          "suffixTitle": "Common Suffix Codes",
+          "suffixSub": "Seals, cages, and bore features",
+          "colNote": "Note",
+          "suffixRows": [
+            {
+              "code": "ZZ",
+              "meaning": "Metal shields, both sides",
+              "note": "Non-contact, low friction"
+            },
+            {
+              "code": "2RS",
+              "meaning": "Rubber contact seals, both sides",
+              "note": "Better dust and moisture protection"
+            },
+            {
+              "code": "K",
+              "meaning": "Tapered bore, 1:12",
+              "note": "For adapter or withdrawal sleeves"
+            },
+            {
+              "code": "E",
+              "meaning": "Optimized internal design",
+              "note": "Higher load capacity"
+            },
+            {
+              "code": "M / J",
+              "meaning": "Brass / pressed steel cage",
+              "note": "Varies by manufacturer"
+            }
+          ],
+          "suffixNote": "Suffix codes can differ between manufacturers. Always confirm against the maker's catalogue."
+        },
+        "selection": {
+          "sectionLabel": "Selection Guide",
+          "titleLine1": "How to Choose the",
+          "titleLine2": "Right Bearing",
+          "subtitle": "Four questions narrow down most bearing decisions before you open a catalogue.",
+          "items": [
+            {
+              "icon": "mdi:weight",
+              "title": "Define the Load",
+              "description": "Identify radial, axial, or combined load and its direction. This narrows the bearing type immediately."
+            },
+            {
+              "icon": "mdi:speedometer",
+              "title": "Check Speed",
+              "description": "High speeds favor ball bearings and precision designs. Heavy, slow applications favor roller types."
+            },
+            {
+              "icon": "mdi:ruler-square",
+              "title": "Confirm Size & Fit",
+              "description": "Match bore, outside diameter, and width, then choose shaft and housing fits and the right clearance."
+            },
+            {
+              "icon": "mdi:water-alert-outline",
+              "title": "Consider Environment",
+              "description": "Dust, moisture, heat, and washdown affect seal, material, and lubricant choice."
+            }
+          ]
+        },
+        "care": {
+          "sectionLabel": "Reliability",
+          "titleLine1": "Why Bearings Fail",
+          "titleLine2": "& How to Prevent It",
+          "subtitle": "Most premature failures trace back to a handful of causes that good installation and maintenance practice can avoid.",
+          "items": [
+            {
+              "icon": "mdi:oil",
+              "title": "Poor Lubrication",
+              "description": "Too little, too much, or the wrong lubricant causes heat and wear. Follow the correct type and interval."
+            },
+            {
+              "icon": "mdi:dots-grid",
+              "title": "Contamination",
+              "description": "Dirt and moisture damage raceways. Effective sealing and clean handling extend life significantly."
+            },
+            {
+              "icon": "mdi:tools",
+              "title": "Incorrect Mounting",
+              "description": "Hammering, misalignment, or wrong fits cause early damage. Use proper tools and heating methods."
+            },
+            {
+              "icon": "mdi:flash-outline",
+              "title": "Electrical Damage",
+              "description": "Current passing through a bearing can cause fluting. Consider insulation or grounding on drive motors."
+            }
+          ],
+          "standardsTitle": "Standards & Norms",
+          "standardsDesc": "Common references for dimensions, tolerances, and rated life."
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Common Questions",
+          "items": [
+            {
+              "q": "How do I find the right replacement bearing?",
+              "a": "Start with the number printed on the old bearing. If it is unreadable, measure the bore, outside diameter, and width, and note the type and any seals. Send us those details and we will match it."
+            },
+            {
+              "q": "What is the difference between ZZ and 2RS?",
+              "a": "ZZ bearings have metal shields that do not touch the inner ring, giving lower friction and higher speed capability. 2RS bearings have rubber contact seals that better exclude dust and moisture, with slightly more friction."
+            },
+            {
+              "q": "When should I choose C3 clearance?",
+              "a": "C3 is common in electric motors and applications with interference fits or higher operating temperatures, because the bearing loses some clearance when fitted and heated. Check the equipment specification."
+            },
+            {
+              "q": "Can I use a different brand as a replacement?",
+              "a": "Generally yes, since bearings follow standard dimensions. Confirm that the type, size, clearance, seal, and cage suit the application, as internal design can vary between manufacturers."
+            },
+            {
+              "q": "Do you supply in small and large quantities?",
+              "a": "Yes. We supply single units, project orders, and scheduled supply for regular accounts. Contact us with your part numbers and quantities for details."
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "Get a Quote",
+          "titleLine1": "Need Help Finding",
+          "titleLine2": "the Right Part?",
+          "desc": "Send us the bearing number, or the shaft size and operating conditions. We will match it and confirm availability.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Send Email Inquiry",
+          "areasTitle": "Supply Areas",
+          "areasDesc": "Single units, project quantities, and scheduled supply available for industrial and commercial accounts.",
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ],
+          "waText": "Hello Trumecs, I would like to ask about industrial bearing products.",
+          "emailSubject": "Industrial Bearing Inquiry"
+        },
+        "seo": {
+          "title": "Industrial Bearings & Power Transmission - Trumecs",
+          "description": "Industrial bearings: deep groove ball, roller, thrust, and housed units. Types, applications by industry, and technical guides.",
+          "serviceType": "Industrial Bearings Supply"
+        },
+        "accessories": {
+          "sectionLabel": "Accessories",
+          "titleLine1": "Bearing",
+          "titleLine2": "Accessories",
+          "subtitle": "Supporting accessory categories for installation, monitoring, and maintenance — each with product options.",
+          "categories": [
+            {
+              "name": "Heating Devices / Induction Heaters",
+              "icon": "mdi:radiator",
+              "description": "Induction heating devices for safe, fast, and controlled thermal bearing mounting — aligned with Schaeffler mounting solutions.",
+              "products": [
+                {
+                  "name": "Induction Bearing Heater",
+                  "image": "/principal/bearing/induction-bearing-heater.jpg",
+                  "description": "Induction bearing heater for efficient, safe, and controlled thermal mounting."
+                },
+                {
+                  "name": "Induction Heater with Medium-Frequency Technology (MFT)",
+                  "image": "/principal/bearing/induction-heater-mft.jpg",
+                  "description": "Induction heater with medium-frequency technology (MFT) for reliable, precise heating of bearing components."
+                },
+                {
+                  "name": "MF Induction Heater Handhelds",
+                  "image": "/principal/bearing/mf-induction-heater-handhelds.jpg",
+                  "description": "Flexible handheld MF induction heaters for on-site heating and mounting applications."
+                }
+              ]
+            },
+            {
+              "name": "Bearing & Vibration Sensors",
+              "icon": "mdi:vibrate",
+              "description": "Condition and vibration sensors for real-time bearing health monitoring.",
+              "products": [
+                {
+                  "name": "Vibration Sensor Probe",
+                  "image": "/principal/bearing/Vibration-Sensor-Probe.webp",
+                  "description": "Vibration probe for early detection of bearing issues."
+                },
+                {
+                  "name": "PT100 Temperature Sensor",
+                  "image": "/principal/bearing/temperature-sensor-pt-100.jpg",
+                  "description": "Bearing temperature monitoring for critical machines."
+                },
+                {
+                  "name": "Online Condition Monitoring Unit",
+                  "image": "/principal/bearing/condition-monitoring-solution.webp",
+                  "description": "Continuous bearing condition monitoring system."
+                },
+                {
+                  "name": "Wireless Vibration Transmitter",
+                  "image": "/principal/bearing/wireless-vibration-sensor.jpg",
+                  "description": "Wireless vibration data transmission to control systems."
+                }
+              ]
+            },
+            {
+              "name": "Mounting & Dismounting Tools",
+              "icon": "mdi:tools",
+              "description": "Bearing mounting and dismounting tools for safe, fast, and precise maintenance — aligned with Schaeffler mounting/dismounting solutions.",
+              "products": [
+                {
+                  "name": "Mechanical Puller (2/3 Arm)",
+                  "image": "/principal/bearing/mechanical-puller-2-3-arm.jpg",
+                  "description": "Mechanical puller for safe removal of bearings, gears, and press-fit components."
+                },
+                {
+                  "name": "Hydraulic Puller",
+                  "image": "/principal/bearing/hydraulic-puller.jpg",
+                  "description": "Hydraulic puller for controlled removal of large bearings."
+                },
+                {
+                  "name": "Bearing Fitting Tool Kit (Impact)",
+                  "image": "/principal/bearing/bearing-fitting-tool-kit-impact.jpg",
+                  "description": "Impact ring/sleeve fitting kit for precise bearing mounting without damaging rolling elements."
+                },
+                {
+                  "name": "Hydraulic Nut & Pump Set",
+                  "image": "/principal/bearing/hydraulic-nut-pump-set.jpg",
+                  "description": "Hydraulic nut and pump for mounting/dismounting bearings on tapered bores or adapter sleeves."
+                }
+              ]
+            },
+            {
+              "name": "Bearing Housings & Adapter Sleeves",
+              "icon": "mdi:cube-outline",
+              "description": "Housings and mounting accessories for secure installation.",
+              "products": [
+                {
+                  "name": "Pillow Block Housing",
+                  "image": "/principal/bearing/pillow-block-housing.jpg",
+                  "description": "Pillow block bearing housing for various shaft sizes."
+                },
+                {
+                  "name": "Flange Housing Unit",
+                  "image": "/principal/bearing/flange-housing-unit.jpg",
+                  "description": "Flange housing unit for wall/frame mounting."
+                },
+                {
+                  "name": "Adapter Sleeve & Lock Nut",
+                  "image": "/principal/bearing/sleeves-and-lock-nut.jpg",
+                  "description": "Adapter sleeve and lock nut for tapered bore bearings."
+                },
+                {
+                  "name": "Withdrawal Sleeve",
+                  "image": "/principal/bearing/withdrawal-sleeves.jpg",
+                  "description": "Withdrawal sleeve for easier bearing dismounting."
+                }
+              ]
+            },
+            {
+              "name": "Seals & Grease",
+              "icon": "mdi:water-opacity",
+              "description": "Seals and lubricants to protect bearings from contamination and wear.",
+              "products": [
+                {
+                  "name": "NBR Oil Seal",
+                  "image": "/principal/bearing/oil-seal-nbr.jpg",
+                  "description": "NBR material oil seal for standard protection."
+                },
+                {
+                  "name": "Viton Oil Seal",
+                  "image": "/principal/bearing/oil-seal-viton.jpg",
+                  "description": "High-temperature and chemical-resistant seal."
+                },
+                {
+                  "name": "High Temperature Bearing Grease",
+                  "image": "/principal/bearing/grease-bearing.jpg",
+                  "description": "Grease for high-temperature and heavy-load applications."
+                },
+                {
+                  "name": "Automatic Lubricator",
+                  "image": "/principal/bearing/auto-bearing-grease.jpg",
+                  "description": "Automatic lubricator for consistent grease supply."
+                }
+              ]
+            },
+            {
+              "name": "Alignment & Measurement Tools",
+              "icon": "mdi:ruler-square",
+              "description": "Alignment and measurement devices to ensure proper shaft/pulley alignment and optimal belt tension in industrial equipment.",
+              "products": [
+                {
+                  "name": "Shaft Alignment Tool",
+                  "image": "/principal/bearing/shaft-alignment-tool.jpg",
+                  "description": "Shaft alignment tool for precise shaft alignment, helping reduce wear and vibration."
+                },
+                {
+                  "name": "Belt Pulley Alignment Device",
+                  "image": "/principal/bearing/belt-pulley.jpg",
+                  "description": "Belt pulley alignment device to ensure accurate pulley alignment and optimal transmission performance."
+                },
+                {
+                  "name": "Belt Tension Measuring Device",
+                  "image": "/principal/bearing/belt-tension.jpg",
+                  "description": "Belt tension measuring device to maintain correct belt tension and extend component service life."
+                }
+              ]
+            }
+          ]
+        },
+        "selectionCare": {
+          "sectionLabel": "Guide & Maintenance",
+          "titleLine1": "Selecting Bearings &",
+          "titleLine2": "Why Bearings Fail",
+          "subtitle": "A guide to choosing the right bearing and common failure causes to avoid.",
+          "selectionTitle": "How to Select a Bearing",
+          "careTitle": "Why Bearings Fail"
+        },
+        "seoGeo": {
+          "sectionLabel": "SEO & GEO",
+          "title": "Industrial Bearing Solutions for Reliable Machinery Performance",
+          "description": "TruMecs provides industrial bearing solutions for manufacturing, mining, automotive, and other industrial applications. From ball bearings to heavy-duty roller bearings, find suitable bearing products to support equipment reliability, reduce maintenance costs, and maintain operational efficiency across Indonesia.",
+          "primaryLabel": "Primary Keywords",
+          "supportingLabel": "Supporting Keywords",
+          "primary": [
+            "Industrial Bearings Indonesia",
+            "Industrial Bearing Supplier",
+            "Ball Bearings",
+            "Roller Bearings",
+            "Spherical Roller Bearings",
+            "Industrial Bearing Solutions",
+            "Bearing Replacement",
+            "Heavy Duty Bearings"
+          ],
+          "supporting": [
+            "Industrial Bearing Supplier Indonesia",
+            "Industrial Bearing Distributor",
+            "Buy Ball Bearings",
+            "Buy Roller Bearings",
+            "Bearings for Industrial Machinery",
+            "Industrial Machine Spare Parts",
+            "Bearings for Manufacturing",
+            "Bearings for Mining Industry"
+          ]
+        }
+      },
+      "industrialLubricant": {
+        "hero": {
+          "eyebrow": "Industrial Lubrication Solutions",
+          "titleLine1": "Keep Every Machine",
+          "titleLine2": "Running Smoothly",
+          "subtitle": "Hydraulic oils, gear oils, compressor oils, turbine oils, and greases engineered to cut downtime, extend equipment life, and protect your production line.",
+          "ctaBrowse": "Browse Lubricant Types",
+          "ctaQuote": "Talk to an Engineer"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:oil",
+              "value": "8+",
+              "label": "Lubricant Categories"
+            },
+            {
+              "icon": "mdi:factory",
+              "value": "300+",
+              "label": "Industrial Clients"
+            },
+            {
+              "icon": "mdi:clock-check-outline",
+              "value": "24/7",
+              "label": "Technical Support"
+            },
+            {
+              "icon": "mdi:truck-fast-outline",
+              "value": "48H",
+              "label": "Delivery Lead Time"
+            }
+          ]
+        },
+        "groups": {
+          "items": [
+            "All",
+            "Oils",
+            "Greases",
+            "Specialty Fluids"
+          ]
+        },
+        "types": {
+          "sectionLabel": "Lubricant Types",
+          "titleLine1": "The Right Fluid for",
+          "titleLine2": "Every Application",
+          "subtitle": "Each lubricant is formulated for a specific load, speed, and temperature. Pick a category to see typical grades, standards, and where it is used.",
+          "gradesLabel": "Typical Grades",
+          "standardLabel": "Standard",
+          "items": [
+            {
+              "name": "Hydraulic Oil",
+              "icon": "mdi:oil",
+              "groupIdx": 1,
+              "description": "Transmits power in hydraulic systems while protecting pumps, valves, and cylinders from wear, rust, and foaming.",
+              "grades": "ISO VG 32 / 46 / 68",
+              "standard": "DIN 51524 HLP, ISO 11158 HM",
+              "uses": [
+                "Injection Molding",
+                "Presses",
+                "Excavators"
+              ]
+            },
+            {
+              "name": "Gear Oil",
+              "icon": "mdi:cog-transfer",
+              "groupIdx": 1,
+              "description": "Extreme-pressure protection for enclosed gearboxes under heavy shock loads and high torque.",
+              "grades": "ISO VG 150 – 460",
+              "standard": "DIN 51517 CLP, AGMA 9005",
+              "uses": [
+                "Gearboxes",
+                "Conveyors",
+                "Mixers"
+              ]
+            },
+            {
+              "name": "Compressor Oil",
+              "icon": "mdi:gauge",
+              "groupIdx": 1,
+              "description": "High oxidation stability and low carbon formation for rotary screw and reciprocating air compressors.",
+              "grades": "ISO VG 32 – 100",
+              "standard": "DIN 51506 VDL, ISO 6743-3",
+              "uses": [
+                "Screw Compressors",
+                "Vacuum Pumps"
+              ]
+            },
+            {
+              "name": "Turbine Oil",
+              "icon": "mdi:fan",
+              "groupIdx": 1,
+              "description": "Long-life oil with excellent water separation and rust protection for steam and gas turbine circuits.",
+              "grades": "ISO VG 32 / 46",
+              "standard": "DIN 51515 TD, ISO 6743-5",
+              "uses": [
+                "Steam Turbines",
+                "Generators"
+              ]
+            },
+            {
+              "name": "Industrial Grease",
+              "icon": "mdi:cog-outline",
+              "groupIdx": 2,
+              "description": "Lithium, lithium complex, and polyurea greases for bearings, bushings, and slow-moving components.",
+              "grades": "NLGI 1 / 2 / 3",
+              "standard": "DIN 51825 K, ISO 6743-9",
+              "uses": [
+                "Bearings",
+                "Electric Motors",
+                "Bushings"
+              ]
+            },
+            {
+              "name": "High-Temp Grease",
+              "icon": "mdi:thermometer-high",
+              "groupIdx": 2,
+              "description": "Heat-resistant complex greases for kilns, ovens, and bearings that operate at sustained high temperature.",
+              "grades": "NLGI 2 / 3",
+              "standard": "DIN 51825 KP / KPF",
+              "uses": [
+                "Kiln Cars",
+                "Dryers",
+                "Steel Mills"
+              ]
+            },
+            {
+              "name": "Metalworking Fluid",
+              "icon": "mdi:saw-blade",
+              "groupIdx": 3,
+              "description": "Cutting oils and water-miscible coolants that reduce friction and heat at the tool and workpiece interface.",
+              "grades": "Soluble / Semi-synthetic / Neat",
+              "standard": "ISO 6743-7 MA",
+              "uses": [
+                "CNC Machining",
+                "Grinding",
+                "Stamping"
+              ]
+            },
+            {
+              "name": "Heat Transfer Oil",
+              "icon": "mdi:thermometer",
+              "groupIdx": 3,
+              "description": "Thermally stable fluid for closed-loop heating systems, resisting cracking and sludge at high bulk temperature.",
+              "grades": "ISO VG 32 / 46",
+              "standard": "DIN 51522 Q",
+              "uses": [
+                "Thermal Oil Heaters",
+                "Plastics",
+                "Textile"
+              ]
+            },
+            {
+              "name": "Food Grade Lubricant",
+              "icon": "mdi:silverware-fork-knife",
+              "groupIdx": 3,
+              "description": "Lubricants suitable for incidental food contact in production environments where hygiene is critical.",
+              "grades": "Oils VG 32–460 / Grease NLGI 1–2",
+              "standard": "NSF H1, ISO 21469",
+              "uses": [
+                "Packaging",
+                "Bottling",
+                "Bakery"
+              ]
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "Applications",
+          "titleLine1": "Usage by",
+          "titleLine2": "Industry",
+          "subtitle": "Select your industry to see typical equipment and the lubricants most often specified.",
+          "labelEquipment": "Typical Equipment",
+          "labelLubricants": "Recommended Lubricants",
+          "items": [
+            {
+              "name": "Manufacturing",
+              "icon": "mdi:factory",
+              "summary": "Continuous production lines depend on clean hydraulics, reliable gearboxes, and stable compressed air. Lubricant failure here stops the whole line.",
+              "equipment": [
+                "Injection molding & press machines",
+                "CNC machining centers",
+                "Screw air compressors",
+                "Conveyor gearboxes"
+              ],
+              "lubricants": [
+                "Anti-wear Hydraulic Oil ISO VG 46",
+                "Semi-synthetic Metalworking Fluid",
+                "Rotary Compressor Oil ISO VG 46",
+                "Industrial Gear Oil ISO VG 220"
+              ],
+              "tip": "Keep hydraulic oil cleanliness under control. Most hydraulic failures start with particle contamination."
+            },
+            {
+              "name": "Mining & Construction",
+              "icon": "mdi:excavator",
+              "summary": "Dust, shock loads, and wide temperature swings demand robust additive packages and frequent monitoring.",
+              "equipment": [
+                "Excavators & loaders",
+                "Crushers and screens",
+                "Heavy-duty gearboxes",
+                "Open gears and wire ropes"
+              ],
+              "lubricants": [
+                "High-VI Hydraulic Oil ISO VG 68",
+                "EP Gear Oil ISO VG 320 / 460",
+                "Extreme-pressure Grease NLGI 2",
+                "Open Gear Lubricant"
+              ],
+              "tip": "Use sealed grease dispensing and clean fill points. Dust ingress is a leading cause of premature wear."
+            },
+            {
+              "name": "Power Generation",
+              "icon": "mdi:lightning-bolt",
+              "summary": "Turbines and auxiliaries run for long periods, so oxidation stability and water separation are critical.",
+              "equipment": [
+                "Steam and gas turbines",
+                "Generators and bearings",
+                "Boiler feed pumps",
+                "Cooling fans"
+              ],
+              "lubricants": [
+                "Turbine Oil ISO VG 32 / 46",
+                "Anti-wear Hydraulic Oil",
+                "High-temp Bearing Grease",
+                "Fire-resistant Hydraulic Fluid"
+              ],
+              "tip": "Schedule regular oil analysis on turbine systems to track oxidation and varnish potential."
+            },
+            {
+              "name": "Food & Beverage",
+              "icon": "mdi:food-variant",
+              "summary": "Hygiene standards require lubricants that are safe in case of incidental contact with product or packaging.",
+              "equipment": [
+                "Filling and bottling lines",
+                "Packaging machinery",
+                "Mixers and conveyors",
+                "Chillers and compressors"
+              ],
+              "lubricants": [
+                "NSF H1 Hydraulic Oil",
+                "NSF H1 Gear Oil",
+                "NSF H1 White Grease NLGI 2",
+                "NSF H1 Compressor Oil"
+              ],
+              "tip": "Never mix H1 lubricants with conventional oils. Label lube points to prevent mix-ups."
+            },
+            {
+              "name": "Steel & Metal",
+              "icon": "mdi:anvil",
+              "summary": "Extreme heat, heavy loads, and water exposure call for high-temperature greases and strongly protected oils.",
+              "equipment": [
+                "Rolling mills",
+                "Continuous casting lines",
+                "Furnace conveyors",
+                "Cooling pumps"
+              ],
+              "lubricants": [
+                "High-temp Complex Grease NLGI 2",
+                "EP Gear Oil ISO VG 460",
+                "Fire-resistant Hydraulic Fluid",
+                "Rolling Oil Emulsion"
+              ],
+              "tip": "Check re-lubrication intervals against operating temperature. Heat shortens grease life significantly."
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "Technical Reference",
+          "titleLine1": "Viscosity",
+          "titleLine2": "& Consistency",
+          "subtitle": "Quick guides to read lubricant datasheets and match the grade to your machine.",
+          "viscosityTitle": "ISO VG Grades",
+          "viscositySub": "Kinematic viscosity at 40°C (mid-point, cSt)",
+          "colGrade": "Grade",
+          "colCst": "cSt",
+          "colUse": "Typical Use",
+          "viscosityRows": [
+            {
+              "grade": "VG 32",
+              "cst": "32",
+              "use": "Hydraulics in cool environments, light spindles"
+            },
+            {
+              "grade": "VG 46",
+              "cst": "46",
+              "use": "General hydraulics, turbines, compressors"
+            },
+            {
+              "grade": "VG 68",
+              "cst": "68",
+              "use": "Hydraulics in warm climates, compressors"
+            },
+            {
+              "grade": "VG 100",
+              "cst": "100",
+              "use": "Light-duty gearboxes, slides"
+            },
+            {
+              "grade": "VG 150",
+              "cst": "150",
+              "use": "Medium-load enclosed gears"
+            },
+            {
+              "grade": "VG 220",
+              "cst": "220",
+              "use": "Most common industrial gear oil"
+            },
+            {
+              "grade": "VG 320",
+              "cst": "320",
+              "use": "Heavily loaded gearboxes"
+            },
+            {
+              "grade": "VG 460",
+              "cst": "460",
+              "use": "Heavy shock loads, slow speeds"
+            }
+          ],
+          "nlgiTitle": "NLGI Grease Grades",
+          "nlgiSub": "Consistency classes from semi-fluid to firm",
+          "colNlgi": "NLGI",
+          "colFeel": "Feel",
+          "nlgiRows": [
+            {
+              "grade": "000 / 00",
+              "feel": "Semi-fluid",
+              "use": "Centralized systems, gearboxes"
+            },
+            {
+              "grade": "0",
+              "feel": "Very soft",
+              "use": "Centralized lubrication, cold climates"
+            },
+            {
+              "grade": "1",
+              "feel": "Soft",
+              "use": "Low-temperature, pumpable systems"
+            },
+            {
+              "grade": "2",
+              "feel": "Medium",
+              "use": "General-purpose bearings (most common)"
+            },
+            {
+              "grade": "3",
+              "feel": "Firm",
+              "use": "High-speed bearings, vertical shafts"
+            }
+          ],
+          "nlgiNote": "Always confirm the grade against the equipment manufacturer's recommendation. These tables are general guidance only."
+        },
+        "selection": {
+          "sectionLabel": "Selection Guide",
+          "titleLine1": "How to Choose the",
+          "titleLine2": "Right Lubricant",
+          "subtitle": "Four questions narrow down most lubricant decisions before you ever open a catalogue.",
+          "items": [
+            {
+              "icon": "mdi:book-open-variant",
+              "title": "Check the OEM Manual",
+              "description": "Start with the equipment manufacturer's recommended viscosity grade and specification."
+            },
+            {
+              "icon": "mdi:thermometer-lines",
+              "title": "Know the Temperature",
+              "description": "Operating and ambient temperature decide the viscosity grade and base oil type needed."
+            },
+            {
+              "icon": "mdi:weight",
+              "title": "Match Load & Speed",
+              "description": "Heavy loads need higher viscosity and EP additives. High speeds usually need lower viscosity."
+            },
+            {
+              "icon": "mdi:water-alert-outline",
+              "title": "Consider the Environment",
+              "description": "Moisture, dust, chemicals, or food contact may call for special formulations or approvals."
+            }
+          ]
+        },
+        "care": {
+          "sectionLabel": "Lubrication Management",
+          "titleLine1": "Maintenance",
+          "titleLine2": "Best Practice",
+          "subtitle": "Good lubricant choice only pays off when it is stored, applied, and monitored correctly.",
+          "items": [
+            {
+              "icon": "mdi:flask-outline",
+              "title": "Oil Analysis",
+              "description": "Regular sampling tracks viscosity, acidity, water, particles, and wear metals before failures occur."
+            },
+            {
+              "icon": "mdi:filter-outline",
+              "title": "Contamination Control",
+              "description": "Use breathers, filtration, and clean transfer equipment to keep particles and water out."
+            },
+            {
+              "icon": "mdi:warehouse",
+              "title": "Storage & Handling",
+              "description": "Store drums sealed, indoors where possible, and use first-in first-out stock rotation."
+            },
+            {
+              "icon": "mdi:tag-multiple-outline",
+              "title": "Labeling & Color Coding",
+              "description": "Dedicated, labeled containers and fill points prevent cross-contamination and wrong-oil errors."
+            }
+          ],
+          "standardsTitle": "Standards & Approvals",
+          "standardsDesc": "Specifications commonly referenced when selecting industrial lubricants."
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Common Questions",
+          "items": [
+            {
+              "q": "Can I mix different lubricant brands or types?",
+              "a": "It is best to avoid it. Different additive packages and base oils can be incompatible and reduce performance. If a change is needed, follow a proper flush and changeover procedure."
+            },
+            {
+              "q": "How often should industrial oil be changed?",
+              "a": "There is no single interval. It depends on the equipment, operating conditions, and oil type. Condition-based changes guided by oil analysis are usually more cost-effective than fixed schedules."
+            },
+            {
+              "q": "What is the difference between mineral and synthetic oils?",
+              "a": "Mineral oils are refined from crude oil and suit most standard conditions. Synthetic oils offer better stability at extreme temperatures and often longer drain intervals, at a higher purchase price."
+            },
+            {
+              "q": "How do I know which grease NLGI grade to use?",
+              "a": "NLGI 2 is the most common for general bearings. Softer grades suit centralized systems and low temperatures, while firmer grades suit high-speed or vertical applications. Confirm with the OEM."
+            },
+            {
+              "q": "Do you supply in drums and bulk?",
+              "a": "Yes. We supply packaged products, drums, IBC totes, and scheduled delivery for regular accounts. Contact us with your volume and location for details."
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "Get a Quote",
+          "titleLine1": "Not Sure Which",
+          "titleLine2": "Grade You Need?",
+          "desc": "Send us your equipment list and operating conditions. Our team will recommend the right lubricants and supply schedule.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Send Email Inquiry",
+          "areasTitle": "Supply Areas",
+          "areasDesc": "Bulk drums, IBC totes, and packaged supply available for industrial and commercial accounts.",
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ],
+          "waText": "Hello Trumecs, I am interested in your industrial lubricant products.",
+          "emailSubject": "Industrial Lubricant Inquiry"
+        },
+        "seo": {
+          "title": "Industrial Lubricants | Trumecs",
+          "description": "Hydraulic oil, gear oil, compressor oil, turbine oil, and industrial grease. Lubricant types, applications by industry, and technical guides."
+        }
+      },
+      "blueCollar": {
+        "hero": {
+          "eyebrow": "Blue-Collar Workforce Provider",
+          "titleLine1": "Field Workforce",
+          "titleLine2": "Ready & Verified",
+          "subtitle": "We provide field workers — operators, technicians, tradespeople, and warehouse & logistics teams — screened, skill-tested, and supported with well-managed employment administration.",
+          "ctaBrowse": "View Workforce Coverage",
+          "ctaConsult": "Consult Your Needs",
+          "crew": [
+            {
+              "role": "Production Operator",
+              "meta": "Manufacturing · Shift",
+              "status": "Ready to Deploy"
+            },
+            {
+              "role": "Mechanical Technician",
+              "meta": "Maintenance · Plant",
+              "status": "Ready to Deploy"
+            },
+            {
+              "role": "Forklift Operator",
+              "meta": "Warehouse · Logistics",
+              "status": "Ready to Deploy"
+            }
+          ]
+        },
+        "usps": {
+          "items": [
+            {
+              "icon": "mdi:clipboard-check-outline",
+              "title": "Screened & Skill-Tested Workforce",
+              "description": "Every worker we provide goes through document verification, practical skill tests, and health checks as required by the role."
+            },
+            {
+              "icon": "mdi:clock-fast",
+              "title": "Fast Deployment",
+              "description": "We can supply ready-to-work personnel for urgent or large-scale needs, from a single worker to dozens."
+            },
+            {
+              "icon": "mdi:file-document-check-outline",
+              "title": "Managed Administration",
+              "description": "Employment contracts, payroll, social security, and reporting are managed in line with applicable labor regulations."
+            }
+          ]
+        },
+        "coreValues": {
+          "sectionLabel": "Core Values",
+          "titleLine1": "The Values That",
+          "titleLine2": "Guide Us",
+          "subtitle": "In providing workforce solutions, we uphold core values to ensure operational reliability, service quality, and long-term partnerships.",
+          "items": [
+            {
+              "code": "DEFEND",
+              "title": "Defend",
+              "icon": "mdi:shield-check-outline",
+              "description": "Safeguarding your business continuity by providing resilient, well-managed workers who are compliant and adaptable to on-site needs."
+            },
+            {
+              "code": "INNOVATE",
+              "title": "Innovate",
+              "icon": "mdi:lightbulb-on-outline",
+              "description": "Delivering more effective and measurable workforce management through structured, transparent, and performance-oriented processes."
+            },
+            {
+              "code": "SUSTAIN",
+              "title": "Sustain",
+              "icon": "mdi:handshake-outline",
+              "description": "Building long-term, mutually beneficial partnerships by prioritizing worker welfare, safety, and protection as drivers of productivity."
+            }
+          ]
+        },
+        "professions": {
+          "seoInlineTitle": "Blue-Collar Workforce Provider for Various Industries",
+          "seoInlineDesc": "From production operators and maintenance technicians to construction trades, heavy equipment operators, and warehouse staff — we provide screened and verified blue-collar workers across field professions to meet your operational needs.",
+          "sectionLabel": "Workforce Coverage",
+          "titleLine1": "Blue-Collar Workforce",
+          "titleLine2": "We Provide",
+          "subtitle": "Select a category or search for the type of worker you need. Click a card to see the roles, tasks, and competencies of the workforce we provide.",
+          "searchPlaceholder": "Search roles, e.g. welder, forklift, technician…",
+          "searchAria": "Search roles",
+          "more": "more",
+          "viewDetail": "View {count} role coverage",
+          "noResults": "Category not found. Contact us — we can provide workers for your specific needs.",
+          "groups": [
+            "All",
+            "Manufacturing, Food & Agro",
+            "Engineering & Automotive",
+            "Construction & Energy",
+            "Logistics & Services"
+          ],
+          "modal": {
+            "rolesTitle": "Workforce Role Coverage ({count})",
+            "tasksTitle": "Typical Duties",
+            "certsTitle": "Relevant Certifications",
+            "envLabel": "Work environment:",
+            "ctaText": "Need workers for this category?",
+            "ctaButton": "Consult Workforce Needs",
+            "close": "Close"
+          }
+        },
+        "models": {
+          "sectionLabel": "Engagement Models",
+          "titleLine1": "Choose the Model That",
+          "titleLine2": "Fits Your Needs",
+          "subtitle": "Every company has different needs. We offer several engagement models to keep workforce fulfillment flexible.",
+          "note": "The form of working relationship is adjusted to applicable labor regulations.",
+          "items": [
+            {
+              "icon": "mdi:account-group-outline",
+              "title": "Outsourcing",
+              "description": "Our workers are deployed at your site. We manage contracts, payroll, social security, and operational supervision.",
+              "chips": [
+                "Payroll & Benefits",
+                "On-site Supervisor",
+                "Worker Replacement"
+              ]
+            },
+            {
+              "icon": "mdi:calendar-clock",
+              "title": "Project / Seasonal Contract",
+              "description": "Ready-to-deploy teams for projects, shutdowns, or production peaks with a clear duration.",
+              "chips": [
+                "Shutdown Maintenance",
+                "Peak Season",
+                "Construction Projects"
+              ]
+            },
+            {
+              "icon": "mdi:account-hard-hat-outline",
+              "title": "Workforce Placement",
+              "description": "We provide and prepare workers that match your specifications to be placed and support your company’s operations.",
+              "chips": [
+                "Ready-to-Work",
+                "Screening & Testing",
+                "Onboarding"
+              ]
+            },
+            {
+              "icon": "mdi:swap-horizontal",
+              "title": "Replacement & Personnel Support",
+              "description": "Personnel replacement and headcount adjustment support to keep your operational needs fulfilled.",
+              "chips": [
+                "Fast Replacement",
+                "Scalable Headcount",
+                "Monitoring"
+              ]
+            }
+          ]
+        },
+        "process": {
+          "sectionLabel": "How It Works",
+          "titleLine1": "From Requirements",
+          "titleLine2": "to Deployment",
+          "subtitle": "A clear and measurable process so the workforce we provide matches your specifications and is ready to work.",
+          "items": [
+            {
+              "icon": "mdi:chat-processing-outline",
+              "title": "Needs Consultation",
+              "description": "We map the roles, headcount, specifications, location, and work schedule you need."
+            },
+            {
+              "icon": "mdi:account-group-outline",
+              "title": "Workforce Preparation & Selection",
+              "description": "Preparing suitable workers from our workforce pool, with initial screening based on your needs."
+            },
+            {
+              "icon": "mdi:clipboard-check-outline",
+              "title": "Testing & Verification",
+              "description": "Practical skill tests, document and certificate verification, and medical checks as required."
+            },
+            {
+              "icon": "mdi:account-hard-hat",
+              "title": "Onboarding & Deployment",
+              "description": "Safety induction, administration, equipment, and deployment of workers to your site."
+            },
+            {
+              "icon": "mdi:monitor-dashboard",
+              "title": "Monitoring & Evaluation",
+              "description": "Attendance and performance monitoring, periodic evaluation, and replacement support when needed."
+            }
+          ]
+        },
+        "quality": {
+          "sectionLabel": "Quality & Compliance",
+          "titleLine1": "The Selection Standards",
+          "titleLine2": "We Apply",
+          "subtitle": "Field work carries real risks. That’s why verification and safety readiness are never a formality.",
+          "standardsTitle": "Competency & Compliance",
+          "standardsDesc": "Certifications and coverage commonly required for field work in Indonesia.",
+          "items": [
+            {
+              "icon": "mdi:card-account-details-outline",
+              "title": "Document Verification",
+              "description": "Checking identity, experience, and the authenticity of required certificates and licenses for our workers."
+            },
+            {
+              "icon": "mdi:tools",
+              "title": "Practical Skill Testing",
+              "description": "Workers are tested directly for each role to ensure competence and job readiness."
+            },
+            {
+              "icon": "mdi:heart-pulse",
+              "title": "Health Checks",
+              "description": "Medical checks tailored to job risks, especially for work at height and heavy equipment operation."
+            },
+            {
+              "icon": "mdi:shield-check-outline",
+              "title": "Safety Induction & PPE",
+              "description": "Safety briefings and proper use of personal protective equipment before deployment."
+            }
+          ]
+        },
+        "industries": {
+          "sectionLabel": "Industries",
+          "titleLine1": "Industries",
+          "titleLine2": "We Serve",
+          "items": [
+            {
+              "name": "Manufacturing",
+              "icon": "mdi:factory"
+            },
+            {
+              "name": "Automotive",
+              "icon": "mdi:car-wrench"
+            },
+            {
+              "name": "Construction",
+              "icon": "mdi:crane"
+            },
+            {
+              "name": "Mining",
+              "icon": "mdi:pickaxe"
+            },
+            {
+              "name": "Logistics & Distribution",
+              "icon": "mdi:truck-fast-outline"
+            },
+            {
+              "name": "Food & Beverage",
+              "icon": "mdi:silverware-fork-knife"
+            },
+            {
+              "name": "Energy & Utilities",
+              "icon": "mdi:lightning-bolt"
+            },
+            {
+              "name": "Property & Facilities",
+              "icon": "mdi:domain"
+            },
+            {
+              "name": "Agro & Plantation",
+              "icon": "mdi:sprout"
+            },
+            {
+              "name": "Port & Maritime",
+              "icon": "mdi:anchor"
+            }
+          ]
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Frequently Asked Questions",
+          "items": [
+            {
+              "q": "How long does it take to fulfill workforce needs?",
+              "a": "It depends on the role, headcount, and required specifications. Once we receive your brief, we will provide a realistic estimate for workforce supply."
+            },
+            {
+              "q": "Are the workers certified?",
+              "a": "For roles that require certification — such as forklift operators, crane operators, or welders — we verify valid certificates and licenses before deployment."
+            },
+            {
+              "q": "Can you fulfill large-scale needs?",
+              "a": "Yes. For mass requirements such as production peaks or projects, we prepare a phased workforce supply plan aligned with your deployment schedule."
+            },
+            {
+              "q": "Who handles payroll and social security?",
+              "a": "Under the outsourcing scheme, we manage employment contracts, payroll, and social security. For other placement schemes, administration is arranged according to the agreement."
+            },
+            {
+              "q": "What if a worker does not meet expectations?",
+              "a": "We conduct periodic evaluations and provide a replacement mechanism as agreed. Details are covered in the service agreement."
+            },
+            {
+              "q": "Do you serve areas outside Greater Jakarta?",
+              "a": "We can serve projects outside the city by agreement. Contact us with your location and requirements for further discussion."
+            }
+          ]
+        },
+        "contact": {
+          "sectionLabel": "Submit Your Needs",
+          "titleLine1": "Need Workers",
+          "titleLine2": "Soon?",
+          "subtitle": "Share your brief requirements. Our team will get in touch to discuss specifications, headcount, and deployment schedule.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Send Email",
+          "serviceArea": "Serving Greater Jakarta and surrounding industrial areas. Out-of-town projects by agreement.",
+          "formTitle": "Quick Needs Form",
+          "companyLabel": "Company Name",
+          "companyPlaceholder": "Company …",
+          "positionLabel": "Role",
+          "positionPlaceholder": "e.g. Forklift Operator",
+          "qtyLabel": "Quantity",
+          "qtyPlaceholder": "10",
+          "locationLabel": "Work Location",
+          "locationPlaceholder": "e.g. Cikarang, Bekasi",
+          "noteLabel": "Notes (optional)",
+          "notePlaceholder": "Duration, shift system, required certifications, etc.",
+          "submit": "Send Needs via WhatsApp",
+          "formHint": "This form opens WhatsApp with a pre-filled message. No data is stored on this site.",
+          "formError": "Please fill in the role and the number of workers needed.",
+          "requiredMark": "*",
+          "waIntro": "Hello {brand}, I would like to submit a blue-collar workforce requirement.",
+          "waCompany": "Company: {value}",
+          "waPosition": "Role: {value}",
+          "waQty": "Quantity: {value} people",
+          "waLocation": "Work location: {value}",
+          "waNote": "Notes: {value}",
+          "waCategory": "Hello {brand}, I need workers for the \"{category}\" category. Please share information on workforce availability and the supply process.",
+          "waGeneral": "Hello {brand}, I’m interested in your blue-collar workforce services. Please share more information.",
+          "emailSubject": "Blue-Collar Workforce Requirement"
+        },
+        "seo": {
+          "title": "Blue-Collar Workforce Provider | Verified Field Workers",
+          "description": "Blue-collar workforce provider: production operators, technicians, construction trades, heavy equipment operators, warehouse and logistics staff. Screened, skill-tested workers with managed employment administration.",
+          "breadcrumbHome": "Home",
+          "breadcrumbPage": "Blue-Collar Workforce Services",
+          "serviceType": "Blue-Collar Workforce and Staffing Services Provider",
+          "catalogName": "Blue-Collar Workforce Categories"
+        },
+        "categories": [
+          {
+            "name": "Manufacturing & Production",
+            "icon": "mdi:factory",
+            "groupIdx": 1,
+            "description": "Production line workers for factories with output targets and shift systems.",
+            "roles": [
+              "Production Operator",
+              "CNC Machine Operator",
+              "Press Machine Operator",
+              "Injection Molding Operator",
+              "Assembler",
+              "QC Inspector",
+              "Packing & Finishing",
+              "Sewing Machine Operator",
+              "Production Helper",
+              "Production Leader"
+            ],
+            "tasks": [
+              "Operate machines and equipment according to SOPs",
+              "Maintain daily quality and output targets",
+              "Perform initial checks and keep the work area clean",
+              "Comply with OHS requirements and use PPE"
+            ],
+            "requirements": [
+              "Minimum high school/vocational or equivalent",
+              "Relevant experience for machine operator roles",
+              "Willing to work in shifts",
+              "Healthy and pass medical checks"
+            ],
+            "certs": [
+              "General OHS",
+              "BNSP Certification (relevant field)",
+              "Machine operator certificate"
+            ],
+            "env": "Factory environment, generally with a shift system."
+          },
+          {
+            "name": "Food & Beverage",
+            "icon": "mdi:silverware-fork-knife",
+            "groupIdx": 1,
+            "description": "Food production workers with hygiene and food safety standards.",
+            "roles": [
+              "Food Processing Operator",
+              "Filling & Bottling Operator",
+              "Food Grade Packing",
+              "Industrial Kitchen Helper",
+              "Industrial Baker / Helper",
+              "Meat Processing Helper",
+              "Cold Storage Operator",
+              "Quality & Hygiene Helper",
+              "Production Sanitation"
+            ],
+            "tasks": [
+              "Operate processing and packaging machines",
+              "Maintain cleanliness and sanitation of production areas",
+              "Apply hygiene and food safety procedures",
+              "Perform simple production records"
+            ],
+            "requirements": [
+              "Minimum high school/vocational or equivalent",
+              "Healthy and pass medical checks",
+              "Willing to follow hygiene rules (uniform and special PPE)",
+              "Detail-oriented and disciplined"
+            ],
+            "certs": [
+              "Hygiene & Sanitation Training",
+              "Basic Food Safety Training (HACCP)",
+              "General OHS"
+            ],
+            "env": "Food production area, partly cold (cold storage)."
+          },
+          {
+            "name": "Agro & Plantation",
+            "icon": "mdi:sprout",
+            "groupIdx": 1,
+            "description": "Plantation and harvest processing workers for plantations and agro-industry.",
+            "roles": [
+              "Harvester",
+              "Tractor Operator",
+              "Plantation Foreman",
+              "Plant Care Worker",
+              "Nursery Worker",
+              "Processing Plant Helper",
+              "Harvest Processing Machine Operator",
+              "Harvest Transport Driver"
+            ],
+            "tasks": [
+              "Carry out harvesting and plant care on schedule",
+              "Operate tractors and plantation equipment",
+              "Transport and handle harvest yields",
+              "Assist in initial harvest processing"
+            ],
+            "requirements": [
+              "Physically fit and healthy",
+              "Willing to be placed in plantation or out-of-town areas",
+              "Relevant experience is a plus",
+              "Appropriate driving license for operators and drivers"
+            ],
+            "certs": [
+              "B1/B2 driving license for drivers",
+              "Equipment operator certificate",
+              "General OHS"
+            ],
+            "env": "Open plantation areas and processing plants, often out of town."
+          },
+          {
+            "name": "Engineering & Maintenance",
+            "icon": "mdi:wrench",
+            "groupIdx": 2,
+            "description": "Technicians and metalwork for industrial facility maintenance and repair.",
+            "roles": [
+              "Mechanical Technician",
+              "Electrical Technician",
+              "Electronics Technician",
+              "Instrumentation Technician",
+              "HVAC / AC Technician",
+              "Production Machine Technician",
+              "Welder",
+              "Fitter / Millwright",
+              "Machinist (Lathe & Milling)",
+              "Maintenance Helper"
+            ],
+            "tasks": [
+              "Perform preventive and corrective maintenance",
+              "Troubleshoot and repair breakdowns",
+              "Read technical drawings and electrical diagrams",
+              "Record work reports and spare parts usage"
+            ],
+            "requirements": [
+              "Technical/vocational or equivalent experience",
+              "Experience in relevant field (mechanical, electrical, welding, etc.)",
+              "Understand hot work and electrical safety",
+              "Willing to be on-call or work during shutdowns"
+            ],
+            "certs": [
+              "BNSP Certification (technician / welder)",
+              "Welder certificate per welding position",
+              "Electrical OHS certification",
+              "General OHS"
+            ],
+            "env": "Workshops and plant areas, occasional shutdowns or overtime."
+          },
+          {
+            "name": "Automotive & Heavy Equipment",
+            "icon": "mdi:car-wrench",
+            "groupIdx": 2,
+            "description": "Vehicle and heavy equipment mechanics/technicians for workshops and company fleets.",
+            "roles": [
+              "Car Mechanic",
+              "Motorcycle Mechanic",
+              "Diesel Mechanic",
+              "Heavy Equipment Mechanic",
+              "Vehicle Electrical Technician",
+              "Vehicle AC Technician",
+              "Body Repair & Painter",
+              "Service Helper",
+              "Car Washer & Detailing"
+            ],
+            "tasks": [
+              "Periodic servicing and vehicle repair",
+              "Diagnose faults and replace components",
+              "Overhaul components according to procedures",
+              "Maintain workshop and equipment cleanliness"
+            ],
+            "requirements": [
+              "Automotive vocational or equivalent experience",
+              "Understand service SOPs and workshop safety",
+              "Appropriate driving license",
+              "Detail-oriented and disciplined"
+            ],
+            "certs": [
+              "BNSP Certification (automotive)",
+              "A/C driving license",
+              "General OHS"
+            ],
+            "env": "Workshops and service areas, sometimes at customer sites."
+          },
+          {
+            "name": "Construction & Fabrication",
+            "icon": "mdi:crane",
+            "groupIdx": 3,
+            "description": "Field workers for building, infrastructure, and fabrication projects.",
+            "roles": [
+              "Mason",
+              "Carpenter",
+              "Painter",
+              "Steel Fixer (Bar Bender)",
+              "Construction Welder",
+              "Tiler",
+              "Plumber",
+              "Scaffolder",
+              "Rigger",
+              "Crane Operator",
+              "Construction Helper",
+              "Site Foreman"
+            ],
+            "tasks": [
+              "Carry out work per drawings and foreman instructions",
+              "Maintain work quality and schedule accuracy",
+              "Use PPE and tools safely",
+              "Prepare and tidy the work area"
+            ],
+            "requirements": [
+              "Project experience matching the skill",
+              "Physically fit",
+              "Willing to be placed at project or out-of-town sites",
+              "Understand basic working-at-height safety"
+            ],
+            "certs": [
+              "Construction Competency Certificate (SKK)",
+              "Construction OHS",
+              "Scaffolder / Rigger certificate",
+              "Crane Operator License (SIO)"
+            ],
+            "env": "Open project sites and work at height, schedule follows the project."
+          },
+          {
+            "name": "Mining & Energy",
+            "icon": "mdi:pickaxe",
+            "groupIdx": 3,
+            "description": "Operators and technicians for mines, power plants, and utility facilities.",
+            "roles": [
+              "Excavator Operator",
+              "Dozer Operator",
+              "Wheel Loader Operator",
+              "Dump Truck Driver",
+              "Mining Helper",
+              "Heavy Equipment Mechanic",
+              "Generator Technician",
+              "Boiler Operator",
+              "Utility Operator",
+              "Pipe Fitter",
+              "Pipe Welder"
+            ],
+            "tasks": [
+              "Operate heavy equipment according to procedures and work plans",
+              "Perform daily pre-operation checks",
+              "Maintain safety in high-risk areas",
+              "Report unit conditions and field incidents"
+            ],
+            "requirements": [
+              "Valid certificate or operating license (SIO)",
+              "Operating experience for the unit type",
+              "Willing to work roster systems and remote locations",
+              "Pass periodic medical checks"
+            ],
+            "certs": [
+              "Heavy Equipment SIO (Ministry of Manpower)",
+              "General B2 driving license",
+              "Boiler Operator Certification (Ministry of Manpower)",
+              "General OHS"
+            ],
+            "env": "Mine, power plant, or plant areas, often on roster systems."
+          },
+          {
+            "name": "Logistics, Warehouse & Port",
+            "icon": "mdi:warehouse",
+            "groupIdx": 4,
+            "description": "Warehouse, transport, and port workers for a smooth supply chain.",
+            "roles": [
+              "Forklift Operator",
+              "Reach Truck Operator",
+              "Warehouse Staff",
+              "Checker",
+              "Picker & Packer",
+              "Loading–Unloading",
+              "Truck Driver",
+              "Delivery Driver",
+              "Driver Assistant / Helper",
+              "Port Crane Operator",
+              "Reach Stacker Operator",
+              "Port Tally / Checker",
+              "Stevedore"
+            ],
+            "tasks": [
+              "Receive, store, and dispatch goods",
+              "Load and unload according to procedures",
+              "Record stock and delivery documents",
+              "Operate forklifts and handling equipment safely"
+            ],
+            "requirements": [
+              "Warehouse or transport experience for operators and drivers",
+              "Valid SIO or appropriate driving license",
+              "Detail-oriented in record keeping",
+              "Willing to work shifts and overtime as needed"
+            ],
+            "certs": [
+              "Forklift SIO (Ministry of Manpower)",
+              "Crane Operator SIO",
+              "B1/B2 driving license",
+              "General OHS"
+            ],
+            "env": "Warehouses, distribution centers, depots, and ports with shift systems."
+          },
+          {
+            "name": "Facilities & Building Services",
+            "icon": "mdi:domain",
+            "groupIdx": 4,
+            "description": "Building, cleaning, and operational services for offices, factories, and properties.",
+            "roles": [
+              "Cleaning Service",
+              "Office Boy / Office Girl",
+              "Housekeeping",
+              "Building Engineer",
+              "Plumbing Technician",
+              "Building Electrical Technician",
+              "Gardener / Landscape",
+              "Pest Control Technician",
+              "Operational Driver",
+              "Security (Gada Pratama)"
+            ],
+            "tasks": [
+              "Maintain cleanliness and tidiness of facilities",
+              "Routine maintenance of building systems (electrical, water, AC)",
+              "Daily operational services as scheduled",
+              "Maintain area security (for security roles)"
+            ],
+            "requirements": [
+              "Minimum junior/senior high school depending on role",
+              "Neat appearance and disciplined",
+              "Gada certificate for security roles",
+              "Relevant experience for building technicians"
+            ],
+            "certs": [
+              "Gada Pratama / Madya (Security)",
+              "General OHS",
+              "Technician certificate per field"
+            ],
+            "env": "Offices, factories, apartments, malls, and complexes."
+          }
+        ]
+      },
+      "seo": {
+        "title": "Principal & Partner | Trumecs",
+        "description": "Become a Trumecs principal or partner. Showcase your products and solutions and reach potential buyers across Indonesia."
+      },
+      "hydraulicHose": {
+        "hero": {
+          "eyebrow": "Hoses, Fittings & Hydraulic Connections",
+          "titleLine1": "Hydraulic Hose &",
+          "titleLine2": "Connection Solutions",
+          "subtitle": "From textile to PTFE hoses, fittings, adapters, quick couplings, valves, and tube bending. Choose the right type for your pressure, temperature, and media.",
+          "ctaProducts": "View Product Categories",
+          "ctaQuote": "Request a Quote"
+        },
+        "usps": [
+          {
+            "icon": "mdi:view-grid-outline",
+            "title": "Complete Range",
+            "description": "Hoses, fittings, adapters, couplings, valves, guards, and tube bending available from a single source."
+          },
+          {
+            "icon": "mdi:certificate-outline",
+            "title": "Standards Compliant",
+            "description": "Products conform to EN, SAE, and ISO standards commonly used in hydraulic industries."
+          },
+          {
+            "icon": "mdi:hammer-wrench",
+            "title": "Assemble & Test",
+            "description": "Hose assemblies made to your required length and fittings, tested before delivery."
+          }
+        ],
+        "products": {
+          "sectionLabel": "Product Categories",
+          "seoTitle": "Hydraulic Hoses, Fittings, Quick Couplings & Accessories for Industry",
+          "seoDesc": "Complete hydraulic fluid line components: textile braid, wire braid, wire spiral, thermoplastic, and PTFE hoses; fittings and adapters in various thread standards; quick couplings, swivel connectors, valves, hose guards, and custom-bent tubes.",
+          "titleLine1": "One Source for",
+          "titleLine2": "Your Entire Hydraulic Line",
+          "subtitle": "Choose a category or search products. Click a card to view example products, general specifications, applications, and selection notes.",
+          "searchPlaceholder": "Search products, e.g. 2SN, PTFE, flat face…",
+          "searchAria": "Search products",
+          "noResults": "No products found. Contact us and we can help you find components to your specifications.",
+          "examplesLabel": "example products"
+        },
+        "groups": [
+          "All",
+          "Hoses",
+          "Fittings & Connections",
+          "Valves & Accessories"
+        ],
+        "categories": [
+          {
+            "name": "Textile Braid Hose",
+            "icon": "mdi:pipe",
+            "image": "/principal/hose/selang-textile-braid.webp",
+            "groupIdx": 1,
+            "range": "Diameter 6 – 51 mm",
+            "description": "Hydraulic hose with textile braid reinforcement. Lightweight and flexible for low to medium pressure.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "6 – 51 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R3, R4, R6 · EN 854"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Rendah – menengah"
+              }
+            ],
+            "ratings": {
+              "pressure": 1,
+              "flex": 4,
+              "temp": 2,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 1TE / SAE 100R6",
+                "spec": "1 anyaman tekstil",
+                "description": "Ringan untuk jalur return, saluran oli, dan tekanan rendah."
+              },
+              {
+                "name": "Selang 2TE / SAE 100R3",
+                "spec": "2 anyaman tekstil",
+                "description": "Untuk tekanan menengah pada jalur suplai maupun return."
+              },
+              {
+                "name": "Selang 3TE (EN 854)",
+                "spec": "3 anyaman tekstil",
+                "description": "Tekanan menengah dengan fleksibilitas baik dan ketahanan impuls yang lebih tinggi."
+              },
+              {
+                "name": "Selang Suction & Return / SAE 100R4",
+                "spec": "Tekstil + helix kawat",
+                "description": "Untuk saluran hisap dan return, tahan terhadap tekanan negatif."
+              }
+            ],
+            "applications": [
+              "Jalur return oli",
+              "Saluran pilot & drain",
+              "Pelumasan",
+              "Mesin pertanian",
+              "Peralatan konstruksi ringan"
+            ],
+            "tip": "Pilih textile braid untuk tekanan rendah. Untuk tekanan kerja tinggi atau impuls berat, gunakan wire braid atau wire spiral."
+          },
+          {
+            "name": "Wire Braid Hose",
+            "icon": "mdi:grid",
+            "image": "/principal/hose/selang-wire-braid.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 5 – 102 mm",
+            "description": "Steel wire braid reinforcement for medium to high pressure. The most versatile type for general hydraulic systems.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "5 – 102 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "EN 853 (1SN/2SN) · EN 857 · SAE 100R1AT/R2AT/R5"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Menengah – tinggi (hingga ± 40 MPa pada diameter kecil)"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 3,
+              "temp": 2,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 1SN / SAE 100R1AT",
+                "spec": "1 anyaman kawat baja",
+                "description": "Serbaguna untuk tekanan menengah pada alat berat dan mesin industri."
+              },
+              {
+                "name": "Selang 2SN / SAE 100R2AT",
+                "spec": "2 anyaman kawat baja",
+                "description": "Tekanan kerja lebih tinggi untuk beban dan impuls yang lebih berat."
+              },
+              {
+                "name": "Selang Compact 1SC / 2SC (EN 857)",
+                "spec": "Diameter luar ringkas",
+                "description": "Radius tekuk lebih rapat untuk ruang instalasi yang sempit."
+              },
+              {
+                "name": "Selang SAE 100R5",
+                "spec": "Wire braid + cover tekstil",
+                "description": "Cover anyaman tekstil dengan penguat kawat baja untuk lingkungan umum."
+              },
+              {
+                "name": "Selang Big Bore",
+                "spec": "Hingga 102 mm",
+                "description": "Diameter besar untuk saluran suplai atau hisap berkapasitas tinggi."
+              }
+            ],
+            "applications": [
+              "Alat berat",
+              "Pertanian",
+              "Press & injection molding",
+              "Power pack",
+              "Truk & dump hoist"
+            ],
+            "tip": "Gunakan tipe compact bila ruang terbatas atau radius tekuk kecil dibutuhkan."
+          },
+          {
+            "name": "Wire Spiral Hose",
+            "icon": "mdi:autorenew",
+            "image": "/principal/hose/selang-wire-spiral.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 6 – 76 mm",
+            "description": "Four to six layers of steel wire spiral for high pressure and heavy impulses on heavy equipment and mining machinery.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "6 – 76 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "EN 856 (4SP/4SH) · SAE 100R12/R13/R15"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Tinggi – sangat tinggi (tekanan kerja bervariasi per diameter)"
+              }
+            ],
+            "ratings": {
+              "pressure": 4,
+              "flex": 2,
+              "temp": 3,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 4SP (EN 856)",
+                "spec": "4 spiral kawat baja",
+                "description": "Tekanan tinggi untuk alat berat dan sistem dengan impuls berat."
+              },
+              {
+                "name": "Selang 4SH (EN 856)",
+                "spec": "4 spiral, tekanan lebih tinggi",
+                "description": "Tekanan kerja lebih tinggi untuk diameter menengah hingga besar."
+              },
+              {
+                "name": "Selang SAE 100R12",
+                "spec": "4 spiral · ± 28 MPa (4000 psi)",
+                "description": "Tahan impuls tinggi untuk aplikasi mobile equipment."
+              },
+              {
+                "name": "Selang SAE 100R13 / R15",
+                "spec": "Multi-spiral · ± 35 – 42 MPa",
+                "description": "Tekanan sangat tinggi untuk excavator dan mesin hidrolik besar."
+              },
+              {
+                "name": "Selang Spiral Tahan Abrasi / MSHA",
+                "spec": "Cover khusus",
+                "description": "Varian cover tahan abrasi dan sesuai persyaratan tambang (MSHA)."
+              }
+            ],
+            "applications": [
+              "Excavator",
+              "Peralatan tambang",
+              "Drilling",
+              "Press besar",
+              "Mesin hidrolik tekanan tinggi"
+            ],
+            "tip": "Selang spiral lebih kaku. Perhatikan radius tekuk minimum dan pasang fitting khusus spiral (multispiral/interlock)."
+          },
+          {
+            "name": "Thermoplastic Hose",
+            "icon": "mdi:feather",
+            "image": "/principal/hose/selang-thermoplastic.webp",
+            "groupIdx": 1,
+            "range": "Diameter 2 – 25 mm",
+            "description": "Lightweight hose with small bend radius, abrasion and weather resistant. Suitable for tight spaces and portable equipment.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "2 – 25 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R7 / R8 · EN 855"
+              },
+              {
+                "label": "Cover",
+                "value": "Poliuretan atau termoplastik tahan abrasi"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 4,
+              "temp": 2,
+              "chem": 3
+            },
+            "products": [
+              {
+                "name": "SAE 100R7 Textile Braid",
+                "spec": "Penguat serat tekstil",
+                "description": "Tekanan menengah, sangat ringan dan fleksibel."
+              },
+              {
+                "name": "SAE 100R8 Tekanan Tinggi",
+                "spec": "Penguat serat tekanan tinggi",
+                "description": "Tekanan lebih tinggi untuk peralatan hidrolik kompak."
+              },
+              {
+                "name": "Thermoplastic Wire Braid",
+                "spec": "1 atau 2 anyaman kawat baja",
+                "description": "Tekanan tinggi dengan cover tahan abrasi dan tanpa bekas tusukan (non pin-pricked)."
+              },
+              {
+                "name": "Selang Twin (Dua Jalur)",
+                "spec": "2 selang dalam 1 cover",
+                "description": "Satu selang untuk dua jalur suplai dan return agar instalasi lebih rapi."
+              },
+              {
+                "name": "Selang Non-Konduktif",
+                "spec": "Untuk kerja dekat listrik",
+                "description": "Varian non-konduktif untuk peralatan utilitas dan aerial lift."
+              }
+            ],
+            "applications": [
+              "Peralatan hidrolik portabel",
+              "Robotika & otomasi",
+              "Crane truk",
+              "Peralatan utilitas",
+              "Cat semprot tekanan tinggi"
+            ],
+            "tip": "Pilih thermoplastic bila bobot ringan, radius tekuk kecil, atau ketahanan abrasi lebih penting daripada ketahanan suhu tinggi."
+          },
+          {
+            "name": "PTFE Hose",
+            "icon": "mdi:flask-outline",
+            "image": "/principal/hose/selang-ptfe.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 5 – 51 mm",
+            "description": "PTFE inner tube with stainless steel braid reinforcement. High temperature resistance and compatible with almost all chemicals.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "5 – 51 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R14 dan sejenisnya"
+              },
+              {
+                "label": "Suhu",
+                "value": "Hingga ± 260°C (sesuai tipe)"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 2,
+              "temp": 4,
+              "chem": 4
+            },
+            "products": [
+              {
+                "name": "PTFE Smooth Bore / SAE 100R14",
+                "spec": "Lubang halus, braid stainless",
+                "description": "Aliran lancar dan mudah dibersihkan untuk suhu tinggi dan media agresif."
+              },
+              {
+                "name": "PTFE Corrugated (Convoluted)",
+                "spec": "Dinding bergelombang",
+                "description": "Lebih fleksibel dengan radius tekuk kecil untuk jalur yang berliku."
+              },
+              {
+                "name": "PTFE Konduktif (Antistatik)",
+                "spec": "Lapisan dalam konduktif",
+                "description": "Mencegah penumpukan listrik statis pada transfer fluida mudah terbakar."
+              },
+              {
+                "name": "PTFE Tekanan Tinggi Multi-Braid",
+                "spec": "Beberapa anyaman stainless",
+                "description": "Tekanan kerja lebih tinggi untuk sistem industri dan otomotif."
+              }
+            ],
+            "applications": [
+              "Industri kimia",
+              "Makanan & farmasi",
+              "Uap & suhu tinggi",
+              "Bahan bakar & pendingin",
+              "Cat dan pelarut"
+            ],
+            "tip": "Pastikan fitting kompatibel dengan PTFE. Jenis dan prosedur crimp berbeda dari selang karet."
+          },
+          {
+            "name": "Hose Fittings",
+            "icon": "mdi:link-variant",
+            "image": "/principal/hose/selang-fitting.jpg",
+            "groupIdx": 2,
+            "range": "Baja karbon & stainless steel",
+            "description": "Hose end connections in one-piece and two-piece versions, available for standard to multi-spiral hoses.",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Baja karbon & stainless steel"
+              },
+              {
+                "label": "Konstruksi",
+                "value": "One-piece & two-piece"
+              },
+              {
+                "label": "Koneksi",
+                "value": "BSP, NPT, Metrik, JIC, ORFS, SAE, Staple (tambang)"
+              }
+            ],
+            "products": [
+              {
+                "name": "Fitting One-Piece (Crimp)",
+                "spec": "Satu bagian",
+                "description": "Instalasi cepat dan efisien untuk produksi rakitan volume tinggi."
+              },
+              {
+                "name": "Fitting Two-Piece",
+                "spec": "Nipple + socket",
+                "description": "Kombinasi nipple dan socket yang fleksibel untuk berbagai ukuran dan ujung."
+              },
+              {
+                "name": "Fitting Multispiral / Interlock",
+                "spec": "Untuk selang spiral",
+                "description": "Socket yang mencengkeram lapisan penguat selang tekanan tinggi."
+              },
+              {
+                "name": "Fitting Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan laut, kimia, dan pengolahan pangan."
+              },
+              {
+                "name": "Fitting Flange SAE Code 61 / 62",
+                "spec": "Flange 4 baut",
+                "description": "Untuk diameter besar dan tekanan tinggi, umum pada alat berat."
+              }
+            ],
+            "applications": [
+              "Rakitan selang",
+              "Perawatan & perbaikan",
+              "Produksi OEM",
+              "Alat berat",
+              "Industri tambang"
+            ],
+            "tip": "Gunakan kombinasi selang, fitting, dan mesin crimp yang kompatibel serta ikuti data crimp dari produsen."
+          },
+          {
+            "name": "Hydraulic Adapters",
+            "icon": "mdi:connection",
+            "image": "/principal/hose/adapter-hidrolik.webp",
+            "groupIdx": 2,
+            "range": "BSP · NPT · Metrik · JIC · ORFS · SAE",
+            "description": "Connectors and thread adapters between hydraulic components such as pumps, cylinders, valves, and manifolds.",
+            "specs": [
+              {
+                "label": "Koneksi",
+                "value": "BSP, NPT, Metrik (24°), JIC, ORFS, SAE"
+              },
+              {
+                "label": "Bentuk",
+                "value": "Lurus, elbow, tee, cross"
+              },
+              {
+                "label": "Material",
+                "value": "Baja karbon berlapis & stainless steel"
+              }
+            ],
+            "products": [
+              {
+                "name": "Adapter Lurus",
+                "spec": "Male–male / male–female",
+                "description": "Menghubungkan dua jenis ulir atau ukuran yang berbeda secara langsung."
+              },
+              {
+                "name": "Adapter Elbow 45° / 90°",
+                "spec": "Sudut tetap atau swivel",
+                "description": "Mengubah arah jalur untuk ruang sempit dan merapikan routing selang."
+              },
+              {
+                "name": "Adapter Tee & Cross",
+                "spec": "3 atau 4 port",
+                "description": "Membagi atau menggabungkan aliran pada satu titik koneksi."
+              },
+              {
+                "name": "Adapter Bulkhead",
+                "spec": "Menembus panel",
+                "description": "Menghubungkan jalur melalui dinding panel atau tangki dengan mur pengunci."
+              },
+              {
+                "name": "Plug, Cap & Reducer",
+                "spec": "Penutup & pengecil",
+                "description": "Menutup port yang tidak dipakai atau mengubah ukuran sambungan."
+              }
+            ],
+            "applications": [
+              "Konversi ulir",
+              "Manifold & blok hidrolik",
+              "Pompa & silinder",
+              "Power pack",
+              "Test bench"
+            ],
+            "tip": "Cocokkan jenis ulir, ukuran, dan permukaan seal (kerucut, O-ring, atau flat face) sebelum memesan."
+          },
+          {
+            "name": "Quick & Multi-Couplings",
+            "icon": "mdi:lightning-bolt-outline",
+            "image": "/principal/hose/quick-coupling.jpg",
+            "groupIdx": 2,
+            "range": "Poppet · Flat Face · Screw Type",
+            "description": "Quick connections for connecting and disconnecting hydraulic lines without tools, including multi-coupling systems for multiple lines at once.",
+            "specs": [
+              {
+                "label": "Tipe",
+                "value": "Poppet, flat face, screw-to-connect"
+              },
+              {
+                "label": "Standar",
+                "value": "ISO 7241 (poppet) · ISO 16028 (flat face)"
+              },
+              {
+                "label": "Fitur",
+                "value": "Tersedia versi sambung-lepas saat bertekanan"
+              }
+            ],
+            "products": [
+              {
+                "name": "Quick Coupling Poppet (ISO 7241)",
+                "spec": "Katup poppet",
+                "description": "Tipe umum untuk aplikasi serbaguna dengan interchangeability luas."
+              },
+              {
+                "name": "Quick Coupling Flat Face (ISO 16028)",
+                "spec": "Muka rata",
+                "description": "Kebocoran minimal saat dilepas dan mudah dibersihkan, cocok untuk lingkungan kotor."
+              },
+              {
+                "name": "Quick Coupling Screw Type",
+                "spec": "Sambungan ulir",
+                "description": "Pengunci ulir untuk tekanan tinggi dan beban dinamis."
+              },
+              {
+                "name": "Coupling Sambung Saat Bertekanan",
+                "spec": "Pressure connect",
+                "description": "Dapat disambung walau jalur masih bertekanan sehingga mempercepat penggantian attachment."
+              },
+              {
+                "name": "Multi-Coupling",
+                "spec": "Hidrolik / listrik / pneumatik",
+                "description": "Banyak jalur dalam satu sambungan untuk pergantian attachment yang cepat dan bebas salah sambung."
+              }
+            ],
+            "applications": [
+              "Implement traktor",
+              "Attachment excavator",
+              "Power pack",
+              "Test bench",
+              "Mesin mobile"
+            ],
+            "tip": "Pilih ukuran dan tipe sesuai laju aliran. Coupling yang terlalu kecil menyebabkan kehilangan tekanan dan panas."
+          },
+          {
+            "name": "Plug-in & Swivel Connectors",
+            "icon": "mdi:rotate-3d-variant",
+            "image": "/principal/hose/swivel.jpg",
+            "groupIdx": 2,
+            "range": "Hingga ± 420 bar · Diameter hingga 51 mm",
+            "description": "Plug-in connectors for quick, error-free assembly, and swivels for rotating parts to prevent hose twisting.",
+            "specs": [
+              {
+                "label": "Tekanan (swivel)",
+                "value": "Hingga ± 420 bar (6000 psi), sesuai tipe"
+              },
+              {
+                "label": "Diameter",
+                "value": "Hingga 51 mm"
+              },
+              {
+                "label": "Koneksi",
+                "value": "Sesuai kebutuhan OEM / custom termination"
+              }
+            ],
+            "products": [
+              {
+                "name": "Konektor Plug-in",
+                "spec": "Pasang langsung",
+                "description": "Instalasi cepat dan minim kesalahan, ideal untuk ruang terbatas dan produksi massal."
+              },
+              {
+                "name": "Swivel Putaran Kontinu",
+                "spec": "Rotasi penuh",
+                "description": "Desain kompak dengan putaran halus untuk bagian yang berputar terus-menerus."
+              },
+              {
+                "name": "Swivel Putaran Intermiten",
+                "spec": "Osilasi / terbatas",
+                "description": "Untuk gerakan berputar sebagian atau berganti arah."
+              },
+              {
+                "name": "Swivel Custom OEM",
+                "spec": "Sesuai gambar kerja",
+                "description": "Termination dan ukuran disesuaikan dengan kebutuhan desain mesin."
+              }
+            ],
+            "applications": [
+              "Hose reel",
+              "Crane & winch",
+              "Drum berputar",
+              "Lengan robot",
+              "Mesin dengan bagian berputar"
+            ],
+            "tip": "Gunakan swivel di setiap titik yang berputar. Selang yang terpelintir akan cepat rusak dan berisiko bocor."
+          },
+          {
+            "name": "Valves (Ball & Check)",
+            "icon": "mdi:valve",
+            "image": "/principal/hose/ball-check-valve.jpg",
+            "groupIdx": 3,
+            "range": "Diameter nominal hingga 51 mm",
+            "description": "Ball and check valves for low and high pressure lines, available in various materials and end types.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "Hingga 51 mm"
+              },
+              {
+                "label": "Material",
+                "value": "Kuningan, baja karbon, stainless steel"
+              },
+              {
+                "label": "Fungsi",
+                "value": "Buka-tutup (ball) & satu arah (check)"
+              }
+            ],
+            "products": [
+              {
+                "name": "Ball Valve Kuningan",
+                "spec": "Tekanan rendah",
+                "description": "Isolasi jalur untuk sistem tekanan rendah dan media umum."
+              },
+              {
+                "name": "Ball Valve Baja Karbon",
+                "spec": "Tekanan tinggi",
+                "description": "Konstruksi kuat untuk jalur hidrolik bertekanan tinggi."
+              },
+              {
+                "name": "Ball Valve Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan korosif, laut, dan pengolahan pangan."
+              },
+              {
+                "name": "Ball Valve 3-Way",
+                "spec": "Pengarah aliran",
+                "description": "Mengalihkan atau memilih jalur aliran pada satu valve."
+              },
+              {
+                "name": "Check Valve (Non-Return)",
+                "spec": "Aliran satu arah",
+                "description": "Mencegah aliran balik untuk melindungi pompa dan komponen sistem."
+              }
+            ],
+            "applications": [
+              "Isolasi jalur oli",
+              "Pengambilan sampel & drain",
+              "Power pack",
+              "Test bench",
+              "Perawatan sistem"
+            ],
+            "tip": "Pilih material dan tipe ujung sesuai media, tekanan kerja, dan jenis koneksi pada sistem Anda."
+          },
+          {
+            "name": "Hose Guards",
+            "icon": "mdi:shield-half-full",
+            "image": "/principal/hose/pelindung-selang.jpg",
+            "groupIdx": 3,
+            "range": "Standard · MSHA · FRAS",
+            "description": "Plastic spiral guards to resist abrasion and other external factors that shorten hose life.",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Plastik spiral tepi membulat"
+              },
+              {
+                "label": "Versi",
+                "value": "Standard, MSHA, FRAS"
+              },
+              {
+                "label": "Pemasangan",
+                "value": "Mudah, tanpa alat khusus"
+              }
+            ],
+            "products": [
+              {
+                "name": "Spiral Guard Standar",
+                "spec": "Plastik spiral",
+                "description": "Perlindungan abrasi umum pada alat berat dan mesin industri."
+              },
+              {
+                "name": "Spiral Guard MSHA",
+                "spec": "Persyaratan tambang",
+                "description": "Varian yang memenuhi persyaratan penggunaan di area tambang."
+              },
+              {
+                "name": "Spiral Guard FRAS",
+                "spec": "Tahan api & antistatik",
+                "description": "Tahan api dan antistatik untuk lingkungan berisiko tinggi."
+              },
+              {
+                "name": "Pelindung Pegas Baja",
+                "spec": "Spring guard",
+                "description": "Perlindungan tambahan terhadap tekukan tajam dan benturan di titik rawan."
+              }
+            ],
+            "applications": [
+              "Tambang",
+              "Alat berat",
+              "Kehutanan",
+              "Area abrasif",
+              "Lingkungan panas"
+            ],
+            "tip": "Pelindung tidak menggantikan penggantian selang yang aus. Tetap lakukan inspeksi rutin."
+          },
+          {
+            "name": "Bent Tubes (Manipulated Tube)",
+            "icon": "mdi:vector-polyline",
+            "image": "/principal/hose/pipa-bending.jpg",
+            "groupIdx": 3,
+            "range": "Diameter 4 – 200 mm (3/16\" – 8\")",
+            "description": "Hydraulic tubes formed to OEM drawings, can be combined with hoses, fittings, and couplings.",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Baja karbon & stainless steel"
+              },
+              {
+                "label": "Diameter",
+                "value": "4 – 200 mm (3/16\" – 8\")"
+              },
+              {
+                "label": "Kebersihan",
+                "value": "Hingga NAS 5 / ISO 4406 16/14/11 atau lebih baik"
+              }
+            ],
+            "products": [
+              {
+                "name": "Pipa Bending OEM",
+                "spec": "Sesuai gambar kerja",
+                "description": "Pembentukan presisi dengan pengukuran geometri 3D untuk hasil yang konsisten."
+              },
+              {
+                "name": "Rakitan Pipa dengan Fitting",
+                "spec": "Tube assembly",
+                "description": "Pipa lengkap dengan fitting dan seal, siap dipasang."
+              },
+              {
+                "name": "Pipa Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan korosif dan aplikasi yang menuntut kebersihan tinggi."
+              },
+              {
+                "name": "Pipa Flange SAE",
+                "spec": "Untuk diameter besar",
+                "description": "Pipa dengan ujung flange untuk jalur tekanan tinggi berdiameter besar."
+              },
+              {
+                "name": "Pipa Kebersihan Tinggi",
+                "spec": "Dibersihkan & disumbat",
+                "description": "Dibersihkan dan ditutup untuk menjaga tingkat kebersihan hingga pemasangan."
+              }
+            ],
+            "applications": [
+              "Alat berat",
+              "Mesin industri",
+              "Manifold & power unit",
+              "Jalur tetap tekanan tinggi",
+              "Produksi OEM"
+            ],
+            "tip": "Gunakan pipa untuk rute tetap bertekanan tinggi dan selang untuk bagian yang bergerak atau bergetar."
+          }
+        ],
+        "compare": {
+          "sectionLabel": "Quick Comparison",
+          "titleLine1": "Hose Types",
+          "titleLine2": "At a Glance",
+          "subtitle": "Relative guide for comparing five hose types. More filled dots indicate stronger capability in that aspect.",
+          "thHose": "Hose Type",
+          "note": "General guide. Actual capability depends on diameter, construction, and manufacturer specifications. Always refer to the product datasheet."
+        },
+        "ratingLabels": {
+          "pressure": "Pressure",
+          "flex": "Flexibility",
+          "temp": "Temperature",
+          "chem": "Chemical Resistance"
+        },
+        "assembly": {
+          "sectionLabel": "Hose Assembly",
+          "titleLine1": "Custom Hose",
+          "titleLine2": "Assemblies",
+          "subtitle": "Send specifications or a sample of your old hose. We prepare assemblies with the right length, fittings, and angles.",
+          "steps": [
+            {
+              "icon": "mdi:ruler",
+              "title": "Measure & Specify",
+              "description": "Define hose type, diameter, length, fitting ends, and bend angles."
+            },
+            {
+              "icon": "mdi:content-cut",
+              "title": "Cut & Clean",
+              "description": "Precision cutting and internal cleaning of the hose before assembly."
+            },
+            {
+              "icon": "mdi:hammer-wrench",
+              "title": "Crimp to Spec",
+              "description": "Fitting crimping follows crimp data for the hose and fitting combination."
+            },
+            {
+              "icon": "mdi:gauge",
+              "title": "Test & Label",
+              "description": "Pressure testing, visual inspection, and labeling before delivery."
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "Technical Reference",
+          "titleLine1": "Reading",
+          "titleLine2": "Hose Codes",
+          "subtitle": "Hose codes contain construction, size, and standard information. Here is how to read them, plus size and connection tables.",
+          "sizeTitle": "Hose Size Conversion",
+          "sizeSub": "Inside diameter (DN), dash code, and inches",
+          "thDn": "DN (mm)",
+          "thDash": "Dash",
+          "thInch": "Inches",
+          "threadTitle": "Common Connection Types",
+          "threadSub": "Threads and sealing surfaces frequently encountered",
+          "thType": "Type",
+          "thSeal": "Seal / Angle",
+          "thNote": "Notes",
+          "threadNote": "Threads that look similar may not be compatible. Match thread type, size, and sealing surface before installation.",
+          "decoder": [
+            {
+              "code": "2SN",
+              "label": "Construction",
+              "meaning": "Two layers of steel wire braid reinforcement"
+            },
+            {
+              "code": "DN12",
+              "label": "Diameter",
+              "meaning": "Nominal inside diameter 12 mm"
+            },
+            {
+              "code": "-8",
+              "label": "Dash",
+              "meaning": "Dash size code: 8/16 inch = 1/2 inch"
+            },
+            {
+              "code": "EN 853",
+              "label": "Standard",
+              "meaning": "Wire braid hydraulic hose standard"
+            }
+          ],
+          "sizeRows": [
+            {
+              "dn": 6,
+              "dash": "-4",
+              "inch": "1/4\""
+            },
+            {
+              "dn": 8,
+              "dash": "-5",
+              "inch": "5/16\""
+            },
+            {
+              "dn": 10,
+              "dash": "-6",
+              "inch": "3/8\""
+            },
+            {
+              "dn": 12,
+              "dash": "-8",
+              "inch": "1/2\""
+            },
+            {
+              "dn": 16,
+              "dash": "-10",
+              "inch": "5/8\""
+            },
+            {
+              "dn": 19,
+              "dash": "-12",
+              "inch": "3/4\""
+            },
+            {
+              "dn": 25,
+              "dash": "-16",
+              "inch": "1\""
+            },
+            {
+              "dn": 31,
+              "dash": "-20",
+              "inch": "1-1/4\""
+            },
+            {
+              "dn": 38,
+              "dash": "-24",
+              "inch": "1-1/2\""
+            },
+            {
+              "dn": 51,
+              "dash": "-32",
+              "inch": "2\""
+            }
+          ],
+          "threadRows": [
+            {
+              "code": "BSP",
+              "seal": "55° pipe thread",
+              "note": "Common in Europe and Asia (BSPP / BSPT)"
+            },
+            {
+              "code": "NPT",
+              "seal": "60° tapered thread",
+              "note": "American standard, seal on threads"
+            },
+            {
+              "code": "JIC",
+              "seal": "37° flare",
+              "note": "Metal-to-metal seal, common on heavy equipment"
+            },
+            {
+              "code": "ORFS",
+              "seal": "O-ring face seal",
+              "note": "Leak-resistant, suitable for high pressure"
+            },
+            {
+              "code": "Metric",
+              "seal": "24° cone",
+              "note": "European system, light and heavy duty"
+            },
+            {
+              "code": "SAE Flange",
+              "seal": "O-ring + 4 bolts",
+              "note": "Large diameter, Code 61 / 62"
+            }
+          ]
+        },
+        "selection": {
+          "sectionLabel": "Selection & Safety",
+          "titleLine1": "Choose Right,",
+          "titleLine2": "Operate Safely",
+          "subtitle": "Hydraulic hose failures can almost always be prevented through correct selection and routine inspection.",
+          "factorsTitle": "Six Selection Factors",
+          "failureTitle": "Common Failure Causes",
+          "warningTitle": "Safety warning",
+          "warningDesc": "Fine high-pressure leaks can penetrate skin (fluid injection) and are dangerous. Never check for leaks by hand. Use cardboard or a board, wear PPE, and depressurize the system before removing hoses or fittings.",
+          "standardsTitle": "Reference Standards",
+          "standardsDesc": "Commonly referenced norms for hydraulic hoses, fittings, and connections.",
+          "factors": [
+            {
+              "icon": "mdi:ruler",
+              "title": "Size",
+              "description": "Inside diameter determines flow rate. Too small causes heat and pressure loss."
+            },
+            {
+              "icon": "mdi:thermometer",
+              "title": "Temperature",
+              "description": "Consider fluid and ambient temperatures, including short-term spikes."
+            },
+            {
+              "icon": "mdi:tractor",
+              "title": "Application",
+              "description": "Movement, vibration, installation space, and bend radius determine construction type."
+            },
+            {
+              "icon": "mdi:flask-outline",
+              "title": "Media",
+              "description": "Ensure the inner tube is compatible with oil, water-glycol, chemicals, or fuel."
+            },
+            {
+              "icon": "mdi:gauge",
+              "title": "Pressure",
+              "description": "Calculate working pressure plus impulses with an appropriate safety factor."
+            },
+            {
+              "icon": "mdi:link-variant",
+              "title": "End Connections",
+              "description": "Specify thread type, fitting angle, and compatibility with existing components."
+            }
+          ],
+          "failures": [
+            {
+              "icon": "mdi:gauge-full",
+              "title": "Excess Pressure & Impulse",
+              "description": "Repeated pressure spikes fatigue the hose reinforcement until it eventually bursts."
+            },
+            {
+              "icon": "mdi:rotate-3d-variant",
+              "title": "Bending & Twisting",
+              "description": "Bend radius below limits or a twisted hose accelerates damage."
+            },
+            {
+              "icon": "mdi:shield-alert-outline",
+              "title": "Abrasion & Environment",
+              "description": "Friction, heat, and chemical exposure damage the cover. Use guards and proper routing."
+            },
+            {
+              "icon": "mdi:hammer-wrench",
+              "title": "Wrong Fitting & Crimp",
+              "description": "Incompatible fitting combinations or improper crimping cause fittings to blow off."
+            }
+          ],
+          "standards": [
+            "EN 853",
+            "EN 856",
+            "EN 854",
+            "EN 855",
+            "EN 857",
+            "SAE J517",
+            "ISO 1436",
+            "ISO 18752",
+            "ISO 17165",
+            "ISO 12151",
+            "ISO 8434",
+            "ISO 7241",
+            "ISO 16028",
+            "ISO 4406"
+          ]
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Frequently Asked Questions",
+          "items": [
+            {
+              "q": "How do I choose the right hydraulic hose?",
+              "a": "Determine working pressure (including impulses), inside diameter, temperature, media type, installation space, and end connection type. Then select the appropriate construction and standard. If unsure, send us specifications or a sample of your old hose."
+            },
+            {
+              "q": "What is the difference between 1SN and 2SN hoses?",
+              "a": "1SN has one layer of steel wire braid, while 2SN has two. For the same diameter, 2SN generally has a higher working pressure."
+            },
+            {
+              "q": "When should I use a PTFE hose?",
+              "a": "Choose PTFE for high temperatures, aggressive chemicals, or cleanliness requirements such as in food and pharmaceutical industries. For general hydraulics on heavy equipment, wire braid or wire spiral is usually more suitable."
+            },
+            {
+              "q": "Can I mix hoses and fittings from different manufacturers?",
+              "a": "It is not recommended. Hose, fitting, and crimp data are specified by the manufacturer. Mixing components without official data can reduce safety and working pressure of the assembly."
+            },
+            {
+              "q": "How long does a hydraulic hose last?",
+              "a": "There is no fixed lifespan as it depends heavily on pressure, temperature, movement, and environment. Perform regular inspections and replace if there are leaks, cover cracks, bulges, or visible reinforcement wires."
+            },
+            {
+              "q": "Can I order a hose assembly with custom length and fittings?",
+              "a": "Yes. Send us the hose type, length, fitting types and angles, or a sample of the old assembly. We will prepare an assembly to those specifications."
+            }
+          ]
+        },
+        "contact": {
+          "sectionLabel": "Request a Quote",
+          "titleLine1": "Need a Specific",
+          "titleLine2": "Hose or Fitting?",
+          "subtitle": "Provide type, size, and quantity. If unsure, send a photo or sample of your old hose and we will help match it.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Send Email",
+          "formTitle": "Quick Request Form",
+          "fieldProduct": "Product / Category",
+          "fieldSpec": "Size / Specification",
+          "fieldQty": "Quantity",
+          "fieldNote": "Notes (optional)",
+          "phProduct": "e.g. 2SN Hose, Flat Face Quick Coupling",
+          "phSpec": "e.g. DN12, 400 bar, JIC",
+          "phQty": "10",
+          "phNote": "Hose length, media type, working temperature, etc.",
+          "required": "*",
+          "submit": "Send via WhatsApp",
+          "formHint": "This form opens WhatsApp with a pre-filled message. No data is stored on this site.",
+          "formError": "Please fill in the product/category and quantity required.",
+          "waIntro": "Hello Trumecs, I would like to request a quote for hydraulic products.",
+          "waProduct": "Product",
+          "waSpec": "Size / specification",
+          "waQty": "Quantity",
+          "waNote": "Notes",
+          "waCategory": "Hello Trumecs, I would like to request a quote for the category \"{name}\". Please provide product information and availability.",
+          "waGeneral": "Hello Trumecs, I am interested in hydraulic hoses, fittings, and connections. Please provide more information.",
+          "emailSubject": "Hydraulic Product Quote Request"
+        },
+        "detail": {
+          "specsTitle": "General Specifications",
+          "ratingsTitle": "Characteristics (Relative)",
+          "productsTitle": "Example Products ({count})",
+          "applicationsTitle": "Common Applications",
+          "ctaText": "Need a quote for this category?",
+          "ctaButton": "Request a Quote",
+          "close": "Close"
+        },
+        "seo": {
+          "title": "Hydraulic Hoses, Fittings, Adapters & Quick Couplings | Trumecs",
+          "description": "Textile braid, wire braid, wire spiral, thermoplastic, and PTFE hydraulic hoses; fittings, adapters, quick couplings, valves, hose guards, and tube bending for industry."
         }
       }
     },

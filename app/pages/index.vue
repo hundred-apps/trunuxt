@@ -16,19 +16,19 @@
                 :is="slideTag(index)"
                 v-bind="slideAttrs(index)"
                 class="block w-full"
-                @click="slide.scrap ? openScrapModal() : undefined"
+                @click="onSlideClick(index)"
               >
                 <NuxtImg
                   :src="slide.image"
                   :alt="slide.alt"
-                  class="w-full block h-auto object-contain lg:h-[680px] lg:object-cover"
+                  class="w-full block h-auto object-contain lg:h-[660px] lg:object-cover"
                   :loading="index === 0 ? 'eager' : 'lazy'"
                   :fetchpriority="index === 0 ? 'high' : 'auto'"
                   :preload="index === 0"
                   decoding="async"
                   sizes="100vw sm:100vw md:100vw lg:1280px"
                   width="1280"
-                  height="680"
+                  height="660"
                   format="webp"
                   quality="70"
                 />
@@ -38,7 +38,8 @@
         </div>
 
         <button
-          @click="prevSlide"
+          @click="onPrevSlide"
+          data-no-analytics
           class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all z-10"
         >
           <Icon
@@ -47,7 +48,8 @@
           />
         </button>
         <button
-          @click="nextSlide"
+          @click="onNextSlide"
+          data-no-analytics
           class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all z-10"
         >
           <Icon
@@ -62,7 +64,8 @@
           <button
             v-for="(_, index) in slides"
             :key="index"
-            @click="currentSlide = index"
+            @click="onDotClick(index)"
+            data-no-analytics
             class="w-2 h-2 rounded-full transition-all"
             :class="currentSlide === index ? 'bg-white w-6' : 'bg-white/50'"
           />
@@ -70,8 +73,264 @@
       </div>
     </section>
 
+    <!-- Values Section -->
+    <section class="bg-gray-50 py-10 lg:py-2 mt-4">
+      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+        <div class="text-center mb-8 lg:mb-4">
+          <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
+            {{ $t("page.home.values.title") }}
+          </h2>
+        </div>
+
+        <div
+          class="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-gray-200"
+        >
+          <!-- Engineering Expertise -->
+          <div class="group flex items-start gap-4 lg:gap-5 sm:px-6 lg:px-8">
+            <Icon
+              name="mdi:cog"
+              class="text-6xl text-[#fa8420] shrink-0 transition-transform duration-300 group-hover:rotate-45"
+            />
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base lg:text-lg font-bold text-gray-800 mb-1">
+                {{ $t("page.home.values.items.engineering.title") }}
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                {{ $t("page.home.values.items.engineering.description") }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Reliable Industrial Supply -->
+          <div class="group flex items-start gap-4 lg:gap-5 sm:px-6 lg:px-8">
+            <Icon
+              name="mdi:package-variant-closed"
+              class="text-6xl text-[#fa8420] shrink-0 transition-transform duration-300 group-hover:-translate-y-1"
+            />
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base lg:text-lg font-bold text-gray-800 mb-1">
+                {{ $t("page.home.values.items.supply.title") }}
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                {{ $t("page.home.values.items.supply.description") }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Integrated Energy Solution -->
+          <div class="group flex items-start gap-4 lg:gap-5 sm:px-6 lg:px-8">
+            <Icon
+              name="mdi:leaf"
+              class="text-6xl text-[#fa8420] shrink-0 transition-transform duration-300 group-hover:-translate-y-1"
+            />
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base lg:text-lg font-bold text-gray-800 mb-1">
+                {{ $t("page.home.values.items.energy.title") }}
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                {{ $t("page.home.values.items.energy.description") }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 lg:py-8">
+      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+        <div class="text-center mb-6 lg:mb-8">
+          <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
+            {{ $t("page.home.categories.title") }}
+          </h2>
+          <p class="text-gray-500 text-sm lg:text-base mt-1">
+            {{ $t("page.home.categories.subtitle") }}
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <!-- BARIS PERTAMA (1x2) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <NuxtLink
+              v-for="category in categoriesStatic.slice(0, 2)"
+              :key="category.id"
+              :to="category.link"
+              data-no-analytics
+              class="group relative overflow-hidden rounded-xl aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.5/1]"
+              @click="onCategoryClick(category)"
+            >
+              <img
+                :src="category.image"
+                :alt="category.title"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <h3 class="text-white font-bold text-lg md:text-xl mb-1">
+                  {{ category.title }}
+                </h3>
+                <span
+                  class="inline-flex items-center text-orange-400 text-sm font-semibold group-hover:text-orange-300 transition-colors"
+                >
+                  {{ $t("page.home.categories.exploreMore") }}
+                  <Icon
+                    name="mdi:arrow-right"
+                    class="ml-1 text-base transition-transform group-hover:translate-x-1"
+                  />
+                </span>
+              </div>
+            </NuxtLink>
+          </div>
+
+          <!-- BARIS KEDUA (1x3) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <NuxtLink
+              v-for="category in categoriesStatic.slice(2, 5)"
+              :key="category.id"
+              :to="category.link"
+              data-no-analytics
+              class="group relative overflow-hidden rounded-xl aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9]"
+              @click="onCategoryClick(category)"
+            >
+              <img
+                :src="category.image"
+                :alt="category.title"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <h3 class="text-white font-bold text-lg md:text-xl mb-1">
+                  {{ category.title }}
+                </h3>
+                <span
+                  class="inline-flex items-center text-orange-400 text-sm font-semibold group-hover:text-orange-300 transition-colors"
+                >
+                  {{ $t("page.home.categories.exploreMore") }}
+                  <Icon
+                    name="mdi:arrow-right"
+                    class="ml-1 text-base transition-transform group-hover:translate-x-1"
+                  />
+                </span>
+              </div>
+            </NuxtLink>
+          </div>
+
+          <!-- BARIS KETIGA (1x2) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <NuxtLink
+              v-for="category in categoriesStatic.slice(5, 7)"
+              :key="category.id"
+              :to="category.link"
+              data-no-analytics
+              class="group relative overflow-hidden rounded-xl aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.5/1]"
+              @click="onCategoryClick(category)"
+            >
+              <img
+                :src="category.image"
+                :alt="category.title"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <h3 class="text-white font-bold text-lg md:text-xl mb-1">
+                  {{ category.title }}
+                </h3>
+                <span
+                  class="inline-flex items-center text-orange-400 text-sm font-semibold group-hover:text-orange-300 transition-colors"
+                >
+                  {{ $t("page.home.categories.exploreMore") }}
+                  <Icon
+                    name="mdi:arrow-right"
+                    class="ml-1 text-base transition-transform group-hover:translate-x-1"
+                  />
+                </span>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="py-8 lg:py-12">
+      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+        <div class="text-center mb-6 lg:mb-8">
+          <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
+            {{ $t("page.home.categories.title") }}
+          </h2>
+          <p class="text-gray-500 text-sm lg:text-base mt-1">
+            {{ $t("page.home.categories.subtitle") }}
+          </p>
+        </div>
+
+        <div v-if="loadingCategories" class="flex flex-wrap gap-3 lg:gap-4">
+          <div
+            v-for="i in 6"
+            :key="i"
+            class="animate-pulse grow basis-[calc(50%_-_0.375rem)] sm:basis-[calc(33.333%_-_0.5rem)] lg:basis-[calc(33.333%_-_0.667rem)] min-w-0"
+          >
+            <div class="h-[150px] bg-gray-200 rounded-xl" />
+          </div>
+        </div>
+
+        <div v-else class="flex flex-wrap gap-3 lg:gap-4">
+          <Trulink
+            v-for="category in categories"
+            :key="category.id"
+            :to="`/search?cat=${category.id}`"
+            class="group grow basis-[calc(50%_-_0.375rem)] sm:basis-[calc(33.333%_-_0.5rem)] lg:basis-[calc(33.333%_-_0.667rem)] min-w-0"
+          >
+            <div
+              class="relative h-[150px] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
+            >
+              <AppImage
+                v-if="category.img"
+                :src="imgSrc('category', category.img)"
+                :alt="category.name"
+                class="w-full h-full object-cover"
+                sizes="(max-width: 640px) 50vw, 33vw"
+                width="600"
+                height="400"
+                loading="lazy"
+                v-bind="imgAttrs('category', category.img)"
+              />
+              <Icon
+                v-else
+                name="material-symbols:category"
+                class="text-3xl lg:text-4xl text-gray-400"
+              />
+              <div
+                class="absolute left-0 bottom-0 max-w-[85%] px-2.5 py-1.5 rounded-tr-xl bg-gradient-to-r from-black/85 via-black/60 to-transparent"
+              >
+                <p
+                  class="text-left text-white font-bold text-xs sm:text-sm lg:text-base leading-tight line-clamp-2"
+                >
+                  {{ category.name }}
+                </p>
+                <span
+                  class="mt-0.5 flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-[#fa8420] transition-transform duration-300 group-hover:translate-x-0.5"
+                >
+                  {{ $t("page.home.categories.exploreMore") }}
+                  <Icon
+                    name="material-symbols:arrow-forward"
+                    class="text-[11px]"
+                  />
+                </span>
+              </div>
+            </div>
+          </Trulink>
+        </div>
+      </div>
+    </section> -->
+
     <!-- Industri / Tag Section -->
-    <section class="py-8 lg:py-12">
+    <section class="py-8 lg:py-8">
       <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
@@ -123,7 +382,9 @@
             v-for="(tag, tagIdx) in industriesList.slice(0, 10)"
             :key="tag.id"
             :to="`/search?tag=${tag.id}`"
+            data-no-analytics
             class="group"
+            @click="onIndustryClick(tag)"
           >
             <div
               class="relative aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
@@ -164,73 +425,9 @@
       </div>
     </section>
 
-    <section class="py-8 lg:py-12">
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
-        <div class="text-center mb-6 lg:mb-8">
-          <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
-            {{ $t("page.home.categories.title") }}
-          </h2>
-          <p class="text-gray-500 text-sm lg:text-base mt-1">
-            {{ $t("page.home.categories.subtitle") }}
-          </p>
-        </div>
-
-        <div
-          v-if="loadingCategories"
-          class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4"
-        >
-          <div v-for="i in 6" :key="i" class="animate-pulse">
-            <div class="aspect-[2/3] bg-gray-200 rounded-xl" />
-            <div class="h-3 bg-gray-200 rounded mt-2 w-3/4 mx-auto" />
-          </div>
-        </div>
-
-        <div
-          v-else
-          class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4"
-        >
-          <Trulink
-            v-for="category in categories"
-            :key="category.id"
-            :to="`/search?cat=${category.id}`"
-            class="group"
-          >
-            <div
-              class="relative aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-orange-100"
-            >
-              <AppImage
-                v-if="category.img"
-                :src="imgSrc('category', category.img)"
-                :alt="category.name"
-                class="w-full h-full object-cover"
-                sizes="33vw sm:25vw lg:16vw"
-                width="400"
-                height="600"
-                loading="lazy"
-                v-bind="imgAttrs('category', category.img)"
-              />
-              <Icon
-                v-else
-                name="material-symbols:category"
-                class="text-3xl lg:text-4xl text-gray-400"
-              />
-              <div
-                class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 group-hover:from-black/85"
-              />
-              <p
-                class="absolute left-0 right-0 bottom-0 p-2 lg:p-3 text-center text-white font-bold text-xs sm:text-sm leading-tight line-clamp-2"
-              >
-                {{ category.name }}
-              </p>
-            </div>
-          </Trulink>
-        </div>
-      </div>
-    </section>
-
     <section
       v-if="promos.length > 0"
-      class="py-8 lg:py-12 bg-gradient-to-br from-orange-50 to-white"
+      class="py-8 lg:py-8 bg-gradient-to-br from-orange-50 to-white"
     >
       <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
@@ -244,7 +441,9 @@
           </div>
           <Trulink
             :href="`${urlTrumecs}/promo`"
+            data-no-analytics
             class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+            @click="onSeeAllClick('home_promo', `${urlTrumecs}/promo`)"
           >
             {{ $t("button.seeAll") }}
             <Icon name="material-symbols:arrow-forward" class="text-sm" />
@@ -258,10 +457,9 @@
             v-for="promo in promos.slice(0, 3)"
             :key="promo.id"
             :href="`${urlTrumecs}/promo/${promo.url}`"
-            data-track-card="promo"
-            :data-track-id="String(promo.id)"
-            :data-track-title="promo.name"
+            data-no-analytics
             class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
+            @click="onCardClick('promo', promo.id, promo.name, 'home_promo')"
           >
             <div class="relative h-40 sm:h-48 overflow-hidden">
               <AppImage
@@ -324,7 +522,7 @@
       </div>
     </section>
 
-    <section class="py-8 lg:py-12">
+    <section class="py-8 lg:py-8">
       <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
@@ -337,7 +535,9 @@
           </div>
           <Trulink
             :to="`/search`"
+            data-no-analytics
             class="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105"
+            @click="onSeeAllClick('home_featured', '/search')"
           >
             {{ $t("button.seeAll") }}
             <Icon
@@ -401,7 +601,9 @@
               </div>
               <Trulink
                 :to="`/search?cat=${group.id}`"
+                data-no-analytics
                 class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+                @click="onGroupSeeAllClick(group)"
               >
                 {{ $t("button.seeAll") }}
                 <Icon name="material-symbols:arrow-forward" class="text-sm" />
@@ -415,6 +617,15 @@
                 v-for="product in group.products"
                 :key="product.id"
                 :product="product"
+                data-no-analytics
+                @click="
+                  onCardClick(
+                    'product',
+                    product.id,
+                    product.tittle,
+                    'home_featured'
+                  )
+                "
               />
             </div>
           </div>
@@ -422,96 +633,7 @@
       </div>
     </section>
 
-    <section
-      v-for="(section, sIndex) in categoryShowcases"
-      :key="sIndex"
-      class="py-8 lg:py-12"
-      :class="sIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'"
-    >
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
-            {{ section.title }}
-          </h2>
-          <Trulink
-            :href="`/search?cat=${section.id}`"
-            class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
-          >
-            {{ $t("button.seeAll") }}
-            <Icon name="material-symbols:arrow-forward" class="text-sm" />
-          </Trulink>
-        </div>
-
-        <div class="p-[2px] bg-white rounded-2xl shadow-sm ring-1 ring-black/5">
-          <div
-            class="relative overflow-hidden rounded-[14px]"
-            :style="{
-              backgroundImage: `url('${section.bg}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }"
-          >
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-0">
-              <Trulink
-                v-for="(sub, subIdx) in section.subcategories"
-                :key="sub.id"
-                :to="`/search?cat=${sub.id}`"
-                class="group relative overflow-hidden flex border border-white"
-                :class="[
-                  subIdx === 0
-                    ? 'col-span-2 lg:col-span-2 lg:row-span-2'
-                    : 'col-span-1',
-                  subIdx === 0
-                    ? 'min-h-[18rem] lg:min-h-[24rem]'
-                    : 'min-h-[9rem] lg:min-h-[12rem]',
-                ]"
-              >
-                <div
-                  class="relative z-10 flex w-full items-start justify-between gap-3 p-4 lg:p-6"
-                >
-                  <h3
-                    class="flex-1 font-bold text-white text-base lg:text-xl leading-snug drop-shadow"
-                  >
-                    {{ sub.name }}
-                  </h3>
-                  <Icon
-                    name="material-symbols:arrow-forward"
-                    class="mt-0.5 shrink-0 text-lg text-orange-400 transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </div>
-                <div
-                  class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black/10 transition-opacity duration-300"
-                />
-                <div
-                  class="absolute inset-0 group-hover:bg-black/10 transition-colors duration-300"
-                />
-              </Trulink>
-
-              <Trulink
-                v-if="section.subcategories.length < 5"
-:to="`/search?cat=${section.id}`"
-                :class="
-                  section.subcategories.length === 3
-                    ? 'col-span-2 lg:col-span-2'
-                    : 'col-span-1'
-                "
-                class="relative overflow-hidden flex items-center justify-center gap-2 bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition-colors border border-white"
-              >
-                <span class="text-white font-semibold text-sm lg:text-base">{{
-                  $t("button.seeAll")
-                }}</span>
-                <Icon
-                  name="material-symbols:arrow-forward"
-                  class="text-white text-lg"
-                />
-              </Trulink>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-8 lg:py-12">
+    <section class="py-8 lg:py-8">
       <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
@@ -524,7 +646,9 @@
           </div>
           <Trulink
             to="/article"
+            data-no-analytics
             class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center gap-1"
+            @click="onSeeAllClick('home_articles', '/article')"
           >
             {{ $t("button.seeAll") }}
             <Icon name="material-symbols:arrow-forward" class="text-sm" />
@@ -557,10 +681,11 @@
             v-for="article in latestArticles"
             :key="article.id"
             :to="`/article/${article.url}`"
-            data-track-card="article"
-            :data-track-id="String(article.id)"
-            :data-track-title="article.title"
+            data-no-analytics
             class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-lg transition-all"
+            @click="
+              onCardClick('article', article.id, article.title, 'home_articles')
+            "
           >
             <div class="aspect-video overflow-hidden">
               <AppImage
@@ -635,12 +760,106 @@ import { useImageUrl } from "~/composables/useImageUrl";
 const config = useRuntimeConfig();
 const urlTrumecs = config.public.info.linkTrumecsPhp;
 const siteUrl = (config.public.siteUrl as string) || "https://www.trumecs.com";
-const { t: $t } = useI18n();
+const { t: $t, locale } = useI18n();
 
 // Aset statis (industries + banner) dilayani dari mirror lokal public/
 // sebagai WebP; aset dinamis (produk/artikel/promo) tetap dari trumecs.com.
 const { resolve: staticImg, srcset: staticImgSrcset } = useStaticImage();
 const { imgSrc, imgAttrs } = useImageUrl();
+const { trackClickLink, trackClickButton, trackClickCategory, trackEvent } =
+  useAnalytics();
+const route = useRoute();
+
+interface CategoryStaticCard {
+  id: number;
+  title: string;
+  image: string;
+  link: string;
+}
+
+// ---- Tracking klik beranda (semua lewat useAnalytics) ----
+// Elemen yang sudah di-track manual diberi `data-no-analytics` agar listener
+// global di plugins/analytics.client.ts tidak mengirim event ganda.
+
+const onCategoryClick = (category: CategoryStaticCard) => {
+  trackClickCategory(category.title);
+};
+
+const onIndustryClick = (tag: any) => {
+  const label = tagLabelByLocale(tag);
+  trackClickLink(label, {
+    link_source: "home_industries",
+    link_url: `/search?tag=${tag.id}`,
+    link_type: "internal",
+    item_id: String(tag.id),
+    item_name: label,
+  });
+};
+
+const onSeeAllClick = (source: string, url: string) => {
+  trackClickLink(String($t("button.seeAll")), {
+    link_source: source,
+    link_url: url,
+    link_type: /^https?:\/\//i.test(url) ? "external" : "internal",
+  });
+};
+
+const onGroupSeeAllClick = (group: { id: number | string; name: string }) => {
+  trackClickLink(String($t("button.seeAll")), {
+    link_source: "home_featured_group",
+    link_url: `/search?cat=${group.id}`,
+    link_type: "internal",
+    item_id: String(group.id),
+    item_name: group.name,
+  });
+};
+
+const onCardClick = (
+  type: string,
+  id: string | number,
+  title: string,
+  source: string
+) => {
+  trackEvent("card_click", {
+    card_type: type,
+    card_id: String(id),
+    card_title: title,
+    card_source: source,
+    page_path: route.path,
+  });
+};
+
+const onSlideClick = (index: number) => {
+  const slide = slides.value[index];
+  if (!slide) return;
+  if (slide.scrap) {
+    trackClickButton(slide.alt, { button_source: "hero_banner" });
+    openScrapModal();
+    return;
+  }
+  if (slide.link) {
+    trackClickLink(slide.alt, {
+      link_source: "hero_banner",
+      link_url: slide.link,
+      link_type: "external",
+    });
+  }
+};
+
+const onPrevSlide = () => {
+  trackClickButton("previous", { button_source: "hero_carousel" });
+  prevSlide();
+};
+
+const onNextSlide = () => {
+  trackClickButton("next", { button_source: "hero_carousel" });
+  nextSlide();
+};
+
+const onDotClick = (index: number) => {
+  trackClickButton(`slide_${index + 1}`, { button_source: "hero_carousel" });
+  currentSlide.value = index;
+};
 
 const {
   loading: loadingTags,
@@ -651,7 +870,6 @@ const {
 } = useProductTags();
 
 // Label tag mengikuti locale (id/en/zh)
-const { locale } = useI18n();
 const tagLabelByLocale = (tag: any): string => {
   if (!tag) return "";
   const lang = String(locale.value || "id").toLowerCase();
@@ -711,31 +929,31 @@ useSchemaOrg([
 const currentSlide = ref(0);
 const slides = computed(() => [
   {
-    alt: "Power Supply Struman",
+    alt: $t("page.home.heroBanners.struman"),
     link: `${siteUrl}/principal/struman`,
     image: staticImg("/public/banner/promo-home/banner-struman.png"),
     external: false,
   },
   {
-    alt: "banner trumecs.com",
+    alt: $t("page.home.heroBanners.trumecs"),
     link: `${siteUrl}/promo`,
     image: staticImg("/public/banner/home-mobile/6.png"),
     external: false,
   },
   {
-    alt: "banner langkah",
+    alt: $t("page.home.heroBanners.steps"),
     link: "",
     image: staticImg("/public/banner/home-mobile/7.png"),
     external: false,
   },
   {
-    alt: "Scrap alat berat di trumecs.com",
+    alt: $t("page.home.heroBanners.scrap"),
     image: staticImg("/public/banner/promo-home/banner-scrap-utama.png"),
     external: false,
     scrap: true,
   },
   {
-    alt: "Trumecs sudah bisa menggunakan kartu kredit",
+    alt: $t("page.home.heroBanners.creditCard"),
     link: `${siteUrl}/article/pembayaran-transaksi-atau-invoice-dengan-kartu-kredit`,
     image: staticImg("/public/banner/promo-home/banner-cc.png"),
     external: false,
@@ -862,8 +1080,54 @@ const { data: articlesData, pending: loadingArticles } = await useAsyncData(
 const categories = computed(() => {
   const d = categoriesData.value;
   if (!d || d.status !== "success") return [];
-  return d.data?.payload?.category?.products?.slice(0, 12) || [];
+  return d.data?.payload?.category?.products?.slice(0, 6) || [];
 });
+
+const categoriesStatic = computed<CategoryStaticCard[]>(() => [
+  {
+    id: 1,
+    title: $t("page.home.categories.items.industrialBearings"),
+    image: "/home-category-static/bearing-industry.jpg",
+    link: "/principal/industrial-bearing",
+  },
+  {
+    id: 2,
+    title: $t("page.home.categories.items.renewableEnergy"),
+    image:
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+    link: "/principal/renewable-energy",
+  },
+  {
+    id: 3,
+    title: $t("page.home.categories.items.machiningFabrication"),
+    image: "/home-category-static/fabrication.jpg",
+    link: "/principal/machining",
+  },
+  {
+    id: 4,
+    title: $t("page.home.categories.items.industrialLubricants"),
+    image: "/home-category-static/lubricants.jpg",
+    link: "/principal/industrial-lubricant",
+  },
+  {
+    id: 5,
+    title: $t("page.home.categories.items.conveyorBelt"),
+    image: "/home-category-static/conveyor.jpg",
+    link: "/principal/conveyor",
+  },
+  {
+    id: 6,
+    title: $t("page.home.categories.items.hydraulicHose"),
+    image: "/home-category-static/hose.png",
+    link: "/principal/hydraulic-hose",
+  },
+  {
+    id: 7,
+    title: $t("page.home.categories.items.blueCollarHr"),
+    image: "/home-category-static/blue-collar.jpg",
+    link: "/principal/blue-collar-hr",
+  },
+]);
 
 const promos = computed(() => {
   const d = promosData.value;
@@ -883,10 +1147,11 @@ const latestArticles = computed(() => {
   return articles.map((item: any) => ({
     id: item.id,
     url: item.url || `article-${item.id}`,
-    title: item.title || "Untitled",
+    title: item.title || $t("page.home.articles.untitled"),
     image: imgSrc("artikel", item.img),
     imgFile: item.img,
-    category: Array.isArray(item.tag) ? item.tag[0] : item.tag || "General",
+    category:
+      Array.isArray(item.tag) ? item.tag[0] : item.tag || $t("page.home.articles.general"),
     date: item.date,
     excerpt: item.discription_seo
       ? item.discription_seo.substring(0, 120)
@@ -1015,14 +1280,17 @@ const slideTag = (index: number) => {
 const slideAttrs = (index: number) => {
   const slide = slides.value[index];
   if (!slide) return {};
+  // Slide yang punya aksi sudah di-track lewat onSlideClick().
+  const noAnalytics = { "data-no-analytics": "" };
   if (slide.scrap) {
-    return { type: "button" };
+    return { type: "button", ...noAnalytics };
   }
   if (slide.link) {
     return {
       href: slide.link,
       target: "_blank",
       rel: "noopener",
+      ...noAnalytics,
     };
   }
   return {};
@@ -1033,7 +1301,13 @@ const isPromoEnded = (endDate: string) => {
 };
 
 const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("id-ID", {
+  const localeMap: Record<string, string> = {
+    id: "id-ID",
+    en: "en-US",
+    zh: "zh-CN",
+  };
+  const currentLocale = localeMap[String(locale.value)] || "id-ID";
+  return new Date(date).toLocaleDateString(currentLocale, {
     day: "numeric",
     month: "short",
     year: "numeric",

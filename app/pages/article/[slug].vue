@@ -3,19 +3,30 @@
     <!-- Breadcrumb -->
 
     <!-- Loading -->
-    <div v-if="loading && !article" class="container py-12 text-center">
-      <Icon
-        name="svg-spinners:90-ring-with-bg"
-        class="text-6xl text-orange-500 mb-4 animate-spin"
-      />
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">
-        {{ $t("page.article.loading") }}
-      </h2>
-      <p class="text-gray-500 mb-6">{{ $t("page.article.loadingDesc") }}</p>
+    <div v-if="loading && !article" class="container py-6">
+      <el-skeleton animated>
+        <template #template>
+          <div class="mb-4">
+            <el-skeleton-item variant="text" style="width: 40%; height: 16px" />
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            <div class="lg:col-span-8 space-y-4">
+              <el-skeleton-item variant="h1" style="width: 85%; height: 38px" />
+              <el-skeleton-item variant="text" style="width: 50%; height: 16px" />
+              <el-skeleton-item variant="image" style="width: 100%; height: 360px; border-radius: 12px" />
+              <el-skeleton-item v-for="i in 6" :key="i" variant="text" :style="{ width: i % 3 === 0 ? '70%' : '100%' }" />
+            </div>
+            <div class="hidden lg:block lg:col-span-4 space-y-4">
+              <el-skeleton-item variant="image" style="width: 100%; height: 220px; border-radius: 12px" />
+              <el-skeleton-item v-for="i in 4" :key="'s'+i" variant="text" style="width: 100%" />
+            </div>
+          </div>
+        </template>
+      </el-skeleton>
     </div>
 
     <!-- Error / Not Found -->
-    <div v-else-if="!article" class="container py-12 text-center">
+    <div v-else-if="!article && !isLeaving" class="container py-12 text-center">
       <Icon
         name="material-symbols:error-outline"
         class="text-6xl text-red-400 mb-4"
@@ -256,7 +267,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter, onBeforeRouteLeave } from "vue-router";
 import type { Article, CardArticle } from "~/types/article";
 import type { ProductCategory, ArticleAd } from "~/types/category";
 import { useHeaderHeight } from "~/composables/useHeaderHeight";
@@ -278,7 +289,12 @@ const { headerHeight, updateHeaderHeight } = useHeaderHeight();
 const article = ref<CardArticle | null>(null);
 const loading = ref(true);
 const error = ref<string | null>(null);
+const isLeaving = ref(false);
 const slug = ref(route.params.slug as string);
+
+onBeforeRouteLeave(() => {
+  isLeaving.value = true;
+});
 
 // ✅ Deklarasi SEBELUM computed yang menggunakannya
 const trendingArticles = ref<CardArticle[]>([]);

@@ -136,26 +136,90 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const urlTrumecs = config.public.info.linkTrumecsPhp;
+const { t } = useI18n();
 
+const SITE_URL = "https://www.trumecs.com";
+const PAGE_PATH = "/principal";
+
+const localeHead = useLocaleHead();
 useHead({
-  title: "Principal & Partner",
-  titleTemplate: "%s | Trumecs.com",
-  meta: [
-    { name: "description", content: "Bergabunglah menjadi partner resmi Trumecs. Daftarkan produk Anda dan jangkau ribuan pembeli potensial." },
-    { property: "og:title", content: "Principal & Partner | Trumecs.com" },
-    { property: "og:description", content: "Bergabunglah menjadi partner resmi Trumecs. Daftarkan produk Anda dan jangkau ribuan pembeli potensial." },
+  title: () => t("page.principal.seo.title") || t("page.principal.title"),
+  titleTemplate: "%s",
+  htmlAttrs: computed(() => localeHead.value.htmlAttrs ?? {}),
+  meta: computed(() => [
+    ...(localeHead.value.meta ?? []),
+    {
+      name: "description",
+      content:
+        t("page.principal.seo.description") || t("page.principal.subtitle"),
+    },
+    {
+      property: "og:title",
+      content: t("page.principal.seo.title") || t("page.principal.title"),
+    },
+    {
+      property: "og:description",
+      content:
+        t("page.principal.seo.description") || t("page.principal.subtitle"),
+    },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },
+  ]),
+  link: computed(() => [...(localeHead.value.link ?? [])]),
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: () =>
+        JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: t("breadcrumb.home"),
+                item: SITE_URL,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: t("page.principal.title"),
+                item: `${SITE_URL}${PAGE_PATH}`,
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Principal & Partner Program",
+            name: t("page.principal.seo.title") || t("page.principal.title"),
+            description:
+              t("page.principal.seo.description") ||
+              t("page.principal.subtitle"),
+            url: `${SITE_URL}${PAGE_PATH}`,
+            provider: {
+              "@type": "Organization",
+              name: "Trumecs",
+              url: SITE_URL,
+            },
+            areaServed: { "@type": "Country", name: "Indonesia" },
+          },
+        ]),
+    },
   ],
-  link: [{ rel: "canonical", href: "https://www.trumecs.com/principal" }],
 });
 
 useSchemaOrg([
   defineBreadcrumb({
     itemListElement: [
-      { position: 1, name: "Home", item: "https://www.trumecs.com" },
-      { position: 2, name: "Principal & Partner", item: "https://www.trumecs.com/principal" },
+      { position: 1, name: () => t("breadcrumb.home"), item: SITE_URL },
+      {
+        position: 2,
+        name: () => t("page.principal.title"),
+        item: `${SITE_URL}${PAGE_PATH}`,
+      },
     ],
   }),
 ]);

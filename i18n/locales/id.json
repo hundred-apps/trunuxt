@@ -932,6 +932,23 @@
   "page": {
     "home": {
       "metaDescription": "Temukan kebutuhan mekanikal Anda dari ribuan produk berkualitas. Sparepart, pelumas, ban, alat berat, dan peralatan kerja.",
+      "values": {
+        "title": "Mitra Anda dalam Solusi Industri & Energi",
+        "items": {
+          "engineering": {
+            "title": "Keahlian Teknik",
+            "description": "Pengetahuan teknis dan pengalaman praktis untuk memberikan solusi yang tepat."
+          },
+          "supply": {
+            "title": "Pasokan Industri yang Andal",
+            "description": "Produk berkualitas dan merek terpercaya untuk menjaga operasional Anda tetap berjalan."
+          },
+          "energy": {
+            "title": "Solusi Energi Terintegrasi",
+            "description": "Mendukung masa depan industri yang lebih efisien dan berkelanjutan."
+          }
+        }
+      },
       "hero": {
         "title": "Solusi Pengadaan Mekanikal Terpercaya",
         "subtitle": "Temukan kebutuhan mekanikal Anda dari ribuan produk berkualitas",
@@ -1021,8 +1038,18 @@
         "subtitle": "Jelajahi produk berdasarkan sektor industri Anda"
       },
       "categories": {
-        "title": "Jelajahi Kategori",
-        "subtitle": "Temukan produk sesuai kebutuhan Anda"
+        "title": "Produk & Solusi Kami",
+        "subtitle": "Produk industri dan solusi teknik yang andal untuk mendukung operasional bisnis Anda",
+        "exploreMore": "Selengkapnya",
+        "items": {
+          "industrialBearings": "Bearing Industri",
+          "renewableEnergy": "Solusi Energi Terbarukan",
+          "machiningFabrication": "Permesinan & Fabrikasi",
+          "industrialLubricants": "Pelumas Industri",
+          "conveyorBelt": "Conveyor & Aksesoris",
+          "hydraulicHose": "Selang Hidrolik",
+          "blueCollarHr": "Sumber Daya Manusia"
+        }
       },
       "promo": {
         "title": "Promo Terbaru",
@@ -1034,14 +1061,23 @@
       },
       "articles": {
         "title": "Artikel Terbaru",
-        "subtitle": "Informasi dan tips seputar industri mekanikal"
+        "subtitle": "Informasi dan tips seputar industri mekanikal",
+        "untitled": "Tanpa Judul",
+        "general": "Umum"
       },
       "cta": {
         "title": "Butuh Bantuan?",
         "subtitle": "Kirim kebutuhan Anda dan kami akan membantu Anda menemukan produk yang tepat",
         "button": "Kirim RFQ Sekarang"
       },
-      "title": "Beranda"
+      "title": "Beranda",
+      "heroBanners": {
+        "struman": "Power Supply Struman",
+        "trumecs": "Banner Trumecs.com",
+        "steps": "Banner langkah pemesanan",
+        "scrap": "Jual scrap alat berat di Trumecs.com",
+        "creditCard": "Trumecs kini menerima pembayaran kartu kredit"
+      }
     },
     "article": {
       "loading": "Memuat Artikel...",
@@ -1872,6 +1908,4186 @@
         "seo": {
           "title": "Suku Cadang Alat Berat Copotan",
           "description": "Solusi hemat dan andal untuk kebutuhan sparepart alat berat Anda. Original & OEM, diinspeksi ketat, dan siap pakai."
+        }
+      },
+      "conveyor": {
+        "hero": {
+          "badge": "Tersertifikasi ISO 9001:2015",
+          "titleLine1": "Solusi Conveyor Part &",
+          "titleLine2": "Aksesoris Lengkap",
+          "subtitle": "Menyediakan conveyor dan aksesoris lengkap — belt, roller, bearing, pulley, hingga idler — berkualitas tinggi untuk menjaga kelancaran alur material produksi Anda.",
+          "ctaQuote": "Minta Penawaran",
+          "ctaServices": "Jelajahi Produk Kami",
+          "scroll": "Gulir"
+        },
+        "products": {
+          "sectionLabel": "Produk & Aksesoris",
+          "title": "Conveyor Parts & Accessories",
+          "subtitle": "Komponen dan aksesoris conveyor untuk mendukung keandalan, performa, dan kelancaran sistem handling material Anda. Klik produk untuk melihat detail.",
+          "detailLabels": {
+            "viewDetail": "Lihat detail",
+            "close": "Tutup",
+            "description": "Deskripsi",
+            "specs": "Spesifikasi",
+            "applications": "Aplikasi",
+            "beltTypes": "Tipe Conveyor Belt"
+          },
+          "items": [
+            {
+              "name": "Conveyor Belt",
+              "image": "/principal/conveyor/belt.jpg",
+              "description": "Sabuk conveyor untuk memindahkan material curah maupun unit load secara kontinu pada berbagai kondisi operasi.",
+              "specs": [
+                "Material: EP/NN/Steel Cord/PVC/PU",
+                "Lebar menyesuaikan aplikasi",
+                "Grade & ketebalan bervariasi"
+              ],
+              "applications": [
+                "Tambang & agregat",
+                "Pabrik & manufaktur",
+                "Logistik & pelabuhan"
+              ],
+              "beltTypes": [
+                {
+                  "name": "EP Fabric Belt",
+                  "icon": "mdi:layers-triple",
+                  "description": "Tahan aus dan tarik, pilihan umum untuk material abrasif seperti batubara dan agregat.",
+                  "grades": [
+                    "EP100",
+                    "EP200",
+                    "EP300",
+                    "EP400"
+                  ]
+                },
+                {
+                  "name": "NN Fabric Belt",
+                  "icon": "mdi:layers-outline",
+                  "description": "Elastisitas dan fleksibilitas tinggi, cocok untuk loading impact berat dan pulley kecil.",
+                  "grades": [
+                    "NN100",
+                    "NN200",
+                    "NN300"
+                  ]
+                },
+                {
+                  "name": "Steel Cord Belt",
+                  "icon": "mdi:link-lock",
+                  "description": "Kekuatan tarik sangat tinggi untuk lintasan panjang dan beban berat seperti di pelabuhan dan tambang.",
+                  "grades": [
+                    "ST1000",
+                    "ST2000",
+                    "ST3150"
+                  ]
+                },
+                {
+                  "name": "PVC Belt",
+                  "icon": "mdi:silverware-clean",
+                  "description": "Ringan, antistatis, dan mudah dibersihkan. Ideal untuk industri makanan, minuman, dan logistik.",
+                  "grades": [
+                    "1 – 3 Ply",
+                    "Food Grade"
+                  ]
+                },
+                {
+                  "name": "PU Belt",
+                  "icon": "mdi:flask-outline",
+                  "description": "Tahan oli, kimia, dan suhu. Umum digunakan untuk aplikasi food processing dan farmasi.",
+                  "grades": [
+                    "Food Grade",
+                    "Tahan Oli"
+                  ]
+                },
+                {
+                  "name": "Chevron Belt",
+                  "icon": "mdi:chevron-triple-up",
+                  "description": "Pola permukaan untuk material curah pada kemiringan hingga 40° tanpa spillage.",
+                  "grades": [
+                    "Pattern V",
+                    "Pattern Y",
+                    "Multi-Chevron"
+                  ]
+                },
+                {
+                  "name": "Corrugated Sidewall",
+                  "icon": "mdi:border-outside",
+                  "description": "Dinding bergelombang dan cleat untuk transportasi steep angle hingga 90°.",
+                  "grades": [
+                    "40 mm",
+                    "80 mm",
+                    "120 mm"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Roller",
+              "image": "/principal/conveyor/roller-conv.jpg",
+              "description": "Roller conveyor untuk mendukung pergerakan belt dan material pada sistem conveyor.",
+              "specs": [
+                "Carry/return/impact roller",
+                "Material baja/HDPE",
+                "Berbagai diameter & panjang"
+              ],
+              "applications": [
+                "Belt conveyor",
+                "Tambang",
+                "Manufaktur"
+              ]
+            },
+            {
+              "name": "Pulley",
+              "image": "/principal/conveyor/pulley.jpg",
+              "description": "Pulley (drive/tail/bend/snub) sebagai penggerak dan pengarah belt conveyor.",
+              "specs": [
+                "Drive, tail, bend, snub pulley",
+                "Lagging opsional",
+                "Custom ukuran"
+              ],
+              "applications": [
+                "Sistem belt conveyor",
+                "Heavy duty handling"
+              ]
+            },
+            {
+              "name": "Idler",
+              "image": "/principal/conveyor/idler.jpg",
+              "description": "Rangkaian idler untuk menopang belt dan menjaga alignment sepanjang jalur conveyor.",
+              "specs": [
+                "Troughing, return, impact, training idler",
+                "Sudut troughing bervariasi",
+                "Frame kokoh"
+              ],
+              "applications": [
+                "Belt conveyor jarak jauh",
+                "Tambang & bulk material"
+              ]
+            },
+            {
+              "name": "Belt Cleaner",
+              "image": "/principal/conveyor/belt-cleaner.jpg",
+              "description": "Pembersih belt untuk mengurangi carryback dan menjaga kebersihan sistem conveyor.",
+              "specs": [
+                "Primary & secondary cleaner",
+                "Blade polyurethane/carbide",
+                "Mudah perawatan"
+              ],
+              "applications": [
+                "Area head pulley",
+                "Material lengket/abrasif"
+              ]
+            },
+            {
+              "name": "Skirtboard Rubber",
+              "image": "/principal/conveyor/skirtboard.jpg",
+              "description": "Karet skirtboard untuk menahan spillage material pada area transfer/loading point.",
+              "specs": [
+                "Karet tahan abrasi",
+                "Berbagai ketebalan",
+                "Mudah dipasang"
+              ],
+              "applications": [
+                "Loading & transfer point",
+                "Pengendalian debu/spillage"
+              ]
+            },
+            {
+              "name": "Lagging Rubber",
+              "image": "/principal/conveyor/lagging.webp",
+              "description": "Pelapis pulley untuk meningkatkan traksi, mengurangi slip, dan memperpanjang umur pulley/belt.",
+              "specs": [
+                "Diamond/plain/ceramic lagging",
+                "Tahan aus",
+                "Peningkatan grip"
+              ],
+              "applications": [
+                "Drive pulley",
+                "Kondisi basah/licin"
+              ]
+            },
+            {
+              "name": "Cleat",
+              "image": "/principal/conveyor/cleat.jpg",
+              "description": "Cleat/profile pada belt untuk membantu membawa material pada kemiringan dan mencegah slip.",
+              "specs": [
+                "Profil T/Chevron/Sidewall",
+                "Material karet/PVC/PU",
+                "Hot/cold bonded"
+              ],
+              "applications": [
+                "Incline conveyor",
+                "Material curah kemiringan"
+              ]
+            },
+            {
+              "name": "Motor",
+              "image": "/principal/conveyor/motor-conveyor.jpg",
+              "description": "Motor penggerak untuk sistem conveyor, tersedia untuk berbagai kebutuhan daya dan torsi.",
+              "specs": [
+                "Motor listrik/gear motor",
+                "Beragam daya & rpm",
+                "Duty cycle industri"
+              ],
+              "applications": [
+                "Drive conveyor",
+                "Otomasi material handling"
+              ]
+            },
+            {
+              "name": "Chain",
+              "image": "/principal/conveyor/chain-conveyor.jpg",
+              "description": "Rantai conveyor untuk transmisi daya dan pengangkutan material pada sistem chain conveyor.",
+              "specs": [
+                "Roller/attachment chain",
+                "Material baja tahan aus",
+                "Berbagai pitch"
+              ],
+              "applications": [
+                "Chain conveyor",
+                "Material berat/panas"
+              ]
+            },
+            {
+              "name": "Sprocket",
+              "image": "/principal/conveyor/sprocket.jpg",
+              "description": "Sprocket untuk sistem rantai conveyor, memastikan transmisi daya yang presisi dan andal.",
+              "specs": [
+                "Single/double strand",
+                "Custom jumlah gigi & bore",
+                "Material baja"
+              ],
+              "applications": [
+                "Chain conveyor",
+                "Drive & idler sprocket"
+              ]
+            }
+          ]
+        },
+        "aboutAksesoris": {
+          "sectionLabel": "Tentang Aksesoris Conveyor",
+          "title": "Penjelasan Aksesoris Conveyor",
+          "description": "Aksesoris conveyor adalah komponen pendukung yang memastikan sistem conveyor berjalan optimal: roller dan idler menopang belt, pulley menggerakkan, bearing menjaga putaran halus, sementara belt cleaner dan skirtboard menjaga kebersihan belt serta meminimalkan spillage. Kami menyediakan aksesoris lengkap yang kompatibel dengan berbagai merek dan tipe conveyor.",
+          "highlights": [
+            {
+              "title": "Roller & Idler",
+              "icon": "mdi:cylinder",
+              "description": "Carrying dan return roller dengan seal berkualitas untuk putaran halus dan tahan aus."
+            },
+            {
+              "title": "Pulley & Lagging",
+              "icon": "mdi:cog-outline",
+              "description": "Head, tail, dan snub pulley dengan pilihan lagging rubber untuk grip maksimal."
+            },
+            {
+              "title": "Bearing",
+              "icon": "mdi:cog",
+              "description": "Bearing unit berkualitas (UC, UCP, dll) untuk umur pakai panjang dan perawatan mudah."
+            },
+            {
+              "title": "Belt Cleaner & Skirtboard",
+              "icon": "mdi:broom",
+              "description": "Menjaga belt bersih dari material menempel dan mencegah spillage di sepanjang jalur."
+            }
+          ],
+          "imageAlt": "Aksesoris conveyor"
+        },
+        "industries": {
+          "title": "Industri yang Kami Layani",
+          "items": [
+            {
+              "name": "Manufaktur",
+              "image": "/principal/conveyor/manufacture-con.jpg"
+            },
+            {
+              "name": "Makanan & Minuman",
+              "image": "/principal/conveyor/fnb-con.jpg"
+            },
+            {
+              "name": "Tambang & Semen",
+              "image": "/principal/conveyor/mining-con.jpg"
+            },
+            {
+              "name": "Kilang Sawit",
+              "image": "/principal/conveyor/sawit-con.jpg"
+            },
+            {
+              "name": "Pelabuhan & Logistik",
+              "image": "/principal/conveyor/logistic-con.png"
+            }
+          ]
+        },
+        "types": {
+          "sectionLabel": "Jenis Conveyor",
+          "title": "Jenis Conveyor yang Kami Sediakan",
+          "subtitle": "Berbagai jenis sistem conveyor yang dapat disesuaikan dengan material, kapasitas, dan layout area kerja Anda.",
+          "items": [
+            {
+              "title": "Belt Conveyor",
+              "icon": "material-symbols:conveyor-belt",
+              "description": "Sistem conveyor sabuk yang paling umum untuk memindahkan material curah maupun unit load secara kontinu.",
+              "features": [
+                "Lebar belt 500 – 2000 mm",
+                "Horizontal & incline",
+                "EP / NN / Steel Cord",
+                "Kapasitas hingga ratusan ton/jam"
+              ],
+              "image": "/principal/conveyor/conveyor-belt-1.webp"
+            },
+            {
+              "title": "Roller Conveyor",
+              "icon": "mdi:cylinder",
+              "description": "Conveyor dengan deretan roller untuk memindahkan barang berbentuk unit seperti kardus dan pallet.",
+              "features": [
+                "Gravity & powered",
+                "Roller steel / PVC",
+                "Kurva & diverger",
+                "Untuk pallet & kardus"
+              ],
+              "image": "/principal/conveyor/roller-con.png"
+            },
+            {
+              "title": "Chain Conveyor",
+              "icon": "mdi:link-variant",
+              "description": "Conveyor rantai yang kuat untuk material berat, panas, atau abrasif pada lingkungan kerja keras.",
+              "features": [
+                "Beban berat",
+                "Tahan panas",
+                "Redler & scraper",
+                "Konstruksi baja"
+              ],
+              "image": "/principal/conveyor/chain-con-machine.jpg"
+            },
+            {
+              "title": "Modular Belt Conveyor",
+              "icon": "mdi:view-grid-outline",
+              "description": "Conveyor dengan belt plastik modular yang mudah dibersihkan, ideal untuk industri makanan dan minuman.",
+              "features": [
+                "Food grade",
+                "Mudah dibersihkan",
+                "Kurva & spiral",
+                "Anti slip"
+              ],
+              "image": "/principal/conveyor/modular-belt-con.jpg"
+            },
+            {
+              "title": "Incline Conveyor",
+              "icon": "mdi:slope-uphill",
+              "description": "Conveyor kemiringan untuk memindahkan material ke ketinggian tertentu dengan belt chevron atau sidewall.",
+              "features": [
+                "Belt chevron",
+                "Sidewall corrugated",
+                "Kemiringan > 30°",
+                "Anti spillage"
+              ],
+              "image": "/principal/conveyor/incline-con.jpg"
+            },
+            {
+              "title": "Vertical Conveyor",
+              "icon": "mdi:elevator",
+              "image": "/principal/conveyor/vertical-con.webp",
+              "description": "Sistem conveyor vertikal untuk memindahkan material atau produk antar level/lantai secara efisien dengan jejak area minimal.",
+              "features": [
+                "Transfer antar lantai/level",
+                "Continuous atau reciprocating lift",
+                "Hemat ruang lantai",
+                "Untuk box, pallet, atau material curah"
+              ]
+            },
+            {
+              "title": "Vertical Spiral Conveyor",
+              "icon": "mdi:rotate-3d-variant",
+              "image": "/principal/conveyor/spiral-con.jpg",
+              "description": "Conveyor spiral vertikal untuk memindahkan produk naik/turun antar level secara kontinu dengan jejak area yang sangat hemat.",
+              "features": [
+                "Lintasan spiral kontinu",
+                "Sangat hemat ruang (footprint kecil)",
+                "Transfer antar ketinggian/level",
+                "Cocok untuk box, karton, dan unit load"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "Kontak & Lokasi",
+          "needTitle": "Butuh Konsultasi?",
+          "needDesc": "Hubungi tim sales kami untuk konsultasi kebutuhan conveyor belt dan aksesoris Anda.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Kirim Email",
+          "waText": "Halo Trumecs, saya tertarik dengan conveyor belt dan aksesoris Anda.",
+          "emailSubject": "Permintaan Conveyor Belt & Aksesoris"
+        },
+        "seo": {
+          "title": "Conveyor Belt & Aksesoris Terpercaya - Trumecs",
+          "description": "Menyediakan conveyor belt, roller, bearing, pulley, idler, dan aksesoris conveyor lengkap dengan kualitas terbaik untuk mendukung kelancaran alur produksi industri Anda."
+        }
+      },
+      "renewable": {
+        "hero": {
+          "badge": "Integrated Energy Solution",
+          "titleLine1": "Powering Business,",
+          "titleLine2": "Optimizing Energy",
+          "subtitle": "Solusi energi terintegrasi untuk membantu bisnis Anda lebih hemat, lebih stabil, dan siap menghadapi kebutuhan masa depan — dari perencanaan, instalasi, pengoperasian, hingga perawatan.",
+          "ctaQuote": "Minta Penawaran",
+          "ctaServices": "Jelajahi Solusi Kami",
+          "scroll": "Gulir"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:factory",
+              "value": "±14%",
+              "label": "Perusahaan C&I di Indonesia telah mengadopsi PLTS"
+            },
+            {
+              "icon": "mdi:chart-line",
+              "value": "482,4",
+              "label": "MWh kapasitas PLTS C&I Indonesia (2024)"
+            },
+            {
+              "icon": "mdi:cash-multiple",
+              "value": "Hemat",
+              "label": "Biaya listrik lebih terkendali dengan energi mandiri"
+            },
+            {
+              "icon": "mdi:monitor-dashboard",
+              "value": "End-to-End",
+              "label": "Perencanaan hingga perawatan oleh tim TruMecs"
+            }
+          ]
+        },
+        "solutions": {
+          "sectionLabel": "Solusi Kami",
+          "subtitle": "Dari pembangkitan, penyimpanan, hingga manajemen — solusi terintegrasi yang disesuaikan dengan profil konsumsi energi Anda.",
+          "flagshipTag": "Solusi Utama",
+          "items": [
+            {
+              "name": "Solar PV System",
+              "icon": "mdi:solar-power",
+              "description": "Sistem pembangkit listrik tenaga surya rooftop maupun ground mount — dari kajian kelayakan, desain, instalasi, hingga commissioning. Menghasilkan listrik bersih untuk menekan tagihan listrik dan emisi karbon perusahaan Anda.",
+              "chips": [
+                "Rooftop & Ground Mount",
+                "On-Grid & Off-Grid",
+                "Solar Water Pumping"
+              ]
+            },
+            {
+              "name": "Wind Turbine System",
+              "icon": "mdi:wind-turbine",
+              "description": "Turbin angin skala kecil-menengah untuk lokasi dengan potensi angin tinggi seperti pesisir dan dataran tinggi.",
+              "chips": []
+            },
+            {
+              "name": "Battery Energy Storage",
+              "icon": "mdi:battery-charging-high",
+              "description": "Sistem penyimpanan energi (BESS) untuk backup daya, peak shaving, dan aplikasi off-grid.",
+              "chips": []
+            },
+            {
+              "name": "EV Charging Station",
+              "icon": "mdi:ev-station",
+              "description": "Infrastruktur pengisian kendaraan listrik yang terintegrasi dengan pembangkit energi terbarukan Anda.",
+              "chips": []
+            },
+            {
+              "name": "Energy Management",
+              "icon": "mdi:chart-arc",
+              "description": "Audit energi dan sistem manajemen konsumsi untuk efisiensi optimal di seluruh fasilitas.",
+              "chips": []
+            }
+          ],
+          "titleLine1": "Satu Pintu untuk Semua",
+          "titleLine2": "Kebutuhan Energi Anda",
+          "learnMore": "Pelajari lebih lanjut"
+        },
+        "why": {
+          "sectionLabel": "Mengapa Beralih",
+          "description": "Energi terbarukan bukan hanya tentang lingkungan — ini keputusan finansial yang cerdas untuk jangka panjang. Semakin cepat bertransisi, semakin besar penghematannya.",
+          "items": [
+            {
+              "title": "Penghematan Biaya Listrik",
+              "icon": "mdi:cash-multiple",
+              "description": "Tekan tagihan listrik hingga 70% dengan membangkitkan energi sendiri dari surya dan angin."
+            },
+            {
+              "title": "Emisi Karbon Rendah",
+              "icon": "mdi:leaf",
+              "description": "Kurangi jejak karbon perusahaan dan penuhi target ESG serta regulasi lingkungan yang semakin ketat."
+            },
+            {
+              "title": "Kemandirian Energi",
+              "icon": "mdi:shield-check-outline",
+              "description": "Proteksi dari kenaikan tarif dan pemadaman melalui kombinasi pembangkit dan penyimpanan energi."
+            },
+            {
+              "title": "Nilai Aset Meningkat",
+              "icon": "mdi:lightning-bolt",
+              "description": "Gedung dan pabrik dengan sistem energi hijau memiliki nilai jual dan citra merek yang lebih tinggi."
+            }
+          ],
+          "titleLine1": "Investasi yang Menghemat,",
+          "titleLine2": "Sekaligus Menjaga Bumi",
+          "imageAlt": "Turbin angin",
+          "certifiedLabel": "Tersertifikasi",
+          "certifiedName": "ISO 50001"
+        },
+        "process": {
+          "sectionLabel": "Peran & Tanggung Jawab",
+          "title": "Dari Perencanaan hingga Perawatan",
+          "subtitle": "TruMecs.com bersama mitra strategis siap membantu Anda mulai dari tahap awal hingga pemeliharaan.",
+          "items": [
+            {
+              "title": "Perencanaan",
+              "icon": "mdi:clipboard-search-outline",
+              "description": "TruMecs.com bersama tim operasional Anda mengumpulkan informasi yang dibutuhkan dan menyarankan skema yang paling tepat."
+            },
+            {
+              "title": "Instalasi",
+              "icon": "mdi:tools",
+              "description": "Dengan dukungan mitra berpengalaman, TruMecs.com mewujudkan skema yang telah disepakati pada tahap perencanaan."
+            },
+            {
+              "title": "Pengoperasian",
+              "icon": "mdi:cog-play-outline",
+              "description": "TruMecs.com menjalankan skema yang telah dibangun, sehingga Anda tidak perlu menyediakan tenaga kerja khusus/tambahan."
+            },
+            {
+              "title": "Perawatan",
+              "icon": "mdi:wrench-clock-outline",
+              "description": "Perawatan rutin dan berkala untuk menjaga performa efisiensi dan optimisasi energi."
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "Aplikasi",
+          "items": [
+            {
+              "name": "Kawasan Industri",
+              "icon": "mdi:home-city"
+            },
+            {
+              "name": "Pabrik & Manufaktur",
+              "icon": "mdi:factory"
+            },
+            {
+              "name": "Gudang & Logistik",
+              "icon": "mdi:warehouse"
+            },
+            {
+              "name": "Gedung Komersial",
+              "icon": "mdi:storefront"
+            },
+            {
+              "name": "Rumah & Villa",
+              "icon": "mdi:home"
+            },
+            {
+              "name": "Pertanian & Perkebunan",
+              "icon": "mdi:sprout"
+            }
+          ],
+          "titleLine1": "Aplikasi",
+          "titleLine2": "Serbaguna",
+          "subtitle": "Solusi energi yang adaptif untuk berbagai industri."
+        },
+        "contact": {
+          "needDesc": "Konsultasikan kebutuhan energi Anda dengan tim kami — gratis dan tanpa komitmen.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Kirim Email",
+          "locationTitle": "Lokasi & Area Layanan Utama",
+          "locationDesc": "Kami melayani kebutuhan energi terbarukan di area berikut dengan cepat dan tanggap.",
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ],
+          "eyebrow": "Hubungi Kami",
+          "titleLine1": "Siap Beralih ke",
+          "titleLine2": "Energi Bersih?",
+          "waText": "Halo Trumecs, saya tertarik dengan solusi energi terbarukan Anda.",
+          "emailSubject": "Permintaan Solusi Energi Terbarukan"
+        },
+        "seo": {
+          "title": "Integrated Energy Solution - TruMecs",
+          "description": "Solusi energi terintegrasi TruMecs: PLTS, BESS, dan manajemen energi untuk bisnis yang lebih hemat, stabil, dan berkelanjutan. Perencanaan hingga perawatan end-to-end."
+        },
+        "solarSystems": {
+          "sectionLabel": "Sistem Solar Panel",
+          "titleLine1": "Perbedaan On-Grid, Off-Grid,",
+          "titleLine2": "dan Hybrid",
+          "subtitle": "Kenali perbedaan jenis sistem PLTS agar sesuai dengan kebutuhan listrik, lokasi, dan anggaran Anda.",
+          "items": [
+            {
+              "name": "On-Grid (Terkoneksi Jaringan)",
+              "icon": "mdi:transmission-tower",
+              "badge": "Terhubung PLN",
+              "description": "Sistem PLTS yang terhubung ke jaringan listrik PLN. Energi surya digunakan untuk beban harian, dan kelebihan/daya kurang dapat diekspor–impor dari jaringan (sesuai ketentuan).",
+              "points": [
+                "Hemat tagihan listrik dengan memanfaatkan energi surya di siang hari",
+                "Investasi awal relatif lebih rendah karena tidak wajib baterai",
+                "Umumnya tidak menyuplai listrik saat PLN padam (untuk alasan keamanan), kecuali dilengkapi fitur khusus/baterai",
+                "Cocok untuk rumah, komersial, dan industri yang sudah memiliki akses jaringan PLN stabil"
+              ]
+            },
+            {
+              "name": "Off-Grid (Mandiri)",
+              "icon": "mdi:battery-charging",
+              "badge": "Mandiri Baterai",
+              "description": "Sistem PLTS mandiri yang tidak terhubung ke jaringan PLN. Seluruh energi disimpan dalam baterai untuk digunakan kapan saja, termasuk malam hari.",
+              "points": [
+                "Beroperasi penuh secara mandiri tanpa bergantung jaringan listrik",
+                "Ideal untuk lokasi terpencil/daerah yang belum terjangkau jaringan PLN",
+                "Memerlukan bank baterai dan pengelolaan kapasitas yang tepat",
+                "Biaya investasi umumnya lebih tinggi karena komponen baterai & kontrol"
+              ]
+            },
+            {
+              "name": "Hybrid (Jaringan + Baterai)",
+              "icon": "mdi:solar-power-variant",
+              "badge": "Fleksibel & Cadangan",
+              "description": "Kombinasi sistem on-grid dan off-grid: terhubung ke PLN sekaligus dilengkapi baterai untuk penyimpanan dan cadangan daya.",
+              "points": [
+                "Tetap dapat menyuplai beban penting saat jaringan PLN padam (backup)",
+                "Memaksimalkan pemakaian energi surya dan mengatur impor/ekspor daya",
+                "Lebih fleksibel untuk kebutuhan yang berubah (self-consumption & cadangan)",
+                "Biaya dan kompleksitas instalasi lebih tinggi dibanding on-grid"
+              ]
+            }
+          ]
+        },
+        "benefits": {
+          "sectionLabel": "Manfaat Solusi",
+          "titleLine1": "4 Manfaat Solusi",
+          "titleLine2": "Energi Kami",
+          "subtitle": "Manfaat yang dapat Anda peroleh dengan mempercayakan pengelolaan energi kepada TruMecs.",
+          "items": [
+            {
+              "icon": "mdi:solar-power-variant",
+              "title": "Listrik Mandiri",
+              "description": "Memanfaatkan energi mandiri terbarukan untuk kebutuhan operasional sehari-hari."
+            },
+            {
+              "icon": "mdi:chart-bell-curve-cumulative",
+              "title": "Peak Shaving",
+              "description": "Beban puncak berkurang, sehingga tagihan listrik pun ikut berkurang."
+            },
+            {
+              "icon": "mdi:layers-triple-outline",
+              "title": "Scalable",
+              "description": "Sistem modular yang dapat berkembang secara bertahap sesuai dengan kebutuhan bisnis."
+            },
+            {
+              "icon": "mdi:sine-wave",
+              "title": "Power Stabilization",
+              "description": "Penyesuaian daya otomatis untuk mengurangi faktor daya yang buruk (kVArh)."
+            }
+          ]
+        },
+        "facts": {
+          "sectionLabel": "Fakta Menarik",
+          "titleLine1": "Adopsi Nyata &",
+          "titleLine2": "Dukungan Pemerintah",
+          "subtitle": "Pertumbuhan EBT di sektor komersial & industri (C&I) Indonesia terus meningkat, didukung kebijakan pemerintah.",
+          "adoptionTitle": "Penetrasi & Pertumbuhan PLTS C&I",
+          "adoptionDesc": "±14% perusahaan C&I di Indonesia telah mengadopsi PLTS — lebih dari 1 dari 7 perusahaan C&I.",
+          "growthTitle": "Kapasitas PLTS C&I Indonesia",
+          "growth": [
+            {
+              "year": "2020",
+              "value": "29,02 MWh"
+            },
+            {
+              "year": "2021",
+              "value": "34,86 MWh"
+            },
+            {
+              "year": "2022",
+              "value": "82,16 MWh"
+            },
+            {
+              "year": "2023",
+              "value": "265,59 MWh"
+            },
+            {
+              "year": "2024",
+              "value": "482,40 MWh"
+            }
+          ],
+          "supportTitle": "Dukungan Pemerintah & Mengapa Sekarang",
+          "supports": [
+            "Program PLTS 100 GWp diluncurkan dengan target pembangunan dalam tiga tahun (25 Agustus 2026).",
+            "RPerpres Percepatan Pengembangan PLTS 100 GWp memasuki tahap pengundangan (11 November 2026).",
+            "Bukti adopsi sudah nyata di berbagai sektor industri.",
+            "Investasi energi terbarukan yang strategis untuk masa depan bisnis Anda."
+          ],
+          "note": "Peluang dan kelayakan setiap proyek dievaluasi berdasarkan kondisi lokasi, profil beban, tarif dan ketentuan kelistrikan, serta regulasi yang berlaku."
+        },
+        "schemes": {
+          "sectionLabel": "Skema Pengadaan",
+          "titleLine1": "Pilih Skema",
+          "titleLine2": "yang Sesuai",
+          "subtitle": "Beragam skema pengadaan untuk menyesuaikan kebutuhan investasi dan operasional Anda.",
+          "items": [
+            {
+              "icon": "mdi:cash-check",
+              "title": "Direct Purchase (Capex)",
+              "tagline": "Investasi langsung, miliki asetnya",
+              "description": "Pelanggan membiayai investasi pembangunan sistem Solar Panel & BESS serta menjadi pemilik penuh aset. O&M dikelola sendiri atau melalui kontrak layanan.",
+              "benefits": [
+                "Penghematan biaya listrik jangka panjang",
+                "Kontrol penuh atas aset dan operasional"
+              ]
+            },
+            {
+              "icon": "mdi:calendar-month-outline",
+              "title": "Fixed Monthly Payment",
+              "tagline": "Bayar rutin, gunakan tanpa beban besar",
+              "description": "Pelanggan menggunakan peralatan melalui pembayaran sewa atau cicilan berkala bulanan. Kepemilikan dan opsi akhir kontrak mengikuti perjanjian.",
+              "benefits": [
+                "Modal awal lebih ringan",
+                "Biaya tetap dan mudah direncanakan"
+              ]
+            },
+            {
+              "icon": "mdi:meter-electric-outline",
+              "title": "Pay per kWh",
+              "tagline": "Bayar sesuai energi yang digunakan",
+              "description": "Investor/penyedia membiayai dan memiliki sistem. Pelanggan membayar berdasarkan jumlah energi listrik (kWh) yang digunakan sesuai tarif kontrak.",
+              "benefits": [
+                "Biaya lebih transparan",
+                "Tidak memerlukan investasi awal"
+              ]
+            },
+            {
+              "icon": "mdi:handshake-outline",
+              "title": "Build Own Operate Transfer (BOOT)",
+              "tagline": "Solusi lengkap, serah terima di akhir kontrak",
+              "description": "Penyedia membangun, memiliki, dan mengoperasikan sistem selama masa kontrak, kemudian aset dapat diserahkan kepada pelanggan sesuai ketentuan.",
+              "benefits": [
+                "Tanpa investasi awal dan bebas urusan operasional",
+                "Aset dapat dialihkan di akhir masa kontrak"
+              ]
+            }
+          ]
+        },
+        "assessment": {
+          "sectionLabel": "Energy Assessment",
+          "titleLine1": "Kebutuhan Informasi",
+          "titleLine2": "Awal",
+          "subtitle": "Setiap solusi dimulai dengan memahami kebutuhan listrik dan kegiatan operasional pelanggan. Untuk optimisasi, tim TruMecs.com akan melakukan site visit dan memerlukan data berikut:",
+          "items": [
+            "Tagihan listrik selama 6–12 bulan terakhir",
+            "Data konsumsi listrik (kWh) dan data pemakaian listrik per jam (jika tersedia)",
+            "Beban puncak (kW/kVA) dan power factor",
+            "Jam operasional serta daftar peralatan yang harus tetap menyala",
+            "Luas, orientasi, dan kondisi atap atau lahan",
+            "Kebutuhan listrik cadangan (backup), serta durasi peralatan penting harus tetap menyala",
+            "Rencana ekspansi fasilitas di masa mendatang"
+          ]
+        }
+      },
+      "industrialBearing": {
+        "hero": {
+          "eyebrow": "Bearing Industri & Transmisi Daya",
+          "titleLine1": "Presisi yang Menjaga",
+          "titleLine2": "Industri Terus Berputar",
+          "subtitle": "Bearing bola, roller, thrust, dan housed unit untuk motor, pompa, gearbox, dan conveyor. Spesifikasi yang tepat, pasokan andal, dan didukung layanan teknis.",
+          "ctaBrowse": "Lihat Jenis Bearing",
+          "ctaQuote": "Minta Penawaran"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:shield-check-outline",
+              "title": "Keandalan",
+              "description": "Umur pakai lebih panjang dan performa mesin yang dapat diandalkan."
+            },
+            {
+              "icon": "mdi:cash-multiple",
+              "title": "Efisiensi Biaya",
+              "description": "Menekan biaya perawatan dan waktu henti tak terduga."
+            },
+            {
+              "icon": "mdi:cog-sync-outline",
+              "title": "Kesesuaian Teknis",
+              "description": "Pemilihan bearing yang tepat untuk aplikasi industri spesifik."
+            }
+          ]
+        },
+        "groups": {
+          "items": [
+            "Semua",
+            "Bola",
+            "Roller",
+            "Thrust",
+            "Linear",
+            "Mounted",
+            "Plain"
+          ]
+        },
+        "types": {
+          "sectionLabel": "Jenis Bearing",
+          "titleLine1": "Bearing yang Tepat untuk",
+          "titleLine2": "Setiap Beban",
+          "subtitle": "Tiap desain menangani beban radial, aksial, dan gabungan secara berbeda. Pilih kategori untuk melihat keunggulan dan penggunaan tiap tipe.",
+          "loadLabel": "Kemampuan Beban",
+          "exampleLabel": "Contoh Designasi",
+          "items": [
+            {
+              "name": "Deep Groove Ball Bearing",
+              "icon": "mdi:circle-double",
+              "image": "/principal/bearing/88-20240130151414.png",
+              "groupIdx": 1,
+              "description": "Bearing bola alur dalam, tipe paling umum untuk menahan beban radial dan beban aksial ringan dua arah pada kecepatan tinggi.",
+              "load": "Radial + aksial ringan",
+              "example": "6205-2RS C3",
+              "uses": [
+                "Motor listrik",
+                "Konveyor",
+                "Kipas & blower"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 4,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                },
+                {
+                  "name": "Pompa, Motor & Fan",
+                  "summary": "Peralatan rotasi berjalan terus-menerus, sehingga gesekan rendah, stabilitas termal, dan clearance yang benar adalah kunci umur panjang.",
+                  "equipment": [
+                    "Pompa sentrifugal",
+                    "Motor listrik industri",
+                    "Blower dan fan pendingin",
+                    "Kompresor"
+                  ],
+                  "tip": "Pada motor variable-frequency drive, pertimbangkan bearing insulated atau hybrid untuk mencegah kerusakan elektrik."
+                },
+                {
+                  "name": "Penanganan Material",
+                  "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+                  "equipment": [
+                    "Conveyor roller dan sabuk",
+                    "Hoist dan crane",
+                    "Lini pengemasan dan sorting",
+                    "Alat pertanian"
+                  ],
+                  "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+                }
+              ]
+            },
+            {
+              "name": "Angular Contact Ball Bearing",
+              "icon": "mdi:angle-acute",
+              "image": "/principal/bearing/89-20240130151451.png",
+              "groupIdx": 1,
+              "description": "Dirancang untuk menahan beban radial dan aksial secara bersamaan, umum dipakai berpasangan pada kecepatan tinggi.",
+              "load": "Radial + aksial (satu/dua arah)",
+              "example": "7206-BEP",
+              "uses": [
+                "Spindle mesin",
+                "Pompa",
+                "Peralatan industri presisi"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 3,
+                "speed": 4,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                },
+                {
+                  "name": "Pompa, Motor & Fan",
+                  "summary": "Peralatan rotasi berjalan terus-menerus, sehingga gesekan rendah, stabilitas termal, dan clearance yang benar adalah kunci umur panjang.",
+                  "equipment": [
+                    "Pompa sentrifugal",
+                    "Motor listrik industri",
+                    "Blower dan fan pendingin",
+                    "Kompresor"
+                  ],
+                  "tip": "Pada motor variable-frequency drive, pertimbangkan bearing insulated atau hybrid untuk mencegah kerusakan elektrik."
+                }
+              ]
+            },
+            {
+              "name": "Self-Aligning Ball Bearing",
+              "icon": "mdi:circle-outline",
+              "image": "/principal/bearing/105-20240130152309.png",
+              "groupIdx": 1,
+              "description": "Bearing bola yang dapat mengatasi misalignment dan defleksi poros antara poros dan housing.",
+              "load": "Radial + aksial ringan",
+              "example": "1206",
+              "uses": [
+                "Shaft dengan misalignment",
+                "Konveyor",
+                "Agrikultur"
+              ],
+              "performance": {
+                "radial": 2,
+                "axial": 1,
+                "speed": 3,
+                "misalign": 4
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                },
+                {
+                  "name": "Penanganan Material",
+                  "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+                  "equipment": [
+                    "Conveyor roller dan sabuk",
+                    "Hoist dan crane",
+                    "Lini pengemasan dan sorting",
+                    "Alat pertanian"
+                  ],
+                  "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+                }
+              ]
+            },
+            {
+              "name": "Cylindrical Roller Bearing",
+              "icon": "mdi:cylinder",
+              "image": "/principal/bearing/91-20240130151636.png",
+              "groupIdx": 2,
+              "description": "Menggunakan roller silindris untuk menahan beban radial sangat tinggi dan sebagian beban aksial.",
+              "load": "Radial sangat tinggi",
+              "example": "NU 310 ECP",
+              "uses": [
+                "Gearbox",
+                "Motor besar",
+                "Roller conveyor berat"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 1,
+                "speed": 3,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                },
+                {
+                  "name": "Pompa, Motor & Fan",
+                  "summary": "Peralatan rotasi berjalan terus-menerus, sehingga gesekan rendah, stabilitas termal, dan clearance yang benar adalah kunci umur panjang.",
+                  "equipment": [
+                    "Pompa sentrifugal",
+                    "Motor listrik industri",
+                    "Blower dan fan pendingin",
+                    "Kompresor"
+                  ],
+                  "tip": "Pada motor variable-frequency drive, pertimbangkan bearing insulated atau hybrid untuk mencegah kerusakan elektrik."
+                }
+              ]
+            },
+            {
+              "name": "Tapered Roller Bearing",
+              "icon": "mdi:cone",
+              "image": "/principal/bearing/92-20240130151708.png",
+              "groupIdx": 2,
+              "description": "Roller kerucut untuk menangani beban radial dan aksial besar secara bersamaan, sering dipasang berpasangan.",
+              "load": "Radial & aksial tinggi",
+              "example": "32210",
+              "uses": [
+                "Hub roda",
+                "Gearbox",
+                "Differential"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 3,
+                "speed": 2,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Tambang & Semen",
+                  "summary": "Beban berat, guncangan, debu, dan getaran menuntut bearing tangguh dengan kapasitas beban tinggi dan sealing yang baik.",
+                  "equipment": [
+                    "Crusher dan mill",
+                    "Ayakan getar",
+                    "Conveyor sabuk",
+                    "Kiln dan fan"
+                  ],
+                  "tip": "Peralatan bergetar umumnya membutuhkan bearing dengan clearance lebih besar dan desain cage yang sesuai. Periksa spesifikasi OEM."
+                },
+                {
+                  "name": "Penanganan Material",
+                  "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+                  "equipment": [
+                    "Conveyor roller dan sabuk",
+                    "Hoist dan crane",
+                    "Lini pengemasan dan sorting",
+                    "Alat pertanian"
+                  ],
+                  "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+                }
+              ]
+            },
+            {
+              "name": "Spherical Roller Bearing",
+              "icon": "mdi:sphere",
+              "image": "/principal/bearing/93-20240130151732.png",
+              "groupIdx": 2,
+              "description": "Menangani beban radial sangat berat dan toleran terhadap ketidaksejajaran (misalignment).",
+              "load": "Radial sangat tinggi + misalignment",
+              "example": "22212 E",
+              "uses": [
+                "Crusher & vibrating screen",
+                "Konveyor tambang",
+                "Gearbox besar"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 4
+              },
+              "industries": [
+                {
+                  "name": "Tambang & Semen",
+                  "summary": "Beban berat, guncangan, debu, dan getaran menuntut bearing tangguh dengan kapasitas beban tinggi dan sealing yang baik.",
+                  "equipment": [
+                    "Crusher dan mill",
+                    "Ayakan getar",
+                    "Conveyor sabuk",
+                    "Kiln dan fan"
+                  ],
+                  "tip": "Peralatan bergetar umumnya membutuhkan bearing dengan clearance lebih besar dan desain cage yang sesuai. Periksa spesifikasi OEM."
+                },
+                {
+                  "name": "Penanganan Material",
+                  "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+                  "equipment": [
+                    "Conveyor roller dan sabuk",
+                    "Hoist dan crane",
+                    "Lini pengemasan dan sorting",
+                    "Alat pertanian"
+                  ],
+                  "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+                }
+              ]
+            },
+            {
+              "name": "Needle Roller Bearing",
+              "icon": "mdi:dots-horizontal",
+              "image": "/principal/bearing/94-20240130151808.png",
+              "groupIdx": 2,
+              "description": "Bearing roller jarum yang kompak untuk ruang radial terbatas dengan kapasitas beban dan kekakuan tinggi.",
+              "load": "Radial tinggi (ruang terbatas)",
+              "example": "NK 25/20",
+              "uses": [
+                "Transmisi otomatis",
+                "Mesin tekstil",
+                "Peralatan pertanian"
+              ],
+              "performance": {
+                "radial": 4,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                }
+              ]
+            },
+            {
+              "name": "Thrust Ball Bearing",
+              "icon": "mdi:arrow-collapse-vertical",
+              "image": "/principal/bearing/96-20240130151854.png",
+              "groupIdx": 3,
+              "description": "Dirancang khusus untuk menahan beban aksial/dorong dalam satu arah (atau dua arah pada tipe tertentu).",
+              "load": "Aksial (dorong)",
+              "example": "51108",
+              "uses": [
+                "Meja putar",
+                "Transmisi otomotif",
+                "Pompa vertikal"
+              ],
+              "performance": {
+                "radial": 0,
+                "axial": 3,
+                "speed": 2,
+                "misalign": 1
+              },
+              "industries": [
+                {
+                  "name": "Pompa, Motor & Fan",
+                  "summary": "Peralatan rotasi berjalan terus-menerus, sehingga gesekan rendah, stabilitas termal, dan clearance yang benar adalah kunci umur panjang.",
+                  "equipment": [
+                    "Pompa sentrifugal",
+                    "Motor listrik industri",
+                    "Blower dan fan pendingin",
+                    "Kompresor"
+                  ],
+                  "tip": "Pada motor variable-frequency drive, pertimbangkan bearing insulated atau hybrid untuk mencegah kerusakan elektrik."
+                }
+              ]
+            },
+            {
+              "name": "Thrust Roller Bearing",
+              "icon": "mdi:arrow-up-down-bold",
+              "image": "/principal/bearing/97-20240130151933.png",
+              "groupIdx": 3,
+              "description": "Menahan beban dorong/aksial yang lebih tinggi, tersedia dalam desain silindris, sferis, dan tirus.",
+              "load": "Aksial sangat tinggi",
+              "example": "81212 TN",
+              "uses": [
+                "Gearbox industri",
+                "Extruder",
+                "Crane hook"
+              ],
+              "performance": {
+                "radial": 0,
+                "axial": 4,
+                "speed": 2,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "Tambang & Semen",
+                  "summary": "Beban berat, guncangan, debu, dan getaran menuntut bearing tangguh dengan kapasitas beban tinggi dan sealing yang baik.",
+                  "equipment": [
+                    "Crusher dan mill",
+                    "Ayakan getar",
+                    "Conveyor sabuk",
+                    "Kiln dan fan"
+                  ],
+                  "tip": "Peralatan bergetar umumnya membutuhkan bearing dengan clearance lebih besar dan desain cage yang sesuai. Periksa spesifikasi OEM."
+                },
+                {
+                  "name": "Pompa, Motor & Fan",
+                  "summary": "Peralatan rotasi berjalan terus-menerus, sehingga gesekan rendah, stabilitas termal, dan clearance yang benar adalah kunci umur panjang.",
+                  "equipment": [
+                    "Pompa sentrifugal",
+                    "Motor listrik industri",
+                    "Blower dan fan pendingin",
+                    "Kompresor"
+                  ],
+                  "tip": "Pada motor variable-frequency drive, pertimbangkan bearing insulated atau hybrid untuk mencegah kerusakan elektrik."
+                }
+              ]
+            },
+            {
+              "name": "Linear Ball Bearing",
+              "icon": "mdi:swap-horizontal",
+              "image": "/principal/bearing/100-20240130152050.png",
+              "groupIdx": 4,
+              "description": "Bearing untuk gerakan linear presisi pada poros linear, umum pada otomasi dan mesin industri.",
+              "load": "Linear/radial ringan",
+              "example": "LM20UU",
+              "uses": [
+                "Mesin kemasan & cetak",
+                "Otomasi",
+                "CNC & robot"
+              ],
+              "performance": {
+                "radial": 2,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 0
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                }
+              ]
+            },
+            {
+              "name": "Linear Roller Bearing",
+              "icon": "mdi:swap-horizontal-bold",
+              "image": "/principal/bearing/101-20240130152120.png",
+              "groupIdx": 4,
+              "description": "Mirip linear ball bearing namun menggunakan roller untuk kapasitas beban dan kekakuan lebih tinggi.",
+              "load": "Linear beban tinggi",
+              "example": "MGN12H",
+              "uses": [
+                "Guideway mesin",
+                "CNC",
+                "Sistem otomasi presisi"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 0,
+                "speed": 3,
+                "misalign": 0
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                }
+              ]
+            },
+            {
+              "name": "Pillow Block Bearing",
+              "icon": "mdi:cube-outline",
+              "image": "/principal/bearing/103-20240130152212.png",
+              "groupIdx": 5,
+              "description": "Unit bearing terpasang dalam housing (rumah) untuk menopang poros berputar, mudah dipasang dan diganti.",
+              "load": "Tergantung insert bearing",
+              "example": "UCP 205",
+              "uses": [
+                "Konveyor",
+                "Kipas industri",
+                "Agrikultur"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 3
+              },
+              "industries": [
+                {
+                  "name": "Tambang & Semen",
+                  "summary": "Beban berat, guncangan, debu, dan getaran menuntut bearing tangguh dengan kapasitas beban tinggi dan sealing yang baik.",
+                  "equipment": [
+                    "Crusher dan mill",
+                    "Ayakan getar",
+                    "Conveyor sabuk",
+                    "Kiln dan fan"
+                  ],
+                  "tip": "Peralatan bergetar umumnya membutuhkan bearing dengan clearance lebih besar dan desain cage yang sesuai. Periksa spesifikasi OEM."
+                },
+                {
+                  "name": "Makanan & Minuman",
+                  "summary": "Pencucian washdown dan persyaratan higiene menuntut bearing tahan korosi dengan pelumasan food-safe.",
+                  "equipment": [
+                    "Lini pengisian dan botolan",
+                    "Conveyor dan mixer",
+                    "Mesin pengemasan",
+                    "Motor washdown"
+                  ],
+                  "tip": "Pilih bearing dengan seal efektif dan grease food-safe agar tahan terhadap pencucian berkala."
+                },
+                {
+                  "name": "Penanganan Material",
+                  "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+                  "equipment": [
+                    "Conveyor roller dan sabuk",
+                    "Hoist dan crane",
+                    "Lini pengemasan dan sorting",
+                    "Alat pertanian"
+                  ],
+                  "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+                }
+              ]
+            },
+            {
+              "name": "Flange Bearing",
+              "icon": "mdi:circle-box-outline",
+              "image": "/principal/bearing/104-20240130152238.png",
+              "groupIdx": 5,
+              "description": "Bearing mounted dengan flange untuk memudahkan pemasangan pada permukaan tegak lurus poros.",
+              "load": "Tergantung insert bearing",
+              "example": "UCFL 205",
+              "uses": [
+                "Konveyor",
+                "Mesin pengolah makanan",
+                "Peralatan kemasan"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 2,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "Makanan & Minuman",
+                  "summary": "Pencucian washdown dan persyaratan higiene menuntut bearing tahan korosi dengan pelumasan food-safe.",
+                  "equipment": [
+                    "Lini pengisian dan botolan",
+                    "Conveyor dan mixer",
+                    "Mesin pengemasan",
+                    "Motor washdown"
+                  ],
+                  "tip": "Pilih bearing dengan seal efektif dan grease food-safe agar tahan terhadap pencucian berkala."
+                },
+                {
+                  "name": "Penanganan Material",
+                  "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+                  "equipment": [
+                    "Conveyor roller dan sabuk",
+                    "Hoist dan crane",
+                    "Lini pengemasan dan sorting",
+                    "Alat pertanian"
+                  ],
+                  "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+                }
+              ]
+            },
+            {
+              "name": "Plain Bearing (Bushing)",
+              "icon": "mdi:circle-slice-8",
+              "image": "/principal/bearing/98-20240130151957.png",
+              "groupIdx": 6,
+              "description": "Bearing luncur/gesek (tanpa elemen gelinding) dengan permukaan rata, sederhana dan tahan beban kejut.",
+              "load": "Radial & aksial (gesek)",
+              "example": "DU 2515",
+              "uses": [
+                "Crankshaft & connecting rod",
+                "Engsel & linkage",
+                "Mesin berat"
+              ],
+              "performance": {
+                "radial": 3,
+                "axial": 2,
+                "speed": 1,
+                "misalign": 2
+              },
+              "industries": [
+                {
+                  "name": "Manufaktur",
+                  "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+                  "equipment": [
+                    "Motor listrik dan fan",
+                    "Spindle mesin perkakas",
+                    "Gearbox dan reducer",
+                    "Mesin pengemasan"
+                  ],
+                  "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+                },
+                {
+                  "name": "Tambang & Semen",
+                  "summary": "Beban berat, guncangan, debu, dan getaran menuntut bearing tangguh dengan kapasitas beban tinggi dan sealing yang baik.",
+                  "equipment": [
+                    "Crusher dan mill",
+                    "Ayakan getar",
+                    "Conveyor sabuk",
+                    "Kiln dan fan"
+                  ],
+                  "tip": "Peralatan bergetar umumnya membutuhkan bearing dengan clearance lebih besar dan desain cage yang sesuai. Periksa spesifikasi OEM."
+                }
+              ]
+            }
+          ],
+          "searchPlaceholder": "Cari jenis bearing...",
+          "noResults": "Tidak ada jenis bearing yang cocok.",
+          "performanceTitle": "Performa Sekilas Pandang",
+          "performanceLabels": {
+            "radial": "Beban Radial",
+            "axial": "Beban Aksial",
+            "speed": "Kecepatan",
+            "misalign": "Toleransi Misalignment"
+          },
+          "industryTitle": "Penggunaan per Industri",
+          "detail": {
+            "description": "Deskripsi",
+            "specs": "Spesifikasi",
+            "load": "Beban",
+            "example": "Contoh Kode",
+            "uses": "Aplikasi Umum",
+            "close": "Tutup",
+            "viewDetails": "Lihat Detail"
+          }
+        },
+        "compare": {
+          "sectionLabel": "Perbandingan Cepat",
+          "titleLine1": "Performa",
+          "titleLine2": "Sekilas Pandang",
+          "subtitle": "Panduan relatif bagaimana bearing umum dibandingkan. Semakin banyak titik terisi, semakin kuat kemampuannya di area tersebut.",
+          "note": "Hanya panduan umum. Kemampuan aktual bergantung pada ukuran, seri, desain internal, dan pabrikan. Lihat katalog untuk rating yang pasti.",
+          "colType": "Jenis Bearing",
+          "colRadial": "Beban Radial",
+          "colAxial": "Beban Aksial",
+          "colSpeed": "Kecepatan",
+          "colMisalign": "Misalignment",
+          "items": [
+            {
+              "name": "Bearing Bola Deep Groove",
+              "radial": 3,
+              "axial": 2,
+              "speed": 4,
+              "misalign": 1
+            },
+            {
+              "name": "Bearing Bola Angular Contact",
+              "radial": 3,
+              "axial": 3,
+              "speed": 4,
+              "misalign": 1
+            },
+            {
+              "name": "Bearing Thrust Bola",
+              "radial": 0,
+              "axial": 3,
+              "speed": 2,
+              "misalign": 1
+            },
+            {
+              "name": "Bearing Roller Silindris",
+              "radial": 4,
+              "axial": 1,
+              "speed": 3,
+              "misalign": 1
+            },
+            {
+              "name": "Bearing Roller Kerucut",
+              "radial": 4,
+              "axial": 3,
+              "speed": 2,
+              "misalign": 1
+            },
+            {
+              "name": "Bearing Roller Spherical",
+              "radial": 4,
+              "axial": 2,
+              "speed": 2,
+              "misalign": 4
+            },
+            {
+              "name": "Bearing Needle Roller",
+              "radial": 4,
+              "axial": 0,
+              "speed": 3,
+              "misalign": 1
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "Aplikasi",
+          "titleLine1": "Penggunaan per",
+          "titleLine2": "Industri",
+          "subtitle": "Pilih industri Anda untuk melihat mesin yang umum dan jenis bearing yang paling sering dispesifikasi.",
+          "labelEquipment": "Peralatan Umum",
+          "labelBearings": "Bearing yang Direkomendasikan",
+          "items": [
+            {
+              "name": "Manufaktur",
+              "icon": "mdi:factory",
+              "summary": "Mesin produksi mengandalkan bearing presisi yang tahan lama pada motor, spindle, dan gear drive. Kegagalan bearing tak terencana dapat menghentikan seluruh lini.",
+              "equipment": [
+                "Motor listrik dan fan",
+                "Spindle mesin perkakas",
+                "Gearbox dan reducer",
+                "Mesin pengemasan"
+              ],
+              "bearings": [
+                "Deep groove ball bearing, sealed",
+                "Angular contact ball bearing",
+                "Cylindrical roller bearing",
+                "Bearing linear untuk otomasi"
+              ],
+              "tip": "Gunakan bearing sealed bila akses pelumasan terbatas, dan sesuaikan clearance dengan fit serta suhu operasi."
+            },
+            {
+              "name": "Tambang & Semen",
+              "icon": "mdi:excavator",
+              "summary": "Beban berat, guncangan, debu, dan getaran menuntut bearing tangguh dengan kapasitas beban tinggi dan sealing yang baik.",
+              "equipment": [
+                "Crusher dan mill",
+                "Ayakan getar",
+                "Conveyor sabuk",
+                "Kiln dan fan"
+              ],
+              "bearings": [
+                "Spherical roller bearing",
+                "Unit housed spherical roller",
+                "Tapered roller bearing",
+                "Pillow block heavy-duty"
+              ],
+              "tip": "Peralatan bergetar umumnya membutuhkan bearing dengan clearance lebih besar dan desain cage yang sesuai. Periksa spesifikasi OEM."
+            },
+            {
+              "name": "Pompa, Motor & Fan",
+              "icon": "mdi:fan",
+              "summary": "Peralatan rotasi berjalan terus-menerus, sehingga gesekan rendah, stabilitas termal, dan clearance yang benar adalah kunci umur panjang.",
+              "equipment": [
+                "Pompa sentrifugal",
+                "Motor listrik industri",
+                "Blower dan fan pendingin",
+                "Kompresor"
+              ],
+              "bearings": [
+                "Deep groove ball bearing (clearance C3)",
+                "Angular contact ball bearing, berpasangan",
+                "Cylindrical roller bearing",
+                "Thrust ball bearing, pompa vertikal"
+              ],
+              "tip": "Pada motor variable-frequency drive, pertimbangkan bearing insulated atau hybrid untuk mencegah kerusakan elektrik."
+            },
+            {
+              "name": "Makanan & Minuman",
+              "icon": "mdi:food-variant",
+              "summary": "Pencucian washdown dan persyaratan higiene menuntut bearing tahan korosi dengan pelumasan food-safe.",
+              "equipment": [
+                "Lini pengisian dan botolan",
+                "Conveyor dan mixer",
+                "Mesin pengemasan",
+                "Motor washdown"
+              ],
+              "bearings": [
+                "Bearing bola stainless steel",
+                "Bearing sealed dengan grease food-grade",
+                "Unit housed stainless",
+                "Housing plastik / polimer"
+              ],
+              "tip": "Pilih bearing dengan seal efektif dan grease food-safe agar tahan terhadap pencucian berkala."
+            },
+            {
+              "name": "Penanganan Material",
+              "icon": "mdi:truck-cargo-container",
+              "summary": "Sistem conveyor dan alat angkat membutuhkan bearing andal yang mudah dipasang dan toleran terhadap sedikit misalignment.",
+              "equipment": [
+                "Conveyor roller dan sabuk",
+                "Hoist dan crane",
+                "Lini pengemasan dan sorting",
+                "Alat pertanian"
+              ],
+              "bearings": [
+                "Unit pillow block dan flange",
+                "Bearing bola self-aligning",
+                "Spherical roller bearing",
+                "Deep groove ball bearing"
+              ],
+              "tip": "Unit housed dengan set-screw atau eccentric locking collar mempercepat pemasangan dan memudahkan perawatan."
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "Referensi Teknis",
+          "titleLine1": "Cara Membaca",
+          "titleLine2": "Nomor Bearing",
+          "subtitle": "Designasi bearing memuat tipe, ukuran, seal, dan clearance dalam beberapa karakter. Berikut cara membaca salah satu contoh umum.",
+          "decoder": [
+            {
+              "code": "6",
+              "label": "Tipe",
+              "meaning": "Tipe bearing: deep groove ball bearing"
+            },
+            {
+              "code": "2",
+              "label": "Seri",
+              "meaning": "Seri dimensi: seri ringan (memengaruhi diameter luar dan lebar)"
+            },
+            {
+              "code": "05",
+              "label": "Bore",
+              "meaning": "Kode bore: 05 × 5 = diameter bore 25 mm"
+            },
+            {
+              "code": "2RS",
+              "label": "Seal",
+              "meaning": "Seal karet kontak di kedua sisi"
+            },
+            {
+              "code": "C3",
+              "label": "Clearance",
+              "meaning": "Clearance radial internal lebih besar dari normal"
+            }
+          ],
+          "clearanceTitle": "Clearance Internal",
+          "clearanceSub": "Kelas clearance radial (ISO 5753)",
+          "colCode": "Kode",
+          "colClass": "Kelas",
+          "colMeaning": "Arti",
+          "colUse": "Penggunaan Umum",
+          "clearanceRows": [
+            {
+              "code": "C2",
+              "meaning": "Kurang dari normal",
+              "use": "Kerja presisi, fit ringan, getaran rendah"
+            },
+            {
+              "code": "CN",
+              "meaning": "Normal",
+              "use": "Aplikasi umum dengan fit standar"
+            },
+            {
+              "code": "C3",
+              "meaning": "Lebih dari normal",
+              "use": "Motor listrik, interference fit, suhu lebih tinggi"
+            },
+            {
+              "code": "C4",
+              "meaning": "Lebih dari C3",
+              "use": "Perbedaan suhu besar, interference fit berat"
+            }
+          ],
+          "suffixTitle": "Kode Suffix Umum",
+          "suffixSub": "Seal, cage, dan fitur bore",
+          "colNote": "Catatan",
+          "suffixRows": [
+            {
+              "code": "ZZ",
+              "meaning": "Shield logam, dua sisi",
+              "note": "Non-kontak, gesekan rendah"
+            },
+            {
+              "code": "2RS",
+              "meaning": "Seal karet kontak, dua sisi",
+              "note": "Proteksi debu dan lembap lebih baik"
+            },
+            {
+              "code": "K",
+              "meaning": "Bore tirus, 1:12",
+              "note": "Untuk sleeve adapter atau withdrawal"
+            },
+            {
+              "code": "E",
+              "meaning": "Desain internal teroptimasi",
+              "note": "Kapasitas beban lebih tinggi"
+            },
+            {
+              "code": "M / J",
+              "meaning": "Cage kuningan / baja press",
+              "note": "Bervariasi per pabrikan"
+            }
+          ],
+          "suffixNote": "Kode suffix dapat berbeda antar pabrikan. Selalu konfirmasi dengan katalog pabrikan."
+        },
+        "selection": {
+          "sectionLabel": "Panduan Pemilihan",
+          "titleLine1": "Cara Memilih",
+          "titleLine2": "Bearing yang Tepat",
+          "subtitle": "Empat pertanyaan menyempitkan sebagian besar keputusan bearing sebelum Anda membuka katalog.",
+          "items": [
+            {
+              "icon": "mdi:weight",
+              "title": "Tentukan Beban",
+              "description": "Identifikasi beban radial, aksial, atau gabungan beserta arahnya. Ini langsung menyempitkan pilihan tipe bearing."
+            },
+            {
+              "icon": "mdi:speedometer",
+              "title": "Periksa Kecepatan",
+              "description": "Kecepatan tinggi condong ke bearing bola dan desain presisi. Aplikasi berat dan lambat condong ke tipe roller."
+            },
+            {
+              "icon": "mdi:ruler-square",
+              "title": "Pastikan Ukuran & Fit",
+              "description": "Cocokkan bore, diameter luar, dan lebar, lalu pilih fit poros dan housing serta clearance yang tepat."
+            },
+            {
+              "icon": "mdi:water-alert-outline",
+              "title": "Pertimbangkan Lingkungan",
+              "description": "Debu, lembap, panas, dan washdown memengaruhi pilihan seal, material, dan pelumas."
+            }
+          ]
+        },
+        "care": {
+          "sectionLabel": "Keandalan",
+          "titleLine1": "Mengapa Bearing Gagal",
+          "titleLine2": "& Cara Mencegahnya",
+          "subtitle": "Sebagian besar kegagalan prematur bermula dari segelintir penyebab yang bisa dihindari dengan praktik pemasangan dan perawatan yang baik.",
+          "items": [
+            {
+              "icon": "mdi:oil",
+              "title": "Pelumasan Buruk",
+              "description": "Terlalu sedikit, terlalu banyak, atau pelumas yang salah menyebabkan panas dan keausan. Ikuti jenis dan interval yang benar."
+            },
+            {
+              "icon": "mdi:dots-grid",
+              "title": "Kontaminasi",
+              "description": "Kotoran dan lembap merusak raceway. Sealing yang efektif dan penanganan bersih memperpanjang umur secara signifikan."
+            },
+            {
+              "icon": "mdi:tools",
+              "title": "Pemasangan Salah",
+              "description": "Pemukulan, misalignment, atau fit yang salah menyebabkan kerusakan dini. Gunakan alat dan metode pemanasan yang tepat."
+            },
+            {
+              "icon": "mdi:flash-outline",
+              "title": "Kerusakan Elektrik",
+              "description": "Arus yang melewati bearing dapat menyebabkan fluting. Pertimbangkan isolasi atau grounding pada motor drive."
+            }
+          ],
+          "standardsTitle": "Standar & Norma",
+          "standardsDesc": "Referensi umum untuk dimensi, toleransi, dan umur rating."
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Pertanyaan Umum",
+          "items": [
+            {
+              "q": "Bagaimana cara menemukan bearing pengganti yang tepat?",
+              "a": "Mulailah dari nomor yang tertera pada bearing lama. Jika tidak terbaca, ukur bore, diameter luar, dan lebar, lalu catat tipenya dan seal-nya. Kirimkan detail tersebut dan kami akan cocokkan."
+            },
+            {
+              "q": "Apa perbedaan ZZ dan 2RS?",
+              "a": "Bearing ZZ memiliki shield logam yang tidak menyentuh cincin dalam, sehingga gesekannya lebih rendah dan mampu kecepatan lebih tinggi. Bearing 2RS memiliki seal karet kontak yang lebih baik menahan debu dan lembap, dengan sedikit gesekan tambahan."
+            },
+            {
+              "q": "Kapan sebaiknya memilih clearance C3?",
+              "a": "C3 umum pada motor listrik serta aplikasi dengan interference fit atau suhu operasi lebih tinggi, karena bearing kehilangan sebagian clearance saat dipasang dan memanas. Periksa spesifikasi peralatan Anda."
+            },
+            {
+              "q": "Bolehkah memakai merek berbeda sebagai pengganti?",
+              "a": "Umumnya boleh, karena bearing mengikuti dimensi standar. Pastikan tipe, ukuran, clearance, seal, dan cage sesuai aplikasi, karena desain internal bisa berbeda antar pabrikan."
+            },
+            {
+              "q": "Apakah tersedia dalam kuantitas kecil dan besar?",
+              "a": "Ya. Kami melayani satuan, pesanan proyek, dan pasokan terjadwal untuk akun reguler. Hubungi kami dengan part number dan kuantitas Anda untuk detailnya."
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "Minta Penawaran",
+          "titleLine1": "Butuh Bantuan Menemukan",
+          "titleLine2": "Part yang Tepat?",
+          "desc": "Kirimkan nomor bearing, atau ukuran poros dan kondisi operasinya. Kami akan mencocokkannya dan mengonfirmasi ketersediaan.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Kirim Email",
+          "areasTitle": "Area Pasokan",
+          "areasDesc": "Tersedia satuan, kuantitas proyek, dan pasokan terjadwal untuk akun industri dan komersial.",
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ],
+          "waText": "Halo Trumecs, saya ingin menanyakan produk bearing industri.",
+          "emailSubject": "Permintaan Bearing Industri"
+        },
+        "seo": {
+          "title": "Bearing Industri & Transmisi Daya - Trumecs",
+          "description": "Bearing industri: deep groove ball, roller, thrust, dan housed unit. Jenis-jenis, aplikasi per industri, dan panduan teknis pemilihan bearing.",
+          "serviceType": "Pasokan Bearing Industri"
+        },
+        "accessories": {
+          "sectionLabel": "Aksesoris",
+          "titleLine1": "Aksesoris",
+          "titleLine2": "Bearing",
+          "subtitle": "Kategori aksesoris pendukung untuk pemasangan, pemantauan, dan perawatan bearing — lengkap dengan produk di setiap kategori.",
+          "categories": [
+            {
+              "name": "Heating Devices / Induction Heater",
+              "icon": "mdi:radiator",
+              "description": "Perangkat pemanas induksi untuk pemasangan bearing secara termal yang aman, cepat, dan terkendali — sesuai solusi mounting Schaeffler.",
+              "products": [
+                {
+                  "name": "Induction Bearing Heater",
+                  "image": "/principal/bearing/induction-bearing-heater.jpg",
+                  "description": "Pemanas induksi bearing untuk proses pemasangan termal yang efisien, aman, dan terkontrol."
+                },
+                {
+                  "name": "Induction Heater with Medium-Frequency Technology (MFT)",
+                  "image": "/principal/bearing/induction-heater-mft.jpg",
+                  "description": "Pemanas induksi dengan teknologi frekuensi menengah (MFT) untuk pemanasan komponen bearing yang andal dan presisi."
+                },
+                {
+                  "name": "MF Induction Heater Handhelds",
+                  "image": "/principal/bearing/mf-induction-heater-handhelds.jpg",
+                  "description": "Perangkat pemanas induksi MF genggam yang fleksibel untuk aplikasi pemanasan/pemasangan di lapangan."
+                }
+              ]
+            },
+            {
+              "name": "Sensor Bearing & Vibration",
+              "icon": "mdi:vibrate",
+              "description": "Sensor kondisi dan getaran untuk memantau kesehatan bearing secara real-time.",
+              "products": [
+                {
+                  "name": "Vibration Sensor Probe",
+                  "image": "/principal/bearing/Vibration-Sensor-Probe.webp",
+                  "description": "Sensor getaran untuk deteksi dini ketidaknormalan bearing."
+                },
+                {
+                  "name": "Temperature Sensor PT100",
+                  "image": "/principal/bearing/temperature-sensor-pt-100.jpg",
+                  "description": "Pemantauan suhu bearing pada mesin kritikal."
+                },
+                {
+                  "name": "Online Condition Monitoring Unit",
+                  "image": "/principal/bearing/condition-monitoring-solution.webp",
+                  "description": "Sistem monitoring kondisi bearing secara kontinu."
+                },
+                {
+                  "name": "Wireless Vibration Transmitter",
+                  "image": "/principal/bearing/wireless-vibration-sensor.jpg",
+                  "description": "Transmisi data getaran nirkabel ke sistem kontrol."
+                }
+              ]
+            },
+            {
+              "name": "Mounting & Dismounting Tools",
+              "icon": "mdi:tools",
+              "description": "Alat pemasangan dan pelepasan bearing (mounting & dismounting) untuk proses maintenance yang aman, cepat, dan presisi — mengacu pada solusi mounting/dismounting Schaeffler.",
+              "products": [
+                {
+                  "name": "Mechanical Puller (2/3 Arm)",
+                  "image": "/principal/bearing/mechanical-puller-2-3-arm.jpg",
+                  "description": "Puller mekanis untuk melepas bearing, gear, dan komponen press-fit dengan aman."
+                },
+                {
+                  "name": "Hydraulic Puller",
+                  "image": "/principal/bearing/hydraulic-puller.jpg",
+                  "description": "Penarik hidrolik untuk pelepasan bearing berukuran besar dengan gaya terkontrol."
+                },
+                {
+                  "name": "Bearing Fitting Tool Kit (Impact)",
+                  "image": "/principal/bearing/bearing-fitting-tool-kit-impact.jpg",
+                  "description": "Kit pemasangan bearing dengan impact ring/sleeve untuk mounting yang presisi tanpa merusak rolling element."
+                },
+                {
+                  "name": "Hydraulic Nut & Pump Set",
+                  "image": "/principal/bearing/hydraulic-nut-pump-set.jpg",
+                  "description": "Mur hidrolik dan pompa untuk pemasangan/pelepasan bearing pada tapered bore atau adapter sleeve."
+                }
+              ]
+            },
+            {
+              "name": "Bearing Housing & Adapter Sleeve",
+              "icon": "mdi:cube-outline",
+              "description": "Rumah bearing dan kelengkapan pemasangan untuk instalasi yang kokoh.",
+              "products": [
+                {
+                  "name": "Pillow Block Housing",
+                  "image": "/principal/bearing/pillow-block-housing.jpg",
+                  "description": "Housing bearing tipe pillow block untuk berbagai shaft."
+                },
+                {
+                  "name": "Flange Housing Unit",
+                  "image": "/principal/bearing/flange-housing-unit.jpg",
+                  "description": "Unit housing flange untuk pemasangan pada dinding/frame."
+                },
+                {
+                  "name": "Adapter Sleeve & Lock Nut",
+                  "image": "/principal/bearing/sleeves-and-lock-nut.jpg",
+                  "description": "Sleeve adapter dan mur pengunci untuk tapered bore."
+                },
+                {
+                  "name": "Withdrawal Sleeve",
+                  "image": "/principal/bearing/withdrawal-sleeves.jpg",
+                  "description": "Sleeve pelepas untuk memudahkan dismantling bearing."
+                }
+              ]
+            },
+            {
+              "name": "Seal & Grease",
+              "icon": "mdi:water-opacity",
+              "description": "Seal dan pelumas untuk melindungi bearing dari kontaminasi dan keausan.",
+              "products": [
+                {
+                  "name": "Oil Seal NBR",
+                  "image": "/principal/bearing/oil-seal-nbr.jpg",
+                  "description": "Seal oli material NBR untuk perlindungan standar."
+                },
+                {
+                  "name": "Oil Seal Viton",
+                  "image": "/principal/bearing/oil-seal-viton.jpg",
+                  "description": "Seal tahan suhu tinggi dan bahan kimia."
+                },
+                {
+                  "name": "High Temperature Bearing Grease",
+                  "image": "/principal/bearing/grease-bearing.jpg",
+                  "description": "Grease untuk aplikasi suhu dan beban tinggi."
+                },
+                {
+                  "name": "Automatic Lubricator",
+                  "image": "/principal/bearing/auto-bearing-grease.jpg",
+                  "description": "Pelumas otomatis untuk pasokan grease konsisten."
+                }
+              ]
+            },
+            {
+              "name": "Alignment & Measurement Tool",
+              "icon": "mdi:ruler-square",
+              "description": "Perangkat alignment dan pengukuran untuk memastikan kesejajaran poros/pulley dan ketegangan belt yang optimal pada peralatan industri.",
+              "products": [
+                {
+                  "name": "Shaft Alignment Tool",
+                  "image": "/principal/bearing/shaft-alignment-tool.jpg",
+                  "description": "Alat alignment poros untuk memastikan kesejajaran poros yang presisi dan mengurangi keausan serta getaran."
+                },
+                {
+                  "name": "Belt Pulley Alignment Device",
+                  "image": "/principal/bearing/belt-pulley.jpg",
+                  "description": "Perangkat penyelarasan pulley/belt untuk memastikan keselarasan pulley yang akurat dan kinerja transmisi optimal."
+                },
+                {
+                  "name": "Belt Tension Measuring Device",
+                  "image": "/principal/bearing/belt-tension.jpg",
+                  "description": "Alat pengukur ketegangan belt untuk menjaga tegangan belt yang tepat dan memperpanjang umur komponen."
+                }
+              ]
+            }
+          ]
+        },
+        "selectionCare": {
+          "sectionLabel": "Panduan & Perawatan",
+          "titleLine1": "Memilih Bearing &",
+          "titleLine2": "Mengapa Bearing Gagal",
+          "subtitle": "Panduan pemilihan bearing yang tepat dan penyebab umum kegagalan yang perlu dihindari.",
+          "selectionTitle": "Cara Memilih Bearing",
+          "careTitle": "Mengapa Bearing Gagal"
+        },
+        "seoGeo": {
+          "sectionLabel": "SEO & GEO",
+          "title": "Solusi Bearing Industri untuk Performa Mesin yang Andal",
+          "description": "TruMecs menyediakan solusi bearing industri untuk manufaktur, pertambangan, otomotif, dan berbagai aplikasi industri lainnya. Dari ball bearing hingga roller bearing heavy duty, temukan produk bearing yang sesuai untuk mendukung keandalan peralatan, menurunkan biaya perawatan, dan menjaga efisiensi operasional di seluruh Indonesia.",
+          "primaryLabel": "Kata Kunci Utama",
+          "supportingLabel": "Kata Kunci Pendukung",
+          "primary": [
+            "Industrial Bearings Indonesia",
+            "Industrial Bearing Supplier",
+            "Ball Bearings",
+            "Roller Bearings",
+            "Spherical Roller Bearings",
+            "Industrial Bearing Solutions",
+            "Bearing Replacement",
+            "Heavy Duty Bearings"
+          ],
+          "supporting": [
+            "Supplier Bearing Industri Indonesia",
+            "Distributor Bearing Industri",
+            "Jual Ball Bearing",
+            "Jual Roller Bearing",
+            "Bearing untuk Mesin Industri",
+            "Spare Part Mesin Industri",
+            "Bearing untuk Manufacturing",
+            "Bearing untuk Industri Pertambangan"
+          ]
+        }
+      },
+      "industrialLubricant": {
+        "hero": {
+          "eyebrow": "Solusi Pelumasan Industri",
+          "titleLine1": "Jaga Setiap Mesin",
+          "titleLine2": "Tetap Berjalan Lancar",
+          "subtitle": "Oli hidrolik, oli gear, oli kompresor, oli turbin, dan grease yang dirancang untuk menekan downtime, memperpanjang umur peralatan, dan melindungi lini produksi Anda.",
+          "ctaBrowse": "Lihat Jenis Pelumas",
+          "ctaQuote": "Konsultasi Engineer"
+        },
+        "stats": {
+          "items": [
+            {
+              "icon": "mdi:oil",
+              "value": "8+",
+              "label": "Kategori Pelumas"
+            },
+            {
+              "icon": "mdi:factory",
+              "value": "300+",
+              "label": "Klien Industri"
+            },
+            {
+              "icon": "mdi:clock-check-outline",
+              "value": "24/7",
+              "label": "Dukungan Teknis"
+            },
+            {
+              "icon": "mdi:truck-fast-outline",
+              "value": "48H",
+              "label": "Waktu Pengiriman"
+            }
+          ]
+        },
+        "groups": {
+          "items": [
+            "Semua",
+            "Oli",
+            "Grease",
+            "Fluida Special"
+          ]
+        },
+        "types": {
+          "sectionLabel": "Jenis Pelumas",
+          "titleLine1": "Fluida yang Tepat untuk",
+          "titleLine2": "Setiap Aplikasi",
+          "subtitle": "Tiap pelumas diformulasikan untuk beban, kecepatan, dan suhu tertentu. Pilih kategori untuk melihat grade, standar, dan penggunaannya.",
+          "gradesLabel": "Grade Umum",
+          "standardLabel": "Standar",
+          "items": [
+            {
+              "name": "Oli Hidrolik",
+              "icon": "mdi:oil",
+              "groupIdx": 1,
+              "description": "Mentransmisikan daya pada sistem hidrolik sekaligus melindungi pompa, valve, dan silinder dari keausan, karat, dan foaming.",
+              "grades": "ISO VG 32 / 46 / 68",
+              "standard": "DIN 51524 HLP, ISO 11158 HM",
+              "uses": [
+                "Injection Molding",
+                "Mesin Press",
+                "Excavator"
+              ]
+            },
+            {
+              "name": "Oli Gear",
+              "icon": "mdi:cog-transfer",
+              "groupIdx": 1,
+              "description": "Proteksi extreme-pressure untuk gearbox tertutup di bawah beban guncangan berat dan torsi tinggi.",
+              "grades": "ISO VG 150 – 460",
+              "standard": "DIN 51517 CLP, AGMA 9005",
+              "uses": [
+                "Gearbox",
+                "Conveyor",
+                "Mixer"
+              ]
+            },
+            {
+              "name": "Oli Kompresor",
+              "icon": "mdi:gauge",
+              "groupIdx": 1,
+              "description": "Stabilitas oksidasi tinggi dan pembentukan karbon rendah untuk kompresor udara rotary screw dan reciprocating.",
+              "grades": "ISO VG 32 – 100",
+              "standard": "DIN 51506 VDL, ISO 6743-3",
+              "uses": [
+                "Kompresor Screw",
+                "Pompa Vakum"
+              ]
+            },
+            {
+              "name": "Oli Turbin",
+              "icon": "mdi:fan",
+              "groupIdx": 1,
+              "description": "Oli berumur panjang dengan separasi air dan proteksi karat sangat baik untuk sirkuit turbin uap dan gas.",
+              "grades": "ISO VG 32 / 46",
+              "standard": "DIN 51515 TD, ISO 6743-5",
+              "uses": [
+                "Turbin Uap",
+                "Generator"
+              ]
+            },
+            {
+              "name": "Grease Industri",
+              "icon": "mdi:cog-outline",
+              "groupIdx": 2,
+              "description": "Grease lithium, lithium complex, dan polyurea untuk bearing, bushing, dan komponen bergerak lambat.",
+              "grades": "NLGI 1 / 2 / 3",
+              "standard": "DIN 51825 K, ISO 6743-9",
+              "uses": [
+                "Bearing",
+                "Motor Listrik",
+                "Bushing"
+              ]
+            },
+            {
+              "name": "Grease High-Temp",
+              "icon": "mdi:thermometer-high",
+              "groupIdx": 2,
+              "description": "Grease complex tahan panas untuk kiln, oven, dan bearing yang bekerja pada suhu tinggi berkelanjutan.",
+              "grades": "NLGI 2 / 3",
+              "standard": "DIN 51825 KP / KPF",
+              "uses": [
+                "Kiln Car",
+                "Dryer",
+                "Pabrik Baja"
+              ]
+            },
+            {
+              "name": "Fluida Metalworking",
+              "icon": "mdi:saw-blade",
+              "groupIdx": 3,
+              "description": "Oli potong dan coolant water-miscible yang mengurangi gesekan dan panas pada antarmuka tool dan workpiece.",
+              "grades": "Soluble / Semi-sintetis / Neat",
+              "standard": "ISO 6743-7 MA",
+              "uses": [
+                "Machining CNC",
+                "Grinding",
+                "Stamping"
+              ]
+            },
+            {
+              "name": "Oli Heat Transfer",
+              "icon": "mdi:thermometer",
+              "groupIdx": 3,
+              "description": "Fluida stabil termal untuk sistem pemanasan closed-loop, tahan cracking dan sludge pada suhu bulk tinggi.",
+              "grades": "ISO VG 32 / 46",
+              "standard": "DIN 51522 Q",
+              "uses": [
+                "Pemanas Oli Termal",
+                "Plastik",
+                "Tekstil"
+              ]
+            },
+            {
+              "name": "Pelumas Food Grade",
+              "icon": "mdi:silverware-fork-knife",
+              "groupIdx": 3,
+              "description": "Pelumas aman untuk kontak insidental dengan makanan pada lingkungan produksi yang menuntut higiene.",
+              "grades": "Oli VG 32–460 / Grease NLGI 1–2",
+              "standard": "NSF H1, ISO 21469",
+              "uses": [
+                "Pengemasan",
+                "Botolan",
+                "Bakery"
+              ]
+            }
+          ]
+        },
+        "applications": {
+          "sectionLabel": "Aplikasi",
+          "titleLine1": "Penggunaan per",
+          "titleLine2": "Industri",
+          "subtitle": "Pilih industri Anda untuk melihat peralatan umum dan pelumas yang paling sering dispesifikasi.",
+          "labelEquipment": "Peralatan Umum",
+          "labelLubricants": "Pelumas yang Direkomendasikan",
+          "items": [
+            {
+              "name": "Manufaktur",
+              "icon": "mdi:factory",
+              "summary": "Lini produksi kontinu bergantung pada hidrolik bersih, gearbox andal, dan udara terkompresi stabil. Kegagalan pelumas di sini dapat menghentikan seluruh lini.",
+              "equipment": [
+                "Mesin injection molding & press",
+                "Machining center CNC",
+                "Kompresor udara screw",
+                "Gearbox conveyor"
+              ],
+              "lubricants": [
+                "Oli hidrolik anti-wear ISO VG 46",
+                "Fluida metalworking semi-sintetis",
+                "Oli kompresor rotary ISO VG 46",
+                "Oli gear industri ISO VG 220"
+              ],
+              "tip": "Jaga kebersihan oli hidrolik. Sebagian besar kegagalan hidrolik berawal dari kontaminasi partikel."
+            },
+            {
+              "name": "Tambang & Konstruksi",
+              "icon": "mdi:excavator",
+              "summary": "Debu, beban guncangan, dan perubahan suhu ekstrem menuntut paket aditif tangguh dan monitoring rutin.",
+              "equipment": [
+                "Excavator & loader",
+                "Crusher dan ayakan",
+                "Gearbox heavy-duty",
+                "Gear terbuka dan wire rope"
+              ],
+              "lubricants": [
+                "Oli hidrolik High-VI ISO VG 68",
+                "Oli gear EP ISO VG 320 / 460",
+                "Grease extreme-pressure NLGI 2",
+                "Pelumas gear terbuka"
+              ],
+              "tip": "Gunakan penempatan grease sealed dan fill point yang bersih. Masuknya debu adalah penyebab utama keausan prematur."
+            },
+            {
+              "name": "Pembangkit Listrik",
+              "icon": "mdi:lightning-bolt",
+              "summary": "Turbin dan peralatan auxiliari beroperasi lama, sehingga stabilitas oksidasi dan separasi air sangat kritis.",
+              "equipment": [
+                "Turbin uap dan gas",
+                "Generator dan bearing",
+                "Pompa boiler feed",
+                "Fan pendingin"
+              ],
+              "lubricants": [
+                "Oli turbin ISO VG 32 / 46",
+                "Oli hidrolik anti-wear",
+                "Grease bearing high-temp",
+                "Fluida hidrolik fire-resistant"
+              ],
+              "tip": "Jadwalkan analisis oli rutin pada sistem turbin untuk memantau oksidasi dan potensi varnish."
+            },
+            {
+              "name": "Makanan & Minuman",
+              "icon": "mdi:food-variant",
+              "summary": "Standar higiene mengharuskan pelumas yang aman bila terjadi kontak insidental dengan produk atau kemasan.",
+              "equipment": [
+                "Lini pengisian dan botolan",
+                "Mesin pengemasan",
+                "Mixer dan conveyor",
+                "Chiller dan kompresor"
+              ],
+              "lubricants": [
+                "Oli hidrolik NSF H1",
+                "Oli gear NSF H1",
+                "Grease putih NSF H1 NLGI 2",
+                "Oli kompresor NSF H1"
+              ],
+              "tip": "Jangan pernah mencampur pelumas H1 dengan oli konvensional. Beri label pada titik pelumasan untuk mencegah tertukar."
+            },
+            {
+              "name": "Baja & Logam",
+              "icon": "mdi:anvil",
+              "summary": "Panas ekstrem, beban berat, dan paparan air menuntut grease high-temperature dan oli dengan proteksi kuat.",
+              "equipment": [
+                "Rolling mill",
+                "Lini continuous casting",
+                "Conveyor furnace",
+                "Pompa pendingin"
+              ],
+              "lubricants": [
+                "Grease complex high-temp NLGI 2",
+                "Oli gear EP ISO VG 460",
+                "Fluida hidrolik fire-resistant",
+                "Emulsi rolling oil"
+              ],
+              "tip": "Sesuaikan interval re-lubricasi dengan suhu operasi. Panas memperpendek umur grease secara signifikan."
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "Referensi Teknis",
+          "titleLine1": "Viskositas",
+          "titleLine2": "& Konsistensi",
+          "subtitle": "Panduan cepat untuk membaca datasheet pelumas dan mencocokkan grade dengan mesin Anda.",
+          "viscosityTitle": "Grade ISO VG",
+          "viscositySub": "Viskositas kinematik pada 40°C (titik tengah, cSt)",
+          "colGrade": "Grade",
+          "colCst": "cSt",
+          "colUse": "Penggunaan Umum",
+          "viscosityRows": [
+            {
+              "grade": "VG 32",
+              "cst": "32",
+              "use": "Hidrolik di lingkungan dingin, spindle ringan"
+            },
+            {
+              "grade": "VG 46",
+              "cst": "46",
+              "use": "Hidrolik umum, turbin, kompresor"
+            },
+            {
+              "grade": "VG 68",
+              "cst": "68",
+              "use": "Hidrolik di iklim hangat, kompresor"
+            },
+            {
+              "grade": "VG 100",
+              "cst": "100",
+              "use": "Gearbox ringan, slid"
+            },
+            {
+              "grade": "VG 150",
+              "cst": "150",
+              "use": "Gear tertutup beban menengah"
+            },
+            {
+              "grade": "VG 220",
+              "cst": "220",
+              "use": "Oli gear industri paling umum"
+            },
+            {
+              "grade": "VG 320",
+              "cst": "320",
+              "use": "Gearbox berbeban berat"
+            },
+            {
+              "grade": "VG 460",
+              "cst": "460",
+              "use": "Beban guncangan berat, kecepatan rendah"
+            }
+          ],
+          "nlgiTitle": "Grade Grease NLGI",
+          "nlgiSub": "Kelas konsistensi dari semi-fluid hingga padat",
+          "colNlgi": "NLGI",
+          "colFeel": "Tekstur",
+          "nlgiRows": [
+            {
+              "grade": "000 / 00",
+              "feel": "Semi-fluid",
+              "use": "Sistem terpusat, gearbox"
+            },
+            {
+              "grade": "0",
+              "feel": "Sangat lunak",
+              "use": "Pelumasan terpusat, iklim dingin"
+            },
+            {
+              "grade": "1",
+              "feel": "Lunak",
+              "use": "Suhu rendah, sistem pumpable"
+            },
+            {
+              "grade": "2",
+              "feel": "Sedang",
+              "use": "Bearing serbaguna (paling umum)"
+            },
+            {
+              "grade": "3",
+              "feel": "Padat",
+              "use": "Bearing kecepatan tinggi, poros vertikal"
+            }
+          ],
+          "nlgiNote": "Selalu konfirmasi grade dengan rekomendasi pabrikan peralatan. Tabel ini hanya panduan umum."
+        },
+        "selection": {
+          "sectionLabel": "Panduan Pemilihan",
+          "titleLine1": "Cara Memilih",
+          "titleLine2": "Pelumas yang Tepat",
+          "subtitle": "Empat pertanyaan menyempitkan sebagian besar keputusan pelumas sebelum Anda membuka katalog.",
+          "items": [
+            {
+              "icon": "mdi:book-open-variant",
+              "title": "Periksa Manual OEM",
+              "description": "Mulailah dari rekomendasi grade viskositas dan spesifikasi pabrikan peralatan."
+            },
+            {
+              "icon": "mdi:thermometer-lines",
+              "title": "Kenali Suhu",
+              "description": "Suhu operasi dan suhu sekitar menentukan grade viskositas dan jenis base oil yang dibutuhkan."
+            },
+            {
+              "icon": "mdi:weight",
+              "title": "Cocokkan Beban & Kecepatan",
+              "description": "Beban berat butuh viskositas lebih tinggi dan aditif EP. Kecepatan tinggi umumnya butuh viskositas lebih rendah."
+            },
+            {
+              "icon": "mdi:water-alert-outline",
+              "title": "Pertimbangkan Lingkungan",
+              "description": "Lembap, debu, kimia, atau kontak makanan bisa menuntut formulasi atau approval khusus."
+            }
+          ]
+        },
+        "care": {
+          "sectionLabel": "Manajemen Pelumasan",
+          "titleLine1": "Perawatan",
+          "titleLine2": "Praktik Terbaik",
+          "subtitle": "Pilihan pelumas yang baik hanya optimal bila disimpan, diaplikasikan, dan dipantau dengan benar.",
+          "items": [
+            {
+              "icon": "mdi:flask-outline",
+              "title": "Analisis Oli",
+              "description": "Sampling rutin memantau viskositas, keasaman, air, partikel, dan logam keausan sebelum terjadi kegagalan."
+            },
+            {
+              "icon": "mdi:filter-outline",
+              "title": "Kontrol Kontaminasi",
+              "description": "Gunakan breather, filtrasi, dan peralatan transfer bersih untuk menjauhkan partikel dan air."
+            },
+            {
+              "icon": "mdi:warehouse",
+              "title": "Penyimpanan & Penanganan",
+              "description": "Simpan drum tertutup, sedapat mungkin di dalam ruangan, dan gunakan rotasi stok first-in first-out."
+            },
+            {
+              "icon": "mdi:tag-multiple-outline",
+              "title": "Label & Kode Warna",
+              "description": "Wadah dan titik isi khusus yang berlabel mencegah kontaminasi silang dan kesalahan pemakaian oli."
+            }
+          ],
+          "standardsTitle": "Standar & Approval",
+          "standardsDesc": "Spesifikasi yang umum dirujuk saat memilih pelumas industri."
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Pertanyaan Umum",
+          "items": [
+            {
+              "q": "Bolehkah mencampur merek atau jenis pelumas yang berbeda?",
+              "a": "Sebaiknya dihindari. Paket aditif dan base oil yang berbeda dapat tidak kompatibel dan menurunkan performa. Bila perlu penggantian, ikuti prosedur flushing dan changeover yang benar."
+            },
+            {
+              "q": "Seberapa sering oli industri harus diganti?",
+              "a": "Tidak ada interval tunggal. Tergantung pada peralatan, kondisi operasi, dan jenis oli. Penggantian berbasis kondisi yang dipandu analisis oli biasanya lebih ekonomis daripada jadwal tetap."
+            },
+            {
+              "q": "Apa perbedaan oli mineral dan sintetis?",
+              "a": "Oli mineral direfinasi dari minyak bumi dan cocok untuk sebagian besar kondisi standar. Oli sintetis lebih stabil pada suhu ekstrem dan sering memiliki interval ganti lebih panjang, dengan harga beli lebih tinggi."
+            },
+            {
+              "q": "Bagaimana menentukan grade NLGI grease yang tepat?",
+              "a": "NLGI 2 paling umum untuk bearing umum. Grade lebih lunak cocok untuk sistem terpusat dan suhu rendah, sedangkan grade lebih padat untuk aplikasi kecepatan tinggi atau vertikal. Konfirmasikan dengan OEM."
+            },
+            {
+              "q": "Apakah tersedia dalam drum dan bulk?",
+              "a": "Ya. Kami menyediakan kemasan, drum, IBC tote, dan pengiriman terjadwal untuk akun reguler. Hubungi kami dengan volume dan lokasi Anda untuk detailnya."
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "Minta Penawaran",
+          "titleLine1": "Tidak Yakin",
+          "titleLine2": "Grade yang Anda Butuhkan?",
+          "desc": "Kirimkan daftar peralatan dan kondisi operasinya. Tim kami akan merekomendasikan pelumas yang tepat dan jadwal pasokannya.",
+          "whatsapp": "Chat WhatsApp",
+          "email": "Kirim Email",
+          "areasTitle": "Area Pasokan",
+          "areasDesc": "Tersedia drum bulk, IBC tote, dan pasokan kemasan untuk akun industri dan komersial.",
+          "locations": [
+            "Jakarta",
+            "Bekasi",
+            "Cikarang",
+            "Tangerang"
+          ],
+          "waText": "Halo Trumecs, saya tertarik dengan produk pelumas industri Anda.",
+          "emailSubject": "Permintaan Pelumas Industri"
+        },
+        "seo": {
+          "title": "Pelumas Industri Terpercaya - Trumecs",
+          "description": "Oli hidrolik, oli gear, oli kompresor, oli turbin, dan grease industri. Jenis pelumas, aplikasi per industri, dan panduan teknis."
+        }
+      },
+      "blueCollar": {
+        "hero": {
+          "eyebrow": "Penyedia Jasa SDM Blue Collar",
+          "titleLine1": "Tenaga Kerja Lapangan",
+          "titleLine2": "Siap Kerja & Terverifikasi",
+          "subtitle": "Kami menyediakan tenaga kerja lapangan — operator, teknisi, tukang, hingga tim gudang dan logistik — yang telah diseleksi, teruji keterampilannya, dan didukung administrasi ketenagakerjaan yang rapi.",
+          "ctaBrowse": "Lihat Cakupan SDM",
+          "ctaConsult": "Konsultasi Kebutuhan",
+          "crew": [
+            {
+              "role": "Operator Produksi",
+              "meta": "Manufaktur · Shift",
+              "status": "Siap Deploy"
+            },
+            {
+              "role": "Teknisi Mekanik",
+              "meta": "Maintenance · Plant",
+              "status": "Siap Deploy"
+            },
+            {
+              "role": "Operator Forklift",
+              "meta": "Gudang · Logistik",
+              "status": "Siap Deploy"
+            }
+          ]
+        },
+        "usps": {
+          "items": [
+            {
+              "icon": "mdi:clipboard-check-outline",
+              "title": "SDM Terseleksi & Teruji",
+              "description": "Setiap tenaga kerja kami melalui verifikasi dokumen, uji keterampilan praktik, dan pemeriksaan kesehatan sesuai kebutuhan posisi."
+            },
+            {
+              "icon": "mdi:clock-fast",
+              "title": "Penempatan Cepat",
+              "description": "Tenaga kerja siap kami sediakan untuk kebutuhan mendesak maupun skala besar, dari satu hingga puluhan personel."
+            },
+            {
+              "icon": "mdi:file-document-check-outline",
+              "title": "Administrasi Terkelola",
+              "description": "Kontrak kerja, payroll, BPJS, dan pelaporan dikelola sesuai ketentuan ketenagakerjaan yang berlaku."
+            }
+          ]
+        },
+        "coreValues": {
+          "sectionLabel": "Nilai Inti",
+          "titleLine1": "Nilai yang Menjadi",
+          "titleLine2": "Landasan Kami",
+          "subtitle": "Dalam menyediakan tenaga kerja, kami berpegang pada nilai inti untuk menjaga keandalan operasional, kualitas layanan, dan kemitraan jangka panjang.",
+          "items": [
+            {
+              "code": "DEFEND",
+              "title": "Defend",
+              "icon": "mdi:shield-check-outline",
+              "description": "Menjaga kontinuitas operasional bisnis Anda melalui penyediaan tenaga kerja tangguh yang terkelola secara terpadu, patuh regulasi, dan adaptif terhadap kebutuhan lapangan."
+            },
+            {
+              "code": "INNOVATE",
+              "title": "Innovate",
+              "icon": "mdi:lightbulb-on-outline",
+              "description": "Menghadirkan pengelolaan SDM yang lebih efektif dan terukur melalui proses kerja yang terstruktur, transparan, dan berorientasi pada kinerja."
+            },
+            {
+              "code": "SUSTAIN",
+              "title": "Sustain",
+              "icon": "mdi:handshake-outline",
+              "description": "Membangun kemitraan jangka panjang yang saling menguntungkan dengan menjaga kesejahteraan, keselamatan, dan perlindungan tenaga kerja sebagai penggerak produktivitas."
+            }
+          ]
+        },
+        "professions": {
+          "seoInlineTitle": "Penyedia Tenaga Kerja Blue Collar untuk Berbagai Industri",
+          "seoInlineDesc": "Dari operator produksi dan teknisi maintenance hingga tukang konstruksi, operator alat berat, dan tenaga gudang — kami menyediakan tenaga kerja blue collar di berbagai profesi lapangan yang telah terseleksi dan terverifikasi sesuai kebutuhan operasional Anda.",
+          "sectionLabel": "Cakupan SDM",
+          "titleLine1": "SDM Blue Collar",
+          "titleLine2": "yang Kami Sediakan",
+          "subtitle": "Pilih kategori atau cari jenis tenaga kerja yang Anda butuhkan. Klik kartu untuk melihat cakupan posisi, tugas, dan kompetensi SDM yang kami sediakan.",
+          "searchPlaceholder": "Cari posisi, mis. welder, forklift, teknisi…",
+          "searchAria": "Cari posisi",
+          "more": "lainnya",
+          "viewDetail": "Lihat cakupan {count} posisi",
+          "noResults": "Kategori tidak ditemukan. Tetap hubungi kami — kami dapat menyediakan tenaga kerja sesuai kebutuhan khusus Anda.",
+          "groups": [
+            "Semua",
+            "Manufaktur, Pangan & Agro",
+            "Teknik & Otomotif",
+            "Konstruksi & Energi",
+            "Logistik & Layanan"
+          ],
+          "modal": {
+            "rolesTitle": "Cakupan Posisi SDM ({count})",
+            "tasksTitle": "Tugas Umum",
+            "certsTitle": "Sertifikasi yang Relevan",
+            "envLabel": "Lingkungan kerja:",
+            "ctaText": "Butuh tenaga kerja untuk kategori ini?",
+            "ctaButton": "Konsultasi Kebutuhan SDM",
+            "close": "Tutup"
+          }
+        },
+        "models": {
+          "sectionLabel": "Skema Kerja Sama",
+          "titleLine1": "Pilih Model yang",
+          "titleLine2": "Sesuai Kebutuhan",
+          "subtitle": "Setiap perusahaan punya kebutuhan berbeda. Kami menyediakan beberapa skema agar pemenuhan tenaga kerja tetap fleksibel.",
+          "note": "Bentuk hubungan kerja disesuaikan dengan ketentuan peraturan ketenagakerjaan yang berlaku.",
+          "items": [
+            {
+              "icon": "mdi:account-group-outline",
+              "title": "Alih Daya (Outsourcing)",
+              "description": "Tenaga kerja kami ditempatkan di lokasi Anda. Kami mengelola kontrak, payroll, BPJS, serta pengawasan operasional.",
+              "chips": [
+                "Payroll & BPJS",
+                "Supervisor Lapangan",
+                "Penggantian Tenaga"
+              ]
+            },
+            {
+              "icon": "mdi:calendar-clock",
+              "title": "Kontrak Proyek / Musiman",
+              "description": "Penyediaan tim kerja siap pakai untuk proyek, shutdown, atau lonjakan produksi dengan durasi yang jelas.",
+              "chips": [
+                "Shutdown Maintenance",
+                "Peak Season",
+                "Proyek Konstruksi"
+              ]
+            },
+            {
+              "icon": "mdi:account-hard-hat-outline",
+              "title": "Penempatan Tenaga Kerja",
+              "description": "Kami menyediakan dan menyiapkan tenaga kerja yang sesuai spesifikasi untuk ditempatkan dan mendukung operasional perusahaan Anda.",
+              "chips": [
+                "SDM Siap Kerja",
+                "Seleksi & Uji",
+                "Onboarding"
+              ]
+            },
+            {
+              "icon": "mdi:swap-horizontal",
+              "title": "Penggantian & Dukungan Personel",
+              "description": "Dukungan penggantian personel dan penyesuaian jumlah tenaga kerja agar kebutuhan operasional Anda tetap terpenuhi.",
+              "chips": [
+                "Penggantian Cepat",
+                "Penyesuaian Skala",
+                "Monitoring"
+              ]
+            }
+          ]
+        },
+        "process": {
+          "sectionLabel": "Alur Kerja",
+          "titleLine1": "Dari Kebutuhan",
+          "titleLine2": "Sampai Penempatan",
+          "subtitle": "Proses yang jelas dan terukur, supaya tenaga kerja yang kami sediakan sesuai spesifikasi dan siap bekerja.",
+          "items": [
+            {
+              "icon": "mdi:chat-processing-outline",
+              "title": "Konsultasi Kebutuhan",
+              "description": "Kami memetakan posisi, jumlah, spesifikasi, lokasi, dan jadwal kerja yang Anda butuhkan."
+            },
+            {
+              "icon": "mdi:account-group-outline",
+              "title": "Penyiapan & Seleksi SDM",
+              "description": "Menyiapkan tenaga kerja dari pool SDM kami yang sesuai, disertai penyeleksian awal berdasarkan kebutuhan."
+            },
+            {
+              "icon": "mdi:clipboard-check-outline",
+              "title": "Uji & Verifikasi",
+              "description": "Uji keterampilan praktik, verifikasi dokumen dan sertifikat, serta medical check sesuai posisi."
+            },
+            {
+              "icon": "mdi:account-hard-hat",
+              "title": "Onboarding & Penempatan",
+              "description": "Induksi K3, administrasi, perlengkapan, dan penempatan tenaga kerja di lokasi Anda."
+            },
+            {
+              "icon": "mdi:monitor-dashboard",
+              "title": "Monitoring & Evaluasi",
+              "description": "Pemantauan kehadiran dan kinerja, evaluasi berkala, dan dukungan penggantian bila diperlukan."
+            }
+          ]
+        },
+        "quality": {
+          "sectionLabel": "Kualitas & Kepatuhan",
+          "titleLine1": "Standar Seleksi",
+          "titleLine2": "yang Kami Terapkan",
+          "subtitle": "Tenaga kerja lapangan menanggung risiko kerja yang nyata. Karena itu verifikasi dan kesiapan keselamatan bukan formalitas.",
+          "standardsTitle": "Kompetensi & Legalitas",
+          "standardsDesc": "Sertifikasi dan kepesertaan yang umum dipersyaratkan untuk pekerjaan lapangan di Indonesia.",
+          "items": [
+            {
+              "icon": "mdi:card-account-details-outline",
+              "title": "Verifikasi Dokumen",
+              "description": "Pengecekan identitas, pengalaman, serta keaslian sertifikat dan SIO yang dipersyaratkan pada tenaga kerja kami."
+            },
+            {
+              "icon": "mdi:tools",
+              "title": "Uji Keterampilan Praktik",
+              "description": "Tenaga kerja diuji langsung sesuai posisi untuk memastikan kompetensi dan kesiapan kerja."
+            },
+            {
+              "icon": "mdi:heart-pulse",
+              "title": "Pemeriksaan Kesehatan",
+              "description": "Medical check disesuaikan dengan risiko pekerjaan, terutama untuk kerja ketinggian dan pengoperasian alat berat."
+            },
+            {
+              "icon": "mdi:shield-check-outline",
+              "title": "Induksi K3 & APD",
+              "description": "Pembekalan keselamatan kerja dan penggunaan alat pelindung diri sebelum tenaga kerja ditempatkan."
+            }
+          ]
+        },
+        "industries": {
+          "sectionLabel": "Industri",
+          "titleLine1": "Industri yang",
+          "titleLine2": "Kami Layani",
+          "items": [
+            {
+              "name": "Manufaktur",
+              "icon": "mdi:factory"
+            },
+            {
+              "name": "Otomotif",
+              "icon": "mdi:car-wrench"
+            },
+            {
+              "name": "Konstruksi",
+              "icon": "mdi:crane"
+            },
+            {
+              "name": "Pertambangan",
+              "icon": "mdi:pickaxe"
+            },
+            {
+              "name": "Logistik & Distribusi",
+              "icon": "mdi:truck-fast-outline"
+            },
+            {
+              "name": "Makanan & Minuman",
+              "icon": "mdi:silverware-fork-knife"
+            },
+            {
+              "name": "Energi & Utilitas",
+              "icon": "mdi:lightning-bolt"
+            },
+            {
+              "name": "Properti & Gedung",
+              "icon": "mdi:domain"
+            },
+            {
+              "name": "Agro & Perkebunan",
+              "icon": "mdi:sprout"
+            },
+            {
+              "name": "Pelabuhan & Maritim",
+              "icon": "mdi:anchor"
+            }
+          ]
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Pertanyaan Umum",
+          "items": [
+            {
+              "q": "Berapa lama proses pemenuhan tenaga kerja?",
+              "a": "Tergantung posisi, jumlah, dan spesifikasi yang dibutuhkan. Setelah kami menerima brief kebutuhan, kami akan memberikan estimasi waktu penyediaan tenaga kerja yang realistis."
+            },
+            {
+              "q": "Apakah tenaga kerja sudah bersertifikat?",
+              "a": "Untuk posisi yang mensyaratkan sertifikasi seperti operator forklift, operator crane, atau juru las, kami memverifikasi sertifikat dan SIO yang berlaku sebelum penempatan."
+            },
+            {
+              "q": "Apakah bisa memenuhi kebutuhan dalam jumlah besar?",
+              "a": "Bisa. Untuk kebutuhan massal, misalnya lonjakan produksi atau proyek, kami menyiapkan rencana penyediaan tenaga kerja secara bertahap sesuai jadwal penempatan."
+            },
+            {
+              "q": "Siapa yang mengurus payroll dan BPJS?",
+              "a": "Pada skema alih daya, kami mengelola kontrak kerja, payroll, dan kepesertaan BPJS tenaga kerja. Pada skema penempatan lain, administrasi disesuaikan dengan kesepakatan kerja sama."
+            },
+            {
+              "q": "Bagaimana jika tenaga kerja tidak sesuai harapan?",
+              "a": "Kami melakukan evaluasi berkala dan menyediakan mekanisme penggantian sesuai kesepakatan kerja sama. Detailnya dibahas dalam perjanjian layanan."
+            },
+            {
+              "q": "Apakah melayani di luar Jabodetabek?",
+              "a": "Kami dapat melayani proyek di luar kota sesuai kesepakatan. Hubungi kami dengan lokasi dan kebutuhan Anda untuk pembahasan lebih lanjut."
+            }
+          ]
+        },
+        "contact": {
+          "sectionLabel": "Ajukan Kebutuhan",
+          "titleLine1": "Butuh Tenaga Kerja",
+          "titleLine2": "dalam Waktu Dekat?",
+          "subtitle": "Sampaikan kebutuhan singkat Anda. Tim kami akan menghubungi untuk membahas spesifikasi, jumlah, dan jadwal penempatan tenaga kerja.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Kirim Email",
+          "serviceArea": "Melayani Jabodetabek dan kawasan industri sekitarnya. Proyek luar kota sesuai kesepakatan.",
+          "formTitle": "Form Kebutuhan Cepat",
+          "companyLabel": "Nama Perusahaan",
+          "companyPlaceholder": "PT …",
+          "positionLabel": "Posisi",
+          "positionPlaceholder": "Mis. Operator Forklift",
+          "qtyLabel": "Jumlah",
+          "qtyPlaceholder": "10",
+          "locationLabel": "Lokasi Kerja",
+          "locationPlaceholder": "Mis. Cikarang, Bekasi",
+          "noteLabel": "Catatan (opsional)",
+          "notePlaceholder": "Durasi, sistem shift, sertifikat wajib, dll.",
+          "submit": "Kirim Kebutuhan via WhatsApp",
+          "formHint": "Form ini membuka WhatsApp dengan pesan yang sudah terisi. Tidak ada data yang disimpan di situs.",
+          "formError": "Mohon isi posisi dan jumlah tenaga kerja yang dibutuhkan.",
+          "requiredMark": "*",
+          "waIntro": "Halo {brand}, saya ingin mengajukan kebutuhan tenaga kerja blue collar.",
+          "waCompany": "Perusahaan: {value}",
+          "waPosition": "Posisi: {value}",
+          "waQty": "Jumlah: {value} orang",
+          "waLocation": "Lokasi kerja: {value}",
+          "waNote": "Catatan: {value}",
+          "waCategory": "Halo {brand}, saya membutuhkan tenaga kerja untuk kategori \"{category}\". Mohon informasi ketersediaan SDM dan proses penyediaannya.",
+          "waGeneral": "Halo {brand}, saya tertarik dengan layanan penyediaan SDM blue collar. Mohon informasi lebih lanjut.",
+          "emailSubject": "Kebutuhan Tenaga Kerja Blue Collar"
+        },
+        "seo": {
+          "title": "Jasa Penyedia SDM Blue Collar | Tenaga Kerja Lapangan Terverifikasi",
+          "description": "Penyedia SDM blue collar: operator produksi, teknisi, tukang konstruksi, operator alat berat, tenaga gudang dan logistik. Tenaga kerja terseleksi, teruji, dan administrasi ketenagakerjaan terkelola.",
+          "breadcrumbHome": "Beranda",
+          "breadcrumbPage": "Jasa SDM Blue Collar",
+          "serviceType": "Penyedia Jasa SDM dan Tenaga Kerja Blue Collar",
+          "catalogName": "Kategori SDM Blue Collar"
+        },
+        "categories": [
+          {
+            "name": "Manufaktur & Produksi",
+            "icon": "mdi:factory",
+            "groupIdx": 1,
+            "description": "Tenaga lini produksi untuk pabrik dengan target output dan sistem shift.",
+            "roles": [
+              "Operator Produksi",
+              "Operator Mesin CNC",
+              "Operator Mesin Press",
+              "Operator Injection Molding",
+              "Assembler",
+              "QC Inspector",
+              "Packing & Finishing",
+              "Operator Mesin Jahit",
+              "Helper Produksi",
+              "Leader Produksi"
+            ],
+            "tasks": [
+              "Mengoperasikan mesin dan peralatan sesuai SOP",
+              "Menjaga kualitas dan target output harian",
+              "Melakukan pengecekan awal dan kebersihan area kerja",
+              "Mematuhi ketentuan K3 dan penggunaan APD"
+            ],
+            "requirements": [
+              "Minimal SMA/SMK atau sederajat",
+              "Pengalaman relevan untuk posisi operator mesin",
+              "Bersedia bekerja dengan sistem shift",
+              "Sehat dan lolos pemeriksaan kesehatan"
+            ],
+            "certs": [
+              "K3 Umum",
+              "Sertifikasi BNSP (bidang terkait)",
+              "Sertifikat operator mesin"
+            ],
+            "env": "Lingkungan pabrik, umumnya dengan sistem shift."
+          },
+          {
+            "name": "Makanan & Minuman",
+            "icon": "mdi:silverware-fork-knife",
+            "groupIdx": 1,
+            "description": "Tenaga produksi pangan dengan standar higiene dan keamanan pangan.",
+            "roles": [
+              "Operator Pengolahan Makanan",
+              "Operator Filling & Bottling",
+              "Packing Food Grade",
+              "Helper Dapur Industri",
+              "Baker / Helper Roti Industri",
+              "Helper Pengolahan Daging",
+              "Operator Cold Storage",
+              "Quality & Hygiene Helper",
+              "Sanitasi Produksi"
+            ],
+            "tasks": [
+              "Mengoperasikan mesin pengolahan dan pengemasan",
+              "Menjaga kebersihan dan sanitasi area produksi",
+              "Menerapkan prosedur higiene dan keamanan pangan",
+              "Melakukan pencatatan produksi sederhana"
+            ],
+            "requirements": [
+              "Minimal SMA/SMK atau sederajat",
+              "Sehat dan lolos pemeriksaan kesehatan",
+              "Bersedia mematuhi aturan higiene (seragam dan APD khusus)",
+              "Teliti dan disiplin"
+            ],
+            "certs": [
+              "Pelatihan Higiene & Sanitasi",
+              "Pelatihan Dasar Keamanan Pangan (HACCP)",
+              "K3 Umum"
+            ],
+            "env": "Area produksi pangan, sebagian bersuhu dingin (cold storage)."
+          },
+          {
+            "name": "Agro & Perkebunan",
+            "icon": "mdi:sprout",
+            "groupIdx": 1,
+            "description": "Tenaga kebun dan pengolahan hasil panen untuk perkebunan dan agroindustri.",
+            "roles": [
+              "Pemanen",
+              "Operator Traktor",
+              "Mandor Kebun",
+              "Perawat Tanaman",
+              "Pekerja Pembibitan (Nursery)",
+              "Helper Pabrik Pengolahan",
+              "Operator Mesin Pengolahan Hasil Panen",
+              "Driver Angkutan Hasil Panen"
+            ],
+            "tasks": [
+              "Melaksanakan panen dan perawatan tanaman sesuai jadwal",
+              "Mengoperasikan traktor dan peralatan kebun",
+              "Mengangkut dan menangani hasil panen",
+              "Membantu proses pengolahan awal hasil panen"
+            ],
+            "requirements": [
+              "Fisik sehat dan bugar",
+              "Bersedia ditempatkan di area kebun atau luar kota",
+              "Pengalaman sesuai posisi menjadi nilai tambah",
+              "SIM yang sesuai untuk operator dan driver"
+            ],
+            "certs": [
+              "SIM B1/B2 untuk driver",
+              "Sertifikat operator alat",
+              "K3 Umum"
+            ],
+            "env": "Area kebun terbuka dan pabrik pengolahan, sering di luar kota."
+          },
+          {
+            "name": "Teknik & Maintenance",
+            "icon": "mdi:wrench",
+            "groupIdx": 2,
+            "description": "Teknisi dan pengerjaan logam untuk perawatan dan perbaikan fasilitas industri.",
+            "roles": [
+              "Teknisi Mekanik",
+              "Teknisi Listrik",
+              "Teknisi Elektronik",
+              "Teknisi Instrumentasi",
+              "Teknisi HVAC / AC",
+              "Teknisi Mesin Produksi",
+              "Welder / Juru Las",
+              "Fitter / Millwright",
+              "Machinist (Bubut & Frais)",
+              "Maintenance Helper"
+            ],
+            "tasks": [
+              "Melakukan perawatan preventif dan korektif",
+              "Troubleshooting dan perbaikan kerusakan",
+              "Membaca gambar teknik dan diagram kelistrikan",
+              "Mencatat laporan pekerjaan dan pemakaian suku cadang"
+            ],
+            "requirements": [
+              "SMK teknik atau pengalaman setara",
+              "Pengalaman sesuai bidang (mekanik, listrik, las, dll.)",
+              "Memahami K3 kerja panas dan kerja listrik",
+              "Bersedia on-call atau kerja saat shutdown"
+            ],
+            "certs": [
+              "Sertifikasi BNSP (teknisi / juru las)",
+              "Sertifikat Juru Las sesuai posisi pengelasan",
+              "Sertifikasi K3 Listrik",
+              "K3 Umum"
+            ],
+            "env": "Workshop dan area pabrik, sesekali shutdown atau lembur."
+          },
+          {
+            "name": "Otomotif & Alat Berat",
+            "icon": "mdi:car-wrench",
+            "groupIdx": 2,
+            "description": "Mekanik dan teknisi kendaraan serta alat berat untuk bengkel dan fleet perusahaan.",
+            "roles": [
+              "Mekanik Mobil",
+              "Mekanik Motor",
+              "Mekanik Diesel",
+              "Mekanik Alat Berat",
+              "Teknisi Kelistrikan Kendaraan",
+              "Teknisi AC Kendaraan",
+              "Body Repair & Painter",
+              "Service Helper",
+              "Car Washer & Detailing"
+            ],
+            "tasks": [
+              "Servis berkala dan perbaikan kendaraan",
+              "Diagnosa kerusakan dan penggantian komponen",
+              "Overhaul komponen sesuai prosedur",
+              "Menjaga kebersihan bengkel dan peralatan"
+            ],
+            "requirements": [
+              "SMK otomotif atau pengalaman setara",
+              "Memahami SOP servis dan keselamatan bengkel",
+              "SIM yang sesuai",
+              "Teliti dan disiplin"
+            ],
+            "certs": [
+              "Sertifikasi BNSP (otomotif)",
+              "SIM A/C",
+              "K3 Umum"
+            ],
+            "env": "Bengkel dan area servis, kadang di lokasi pelanggan."
+          },
+          {
+            "name": "Konstruksi & Fabrikasi",
+            "icon": "mdi:crane",
+            "groupIdx": 3,
+            "description": "Tenaga lapangan untuk proyek bangunan, infrastruktur, dan fabrikasi.",
+            "roles": [
+              "Tukang Batu",
+              "Tukang Kayu",
+              "Tukang Cat",
+              "Tukang Besi (Bar Bender)",
+              "Tukang Las Konstruksi",
+              "Tukang Keramik",
+              "Tukang Plumbing",
+              "Scaffolder",
+              "Rigger",
+              "Operator Crane",
+              "Helper Konstruksi",
+              "Mandor / Foreman Lapangan"
+            ],
+            "tasks": [
+              "Melaksanakan pekerjaan sesuai gambar kerja dan instruksi mandor",
+              "Menjaga mutu dan ketepatan jadwal pekerjaan",
+              "Menggunakan APD dan alat kerja secara aman",
+              "Menyiapkan dan merapikan area kerja"
+            ],
+            "requirements": [
+              "Pengalaman proyek sesuai keahlian",
+              "Fisik sehat",
+              "Bersedia ditempatkan di lokasi proyek atau luar kota",
+              "Memahami dasar keselamatan kerja di ketinggian"
+            ],
+            "certs": [
+              "SKK Konstruksi (sesuai keahlian)",
+              "K3 Konstruksi",
+              "Sertifikat Scaffolder / Rigger",
+              "SIO Operator Crane"
+            ],
+            "env": "Lokasi proyek terbuka dan kerja di ketinggian, jadwal mengikuti proyek."
+          },
+          {
+            "name": "Pertambangan & Energi",
+            "icon": "mdi:pickaxe",
+            "groupIdx": 3,
+            "description": "Operator dan teknisi untuk tambang, pembangkit, dan fasilitas utilitas.",
+            "roles": [
+              "Operator Excavator",
+              "Operator Dozer",
+              "Operator Wheel Loader",
+              "Driver Dump Truck",
+              "Helper Tambang",
+              "Mekanik Alat Berat",
+              "Teknisi Genset",
+              "Operator Boiler",
+              "Operator Utility",
+              "Pipe Fitter",
+              "Welder Pipa"
+            ],
+            "tasks": [
+              "Mengoperasikan alat berat sesuai prosedur dan rencana kerja",
+              "Melakukan pemeriksaan harian sebelum operasi",
+              "Menjaga keselamatan di area berisiko tinggi",
+              "Melaporkan kondisi unit dan kejadian di lapangan"
+            ],
+            "requirements": [
+              "Sertifikat atau SIO yang masih berlaku",
+              "Pengalaman operasi sesuai jenis unit",
+              "Bersedia sistem rotasi (roster) dan lokasi terpencil",
+              "Lolos pemeriksaan kesehatan berkala"
+            ],
+            "certs": [
+              "SIO Alat Berat (Kemnaker)",
+              "SIM B2 Umum",
+              "Sertifikasi Operator Boiler (Kemnaker)",
+              "K3 Umum"
+            ],
+            "env": "Area tambang, pembangkit, atau plant, sering dengan sistem roster."
+          },
+          {
+            "name": "Logistik, Gudang & Pelabuhan",
+            "icon": "mdi:warehouse",
+            "groupIdx": 4,
+            "description": "Tenaga gudang, transportasi, dan pelabuhan untuk rantai pasok yang lancar.",
+            "roles": [
+              "Operator Forklift",
+              "Operator Reach Truck",
+              "Staff Gudang",
+              "Checker",
+              "Picker & Packer",
+              "Loading–Unloading",
+              "Driver Truk",
+              "Driver Pengiriman",
+              "Kernet / Helper",
+              "Operator Crane Pelabuhan",
+              "Operator Reach Stacker",
+              "Tally / Checker Pelabuhan",
+              "Buruh Bongkar Muat"
+            ],
+            "tasks": [
+              "Penerimaan, penyimpanan, dan pengeluaran barang",
+              "Pemuatan dan pembongkaran sesuai prosedur",
+              "Pencatatan stok dan dokumen pengiriman",
+              "Mengoperasikan forklift dan alat angkut dengan aman"
+            ],
+            "requirements": [
+              "Pengalaman gudang atau transportasi untuk operator dan driver",
+              "SIO atau SIM yang sesuai dan berlaku",
+              "Teliti dalam pencatatan",
+              "Bersedia kerja shift dan lembur sesuai kebutuhan"
+            ],
+            "certs": [
+              "SIO Forklift (Kemnaker)",
+              "SIO Operator Crane",
+              "SIM B1/B2 Umum",
+              "K3 Umum"
+            ],
+            "env": "Gudang, pusat distribusi, depo, dan pelabuhan dengan sistem shift."
+          },
+          {
+            "name": "Fasilitas & Layanan Gedung",
+            "icon": "mdi:domain",
+            "groupIdx": 4,
+            "description": "Tenaga layanan gedung, kebersihan, dan operasional untuk perkantoran, pabrik, dan properti.",
+            "roles": [
+              "Cleaning Service",
+              "Office Boy / Office Girl",
+              "Housekeeping",
+              "Teknisi Gedung (Building Engineer)",
+              "Teknisi Plumbing",
+              "Teknisi Listrik Gedung",
+              "Gardener / Landscape",
+              "Pest Control Technician",
+              "Driver Operasional",
+              "Security (Gada Pratama)"
+            ],
+            "tasks": [
+              "Menjaga kebersihan dan kerapian fasilitas",
+              "Perawatan rutin sistem gedung (listrik, air, AC)",
+              "Layanan operasional harian sesuai jadwal",
+              "Menjaga keamanan area (untuk posisi security)"
+            ],
+            "requirements": [
+              "Minimal SMP/SMA sesuai posisi",
+              "Berpenampilan rapi dan disiplin",
+              "Sertifikat Gada untuk posisi security",
+              "Pengalaman relevan untuk teknisi gedung"
+            ],
+            "certs": [
+              "Gada Pratama / Madya (Security)",
+              "K3 Umum",
+              "Sertifikat teknisi sesuai bidang"
+            ],
+            "env": "Perkantoran, pabrik, apartemen, pusat perbelanjaan, dan kawasan."
+          }
+        ]
+      },
+      "seo": {
+        "title": "Principal & Partner | Trumecs",
+        "description": "Bergabung sebagai principal atau partner Trumecs. Tampilkan produk dan solusi Anda dan jangkau pembeli potensial di seluruh Indonesia."
+      },
+      "hydraulicHose": {
+        "hero": {
+          "eyebrow": "Selang, Fitting & Koneksi Hidrolik",
+          "titleLine1": "Solusi Selang & Koneksi",
+          "titleLine2": "Hidrolik Industri",
+          "subtitle": "Dari selang textile hingga PTFE, fitting, adapter, quick coupling, valve, dan pipa bending. Pilih tipe yang tepat untuk tekanan, suhu, dan media kerja Anda.",
+          "ctaProducts": "Lihat Kategori Produk",
+          "ctaQuote": "Minta Penawaran"
+        },
+        "usps": [
+          {
+            "icon": "mdi:view-grid-outline",
+            "title": "Rangkaian Lengkap",
+            "description": "Selang, fitting, adapter, coupling, valve, pelindung, hingga pipa bending tersedia dari satu sumber."
+          },
+          {
+            "icon": "mdi:certificate-outline",
+            "title": "Mengacu Standar",
+            "description": "Produk mengacu pada standar EN, SAE, dan ISO yang umum dipakai di industri hidrolik."
+          },
+          {
+            "icon": "mdi:hammer-wrench",
+            "title": "Rakit & Uji",
+            "description": "Rakitan selang sesuai panjang dan fitting yang Anda butuhkan, diuji sebelum dikirim."
+          }
+        ],
+        "products": {
+          "sectionLabel": "Kategori Produk",
+          "seoTitle": "Selang Hidrolik, Fitting, Quick Coupling & Aksesori untuk Industri",
+          "seoDesc": "Rangkaian lengkap komponen jalur fluida hidrolik: selang textile braid, wire braid, wire spiral, thermoplastic, dan PTFE; fitting dan adapter dalam berbagai standar ulir; quick coupling, konektor swivel, valve, pelindung selang, hingga pipa bending sesuai gambar kerja.",
+          "titleLine1": "Satu Sumber untuk",
+          "titleLine2": "Seluruh Jalur Hidrolik",
+          "subtitle": "Pilih kategori atau cari produk. Klik kartu untuk melihat contoh produk, spesifikasi umum, aplikasi, dan catatan pemilihan.",
+          "searchPlaceholder": "Cari produk, mis. 2SN, PTFE, flat face…",
+          "searchAria": "Cari produk",
+          "noResults": "Produk tidak ditemukan. Hubungi kami, kami dapat membantu mencarikan komponen sesuai spesifikasi Anda.",
+          "examplesLabel": "contoh produk"
+        },
+        "groups": [
+          "Semua",
+          "Selang",
+          "Fitting & Koneksi",
+          "Valve & Pendukung"
+        ],
+        "categories": [
+          {
+            "name": "Selang Textile Braid",
+            "icon": "mdi:pipe",
+            "image": "/principal/hose/selang-textile-braid.webp",
+            "groupIdx": 1,
+            "range": "Diameter 6 – 51 mm",
+            "description": "Selang hidrolik dengan penguat anyaman tekstil. Ringan dan fleksibel untuk tekanan rendah hingga menengah.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "6 – 51 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R3, R4, R6 · EN 854"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Rendah – menengah"
+              }
+            ],
+            "ratings": {
+              "pressure": 1,
+              "flex": 4,
+              "temp": 2,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 1TE / SAE 100R6",
+                "spec": "1 anyaman tekstil",
+                "description": "Ringan untuk jalur return, saluran oli, dan tekanan rendah."
+              },
+              {
+                "name": "Selang 2TE / SAE 100R3",
+                "spec": "2 anyaman tekstil",
+                "description": "Untuk tekanan menengah pada jalur suplai maupun return."
+              },
+              {
+                "name": "Selang 3TE (EN 854)",
+                "spec": "3 anyaman tekstil",
+                "description": "Tekanan menengah dengan fleksibilitas baik dan ketahanan impuls yang lebih tinggi."
+              },
+              {
+                "name": "Selang Suction & Return / SAE 100R4",
+                "spec": "Tekstil + helix kawat",
+                "description": "Untuk saluran hisap dan return, tahan terhadap tekanan negatif."
+              }
+            ],
+            "applications": [
+              "Jalur return oli",
+              "Saluran pilot & drain",
+              "Pelumasan",
+              "Mesin pertanian",
+              "Peralatan konstruksi ringan"
+            ],
+            "tip": "Pilih textile braid untuk tekanan rendah. Untuk tekanan kerja tinggi atau impuls berat, gunakan wire braid atau wire spiral."
+          },
+          {
+            "name": "Selang Wire Braid",
+            "icon": "mdi:grid",
+            "image": "/principal/hose/selang-wire-braid.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 5 – 102 mm",
+            "description": "Penguat anyaman kawat baja untuk tekanan menengah hingga tinggi. Tipe paling serbaguna untuk sistem hidrolik umum.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "5 – 102 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "EN 853 (1SN/2SN) · EN 857 · SAE 100R1AT/R2AT/R5"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Menengah – tinggi (hingga ± 40 MPa pada diameter kecil)"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 3,
+              "temp": 2,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 1SN / SAE 100R1AT",
+                "spec": "1 anyaman kawat baja",
+                "description": "Serbaguna untuk tekanan menengah pada alat berat dan mesin industri."
+              },
+              {
+                "name": "Selang 2SN / SAE 100R2AT",
+                "spec": "2 anyaman kawat baja",
+                "description": "Tekanan kerja lebih tinggi untuk beban dan impuls yang lebih berat."
+              },
+              {
+                "name": "Selang Compact 1SC / 2SC (EN 857)",
+                "spec": "Diameter luar ringkas",
+                "description": "Radius tekuk lebih rapat untuk ruang instalasi yang sempit."
+              },
+              {
+                "name": "Selang SAE 100R5",
+                "spec": "Wire braid + cover tekstil",
+                "description": "Cover anyaman tekstil dengan penguat kawat baja untuk lingkungan umum."
+              },
+              {
+                "name": "Selang Big Bore",
+                "spec": "Hingga 102 mm",
+                "description": "Diameter besar untuk saluran suplai atau hisap berkapasitas tinggi."
+              }
+            ],
+            "applications": [
+              "Alat berat",
+              "Pertanian",
+              "Press & injection molding",
+              "Power pack",
+              "Truk & dump hoist"
+            ],
+            "tip": "Gunakan tipe compact bila ruang terbatas atau radius tekuk kecil dibutuhkan."
+          },
+          {
+            "name": "Selang Wire Spiral",
+            "icon": "mdi:autorenew",
+            "image": "/principal/hose/selang-wire-spiral.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 6 – 76 mm",
+            "description": "Empat hingga enam lapis spiral kawat baja untuk tekanan tinggi dan impuls berat pada alat berat dan mesin tambang.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "6 – 76 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "EN 856 (4SP/4SH) · SAE 100R12/R13/R15"
+              },
+              {
+                "label": "Tekanan",
+                "value": "Tinggi – sangat tinggi (tekanan kerja bervariasi per diameter)"
+              }
+            ],
+            "ratings": {
+              "pressure": 4,
+              "flex": 2,
+              "temp": 3,
+              "chem": 2
+            },
+            "products": [
+              {
+                "name": "Selang 4SP (EN 856)",
+                "spec": "4 spiral kawat baja",
+                "description": "Tekanan tinggi untuk alat berat dan sistem dengan impuls berat."
+              },
+              {
+                "name": "Selang 4SH (EN 856)",
+                "spec": "4 spiral, tekanan lebih tinggi",
+                "description": "Tekanan kerja lebih tinggi untuk diameter menengah hingga besar."
+              },
+              {
+                "name": "Selang SAE 100R12",
+                "spec": "4 spiral · ± 28 MPa (4000 psi)",
+                "description": "Tahan impuls tinggi untuk aplikasi mobile equipment."
+              },
+              {
+                "name": "Selang SAE 100R13 / R15",
+                "spec": "Multi-spiral · ± 35 – 42 MPa",
+                "description": "Tekanan sangat tinggi untuk excavator dan mesin hidrolik besar."
+              },
+              {
+                "name": "Selang Spiral Tahan Abrasi / MSHA",
+                "spec": "Cover khusus",
+                "description": "Varian cover tahan abrasi dan sesuai persyaratan tambang (MSHA)."
+              }
+            ],
+            "applications": [
+              "Excavator",
+              "Peralatan tambang",
+              "Drilling",
+              "Press besar",
+              "Mesin hidrolik tekanan tinggi"
+            ],
+            "tip": "Selang spiral lebih kaku. Perhatikan radius tekuk minimum dan pasang fitting khusus spiral (multispiral/interlock)."
+          },
+          {
+            "name": "Selang Thermoplastic",
+            "icon": "mdi:feather",
+            "image": "/principal/hose/selang-thermoplastic.webp",
+            "groupIdx": 1,
+            "range": "Diameter 2 – 25 mm",
+            "description": "Selang ringan dengan radius tekuk kecil serta tahan abrasi dan cuaca. Cocok untuk ruang sempit dan peralatan portabel.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "2 – 25 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R7 / R8 · EN 855"
+              },
+              {
+                "label": "Cover",
+                "value": "Poliuretan atau termoplastik tahan abrasi"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 4,
+              "temp": 2,
+              "chem": 3
+            },
+            "products": [
+              {
+                "name": "SAE 100R7 Textile Braid",
+                "spec": "Penguat serat tekstil",
+                "description": "Tekanan menengah, sangat ringan dan fleksibel."
+              },
+              {
+                "name": "SAE 100R8 Tekanan Tinggi",
+                "spec": "Penguat serat tekanan tinggi",
+                "description": "Tekanan lebih tinggi untuk peralatan hidrolik kompak."
+              },
+              {
+                "name": "Thermoplastic Wire Braid",
+                "spec": "1 atau 2 anyaman kawat baja",
+                "description": "Tekanan tinggi dengan cover tahan abrasi dan tanpa bekas tusukan (non pin-pricked)."
+              },
+              {
+                "name": "Selang Twin (Dua Jalur)",
+                "spec": "2 selang dalam 1 cover",
+                "description": "Satu selang untuk dua jalur suplai dan return agar instalasi lebih rapi."
+              },
+              {
+                "name": "Selang Non-Konduktif",
+                "spec": "Untuk kerja dekat listrik",
+                "description": "Varian non-konduktif untuk peralatan utilitas dan aerial lift."
+              }
+            ],
+            "applications": [
+              "Peralatan hidrolik portabel",
+              "Robotika & otomasi",
+              "Crane truk",
+              "Peralatan utilitas",
+              "Cat semprot tekanan tinggi"
+            ],
+            "tip": "Pilih thermoplastic bila bobot ringan, radius tekuk kecil, atau ketahanan abrasi lebih penting daripada ketahanan suhu tinggi."
+          },
+          {
+            "name": "Selang PTFE",
+            "icon": "mdi:flask-outline",
+            "image": "/principal/hose/selang-ptfe.jpg",
+            "groupIdx": 1,
+            "range": "Diameter 5 – 51 mm",
+            "description": "Lapisan dalam PTFE dengan penguat kawat stainless. Tahan suhu tinggi dan hampir semua bahan kimia.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "5 – 51 mm"
+              },
+              {
+                "label": "Standar",
+                "value": "SAE 100R14 dan sejenisnya"
+              },
+              {
+                "label": "Suhu",
+                "value": "Hingga ± 260°C (sesuai tipe)"
+              }
+            ],
+            "ratings": {
+              "pressure": 3,
+              "flex": 2,
+              "temp": 4,
+              "chem": 4
+            },
+            "products": [
+              {
+                "name": "PTFE Smooth Bore / SAE 100R14",
+                "spec": "Lubang halus, braid stainless",
+                "description": "Aliran lancar dan mudah dibersihkan untuk suhu tinggi dan media agresif."
+              },
+              {
+                "name": "PTFE Corrugated (Convoluted)",
+                "spec": "Dinding bergelombang",
+                "description": "Lebih fleksibel dengan radius tekuk kecil untuk jalur yang berliku."
+              },
+              {
+                "name": "PTFE Konduktif (Antistatik)",
+                "spec": "Lapisan dalam konduktif",
+                "description": "Mencegah penumpukan listrik statis pada transfer fluida mudah terbakar."
+              },
+              {
+                "name": "PTFE Tekanan Tinggi Multi-Braid",
+                "spec": "Beberapa anyaman stainless",
+                "description": "Tekanan kerja lebih tinggi untuk sistem industri dan otomotif."
+              }
+            ],
+            "applications": [
+              "Industri kimia",
+              "Makanan & farmasi",
+              "Uap & suhu tinggi",
+              "Bahan bakar & pendingin",
+              "Cat dan pelarut"
+            ],
+            "tip": "Pastikan fitting kompatibel dengan PTFE. Jenis dan prosedur crimp berbeda dari selang karet."
+          },
+          {
+            "name": "Fitting Selang (Hose Fitting)",
+            "icon": "mdi:link-variant",
+            "image": "/principal/hose/selang-fitting.jpg",
+            "groupIdx": 2,
+            "range": "Baja karbon & stainless steel",
+            "description": "Ujung koneksi selang dalam versi one-piece maupun two-piece, tersedia untuk selang standar hingga multi-spiral.",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Baja karbon & stainless steel"
+              },
+              {
+                "label": "Konstruksi",
+                "value": "One-piece & two-piece"
+              },
+              {
+                "label": "Koneksi",
+                "value": "BSP, NPT, Metrik, JIC, ORFS, SAE, Staple (tambang)"
+              }
+            ],
+            "products": [
+              {
+                "name": "Fitting One-Piece (Crimp)",
+                "spec": "Satu bagian",
+                "description": "Instalasi cepat dan efisien untuk produksi rakitan volume tinggi."
+              },
+              {
+                "name": "Fitting Two-Piece",
+                "spec": "Nipple + socket",
+                "description": "Kombinasi nipple dan socket yang fleksibel untuk berbagai ukuran dan ujung."
+              },
+              {
+                "name": "Fitting Multispiral / Interlock",
+                "spec": "Untuk selang spiral",
+                "description": "Socket yang mencengkeram lapisan penguat selang tekanan tinggi."
+              },
+              {
+                "name": "Fitting Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan laut, kimia, dan pengolahan pangan."
+              },
+              {
+                "name": "Fitting Flange SAE Code 61 / 62",
+                "spec": "Flange 4 baut",
+                "description": "Untuk diameter besar dan tekanan tinggi, umum pada alat berat."
+              }
+            ],
+            "applications": [
+              "Rakitan selang",
+              "Perawatan & perbaikan",
+              "Produksi OEM",
+              "Alat berat",
+              "Industri tambang"
+            ],
+            "tip": "Gunakan kombinasi selang, fitting, dan mesin crimp yang kompatibel serta ikuti data crimp dari produsen."
+          },
+          {
+            "name": "Adapter Hidrolik",
+            "icon": "mdi:connection",
+            "image": "/principal/hose/adapter-hidrolik.webp",
+            "groupIdx": 2,
+            "range": "BSP · NPT · Metrik · JIC · ORFS · SAE",
+            "description": "Penghubung dan pengubah jenis ulir antar komponen hidrolik seperti pompa, silinder, valve, dan manifold.",
+            "specs": [
+              {
+                "label": "Koneksi",
+                "value": "BSP, NPT, Metrik (24°), JIC, ORFS, SAE"
+              },
+              {
+                "label": "Bentuk",
+                "value": "Lurus, elbow, tee, cross"
+              },
+              {
+                "label": "Material",
+                "value": "Baja karbon berlapis & stainless steel"
+              }
+            ],
+            "products": [
+              {
+                "name": "Adapter Lurus",
+                "spec": "Male–male / male–female",
+                "description": "Menghubungkan dua jenis ulir atau ukuran yang berbeda secara langsung."
+              },
+              {
+                "name": "Adapter Elbow 45° / 90°",
+                "spec": "Sudut tetap atau swivel",
+                "description": "Mengubah arah jalur untuk ruang sempit dan merapikan routing selang."
+              },
+              {
+                "name": "Adapter Tee & Cross",
+                "spec": "3 atau 4 port",
+                "description": "Membagi atau menggabungkan aliran pada satu titik koneksi."
+              },
+              {
+                "name": "Adapter Bulkhead",
+                "spec": "Menembus panel",
+                "description": "Menghubungkan jalur melalui dinding panel atau tangki dengan mur pengunci."
+              },
+              {
+                "name": "Plug, Cap & Reducer",
+                "spec": "Penutup & pengecil",
+                "description": "Menutup port yang tidak dipakai atau mengubah ukuran sambungan."
+              }
+            ],
+            "applications": [
+              "Konversi ulir",
+              "Manifold & blok hidrolik",
+              "Pompa & silinder",
+              "Power pack",
+              "Test bench"
+            ],
+            "tip": "Cocokkan jenis ulir, ukuran, dan permukaan seal (kerucut, O-ring, atau flat face) sebelum memesan."
+          },
+          {
+            "name": "Quick Coupling & Multi-Coupling",
+            "icon": "mdi:lightning-bolt-outline",
+            "image": "/principal/hose/quick-coupling.jpg",
+            "groupIdx": 2,
+            "range": "Poppet · Flat Face · Screw Type",
+            "description": "Sambungan cepat untuk menyambung dan melepas jalur hidrolik tanpa alat, termasuk sistem multi-coupling untuk banyak jalur sekaligus.",
+            "specs": [
+              {
+                "label": "Tipe",
+                "value": "Poppet, flat face, screw-to-connect"
+              },
+              {
+                "label": "Standar",
+                "value": "ISO 7241 (poppet) · ISO 16028 (flat face)"
+              },
+              {
+                "label": "Fitur",
+                "value": "Tersedia versi sambung-lepas saat bertekanan"
+              }
+            ],
+            "products": [
+              {
+                "name": "Quick Coupling Poppet (ISO 7241)",
+                "spec": "Katup poppet",
+                "description": "Tipe umum untuk aplikasi serbaguna dengan interchangeability luas."
+              },
+              {
+                "name": "Quick Coupling Flat Face (ISO 16028)",
+                "spec": "Muka rata",
+                "description": "Kebocoran minimal saat dilepas dan mudah dibersihkan, cocok untuk lingkungan kotor."
+              },
+              {
+                "name": "Quick Coupling Screw Type",
+                "spec": "Sambungan ulir",
+                "description": "Pengunci ulir untuk tekanan tinggi dan beban dinamis."
+              },
+              {
+                "name": "Coupling Sambung Saat Bertekanan",
+                "spec": "Pressure connect",
+                "description": "Dapat disambung walau jalur masih bertekanan sehingga mempercepat penggantian attachment."
+              },
+              {
+                "name": "Multi-Coupling",
+                "spec": "Hidrolik / listrik / pneumatik",
+                "description": "Banyak jalur dalam satu sambungan untuk pergantian attachment yang cepat dan bebas salah sambung."
+              }
+            ],
+            "applications": [
+              "Implement traktor",
+              "Attachment excavator",
+              "Power pack",
+              "Test bench",
+              "Mesin mobile"
+            ],
+            "tip": "Pilih ukuran dan tipe sesuai laju aliran. Coupling yang terlalu kecil menyebabkan kehilangan tekanan dan panas."
+          },
+          {
+            "name": "Konektor Plug-in & Swivel",
+            "icon": "mdi:rotate-3d-variant",
+            "image": "/principal/hose/swivel.jpg",
+            "groupIdx": 2,
+            "range": "Hingga ± 420 bar · Diameter hingga 51 mm",
+            "description": "Konektor plug-in untuk perakitan cepat tanpa salah pasang, serta swivel untuk bagian yang berputar agar selang tidak terpelintir.",
+            "specs": [
+              {
+                "label": "Tekanan (swivel)",
+                "value": "Hingga ± 420 bar (6000 psi), sesuai tipe"
+              },
+              {
+                "label": "Diameter",
+                "value": "Hingga 51 mm"
+              },
+              {
+                "label": "Koneksi",
+                "value": "Sesuai kebutuhan OEM / custom termination"
+              }
+            ],
+            "products": [
+              {
+                "name": "Konektor Plug-in",
+                "spec": "Pasang langsung",
+                "description": "Instalasi cepat dan minim kesalahan, ideal untuk ruang terbatas dan produksi massal."
+              },
+              {
+                "name": "Swivel Putaran Kontinu",
+                "spec": "Rotasi penuh",
+                "description": "Desain kompak dengan putaran halus untuk bagian yang berputar terus-menerus."
+              },
+              {
+                "name": "Swivel Putaran Intermiten",
+                "spec": "Osilasi / terbatas",
+                "description": "Untuk gerakan berputar sebagian atau berganti arah."
+              },
+              {
+                "name": "Swivel Custom OEM",
+                "spec": "Sesuai gambar kerja",
+                "description": "Termination dan ukuran disesuaikan dengan kebutuhan desain mesin."
+              }
+            ],
+            "applications": [
+              "Hose reel",
+              "Crane & winch",
+              "Drum berputar",
+              "Lengan robot",
+              "Mesin dengan bagian berputar"
+            ],
+            "tip": "Gunakan swivel di setiap titik yang berputar. Selang yang terpelintir akan cepat rusak dan berisiko bocor."
+          },
+          {
+            "name": "Valve (Ball & Check)",
+            "icon": "mdi:valve",
+            "image": "/principal/hose/ball-check-valve.jpg",
+            "groupIdx": 3,
+            "range": "Diameter nominal hingga 51 mm",
+            "description": "Ball valve dan check valve untuk jalur tekanan rendah maupun tinggi, tersedia dalam beberapa material dan tipe ujung.",
+            "specs": [
+              {
+                "label": "Diameter",
+                "value": "Hingga 51 mm"
+              },
+              {
+                "label": "Material",
+                "value": "Kuningan, baja karbon, stainless steel"
+              },
+              {
+                "label": "Fungsi",
+                "value": "Buka-tutup (ball) & satu arah (check)"
+              }
+            ],
+            "products": [
+              {
+                "name": "Ball Valve Kuningan",
+                "spec": "Tekanan rendah",
+                "description": "Isolasi jalur untuk sistem tekanan rendah dan media umum."
+              },
+              {
+                "name": "Ball Valve Baja Karbon",
+                "spec": "Tekanan tinggi",
+                "description": "Konstruksi kuat untuk jalur hidrolik bertekanan tinggi."
+              },
+              {
+                "name": "Ball Valve Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan korosif, laut, dan pengolahan pangan."
+              },
+              {
+                "name": "Ball Valve 3-Way",
+                "spec": "Pengarah aliran",
+                "description": "Mengalihkan atau memilih jalur aliran pada satu valve."
+              },
+              {
+                "name": "Check Valve (Non-Return)",
+                "spec": "Aliran satu arah",
+                "description": "Mencegah aliran balik untuk melindungi pompa dan komponen sistem."
+              }
+            ],
+            "applications": [
+              "Isolasi jalur oli",
+              "Pengambilan sampel & drain",
+              "Power pack",
+              "Test bench",
+              "Perawatan sistem"
+            ],
+            "tip": "Pilih material dan tipe ujung sesuai media, tekanan kerja, dan jenis koneksi pada sistem Anda."
+          },
+          {
+            "name": "Pelindung Selang (Hose Guard)",
+            "icon": "mdi:shield-half-full",
+            "image": "/principal/hose/pelindung-selang.jpg",
+            "groupIdx": 3,
+            "range": "Standard · MSHA · FRAS",
+            "description": "Pelindung spiral plastik untuk menahan abrasi dan faktor eksternal lain yang memperpendek umur selang.",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Plastik spiral tepi membulat"
+              },
+              {
+                "label": "Versi",
+                "value": "Standard, MSHA, FRAS"
+              },
+              {
+                "label": "Pemasangan",
+                "value": "Mudah, tanpa alat khusus"
+              }
+            ],
+            "products": [
+              {
+                "name": "Spiral Guard Standar",
+                "spec": "Plastik spiral",
+                "description": "Perlindungan abrasi umum pada alat berat dan mesin industri."
+              },
+              {
+                "name": "Spiral Guard MSHA",
+                "spec": "Persyaratan tambang",
+                "description": "Varian yang memenuhi persyaratan penggunaan di area tambang."
+              },
+              {
+                "name": "Spiral Guard FRAS",
+                "spec": "Tahan api & antistatik",
+                "description": "Tahan api dan antistatik untuk lingkungan berisiko tinggi."
+              },
+              {
+                "name": "Pelindung Pegas Baja",
+                "spec": "Spring guard",
+                "description": "Perlindungan tambahan terhadap tekukan tajam dan benturan di titik rawan."
+              }
+            ],
+            "applications": [
+              "Tambang",
+              "Alat berat",
+              "Kehutanan",
+              "Area abrasif",
+              "Lingkungan panas"
+            ],
+            "tip": "Pelindung tidak menggantikan penggantian selang yang aus. Tetap lakukan inspeksi rutin."
+          },
+          {
+            "name": "Pipa Bending (Manipulated Tube)",
+            "icon": "mdi:vector-polyline",
+            "image": "/principal/hose/pipa-bending.jpg",
+            "groupIdx": 3,
+            "range": "Diameter 4 – 200 mm (3/16\" – 8\")",
+            "description": "Pipa hidrolik yang dibentuk sesuai gambar kerja OEM, dapat dipadukan dengan selang, fitting, dan coupling.",
+            "specs": [
+              {
+                "label": "Material",
+                "value": "Baja karbon & stainless steel"
+              },
+              {
+                "label": "Diameter",
+                "value": "4 – 200 mm (3/16\" – 8\")"
+              },
+              {
+                "label": "Kebersihan",
+                "value": "Hingga NAS 5 / ISO 4406 16/14/11 atau lebih baik"
+              }
+            ],
+            "products": [
+              {
+                "name": "Pipa Bending OEM",
+                "spec": "Sesuai gambar kerja",
+                "description": "Pembentukan presisi dengan pengukuran geometri 3D untuk hasil yang konsisten."
+              },
+              {
+                "name": "Rakitan Pipa dengan Fitting",
+                "spec": "Tube assembly",
+                "description": "Pipa lengkap dengan fitting dan seal, siap dipasang."
+              },
+              {
+                "name": "Pipa Stainless Steel",
+                "spec": "Tahan korosi",
+                "description": "Untuk lingkungan korosif dan aplikasi yang menuntut kebersihan tinggi."
+              },
+              {
+                "name": "Pipa Flange SAE",
+                "spec": "Untuk diameter besar",
+                "description": "Pipa dengan ujung flange untuk jalur tekanan tinggi berdiameter besar."
+              },
+              {
+                "name": "Pipa Kebersihan Tinggi",
+                "spec": "Dibersihkan & disumbat",
+                "description": "Dibersihkan dan ditutup untuk menjaga tingkat kebersihan hingga pemasangan."
+              }
+            ],
+            "applications": [
+              "Alat berat",
+              "Mesin industri",
+              "Manifold & power unit",
+              "Jalur tetap tekanan tinggi",
+              "Produksi OEM"
+            ],
+            "tip": "Gunakan pipa untuk rute tetap bertekanan tinggi dan selang untuk bagian yang bergerak atau bergetar."
+          }
+        ],
+        "compare": {
+          "sectionLabel": "Perbandingan Cepat",
+          "titleLine1": "Tipe Selang",
+          "titleLine2": "Sekilas",
+          "subtitle": "Panduan relatif untuk membandingkan lima tipe selang. Semakin banyak titik terisi, semakin kuat kemampuannya di aspek tersebut.",
+          "thHose": "Tipe Selang",
+          "note": "Panduan umum. Kemampuan aktual bergantung pada diameter, konstruksi, dan spesifikasi produsen. Selalu rujuk datasheet produk."
+        },
+        "ratingLabels": {
+          "pressure": "Tekanan",
+          "flex": "Fleksibilitas",
+          "temp": "Suhu",
+          "chem": "Tahan Kimia"
+        },
+        "assembly": {
+          "sectionLabel": "Hose Assembly",
+          "titleLine1": "Rakitan Selang",
+          "titleLine2": "Sesuai Kebutuhan",
+          "subtitle": "Kirim spesifikasi atau sampel selang lama. Kami siapkan rakitan dengan panjang, fitting, dan sudut yang sesuai.",
+          "steps": [
+            {
+              "icon": "mdi:ruler",
+              "title": "Ukur & Spesifikasi",
+              "description": "Tentukan tipe selang, diameter, panjang, ujung fitting, dan arah sudut."
+            },
+            {
+              "icon": "mdi:content-cut",
+              "title": "Potong & Bersihkan",
+              "description": "Pemotongan presisi dan pembersihan bagian dalam selang sebelum dirakit."
+            },
+            {
+              "icon": "mdi:hammer-wrench",
+              "title": "Crimp Sesuai Data",
+              "description": "Pengepresan fitting mengikuti data crimp untuk kombinasi selang dan fitting."
+            },
+            {
+              "icon": "mdi:gauge",
+              "title": "Uji & Beri Label",
+              "description": "Uji tekanan, pemeriksaan visual, dan pelabelan sebelum pengiriman."
+            }
+          ]
+        },
+        "reference": {
+          "sectionLabel": "Referensi Teknis",
+          "titleLine1": "Membaca",
+          "titleLine2": "Kode Selang",
+          "subtitle": "Kode selang memuat konstruksi, ukuran, dan standar. Berikut contoh cara membacanya, ditambah tabel ukuran dan jenis koneksi.",
+          "sizeTitle": "Konversi Ukuran Selang",
+          "sizeSub": "Diameter dalam (DN), kode dash, dan inci",
+          "thDn": "DN (mm)",
+          "thDash": "Dash",
+          "thInch": "Inci",
+          "threadTitle": "Jenis Koneksi Umum",
+          "threadSub": "Ulir dan permukaan seal yang sering ditemui",
+          "thType": "Tipe",
+          "thSeal": "Seal / Sudut",
+          "thNote": "Catatan",
+          "threadNote": "Ulir yang terlihat mirip belum tentu kompatibel. Cocokkan jenis ulir, ukuran, dan permukaan seal sebelum memasang.",
+          "decoder": [
+            {
+              "code": "2SN",
+              "label": "Konstruksi",
+              "meaning": "Dua lapis anyaman kawat baja sebagai penguat"
+            },
+            {
+              "code": "DN12",
+              "label": "Diameter",
+              "meaning": "Diameter dalam nominal 12 mm"
+            },
+            {
+              "code": "-8",
+              "label": "Dash",
+              "meaning": "Kode ukuran dash: 8/16 inci = 1/2 inci"
+            },
+            {
+              "code": "EN 853",
+              "label": "Standar",
+              "meaning": "Standar selang hidrolik wire braid"
+            }
+          ],
+          "sizeRows": [
+            {
+              "dn": 6,
+              "dash": "-4",
+              "inch": "1/4\""
+            },
+            {
+              "dn": 8,
+              "dash": "-5",
+              "inch": "5/16\""
+            },
+            {
+              "dn": 10,
+              "dash": "-6",
+              "inch": "3/8\""
+            },
+            {
+              "dn": 12,
+              "dash": "-8",
+              "inch": "1/2\""
+            },
+            {
+              "dn": 16,
+              "dash": "-10",
+              "inch": "5/8\""
+            },
+            {
+              "dn": 19,
+              "dash": "-12",
+              "inch": "3/4\""
+            },
+            {
+              "dn": 25,
+              "dash": "-16",
+              "inch": "1\""
+            },
+            {
+              "dn": 31,
+              "dash": "-20",
+              "inch": "1-1/4\""
+            },
+            {
+              "dn": 38,
+              "dash": "-24",
+              "inch": "1-1/2\""
+            },
+            {
+              "dn": 51,
+              "dash": "-32",
+              "inch": "2\""
+            }
+          ],
+          "threadRows": [
+            {
+              "code": "BSP",
+              "seal": "Ulir pipa 55°",
+              "note": "Umum di Eropa dan Asia (BSPP / BSPT)"
+            },
+            {
+              "code": "NPT",
+              "seal": "Ulir tirus 60°",
+              "note": "Standar Amerika, seal pada ulir"
+            },
+            {
+              "code": "JIC",
+              "seal": "Flare 37°",
+              "note": "Seal logam ke logam, umum pada alat berat"
+            },
+            {
+              "code": "ORFS",
+              "seal": "O-ring face seal",
+              "note": "Anti bocor, cocok untuk tekanan tinggi"
+            },
+            {
+              "code": "Metrik",
+              "seal": "Cone 24°",
+              "note": "Sistem Eropa, ringan dan berat"
+            },
+            {
+              "code": "SAE Flange",
+              "seal": "O-ring + 4 baut",
+              "note": "Diameter besar, Code 61 / 62"
+            }
+          ]
+        },
+        "selection": {
+          "sectionLabel": "Pemilihan & Keselamatan",
+          "titleLine1": "Pilih dengan Tepat,",
+          "titleLine2": "Gunakan dengan Aman",
+          "subtitle": "Kegagalan selang hidrolik hampir selalu bisa dicegah lewat pemilihan yang benar dan inspeksi rutin.",
+          "factorsTitle": "Enam Faktor Pemilihan",
+          "failureTitle": "Penyebab Kegagalan Umum",
+          "warningTitle": "Peringatan keselamatan",
+          "warningDesc": "Kebocoran halus pada tekanan tinggi dapat menembus kulit (fluid injection) dan berbahaya. Jangan memeriksa kebocoran dengan tangan. Gunakan kertas karton atau papan, kenakan APD, dan turunkan tekanan sistem sebelum melepas selang atau fitting.",
+          "standardsTitle": "Standar Acuan",
+          "standardsDesc": "Norma yang umum dirujuk untuk selang, fitting, dan koneksi hidrolik.",
+          "factors": [
+            {
+              "icon": "mdi:ruler",
+              "title": "Ukuran",
+              "description": "Diameter dalam menentukan laju aliran. Terlalu kecil menimbulkan panas dan kehilangan tekanan."
+            },
+            {
+              "icon": "mdi:thermometer",
+              "title": "Suhu",
+              "description": "Perhatikan suhu fluida dan lingkungan, termasuk lonjakan suhu sesaat."
+            },
+            {
+              "icon": "mdi:tractor",
+              "title": "Aplikasi",
+              "description": "Gerakan, getaran, ruang pasang, dan radius tekuk menentukan tipe konstruksi."
+            },
+            {
+              "icon": "mdi:flask-outline",
+              "title": "Media",
+              "description": "Pastikan inner tube kompatibel dengan oli, air-glikol, bahan kimia, atau bahan bakar."
+            },
+            {
+              "icon": "mdi:gauge",
+              "title": "Tekanan",
+              "description": "Hitung tekanan kerja plus impuls, dengan faktor keselamatan sesuai standar."
+            },
+            {
+              "icon": "mdi:link-variant",
+              "title": "Ujung Koneksi",
+              "description": "Tentukan jenis ulir, sudut fitting, dan kompatibilitas dengan komponen yang ada."
+            }
+          ],
+          "failures": [
+            {
+              "icon": "mdi:gauge-full",
+              "title": "Tekanan & Impuls Berlebih",
+              "description": "Lonjakan tekanan berulang melelahkan penguat selang hingga akhirnya pecah."
+            },
+            {
+              "icon": "mdi:rotate-3d-variant",
+              "title": "Tekukan & Terpelintir",
+              "description": "Radius tekuk di bawah batas atau selang terpuntir mempercepat kerusakan."
+            },
+            {
+              "icon": "mdi:shield-alert-outline",
+              "title": "Abrasi & Lingkungan",
+              "description": "Gesekan, panas, dan paparan bahan kimia merusak cover. Gunakan pelindung dan routing yang tepat."
+            },
+            {
+              "icon": "mdi:hammer-wrench",
+              "title": "Fitting & Crimp Keliru",
+              "description": "Kombinasi fitting tidak sesuai atau crimp tidak tepat menyebabkan fitting terlepas."
+            }
+          ],
+          "standards": [
+            "EN 853",
+            "EN 856",
+            "EN 854",
+            "EN 855",
+            "EN 857",
+            "SAE J517",
+            "ISO 1436",
+            "ISO 18752",
+            "ISO 17165",
+            "ISO 12151",
+            "ISO 8434",
+            "ISO 7241",
+            "ISO 16028",
+            "ISO 4406"
+          ]
+        },
+        "faq": {
+          "sectionLabel": "FAQ",
+          "title": "Pertanyaan Umum",
+          "items": [
+            {
+              "q": "Bagaimana memilih selang hidrolik yang tepat?",
+              "a": "Tentukan tekanan kerja (termasuk impuls), diameter dalam, suhu, jenis media, ruang pasang, dan jenis ujung koneksi. Lalu pilih tipe konstruksi serta standar yang sesuai. Jika ragu, kirimkan spesifikasi atau sampel selang lama kepada kami."
+            },
+            {
+              "q": "Apa beda selang 1SN dan 2SN?",
+              "a": "1SN memiliki satu lapis anyaman kawat baja, sedangkan 2SN memiliki dua lapis. Dengan diameter yang sama, 2SN umumnya memiliki tekanan kerja lebih tinggi."
+            },
+            {
+              "q": "Kapan sebaiknya memakai selang PTFE?",
+              "a": "Pilih PTFE untuk suhu tinggi, bahan kimia agresif, atau kebutuhan kebersihan seperti pada industri pangan dan farmasi. Untuk hidrolik umum pada alat berat, wire braid atau wire spiral biasanya lebih tepat."
+            },
+            {
+              "q": "Bolehkah mencampur selang dan fitting dari produsen berbeda?",
+              "a": "Sebaiknya tidak. Kombinasi selang, fitting, dan data crimp ditetapkan oleh produsen. Mencampur komponen tanpa data resmi dapat menurunkan keamanan dan tekanan kerja rakitan."
+            },
+            {
+              "q": "Berapa lama umur selang hidrolik?",
+              "a": "Tidak ada umur tetap karena sangat bergantung pada tekanan, suhu, gerakan, dan lingkungan. Lakukan inspeksi berkala dan ganti bila ada kebocoran, retak cover, benjolan, atau kawat penguat yang terlihat."
+            },
+            {
+              "q": "Apakah bisa memesan rakitan selang dengan panjang dan fitting khusus?",
+              "a": "Bisa. Kirimkan tipe selang, panjang, jenis dan sudut fitting, atau sampel rakitan lama. Kami akan menyiapkan rakitan sesuai spesifikasi tersebut."
+            }
+          ]
+        },
+        "contact": {
+          "sectionLabel": "Minta Penawaran",
+          "titleLine1": "Butuh Selang atau",
+          "titleLine2": "Fitting Tertentu?",
+          "subtitle": "Sebutkan tipe, ukuran, dan jumlah. Jika belum yakin, kirim foto atau sampel selang lama dan kami bantu mencocokkannya.",
+          "whatsapp": "Chat via WhatsApp",
+          "email": "Kirim Email",
+          "formTitle": "Form Permintaan Cepat",
+          "fieldProduct": "Produk / Kategori",
+          "fieldSpec": "Ukuran / Spesifikasi",
+          "fieldQty": "Jumlah",
+          "fieldNote": "Catatan (opsional)",
+          "phProduct": "Mis. Selang 2SN, Quick Coupling Flat Face",
+          "phSpec": "Mis. DN12, 400 bar, JIC",
+          "phQty": "10",
+          "phNote": "Panjang selang, jenis media, suhu kerja, dll.",
+          "required": "*",
+          "submit": "Kirim via WhatsApp",
+          "formHint": "Form ini membuka WhatsApp dengan pesan yang sudah terisi. Tidak ada data yang disimpan di situs.",
+          "formError": "Mohon isi produk atau kategori dan jumlah yang dibutuhkan.",
+          "waIntro": "Halo Trumecs, saya ingin meminta penawaran produk hidrolik.",
+          "waProduct": "Produk",
+          "waSpec": "Ukuran / spesifikasi",
+          "waQty": "Jumlah",
+          "waNote": "Catatan",
+          "waCategory": "Halo Trumecs, saya ingin meminta penawaran untuk kategori \"{name}\". Mohon informasi produk dan ketersediaannya.",
+          "waGeneral": "Halo Trumecs, saya tertarik dengan produk selang, fitting, dan koneksi hidrolik. Mohon informasi lebih lanjut.",
+          "emailSubject": "Permintaan Penawaran Produk Hidrolik"
+        },
+        "detail": {
+          "specsTitle": "Spesifikasi Umum",
+          "ratingsTitle": "Karakteristik (Relatif)",
+          "productsTitle": "Contoh Produk ({count})",
+          "applicationsTitle": "Aplikasi Umum",
+          "ctaText": "Butuh penawaran untuk kategori ini?",
+          "ctaButton": "Minta Penawaran",
+          "close": "Tutup"
+        },
+        "seo": {
+          "title": "Selang Hidrolik, Fitting, Adapter & Quick Coupling | Trumecs",
+          "description": "Selang hidrolik textile braid, wire braid, wire spiral, thermoplastic, dan PTFE; fitting, adapter, quick coupling, valve, pelindung selang, dan pipa bending untuk industri."
         }
       }
     },

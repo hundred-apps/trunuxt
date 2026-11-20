@@ -846,10 +846,16 @@ onMounted(() => {
 });
 
 // ============ SEO ============
+const SITE_URL = "https://www.trumecs.com";
+const PAGE_PATH = "/principal/struman";
+
+const localeHead = useLocaleHead();
 useHead({
-  title: t("page.principal.struman.seo.title"),
+  title: () => t("page.principal.struman.seo.title"),
   titleTemplate: "%s | Trumecs.com",
-  meta: [
+  htmlAttrs: computed(() => localeHead.value.htmlAttrs ?? {}),
+  meta: computed(() => [
+    ...(localeHead.value.meta ?? []),
     {
       name: "description",
       content: t("page.principal.struman.seo.description"),
@@ -865,11 +871,11 @@ useHead({
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Trumecs.com" },
     { name: "robots", content: "index, follow" },
-  ],
-  link: [
-    { rel: "canonical", href: "https://www.trumecs.com/principal/struman" },
+  ]),
+  link: computed(() => [
+    ...(localeHead.value.link ?? []),
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    { rel: "preconnect", href: "https://fonts.gstatic.com" },
+    { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
     {
       href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hanken+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
       rel: "stylesheet",
@@ -877,6 +883,56 @@ useHead({
     {
       href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap",
       rel: "stylesheet",
+    },
+  ]),
+});
+
+const geoJsonLd = computed(() => [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: t("breadcrumb.home"),
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("page.principal.title"),
+        item: `${SITE_URL}/principal`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: t("page.principal.struman.seo.title"),
+        item: `${SITE_URL}${PAGE_PATH}`,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Portable Power Station Solutions",
+    name: t("page.principal.struman.seo.title"),
+    description: t("page.principal.struman.seo.description"),
+    url: `${SITE_URL}${PAGE_PATH}`,
+    provider: {
+      "@type": "Organization",
+      name: "Trumecs",
+      url: SITE_URL,
+    },
+    areaServed: { "@type": "Country", name: "Indonesia" },
+  },
+]);
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: () => JSON.stringify(geoJsonLd.value),
     },
   ],
 });
