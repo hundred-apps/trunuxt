@@ -3681,7 +3681,7 @@
           "emailSubject": "工业轴承询价"
         },
         "seo": {
-          "title": "工业轴承与动力传动 - Trumecs",
+          "title": "工业轴承 - Trumecs",
           "description": "工业轴承：深沟球、滚子、推力及带座单元。类型介绍、行业应用与选型技术指南。",
           "serviceType": "工业轴承供应"
         },
@@ -4341,7 +4341,7 @@
       },
       "blueCollar": {
         "hero": {
-          "eyebrow": "蓝领人力服务提供商",
+          "eyebrow": "一线人力服务提供商",
           "titleLine1": "一线作业人员",
           "titleLine2": "即刻上岗 · 资质可靠",
           "subtitle": "我们提供经过筛选与技能考核、并配套完善用工管理的一线人员——操作员、技术员、技工，以及仓储与物流团队。",
@@ -4411,11 +4411,11 @@
           ]
         },
         "professions": {
-          "seoInlineTitle": "面向各行业的蓝领人力服务",
+          "seoInlineTitle": "面向各行业的一线人力服务",
           "seoInlineDesc": "从生产操作员、维修技术员到建筑技工、重型设备操作员及仓储人员——我们提供覆盖多类一线岗位、经过筛选与核验的人力，以满足您的运营需求。",
           "sectionLabel": "人员覆盖范围",
           "titleLine1": "我们提供的",
-          "titleLine2": "蓝领人员",
+          "titleLine2": "一线人员",
           "subtitle": "选择类别或搜索所需人员类型。点击卡片查看我们可提供人员的岗位范围、工作内容与能力资质。",
           "searchPlaceholder": "搜索岗位，如焊工、叉车、技术员…",
           "searchAria": "搜索岗位",
@@ -4651,23 +4651,23 @@
           "formHint": "此表单将打开已填写内容的 WhatsApp 消息，本站不保存任何数据。",
           "formError": "请填写所需岗位及人员数量。",
           "requiredMark": "*",
-          "waIntro": "您好 {brand}，我想提交一项蓝领人员需求。",
+          "waIntro": "您好 {brand}，我想提交一项一线人员需求。",
           "waCompany": "公司：{value}",
           "waPosition": "岗位：{value}",
           "waQty": "人数：{value} 人",
           "waLocation": "工作地点：{value}",
           "waNote": "备注：{value}",
           "waCategory": "您好 {brand}，我需要“{category}”类别的人员。请告知人员可用情况及提供流程。",
-          "waGeneral": "您好 {brand}，我对贵方的蓝领人力服务感兴趣，请提供更多信息。",
-          "emailSubject": "蓝领人员需求"
+          "waGeneral": "您好 {brand}，我对贵方的一线人力服务感兴趣，请提供更多信息。",
+          "emailSubject": "一线人员需求"
         },
         "seo": {
-          "title": "蓝领人力服务提供商 | 可靠的一线人员",
-          "description": "蓝领人力服务：生产操作员、技术员、建筑技工、重型设备操作员、仓储与物流人员。人员经过筛选与技能考核，并提供完善的用工管理。",
+          "title": "一线人力服务提供商 | 可靠的一线人员",
+          "description": "一线人力服务：生产操作员、技术员、建筑技工、重型设备操作员、仓储与物流人员。人员经过筛选与技能考核，并提供完善的用工管理。",
           "breadcrumbHome": "首页",
-          "breadcrumbPage": "蓝领人力服务",
-          "serviceType": "蓝领人力与人员派驻服务提供商",
-          "catalogName": "蓝领人员类别"
+          "breadcrumbPage": "一线人力服务",
+          "serviceType": "一线人力与人员派驻服务提供商",
+          "catalogName": "一线人员类别"
         },
         "categories": [
           {

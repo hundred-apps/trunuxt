@@ -461,6 +461,7 @@
 import BessCalculator from "~/components/calculator/BessCalculator.vue";
 import type { BessResult } from "~/types/calculator";
 const { t } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 const activeFeature = ref(0);
 const activeFeatureMobile = ref(0);
@@ -478,10 +479,14 @@ const scrollTo = (id: string) => {
 };
 
 const handleContact = () => {
-  window.open(
-    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20BESS%20Anda.",
-    "_blank"
-  );
+  const url =
+    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20BESS%20Anda.";
+  trackWhatsAppClick("principal_vinenergo_contact", {
+    link_url: url,
+    page_path: "/principal/vinenergo",
+    link_label: "Vinenergo WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {

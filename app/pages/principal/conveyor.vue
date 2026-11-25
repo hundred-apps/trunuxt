@@ -446,6 +446,7 @@
 import { ref, computed, watch, onBeforeUnmount } from "vue";
 
 const { t, tm, rt } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 const industries = computed(() => {
   const items = tm("page.principal.conveyor.industries.items");
@@ -527,7 +528,13 @@ const scrollTo = (id: string) => {
 
 const handleContact = () => {
   const text = encodeURIComponent(t("page.principal.conveyor.contact.waText"));
-  window.open(`https://wa.me/6285176912338?text=${text}`, "_blank");
+  const url = `https://wa.me/6285176912338?text=${text}`;
+  trackWhatsAppClick("principal_conveyor_contact", {
+    link_url: url,
+    page_path: "/principal/conveyor",
+    link_label: "Conveyor WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {

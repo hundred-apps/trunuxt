@@ -668,6 +668,7 @@ import {
 } from "vue";
 
 const { t, tm, rt } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 // ============ KONFIGURASI ============
 const BRAND = "Trumecs";
@@ -844,11 +845,14 @@ const form = reactive({
 });
 const formError = ref("");
 
-const openWhatsApp = (text: string) => {
-  window.open(
-    `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,
-    "_blank"
-  );
+const openWhatsApp = (text: string, source = "blue_collar_hr") => {
+  const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  trackWhatsAppClick(source, {
+    link_url: url,
+    page_path: PAGE_PATH,
+    link_label: source,
+  });
+  window.open(url, "_blank");
 };
 
 const submitRequest = () => {
@@ -878,7 +882,7 @@ const submitRequest = () => {
       ? msg("page.principal.blueCollar.contact.waNote", { value: form.note })
       : "",
   ].filter((l, i) => l !== "" || i === 1);
-  openWhatsApp(lines.join("\n"));
+  openWhatsApp(lines.join("\n"), "blue_collar_hr_form");
 };
 
 const requestCategory = (cat: any) => {
@@ -886,13 +890,15 @@ const requestCategory = (cat: any) => {
     msg("page.principal.blueCollar.contact.waCategory", {
       brand: BRAND,
       category: cat.name,
-    })
+    }),
+    "blue_collar_hr_category",
   );
 };
 
 const handleContact = () => {
   openWhatsApp(
-    msg("page.principal.blueCollar.contact.waGeneral", { brand: BRAND })
+    msg("page.principal.blueCollar.contact.waGeneral", { brand: BRAND }),
+    "blue_collar_hr_contact",
   );
 };
 

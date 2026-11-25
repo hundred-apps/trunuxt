@@ -2664,7 +2664,7 @@
       },
       "industrialBearing": {
         "hero": {
-          "eyebrow": "Industrial Bearings & Power Transmission",
+          "eyebrow": "Industrial Bearings",
           "titleLine1": "Precision That Keeps",
           "titleLine2": "Industry Turning",
           "subtitle": "Ball, roller, thrust, and housed bearings for motors, pumps, gearboxes, and conveyors. Correctly specified, reliably supplied, and backed by technical support.",
@@ -4342,7 +4342,7 @@
       },
       "blueCollar": {
         "hero": {
-          "eyebrow": "Blue-Collar Workforce Provider",
+          "eyebrow": "Workforce Provider",
           "titleLine1": "Field Workforce",
           "titleLine2": "Ready & Verified",
           "subtitle": "We provide field workers — operators, technicians, tradespeople, and warehouse & logistics teams — screened, skill-tested, and supported with well-managed employment administration.",
@@ -4412,10 +4412,10 @@
           ]
         },
         "professions": {
-          "seoInlineTitle": "Blue-Collar Workforce Provider for Various Industries",
-          "seoInlineDesc": "From production operators and maintenance technicians to construction trades, heavy equipment operators, and warehouse staff — we provide screened and verified blue-collar workers across field professions to meet your operational needs.",
+          "seoInlineTitle": "Workforce Provider for Various Industries",
+          "seoInlineDesc": "From production operators and maintenance technicians to construction trades, heavy equipment operators, and warehouse staff — we provide screened and verified field workers across professions to meet your operational needs.",
           "sectionLabel": "Workforce Coverage",
-          "titleLine1": "Blue-Collar Workforce",
+          "titleLine1": "Field Workforce",
           "titleLine2": "We Provide",
           "subtitle": "Select a category or search for the type of worker you need. Click a card to see the roles, tasks, and competencies of the workforce we provide.",
           "searchPlaceholder": "Search roles, e.g. welder, forklift, technician…",
@@ -4652,23 +4652,23 @@
           "formHint": "This form opens WhatsApp with a pre-filled message. No data is stored on this site.",
           "formError": "Please fill in the role and the number of workers needed.",
           "requiredMark": "*",
-          "waIntro": "Hello {brand}, I would like to submit a blue-collar workforce requirement.",
+          "waIntro": "Hello {brand}, I would like to submit a workforce requirement.",
           "waCompany": "Company: {value}",
           "waPosition": "Role: {value}",
           "waQty": "Quantity: {value} people",
           "waLocation": "Work location: {value}",
           "waNote": "Notes: {value}",
           "waCategory": "Hello {brand}, I need workers for the \"{category}\" category. Please share information on workforce availability and the supply process.",
-          "waGeneral": "Hello {brand}, I’m interested in your blue-collar workforce services. Please share more information.",
-          "emailSubject": "Blue-Collar Workforce Requirement"
+          "waGeneral": "Hello {brand}, I’m interested in your workforce services. Please share more information.",
+          "emailSubject": "Workforce Requirement"
         },
         "seo": {
-          "title": "Blue-Collar Workforce Provider | Verified Field Workers",
-          "description": "Blue-collar workforce provider: production operators, technicians, construction trades, heavy equipment operators, warehouse and logistics staff. Screened, skill-tested workers with managed employment administration.",
+          "title": "Workforce Provider | Verified Field Workers",
+          "description": "Workforce provider: production operators, technicians, construction trades, heavy equipment operators, warehouse and logistics staff. Screened, skill-tested workers with managed employment administration.",
           "breadcrumbHome": "Home",
-          "breadcrumbPage": "Blue-Collar Workforce Services",
-          "serviceType": "Blue-Collar Workforce and Staffing Services Provider",
-          "catalogName": "Blue-Collar Workforce Categories"
+          "breadcrumbPage": "Workforce Services",
+          "serviceType": "Workforce and Staffing Services Provider",
+          "catalogName": "Workforce Categories"
         },
         "categories": [
           {

@@ -523,6 +523,7 @@
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 const { t, tm, rt } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 const heroImage = "/principal/lubricant/hero-lubricant.jpg";
 
@@ -671,7 +672,13 @@ const handleContact = () => {
   const text = encodeURIComponent(
     t("page.principal.industrialLubricant.contact.waText")
   );
-  window.open(`https://wa.me/6285176912338?text=${text}`, "_blank");
+  const url = `https://wa.me/6285176912338?text=${text}`;
+  trackWhatsAppClick("principal_industrial_lubricant_contact", {
+    link_url: url,
+    page_path: "/principal/industrial-lubricant",
+    link_label: "Industrial Lubricant WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {

@@ -590,6 +590,7 @@ import {
 
 const { t, tm, rt } = useI18n();
 const localeHead = useLocaleHead();
+const { trackWhatsAppClick } = useAnalytics();
 
 // ============ KONFIGURASI ============
 const BRAND = "Trumecs";
@@ -773,8 +774,14 @@ const form = reactive({
 });
 const formError = ref("");
 
-const openWhatsApp = (text: string) => {
-  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+const openWhatsApp = (text: string, source = "hydraulic_hose") => {
+  const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  trackWhatsAppClick(source, {
+    link_url: url,
+    page_path: PAGE_PATH,
+    link_label: source,
+  });
+  window.open(url, "_blank");
 };
 
 const submitRequest = () => {
@@ -791,15 +798,18 @@ const submitRequest = () => {
     `${t("page.principal.hydraulicHose.contact.waQty")}: ${form.qty}`,
     form.note ? `${t("page.principal.hydraulicHose.contact.waNote")}: ${form.note}` : "",
   ].filter((l, i) => l !== "" || i === 1);
-  openWhatsApp(lines.join("\n"));
+  openWhatsApp(lines.join("\n"), "hydraulic_hose_form");
 };
 
 const requestCategory = (cat: any) => {
-  openWhatsApp(t("page.principal.hydraulicHose.contact.waCategory", { name: cat.name }));
+  openWhatsApp(
+    t("page.principal.hydraulicHose.contact.waCategory", { name: cat.name }),
+    "hydraulic_hose_category",
+  );
 };
 
 const handleContact = () => {
-  openWhatsApp(t("page.principal.hydraulicHose.contact.waGeneral"));
+  openWhatsApp(t("page.principal.hydraulicHose.contact.waGeneral"), "hydraulic_hose_contact");
 };
 
 const handleEmail = () => {

@@ -526,6 +526,7 @@
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 const { t, tm, rt } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 // Helper: ambil array dari pesan i18n
 const i18nArr = (key: string) => {
@@ -687,7 +688,13 @@ const handleContact = () => {
   const text = encodeURIComponent(
     t("page.principal.industrialBearing.contact.waText")
   );
-  window.open(`https://wa.me/6285176912338?text=${text}`, "_blank");
+  const url = `https://wa.me/6285176912338?text=${text}`;
+  trackWhatsAppClick("principal_industrial_bearing_contact", {
+    link_url: url,
+    page_path: "/principal/industrial-bearing",
+    link_label: "Industrial Bearing WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {

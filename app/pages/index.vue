@@ -137,7 +137,7 @@
     </section>
 
     <section class="py-8 lg:py-8">
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <div class="text-center mb-6 lg:mb-8">
           <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
             {{ $t("page.home.categories.title") }}
@@ -259,7 +259,7 @@
     </section>
 
     <!-- <section class="py-8 lg:py-12">
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <div class="text-center mb-6 lg:mb-8">
           <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
             {{ $t("page.home.categories.title") }}
@@ -331,7 +331,7 @@
 
     <!-- Industri / Tag Section -->
     <section class="py-8 lg:py-8">
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
             <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
@@ -429,7 +429,7 @@
       v-if="promos.length > 0"
       class="py-8 lg:py-8 bg-gradient-to-br from-orange-50 to-white"
     >
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
             <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
@@ -523,7 +523,7 @@
     </section>
 
     <section class="py-8 lg:py-8">
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
             <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
@@ -634,7 +634,7 @@
     </section>
 
     <section class="py-8 lg:py-8">
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px]">
+      <div class="container mx-auto px-4 max-w-[1280px]">
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div>
             <h2 class="text-xl lg:text-2xl font-bold text-gray-800">
@@ -728,7 +728,7 @@
     <!-- <section
       class="py-12 lg:py-16 bg-gradient-to-r from-orange-500 to-orange-600"
     >
-      <div class="container mx-auto px-4 lg:px-8 max-w-[1280px] text-center">
+      <div class="container mx-auto px-4 max-w-[1280px] text-center">
         <h2 class="text-2xl lg:text-3xl font-bold text-white mb-3">
           {{ $t("page.home.cta.title") }}
         </h2>
@@ -1150,8 +1150,9 @@ const latestArticles = computed(() => {
     title: item.title || $t("page.home.articles.untitled"),
     image: imgSrc("artikel", item.img),
     imgFile: item.img,
-    category:
-      Array.isArray(item.tag) ? item.tag[0] : item.tag || $t("page.home.articles.general"),
+    category: Array.isArray(item.tag)
+      ? item.tag[0]
+      : item.tag || $t("page.home.articles.general"),
     date: item.date,
     excerpt: item.discription_seo
       ? item.discription_seo.substring(0, 120)

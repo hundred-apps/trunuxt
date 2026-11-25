@@ -395,6 +395,8 @@
               <Trulink
                 :href="`${selectedProduct.link}`"
                 target="_blank"
+                data-wa-source="principal_struman_product"
+                :data-wa-product-title="selectedProduct.name"
                 class="w-full bg-secondary-container py-3 rounded font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 <span class="material-symbols-outlined text-[18px]">chat</span>

@@ -390,6 +390,7 @@
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 const { t, tm, rt } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 // ============ GAMBAR ============
 const HERO_IMAGE =
@@ -494,10 +495,14 @@ const goMethod = (i: number) => {
 };
 
 const handleContact = () => {
-  window.open(
-    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20machining%20dan%20fabrikasi%20Anda.",
-    "_blank"
-  );
+  const url =
+    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20machining%20dan%20fabrikasi%20Anda.";
+  trackWhatsAppClick("principal_machining_contact", {
+    link_url: url,
+    page_path: "/principal/machining",
+    link_label: "Machining WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {

@@ -2687,7 +2687,7 @@
       },
       "industrialBearing": {
         "hero": {
-          "eyebrow": "Bearing Industri & Transmisi Daya",
+          "eyebrow": "Bearing Industri",
           "titleLine1": "Presisi yang Menjaga",
           "titleLine2": "Industri Terus Berputar",
           "subtitle": "Bearing bola, roller, thrust, dan housed unit untuk motor, pompa, gearbox, dan conveyor. Spesifikasi yang tepat, pasokan andal, dan didukung layanan teknis.",
@@ -4365,7 +4365,7 @@
       },
       "blueCollar": {
         "hero": {
-          "eyebrow": "Penyedia Jasa SDM Blue Collar",
+          "eyebrow": "Penyedia Jasa SDM",
           "titleLine1": "Tenaga Kerja Lapangan",
           "titleLine2": "Siap Kerja & Terverifikasi",
           "subtitle": "Kami menyediakan tenaga kerja lapangan — operator, teknisi, tukang, hingga tim gudang dan logistik — yang telah diseleksi, teruji keterampilannya, dan didukung administrasi ketenagakerjaan yang rapi.",
@@ -4435,10 +4435,10 @@
           ]
         },
         "professions": {
-          "seoInlineTitle": "Penyedia Tenaga Kerja Blue Collar untuk Berbagai Industri",
-          "seoInlineDesc": "Dari operator produksi dan teknisi maintenance hingga tukang konstruksi, operator alat berat, dan tenaga gudang — kami menyediakan tenaga kerja blue collar di berbagai profesi lapangan yang telah terseleksi dan terverifikasi sesuai kebutuhan operasional Anda.",
+          "seoInlineTitle": "Penyedia Tenaga Kerja untuk Berbagai Industri",
+          "seoInlineDesc": "Dari operator produksi dan teknisi maintenance hingga tukang konstruksi, operator alat berat, dan tenaga gudang — kami menyediakan tenaga kerja lapangan di berbagai profesi yang telah terseleksi dan terverifikasi sesuai kebutuhan operasional Anda.",
           "sectionLabel": "Cakupan SDM",
-          "titleLine1": "SDM Blue Collar",
+          "titleLine1": "SDM Lapangan",
           "titleLine2": "yang Kami Sediakan",
           "subtitle": "Pilih kategori atau cari jenis tenaga kerja yang Anda butuhkan. Klik kartu untuk melihat cakupan posisi, tugas, dan kompetensi SDM yang kami sediakan.",
           "searchPlaceholder": "Cari posisi, mis. welder, forklift, teknisi…",
@@ -4675,23 +4675,23 @@
           "formHint": "Form ini membuka WhatsApp dengan pesan yang sudah terisi. Tidak ada data yang disimpan di situs.",
           "formError": "Mohon isi posisi dan jumlah tenaga kerja yang dibutuhkan.",
           "requiredMark": "*",
-          "waIntro": "Halo {brand}, saya ingin mengajukan kebutuhan tenaga kerja blue collar.",
+          "waIntro": "Halo {brand}, saya ingin mengajukan kebutuhan tenaga kerja lapangan.",
           "waCompany": "Perusahaan: {value}",
           "waPosition": "Posisi: {value}",
           "waQty": "Jumlah: {value} orang",
           "waLocation": "Lokasi kerja: {value}",
           "waNote": "Catatan: {value}",
           "waCategory": "Halo {brand}, saya membutuhkan tenaga kerja untuk kategori \"{category}\". Mohon informasi ketersediaan SDM dan proses penyediaannya.",
-          "waGeneral": "Halo {brand}, saya tertarik dengan layanan penyediaan SDM blue collar. Mohon informasi lebih lanjut.",
-          "emailSubject": "Kebutuhan Tenaga Kerja Blue Collar"
+          "waGeneral": "Halo {brand}, saya tertarik dengan layanan penyediaan SDM lapangan. Mohon informasi lebih lanjut.",
+          "emailSubject": "Kebutuhan Tenaga Kerja Lapangan"
         },
         "seo": {
-          "title": "Jasa Penyedia SDM Blue Collar | Tenaga Kerja Lapangan Terverifikasi",
-          "description": "Penyedia SDM blue collar: operator produksi, teknisi, tukang konstruksi, operator alat berat, tenaga gudang dan logistik. Tenaga kerja terseleksi, teruji, dan administrasi ketenagakerjaan terkelola.",
+          "title": "Jasa Penyedia SDM Lapangan | Tenaga Kerja Terverifikasi",
+          "description": "Penyedia SDM lapangan: operator produksi, teknisi, tukang konstruksi, operator alat berat, tenaga gudang dan logistik. Tenaga kerja terseleksi, teruji, dan administrasi ketenagakerjaan terkelola.",
           "breadcrumbHome": "Beranda",
-          "breadcrumbPage": "Jasa SDM Blue Collar",
-          "serviceType": "Penyedia Jasa SDM dan Tenaga Kerja Blue Collar",
-          "catalogName": "Kategori SDM Blue Collar"
+          "breadcrumbPage": "Jasa SDM Lapangan",
+          "serviceType": "Penyedia Jasa SDM dan Tenaga Kerja Lapangan",
+          "catalogName": "Kategori SDM Lapangan"
         },
         "categories": [
           {

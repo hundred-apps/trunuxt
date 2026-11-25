@@ -331,6 +331,7 @@ import { ElMessage } from "element-plus";
 
 // ============ DATA ============
 const { t } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 const aboutIcons = [
   "mdi:verified",
@@ -377,10 +378,14 @@ const openPartDetail = (part: any) => {
 };
 
 const handleContact = () => {
-  window.open(
-    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20sparepart%20copotan%20Anda.",
-    "_blank"
-  );
+  const url =
+    "https://wa.me/6285176912338?text=Halo%20Trumecs%2C%20saya%20tertarik%20dengan%20sparepart%20copotan%20Anda.";
+  trackWhatsAppClick("principal_usedsparepart_contact", {
+    link_url: url,
+    page_path: "/principal/usedsparepart",
+    link_label: "Used Sparepart WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {

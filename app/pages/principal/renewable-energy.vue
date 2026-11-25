@@ -784,6 +784,7 @@
 import { computed, onMounted, onBeforeUnmount } from "vue";
 
 const { t, tm, rt } = useI18n();
+const { trackWhatsAppClick } = useAnalytics();
 
 // Helper: ambil array dari pesan i18n
 const i18nArr = (key: string) => {
@@ -901,7 +902,13 @@ const handleContact = () => {
   const text = encodeURIComponent(
     t("page.principal.renewable.contact.waText")
   );
-  window.open(`https://wa.me/6285176912338?text=${text}`, "_blank");
+  const url = `https://wa.me/6285176912338?text=${text}`;
+  trackWhatsAppClick("principal_renewable_contact", {
+    link_url: url,
+    page_path: "/principal/renewable-energy",
+    link_label: "Renewable Energy WhatsApp Contact",
+  });
+  window.open(url, "_blank");
 };
 
 const handleEmail = () => {
