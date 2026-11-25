@@ -1043,12 +1043,12 @@
         "exploreMore": "Explore More",
         "items": {
           "industrialBearings": "Industrial Bearings",
-          "renewableEnergy": "Renewable Energy Solutions",
+          "renewableEnergy": "Energy Efficiency Solutions",
           "machiningFabrication": "Machining & Fabrication",
           "industrialLubricants": "Industrial Lubricants",
           "conveyorBelt": "Conveyor & Accessories",
-          "hydraulicHose": "Hydraulic Hose",
-          "blueCollarHr": "Human Resource"
+          "hydraulicHose": "Industrial Hose",
+          "blueCollarHr": "Manpower Supply Services"
         }
       },
       "promo": {
@@ -2293,7 +2293,7 @@
           "emailSubject": "Conveyor Belt & Accessories Inquiry"
         },
         "seo": {
-          "title": "Trusted Conveyor Belt & Accessories Solutions - Trumecs",
+          "title": "Trusted Conveyor Parts & Accessories - Trumecs",
           "description": "Providing conveyor belts, rollers, bearings, pulleys, idlers, and complete conveyor accessories with top quality to keep your production material flow running smoothly."
         }
       },
@@ -3682,7 +3682,7 @@
           "emailSubject": "Industrial Bearing Inquiry"
         },
         "seo": {
-          "title": "Industrial Bearings & Power Transmission - Trumecs",
+          "title": "Industrial Bearings - Trumecs",
           "description": "Industrial bearings: deep groove ball, roller, thrust, and housed units. Types, applications by industry, and technical guides.",
           "serviceType": "Industrial Bearings Supply"
         },
@@ -6063,7 +6063,7 @@
           "close": "Close"
         },
         "seo": {
-          "title": "Hydraulic Hoses, Fittings, Adapters & Quick Couplings | Trumecs",
+          "title": "Industrial Hoses, Fittings, Adapters & Quick Couplings | Trumecs",
           "description": "Textile braid, wire braid, wire spiral, thermoplastic, and PTFE hydraulic hoses; fittings, adapters, quick couplings, valves, hose guards, and tube bending for industry."
         }
       }

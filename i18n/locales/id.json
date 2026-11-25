@@ -1043,12 +1043,12 @@
         "exploreMore": "Selengkapnya",
         "items": {
           "industrialBearings": "Bearing Industri",
-          "renewableEnergy": "Solusi Energi Terbarukan",
+          "renewableEnergy": "Solusi Efisiensi Energi",
           "machiningFabrication": "Permesinan & Fabrikasi",
           "industrialLubricants": "Pelumas Industri",
           "conveyorBelt": "Conveyor & Aksesoris",
-          "hydraulicHose": "Selang Hidrolik",
-          "blueCollarHr": "Sumber Daya Manusia"
+          "hydraulicHose": "Selang Industri",
+          "blueCollarHr": "Jasa Penyedia Tenaga Kerja"
         }
       },
       "promo": {
@@ -2316,7 +2316,7 @@
           "emailSubject": "Permintaan Conveyor Belt & Aksesoris"
         },
         "seo": {
-          "title": "Conveyor Belt & Aksesoris Terpercaya - Trumecs",
+          "title": "Conveyor Parts & Aksesoris Terpercaya - Trumecs",
           "description": "Menyediakan conveyor belt, roller, bearing, pulley, idler, dan aksesoris conveyor lengkap dengan kualitas terbaik untuk mendukung kelancaran alur produksi industri Anda."
         }
       },
@@ -3705,7 +3705,7 @@
           "emailSubject": "Permintaan Bearing Industri"
         },
         "seo": {
-          "title": "Bearing Industri & Transmisi Daya - Trumecs",
+          "title": "Bearing Industri - Trumecs",
           "description": "Bearing industri: deep groove ball, roller, thrust, dan housed unit. Jenis-jenis, aplikasi per industri, dan panduan teknis pemilihan bearing.",
           "serviceType": "Pasokan Bearing Industri"
         },
@@ -6086,7 +6086,7 @@
           "close": "Tutup"
         },
         "seo": {
-          "title": "Selang Hidrolik, Fitting, Adapter & Quick Coupling | Trumecs",
+          "title": "Selang Industri, Fitting, Adapter & Quick Coupling | Trumecs",
           "description": "Selang hidrolik textile braid, wire braid, wire spiral, thermoplastic, dan PTFE; fitting, adapter, quick coupling, valve, pelindung selang, dan pipa bending untuk industri."
         }
       }

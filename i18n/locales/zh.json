@@ -1043,12 +1043,12 @@
         "exploreMore": "了解更多",
         "items": {
           "industrialBearings": "工业轴承",
-          "renewableEnergy": "可再生能源解决方案",
+          "renewableEnergy": "能源效率解决方案",
           "machiningFabrication": "机械加工与制造",
           "industrialLubricants": "工业润滑油",
           "conveyorBelt": "输送及配件",
-          "hydraulicHose": "液压软管",
-          "blueCollarHr": "人力资源"
+          "hydraulicHose": "工业软管",
+          "blueCollarHr": "劳务派遣服务"
         }
       },
       "promo": {
@@ -2292,7 +2292,7 @@
           "emailSubject": "输送带及配件询价"
         },
         "seo": {
-          "title": "输送带及配件解决方案 - Trumecs",
+          "title": "输送配件及附件解决方案 - Trumecs",
           "description": "提供输送带、辊筒、轴承、滚筒、托辊等全套输送配件，品质可靠，保障生产线物料输送顺畅运行。"
         }
       },
@@ -2663,7 +2663,7 @@
       },
       "industrialBearing": {
         "hero": {
-          "eyebrow": "工业轴承与动力传动",
+          "eyebrow": "工业轴承",
           "titleLine1": "以精准品质",
           "titleLine2": "驱动工业运转",
           "subtitle": "适用于电机、水泵、齿轮箱和输送机的球轴承、滚子轴承、推力轴承及带座轴承。选型准确、供货可靠，并提供技术支持。",
@@ -6062,7 +6062,7 @@
           "close": "关闭"
         },
         "seo": {
-          "title": "液压软管、接头、适配器及快速接头 | Trumecs",
+          "title": "工业软管、接头、适配器及快速接头 | Trumecs",
           "description": "工业用纺织编织、钢丝编织、钢丝缠绕、热塑性和 PTFE 液压软管；接头、适配器、快速接头、阀门、软管防护套及弯管加工。"
         }
       }
