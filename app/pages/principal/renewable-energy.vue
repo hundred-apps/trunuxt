@@ -718,21 +718,23 @@
         </div>
 
         <div
-          class="bg-white rounded-[28px] border border-[#e7e2d6] p-8 md:p-10"
+          class="bg-white rounded-[28px] border border-[#e7e2d6] p-6 md:p-8"
           data-reveal
         >
-          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+          <ul class="grid grid-cols-1 gap-4 md:grid-flow-col md:grid-cols-2 md:grid-rows-4">
             <li
               v-for="(item, index) in assessmentItems"
               :key="index"
-              class="flex items-start gap-3 text-[#42524b] leading-relaxed"
+              class="flex items-start gap-4 rounded-2xl border border-[#ece7da] bg-[#faf8f3] px-5 py-4"
             >
               <span
-                class="mt-0.5 w-6 h-6 rounded-full bg-[#f1ede1] text-[#8a6c3b] text-xs font-semibold flex items-center justify-center shrink-0"
+                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0f3a2c] text-[11px] font-semibold tracking-wide text-[#e6d3ad]"
               >
-                {{ index + 1 }}
+                0{{ index + 1 }}
               </span>
-              <span>{{ item }}</span>
+              <span class="text-[15px] leading-relaxed text-[#42524b] pt-0.5">
+                {{ item }}
+              </span>
             </li>
           </ul>
         </div>

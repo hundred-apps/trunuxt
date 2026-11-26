@@ -1,152 +1,147 @@
 <template>
-  <div class="min-h-screen bg-background font-body-md text-on-surface">
-    <!-- 1. Hero Section -->
-    <section
-      class="relative min-h-[80dvh] flex items-center justify-center overflow-hidden"
-    >
-      <!-- Background Image -->
-      <div class="absolute inset-0 z-0 h-[80dvh]">
-        <div
-          class="bg-cover bg-center w-full h-[80dvh] rounded-b-3xl"
-          :style="{
-            backgroundImage: `url('/principal/conveyor/conveyor.jpg')`,
-          }"
-        ></div>
-
-        <div class="absolute inset-0 bg-black/60 h-[80dvh]"></div>
+  <div class="conveyor-page min-h-screen bg-[#f7f7f5] text-[#1f2933]">
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-[#151515] text-white">
+      <div class="absolute inset-0">
+        <AppImage
+          src="/principal/conveyor/conveyor.jpg"
+          :alt="t('page.principal.conveyor.hero.titleLine1')"
+          class="h-full w-full object-cover"
+          width="1600"
+          height="900"
+          sizes="100vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/35"></div>
+        <div class="hero-grid absolute inset-0"></div>
       </div>
 
-      <!-- Konten -->
-      <div
-        class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 text-center md:text-left"
-      >
-        <div class="max-w-3xl mx-auto md:mx-0">
-          <!-- Badge -->
-          <!-- <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6"
-          >
-            <Icon
-              name="material-symbols:conveyor-belt"
-              class="text-orange-400 text-lg"
-            />
-            <span class="text-sm text-white/90 font-medium">{{
-              t("page.principal.conveyor.hero.badge")
-            }}</span>
-          </div> -->
+      <div class="relative mx-auto grid min-h-[78dvh] max-w-7xl items-end gap-10 px-4 pb-24 pt-28 md:px-8 lg:grid-cols-[1.15fr_.85fr] lg:pb-28">
+        <div class="max-w-3xl">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 backdrop-blur-sm">
+            <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+            <span class="text-xs font-semibold uppercase tracking-[0.22em] text-white/80">
+              {{ t("page.principal.conveyor.hero.badge") }}
+            </span>
+          </div>
 
-          <h1
-            class="font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight drop-shadow-lg"
-          >
-            {{ t("page.principal.conveyor.hero.titleLine1") }}
-            <span class="text-orange-400">{{
-              t("page.principal.conveyor.hero.titleLine2")
-            }}</span>
+          <h1 class="max-w-4xl text-4xl font-bold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <span class="block">{{ t("page.principal.conveyor.hero.titleLine1") }}</span>
+            <span class="block text-orange-400">{{ t("page.principal.conveyor.hero.titleLine2") }}</span>
           </h1>
 
-          <p
-            class="text-lg md:text-xl text-gray-200/90 mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
-          >
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
             {{ t("page.principal.conveyor.hero.subtitle") }}
           </p>
 
-          <div
-            class="flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start"
-          >
-            <ElButton
-              type="primary"
-              size="large"
-              class="w-full sm:w-auto !bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !px-8 !py-4 !rounded-lg !font-semibold !shadow-lg hover:!shadow-xl transition-all"
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+            <button
+              type="button"
+              class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.9)] transition hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300"
               @click="scrollTo('contactLocations')"
             >
               {{ t("page.principal.conveyor.hero.ctaQuote") }}
-              <Icon name="mdi:arrow-right" class="text-lg ml-1" />
-            </ElButton>
-
-            <ElButton
-              size="large"
-              class="w-full sm:w-auto !bg-white/10 !border-2 !border-white/40 hover:!bg-white/20 !text-white !px-8 !py-4 !rounded-lg !font-semibold !backdrop-blur-sm transition-all"
+              <Icon name="mdi:arrow-right" class="text-lg" />
+            </button>
+            <button
+              type="button"
+              class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/5 px-7 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               @click="scrollTo('products')"
             >
               {{ t("page.principal.conveyor.hero.ctaServices") }}
-            </ElButton>
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-orange-300">
+              {{ t("page.principal.conveyor.products.sectionLabel") }}
+            </p>
+            <div class="mt-5 grid grid-cols-2 gap-3">
+              <div
+                v-for="(product, index) in products.slice(0, 4)"
+                :key="`hero-${index}`"
+                class="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-3"
+              >
+                <div class="h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-white/10">
+                  <AppImage
+                    :src="product.image"
+                    :alt="product.name"
+                    class="h-full w-full object-cover"
+                    width="120"
+                    height="120"
+                    sizes="48px"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="text-sm font-medium leading-snug text-white/90">{{ product.name }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
-      <div
-        class="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block"
-      >
-        <a
-          @click.prevent="scrollTo('products')"
-          class="text-white/50 hover:text-white/80 transition-colors cursor-pointer flex flex-col items-center gap-1"
-        >
-          <span class="text-[10px] uppercase tracking-widest">Scroll</span>
-          <Icon name="mdi:chevron-double-down" class="text-2xl" />
-        </a>
-      </div>
-
-      <!-- Conveyor Belt Assembly (hero) -->
-      <div class="absolute bottom-4 left-0 right-0 z-10 flex items-center px-1">
+      <!-- Conveyor belt animation -->
+      <div class="absolute bottom-4 left-0 right-0 z-10 flex items-center px-1" aria-hidden="true">
         <span class="belt-item belt-item-1"></span>
         <span class="belt-item belt-item-2"></span>
         <span class="belt-item belt-item-3"></span>
         <span class="belt-roller relative z-10 -mr-2 shrink-0"></span>
-        <div class="belt-strip flex-1 h-4">
+        <div class="belt-strip h-4 flex-1">
           <div class="belt-cleats"></div>
         </div>
         <span class="belt-roller relative z-10 -ml-2 shrink-0"></span>
       </div>
     </section>
 
-    <!-- 2. Products Section -->
-    <section class="bg-white py-16" id="products">
-      <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-12 max-w-3xl mx-auto">
-          <div class="inline-flex items-center gap-2 mb-2 justify-center">
-            <span class="w-8 h-1 bg-orange-500"></span>
-            <span
-              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >{{ t("page.principal.conveyor.products.sectionLabel") }}</span
-            >
-            <span class="w-8 h-1 bg-orange-500"></span>
+    <!-- PRODUCTS -->
+    <section id="products" class="py-20 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div class="max-w-3xl">
+            <p class="section-kicker">{{ t("page.principal.conveyor.products.sectionLabel") }}</p>
+            <h2 class="section-title">{{ t("page.principal.conveyor.products.title") }}</h2>
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-[#5f6b76]">
+              {{ t("page.principal.conveyor.products.subtitle") }}
+            </p>
           </div>
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
-          >
-            {{ t("page.principal.conveyor.products.title") }}
-          </h2>
-          <p class="text-gray-600">
-            {{ t("page.principal.conveyor.products.subtitle") }}
-          </p>
+          <div class="hidden rounded-2xl border border-[#e6ddd0] bg-white px-5 py-4 md:block">
+            <div class="text-3xl font-bold text-[#1f2933]">{{ products.length }}</div>
+            <div class="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6a3d]">
+              {{ t("page.principal.conveyor.products.sectionLabel") }}
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
           <button
             v-for="(product, index) in products"
             :key="index"
             type="button"
-            class="group text-left bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300"
+            class="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#e7e2da] bg-white text-left shadow-[0_1px_0_rgba(15,23,42,0.03)] transition duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
             @click="openProductDetail(product)"
           >
-            <div class="aspect-[4/3] bg-gray-50 overflow-hidden">
+            <div class="relative aspect-[4/3] overflow-hidden bg-[#eceae5]">
               <AppImage
                 :src="product.image"
                 :alt="product.name"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                 width="800"
                 height="600"
                 sizes="(max-width: 640px) 50vw, 25vw"
                 loading="lazy"
               />
+              <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
-            <div class="p-4">
-              <h3 class="font-semibold text-primary text-sm md:text-base">
+            <div class="flex flex-1 flex-col p-4 md:p-5">
+              <h3 class="text-sm font-semibold leading-snug text-[#18222d] md:text-base">
                 {{ product.name }}
               </h3>
-              <span class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-orange-500">
+              <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.12em] text-orange-600">
                 {{ t("page.principal.conveyor.products.detailLabels.viewDetail") }}
-                <Icon name="mdi:arrow-right" class="text-sm" />
+                <Icon name="mdi:arrow-right" class="text-sm transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
           </button>
@@ -183,63 +178,40 @@
               />
             </div>
             <div class="detail-header-text">
+              <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">
+                {{ t("page.principal.conveyor.products.sectionLabel") }}
+              </p>
               <h3 class="detail-title">{{ selectedProduct.name }}</h3>
               <p class="detail-desc">{{ selectedProduct.description }}</p>
             </div>
           </div>
 
           <div class="detail-body">
-            <section
-              v-if="selectedProduct.specs && selectedProduct.specs.length"
-              class="detail-section"
-            >
-              <h4 class="detail-section-title">
-                {{ t("page.principal.conveyor.products.detailLabels.specs") }}
-              </h4>
+            <section v-if="selectedProduct.specs && selectedProduct.specs.length" class="detail-section">
+              <h4 class="detail-section-title">{{ t("page.principal.conveyor.products.detailLabels.specs") }}</h4>
               <ul class="detail-list">
                 <li v-for="(s, i) in selectedProduct.specs" :key="i">{{ s }}</li>
               </ul>
             </section>
 
-            <section
-              v-if="selectedProduct.applications && selectedProduct.applications.length"
-              class="detail-section"
-            >
-              <h4 class="detail-section-title">
-                {{ t("page.principal.conveyor.products.detailLabels.applications") }}
-              </h4>
+            <section v-if="selectedProduct.applications && selectedProduct.applications.length" class="detail-section">
+              <h4 class="detail-section-title">{{ t("page.principal.conveyor.products.detailLabels.applications") }}</h4>
               <div class="detail-chips">
-                <span
-                  v-for="(a, i) in selectedProduct.applications"
-                  :key="i"
-                  class="detail-chip"
-                  >{{ a }}</span
-                >
+                <span v-for="(a, i) in selectedProduct.applications" :key="i" class="detail-chip">{{ a }}</span>
               </div>
             </section>
 
-            <section
-              v-if="selectedProduct.beltTypes && selectedProduct.beltTypes.length"
-              class="detail-section"
-            >
-              <h4 class="detail-section-title">
-                {{ t("page.principal.conveyor.products.detailLabels.beltTypes") }}
-              </h4>
+            <section v-if="selectedProduct.beltTypes && selectedProduct.beltTypes.length" class="detail-section">
+              <h4 class="detail-section-title">{{ t("page.principal.conveyor.products.detailLabels.beltTypes") }}</h4>
               <div class="detail-belt-types">
-                <div
-                  v-for="(bt, i) in selectedProduct.beltTypes"
-                  :key="i"
-                  class="detail-belt-card"
-                >
+                <div v-for="(bt, i) in selectedProduct.beltTypes" :key="i" class="detail-belt-card">
                   <div class="detail-belt-head">
                     <Icon v-if="bt.icon" :name="bt.icon" class="detail-belt-icon" />
                     <span class="detail-belt-name">{{ bt.name }}</span>
                   </div>
                   <p class="detail-belt-desc">{{ bt.description }}</p>
                   <div v-if="bt.grades && bt.grades.length" class="detail-grades">
-                    <span v-for="(g, gi) in bt.grades" :key="gi" class="detail-grade">{{
-                      g
-                    }}</span>
+                    <span v-for="(g, gi) in bt.grades" :key="gi" class="detail-grade">{{ g }}</span>
                   </div>
                 </div>
               </div>
@@ -249,192 +221,145 @@
       </div>
     </section>
 
-    <!-- 3. Types Section -->
-    <section class="py-16 bg-gray-50" id="types">
-      <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-14 max-w-3xl mx-auto">
-          <div class="inline-flex items-center gap-2 mb-2 justify-center">
-            <span class="w-8 h-1 bg-orange-500"></span>
-            <span
-              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >{{ t("page.principal.conveyor.types.sectionLabel") }}</span
-            >
-            <span class="w-8 h-1 bg-orange-500"></span>
-          </div>
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
-          >
-            {{ t("page.principal.conveyor.types.title") }}
-          </h2>
-          <p class="text-gray-600">
+    <!-- TYPES -->
+    <section id="types" class="border-y border-[#e8e2d8] bg-[#efece4] py-20 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="mb-12 max-w-3xl">
+          <p class="section-kicker">{{ t("page.principal.conveyor.types.sectionLabel") }}</p>
+          <h2 class="section-title">{{ t("page.principal.conveyor.types.title") }}</h2>
+          <p class="mt-4 text-base leading-relaxed text-[#5f6b76]">
             {{ t("page.principal.conveyor.types.subtitle") }}
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6">
-          <div
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article
             v-for="(type, index) in types"
             :key="index"
-            class="bg-white rounded-2xl border border-gray-200/60 overflow-hidden hover:border-orange-300 hover:shadow-lg transition-all duration-300 group h-full flex flex-col"
-            :class="index >= 3 ? 'lg:col-span-3' : 'lg:col-span-4'"
+            class="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#ddd6c8] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-36px_rgba(15,23,42,0.45)]"
           >
-            <div class="aspect-[16/9] bg-gray-100 overflow-hidden">
+            <div class="relative aspect-[16/10] overflow-hidden bg-[#ddd7cb]">
               <AppImage
                 :src="type.image"
                 :alt="type.title"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                 width="800"
-                height="450"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                height="500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+              />
+              <div class="absolute left-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/92 text-orange-600 shadow-sm backdrop-blur">
+                <Icon :name="type.icon" class="text-2xl" />
+              </div>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-xl font-bold tracking-tight text-[#18222d]">{{ type.title }}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-[#5f6b76]">{{ type.description }}</p>
+              <div v-if="type.features && type.features.length" class="mt-5 flex flex-wrap gap-2">
+                <span
+                  v-for="(feature, fIndex) in type.features"
+                  :key="fIndex"
+                  class="rounded-full border border-[#eadfcd] bg-[#fffaf2] px-3 py-1 text-[11px] font-semibold text-[#8a5a1d]"
+                >
+                  {{ feature }}
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section id="industries" class="py-20 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div class="max-w-3xl">
+            <p class="section-kicker">{{ t("page.principal.conveyor.industries.title") }}</p>
+            <h2 class="section-title">{{ t("page.principal.conveyor.industries.title") }}</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+          <article
+            v-for="(industry, index) in industries"
+            :key="index"
+            class="group relative overflow-hidden rounded-2xl bg-[#1c1c1c]"
+          >
+            <div class="aspect-[3/4]">
+              <AppImage
+                :src="industry.image"
+                :alt="industry.name"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
+                width="600"
+                height="800"
+                sizes="(max-width: 768px) 50vw, 16vw"
                 loading="lazy"
               />
             </div>
-            <div class="p-6 md:p-7 flex flex-col flex-grow">
-              <div class="flex items-center gap-3 mb-3">
-                <div
-                  class="w-12 h-12 rounded-xl bg-gray-100 group-hover:bg-orange-500 transition-colors flex items-center justify-center shrink-0"
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-4">
+              <h3 class="text-center text-sm font-semibold leading-snug text-white md:text-base">
+                {{ industry.name }}
+              </h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contactLocations" class="pb-20 md:pb-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="overflow-hidden rounded-[32px] bg-[#1a1a18] text-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.7)]">
+          <div class="grid gap-0 lg:grid-cols-[1fr_auto]">
+            <div class="p-8 md:p-12 lg:p-14">
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-orange-300">
+                {{ t("page.principal.conveyor.contact.title") }}
+              </p>
+              <h2 class="mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+                {{ t("page.principal.conveyor.contact.needTitle") }}
+              </h2>
+              <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/68">
+                {{ t("page.principal.conveyor.contact.needDesc") }}
+              </p>
+
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="button"
+                  class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-3 text-sm font-semibold text-white transition hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300"
+                  @click="handleContact"
                 >
-                  <Icon
-                    :name="type.icon"
-                    class="text-orange-500 group-hover:text-white transition-colors text-2xl"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-primary">
-                  {{ type.title }}
-                </h3>
-              </div>
-              <div class="flex-grow mb-2">
-                <p
-                  class="text-sm text-gray-600 leading-relaxed transition-opacity duration-200 group-hover:hidden"
+                  <Icon name="mdi:whatsapp" class="text-xl" />
+                  {{ t("page.principal.conveyor.contact.whatsapp") }}
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                  @click="handleEmail"
                 >
-                  {{ type.description }}
-                </p>
-                <div class="hidden group-hover:flex flex-wrap gap-2 content-start">
-                  <span
-                    v-for="(feature, fIndex) in type.features"
-                    :key="fIndex"
-                    class="px-3 py-1 bg-orange-50 text-orange-600 text-xs font-semibold rounded-full border border-orange-100"
-                  >
-                    {{ feature }}
-                  </span>
-                </div>
+                  <Icon name="mdi:email" class="text-xl" />
+                  {{ t("page.principal.conveyor.contact.email") }}
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 4. Industries -->
-    <section class="py-16 bg-white" id="industries">
-      <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-10 max-w-3xl mx-auto">
-          <div class="inline-flex items-center gap-2 mb-2 justify-center">
-            <span class="w-8 h-1 bg-orange-500"></span>
-            <span
-              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >{{ t("page.principal.conveyor.industries.title") }}</span
-            >
-            <span class="w-8 h-1 bg-orange-500"></span>
-          </div>
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
-          >
-            {{ t("page.principal.conveyor.industries.title") }}
-          </h2>
-        </div>
-      </div>
-
-      <div
-        class="scroll-x flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 md:px-8 pb-4"
-      >
-        <div
-          v-for="(industry, index) in industries"
-          :key="index"
-          class="group relative rounded-xl overflow-hidden aspect-[3/4] w-52 md:w-60 shrink-0 snap-start cursor-pointer"
-        >
-          <AppImage
-            :src="industry.image"
-            :alt="industry.name"
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            width="800"
-            height="600"
-            sizes="100vw md:600px"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
-          ></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-
-            <h3 class="text-white font-bold text-sm md:text-base text-center">
-              {{ industry.name }}
-            </h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Contact -->
-    <section
-      class="py-16 bg-orange-50/40 border-t border-orange-100/60"
-      id="contactLocations"
-    >
-      <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-12 max-w-2xl mx-auto">
-          <div class="inline-flex items-center gap-2 mb-2">
-            <span class="w-8 h-1 bg-orange-500"></span>
-            <span
-              class="text-xs text-orange-500 uppercase tracking-widest font-semibold"
-              >{{ t("page.principal.conveyor.contact.title") }}</span
-            >
-            <span class="w-8 h-1 bg-orange-500"></span>
-          </div>
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
-          >
-            {{ t("page.principal.conveyor.contact.needTitle") }}
-          </h2>
-        </div>
-
-        <div
-          class="max-w-3xl mx-auto bg-white rounded-2xl border border-gray-200/60 shadow-md hover:shadow-xl transition-shadow overflow-hidden p-8 md:p-10 text-center"
-        >
-          <div class="flex justify-center mb-4">
-            <Trulink to="/">
-              <AppImage
-                src="https://fe-migration.trumecs.com/logo/light.png"
-                alt="logo trumecs"
-                class="h-9 w-auto object-contain"
-                width="200"
-                height="40"
-                sizes="200px"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </Trulink>
-          </div>
-          <p class="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-            {{ t("page.principal.conveyor.contact.needDesc") }}
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <ElButton
-              size="large"
-              class="!bg-orange-500 !border-orange-500 hover:!bg-orange-600 !text-white !px-8 !py-3 !rounded-lg !font-semibold !shadow-md"
-              @click="handleContact"
-            >
-              <Icon name="mdi:whatsapp" class="text-xl mr-2" />
-              {{ t("page.principal.conveyor.contact.whatsapp") }}
-            </ElButton>
-            <ElButton
-              size="large"
-              class="!bg-white !border-2 !border-gray-200 hover:!border-orange-400 hover:!bg-orange-50 !text-primary !px-8 !py-3 !rounded-lg !font-semibold"
-              @click="handleEmail"
-            >
-              <Icon name="mdi:email" class="text-xl mr-2" />
-              {{ t("page.principal.conveyor.contact.email") }}
-            </ElButton>
+            <div class="flex items-center justify-center border-t border-white/10 bg-white/[0.03] p-8 lg:min-w-[280px] lg:border-l lg:border-t-0 lg:p-12">
+              <div class="text-center">
+                <div class="mx-auto inline-flex rounded-2xl bg-white px-6 py-4">
+                  <AppImage
+                    src="https://fe-migration.trumecs.com/logo/light.png"
+                    alt="Trumecs"
+                    class="h-9 w-auto object-contain"
+                    width="200"
+                    height="40"
+                    sizes="200px"
+                    loading="lazy"
+                  />
+                </div>
+                <p class="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/45">Trumecs</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -626,23 +551,35 @@ useHead({
 </script>
 
 <style scoped>
-/* Scrollbar strip industri */
-.scroll-x {
-  scrollbar-width: thin;
-  scrollbar-color: #fa8420 #f3f4f6;
+.conveyor-page {
+  font-family: "Barlow", "Inter", "Segoe UI", sans-serif;
 }
 
-.scroll-x::-webkit-scrollbar {
-  height: 6px;
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 85%);
 }
 
-.scroll-x::-webkit-scrollbar-thumb {
-  background: #fa8420;
-  border-radius: 3px;
+.section-kicker {
+  margin-bottom: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c2410c;
 }
 
-.scroll-x::-webkit-scrollbar-track {
-  background: #f3f4f6;
+.section-title {
+  max-width: 48rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #18222d;
+  text-wrap: balance;
 }
 
 /* Hero conveyor belt animation */
@@ -665,13 +602,8 @@ useHead({
   z-index: 1;
 }
 
-.belt-strip::before {
-  top: 0;
-}
-
-.belt-strip::after {
-  bottom: 0;
-}
+.belt-strip::before { top: 0; }
+.belt-strip::after { bottom: 0; }
 
 .belt-cleats {
   position: absolute;
@@ -712,41 +644,13 @@ useHead({
   animation: item-move 9s linear infinite;
 }
 
-.belt-item-1 {
-  background: #fb923c;
-}
+.belt-item-1 { background: #fb923c; }
+.belt-item-2 { background: #fdba74; animation-delay: -3s; }
+.belt-item-3 { background: #f3f4f6; animation-delay: -6s; width: 14px; }
 
-.belt-item-2 {
-  background: #fdba74;
-  animation-delay: -3s;
-}
-
-.belt-item-3 {
-  background: #f3f4f6;
-  animation-delay: -6s;
-  width: 14px;
-}
-
-@keyframes belt-move {
-  to {
-    transform: translateX(20px);
-  }
-}
-
-@keyframes roller-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes item-move {
-  from {
-    left: -4%;
-  }
-  to {
-    left: 104%;
-  }
-}
+@keyframes belt-move { to { transform: translateX(20px); } }
+@keyframes roller-spin { to { transform: rotate(360deg); } }
+@keyframes item-move { from { left: -4%; } to { left: 104%; } }
 
 @media (prefers-reduced-motion: reduce) {
   .belt-cleats,
@@ -756,7 +660,7 @@ useHead({
   }
 }
 
-/* ============ Product detail modal (format seperti bearing) ============ */
+/* Product detail modal */
 .detail-modal {
   position: fixed;
   inset: 0;
@@ -765,8 +669,8 @@ useHead({
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
+  background: rgba(17, 24, 39, 0.72);
+  backdrop-filter: blur(6px);
   overflow: auto;
 }
 .detail-dialog {
@@ -776,7 +680,7 @@ useHead({
   max-height: calc(100vh - 48px);
   overflow: auto;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 20px;
   box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
 }
 .detail-close {
@@ -795,17 +699,10 @@ useHead({
   color: #1f2937;
   cursor: pointer;
 }
-.detail-close:hover {
-  background: #fff;
-}
-.detail-header {
-  display: grid;
-  gap: 0;
-}
+.detail-close:hover { background: #fff; }
+.detail-header { display: grid; gap: 0; }
 @media (min-width: 768px) {
-  .detail-header {
-    grid-template-columns: 360px 1fr;
-  }
+  .detail-header { grid-template-columns: 360px 1fr; }
 }
 .detail-hero-image-wrap {
   width: 100%;
@@ -814,10 +711,7 @@ useHead({
   overflow: hidden;
 }
 @media (min-width: 768px) {
-  .detail-hero-image-wrap {
-    height: 100%;
-    min-height: 320px;
-  }
+  .detail-hero-image-wrap { height: 100%; min-height: 320px; }
 }
 .detail-hero-image {
   width: 100%;
@@ -825,15 +719,13 @@ useHead({
   object-fit: cover;
   display: block;
 }
-.detail-header-text {
-  padding: 28px 28px 20px;
-}
+.detail-header-text { padding: 28px 28px 20px; }
 .detail-title {
   margin: 0 0 10px;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
   line-height: 1.1;
-  color: #111827;
+  color: #18222d;
 }
 .detail-desc {
   margin: 0;
@@ -854,9 +746,9 @@ useHead({
   margin: 0 0 16px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 0.95rem;
-  color: #fa8420;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  color: #c2410c;
 }
 .detail-list {
   margin: 0;
@@ -865,11 +757,7 @@ useHead({
   gap: 8px;
   color: #4b5563;
 }
-.detail-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
+.detail-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .detail-chip {
   padding: 6px 12px;
   background: #fff7ed;
@@ -878,10 +766,7 @@ useHead({
   border-radius: 999px;
   border: 1px solid #fed7aa;
 }
-.detail-belt-types {
-  display: grid;
-  gap: 12px;
-}
+.detail-belt-types { display: grid; gap: 12px; }
 .detail-belt-card {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
@@ -893,24 +778,14 @@ useHead({
   gap: 8px;
   margin-bottom: 6px;
 }
-.detail-belt-icon {
-  font-size: 1.1rem;
-  color: #fa8420;
-}
-.detail-belt-name {
-  font-weight: 600;
-  color: #111827;
-}
+.detail-belt-icon { font-size: 1.1rem; color: #fa8420; }
+.detail-belt-name { font-weight: 600; color: #111827; }
 .detail-belt-desc {
   margin: 0 0 10px;
   font-size: 0.95rem;
   color: #4b5563;
 }
-.detail-grades {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
+.detail-grades { display: flex; flex-wrap: wrap; gap: 8px; }
 .detail-grade {
   padding: 4px 10px;
   background: #f3f4f6;
@@ -919,49 +794,5 @@ useHead({
   font-weight: 600;
   border-radius: 6px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-/* ============ Element Plus Overrides ============ */
-:deep(.el-button) {
-  font-weight: 600 !important;
-}
-
-:deep(.el-button.is-disabled) {
-  opacity: 0.5;
-}
-
-/* Form styles */
-:deep(.el-form-item) {
-  margin-bottom: 0 !important;
-}
-
-:deep(.el-form-item .el-form-item__label) {
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  color: #1a1a1a !important;
-  padding-bottom: 4px !important;
-}
-
-:deep(.el-input__wrapper) {
-  border-radius: 8px !important;
-  box-shadow: 0 0 0 1px #e5e7eb inset !important;
-}
-
-:deep(.el-input__wrapper:hover) {
-  box-shadow: 0 0 0 1px #fa8420 inset !important;
-}
-
-:deep(.el-input__wrapper.is-focus) {
-  box-shadow: 0 0 0 2px #fa8420 inset !important;
-}
-
-:deep(.el-textarea__inner) {
-  border-radius: 8px !important;
-  border-color: #e5e7eb !important;
-}
-
-:deep(.el-textarea__inner:focus) {
-  border-color: #fa8420 !important;
-  box-shadow: 0 0 0 2px rgba(250, 132, 32, 0.2) !important;
 }
 </style>
